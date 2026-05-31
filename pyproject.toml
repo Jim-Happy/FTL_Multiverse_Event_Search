@@ -11,3 +11,8 @@ dependencies = [
 [[index]]
 url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
 default = true
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.20.0",
+]

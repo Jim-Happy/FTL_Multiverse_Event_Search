@@ -147,7 +147,8 @@ class UIBuilderMixin:
 
         self.tree_widget = QTreeWidget()
         self.tree_widget.setHeaderHidden(True)
-        self.tree_widget.setUniformRowHeights(True)
+        self.tree_widget.setUniformRowHeights(False)
+        self.tree_widget.setWordWrap(True)
         self.tree_widget.setAlternatingRowColors(True)
         self.tree_widget.itemExpanded.connect(self.on_tree_item_expanded)
         self.tree_widget.itemClicked.connect(self.on_tree_item_clicked)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sqlite3
+import sys
 from pathlib import Path
 from typing import List, Tuple, Optional
 
@@ -8,20 +9,42 @@ from typing import List, Tuple, Optional
 class FTLDAO:
     def __init__(self, db_path: Optional[str] = None) -> None:
         if db_path is None:
-            # prefer .sqlite, fallback to .db
-            p_sqlite = Path("ftl_output.sqlite")
-            p_db = Path("ftl_output.db")
-            if p_sqlite.exists():
-                db_path = str(p_sqlite)
-            elif p_db.exists():
-                db_path = str(p_db)
-            else:
-                # default to sqlite filename in cwd
-                db_path = str(p_sqlite)
+            db_path = self._resolve_default_db_path()
 
         self._db_path = db_path
         self._conn = sqlite3.connect(self._db_path)
         self._conn.row_factory = sqlite3.Row
+
+    @staticmethod
+    def _candidate_db_paths() -> List[Path]:
+        candidates = [Path("ftl_output.sqlite"), Path("ftl_output.db")]
+
+        if getattr(sys, "frozen", False):
+            executable_dir = Path(sys.executable).resolve().parent
+            candidates.extend(
+                [
+                    executable_dir / "ftl_output.sqlite",
+                    executable_dir / "ftl_output.db",
+                ]
+            )
+
+            bundle_dir = Path(getattr(sys, "_MEIPASS", executable_dir))
+            candidates.extend(
+                [
+                    bundle_dir / "ftl_output.sqlite",
+                    bundle_dir / "ftl_output.db",
+                ]
+            )
+
+        return candidates
+
+    @classmethod
+    def _resolve_default_db_path(cls) -> str:
+        for candidate in cls._candidate_db_paths():
+            if candidate.exists():
+                return str(candidate)
+
+        return str(Path("ftl_output.sqlite"))
 
     def close(self) -> None:
         try:

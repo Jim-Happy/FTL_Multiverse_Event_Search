@@ -122,7 +122,7 @@ class TreeBuilderMixin:
         if not child_id:
             return
 
-        label = f"🎲 随机分支 -> [{child_id}]"
+        label = f"🎲 随机分支 -> [{self._tree_node_id_display(child_id)}]"
         entry_item = QTreeWidgetItem([label])
         entry_item.setData(0, self.ROLE_TARGET_ID, child_id)
         entry_item.setData(0, self.ROLE_KIND, "LIST_ENTRY")
@@ -192,14 +192,14 @@ class TreeBuilderMixin:
 
     def _make_node_item(self, row, path: tuple[str, ...]) -> QTreeWidgetItem:
         node_type = row["type"] or ""
-        icon = self._node_icon(node_type)
-        preview = self._preview_text(row["text"] or row["id"], 15)
-        label = f"{icon} {row['id']} - {preview}"
+        html_label = self._build_tree_node_html(row)
+        label = self._html_to_plain_text(html_label).split("\n", 1)[0]
         item = QTreeWidgetItem([label])
         item.setData(0, self.ROLE_TARGET_ID, row["id"])
         item.setData(0, self.ROLE_KIND, node_type)
         item.setData(0, self.ROLE_PATH, path)
         item.setData(0, self.ROLE_LOADED, False)
+        item.setData(0, self.ROLE_RENDER_HTML, html_label)
         item.setToolTip(0, self._build_node_tooltip(row))
         return item
 

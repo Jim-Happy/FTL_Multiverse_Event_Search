@@ -12,6 +12,7 @@ from .interaction_handler import InteractionHandlerMixin
 from .node_renderer import NodeRendererMixin
 from .tree_builder import TreeBuilderMixin
 from .tree_navigation import TreeNavigationMixin
+from .tree_rendering import TreeRenderingMixin
 from .ui_builder import UIBuilderMixin
 from .ui_utils import UIUtilsMixin
 
@@ -22,6 +23,7 @@ class FTLSearchMainWindow(
     InteractionHandlerMixin,
     NodeRendererMixin,
     TreeNavigationMixin,
+    TreeRenderingMixin,
     TreeBuilderMixin,
     EffectsFormatterMixin,
     UIUtilsMixin,
@@ -30,6 +32,7 @@ class FTLSearchMainWindow(
     ROLE_KIND = ROLE_TARGET_ID + 1
     ROLE_PATH = ROLE_TARGET_ID + 2
     ROLE_LOADED = ROLE_TARGET_ID + 3
+    ROLE_RENDER_HTML = ROLE_TARGET_ID + 4
 
     def __init__(self) -> None:
         super().__init__()
@@ -37,6 +40,7 @@ class FTLSearchMainWindow(
         self.resize(1280, 800)
         self.dao = FTLDAO()
         self._build_ui()
+        self._install_tree_rendering()
         self._load_demo_content()
         self.search_button.clicked.connect(self.on_search)
         self.search_input.returnPressed.connect(self.on_search)
