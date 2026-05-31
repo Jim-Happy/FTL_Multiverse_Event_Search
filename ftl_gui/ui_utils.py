@@ -7,6 +7,34 @@ from translation_dict import translate
 
 
 class UIUtilsMixin:
+    def _effect_tag_color(self, tag_label: str) -> str:
+        color_map = {
+            "[获得物资]": "#0f766e",
+            "[修复舰体]": "#16a34a",
+            "[受到伤害]": "#dc2626",
+            "[获得船员]": "#2563eb",
+            "[获得武器]": "#7c3aed",
+            "[资源修正]": "#d97706",
+            "[星图更新]": "#0284c7",
+            "[解锁船只]": "#0891b2",
+            "[成就解锁]": "#9333ea",
+            "[系统升级]": "#2563eb",
+            "[环境描述]": "#0f766e",
+            "[获得内置部件]": "#0f766e",
+            "[舰队追击]": "#ea580c",
+            "[环境变化]": "#0ea5e9",
+            "[加载事件]": "#4f46e5",
+            "[触发任务]": "#a16207",
+            "[失去船员]": "#b91c1c",
+            "[遭遇跳帮]": "#be123c",
+            "[获得无人机]": "#0f766e",
+            "[失去物品]": "#dc2626",
+            "[战斗控制]": "#dc2626",
+            "[后台变量]": "#6b7280",
+            "[事件重定向]": "#7c3aed",
+        }
+        return color_map.get(tag_label, "#475569")
+
     def _tree_node_id_display(self, node_id: str) -> str:
         clean = (node_id or "").strip()
         if len(clean) <= 5:
@@ -56,21 +84,51 @@ class UIUtilsMixin:
         clean = re.sub(r"<[^>]+>", "", clean)
         return html.unescape(clean)
 
+    def _build_tree_reward_summary_html(self, effects_html: str) -> str:
+        if not effects_html:
+            return ""
+
+        preview_lines: list[str] = []
+        raw_lines = [line for line in effects_html.split("<br>") if line and "[特殊触发]" not in line]
+        for line in raw_lines:
+            plain = self._html_to_plain_text(line).strip()
+            if not plain:
+                continue
+
+            if plain.startswith("[") and "]" in plain:
+                tag_end = plain.find("]") + 1
+                tag_label = plain[:tag_end]
+                body = plain[tag_end:].strip()
+                color = self._effect_tag_color(tag_label)
+                preview_lines.append(
+                    f'<span style="color:{color}; font-weight:700;">{self._html_escape(tag_label)}</span> {self._html_escape(body)}'
+                    if body
+                    else f'<span style="color:{color}; font-weight:700;">{self._html_escape(tag_label)}</span>'
+                )
+            else:
+                preview_lines.append(self._html_escape(plain))
+
+        if not preview_lines:
+            return ""
+
+        return "<br>".join(preview_lines)
+
     def _build_tree_node_html(self, row) -> str:
         node_type = row["type"] or ""
         icon = self._node_icon(node_type)
         display_id = self._tree_node_id_display(row["id"])
         display_text = (row["text"] or "").strip()
-        title = f"{icon} {display_id} - {display_text}" if display_text else f"{icon} {display_id}"
+        preview_text = self._preview_text(display_text, 22)
+        title = f"{icon} {display_id} - {preview_text}" if preview_text else f"{icon} {display_id}"
 
         parts = [f'<span style="font-weight: 600;">{self._html_escape(title)}</span>']
         effects_json = row["effects_json"] or ""
         if effects_json:
             reward_html = self.format_effects_json(effects_json)
             if reward_html and reward_html != "效果: 无":
-                filtered_lines = [line for line in reward_html.split("<br>") if "[特殊触发]" not in line]
-                if filtered_lines:
-                    parts.append("<br>".join(filtered_lines))
+                summary_html = self._build_tree_reward_summary_html(reward_html)
+                if summary_html:
+                    parts.append(summary_html)
         return "<br>".join(parts)
 
     def _node_icon(self, node_type: str) -> str:
