@@ -1,6 +1,33 @@
-# FTLSearch
+<p align="center">
+	<img src="icon/icon.png" alt="FTLSearch icon" width="128" />
+</p>
 
-FTLSearch 是一个面向《FTL: Faster Than Light》及其 Multiverse 模组的事件查询工具。项目通过 SQLite 数据库读取已经解析好的事件数据，并提供中文界面的搜索、交互式浏览和事件树追踪，方便快速定位事件分支、查看文本内容和奖励效果。
+<h1 align="center">FTLSearch</h1>
+
+<p align="center">
+	面向《FTL: Faster Than Light》及其 Multiverse 模组的事件查询工具。
+</p>
+
+FTLSearch 通过 SQLite 数据库读取已经解析好的事件数据，并提供中文界面的搜索、交互式浏览和事件树追踪，方便快速定位事件分支、查看文本内容和奖励效果。下面的截图展示了主界面、交互模式和事件树模式的主要操作方式。
+
+## 界面预览
+
+<p align="center">
+	<img src="image/mainUI.png" alt="主界面" width="920" />
+</p>
+
+<table>
+	<tr>
+		<td align="center" width="50%">
+			<img src="image/交互模式.png" alt="交互模式" width="100%" />
+			<br />交互模式
+		</td>
+		<td align="center" width="50%">
+			<img src="image/事件树模式.png" alt="事件树模式" width="100%" />
+			<br />事件树模式
+		</td>
+	</tr>
+</table>
 
 ## 功能
 
@@ -10,6 +37,14 @@ FTLSearch 是一个面向《FTL: Faster Than Light》及其 Multiverse 模组的
 - 内置循环检测，避免在有回环的事件链中无限展开。
 - 可展示并格式化部分奖励与效果信息，配合本地翻译字典提升可读性。
 - 支持在桌面程序和 PyInstaller 打包后的独立程序中使用。
+
+
+## 直接下载
+
+如果你不想自己配置 Python 环境，可以直接前往 GitHub Releases 下载已经打包好的版本。发布页中提供的压缩包文件名为 `FTLSearch.rar`，适合直接解压后运行，程序是单文件版本。
+
+
+
 
 ## 运行环境
 

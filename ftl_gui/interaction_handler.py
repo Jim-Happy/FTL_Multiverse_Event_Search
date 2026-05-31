@@ -44,7 +44,12 @@ class InteractionHandlerMixin:
         node_id = current.data(Qt.ItemDataRole.UserRole)
         if not node_id:
             return
-        self.render_node(node_id, sync_tree=True)
+
+        if self.tabs.currentWidget() is self.tree_tab:
+            self._populate_tree_root(str(node_id))
+            return
+
+        self.render_node(str(node_id), sync_tree=True)
 
     def on_tree_item_clicked(self, item: QTreeWidgetItem, column: int) -> None:
         del column
@@ -77,6 +82,10 @@ class InteractionHandlerMixin:
 
         target_id = link.split(":", 1)[1].strip()
         if not target_id:
+            return
+
+        if self.tabs.currentWidget() is self.tree_tab:
+            self._populate_tree_root(target_id)
             return
 
         self.search_input.setText(target_id)

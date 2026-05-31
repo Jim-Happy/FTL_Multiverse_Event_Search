@@ -117,7 +117,7 @@ class UIBuilderMixin:
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(8)
 
-        hint = QLabel("树模式：按需展开，点击任意节点可回到交互模式。")
+        hint = QLabel("树模式：按需展开，点击任意节点可继续在树模式中查看。")
         hint.setStyleSheet("color: #6b7280; padding: 4px 2px;")
 
         self.tree_text = QTextBrowser()
