@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<event name="BOON_SELECT_CHAOS">
+	<text>不知从哪里，你听到一个声音与你说话。"混沌的...恩惠。我们...不建议你与...这些势力互动，但我们还是会...为你提供这项恩惠。你的资源会...无时无刻...经常波动。但请你...听取我们的警告。切莫...滥用这些可怖之物。"</text>
+	<triggeredEvent event="BOON_CHAOS" seeded="false" thisFight="false" loops="999999999" time="0.5" />
+	<achievement silent="false">ACH_BOON_CHAOS</achievement>
+	<variable name="chaos_boon_active" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_CHAOS">
+	<item_modify>
+		<item type="fuel" min="-7" max="5" />
+		<item type="missiles" min="-7" max="5" />
+		<item type="drones" min="-7" max="5" />
+	</item_modify>
+</event>
+
+<!--THEST-->
+<event name="BOON_SELECT_HUMAN">
+	<text>不知从哪里，你听到一个声音与你说话。"人类的...恩惠。你的人类船员将获得...20%的环境伤害抗性。你可以... 感谢之前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_HUMAN</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_HUMAN_2">
+	<text>不知从哪里，你听到一个声音在对你说话。"人类的...超级恩惠。你的人类船员将获得...20%的环境伤害抗性，以及...10%的战斗伤害、维修速度、最大生命值与移动速度加成。你可以...感谢之前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_HUMAN_2</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_ENGI">
+	<text>不知从哪里，你听到一个声音对你说。"纳米...的恩惠。你的半械族船员将获得...20%的维修速度加成。你可以...感谢以前的挑战者。或者，也许你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_ENGI</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_ZOLTAN">
+	<text>不知从哪里，你听到一个声音对你说。"光质的...恩惠。你的超能族船员及光质全息影像获得...15点最大生命值。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_ZOLTAN</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_OSMIAN">
+	<text>不知从哪里，你听到一个声音在对你说话。"奥斯米亚的...恩惠。你的原能族船员将...在跃迁后补充所有主动技能层数，并以...2点生命/秒的速度治疗其全息影像。你可以...感谢之前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_OSMIAN</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_ORCHID">
+	<text>不知从哪里，你听到一个声音对你说。"植被的...恩惠。你的兰花族船员以...0.5点/秒的速度治疗...舱室内的友军。你可以...感谢之前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_ORCHID</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_MANTIS">
+	<text>不知从哪里，你听到一个声音对你说。"昆虫的...恩惠。你的螳螂族船员获得...20%远程伤害加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_MANTIS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_MANTIS_2">
+	<text>不知从哪里，你听到一个声音对你说。"昆虫...超级恩惠。你的螳螂族船员获得...25%战斗伤害加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_MANTIS_2</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_ROCK">
+	<text>不知从哪里，你听到一个声音对你说。"硅的...恩惠。你的岩石族船员灭火...速度提高30%。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_ROCK</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_ROCK_2">
+	<text>不知从哪里，你听到一个声音对你说。"硅的...超级恩惠。你的岩石族船员灭火速度...提高30%且...移动速度提高25%。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_ROCK_2</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_CRYSTAL">
+	<text>不知从哪里，你听到一个声音对你说。"大地的...恩惠。你的水晶族船员...获得20%战斗伤害加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_CRYSTAL</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_SLUG">
+	<text>不知从哪里，你听到一个声音对你说。"黏液的...恩惠。你的蛞蝓族船员获得...20%环境伤害抗性加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_SLUG</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_SLUG_2">
+	<text>不知从哪里，你听到一个声音对你说。"黏液的...超级恩惠。你的蛞蝓族船员获得...20%的环境伤害抗性与100%移动速度加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_SLUG_2</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_SHELL">
+	<text>不知从哪里，你听到一个声音对你说。"躯壳的...恩惠。你的甲壳族船员获得...15%战斗伤害抗性。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_SHELL</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_LEECH">
+	<text>不知从哪里，你听到一个声音对你说。"寄生虫的...恩惠。你的吸虫族船员获得...10点最大生命值。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_LEECH</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_GHOST">
+	<text>不知从哪里，你听到一个声音对你说。"幽灵的...恩惠。你的魂灵族船员...获得...30%移动速度加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_GHOST</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_LANIUS">
+	<text>不知从哪里，你听到一个声音对你说。"金属的...恩惠。你的食铁族船员...获得100%生命恢复速度，并减少受到的...10%的战斗伤害。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_LANIUS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_MORPH">
+	<text>不知从哪里，你听到一个声音对你说。"变形的...恩惠。你的模物族船员获得...10%的最大生命值与...30%移动速度加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_MORPH</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_LIZARD">
+	<text>不知从哪里，你听到一个声音对你说。"鳞片的...恩惠。你的蜥蜴族船员获得...15%主属性加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_LIZARD</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_SPIDER">
+	<text>不知从哪里，你听到一个声音对你说。"蜘蛛的...恩惠。你的蜘蛛族船员...在无虫后时也可控。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_SPIDER</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_PONY">
+	<text>不知从哪里，你听到一个声音在对你说话。"...马族的...恩惠。也许你可以拥有...一个新的'盟友'？不要...低估了它。你可以...感谢以前的挑战者。也可能你...不感谢？谁知道呢..."</text>
+	<crewMember amount="1" class="pony_tamed">奖品马</crewMember>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_OBELISK">
+	<text>不知从哪里，你听到一个声音对你说。"远古的...恩惠。你的方碑族与认知体船员获得...20点最大生命值、15%...的战斗伤害与维修速度。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_OBELISK</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_SIREN">
+	<text>开发人员信息</text>
+	<hiddenAug>JUDGE_BOON_OBELISK</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_UNIQUE">
+	<text>不知从哪里，你听到一个声音对你说。"同伴的...恩惠。你的特殊船员在克隆时...不会失去任何技能经验且...生命恢复速度提高50%...还获得15%的...战斗伤害、维修速度和移动速度加成。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_UNIQUE</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_UNIQUEMECH">
+	<text>不知从哪里，你听到一个声音对你说。"机械的...恩惠。你的舰内无人机获得...50点最大生命值和...100%移动速度。你可以...感谢以前的挑战者。或者你...不感谢？谁知道呢..."</text>
+	<hiddenAug>JUDGE_BOON_UNIQUEMECH</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="BOON_SELECT_KIDS">
+	<text>从不知从哪里，你听到一个声音在对你说话，显然很生气。"儿童的...恩惠。你的船员获得...1%的最大生命值。请不要...感谢之前的挑战者。"</text>
+	<hiddenAug>JUDGE_BOON_KIDS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<!--CORBY-->
+<event name="BOON_SELECT_WEAPONS">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[武器]的予礼。授予！予礼提供：对武器系统的维修速度提高50%。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_WEAPONS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_SHIELDS">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[护盾]的予礼。授予！予礼提供：对护盾系统的维修速度提高50%。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_SHIELDS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_ENGINES">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[引擎]的予礼。授予！予礼提供：对引擎系统的维修速度提高75%。如果-你-见到了之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_ENGINES</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MEDBAY">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[治疗]的予礼。授予！予礼提供：为己方船员提供75%的生命恢复速度加成。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_MEDBAY</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_CLONEBAY">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[克隆]的予礼。授予！予礼提供：船员被克隆不会失去技能经验。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_CLONEBAY</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_OXYGEN">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[生命支持]的予礼。授予！予礼提供：33%的窒息伤害抗性。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_OXYGEN</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_TELEPORTER">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[传送]的予礼。授予！予礼提供：传送系统舱室内船员以1点/秒的速度恢复生命。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_TELEPORTER</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MIND">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[心控]的予礼。授予！予礼提供：船员在星舰内获得60%眩晕时长减免。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_MIND</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_HACKING">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[黑客]的予礼。授予！予礼提供：船员可无视星舰内被黑客入侵的舱门。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_HACKING</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_CLOAKING">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[隐形]的予礼。授予！予礼提供：10%的几率免疫舰体与系统伤-伤-伤害。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_CLOAKING</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_TEMPORAL">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[时流]的予礼。授予！予礼提供：己方船员获得100%移-移-移动速度加成。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_TEMPORAL</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_DRONES">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[无人机]的予礼。授予！予礼提供：对无人机控制系统的维修速度提高75%。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_DRONES</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_SENSORS">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[传感器]的予礼。授予！予礼提供：传感器升级！但是首-首-首先让我[确定]你有它们！"</text>
+	<choice hidden="true" req="sensors" lvl="0" max_lvl="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>"看来你没有！请-请-请-请允许我安装[这个]。安装这个！"</text>
+			<system name="sensors" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"马-马-马-马-马上就好。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+					<upgrade amount="1" system="sensors" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="sensors" lvl="1" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>"太好了，你有这个！只需要一小-小-小-小-小会。如果你见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+			<upgrade amount="2" system="sensors" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_DOORS">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[舱门]的予礼。授予！予礼提供：己方船员在舱门系统舱室内获得30%的伤害抗性，敌方船员破门速度减少50%。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_DOORS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_PILOT">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[驾驶]的予礼。授予！予礼提供：船员在驾驶舱室内免疫心灵控制。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_PILOT</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_BATTERY">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[电池]的予礼。授予！予礼提供：备用电池冷却时，己方船员与舰内无人机获得33%的维修与移动速度加成。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<hiddenAug>JUDGE_BOON_BATTERY</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_REACTOR">
+	<text>不知从哪里，你听到一个声音对你说。"已-已-已授予[反应堆]的予礼。授予！予礼提供：反应堆升级一次。如果-你-见到了之-之-之前的挑战者，请表示感谢。我建议你也来-拜访-我。"</text>
+	<upgrade amount="1" system="reactor" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<!--WAKESON-->
+<event name="BOON_SELECT_STARTER">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 起 始 的 祝 福 ！带上这份礼物，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<item_modify>
+		<item type="scrap" min="15" max="15" />
+		<item type="fuel" min="3" max="3" />
+		<item type="missiles" min="3" max="3" />
+		<item type="drones" min="3" max="3" />
+	</item_modify>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_KERNELELITE">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 生 长 的 祝 福 ！你将额外获得6发弹药来为武器提供帮助。愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<item_modify>
+		<item type="missiles" min="6" max="6" />
+	</item_modify>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_CRYSTALELITE">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 水 晶 的 祝 福 ！受到舰体伤害时，有15%的几率发射一枚水晶碎片，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_CRYSTALELITE</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MINELAUNCHER">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 陷 阱 的 祝 福 ！我将确保舰队被拖延，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<modifyPursuit amount="-2" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_NEWGEN">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 世 代 的 祝 福 ！从离开这个信标开始，你之后获得的所有船员初始技能等级都为1级，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_NEWGEN</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_AETHER">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 以 太 的 祝 福 ！先驱者遗迹将显示在星图上，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_AETHER</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MERCHANTS"> <!--both riftwaker and the nexus-->
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 游 商 的 祝 福 ！游商将为你提供多种交易选项，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<eventAlias name="SYLVAN_TRADES_DROPPOINT">SYLVAN_TRADES_CHOICE</eventAlias>
+	<eventAlias name="SYLVAN_TRADES_LASTSTAND">SYLVAN_TRADES_CHOICE</eventAlias>
+	<eventAlias name="SYLVAN_TRADES">SYLVAN_TRADES_CHOICE</eventAlias>
+	<variable name="merchant_boon_active" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_SPECIAL">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 特 制 品 的 祝 福 ！武器的充能速度提高5%，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_SPECIAL</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_TRANSPORT">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 运 输 的 祝 福 ！敌方超光速推进器充能速度减慢50%，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_TRANSPORT</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MATH">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 数 学 的 祝 福 ！舱室内每有一名船员，每名船员都获得4%的最大生命值和维修速度加成，并愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_MATH</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_RENEGADE">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 变 元 者 的 祝 福 ！你可以避免与变元者战舰战斗，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_RENEGADE</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_SENTRY">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 哨 卫 的 祝 福 ！己方船员与无人机登舰时获得30%战斗伤害与移动速度加成！愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_SENTRY</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_CURA">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 委 托 的 祝 福 ！那个无趣的C.U.R.A.不会收你接受委托的起始费用，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_CURA</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_CLONECANNON">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 道 德 的 祝 福 ！你的整体恶名值初始被设为-3，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<variable name="rep_general" op="add" val="-3" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MODULAR">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 模 块 化 祝 福 ！拿着这个免费的模块，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<weapon name="GIFTLIST_MODULES" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_GATLING">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 超 级 武 器 的 祝 福 ！你的武器的充能速度提高10%，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_GATLING</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<event name="BOON_SELECT_MADNESS">
+	<text>不知从哪里，你听到一个声音对你说。" 挑 战 者 ！我赐予你 诗 人 的 祝 福 ！敌方登舰船员将陷入疯狂，愿你的旅行得到 祝 福 ！你应该感谢谁？还用问，当然是 之 前 的 挑 战 者 ！哈哈！"</text>
+	<hiddenAug>JUDGE_BOON_MADNESS</hiddenAug>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<loadEvent>BOON_SELECT_CONTINUE</loadEvent>
+		</event>
+	</choice>
+</event>
+</FTL>
+

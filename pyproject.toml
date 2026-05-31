@@ -1,0 +1,13 @@
+[project]
+name = "ftlsearch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+	"pyqt6>=6.7",
+]
+
+[[index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
+default = true

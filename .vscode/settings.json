@@ -1,0 +1,15 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "uv": true,
+        "/^python \\.\\\\ftl_sqlite_preprocessor\\.py \\.\\\\gamedata --db \\.\\\\ftl_output\\.sqlite$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python -m py_compile ftl_gui\\.py ftl_dao\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python-envs.defaultPackageManager": "ms-python.python:pip"
+}

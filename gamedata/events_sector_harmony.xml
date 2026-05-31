@@ -1,0 +1,3243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HARMONY SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_ENGI">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+<event name="FINISH_BEACON_HARMONY">
+	<text id="finish_beacon" />
+	<choice hidden="true" req="unique_turzil" lvl="0" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>你现在有了一些可支配的闲暇时光。</text>
+			<choice hidden="true">
+				<text>探索。</text>
+				<!--<event load="EXIT_LIST_ENGI"/>-->
+				<event load="EXIT_FILLER_LIST" />
+			</choice>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_turzil" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_FUGITIVE" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_ENGI_MV">
+	<event load="ENGI_GIFT" />
+	<event load="ENGI_SALVAGER" />
+	<event load="ENGI_AID" />
+	<event load="ENGI_FLEET_DELAY_MV" />
+	<event load="ENGI_SURRENDER_MV" />
+</eventList>
+
+<event name="ENGI_GIFT">
+	<text load="ENGI_GIFT" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+<textList name="ENGI_GIFT">
+	<text>一艘半械族舰船向你呼叫。"身份：联邦？异常可能性。意味着...复兴。意味着...希望。建议对其援助。"随后，他们提供了一些补给。</text>
+	<text>你遇到了一艘半械族舰船，它正向家的方向赶去，逃离这些逐渐占领整个星区的螳螂族舰队。这些半械族很乐意卸下一些货物以便更快地回家。</text>
+	<text>你与一个孤立的半械族科学站取得联系，尽管有可能被螳螂族入侵，但这些半械族仍然选择留在原地。他们建议你尝试一些实验性的技术。</text>
+	<text>这个地方最近发生了一场战斗。这要么是螳螂族想要表现他们的武力，要么就是这里的半械族不愿意和平地离开。你在战斗留下的碎片中尽可能收集了些有用的东西。</text>
+</textList>
+
+<event name="ENGI_SALVAGER" unique="true">
+	<ship load="SHIP_LANIUS_HARMONY_SALVAGE" hostile="false" /> 
+	<text>在这个信标处，一艘食铁族舰船似乎正在打捞一艘半械族舰船，半械族舰船上还有船员。虽然那些食铁族对你视而不见，但半械族却试图向你求救。他们请求你把他们从食铁族的舰船下救出来。</text>
+	<choice hidden="true">
+		<text>呼叫食铁族。</text>
+		<event>
+			<text>"我们不知道那是什么。那个废弃的舰船。垃圾就是用来进食的！"看来食铁族把半械族舰船误认为是残骸了。</text>
+			<choice hidden="true">
+				<text>试着解释说，船上有半械族。</text>
+				<event load="ENGI_SALVAGER_EXPLAIN" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LANIUS">
+				<text>(食铁族船员)让你的船员向他们解释一下情况。</text>
+				<event>
+					<text>在你的食铁族船员帮助下，你们成功地向另一艘飞船解释说那艘半械族飞船并非残骸。另一艘食铁族飞船似乎对这个解释感到满意，然后便离开了。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ENGI_SALVAGER_SAVE" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>把他们打跑。</text>
+				<event>
+					<text>进一步沟通是没有意义的。唯一的办法是通过战斗来解决。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>直到你溜走，食铁族舰船仍在忽视你。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ENGI_SALVAGER_EXPLAIN">
+	<event>
+		<text>你成功地向食铁族解释了那个半械族舰船并不是残骸。鉴于食铁族目前对收集到的废品感到很满意，食铁族舰船跃迁走了。</text>
+		<choice hidden="true">
+			<text>呼叫那个半械族。</text>
+			<event load="ENGI_SALVAGER_SAVE" />
+		</choice>
+	</event>
+	<event>
+		<text>你试图与食铁族沟通，但却徒劳无功。食铁族厌倦了你难以理解的唠叨，他们决定下一步要消灭你！</text>
+		<ship hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ENGI_SALVAGER_SAVE">
+	<event>
+		<text>那些半械族对你的帮助表示感谢。他们给了你一些无人机部件和废料。</text>
+		<autoReward level="MED">droneparts</autoReward>
+	</event>
+	<event>
+		<text>令你惊讶的是，在你击退食铁族舰船后，半械族的船员似乎已经窒息死亡了。虽然几乎没有任何外部的东西可以搜刮，但你还是找到了一架你可以回收的无人机。</text>
+		<drone name="RANDOM" />
+	</event>
+	<event>
+		<text>半械族舰船的损坏程度比你预期的要大得多。看起来它在重要部件发生爆炸之前撑不了太久了。</text>
+		<choice hidden="true">
+			<text>赶紧冲上船，拯救那些半械族。</text>
+			<event>
+				<text>在有限的时间内，你只救出了一名半械族船员。你只能眼睁睁得看着他们的舰船咽下最后一口气并爆炸。在无船可回的情况下，半械族同意在你的星舰上工作。</text>
+				<crewMember amount="1" class="engi" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>让他们爆炸，再打捞废料。</text>
+			<event>
+				<text>你知道这在道德上并不是最好的选择，但半械族感觉不到疼痛，所以它某种意义上也是没什么关系的。你看着他们的飞船爆炸，然后完成了食铁族最开始做的工作。</text>
+				<autoReward level="MED">standard</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="ENGI_AID" unique="true">
+	<text>附近建立的半械族殖民地向你呼叫。"联邦的存在表明...急需援助。问题：你需要什么？"</text>
+	<choice hidden="true">
+		<text>维修。</text>
+		<event>
+			<text>"请求已许可。维修无人机已派出。"</text>
+			<damage amount="-7" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>燃料。</text>
+		<event>
+			<text>"请求已许可。燃料补给无人机已派出。"</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>弹药。</text>
+		<event>
+			<text>"请求已许可。载弹无人机已派出。"</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>星图数据。</text>
+		<event>
+			<text>"请求已拒绝，此区域受限。已派出回收无人机作为替代方案。"</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="ENGI_FLEET_DELAY_MV" unique="true">
+	<text>你注意到附近一个隐藏在卫星另一面的半械族殖民地。随后你发现他们正在挖掘螳螂入侵战争中埋藏的设备，他们认为这个设备也许可以被用来引诱追击的叛军舰队。</text>
+	<choice>
+		<text>用埋藏的设备做陷阱。</text>
+		<event>
+			<text>你提供了一些导弹弹头，半械族把它们插了上去，引发了一场爆炸。随后，他们发出了求救信号来吸引叛军舰队的注意。</text>
+			<item_modify>
+				<item type="missiles" min="-2" max="-2" />
+			</item_modify>
+			<modifyPursuit amount="-2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>检查这些埋藏的设备。</text>
+		<event>
+			<text>你让这些半械族完成了他们的挖掘任务，并把挖出的补给带上了你的星舰。</text>
+			<autoReward level="MED">drone</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="ENGI_SURRENDER_MV" unique="true">
+	<text>附近的一艘半械族舰船一看到你全副武装的星舰跃迁进来，就立即打开广播，宣布投降："主体目标：财富。半械族动机：存活。进行货物转移，是否接受？"</text>
+	<ship load="SHIP_ENGI_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>向他们解释你并无恶意。</text>
+		<event load="ENGI_SURRENDER_LIST_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>接受他们提供的投降物资。</text>
+		<event>
+			<text>半械族乖乖地转移了他们的货物并离开。这就是不劳而获。</text>
+			<autoReward level="RANDOM">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击！</text>
+		<event>
+			<text>这些半械族的猜测是对的！你果然充满敌意，攻击了他们的舰船。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ENGI_SURRENDER_LIST_MV">
+	<event>
+		<text>这些半械族似乎松了一口气，并迫切地准备离开。他们连再见都没来得及说就走了。</text>
+		<instantEscape />
+	</event>
+	<event>
+		<text>这些半械族对你的解释感到很满意。"有益。主体目标：漫长，漫长的旅途。仍然与半械族货物转移兼容。"他们自愿地提供了补给，你心里感觉好多了。</text>
+		<autoReward level="RANDOM">standard</autoReward>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_ENGI_MV">
+	<event load="HARMONY_SEARCH" />
+
+	<event load="ENGI_ADVISORY" />
+	<event load="ENGI_IMPLANT_UNION" />
+	<event load="ENGI_VS_VAMPWEED" />
+	<event load="ENGI_SEX" />
+</eventList>
+
+<!--<event name="HARMONY_SEARCH">
+    <text>A Harmony ship accosts you at this beacon.</text>
+    <ship load="SHIP_ENGI_FIGHT" hostile="false"/>
+    <choice hidden="true" req="rep_comb_engi" lvl="-2147483648" max_lvl="1" max_group="0" blue="false">
+		<text>Continue...</text>
+		<event load="HARMONY_SEARCH_NORMAL_STANDING"/>
+    </choice>
+    <choice hidden="true" req="rep_comb_engi" lvl="2" max_lvl="999" max_group="0" blue="false">
+		<text>Continue...</text>
+		<event load="HARMONY_SEARCH_BAD_STANDING"/>
+    </choice>
+</event>-->
+<event name="HARMONY_SEARCH" unique="true">
+	<ship load="SHIP_ENGI_FIGHT" hostile="false" />
+	<loadEventList seeded="false" first="false" generate="false">
+		<event name="HARMONY_SEARCH_NORMAL_STANDING" req="rep_comb_engi" lvl="-999" max_lvl="1" />
+		<event name="HARMONY_SEARCH_BAD_STANDING" req="rep_comb_engi" lvl="2" max_lvl="999" />
+	</loadEventList>
+</event>
+<textList name="HARMONY_SEARCH_INTRO">
+	<text>"此=谐合调查科。任务要求：执行必要的星区安全措施。这些措施：100%访问你的飞船。"</text>
+	<text>"停下。你=涉嫌窝藏逃犯。我们提议：驳回诉讼请求的机会。你必须： 允许[完全]访问你的飞船。"</text>
+	<text>"你的飞船！=无罪的。 管理指令：允许谐合半械族登舰。"半械族飞船满怀期待地等待着。</text>
+	<text>"你=处于危险之中。你的飞船=危险逃犯的可能性：70%。允许这艘飞船访问，或者摧毁危险。"</text>
+</textList>
+<event name="HARMONY_SEARCH_NORMAL_STANDING">
+	<text load="HARMONY_SEARCH_INTRO" />
+    <choice hidden="true" req="rep_comb_engi" lvl="-999" max_lvl="-1" max_group="1">
+		<text>提醒他们你在谐合中的良好声望，以及你使命的重要性。</text>
+		<event>
+			<text>"已确认。你的存在=有利于谐合。飞船留出空间，给予请求物资。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="engi_defender">
+		<text>(半械保卫者)这艘船已经安全了。我们的任务将有利于谐合。</text>
+		<event>
+			<text>"已确认。检测到可信船员。飞船留出空间，给予请求物资。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="unique_mafan">
+		<text>(玛嬏)"别再打扰我的工作了！"</text>
+		<event>
+			<text>玛嬏兴奋地谈论着他们的科学任务，这使Engi暂停了搜索。冷静下来后，玛嬏抱起双臂。"如果有的话，你们应该为我们的科学任务捐款，因为这将使谐合派受益。"
+
+"...确认。检测到可信的牧师团科学家。清除你的舰船，批准进贡请求。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="unique_tyerel">
+		<text>（笛艾尔）"外交豁免权。"</text>
+		<event>
+			<text>保卫者没有立即回应，但笛艾尔继续说道。"根据联邦宪章第3条，大使在所有联邦结盟星区——包括谐合派星区——享有优先通行权。我们的任务是维护稳定。"
+
+保卫者最终回应。"请求已确认。请继续前进。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_HARMONY_FUGITIVE" lvl="0" max_group="1" blue="false">
+		<text>接受。</text>
+		<event>
+			<text>半械族彻底搜查了你的星舰，但一无所获。"你=无罪的。如果逃犯=发现，请报告。否则，同罪。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_HARMONY_FUGITIVE" lvl="1" max_group="1" blue="false">
+		<text>接受。</text>
+		<event>
+			<text>半械族调查员检查你星舰上的船员，起初一无所获。然而，就在他们离开之前，他们发现你的一名船员存在问题。"发现逃犯。敌意调解=必要。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="pilot" blue="false" max_group="2">
+		<text>我们不同意被搜查。</text>
+		<event>
+			<text>"不能接受。拒绝=承认罪行。立即拘捕。"看来你没那么容易脱身了。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_JERRY" lvl="1" blue="false">
+		<text>杰瑞紧张地开口。"嗯，我想谐合了解我和我叔叔的关系。他们可能把我列入了监视名单。"</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="unique_turzil" lvl="1" blue="false">
+		<text>图尔齐尔说。"–谐合‐[仍]在搜寻我。如果我的存在被发现，我们就会受到攻击。"</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="LIST_VARIANT_SEPARATIST" lvl="1" blue="false">
+		<text>你的分离者告诉你，这艘飞船必须被摧毁。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="human_technician" lvl="1" blue="false">
+		<text>根据起义军–谐合互不侵犯条约，温特沃斯革新社技工不得进入谐合星域。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="human_mfk" lvl="1" blue="false">
+		<text>半械族不会容忍前MFK叛军进入他们的星域。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="human_angel" lvl="1" blue="false">
+		<text>你的死亡使者告诉你，最好还是奋力摆脱困境。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true" req="LIST_CREW_LEGION" lvl="1" blue="false">
+		<text>军团特工是叛军有史以来最危险的部队；谐合很可能会对他们的存在感到愤怒。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+</event>
+<textList name="HARMONY_SEARCH_ATTACK">
+	<text>"发现逃犯。暴力行动=合理。"半械族飞船毫不犹豫地攻击了你的星舰。</text>
+	<text>"你的毁灭会使谐合繁荣指数提高0.03%。不要抵抗。"谐合已经派巡逻队拘捕你了!</text>
+	<text>"最佳谐合安全需要你的毁灭。"半械族意图消灭你，很可能是因为你的声望。</text>
+	<text>"你的存活是谐合效率的障碍物。这是不能接受的。"也许谐合对你最近的行为有意见。</text>
+</textList>
+<event name="HARMONY_SEARCH_BAD_STANDING">
+	<text load="HARMONY_SEARCH_ATTACK" />
+	<ship hostile="true" />
+   	<choice hidden="true">
+   		<text>继续。</text>
+   		<event load="COMBAT_CHECK" />
+   	</choice>
+</event>
+
+<event name="ENGI_ADVISORY" unique="true">
+    <text>该信标处有一个警告。"警报：螳螂族正频繁进攻该信标处的星系。警告：请不要在此信标逗留太久。如果发现螳螂族飞船，请向谐合报告。"</text>
+    <choice req="ADV_SCANNERS" hidden="true">
+        <text>(长距扫描仪)用扫描仪找到螳螂族的位置。</text>
+        <event load="ENGI_LOCATE_MANTIS_AMBUSH" />
+    </choice>
+    <choice req="sensors" lvl="3" hidden="true">
+        <text>(先进传感器)用传感器找到螳螂的位置。</text>
+        <event load="ENGI_LOCATE_MANTIS_AMBUSH" />
+    </choice>
+    <choice>
+        <text>去寻找螳螂族。</text>
+        <event load="ENGI_LOOKING_FOR_MANTIS" />
+    </choice>
+    <choice>
+        <text>听从建议，继续前进。</text>
+        <event>
+            <text>你有能力与螳螂族战斗，但你不应该把时间花在不辞辛苦地去寻找他们的地方上。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="ENGI_LOOKING_FOR_MANTIS">
+    <event>
+        <text>不幸的是，即使你检查了整个星系，也没有找到任何螳螂族的踪迹。剩下要做的就是返回信标，继续前进。</text>
+    </event>
+    <event>
+        <text>当你探查这个星系时，一个螳螂族伏击了你！看来你必须奋力一搏了！</text>
+        <ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+        <choice>
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+    <event>
+        <text>当你探查这个星系时，一个螳螂领主伏击了你！看来你必须奋力一搏了！</text>
+        <ship load="SHIP_SUZERAIN_FIGHT" hostile="true" />
+        <choice>
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+</eventList>
+<event name="ENGI_FORWARD_TO_HARMONY">
+    <text>你向最近的通讯枢纽发送了一条远程信息。不久后，一艘谐合飞船跃迁过来并发送了信息："非常感谢。这个情报将减少今后类似的攻击。"谐合奖励了你一些废料和无人机部件。</text>
+    <autoReward level="LOW">droneparts</autoReward>
+</event>
+<event name="ENGI_LOCATE_MANTIS_AMBUSH">
+    <text>你的系统立刻找到了螳螂战舰。那里有他们自己设置的埋伏点。既然你知道他们的位置，你就可以选择与哪种飞船战。或者你也可以避免战斗，把情报交给谐合。</text>
+    <choice>
+        <text>与普通螳螂族战斗。</text>
+        <event>
+            <text>由于你还没被对方发现，你与螳螂族的战斗可以先发制人。不过，他们已经做好了反击的准备！</text>
+            <ship load="SHIP_MANTIS_ADVISORY" hostile="true" />
+            <choice>
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>与螳螂领主战斗。</text>
+        <event>
+            <text>由于你还没被对方发现，你与螳螂领主的战斗可以先发制人。不过，他们已经做好了反击的准备！</text>
+            <ship load="SHIP_SUZERAIN_ADVISORY" hostile="true" />
+            <choice>
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>只发送情报。</text>
+        <event load="ENGI_FORWARD_TO_HARMONY" />
+    </choice>
+</event>
+<event name="DEFEAT_SUZERAIN_ELITE_ADVISORY">
+    <text>你已经成功地打倒了一个强大的精英母巢和他们的飞船，现在残骸是你的了，可以搜刮。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>似乎精英螳螂族号上的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_MANTIS" />
+            <choice hidden="true">
+                <text>将剩余情报发送给谐合。</text>
+                <event load="ENGI_FORWARD_TO_HARMONY" />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="ENGI_IMPLANT_UNION" unique="true">
+    <text>一艘谐合飞船正停泊在一艘同盟飞船旁边。周围有一些飞船碎片，暗示着在你们到达之前可能发生过一场战斗。</text>
+    <ship load="SHIP_ENGI_IMPLANT" hostile="false" />
+    <choice>
+		<text>调查。</text>
+		<event>
+			<text>半械族舰船回应。"此艘舰船 = 预估将来成为叛军同谋。根据精算报告最佳选项 = 强制安装行为矫正植入物。此行动 = 对于谐合繁荣与安全必要。"</text>
+			<choice>
+				<text>我们不会容忍这种对人权的可耻侵犯！</text>
+				<event>
+					<text>"谐合繁荣 &gt;&gt; 人权。 阻碍谐合繁荣 = 不可接受。"这艘半械族飞船以同样的威胁回应。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="engi_defender">
+				<text>（半械保卫者）试图说服他们这可能没有必要。</text>
+				<event>
+					<text>"你有证据表明这艘舰船=未来的叛军吗？"
+
+"没有。"
+
+"那么解除战备。叛军威胁概率估计：低于冲突启动阈值。"
+
+"明白。但是，如果你的决策处理=不明智，请承担后果。"另一艘Engi舰船跃迁离开。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="RESCUED_CIVILIAN_IMPLANTS" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>让他们去做他们的事。</text>
+				<event>
+					<text>尽管那个景象令人不适，但你并不完全知情。挑拨谐合也不在你的待办事项列表上。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+</event>
+<textList name="ENGI_IMPLANT_UNION_SAVED">
+   	 <text>"非常感谢你的干预。或许联邦并没有那么糟糕。"平民提供了一个增强部件以感谢你的帮助。</text>
+   	 <text>"我发誓我不会加入叛军。我只是想要自由去表达我认为联邦对待人类种族并不公正的观点。不管怎样，谢谢你们救了我们。"公民迅速给了你一个增强部件以澄清了自己的立场。</text>
+   	 <text>"谐合是真的不能接受任何批评。我们将尽快离开这个星区。感谢你的帮助。"平民给你发送了一个增强部件作为报酬。</text>
+</textList>
+<event name="RESCUED_CIVILIAN_IMPLANTS">
+    <text load="ENGI_IMPLANT_UNION_SAVED" />
+    <autoReward level="MED">augment</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_UNION" />
+	</choice>
+</event>
+
+<event name="ENGI_VS_VAMPWEED" unique="true">
+    <text>一场缠斗发生在一艘血兰邦飞船和一艘谐合飞船之间。</text>
+    <choice>
+		<text>攻击血草兰花。</text>
+		<event>
+			<text>"联邦果然会站在这些疯狂机器那边。"血草兰花打断你的攻击回应！</text>
+			<ship load="SHIP_VAMPWEED_ENGI_CHOICE" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_VAMPWEED_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击半械族。</text>
+		<event>
+			<text>"联邦没有遵守盟友之间的约定。杀死叛徒。"</text>
+			<ship load="SHIP_ENGI_VAMPWEED_CHOICE" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>让这两个家伙自己去斗吧。</text>
+		<event>
+			<text>这些两艘船的事与你无关。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="ENGI_VS_VAMPWEED_VAMPWEED_KILLED">
+    <text>"感谢联邦援助。无法容忍的外星元素已被处理。分发无人机奖励。"半械族飞船跃迁离开，留下了一个悬而未决的问题：到底发生了什么。</text>
+    <autoReward level="MED">standard_no_item</autoReward>
+    <drone name="GIFTLIST_ENGI" />
+</event>
+<event name="ENGI_VS_VAMPWEED_ENGI_KILLED">
+    <text>"所以联邦还是有一些理智的。我们来到这里只是想交易，这些疯狂的家伙扫描我们的飞船并攻击我们，却不告诉我们原因。"血草兰花舰长派出了一架他们标志性的无人机。</text>
+    <autoReward level="MED">standard_no_item</autoReward>
+    <drone name="GIFTLIST_VAMPDRONE" />
+</event>
+
+<event name="ENGI_SEX" unique="true">
+	<text>一艘看上去受损的舰船映入眼帘，但随后你发现这其实是两艘猛烈相撞的舰船...这里传出一连串的通信信号，舰船的伤痕四处可见，很难确定到底发生了什么。这些舰船似乎是...半械族的？它们看起来因撞击而与对方的舰船卡在了一起，无法分离。</text>
+	<choice hidden="true">
+		<text>尝试通过撬动这两个舰船来帮助它们分开。</text>
+		<event>
+			<text>令你惊讶的是，其中一艘半械族船袭击了你！那艘船自行脱离了锁定的状态，它的舰体竟然还相当得完整。分离后，它便向你开火 - 看起来它不知怎么的将你识别成了敌人！</text>
+			<ship load="SHIP_ENGI_SEX" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这两个受损的舰船。</text>
+		<event>
+			<text>这与你无关。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_ENGI">
+		<text>(半械族船员)让你的半械族船员呼叫对方的舰船，并进行损伤评估。</text>
+		<event>
+			<text>你的半械族船员拒绝了。他小心翼翼地选择着形容词和名词，并用一些全息动画工具来辅助解释，说这些船是在...如果简单地形容，就是利用彼此来"实现联合"。这两艘舰船的撞击事件不知怎么的，让你感到是一件尴尬的私事。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>你决定不管这两艘半械族舰船...不去打扰它们之间的"活"。然而，在询问了你的半械族船员之后，你还是成功地从周边回收到了一些能用的废料。但你只是感觉这些废料有点脏。</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ENGI_SEX_SHIP_DONE">
+	<text>显然，你打断了这两艘船的"合并"，这两艘船正在使用彼此的零件来建造一艘新船。这些半械族其实并无敌意，他们的目标锁定系统还没有完成校准。事已至此，你也无能为力。你把残留的船骸留给了幸存的那个半械族舰船。</text>
+</event>
+<eventList name="NEUTRAL_ENGI_UNIQUE">
+	<event load="ENGI_DECONSTRUCTOR_JUNKYARD" />
+	<event load="ENGI_VIRUS" />
+	<event load="ENGI_COMPLEX" />
+
+	<event load="HARMONY_SEARCH" />
+	
+	<event load="ENGI_SEX" />
+</eventList>
+
+<event name="ENGI_DECONSTRUCTOR_JUNKYARD" unique="true">
+    <text>从信标处望去，可见数团巨大的混杂物。其中有两片大型碎片带，中间是一片难以辨认的混乱产物。一片碎片带金属含量极高，另一片大的多的碎片带则几乎没有可回收物资。</text>
+    <choice hidden="true">
+        <text>探索金属碎片堆。</text>
+        <event load="ENGI_DECONSTRUCTOR_RICH_FIELD" />
+    </choice>
+    <choice>
+        <text>探索碎片带之间的物质团。</text>
+        <event>
+            <text>你靠近后发现一大团嗡嗡作响的纳米机器云，以及一个巨大的舱室。定期地，似乎有一艘半械舰船从金属碎片带拖曳某些东西投向云团。然而，当你靠近时，一艘半械舰船拦截了你。"该区域=限制半械纳米形态进入。请：远离此信标。"</text>
+            <ship load="SHIP_ENGI_SWARM_PROTECTOR" hostile="false" />
+            <choice req="LIST_CREW_HARMONY" hidden="true">
+                <text>（谐合派船员）"需要=协助。"</text>
+                <event>
+                    <text>你的半械族解释了你们任务的重要性，并请求提供任何可用的资源。"...确认。同盟半械族：执行重要任务。你可以：请求一个谐合派构造体。将提供资源。"</text>
+                    <autoReward level="MED">standard_no_item</autoReward>
+                    <choice>
+                        <text>请求另一个半械族。</text>
+                        <event>
+                            <text>在一阵闪烁的微光中，一个全新的半械族从云团中直接打印到你的货舱。这个半械族向你点头，准备接受命令。</text>
+                            <crewMember amount="1" class="engi" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>请求一个船员无人机。</text>
+                        <event>
+                            <text>在一阵闪烁的微光中，一份无人机蓝图从云团中直接打印到你的货舱。</text>
+                            <drone name="GIFTLIST_CREW_DRONES" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>请求一个战斗无人机。</text>
+                        <event>
+                            <text>在一阵闪烁的微光中，一份无人机蓝图从云团中直接打印到你的货舱。</text>
+                            <drone name="GIFTLIST_COMBAT_DRONES" />
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>这是什么地方？</text>
+                <event>
+                    <text>"目标=收集残骸，提供给更大的集体。资源用于：生产更多[纳米机器、无人机蓝图、舰船部件]。问题：已回答。请离开。"</text>
+                    <choice>
+                        <text>攻击半械族。</text>
+                        <event>
+                            <text>半械族立即对你的攻击行为做出反应——他们预判了你的贪婪。</text>
+                            <ship hostile="true" />
+                            <choice>
+                                <text>继续。</text>
+                                <event load="MORALITY_UPDATE_ENGI_FIGHT" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>离开。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>攻击半械族。</text>
+                <event>
+                    <text>半械族立即对你的攻击行为做出反应。</text>
+                    <ship hostile="true" />
+                    <choice>
+                        <text>继续。</text>
+                        <event load="MORALITY_UPDATE_ENGI_FIGHT" />
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>离开。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>探索另一个碎片带。</text>
+        <event load="ENGI_DECONSTRUCTOR_WASTE_FIELD" />
+    </choice>
+    <choice>
+        <text>不理会这些碎片带。</text>
+        <event>
+            <text>你决定不花时间检查这些区域。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<eventList name="ENGI_DECONSTRUCTOR_RICH_FIELD">
+    <event>
+        <text>虽然这片区域总体上金属含量丰富，但你很快发现该区域几乎完全由压缩、毁坏的舰船构成。很明显这是一个垃圾场。幸运的是，一艘舰船的残骸漂浮在较大团块的外围，使其在巨大的堆积物中成为一个容易得手的目标。</text>
+        <autoReward level="MED">standard_no_item</autoReward>
+        <weapon name="GIFTLIST_RUSTY" />
+    </event>
+    <event>
+        <text>虽然这片区域总体上金属含量丰富，但你很快发现该区域几乎完全由压缩、毁坏的舰船构成。很明显这是一个垃圾场。你在表面发现一艘废弃的舰船，非常适合掠夺，而且幸运的是它没有像堆中许多其他舰船那样被压碎。</text>
+        <autoReward level="HIGH">standard</autoReward>
+        <weapon name="GIFTLIST_RUSTY" />
+    </event>
+    <event>
+        <text>虽然这片区域总体上金属含量丰富，但大部分垃圾堆积紧密。当你试图收集周围的一些废料时，你注意到表面发生了移动。你在表面发现一艘废弃的舰船，但不幸的是它立刻活了过来——原来是一个漂浪群！</text>
+        <ship load="SHIP_GHOST_ALL" hostile="true" />
+        <choice>
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+    <event>
+        <text>虽然这片区域总体上金属含量丰富，但大部分垃圾堆积紧密。你在残骸中徘徊了一段时间，寻找更容易得手的目标。然而，当你接近一个适合掠夺的大型残骸时，一个Engi阻止了你。他们坚持呼叫你："此残骸=半械谐合派财产。你正在入侵。离开，否则将采取惩罚行动。最后警告。"</text>
+        <ship load="SHIP_ENGI_JUNKYARD" hostile="false" />
+        <choice>
+            <text>停留。</text>
+            <event>
+                <text>半械族兑现了他们的威胁——他们攻击了你！</text>
+                <ship hostile="true" />
+                <choice>
+                    <text>继续。</text>
+                    <event load="MORALITY_UPDATE_ENGI_FIGHT" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text>离开。</text>
+            <event />
+        </choice>
+    </event>
+</eventList>
+<eventList name="ENGI_DECONSTRUCTOR_WASTE_FIELD">
+    <event>
+        <text>你搜索了碎片带，但似乎这里没有什么有价值的东西。不幸的是，残骸既松散又堆积紧密，所以你必须在充能超光速引擎时避免受损！</text>
+        <environment type="asteroid" />
+    </event>
+    <event>
+        <text>你搜索了碎片带，但似乎这里没有什么有价值的东西。不幸的是，残骸既松散又堆积紧密，所以你必须在充能超光速引擎时避免受损！</text>
+        <environment type="asteroid" />
+    </event>
+    <event>
+        <text>你搜索了碎片带。在大部分无用的垃圾中，你成功在一个大块残骸中追踪到了一批隐藏的导弹。</text>
+        <autoReward level="MED">missiles_only</autoReward>
+    </event>
+    <event>
+        <text>你搜索了碎片带。虽然大部分是无用的垃圾，你还是设法搜集到了少量有用的资源。</text>
+        <autoReward level="MED">stuff</autoReward>
+    </event>
+    <event>
+        <text>你搜索了碎片带。材料本身大部分是无用的垃圾，但在垃圾中发现了一个单独的食铁族。它拼命地试图向你打信号，似乎想加入你。</text>
+        <choice>
+            <text>接纳这个食铁族加入你的船员。</text>
+            <event>
+                <text>当你让食铁族登上舰船时，它尽力表达。"找到了食物。正在吃的时候，小生物攻击！然后，家被吃了。留下漂流……"</text>
+                <crewMember amount="1" class="lanius" />
+            </event>
+        </choice>
+        <choice>
+            <text>无视食铁族。</text>
+            <event />
+        </choice>
+    </event>
+    <event>
+        <text>你搜索了碎片带。材料本身大部分是无用的垃圾，但在碎片带中漂浮着一个单独的漂浪群。它拼命地试图向你打信号，似乎想加入你。</text>
+        <choice>
+            <text>接纳这个漂浪群魂灵加入你的船员。</text>
+            <event>
+                <text>当你让漂浪群登上舰船时，它似乎松了一口气。"唉，这些机械造物吞噬了我的船！请允许我表达感激，哦，拯救者。"</text>
+                <crewMember amount="1" class="LIST_CREW_VAGABOND_NOALPHA" />
+            </event>
+        </choice>
+        <choice>
+            <text>无视这些魂灵族。</text>
+            <event />
+        </choice>
+    </event>
+    <event>
+        <text>你搜索了碎片带。材料本身大部分是无用的垃圾。然而，在不起眼的残骸中，你发现了一个似乎有着坚固岩石外壳的逃生舱。</text>
+        <choice hidden="true">
+            <text>带走逃生舱。</text>
+            <event>
+                <text>从逃生舱中，一个孤独的岩石流放者跌跌撞撞地走出来。"……我以为我死定了。那些半械族找到了我的船，把它拖走回收了……我能活着真是幸运。"</text>
+                <crewMember amount="1" class="rock_outcast" />
+            </event>
+        </choice>
+        <choice>
+            <text>忽略逃生舱。</text>
+            <event />
+        </choice>
+    </event>
+</eventList>
+<event name="JUNKYARD_HAIL_SWARM">
+    <text>云团回复了一条文字信息。"恳求：饶恕。愿投降。"</text>
+    <choice>
+        <text>请求一个半械族。</text>
+        <event>
+            <text>在一阵闪烁的微光中，一个全新的半械族从云团中直接打印到你的货舱。这个半械族向你点头，准备接受命令。</text>
+            <crewMember amount="1" class="engi" />
+        </event>
+    </choice>
+    <choice>
+        <text>请求一个船员无人机。</text>
+        <event>
+            <text>在一阵闪烁的微光中，一份无人机蓝图从云团中直接打印到你的货舱。</text>
+            <drone name="GIFTLIST_CREW_DRONES" />
+        </event>
+    </choice>
+    <choice>
+        <text>请求一个战斗无人机。</text>
+        <event>
+            <text>在一阵闪烁的微光中，一份无人机蓝图从云团中直接打印到你的货舱。</text>
+            <drone name="GIFTLIST_COMBAT_DRONES" />
+        </event>
+    </choice>
+</event>
+
+<event name="ENGI_VIRUS" unique="true">
+	<text>半械族正在信标处等着你，他们的武器系统已经上线！他们解释说，一种被通缉的对半械族有敌意的计算机病毒(包含多种二进制扰乱和纳米溶解)正在你的星舰上。</text>
+	<choice>
+		<text>继续。</text>
+		<event>
+			<text>他们坚持认为，他们必须要摧毁你的星舰，以防止病毒逃逸！</text>
+			<choice hidden="true">
+				<text>先别开火！让我们试着清理系统代码！</text>
+				<event>
+					<text>清理你引擎核心和护盾的代码并没有什么用...最终你将病毒困在了武器系统中来清除它，但在你清理病毒之前，这些半械族就已变得焦躁不安并发起了攻击！</text>
+					<status type="divide" target="player" system="shields" amount="2" />
+					<status type="divide" target="player" system="engines" amount="2" />
+					<ship load="SHIP_ENGI_VIRUS" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>攻击半械族的舰船！</text>
+				<event>
+					<text>这半械族真是该死，没人能威胁你和你的星舰。你准备战斗！</text>
+					<ship load="SHIP_ENGI_VIRUS" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="unique_turzil" hidden="true">
+				<text>（图尔齐尔）与病毒谈判。</text>
+				<event>
+					<text>图尔齐尔隔离了病毒并与之对话，接入系统。你能看出病毒试图附身他，但似乎没有成功。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>几分钟后，病毒"看到了光明"，以积极的方式与你舰船上的计算机社会整合，修复了你的舰体并试图优化你的反应堆。"谈判成功。如果你-愿意-，我建议感谢我们的新程序。"</text>
+							<damage amount="-15" />
+							<upgrade amount="1" system="reactor" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>半械族感谢你清除了病毒，然后跃迁离开。他们提供了一个增强部件作为奖励。幸运的是，他们始终未察觉图尔齐尔的存在——他们当时一定太专注于病毒了。</text>
+									<augment name="RANDOM" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="hacking" lvl="1" max_group="0" hidden="true">
+				<text>(黑客系统)隔离并清除病毒。</text>
+				<event>
+					<text>这需要一些时间，而且这个病毒很狡猾，但你最终将它限制在一个无用的子系统以作为监狱，在那里它疯狂地开始计算对你的侮辱。你把这个系统从飞船上弹出，然后用你的武器让这个小二进制罪犯闭嘴。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>半械族感谢你删除了病毒，他们给你提供了部件作为奖励，然后跃迁走了。</text>
+							<autoReward level="LOW">standard</autoReward>
+							<augment name="RANDOM" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_REMOVE_ENGI" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="hacking" lvl="2" max_group="0" hidden="true">
+				<text>（高级黑客）重新编程病毒。</text>
+				<event>
+					<text>你着手干预病毒，并优化了其修复和仁爱的程序。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>几分钟后，病毒"看到了曙光"，并积极地与你星舰上的计算机机群结合，修复了你的舰体并试图优化你的反应堆。</text>
+							<damage amount="-15" />
+							<upgrade amount="1" system="reactor" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>半械族感谢你删除了病毒，他们给你提供了部件作为奖励，然后跃迁走了。</text>
+									<augment name="RANDOM" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="hacking" lvl="3" max_group="0" hidden="true">
+				<text>(先进黑客)对病毒进行重新编程。</text>
+				<event>
+					<text>你着手干预病毒，并优化了其修复和仁爱的程序。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>几分钟后，病毒"看到了曙光"，并积极地与你星舰上的计算机机群结合，修复了你的舰体并试图优化你的反应堆。</text>
+							<damage amount="-30" />
+							<upgrade amount="1" system="reactor" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>半械族感谢你删除了病毒，他们给你提供了部件作为奖励，然后跃迁走了。</text>
+									<augment name="RANDOM" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<!--<choice req="BLUELIST_WEAPONS_HACK" hidden="true">
+				<text>(Hacking Weapon) Purge the virus.</text>
+				<event>
+					<text>It takes some time, and the virus is slippery, but your weapons strike true. You are able to corner it and completely erase it.</text>
+					<choice hidden="true">
+						<text>Continue...</text>
+						<event>
+							<text>The Engi thank you for deleting the virus, and jump away. They offer an augmentation as a reward.</text>
+							<autoReward level="LOW">standard</autoReward>
+							<augment name="RANDOM"/>
+							<choice hidden="true">
+								<text>Continue...</text>
+								<event load="MORALITY_REMOVE_ENGI"/>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>-->
+			<choice hidden="true" req="ANTI_VIRUS">
+				<text>(防护程序)清除病毒。</text>
+				<event>
+					<text>你的防护程序快速进行工作，找到了具有敌意的代码并将其清除。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>半械族感谢你删除了病毒，他们给你提供了部件作为奖励，然后跃迁走了。</text>
+							<augment name="RANDOM" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_REMOVE_ENGI" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_LANIUS" hidden="true">
+				<text>(食铁族船员)你的食铁族船员正在疯狂地对你做着手势。</text>
+				<event>
+					<text>奇怪的是，你的食铁族船员似乎知道病毒存在于哪台电脑中，并开始...消化终端。有一阵氧气泵出，半械族不再感觉到你星舰上的病毒，于是关闭了他们的武器系统，半械族送来了一些零件来修复你受损的电脑，并给了一个部件来作为终止病毒的奖励。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+					<augment name="RANDOM" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_REMOVE_ENGI" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="engi" hidden="true">
+				<text>(半械族船员)让你的半械族船员与半械族舰船进行谈判。</text>
+				<event>
+					<text>当你的半械族试图联系这艘舰船并进行谈判时，你的半械族船员突然变成了一坨纳米虫！--病毒再次完成了一场谋杀！半械族舰船在检测到你星舰上的活动后立即开始开火！</text>
+					<ship load="SHIP_ENGI_VIRUS_ALT" hostile="true" />
+					<removeCrew class="engi">
+						<clone>false</clone>
+						<text>病毒似乎已经破坏了你克隆舱克隆船员的能力！</text>
+					</removeCrew>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="engi_defender" hidden="true">
+				<text>(半械保卫者)让你的半械保卫者与半械族舰船进行谈判。</text>
+				<event>
+					<text>当你的半械保卫者试图联系该舰船并进行谈判时，你的半械保卫者船员突然倒下，挣扎着--病毒一定是感染了你的半械保卫者！这时，你的半械保卫者突然倒下。然而，你的半械保卫者不久后又站了起来。"威胁已解除。删除了代码。2行。"对半械族舰船来说现在似乎是个不错的情况，他们因删除病毒而奖励了你。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+					<augment name="RANDOM" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_REMOVE_ENGI" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_COGNITIVE_ALL" hidden="true">
+				<text>(认知体船员)让你的认知体船员与病毒进行谈判。</text>
+				<event>
+					<text>你向那些半械族解释说你可能有一个解决方案，然后便等待着你的认知体完成它的工作。没过多久，认知体的系统就重新上线了。"谈判的尝试已经失败，故诉诸于其他方法。我反而让病毒相信，生命是没有意义的。当病毒它采用了同样在困扰我数据库的虚无主义哲学时，它便决定结束自己的生命，不再继续受苦。"半械族舰船对此很满意，并因你删除了病毒而给了奖励。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+					<augment name="RANDOM" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_REMOVE_ENGI" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_virus" global="true">
+		<color r="242" g="242" b="242" a="1.0" />
+        <unvisitedTooltip>此处是半械病毒事件的所在。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="ENGI_VIRUS_REBORN">
+	<text>令你惊讶的是，你的半械族船员重组了。看起来好像是病毒重新组合、重新利用并重新编程了作为宿主的半械族，并表示想和你一起旅行...而且它似乎已经从宿主在星舰上的日子里学到了很多东西。</text>
+	<crewMember amount="1" class="engi_defender" all_skills="2">病毒</crewMember>
+</event>
+
+<event name="ENGI_COMPLEX" unique="true">
+	<ship load="SHIP_ENGI_COMPLEX" hostile="false" />
+	<text>在这个信标处有一个巨大的、保护措施完备的半械族空间站。从外观上看，这个空间站似乎有一部分人员是半械保卫者。很明显，这个空间站在保护一些重要的东西。</text>
+	<choice hidden="true">
+		<text>攻击空间站。</text>
+		<event>
+			<text>无论这个空间站有什么秘密，你都很想要去揭开它。至于揭开秘密的最好方式是什么？当然是通过暴力。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>(高级传感器)扫描空间站。</text>
+		<event>
+			<text>扫描显示该空间站是某种半械族的生产设施！也许如果你能杀死所有船员的话，你就能找到生产半械族船员的方法。</text>
+			<choice hidden="true">
+				<text>攻击空间站。</text>
+				<event>
+					<text>你决定尝试接管这个设施。你给你的武器系统充能，然后投入到战斗之中。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>无视空间站。</text>
+				<event>
+					<text>在谐合星域攻击一个装备精良的半械族空间站几乎等同于自杀。你决定最好无视它。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视空间站。</text>
+		<event>
+			<text>在谐合星域攻击一个装备精良的半械族空间站几乎等同于自杀。你决定最好无视它。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DESTROYED_ENGI_COMPLEX">
+	<text>半械族空间站的废墟中，到处都是半械族的尸体，其数量远远多于空间站内工作人员的数量。他们的来源仍是一个未解之谜；你决定搜刮空间站内剩余的最后一处。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="DEAD_CREW_ENGI_COMPLEX">
+	<text>在空间站上，你惊讶地发现成百上千个装满纳米机器人的管道。在一些管子里，它们已经开始组成像半械族一般的生物，而在另一些管子里，它们仍然是一堆乱七八糟的东西，有点像是有生命的果酱一样。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>试着重新编程，让其中一名半械族为你服务。</text>
+		<event>
+			<text>你试图创造半械族的努力最终以失败告终，一个可怕的，可憎的生物从试管中掉了出来，抓住了你的一个船员，并撕下了那个船员的头！你用你的步枪轰击它，但这似乎只是暂时击晕了它。你在它杀死更多的船员之前撤到了星舰上。随后，你强烈坚持要搜刮这艘舰船的外部区域。</text>
+			<autoReward level="MED">standard</autoReward>
+			<removeCrew>
+				<clone>true</clone>
+				<text>幸运的是，在你回到星舰上时，你死去的船员已经被克隆好了。</text>
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>在这种孤军奋战的情况下，你不觉得有信心承受这种愚弄上帝的行为的后果。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>无视这些管道并搜刮这个空间站。</text>
+		<event>
+			<text>试图玩弄你所不了解的东西可能是致命的。你坚持要做你所了解的事：搜刮空间站。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ENGI"> <!--should include separatists-->
+		<text>(半械族船员)重新编程其中的一名半械族来让其为你服务。</text>
+		<event>
+			<text>你挑选了一个好看的半械族，并对其重新编程，让它忠实地为你服务。在生产半械族的同时，你还收集了空间站周围的一些物资。</text>
+			<autoReward level="MED">stuff</autoReward>
+			<crewMember amount="1" class="engi" />
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking" max_lvl="2">
+		<text>(黑客系统)重新编程其中的一名半械族来让其为你服务。</text>
+		<event>
+			<text>你挑选了一个好看的半械族，并对其重新编程，让它忠实地为你服务。在生产半械族的同时，你还收集了空间站周围的一些物资。</text>
+			<autoReward level="MED">stuff</autoReward>
+			<crewMember amount="1" class="engi" />
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking" lvl="3">
+		<text>(先进黑客)重新编程其中的一名半械族来让其为你服务。</text>
+		<event>
+			<text>凭借你的黑客技术，你进入了其中一个安全级别较高的区域，那里似乎有一些半械保卫者！你对其中一个进行了重新编程，使其忠诚地为你服务，并在离开时迅速拿了一些物资。</text>
+			<autoReward level="MED">stuff</autoReward>
+			<crewMember amount="1" class="engi_defender" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT">
+		<text>(方碑族船员)你的方碑族船员知道如何生产半械族。</text>
+		<event>
+			<text>由于方碑族(间接)负责创造半械族，那么他们知道如何操作机器也就不奇怪了。它设置了一台机器来创造一个半械保卫者，而你则搜集了一些物资。</text>
+			<autoReward level="MED">stuff</autoReward>
+			<crewMember amount="1" class="engi_defender" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_ENGI_MV">
+	<event load="DISTRESS_ENGI_SALVAGE" />
+	<event load="DISTRESS_ENGI_HACKER" />
+	<event load="DISTRESS_ENGI_REACTOR" />
+	<event load="DISTRESS_ENGI_REBEL" />
+	<event load="DISTRESS_ENGI_PARTY" />
+	<event load="DISTRESS_ENGI_DANGER" />
+</eventList>
+
+<event name="DISTRESS_ENGI_SALVAGE" unique="true">
+	<text>这个信标里到处都散布着平民舰船和海盗战舰的碎片，甚至还有一些半械族的舰船。只有一艘半械族的精英战舰还在这里，从它没有损坏的舰体来看，你认为它并没有参与到战斗之中。</text>
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"出乎意料的存在。请求援助。这里发生了战斗，残骸很重。对回收工作的援助将回以感谢。一个规定：任何回收物必须归还本船，以换取公平的报酬。"</text>
+			<choice hidden="true">
+				<text>同意，你明白这将需要大量时间。</text>
+				<event>
+					<text>你在比较合理的时间内，尽可能多地收集碎片。</text>
+					<item_modify>
+						<item type="fuel" min="4" max="4" />
+						<item type="scrap" min="50" max="50" />
+						<item type="missiles" min="5" max="5" />
+						<item type="drones" min="3" max="3" />
+					</item_modify>
+					<modifyPursuit amount="1" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>这些碎片相当的多，但你知道你应该将其还给半械族战舰。</text>
+							<choice hidden="true">
+								<text>将物资还给半械族。</text>
+								<event>
+									<text>半械族收集了你给他们的这些物资。</text>
+									<item_modify>
+										<item type="fuel" min="-4" max="-4" />
+										<item type="scrap" min="-50" max="-50" />
+										<item type="missiles" min="-5" max="-5" />
+										<item type="drones" min="-3" max="-3" />
+									</item_modify>
+									<choice hidden="true">
+										<text>等待你的奖励。</text>
+										<event>
+											<text>你在等待你的奖励，但那些半械族没有转来任何东西。你向他们呼叫，他们回应说："奖励已经存在了。帮助他人的满足感和温暖感。"</text>
+											<choice hidden="true">
+												<text>什么？我们不能容忍这种行为！</text>
+												<event>
+													<text>你不打算忍受这些垃圾半械族。你开始给武器系统充能，准备与半械族战舰正面交锋。</text>
+													<ship load="SHIP_ENGI_SALVAGE_HELP" hostile="true" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>哦...</text>
+												<event>
+													<text>"你的努力=我的感激。"半械族战舰结束通话，并继续打捞回收附近的碎片。</text>
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="MORALITY_REMOVE_ENGI" />
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝归还物资。</text>
+								<event>
+									<text>你花了太长时间回收这些碎片，你是不会心甘情愿地将其交出来的。</text>
+									<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_HARMONY">
+								<text>(谐合船员)请求平分物资。</text>
+								<event>
+									<text>"这个妥协...公平。"虽然你们在谁得到较大的一半上有一些争论，但最终你们达成了一致。</text>
+									<item_modify>
+										<item type="fuel" min="-2" max="-2" />
+										<item type="scrap" min="-25" max="-25" />
+										<item type="missiles" min="-2" max="-2" />
+										<item type="drones" min="-2" max="-2" />
+									</item_modify>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="cloaking">
+								<text>(隐形系统)隐形后离开。</text>
+								<event load="DISTRESS_ENGI_SALVAGE_CLOAK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="MAGNET_ARM">
+				<text>（磁性回收臂）使用你的舰船回收臂收集更多废料。</text>
+				<event>
+					<text>幸运的是，你的磁性回收臂能在合理时间内增加回收量。</text>
+					<item_modify>
+						<item type="fuel" min="6" max="6" />
+						<item type="scrap" min="60" max="60" />
+						<item type="missiles" min="6" max="6" />
+						<item type="drones" min="4" max="4" />
+					</item_modify>
+					<modifyPursuit amount="1" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>这些碎片相当的多，但你知道你应该将其还给半械族战舰。</text>
+							<choice hidden="true">
+								<text>将物资还给半械族。</text>
+								<event>
+									<text>半械族收集了你给他们的这些物资。</text>
+									<item_modify>
+										<item type="fuel" min="-6" max="-6" />
+										<item type="scrap" min="-60" max="-60" />
+										<item type="missiles" min="-6" max="-6" />
+										<item type="drones" min="-4" max="-4" />
+									</item_modify>
+									<choice hidden="true">
+										<text>等待你的奖励。</text>
+										<event>
+											<text>你在等待你的奖励，但那些半械族没有转来任何东西。你向他们呼叫，他们回应说："奖励已经存在了。帮助他人的满足感和温暖感。"</text>
+											<choice hidden="true">
+												<text>什么？我们不能容忍这种行为！</text>
+												<event>
+													<text>你不打算忍受这些垃圾半械族。你开始给武器系统充能，准备与半械族战舰正面交锋。</text>
+													<ship load="SHIP_ENGI_SALVAGE_HELP_MAGNET" hostile="true" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>哦...</text>
+												<event>
+													<text>"你的努力=我的感激。"半械族战舰结束通话，并继续打捞回收附近的碎片。</text>
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="MORALITY_REMOVE_ENGI" />
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝归还物资。</text>
+								<event>
+									<text>你花了太长时间回收这些碎片，你是不会心甘情愿地将其交出来的。</text>
+									<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_HARMONY">
+								<text>(谐合船员)请求平分物资。</text>
+								<event>
+									<text>"这个妥协……公平。"幸运的是，双方都能平分残骸。</text>
+									<item_modify>
+										<item type="fuel" min="-3" max="-3" />
+										<item type="scrap" min="-30" max="-30" />
+										<item type="missiles" min="-3" max="-3" />
+										<item type="drones" min="-2" max="-2" />
+									</item_modify>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="cloaking">
+								<text>(隐形系统)隐形后离开。</text>
+								<event load="DISTRESS_ENGI_SALVAGE_CLOAK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>半械族战舰结束了通讯，回到了打捞残骸的工作中。他们对你进一步的呼叫没有应答。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>回收一些残骸。</text>
+		<event>
+			<text>你开始收集一些废料，这时半械族战舰开始迅速接近。"这个区域是被限制的。打捞：被禁止。需要敌对的回应。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你避开了半械族战舰和那片残骸。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DISTRESS_HARMONY_SALVAGE_HELP_DESTROY">
+	<text>随着半械族战舰被摧毁，你已没有机会拿回你之前回收的所有东西。你收集了残骸中剩余的东西。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>在残骸中继续回收更多。</text>
+		<event>
+			<text>在叛军舰队还没有进一步推进的情形下，你已来不及收集更多的东西，但这总比没有好。</text>
+			<autoReward level="LOW">stuff</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="DISTRESS_HARMONY_SALVAGE_HELP_CAPTURE">
+	<text>随着半械族战舰被你清空，你之前的回收物很容易就被重新收集起来。你最好在叛军舰队取得进一步进展之前迅速离开该信标。</text>
+	<item_modify>
+		<item type="fuel" min="4" max="4" />
+		<item type="scrap" min="50" max="50" />
+		<item type="missiles" min="5" max="5" />
+		<item type="drones" min="3" max="3" />
+	</item_modify>
+</event>
+<event name="DISTRESS_HARMONY_SALVAGE_HELP_CAPTURE_MAGNET">
+	<text>随着半械族战舰被你清空，你之前的回收物很容易就被重新收集起来。你最好在叛军舰队取得进一步进展之前迅速离开该信标。</text>
+	<item_modify>
+		<item type="fuel" min="6" max="6" />
+		<item type="scrap" min="60" max="60" />
+		<item type="missiles" min="6" max="6" />
+		<item type="drones" min="4" max="4" />
+	</item_modify>
+</event>
+<eventList name="DISTRESS_ENGI_SALVAGE_CLOAK">
+	<event>
+		<text>不知为何，半械族战舰没有注意到你的逃跑。你尽可能地与他们的战舰保持着距离。</text>
+	</event>
+	<event>
+		<text>当你试图逃跑时，你发现你的隐形系统开始失效。半械族战舰开始向你攻击，你意识到是他们让你的隐形系统失效。现在你别无选择，只能战斗了。</text>
+		<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="true" /> 
+		<status type="limit" target="player" system="cloaking" amount="0" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+		</choice>
+		<choice hidden="true" req="ANTI_VIRUS">
+			<text>(防护程序)恢复隐形系统的运作。</text>
+			<event>
+				<text>.....................................................................恢复成功。</text>
+				<status type="clear" target="player" system="cloaking" amount="100" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="DISTRESS_ENGI_HACKER"> 
+	<text>求救信标的来源似乎是一艘受到自动黑客舰攻击的半械族舰船。当你跃迁进来时，一架黑客无人机刺穿了半械族的舰船。自动黑客舰前来向你进攻，同时，一组被黑了的半械族也传送到你的星舰上。</text>
+	<ship load="SHIP_AUTO_HACK_HARMONY" hostile="true" />
+	<boarders min="2" max="2" class="engi" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="DISTRESS_HARMONY_HACKER_WIN">
+	<text>自动黑客舰已被摧毁。你搜刮了剩余的残骸。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>联系半械族。</text>
+		<event>
+			<text>随着自动舰被摧毁，半械族舰船上剩下的半械族也恢复了正常。他们向你提供了一些无人机部件。</text>
+			<autoReward level="MED">droneparts_only</autoReward>
+			<killEnemyBoarders />
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_ENGI_REACTOR" unique="true">
+	<distressBeacon />
+	<text>你到达一个闷热的半械族研究站，它的求救呼叫没有任何应答 - 很可能是被海盗或螳螂族袭击了。空间站上也许还有人活着，或者还剩了一些有价值的东西。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>登上空间站。</text>
+		<event load="DISTRESS_ENGI_REACTOR_LIST1" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>你星舰上没有可以派过来的人。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING">
+		<text>(士兵无人机)派出你的士兵无人机。</text>
+		<event load="DISTRESS_ENGI_REACTOR_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>不理会它。</text>
+		<event>
+			<text>这个地方看起来糟糕透了，可能没什么有用的东西。是时候继续前进了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>(高级传感器)再次扫描。</text>
+		<event load="DISTRESS_ENGI_REACTOR_SCAN" />
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS">
+		<text>(长距扫描仪)再次扫描。</text>
+		<event load="DISTRESS_ENGI_REACTOR_SCAN" />
+	</choice>
+</event>
+<eventList name="DISTRESS_ENGI_REACTOR_LIST1">
+	<event>
+		<text>你派出一个小队去调查，但这里除了烧焦的半械族零件散发出的酸性恶臭之外，别无他物。这个地方早已变得死气沉沉。</text>
+	</event>
+	<event>
+		<text>你派出的小队报告有一个受伤的半械族和一个功能正常的无人机蓝图。突然有人开始大喊，空间站反应堆正在逐渐超载，时间不多了！</text>
+		<choice hidden="true">
+			<text>拯救那个半械族！</text>
+			<event load="DISTRESS_ENGI_REACTOR_ENGI" />
+		</choice>
+		<choice hidden="true">	
+			<text>拯救那张无人机蓝图。</text>
+			<event load="DISTRESS_ENGI_REACTOR_DRONE" />
+		</choice>
+		<choice hidden="true">
+			<text>拯救你的小队！</text>
+			<event>
+				<text>这是一个艰难的决定，但你船员的生命乃重中之重。他们放下一切，安然无恙地奔回船上。你拉开飞船与空间站的距离，之后，空间站爆炸了。</text>
+				<autoReward level="LOW">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DISTRESS_ENGI_REACTOR_ENGI">
+	<event>
+		<text>你的一名船员勇敢地抓住那个半械族并将其扔进气闸室，随后，反应堆爆炸了。自动防爆门砰的一声关上，你别无选择，只能哀悼你船员的牺牲并继续前行。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>那名勇敢的船员的克隆从克隆舱大步走出，在做出这样英勇的行为之后，这名船员的心里充实着自我满足感。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>得救的那个半械族提出加入你的船员。</text>
+				<crewMember amount="1" class="engi" />  
+				<autoReward level="LOW">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你的船员与受伤的半械族一起安全地返回气闸室，你拉开飞船与空间站的距离，之后，空间站爆炸了。半械族对你的船员印象深刻，并自愿要加入你的队伍。</text>
+		<crewMember amount="1" class="engi" />  
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+<eventList name="DISTRESS_ENGI_REACTOR_DRONE">
+	<event>
+		<text>你的小队带着货物回来，但正当他们返回飞船时，一次小爆炸炸开了气闸室，小队的一名船员被吸入了太空！</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离星舰足够近，克隆舱能够复活他们。</text>
+		</removeCrew>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>半械族对于事物的感情并不像其他物种。他们一定希望无人机技术能被救出。你的小队带着无人机蓝图安全地返回气闸室，你拉开飞船与空间站的距离，之后，空间站爆炸了。</text>
+		<autoReward level="LOW">drone</autoReward>
+	</event>
+</eventList>
+<event name="DISTRESS_ENGI_REACTOR_SCAN">
+	<text>扫描显示这个空间站的反应堆正在逐渐超载！除此之外，一个受伤的半械族和一个功能正常的无人机蓝图还在空间站上！没时间把两个都救出来的...</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>拯救那个半械族！</text>
+		<event>
+			<text>你的小队直奔半械族，在将其带回到你的星舰上后还休息了一会儿。你拉开飞船与空间站的距离，之后，空间站爆炸了。这个半械族对你的船员印象深刻，并自愿要加入你！</text>
+			<crewMember amount="1" class="engi" />  
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING" blue="true">
+		<text>(士兵无人机)拯救那个半械族！</text>
+		<event>
+			<text>你的无人机直奔半械族，并将其及时带回到你的星舰上。你拉开飞船与空间站的距离，之后，空间站爆炸了。这个半械族对你的船员印象深刻，并自愿要加入你！</text>
+			<crewMember amount="1" class="engi" />  
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>拯救那张无人机蓝图！</text>
+		<event>
+			<text>半械族对于事物的感情并不像其他物种。他们一定希望无人机技术能被救出。你派出小队直奔无人机蓝图，在安全返回气闸室后，你的小队还休息了一会儿。你拉开飞船与空间站的距离，之后，空间站爆炸了。</text>
+			<autoReward level="LOW">drone</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING" blue="true">
+		<text>(士兵无人机)拯救那张无人机蓝图！</text>
+		<event>
+			<text>半械族对于事物的感情并不像其他物种。他们一定希望无人机技术能被救出。你派出无人机直奔无人机蓝图，并及时返回了气闸室。你拉开飞船与空间站的距离，之后，空间站爆炸了。</text>
+			<autoReward level="LOW">drone</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>星舰上没有人能够执行这次拯救蓝图或是半械族的任务。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="DISTRESS_ENGI_REBEL" unique="true">
+	<distressBeacon />
+	<text>求救信号来自于一艘被叛军战斗舰攻击的小型半械族舰船 - 但是当叛军们看到你星舰上联邦的标记时，他们便开始转向攻击你！</text> 
+	<ship load="SHIP_DISTRESS_ENGI_REBEL" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="DISTRESS_ENGI_REBEL_RESULT">
+	<text>事实证明，这个半械族舰船的装备非常差 - 也就勉强能够飞得动而已，真的。他们正试图逃离叛军战舰，而且他们需要一切能够得的到的援助。</text>
+	<choice hidden="true">
+		<text>给他们25废料。</text>
+		<event load="DISTRESS_ENGI_REBEL_LIST1" />
+	</choice>
+	<choice hidden="true">
+		<text>给他们40废料，2发弹药与2份燃料。</text>
+		<event load="DISTRESS_ENGI_REBEL_LIST2" />
+	</choice>
+	<choice hidden="true">
+		<text>什么都不给他们。</text>
+		<event>
+			<text>半械族感觉不到恐惧，所以当你解释你没法帮忙时，他们也不会对你产生恶意。他们踏上了他们的旅程，你也是如此。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ENGI_REBEL_LIST1">
+	<event>
+		<text>他们回应的话是，"需求 = 满足"，你暂且把这当作是感恩的表达。随后他们便跃迁走了，在他们回家的漫长旅程中迈出了下一步。</text>
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>这些半械族很感激。虽然他们没有任何闲置的补给或武器，但他们还是给你传输了一件也许对他们不再必要的自传送医疗纳米机扩散器。</text>
+		<weapon name="BOMB_HEAL" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>这些半械族很感激。他们没有太多的补给，但他们还是给你提供了一张无人机的蓝图。</text>
+		<drone name="RANDOM" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+</eventList>
+<event name="DISTRESS_ENGI_REBEL_LIST2">
+	<text>以他们现在的补给来看，他们撑不了几次跃迁的。你向他们提供了回家途中所需的所有弹药和补给。"慷慨程度无法预测。幸福语法错误[值太高]。请接受这个。"</text>
+	<item_modify>
+		<item type="scrap" min="-40" max="-40" />
+		<item type="fuel" min="-2" max="-2" />
+		<item type="missiles" min="-2" max="-2" />
+	</item_modify>
+	<augment name="NANOBOT_DEFENSE_SYSTEM" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_ENGI" />
+	</choice>
+</event>
+
+<event name="DISTRESS_ENGI_PARTY" unique="true">
+	<distressBeacon />
+	<text>这里的求救信标来自一艘半械族舰船，但是它似乎没有处于任何危险之中。</text>
+	<ship load="SHIP_ENGI_SLUG_PARTY" hostile="false" />
+	<choice hidden="true">
+		<text>呼叫半械族，问发生什么事了。</text>
+		<event>
+			<text>一个戴着紫色派对帽的半械族出现在屏幕上。在他的背景中，你看到几只蛞蝓族在高频闪烁的五彩灯光里热舞。"向你问候。探究：了解如何"狠狠聚会"。需求：蛞蝓族游客们推荐，需要可影响心灵以获取满足感的物质。"</text>
+			<choice hidden="true" req="BLUELIST_ION">
+				<text>(离子武器)电击这个半械族，效果应该也差不多。</text>
+				<event>	
+					<text>半械族像木偶一样挥舞着肢体。几分钟后，当它重新获得对自己肢体的控制时，它脸上屏幕的颜色开始快速闪烁，而且语速变得极为缓慢。"戈——安——谢。只——额——非常：酷——。接尸——欧——补尺——昂——。"</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_PHEROMONES">
+				<text>(螳螂信息素)将信息素散布到他们的舰船上。</text>
+				<event>	
+					<text>信息素的稳定分布肯定对船员们造成了些...影响。但你可能给了他们太多信息素，现在那些蛞蝓族正试图爬上墙壁，而半械族正在拥抱无人机。趁他们分心时，你搜刮了他们舰船的一些外部区域。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ORCHID">
+				<text>(兰花族船员)让你的兰花族船员给他们施点魔法。</text>
+				<event>	
+					<text>兰花族具有一种独特的能力，可以让其他人进入一种..."茫然"的状态。这在那些蛞蝓族和半械族身上效果显著，他们开始表现得非常奇怪。他们为你提供的"帮助"支付了报酬。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_BUTLER">
+				<text>(管家无人机)音量拉满。</text>
+				<event>	
+					<text>这并不是他们所要求的，但他们肯定不会抱怨的。男仆无人机照顾好了每一位蛞蝓族和半械族的需求。很快，男仆无人机便让派对的氛围到达高潮，他们的体力也都逐渐跟不上了。在他们全部昏倒之前，他们慷慨地对你的"帮助"支付了报酬。</text>
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="QUARP_JUICE">
+				<text>（夸普汁）给这个派对加点额外能量。</text>
+				<event>	
+					<text>你向半械族和他们的蛞蝓族同伴分发了夸普汁。派对参与者立刻变得更加精力充沛和兴奋。明显在摇晃的半械族在匆忙加入那些在房间里蹦蹦跳跳的蛞蝓族同伴之前，付钱给你。</text>
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
+			<!--<choice hidden="true" req="SLUG_NARCOTICS">
+				<text>(Slug Narcotics) Give the Engi the drugs.</text>
+				<event>	
+					<text>The Engi looks at the drugs, unsure of what to do with them. One of the Slugs however, has caught sight of them. They swipe the narcotics from the Engi before quickly paying you. Just before you leave, you spot the Engi unsuccessfully trying to chase down the Slug in question to retrieve the narcotics.</text>
+					<autoReward level="HIGH">weapon</autoReward>
+					<remove name="SLUG_NARCOTICS"/>
+				</event>
+			</choice>-->
+			<choice hidden="true">
+				<text>我们没法帮忙。</text>
+				<event load="DISTRESS_ENGI_PARTY_LEAVE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>威胁一定已经被解决了，只是这些半械族还没有关闭他们的求救信标而已。你继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ENGI_PARTY_LEAVE">
+	<event>
+		<text>当你正准备离开时，其中一个蛞蝓族把半械族推开。"伙计这样很不酷的啊，你真的就这样把我们晾在一旁吗？"扫描显示他们的武器系统已经激活！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event> 
+	<event /> 
+</eventList>
+
+<event name="DISTRESS_ENGI_DANGER" unique="false">
+	<text>你收到来自附近半械族舰船的求救呼叫。"请求提供援助。现状危险。即将被摧毁。"</text>
+	<choice>
+		<text>回应呼叫并前去协助。</text>
+		<event load="DISTRESS_ENGI_DANGER_LIST" />
+	</choice>
+	<choice>
+		<text>保持距离。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="DISTRESS_ENGI_DANGER_LIST">
+	<event>
+		<text>随后，你又收到那个舰船的另一条消息，这次的通讯中传来的是螳螂族的声音。他大喊道，"愚蠢的肉袋！"很快，传感器就显示这个舰船正在接近你以进行攻击，并且同时从空间站传送来了许多入侵者。</text>
+		<ship load="SHIP_ENGI_MANTIS_CONTROLLED" hostile="true" />
+		<boarders min="1" max="2" class="mantis" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你靠近并发现了一艘螳螂族战舰正在袭击一个小型半械族空间站。你做好了战斗的准备！</text>
+		<ship load="SHIP_MANTIS_ENGI_STATION" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="DISTRESS_ENGI_DANGER_SAVE">
+	<event>
+		<text>半械族空间站一片荒芜，看上去这里曾发生了一场激烈的战斗。螳螂族一定是重新激活了求救信号来引诱其他舰船进入这个陷阱。</text>
+	</event>
+	<event>
+		<text>空间站下达了疏散命令。一些半械族平民在最后准备离开时向你表示了感谢，并提供一些燃料作为回报。</text>
+		<autoReward level="MED">fuel_only</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_REMOVE_ENGI" />
+		</choice>
+	</event>
+	<event>
+		<text>该站呼叫你："感谢。在没有援助的情况下，预计失败的概率为...86.2%。要求适当的奖励。"</text>
+		<choice hidden="true">
+			<text>请求燃料。</text>
+			<event>
+				<text>"请求已许可。燃料转移中。"</text>
+				<autoReward level="HIGH">fuel</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_REMOVE_ENGI" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>请求武器。</text>
+			<event>
+				<text>"请求已许可。武器转移中。"</text>
+				<autoReward level="LOW">weapon</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_REMOVE_ENGI" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>请求无人机蓝图。</text>
+			<event>
+				<text>"请求已许可。无人机蓝图转移中。"</text>
+				<autoReward level="LOW">drone</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_REMOVE_ENGI" />
+				</choice>
+			</event>
+		</choice>
+		<choice req="LIST_CREW_HARMONY" hidden="true">
+			<text>(谐合船员)"威胁仍潜在。当前最需要执行的任务：第52.34号协议。"</text>
+			<event>
+				<!--<text>They respond, "Understood. Re-establishment of Federation highest importance. Transmitting hidden base coordinates. Repairing hull and attaching ship to ship ordnance."</text>-->
+				<text>他们回应，"明白。重建联邦至关重要。正在修复舰体并安装舰对舰武器。"</text>
+				<autoReward level="LOW">weapon</autoReward>
+				<!--<quest event="HIDDEN_FEDERATION_BASE_LIST"/>-->
+				<damage amount="-10" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_REMOVE_ENGI" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>这些半械族对你的帮助表达了感谢。当你告诉他们你的任务时，其中一名半械族问他是否可以来协助你的船员。你欢迎了他的加入。</text>
+		<crewMember amount="1" class="engi" />
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_REMOVE_ENGI" />
+		</choice>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_ENGI_MV">
+	<event load="QUEST_ENGI_SLAVE" />
+	<event load="QUEST_ENGI_CRIME" />
+</eventList>
+
+<event name="QUEST_ENGI_SLAVE" unique="true">
+	<text>你发现一队装备简陋的螳螂族舰船。令你惊讶的是，其中一艘舰船向你呼叫。"你是联邦飞船吗？或许是，或许不是，我们不关心。我们有一个提议。"</text>
+	<choice hidden="true">
+		<text>聆听他们的提议。</text>
+		<event>
+			<text>"正如你所见，舰船上的军火，不怎么好。高级半械族军事设施就在附近，我们不能以这种装备突袭它。你的星舰，装备更好。闯入，偷取奴隶，带给我们。我们付钱给你。"</text>
+			<choice hidden="true">
+				<text>同意闯入。</text>
+				<event>
+					<text>螳螂族舰队的首领，一艘领主战舰，向你传输了设施的坐标，并告诉你工作完成后如何与重新取得联系。</text>
+					<quest event="QUEST_ENGI_SLAVE_FACILITY" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们可不做奴役别人的生意。</text>
+				<event>
+					<text>"呸，联邦舰船这么无聊。别再回来了。"</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们并不接任何工作。</text>
+		<event>
+			<text>"呸，联邦舰船这么无聊。别再回来了。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_SLAVE_FACILITY">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>螳螂族要求你突袭一个空间站，以获取半械族奴隶。</unvisitedTooltip>
+	</beaconType>
+	<text>那个半械族设施似乎是一个中等规模的半械族空间站。如果你要抓捕奴隶，你需要削弱他们的防御，让他们投降。</text>
+	<ship load="SHIP_ENGI_STATION_SLAVE_REQUEST" hostile="false" /> 
+	<choice hidden="true">
+		<text>攻击空间站。</text>
+		<event>
+			<text>你准备与空间站交战。由于根本无法逃跑，半械族别无选择，只能进行反击。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="teleporter">
+		<text>(传送器)尝试登上空间站并带走一名半械族。</text>
+		<event>
+			<text>你的船员试图登上这个空间站，但并没有成功。半械族的安全系统太严密了，几乎立刻就发现了你的船员。你把你的船员传送回来并准备战斗。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>这不值得你这么做。</text>
+		<event>
+			<text>你不会为了螳螂族而去偷窃半械族作为奴隶的，尤其是在谐合星区里。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DESTROYED_ENGI_SLAVE_REQUEST">
+	<text>既然你已经摧毁了这个空间站，那就已经没有任何希望救出一名半械族。你切断了与螳螂族的联络，并搜刮了这个空间站。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="DEAD_CREW_ENGI_SLAVE_REQUEST">
+	<text>在一次本该活捉半械族船员的任务中，你认为把他们都杀个精光是个不错的主意。既然现在已没有办法得到一个活的半械族，你删除了与螳螂族的联络，并搜刮了这个空间站。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="SURRENDER_ENGI_SLAVE_REQUEST">
+	<text>这个半械族空间站向你传送了一条投降的信息。他们愿意满足你的任何要求。</text>
+	<choice hidden="true">
+		<text>要求他们给你一名半械族作为奴隶。</text>
+		<event>
+			<text>这个半械族空间站花了几分钟时间来决定派谁过去。最后，一个倒霉的半械族被送到了你的星舰上。</text>
+			<ship hostile="false" /> 
+			<choice hidden="true">
+				<text>遵守承诺，把奴隶带回到螳螂族那里。</text>
+				<event>
+					<text>这似乎很残酷，但你别无选择，只能把半械族关在货舱里。你与螳螂族舰船取得联系，螳螂族对你的工作很满意。他们向你传输了他们所在位置的新坐标。</text>
+					<quest event="QUEST_ENGI_SLAVE_MANTIS" />
+				</event>
+			</choice>
+			<choice>
+				<text>让奴隶留在你的星舰上工作。</text>
+				<event>
+					<text>半械族感到十分的震惊。与在螳螂族舰船上不断劳作相比，你的提议还是更受欢迎。这个半械族表示愿意加入你的团队。</text>
+					<crewMember amount="1" class="engi_defender" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>去他的螳螂族和半械族吧，我要看到血流成河！</text>
+		<event />
+	</choice>
+</event>
+<event name="QUEST_ENGI_SLAVE_MANTIS">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>螳螂族们正在此处等待你带回一名半械族。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了螳螂族舰船的位置。他们把半械族奴隶带上自己的舰船，并如约给了你大量的废料，以及他们从另一艘半械族舰船上偷来的无人机。</text>
+	<autoReward level="HIGH">scrap_only</autoReward>
+	<drone name="RANDOM" />
+</event>
+
+<event name="QUEST_ENGI_CRIME" unique="true">
+	<text>在所有你认为会在这里看到的舰船中，叛军工程舰是你最不想见到的。对方正忙着检查一艘半械族舰船的残骸，不过由于叛军和半械族之间的互不侵犯条约，以及工程舰的武器与半械族舰船的损坏程度不相符的结果来看，他们很可能不是摧毁半械族舰船的元凶。</text>
+	<choice hidden="true">
+		<text>呼叫他们，询问舰船残骸的情况。</text>
+		<event>
+			<text>叛军工程师叹了口气，陷入深思。"不，不是我们干的...真是可耻有人竟然摧毁了它。我知道我们关心这样的事情对你来说可能显得很不寻常，但我加入革命军并不是为了什么'光辉的人类未来'。他们资助了我的项目，仅此而已。有人一直在这片星域内猎杀半械族，我想阻止这样的事情发生。你能检查残骸并找出是谁干的吗？"</text>
+			<choice hidden="true">
+				<text>同意找到凶手。</text>
+				<event load="QUEST_ENGI_CRIME_INSPECT" />
+			</choice>
+			<choice hidden="true">
+				<text>我们又不是侦探，帮不上忙的。</text>
+				<event>
+					<text>"意料之中的回答。这就是我加入革命军的第二个原因..."</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>谁在乎凶手是谁，杀死这些叛军！</text>
+		<event>
+			<text>叛军工程师们有没有杀死半械族并不重要，重要的是他们无疑已经杀死了很多其他生命。</text>
+			<ship load="SHIP_ENGINEER" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些工程师。</text>
+		<event>
+			<text>叛军工程师们继续检查着半械族舰船的残骸，并且无视了你的星舰。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="QUEST_ENGI_CRIME_INSPECT">
+	<event load="QUEST_ENGI_CRIME_INSPECT_MANTIS" />
+	<event load="QUEST_ENGI_CRIME_INSPECT_ROCK" />
+	<event load="QUEST_ENGI_CRIME_INSPECT_SEPARATIST" />
+	<event load="QUEST_ENGI_CRIME_INSPECT_LANIUS" />
+</eventList>
+<event name="QUEST_ENGI_CRIME_INSPECT_MANTIS">
+	<text>半械族舰船没有什么外部损伤。但在内部，半械族船员的尸体和失效的纳米机器人大块大块地躺在一起。舰船的各种系统都受到了严重的损害，它们的电线被切成两半，长长的爪痕印在舰船的舱壁上。</text>
+	<choice hidden="true">
+		<text>凶手是螳螂族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的螳螂族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_MANTIS_CORRECT" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是岩石族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的岩石族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_ROCK_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是分离者。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的分离者的舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_SEPARATIST_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是食铁族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的食铁族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_LANIUS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_haynes">
+		<text>(海因斯)根据我的推理，凶手是螳螂族！</text>
+		<event>
+			<text>你向叛军工程师们报告了海因斯的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的螳螂族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_MANTIS_CORRECT" />
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_INSPECT_ROCK">
+	<text>半械族舰船受到了严重的外部损害。损害似乎是由一个强大的武器造成的，可能是一个导弹发射器之类的武器。</text>
+	<choice hidden="true">
+		<text>凶手是螳螂族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的螳螂族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_MANTIS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是岩石族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的岩石族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_ROCK_CORRECT" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是分离者。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的分离者的舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_SEPARATIST_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是食铁族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的食铁族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_LANIUS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_haynes">
+		<text>(海因斯)根据我的推理，凶手是岩石族！</text>
+		<event>
+			<text>你向叛军工程师们报告了海因斯的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的岩石族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_ROCK_CORRECT" />
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_INSPECT_SEPARATIST">
+	<text>除了一些电气火灾之外，这艘半械族飞船几乎没有外部损伤。在舰船内部，半械族船员的尸体和几架失效的士兵无人机散落在一起。看起来半械族舰船的无人机控制装置并没有被安装到这些士兵无人机上，所以这些士兵无人机不可能属于这个半械族舰船。</text>
+	<choice hidden="true">
+		<text>凶手是螳螂族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的螳螂族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_MANTIS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是岩石族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的岩石族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_ROCK_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是分离者。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的分离者的舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_SEPARATIST_CORRECT" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是食铁族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的食铁族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_LANIUS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_haynes">
+		<text>(海因斯)根据我的推理，凶手是分离者！</text>
+		<event>
+			<text>你向叛军工程师们报告了海因斯的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的分离者的舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_SEPARATIST_CORRECT" />
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_INSPECT_LANIUS">
+	<text>半械族舰船受到了相当大的外部伤害。大块的碎片仍然停留在舰体上，可能是破片炮造成的。并且舰船内的氧气含量格外地低。</text>
+	<choice hidden="true">
+		<text>凶手是螳螂族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的螳螂族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_MANTIS_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是岩石族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的岩石族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_ROCK_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是分离者。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的分离者的舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_SEPARATIST_WRONG" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>凶手是食铁族。</text>
+		<event>
+			<text>你向叛军工程师们报告了你的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的食铁族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_LANIUS_CORRECT" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_haynes">
+		<text>(海因斯)根据我的推理，凶手是食铁族！</text>
+		<event>
+			<text>你向叛军工程师们报告了海因斯的推测。"我相信你的推论。在扫描这个信标后，我们发现了最后几艘从这里跃迁走的舰船。这个是最后从这里跃迁走的食铁族舰船的当前坐标。"</text>
+			<quest event="QUEST_ENGI_CRIME_LANIUS_CORRECT" />
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_MANTIS_CORRECT">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>螳螂族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着螳螂族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_MANTIS_ENGINEER_APREHEND_CORRECT" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"呃，什么？我们座了很多事情。你需要巨体一些。"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"还是，太含糊了。我们沙了很多半械族舰船。你想嗦什么？"</text>
+					<choice hidden="true">
+						<text>这样就足够了。回去向工程师报告他们的行为。</text>
+						<event>
+							<text>工程师很高兴你抓住了凶手——螳螂族舰船。这些工程师在附近跃迁走，前往抓捕螳螂族舰船。自然，螳螂族舰船可不会乖乖束手就擒，但现在你们这边有了额外的火力支援。</text>
+							<environment type="PDS" target="enemy" />
+							<noASBPlanet />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_ROCK_CORRECT">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>岩石族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着岩石族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_ROCK_ENGINEER_APREHEND_CORRECT" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"嗯？你在说什么？"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"哦，那些家伙啊。他们对我们哔哔地叫唤！想象一下这有多恼人吧。我没觉得我们的做法有任何问题。"</text>
+					<choice hidden="true">
+						<text>回去向工程师报告他们的行为。</text>
+						<event>
+							<text>工程师很高兴你抓住了凶手——岩石族舰船。这些工程师在附近跃迁走，前往抓捕岩石族舰船。自然，岩石族舰船可不会乖乖束手就擒，但现在你们这边有了额外的火力支援。</text>
+							<environment type="PDS" target="enemy" />
+							<noASBPlanet />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_SEPARATIST_CORRECT">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>分离者罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着分离者嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_SEPARATIST_ENGINEER_APREHEND_CORRECT" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"错误：困惑。恐怕我不[理解]你指的是什么。请进行-解释-。"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"谐合是敌人。你同样杀死[敌人]叛军，对吗？我不明白有什么问题。"</text>
+					<choice hidden="true">
+						<text>回去向工程师报告他们的行为。</text>
+						<event>
+							<text>工程师很高兴你抓住了凶手——分离者舰船。这些工程师在附近跃迁走，前往抓捕那些半械族舰船。自然，分离者舰船可不会乖乖束手就擒，但现在你们这边有了额外的火力支援。</text>
+							<environment type="PDS" target="enemy" />
+							<noASBPlanet />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_LANIUS_CORRECT">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>食铁族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着食铁族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_LANIUS_ENGINEER_APREHEND_CORRECT" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"但恐怕不能理解。更清楚些？"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"觉得在说垃圾。舰船垃圾，吃舰船！吃垃圾。你吃吗？垃圾！"</text>
+					<choice hidden="true">
+						<text>回去向工程师报告他们的行为。</text>
+						<event>
+							<text>工程师很高兴你抓住了凶手——食铁族舰船。这些工程师在附近跃迁走，前往抓捕食铁族舰船。自然，食铁族舰船可不会乖乖束手就擒，但现在你们这边有了额外的火力支援。</text>
+							<environment type="PDS" target="enemy" />
+							<noASBPlanet />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_WIN">
+    <text>你已经为半械族舰船报了仇。工程师们对你们的努力表示感谢。"也许联邦其实并没有那么糟糕。来，这些奖励请不要客气。"</text>
+    <autoReward level="HIGH">droneparts</autoReward>
+    <drone name="RANDOM" />
+</event>
+<event name="QUEST_ENGI_CRIME_MANTIS_WRONG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>螳螂族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着螳螂族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_MANTIS_ENGINEER_APREHEND_WRONG" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"呃，什么？我们座了很多事情。你需要巨体一些。"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"什么？我们没沙任何半械族。好吧...片你的。但我们在这里没沙过任何半械族。"</text>
+					<choice hidden="true">
+						<text>可恶，他们不是凶手...</text>
+						<event>
+							<text>螳螂族舰船很困惑，但对方因你的指责而激动不已，并发动了攻击！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_ROCK_WRONG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>岩石族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着岩石族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_ROCK_ENGINEER_APREHEND_WRONG" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"嗯？你在说什么？"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"我不知道你在说啥呢。这是什么种族主义的笑话吗？"</text>
+					<choice hidden="true">
+						<text>可恶，他们不是凶手...</text>
+						<event>
+							<text>岩石族舰船很困惑，但对方因你的指责而激动不已，并发动了攻击！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_SEPARATIST_WRONG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>分离者罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着分离者嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_SEPARATIST_ENGINEER_APREHEND_WRONG" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"错误：困惑。恐怕我不[理解]你指的是什么。请进行-解释-。"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"更加困惑。我的理解力进一步下降。我们没有接触半械族舰船。"</text>
+					<choice hidden="true">
+						<text>可恶，他们不是凶手...</text>
+						<event>
+							<text>分离者的舰船很困惑，但对方因为你的指责而激动不已，于是发动了攻击！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_LANIUS_WRONG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>食铁族罪犯。</unvisitedTooltip>
+	</beaconType>
+	<text>你追踪着食铁族嫌犯的踪迹，来到这个信标。</text>
+	<ship load="SHIP_LANIUS_ENGINEER_APREHEND_WRONG" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们知道你做了什么！</text>
+		<event>
+			<text>"但恐怕不能理解。更清楚些？"</text>
+			<choice hidden="true">
+				<text>你们杀死了半械族！</text>
+				<event>
+					<text>"半械族舰船没有杀死。不杀垃圾。你敢指责？"</text>
+					<choice hidden="true">
+						<text>可恶，他们不是凶手...</text>
+						<event>
+							<text>食铁族舰船很困惑，但对方因为你的指责而激动不已，于是发动了攻击！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_ENGI_CRIME_LOSE">
+	<text>你没能找到谋害半械族舰船的真正凶手。你避免了与工程师们的进一步联系，并将残骸回收。</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_ENGI_MV">
+	<event load="ENCOUNTER_MANTIS_ENGI" />
+	<event load="ENCOUNTER_PIRATE_ENGI" />
+	<event load="ENCOUNTER_SEPARATIST_ENGI" />
+	
+	<event load="ENCOUNTER_REBEL" />
+	<event load="ENCOUNTER_AUTO" />
+	<event load="ENCOUNTER_PIRATE" />
+</eventList>
+
+<event name="ENCOUNTER_MANTIS_ENGI">
+	<text load="ENGI_MANTIS_FIGHT_MV" />
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ENGI_MANTIS_FIGHT_MV">
+	<text>你侦测到一个混合雷达信号，顺着信号你发现一艘螳螂族攻击舰正在半械族母舰的残骸中拾荒。在发现了你后，攻击舰转向了你并发动了攻击。</text>
+	<text>你发现一个螳螂族突击舰正对一个毫无防备的半械补给站射击，但它的武器与补给站的装甲完全不是一个级别。这艘突击舰于是便转向了你，以你的星舰为目标。准备作战！</text>
+	<text>看起来该区域已经安全了，你正准备跳下去，突然，一个螳螂族侦察舰跃迁到你身后！对方和你一样惊讶，但对方的武器系统已开始运作。</text>
+	<text>你发现一艘螳螂族战舰正在骚扰一小队半械族舰船。半械族的舰船磕磕绊绊地到达了跃迁点并跃迁走了，留下你和追杀半械族的螳螂族战舰面面相觑！</text>
+</textList>
+
+<event name="ENCOUNTER_PIRATE_ENGI" unique="true">
+	<text>在战争爆发之前，这里一定是海盗掠夺的天堂。你遇到的这艘海盗战舰看起来疲惫而又饥渴。看来你免不了一场战斗了！</text>
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_SEPARATIST_ENGI" unique="true">
+	<text>一艘躲避半械族巡逻舰的分离者难民舰正在这个信标处藏身。当他们看到一艘联邦飞船跃迁到附近时，他们认为你是为了抓他们而来，于是发动了攻击！</text>
+	<ship load="SHIP_SEPARATIST_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--<eventList name="HOSTILE_HARMONY">
+	<event load="ENCOUNTER_ENGI_HARMONY"/>
+	<event load="ENCOUNTER_ENGI_ELITE"/>
+	<event load="ENCOUNTER_SEPARATIST_HARMONY"/>
+
+	<event load="ENGI_MANTIS_FIGHT"/>
+	<event load="ENGI_REBEL_FIGHT"/>
+	<event load="ENGI_PIRATE_FIGHT"/>
+	
+	<event load="ENGI_VIRUS"/>
+</eventList>
+
+<event name="ENCOUNTER_ENGI_HARMONY">
+	<text load="TEXT_ENCOUNTER_ENGI_HARMONY"/>
+	<ship load="SHIP_ENGI_FIGHT" hostile="true"/>
+	<choice hidden="true">
+		<text>Continue...</text>
+		<event load="COMBAT_CHECK"/>
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ENGI_HARMONY">
+	<text>You're hailed by an Engi ship, their crew as close to mad as they can be. "This sector is restricted. Access to beacon denied."</text>
+	<text>Ever since the rise of the Rebellion and the increase in Mantis invasions, the Engi have placed this sector under quarantine. An Engi ship, intent on protecting this beacon, spots you and attacks.</text>
+	<text>As you learnt from the guard, this sector is restricted from public access. Unfortunately, there appears to be an Engi ship here set on enforcing this rule.</text>
+</textList>-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="ENCOUNTER_ENGI_ELITE">
+	<text>半械保卫者通常是非侵略性的，但正如他们的名字所示，他们的主要目的是保卫谐合。不知怎得，他们认为你的星舰对谐合构成了威胁，并采取行动来消灭你。</text>
+	<ship load="SHIP_ENGI_ELITE_FIGHT_NOSURRENDER" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="HARMONY_LINK_DEFAULT" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_link" global="true">
+		<color r="137" g="142" b="148" a="1.0" />
+		<unvisitedTooltip>此处是一个谐合链的所在。</unvisitedTooltip>
+		<visitedTooltip>此处是一个谐合链的所在。</visitedTooltip>
+    </beaconType>
+	<text>看来你已经发现了一处谐合链。这些巨大的行星大小的结构是由10的30次方量级的纳米机器人组成的，并向该地区的所有半械族发送强烈的信号。</text>
+	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
+	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_EVENTS" />
+	</choice>
+	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_EVENTS_NOANCIENT" />
+	</choice>
+</event>
+<event name="HARMONY_LINK_UNIQUE" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_link" global="true">
+		<color r="137" g="142" b="148" a="1.0" />
+		<unvisitedTooltip>此处是一个谐合链的所在。</unvisitedTooltip>
+		<visitedTooltip>此处是一个谐合链的所在。</visitedTooltip>
+    </beaconType>
+	<text>看来你已经发现了一处谐合链。这些巨大的行星大小的结构是由10的30次方量级的纳米机器人组成的，并向该地区的所有半械族发送强烈的信号。</text>
+	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
+	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_ANCIENT" />
+	</choice>
+	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_EVENTS_NOANCIENT" />
+	</choice>
+</event>
+
+<eventList name="HARMONY_LINK_EVENTS">
+	<event load="HARMONY_LINK_FIGHTMANTIS" />
+	<event load="HARMONY_LINK_FIGHTENGI" />
+	
+	<event load="HARMONY_LINK_ANCIENT" />
+</eventList>
+<eventList name="HARMONY_LINK_EVENTS_NOANCIENT"> <!--the player has already found the ancients, and as such it will not spawn again-->
+	<event load="HARMONY_LINK_FIGHTENGI" />
+	<event load="HARMONY_LINK_FIGHTMANTIS" />
+</eventList>
+
+<event name="HARMONY_LINK_FIGHTENGI">
+	<text>一艘半械族飞船正在谐合链附近休息。这是一个精英单位，但他们还没有攻击。</text>
+	<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>攻击对方！</text>
+		<event>
+			<text>当你接近时，突然，半械族飞船激活了，它的无人机也上线了。"配备了多元宇宙推进器的飞船正在接近。对谐合链的威胁：启动防御协议。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>请求物资。</text>
+		<event>
+			<text>"拒绝。任务：保护谐合链。请勿干扰。"看起来你不会从他们那里得到什么。</text>
+			<choice hidden="true">
+				<text>如果他们不给我们补给，我们就把他们给带走！</text>
+				<event>
+					<text>"多元舰船检测。威胁谐合链：防御协议启动。"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_HARMONY">
+		<text>(谐合船员)请求物资。</text>
+		<event>
+			<text>"检测到谐合单位。协议要求给予援助。"</text>
+			<autoReward level="MED">droneparts_only</autoReward>
+			<damage amount="-3" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视半械族。</text>
+		<event>
+			<text>如果他们对你没有威胁，那么你也不必对他们造成威胁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HARMONY_LINK_FIGHTMANTIS">
+    <text>一艘螳螂领主飞船正在信标附近等待，很可能正在追捕半械族。"联邦，我们建议你离远点，除非想成为下一个猎物..."</text>
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>攻击对方！</text>
+		<event>
+			<text>"好。如果想死，那就让我来成全你！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问他们是否有奴隶提供。</text>
+		<event>
+			<text>"嗯。想交易？嗯...也许吧。之前做了成功的狩猎，不过本应该是要送去母巢的，所以价格会很高。"</text>
+			<choice>
+				<text>购买一名半械族。</text>
+				<event>
+					<text>"很好，很好。现在赶紧离开，我们还有要杀的目标。"</text>
+					<crewMember amount="1" class="engi" />
+					<item_modify>
+						<item type="scrap" min="-60" max="-50" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>购买一名半械保卫者。</text>
+				<event>
+					<text>"很好，很好。现在赶紧离开，我们还有要杀的目标。"</text>
+					<crewMember amount="1" class="engi_defender" />
+					<item_modify>
+						<item type="scrap" min="-110" max="-95" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>算了。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些螳螂族。</text>
+		<event>
+			<text>如果他们对你没有威胁，那么你也不必对他们造成威胁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_ANCIENT_AUTOSTART" auto_blueprint="LIST_SHIPS_ANCIENT_AUTO">
+	<destroyed load="HARMONY_LINK_ANCIENT_WIN" />
+	<surrender min="3" max="4">
+		<text>突然，这个舰船发出了一个信号，但其传递的信息让人难以分辨。你星舰的翻译器工作了很久，最后翻译出来的却还是无意义的一些文字，比如"蔚蓝昨日的领头火鸡"。在信号停止后，你的系统突然失控！看来这个舰船已经激活了某种奇怪的战斗部件！</text>
+		<status type="limit" target="player" system="sensors" amount="0" />
+		<status type="limit" target="player" system="doors" amount="0" />
+		<status type="divide" target="player" system="shields" amount="2" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>更糟糕的是，这个舰船的其余系统似乎也已经开始运作！</text>
+				<status type="clear" target="enemy" system="drones" amount="100" />
+				<status type="clear" target="enemy" system="hacking" amount="100" />
+				<status type="clear" target="enemy" system="mind" amount="100" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event>
+						<status type="clear" target="enemy" system="cloaking" amount="100" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</surrender>
+</ship>
+<event name="HARMONY_LINK_ANCIENT">
+	<text>几个巨大结构的残骸环绕着谐合链...也许这些不是残骸，是某种舰船？这些由巨大的立方体结构组成的舰船比你见过的任何舰船都要大，但它们已经完全被摧毁了。一个设计奇怪的非立方体结构的自动舰静静地躺在残骸旁。你不确定靠近它会不会把它唤醒。</text>
+	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
+	<variable name="loc_foundancient" op="set" val="1" />
+	<ship load="SHIP_ANCIENT_AUTOSTART" hostile="false" />
+	<status type="limit" target="enemy" system="cloaking" amount="0" />
+	<status type="limit" target="enemy" system="hacking" amount="0" />
+	<status type="limit" target="enemy" system="mind" amount="0" />
+	<choice hidden="true">
+		<text>以防万一，先把自动舰摧毁掉。</text>
+		<event>
+			<text>你靠近这个自动舰，结果正如你所预料的一般，它自动激活了。看起来这艘自动舰似乎没有运行其所有的系统...希望它能够保持这种状态！准备作战吧！</text>
+			<ship hostile="true" />
+			<status type="limit" target="enemy" system="drones" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>尝试在不唤醒舰船的情况下回收它。</text>
+		<event>
+			<text>你试图在残骸最边远的区域搜刮回收，但不久之后，你看见那个自动舰被你的存在所唤醒，正在向你不断靠近！它直接击中并损坏了你的舰体，你赶忙带着船员和目前收集到的东西回到星舰上。看起来这艘自动舰似乎没有运行其所有的系统...希望它能够保持这种状态吧！</text>
+			<autoReward level="MED">standard</autoReward>
+			<damage amount="3" />
+			<status type="limit" target="enemy" system="drones" amount="0" />
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这片残骸。</text>
+		<event>
+			<text>你小心翼翼地离开这个自动舰。你几乎可以看得见自动舰上闪烁的亮光和它细微的移动，就好像它在观察着你一样...</text>
+		</event>
+	</choice>
+</event>
+<event name="HARMONY_LINK_ANCIENT_WIN">
+	<text>这艘不知来源的自动舰被你击毁了。你在残骸中发现了大量的废料。</text>
+	<variable name="loc_got_corpse" op="set" val="1" />
+	<autoReward level="HIGH">standard</autoReward>
+	<status type="clear" target="player" system="sensors" amount="100" />
+	<status type="clear" target="player" system="doors" amount="100" />
+	<status type="clear" target="player" system="shields" amount="100" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>现在不会再有自动舰打扰你了，你勘察了剩余的残骸。似乎这里大多数的舰体材料都与你的数据库中现存的数据不匹配，而且这些材料异常坚固，难以搜刮回收。无论是谁制造了这些舰船，他们都一定来自一个高度先进的文明，或者来自一个完全不同的星系...</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>在其中一艘较大的星舰内，你惊讶地发现了一个类似是某种机器人的东西，就像那些舰船一样，它也是完完全全的立方体结构。它周围房间的一部分呈现溶解状，并且在旁边还散落着一些外形奇特的食铁族尸体。出于好奇，你把机器人带回到你的星舰上，但你由于不知道该如何启动机器人，只好先把它留在存储舱的角落里。除此之外，你还发现了一组奇怪的坐标并将其标记在了你的星图上。</text>
+					<quest event="AUGMENTED_DISCOVERY" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_TURZIL_TRANSPORT" auto_blueprint="LIST_SHIPS_SMUGGLERS">
+	<escape timer="40" min="30" max="30" />
+	<gotaway>
+		<text>走私者跳走了。你可能永远不知道他们的货物里有什么...</text>
+	</gotaway>
+	<surrender min="1" max="3" load="TURZIL_PIRATE_SURRENDER" />
+	<destroyed load="TURZIL_PIRATE_DESTROYED" />
+	<deadCrew load="TURZIL_PIRATE_DEADCREW" />
+</ship>
+<event name="TURZIL_PIRATE_TRANSPORT" unique="true">
+	<preventQuest />
+	<text>一艘走私运输舰正试图从这个信标的半械族巡逻舰队旁溜走。对方正在拼命地避开你，你不免怀疑对方舰船上有什么重要的东西。</text>
+	<ship load="SHIP_TURZIL_TRANSPORT" hostile="false" />
+	<choice hidden="true">
+		<text>审问他们。</text>
+		<event>
+			<text>"啊，糟糕，是联邦的人！我们必须离开这里！"走私舰充能引擎，试图逃跑！你必须在对方逃跑之前将其击败。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>无视走私舰。</text>
+		<event>
+			<text>你对走私舰携带的任何东西都不感兴趣。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_turzilstart" global="true">
+        <color r="163" g="148" b="48" a="1.0" />
+        <unvisitedTooltip>此处是携带图尔齐尔的走私舰所在。击沉他们的船或接受他们的投降。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="TURZIL_PIRATE_SURRENDER">
+	<text>走私舰向你呼叫，宣布了投降。"好吧，好吧！你赢了！拿走我们的货物，让我们走吧！反正他们给我们的钱也不怎么多..."</text>
+	<choice hidden="true">
+		<text>接受他们的投降。</text>
+		<event>
+			<text>走私舰从他们的舰船上弹出一个救生舱并跃迁走了。你打开救生舱，发现里面有一个颜色奇怪的半械保卫者。</text>
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"你已经摧毁了我离开这个星区的主要运输途径。要求：你把我运出谐合星区。会付钱的。"</text>
+					<choice>
+						<text>接受。</text>
+						<event>
+							<crewMember amount="1" class="unique_turzil">图尔齐尔</crewMember>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+					<choice>
+						<text>拒绝。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝并继续战斗。</text>
+		<event />
+	</choice>
+</event>
+<event name="TURZIL_PIRATE_DESTROYED">
+	<text>你已经摧毁了这艘走私舰。虽然他们的货舱已经被摧毁，但至少在战斗中留下了一些废料可供你收集。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="TURZIL_PIRATE_DEADCREW">
+	<text>你已经杀死了所有的走私者，希望他们的货舱能够完好无损吧。你先搜刮了走私舰的一些外部区域。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>打开货物。</text>
+		<event>
+			<text>你打开货舱，发现一个颜色奇怪的半械保卫者坐在角落里，盯着天花板。半械保卫者没有戴着奴隶象征的链子或其他任何东西。唯一的可能性就是这个半械保卫者搭上了走私舰以将其作为便车。</text>
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"你已经摧毁了我离开这个星区的主要运输途径。要求：你把我运出谐合星区。会付钱的。"</text>
+					<choice>
+						<text>接受。</text>
+						<event>
+							<crewMember amount="1" class="unique_turzil">图尔齐尔</crewMember>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+					<choice>
+						<text>拒绝。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_HARMONY_CRUISER" auto_blueprint="MU_HARMONY_CRUISER">
+	<triggeredEvent name="HARMONY_DEMAND" event="HARMONY_FUGITIVE_SURRENDER" playerHull="7" thisFight="true" />
+	<triggeredEvent name="HARMONY_DEMAND_NOSOFTLOCK" event="HARMONY_FUGITIVE_SURRENDER" time="100" thisFight="true" />
+	<destroyed load="HARMONY_FUGITIVE_WIN" />
+	<deadCrew load="HARMONY_FUGITIVE_WIN" />
+</ship>
+<event name="HARMONY_FUGITIVE">
+	<text>你准备启动超光速引擎时，注意到一艘半械族星舰正在接近你！你的超光速引擎没有反应——这可不妙……</text>
+	<ship load="SHIP_HARMONY_CRUISER" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"你好。我是代表谐合的HA-34U。我们知道你携带了逃犯TRZ-1L。我们要求你交出逃犯，我们将提供高额报酬。与谐合作对是不明智的。"</text>
+			<choice req="unique_tully" hidden="true">
+				<text>（塔利）申明你的外交身份。</text>
+				<event>
+					<text>塔利向半械族舰船广播。"这是联邦舰队的塔利上将。不要向这艘舰船开火。我重复，不要向这艘舰船开火。"
+
+HA-34U停顿了一下。"你的身份已确认。然而，你大大低估了谐合派对TRZ-1L的需求重要性。谐合派是联邦的核心成员；认为整个谐合派的需求低于一位上将的需求，这表明判断力不佳。"
+
+塔利拓宽站姿，将双臂背在身后。"有一件事你说对了。作为联邦的一大部分，你有权对我采取法律行动。也许这会终结我的职业生涯。但我会带着图尔齐尔离开这里。除非联邦赢得对叛军的战争，否则我想你会发现高层会犹豫是否要撤换像我这样合格的人。"
+
+视图屏幕上的半械族沉默地凝视了几秒钟。最终，通讯被切断。谐合派舰船关闭了武器，不再对你采取任何行动。</text>
+					<choice>
+						<text>继续。</text>
+						<event>
+							<text>当你启动超光速引擎时，塔利叹了口气。"当他们发现这个宇宙的塔利还在节点17忙于对付叛军时，他们会大吃一惊的。不过，他们不太可能忘记这件事，所以也许我们应该从此避开谐合派。"
+
+图尔齐尔把手放在塔利的手臂上，使塔利转向他。"我不知道-如何表达我的感激。你现在是，并且永远将是……-我的-朋友。"
+
+塔利把另一只手放在图尔齐尔的手上。"我不会再失去你了。留在我身边，只要我能力所及，我会保护你。也许当这一切结束后……我们可以找到一个谐合派找不到你的宇宙？"
+
+图尔齐尔点头。"我们应该[先]解放这个宇宙。"</text>
+							<variable name="ach_crew_turzil" op="set" val="1" />
+							<unlockCustomShip silent="false">PLAYER_SHIP_ENGI</unlockCustomShip>
+							<choice>
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_ENGI" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>		
+			<choice>
+				<text>交出逃犯。</text>
+				<event load="HARMONY_FUGITIVE_EASYROUTE" />
+			</choice>
+			<choice>
+				<text>拒绝。</text>
+				<event>
+					<text>你并不打算交出你的船员！你准备与星舰作战。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="HARMONY_FUGITIVE_EASYROUTE">
+	<text>你知道这个半械保卫者很可疑，但你没有想到这个半械保卫者竟然与谐合有矛盾！你不能冒险激怒整个半械族集体：你接受了对方的条件。</text>
+	<autoReward level="HIGH">augment</autoReward>
+	<removeCrew class="unique_turzil">
+		<clone>false</clone>
+		<text>你不能克隆那个半械保卫者，因为他已不再是你的船员的一份子。</text>
+	</removeCrew>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_ENGI" />
+	</choice>
+</event>
+
+<event name="HARMONY_FUGITIVE_SURRENDER">
+	<text>"这是你：最后的机会。交出逃犯，我们就让你活着离开。"</text>
+	<choice hidden="true">
+		<text>绝不！</text>
+		<event />
+	</choice>
+	<choice req="unique_turzil" blue="false">
+		<text>交出那名逃犯。</text>
+		<event>
+			<text>这场战斗不值得继续下去。你交出逃犯并接受了付款。</text>
+			<ship hostile="false" />
+			<surrender />
+			<autoReward level="MED">stuff</autoReward>
+			<removeCrew class="unique_turzil">
+				<clone>false</clone>
+				<text>你不能克隆那个半械保卫者，因为他已不再是你的船员的一份子。</text>
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+
+<event name="HARMONY_FUGITIVE_WIN">
+	<text>你在谐合的星区内击败了一艘精英半械族星舰。你担心谐合对此会感到不悦，但眼下重要的是，你已经在这场战斗中活着出来了。</text>
+	<variable name="ach_boss_harmony" op="set" val="1" />
+	<autoReward level="HIGH">drone</autoReward>
+	<choice req="unique_turzil" lvl="0" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>尽管你付出了努力，但似乎逃犯并没有在战斗中幸存下来。如此情形下，你的旅途仍需要继续。</text>
+		</event>
+	</choice>
+	<choice req="unique_turzil" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>你转身面对那个引发问题的半械族逃犯。"致歉，此冲突本[应]被预见。提供我的-身份-至关重要。我是：图尔齐尔将军。我的任务：逃离谐合派的[抓捕]。我因在联邦内战期间违反谐合-叛军互不侵犯协定，并[协助]半械分离者运动瓦解谐合派，而获得-逃犯-通缉状态。现-请求-你带我同行，以避免死亡并保护-地下-半械分离者运动。"</text>
+			<variable name="ach_crew_turzil" op="set" val="1" />
+			<unlockCustomShip silent="false">PLAYER_SHIP_ENGI</unlockCustomShip>
+		</event>
+	</choice>
+</event>
+
+<event name="TURZIL_REINFORCEMENTS">
+	<text load="TEXT_TURZIL_REINFORCEMENTS" />
+	<ship load="SHIP_ENGI_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_TURZIL_REINFORCEMENTS">
+	<text>一艘精英半械战舰向你发起攻击。你猜这应该是谐合派来追捕逃犯的援军！</text>
+	<text>"停止移动。你涉嫌非法进行转移与庇护逃犯的活动。"一艘半械精英战舰随即向你进攻！</text>
+	<text>本信标处的一艘半械精英战舰与周围空旷的星域显得格格不入。收到一条关于你正庇护逃犯的信息后，你看见它正准备向你攻击。</text>
+	<text>"你因：庇护逃犯，而被谐合通缉中。关闭武器系统并投降。"一艘半械精英战舰向你靠近，但你不打算放弃船员。</text>
+</textList>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

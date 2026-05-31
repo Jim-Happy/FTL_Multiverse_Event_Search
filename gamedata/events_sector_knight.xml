@@ -1,0 +1,2065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					KNIGHT SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="CLEARING_KNIGHT">
+	<event load="KNIGHT_CALL_CENTER" />
+	<event load="KNIGHT_ORCHID_LOVER" />
+	<event load="KNIGHT_HEKTAR" />
+	<event load="KNIGHT_AMPERE_HOPEFUL" />
+</eventList>
+
+<event name="KNIGHT_CALL_CENTER" unique="true">
+    <text>这个信标处有一座蛞蝓族空间站，它相当活跃：你从它那里收到了不计其数的信息。他们似乎还没有注意到你，你点开了其中一个，幸运的是，它们都没有被加密。
+"好的，女士，我们的软件会确保您的宝贝物件安全。不用客气，女士。关于支付方式，我们只接受托尼的礼品卡——这比常规的交易方式更加安全......"
+你切换到另一条信息。"......遥远星系的王子的失联亲戚......"一只蛞蝓族模仿着螳螂族的声音说道，"还有很多好东西等着你！只需简单注——"
+你已经听得够多了，这地方发生着什么心中大概也有了答案。</text>
+    <ship load="SHIP_SLUG_CALL" hostile="false" />
+    <choice>
+        <text>炸毁它！</text>
+        <event>
+            <text>你给武器充能，并在他们反应过来前冲向空间站。</text>
+            <ship hostile="true" />
+            <choice>
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>靠近空间站。</text>
+        <event>
+            <text>你小心翼翼地靠近空间站。他们很快就注意到了你，并且所有的通讯都迅速的关闭了。在那之后你收到了呼叫。"你好，变元者。我们什么事情也没做。没有。一丢丢也没有。而且假设就算我们做了，你对联~~邦也没有那么效忠，对吧？这不是说我们做了那些事，但就算是这样你也会放过我~~们的。这只是一种假设，理论上。"</text>
+            <choice>
+                <text>不，我们当然效忠联邦。诈骗毫无疑问是一种犯罪。</text>
+                <event>
+                    <text>"嗷，ssssshit。好吧，既然你这么说....."空间站开始为它的武器充能。你别无选择只能迎战！</text>
+                    <ship hostile="true" />
+                    <choice>
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>额，随便了。当然。</text>
+                <event>
+                    <text>"谢天谢地。从抽象理论层面来说。因为我们压根没做任何——"这帮人骗不过谁，但轮不到你来操心。你切断通讯准备跃迁。</text>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>谁在乎一些诈骗犯?离开。</text>
+        <event>
+            <text>你准备跃迁离开。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_SLUG" hidden="true">
+        <text>（蛞蝓族船员）"我有一个主意..."</text>
+        <event>
+            <text>你的蛞蝓族船员示意你呼叫空间站。通讯刚接通，对方立刻用沙哑虚弱的声音絮叨起来："请问是技术支～～持中心吗？我孙～～子发现了这艘～～船，但它老是出故障……"
+			
+空间站里的另一个蛞蝓族难掩窃喜地回应，显然毫不在意正在欺诈同族："是～～的，没～～错。我们能帮忙，您只需要允许我们接～～入您的船～～船系统。"
+			
+你的蛞蝓族朝你咧嘴一笑："噢，好呀。'接～～入'是什么意～～思呀？"
+
+接下来的时间里，你的船员全程装傻充愣，说话兜圈子，极尽刁难之能事。那个骗子出乎意料地坚持了很久，但当你的蛞蝓族第五次询问引擎用途时，对方终于崩溃了。通讯器传来砸东西的声响，伴随着暴怒的尖叫："蠢货！怎么会有笨到连诈骗都学不会的蛞蝓？你到底怎么开动这玩意的？啊——！"</text>
+			<choice hidden="true">
+                <text>继续。</text>
+				<event>
+                    <text>通讯戛然而止，你的蛞蝓族船员爆发出震天笑声。心知你们做了件大好事——也就是浪费了某人的时间——你准备启动跃迁。然而就在即将离开时，你看见空间站的某个气闸门突然开启，一台存着设计图的电脑从里面飘了出来！虽然收获不大，但毕竟是诚实劳动所得。</text>
+					<item_modify>
+						<item type="drones" min="1" max="1" />
+					</item_modify>
+					<drone name="RANDOM" />
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="KNIGHT_ORCHID_LOVER" unique="true">
+	<preventQuest />
+    <text>一艘夜爵士战舰悬停在星云之外。它没有任何攻击意图，似乎完全无视了你。一段私人通讯从舰内传来：“你……你是个局外人。你可曾听闻集议会？我一生都生活在这片星云中，但已对此地心生厌倦。最近这场王冠狩猎更让我下定决心。我渴望去往一个林木葱郁、习俗友善的森林世界，远离这压力重重的生活。可是……凭着夜爵士的名号，我不认为星云之外的世界会接纳我。”</text>
+    <ship load="SHIP_KNIGHT" hostile="false" />
+    <choice req="unique_mayeb" hidden="true">
+		<text>（麻椰）聊聊集议会的事吧。</text>
+		<event>
+			<text>麻椰开口道："……你好。我是麻椰，集议会的看护者。……你说得对，你确实难以融入。他们会因你的过去和与众不同而评判你。但这不代表你无法开创自己的生活。若你不适应当前职位，或许照看植物的生活更能让你充实。这就是我卸任后将要回归的生活。也许我们可以教导你。你愿意随我同行吗？"
+			
+夜爵士的声音充满喜悦："我愿意跟你走！"片刻后，夜爵士出现在了你的船上。</text>
+			<crewMember amount="1" class="slug_knight">昆</crewMember>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>舰船武器充能完毕并向你发出通讯："昆？？你竟要叛逃到这变元者的船上？！背信弃义的夜爵士必须处决！"</text>
+					<ship hostile="true" />
+					<choice>
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="unique_ivar" hidden="true">
+		<text>（苡瓦）和夜爵士说说关于集议会的事。</text>
+		<event>
+			<text>"没错孩子！集议会是个好地方，我支持你的朝圣之旅。不过要我说啊，他们有点太拘谨了，不合我的口味。该放松点才是！每次晚宴我都这么劝他们。"
+
+"苡瓦？血草兰花的执政官？"
+
+苡瓦朗声大笑："我办公桌的名牌是这么写的！"
+
+夜爵士显得很感兴趣。"传闻说您有四分之一的悦心兰花血统。是真的吗？"
+
+"我的汁液里确实有点混合基因。这样吧，下次我办晚宴时邀请你，再叫上几位悦兰花友，咱们好好聚聚。相信我能说动你们政府高层。意下如何？"
+
+"太～～好了！听上去非常美妙。多谢。我的名字是昆，请务必记住。"昆向你奉上丰厚的废料与武器赠礼。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<weapon name="GIFTLIST_KNIGHT" />
+		</event>
+    </choice>
+    <choice req="unique_tyerel" hidden="true">
+		<text>（笛艾尔）"我会支持你的移民申请。"</text>
+		<event>
+			<text>"所以你想移民到集议会？这事能办。只要通过肉食誓约和公民考试，集议会愿意收留流亡的夜爵士。"
+
+夜爵士使劲点头："我吃素好多年了。一直想当悦心兰花族。"
+
+笛艾尔点头："明白。你肯定会比血草兰花族受到更严的审查。想走这条路的话，去花园世界当守卫会对你有好处。"
+
+夜爵士犹豫了："离开星云...就再也回不来了。"
+
+笛艾尔承诺："跟我走，我会全力帮你。"片刻后，夜爵士就出现在了你的船上。</text>
+			<crewMember amount="1" class="slug_knight">昆</crewMember>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>舰船武器充能并向你呼叫："昆？？你竟要叛逃到这变元者的船上？！背弃誓言的夜爵士必须处决！"</text>
+					<ship hostile="true" />
+					<choice>
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="orchid_praetor" hidden="true">
+		<text>（军政官船员）聊聊柇柆柯枙。</text>
+		<event>
+			<text>你的军政官聊起驻守故土的岁月，还有看护者们打理的美丽花园。
+			
+"能见到军政官是我今年最大的荣幸。感谢您抽空交谈。"夜爵士为表谢意，将一批废料库存传送至你的船上。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice req="orchid_caretaker" hidden="true">
+		<text>（看护者船员）向夜爵士介绍花园世界。</text>
+		<event>
+			<text>你的看护者队员开始讲述在花园世界照看植物的经历，还从个人图库里挑选照片发送给好奇的夜爵士。
+			
+"能在星盗会深处遇到看护者...我实在太幸运了。这些照片会在我低落时给我力量。"夜爵士为表感谢，将一件武器传送至你的舰船。</text>
+			<weapon name="GIFTLIST_KNIGHT" />
+		</event>
+    </choice>
+    <choice req="orchid" hidden="true">
+		<text>（悦兰船员）聊聊集议会。</text>
+		<event>
+			<text>你的兰花族船员兴致勃勃地描述着故土的秀丽风光，滔滔不绝地讲起苍翠花园与亲友轶事。夜爵士聆听着兰花族的生活点滴，显得十分愉悦。你因此获得了一小堆废料作为回报。</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_VAMPWEED" hidden="true">
+		<text>（血草兰花船员）让你的血草兰花船员谈谈他们的经历。</text>
+		<event>
+			<text>你的血草兰花船员开始讲述他们与悦心兰花族亲的过往。夜爵士虽然听得专注，但似乎略显失望。不过，你仍然获得了相应的报酬。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice req="KERNEL_1">
+		<text>向夜爵士提供一把果核炮I。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_1" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_2">
+		<text>向夜爵士提供一把果核炮II。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_2" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_HEAVY">
+		<text>向夜爵士提供一把重型果核炮。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_HEAVY" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_FIRE">
+		<text>向夜爵士提供一把日光果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_FIRE" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_CHAIN">
+		<text>向夜爵士提供一把链式果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_CHAIN" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_CHARGE">
+		<text>向夜爵士提供一把充能果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_CHARGE" />
+			<choice>
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_PAYMENT_OR_TRADE" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="MINELAUNCHER_KERNEL">
+		<text>向夜爵士提供一把果核空雷发射器。</text>
+		<event>
+			<text>"我一直想要一把果核武器。我对果核空雷闻所未闻！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="MINELAUNCHER_KERNEL" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_1_ELITE">
+		<text>向夜爵士提供一把精英果核I。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_1_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_2_ELITE">
+		<text>向夜爵士提供一把精英果核II。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_2_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_HEAVY_ELITE">
+		<text>向夜爵士提供一把精英重型果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_HEAVY_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_FIRE_ELITE">
+		<text>向夜爵士提供一把精英日光果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_FIRE_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_CHAIN_ELITE">
+		<text>向夜爵士提供一把精英链式果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_CHAIN_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="KERNEL_CHARGE_ELITE">
+		<text>向夜爵士提供一把精英充能果核。</text>
+		<event>
+			<text>"我一直想要一把果核武器。精英级果核更是难得！也许当我使用它的时候，就能找到内心的平静了。"</text>
+			<remove name="KERNEL_CHARGE_ELITE" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_KERNEL_DOUBLE_PAYMENT" />
+			</choice>
+		</event>
+    </choice>
+	<choice req="STRAWBERRY">
+  	  <text>向夜爵士提供一把草莓炮。</text>
+  	  <event>
+  		  <text>"这～～是什么？看着可太稀罕了，这难道是变元者的武器？说不定我也该当个变元者。谢啦。"</text>
+  		  <remove name="STRAWBERRY" />
+  		  <choice hidden="true">
+  			  <text>继续。</text>
+  			  <event load="KNIGHT_STRAWBERRY_REWARD" />
+  		  </choice>
+  	  </event>
+	</choice>
+	<choice req="STRAWBERRY_CHAOS">
+        <text>向夜爵士提供一把混沌草莓炮。</text>
+        <event>
+            <text>"这……是我见过最诡异的武器。你给了我什么……？"</text>
+            <remove name="STRAWBERRY_CHAOS" />
+            <choice>
+                <text>继续？</text>
+                <event>
+                    <win ach="slug" creditsText="credit_victory_slug_orchid" text="眼前的银河系已彻底面目全非。" creditsBackground="VICTORY_SLUG" />
+             </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+		<text>攻击夜爵士的星舰。</text>
+		<event>
+			<text>私人通讯被切断。夜爵士的舰船对你的攻击立刻做出了反击！</text>
+			<ship hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>忽略奇怪的夜爵士。</text>
+		<event>
+			<text>夜爵士没有采取任何行动来干涉你。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+<beaconType id="map_icon_hbm_p_orchidlover" global="true">
+		<color r="0" g="180" b="0" a="1" />
+        <unvisitedTooltip>此处是兰花爱好者事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="KNIGHT_KERNEL_PAYMENT_OR_TRADE">
+    <text>"让你选吧。想要报酬，还是武器？"</text>
+    <choice>
+		<text>报酬。</text>
+		<event>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice>
+		<text>做交易。</text>
+		<event>
+			<weapon name="GIFTLIST_KNIGHT" />
+		</event>
+    </choice>
+</event>
+<event name="KNIGHT_KERNEL_DOUBLE_PAYMENT">
+	<text>为报答你的慷慨赠礼，夜爵士将他的一件武器连同适量废料一并回赠予你。</text>
+    <weapon name="GIFTLIST_KNIGHT" />
+    <autoReward level="MED">scrap_only</autoReward>
+</event>
+<event name="KNIGHT_STRAWBERRY_REWARD">
+    <text>"您实在太过慷慨了……我虽渴望与您同行，但离开星盗会将令我无家可归。待激情褪去后，我仍需要安身之所。除了奉上我的随身武器外，请允许我为您的武器系统和反应堆进行调校升级。望这份心意能令您满意。"</text>
+    <upgrade amount="1" system="reactor" />  
+    <upgrade amount="1" system="weapons" />  
+	<weapon name="GIFTLIST_KNIGHT" />
+	<autoReward level="MED">scrap_only</autoReward>
+</event>
+
+<event name="KNIGHT_HEKTAR" unique="true">
+    <text>这艘舰船的隶属关系显然与众不同。"欢迎来到皇家星云，外乡人。我们代表赫克塔公司前来，试图从这场历史性盛事中获利。您可要买件王冠狩猎纪念品？限量款王冠，绝佳伴手礼！"</text>
+    <ship load="SHIP_HEKTAR_ALL" hostile="false" />
+    <choice req="LIST_VARIANT_BILLY" hidden="true">
+		<text>（比利）"你这是在用公司的钱挥霍吗？"</text>
+		<event>
+			<text>这名蛞蝓族猛地一愣。"比利总裁！！！呃...您听我解释！"比利眯起眼睛。"你最好能说清楚，否则饭碗不保。"这名赫克塔员工结结巴巴地抛出几个借口，最后悻悻住嘴，给比利塞了笔贿赂。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<weapon name="GIFTLIST_MODULES" />
+			<store>STORE_HEKTAR_DEFAULT</store>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>交易之前，你仍有时间干点别的。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="unique_metyunt" hidden="true">
+		<text>（梅特恩特）"这不符合规定。"</text>
+		<event>
+			<text>梅特恩特开始引用赫克塔员工手册。听到这些，通讯另一端的蛞蝓族顿时恍然大悟。"求……求您别上报……要是计划成功，我本可能拿到奖金的！"梅特恩特叹了口气。"那你至少该让我们看看你的货。要赊账。"蛞蝓族连忙点头。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+			<store>STORE_HEKTAR_DEFAULT</store>   		 
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>采购完毕后，您可以在舰船上进行一些操作。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="LIST_VARIANT_HEKTAR">
+   	 <text>（赫克塔员工）问他们是否真的觉得这能行得通。</text>
+   	 <event>
+   		 <text>"赫克塔的同僚...？我确实以为...看来是我想当然了。"你的员工告诉对方，不如让你使用他们的商店来挽回些损失。"......行吧。"</text>
+   		 <store>STORE_HEKTAR_DEFAULT</store>
+   		 <choice>
+   			 <text>继续。</text>
+   			 <event>
+   				 <text>采购完毕后，您可以在舰船上进行一些操作。</text>
+   				 <choice>
+   					 <text>星舰管理。</text>
+   					 <event load="STORAGE_CHECK" />
+   				 </choice>
+   				 <choice>
+   					 <text>跳过。</text>
+   					 <event />
+   				 </choice>
+   			 </event>
+   		 </choice>
+   	 </event>
+    </choice>
+    <choice>
+		<text>购买一顶仿制王冠。</text>
+		<event>
+			<text>"啊，好品味，忠实的顾客。来，看看我们店里还有什么别的货！"说话者从麦克风旁偏过头，你隐约听见他对另一个人说："哇，终于卖出去一顶……我还担心老板会为我这个蠢主意发火呢。"</text>
+			<store>STORE_HEKTAR_DEFAULT</store>
+			<item_modify>
+				<item type="scrap" min="-30" max="-10" />
+			</item_modify>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击离经叛道的赫克塔员工。</text>
+		<event>
+			<text>销售员迅速关闭显示屏并启动了武器系统。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>不把你的钱浪费在这个怪人身上。</text>
+		<event>
+			<text>"变元者，你真没品味!"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="KNIGHT_AMPERE_HOPEFUL" unique="true">
+    <text>奇怪的是，一艘共和国舰船竟出现在这片星域。"嘿，你好呀！既然你跟这些蛞蝓族不是一伙的，我想问问你觉得我这身伪装怎么样？等我找到王冠就能统治所有蛞蝓族啦。"这位电流吸虫穿着全套蛞蝓族拟真外皮，效果倒不算太差。</text>
+    <ship load="SHIP_LEECH_ELITE_ALL" hostile="false" /> <!--add an actual slug with leech stats with an augment-->
+    <choice hidden="true">
+		<text>告诉他伪装很不错并祝他好运。</text>
+		<event>
+			<text>"说得好！我绝对要赢下这场竞赛。还有...呃，这点小意思就当是封口费。"</text>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>蛞蝓族不都是……你懂得……能心灵感应的？</text>
+		<event>
+			<text>"我早就考虑周全啦！"他掀开戏服向你展示，头套内侧居然衬着锡纸隔热层。"……等着瞧吧！绝对万无一失。"你无奈摇头。"随你便。拿上这个赶紧走。"他递给你一些燃料。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>若想通过检查，你需要一艘蛞蝓族舰船。</text>
+		<event>
+			<text>"……糟糕！居然忘了这茬。呃…那我让手下随便找个地方放我下去搭顺风车吧。多谢提醒。"他慷慨地给了你不少废料。</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击这个笨蛋。</text>
+		<event>
+			<text>你翻了个白眼，启动武器系统。吸虫族立刻做出反应。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_KNIGHT">
+	<event load="NEBULA_KNIGHT_QUIZ" />
+	<event load="NEBULA_LIGHT_KNIGHT_TRAP" />
+	<event load="NEBULA_KNIGHT_SMUGGLER" />
+	<event load="NEBULA_KNIGHT_DUEL" />
+</eventList>
+
+<event name="NEBULA_KNIGHT_QUIZ" unique="true"> <!--basically free stuff with extra flavor unless you're stupid-->
+	<text>通灵会飞船虽然并不常见，但在这个充满蛞蝓族的星云中，你见到的远比预期的要少。不过现在你似乎终于碰到了一艘，而且它们还没有向你开火。相反，看起来他们想要交流。</text>
+	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="false" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>回应。</text>
+		<event>
+			<text>"如果我们的数据正确的话，你是不是就是那艘每个人都在谈论的船？就是把我们伟大的国王斯洛克诺格带回来的那艘？"</text>
+			<choice hidden="true">
+				<text>是。</text>
+				<event>
+					<text>"有意思。那我想知道，你认为斯～～洛克诺格是星盗会的最好的会长吗？还是说你更喜欢让七夜和他...更激进的方式来领导我们？"</text>
+					<choice hidden="true">
+						<text>自然是斯洛克诺格。</text>
+						<event>
+							<text>"有意思～～。为什～么这么说～～～呢？"</text>
+							<choice hidden="true">
+								<text>他维系着蛞蝓族的传统，没有必要改变有效的东西。</text>
+								<event>
+									<text>"是的，如果一个东西没坏，就不要修它...那么，我对你救了我们的国王感激不尽。接受这些卑微的报酬吧。"</text>
+									<autoReward level="MED">stuff</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>他的名字里有很多个S。</text>
+								<event>
+									<text>"我认为你不明白什么才算一个国王的良好品质。也许你不是参与我们政治的最佳人选..."你以为对话这就结束了，但通灵会飞船突然发动了攻击！蛞蝓族们一定很不喜欢你的干预...</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>他有黄色的皮，这可太酷了。</text>
+								<event>
+									<text>"我认为你不明白什么才算一个国王的良好品质。也许你不是参与我们政治的最佳人选..."你以为对话这就结束了，但通灵会飞船突然发动了攻击！蛞蝓族们一定很不喜欢你的干预...</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>自然是七夜。</text>
+						<event>
+							<text>"有意思。所以你认为一个有三个老婆的瘾君子配得上当蛞蝓族的国王？这说明联邦是多么的无知..."你以为对话这就结束了，但通灵会飞船突然发动了攻击！蛞蝓族们一定很不喜欢你的干预...</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我不关心。</text>
+						<event>
+							<text>"哏，那当然，我想外族人不应该参与到我们蛞蝓族比较特殊的治理形式中来。那没事了，拿着这个，作为拯救斯～～洛克诺格的礼物。"</text>
+							<autoReward level="LOW">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>否。</text>
+				<event>
+					<text>"哦...真不走运。"飞船跃迁走了，留下你尴尬在这。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_slocknog">
+				<text>(斯洛克诺格)"是的，确实是那艘飞船。"</text>
+				<event>
+					<text>"我的陛下！我发誓，无论你走到哪里，我都会追随你。"通灵者们提供了补给，其中一个甚至加入了你的船员。</text>
+					<autoReward level="MED">stuff</autoReward>
+					<crewMember amount="1" all_skills="1" class="slug_saboteur" />
+				</event>		
+			</choice>	
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>用暴力来回应！</text>
+		<event>
+			<text>你这个不可救药的混蛋，甚至不给对方动嘴的机会就决定袭击这艘飞船。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_KNIGHT_TRAP" unique="true">
+	<text>附近的一艘蛞蝓族飞船正在接近一个没有任何文明迹象的星球。你无法想象他们会做什么，除非他们在躲避什么，或者知道什么不为人知的事情。</text>
+	<ship load="SHIP_SLUG_KNIGHT_TRAP" hostile="false" /> 
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>询问他们。</text>
+		<event>
+			<text>"啊？哦，我们是来参加'盗冠节'的！一些黑红相间飞船里的好心家伙告诉我们，这里是举行比赛的地方。"</text>
+			<choice hidden="true">
+				<text>那个星球上没有人。</text>
+				<event>
+					<text>"啊？你到底是什么意思？那个...哦。我明白了。看来我们被耍得团团转。谢谢你救了我们。"</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不告诉他们真相，而是杀了他们，自己去调查。</text>
+				<event>
+					<text>"等等，你在做什么？"你切断了蛞蝓族并进行攻击。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>无视蛞蝓族。</text>
+		<event>
+			<text>你看着蛞蝓族们带着些许的好奇心从你身边飞过。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_TRAP_PLANET">
+	<text>你向这个星球靠近，但看不到任何明显的惹眼的事物，虽然从远处看很难说。</text>
+	<choice hidden="true">
+		<text>降落。</text>
+		<event load="KNIGHT_TRAP_PLANET_LAND" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>(高级传感器)从远处扫描地表。</text>
+		<event load="KNIGHT_TRAP_PLANET_SCAN" />
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS" lvl="1">
+		<text>(长距扫描仪)从远处扫描地表。</text>
+		<event load="KNIGHT_TRAP_PLANET_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>避开行星。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="KNIGHT_TRAP_PLANET_LAND">
+	<event>
+		<text>当你的星舰接近这颗星球时，一条自动信息在你的星舰上回荡。"逮到你了！"，接着是一场巨大的爆炸，把你的星舰撞退，留下一个巨大的坑。</text>
+		<damage amount="5" />
+	</event>
+	<event>
+		<text>你降落在这个星球的表面，发现了一个巨大的爆炸性陷阱。扫描显示，它应该已经在你接近时引爆了，但不知道是哪个白痴给它装的线，陷阱布置得很糟糕。现在它白白无害地暴露给你，你尽可能地将它拆成了废料。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+</eventList>
+<eventList name="KNIGHT_TRAP_PLANET_SCAN">
+	<event>
+		<text>虽然第一次扫描没有发现什么，但第二次更深入的扫描发现表面有一个巨大的爆炸性陷阱，一旦你太靠近就会爆炸。靠近它太危险了。</text>
+	</event>
+	<event>
+		<text>扫描结果显示，一个巨大的爆炸性陷阱本应在你接近时爆炸，但不知是谁给它装的线，做得很糟糕。现在它白白无害地暴露给你，你尽可能地将它拆成了废料。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_KNIGHT_SMUGGLER" unique="true">
+	<text>虽然蛞蝓族对自己运输非法违禁品没有什么顾虑，但有时他们会付钱给走私者们来帮着干他们的活。一艘走私船正试图避免被过往飞船看到，但却被你发现。</text>
+	<ship load="SHIP_KNIGHT_SMUGGLER" hostile="false" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>联系他们，也许我们可以从他们那里买到一些违禁品。</text>
+		<event>
+			<text>走私者舰长出现在屏幕上。虽然他试图装出一副威胁的样子，但你可以从他得意的笑容中看出，他对另一个潜在客户的出现很高兴。"如果你想找点枪或炸药，那我可帮不了你，联邦小子。我正加急送一些能"融化大脑"的东西到七夜本人那去。这些麻醉品在这里的蛞蝓族之间卖得很高档，虽然在其他地方没什么市场。"</text>
+			<choice>
+				<text>购买这些毒品，它们能成为对七夜手下们的一个有份量的谈判筹码。</text>
+				<event>
+					<text>"买得好！就是别问是什么做的。"你听到海盗喃喃自语，说什么幼体兰花和六脚马粪便，然后就挂断了。</text>
+					<augment name="SLUG_NARCOTICS" />
+					<item_modify>
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>与他们争夺毒品！</text>
+				<event load="KNIGHT_SMUGGLER_ATTACK" />
+			</choice>
+			<choice hidden="true" req="COMBAT_ENGINE_JAMMER">
+				<text>(引擎失能器)瘫痪他们的引擎并要求他们交出毒品！</text>
+				<event>
+					<text>"好吧！该死的，你为什么这么咄咄逼人。明明是你想交易..."</text>
+					<augment name="SLUG_NARCOTICS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="FTL_JAMMER">
+				<text>(跃迁干扰器)瘫痪他们的引擎并要求他们交出毒品！</text>
+				<event>
+					<text>"好吧！该死的，你为什么这么咄咄逼人。明明是你想交易..."</text>
+					<augment name="SLUG_NARCOTICS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="hacking" lvl="2">
+				<text>(高级黑客)削弱他们的引擎并要求他们交出毒品！</text>
+				<event>
+					<text>"好吧！该死的，你为什么这么咄咄逼人。明明是你想交易..."</text>
+					<augment name="SLUG_NARCOTICS" />
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_WEAPONS_HACK">
+				<text>(高级黑客)削弱他们的引擎并要求他们交出毒品！</text>
+				<event>
+					<text>"好吧！该死的，你为什么这么咄咄逼人。明明是你想交易..."</text>
+					<augment name="SLUG_NARCOTICS" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>无视走私舰。</text>
+		<event>
+			<text>走私者不久后就滑行进入星云中。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_narcotics" global="true">
+		<color r="255" g="128" b="247" a="1" />
+        <unvisitedTooltip>此处是蛞蝓毒品事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<eventList name="KNIGHT_SMUGGLER_ATTACK">
+	<event>
+		<text>你武装起来，准备攻击走私者！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你武装起来，准备攻击走私者！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你刚准备发起攻击，但走私者又向你示意。"好吧，也许价格太高了！让我们不要操之过急，这个价格会不会更诱人一点？"</text>
+		<choice>
+			<text>接受新的交易条件。</text>
+			<event>
+				<text>"买得好！就是别问是什么做的。"你听到海盗喃喃自语，说什么幼体兰花和六脚马粪便，然后就挂断了。</text>
+				<augment name="SLUG_NARCOTICS" />
+				<item_modify>
+					<item type="scrap" min="-20" max="-20" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>不，我们还是要杀了你。</text>
+			<event>
+				<text>你武装起来，准备攻击走私者！</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="SLUG_NARCOTICS">
+	<text>看来蛞蝓族们对你的提议很感兴趣。他们欣然接受了毒品，作为不与你战斗的回报，甚至还提供了一些废料。</text>
+	<remove name="SLUG_NARCOTICS" />
+	<autoReward level="HIGH">scrap_only</autoReward>
+	<ship hostile="false" /> 
+</event>
+
+<event name="NEBULA_KNIGHT_DUEL" unique="true">
+	<text>不知道从哪里冒出来的一名蛞蝓族登上了星舰，他挥舞着一把长剑。"听好了！我向你们发起决斗挑战。当然，点到为止。打败我，我就把我船上所有的废料都给你。输了的话，我就拿走你所有的燃料。拒绝的话，我就直接走人。"</text>
+	<ship load="SHIP_KNIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>接受。</text>
+		<event load="KNIGHT_DUEL_DUEL" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MANTIS">
+		<text>(螳螂族船员)让你的螳螂族进行决斗。</text>
+		<event>
+			<text>你派出了你的螳螂族来决斗。他全力以赴，并制住了蛞蝓族！"好吧，说话算话。虽然我不喜欢你的斗法，但这是我的废料。"</text>
+			<item_modify>
+				<item type="scrap" min="35" max="45" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_dessius"> <!-- because he literally has a sword -->
+		<text>(德修斯)让德修斯进行决斗。</text>
+		<event>
+			<text>作为这种场合的完美人选，德修斯接受了挑战并拔出了自己的刀。双方都使出了浑身解数，这场侠义的冲突以蛞蝓族被压制而结束！"好吧，说话算话。你的同伴的实力和风格都很出色，你确实应该得到这些废料。"</text>
+			<item_modify>
+				<item type="scrap" min="75" max="85" />
+			</item_modify>
+		</event>		
+	</choice>
+	<choice hidden="true" req="unique_devorak"> <!-- because he literally has a sword -->
+		<text>(德沃拉克)让德沃拉克进行决斗。</text>
+		<event>
+			<text>作为这种场合的完美人选，德沃拉克接受了挑战并拔出了自己的大剑。双方都使出了浑身解数，这场侠义的冲突以蛞蝓族被压制而结束！"好吧，说话算话。你的同伴的实力和风格都很出色，你确实应该得到这些废料。"</text>
+			<item_modify>
+				<item type="scrap" min="75" max="85" />
+			</item_modify>
+		</event>		
+	</choice>
+	<choice hidden="true" req="slug_knight">
+		<text>(夜爵士船员)让你的夜爵士进行决斗。</text>
+		<event>
+			<text>"我没想到会在你的船上看到我的一个弟兄，更没想到他会和我对抗，但我还是很期待。"两名蛞蝓族激烈地战斗着，经过长时间的冲突，你自己的夜爵士取得了胜利！"好吧，说话算话。我非常享受这场英勇的战斗，你也确实应该得到这些废料。"</text>
+			<item_modify>
+				<item type="scrap" min="75" max="85" />
+			</item_modify>
+		</event>		
+	</choice>	
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="KNIGHT_DUEL_DUEL">
+	<event>
+		<text>你随机挑选一名船员，并派他出去决斗。他做出了勇敢的努力，但不幸的是，这还不够。他失败了，蛞蝓族压制住了他。"哈哈！你失败了。现在，交出你的燃料..不要耍花招哦！"</text>
+		<choice hidden="true">
+			<text>我们说话算话。</text>
+			<event>
+				<text>"优秀的竞技精神！"蛞蝓族带着你所有的燃料飞走了，留下你自己困在这。</text>
+				<item_modify steal="true">
+					<item type="fuel" min="-999" max="-999" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>拒绝。</text>
+			<event>
+				<text>"什么？真是糟糕的竞技精神。我们说好了的！"蛞蝓族回到他的飞船上，一秒钟后它就启动了，武器在线。更糟糕的是，他们似乎在使用增强部件来干扰你的护盾！</text>
+				<status type="loss" target="player" system="shields" amount="2" />
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+				<choice hidden="true" req="ANTI_VIRUS">
+					<text>(防护程序)恢复护盾系统的正常运作。</text>
+					<event>
+						<text>你重新启动你的护盾，并准备与蛞蝓族作战。</text>
+						<status type="clear" target="player" system="shields" amount="100" />
+						<choice hidden="true">
+							<text>继续。</text>
+							<event load="COMBAT_CHECK" />
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你随机挑选了一名船员，并派他出去决斗。他使出浑身解数，然后不知怎地就压制住了蛞蝓族！"好吧，说话算话...这是我的废料。"</text>
+		<item_modify>
+			<item type="scrap" min="75" max="85" />
+		</item_modify>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_KNIGHT">
+	<event load="NEBULA_KNIGHT_COALITION" />
+	<event load="NEBULA_LIGHT_KNIGHT_CHOICE" />
+	<event load="NEBULA_KNIGHT_PROTESTERS" />
+	<event load="NEBULA_KNIGHT_SHAKESPEARE" />
+	<event load="NEBULA_KNIGHT_JAILER" />
+</eventList>
+
+<event name="NEBULA_KNIGHT_COALITION" unique="true">
+	<text>你知道星联也由蛞蝓族组成，但你并不经常能在蛞蝓族星域的深处看到他们的飞船。</text>
+	<ship load="SHIP_COALITION_KNIGHT" hostile="false" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击星联舰船！</text>
+		<event>
+			<text>你给武器充能，与星联飞船交战。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="SLUG_NARCOTICS" hidden="true">
+		<text>用毒品贿赂星联。</text>
+		<event load="KNIGHT_COALITION_BRIBE" />
+	</choice>
+	<choice hidden="true">	
+		<text>无视星联战舰。</text>
+		<event>
+			<text>你现在不愿意冒险与另一个银河系的巨大势力摊上麻烦。对于另一个平行宇宙的你来说，他也许会。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="KNIGHT_COALITION_BRIBE">
+	<event>
+		<text>"什么？毒品？我们为什么需要这些？滚蛋吧，联邦！"</text>
+		<ship hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"我-这些是蛞蝓的麻醉品吗？"一个岩石圣战者低头看着这些毒品，但它们很快就被船上的一个破坏者顺走了。"行，它们是我们的了！"</text>
+		<autoReward level="HIGH">weapon</autoReward>
+		<remove name="SLUG_NARCOTICS" />
+	</event>
+</eventList>
+<eventList name="KNIGHT_COALITION_SUZERAIN">
+	<event>
+		<text>螳螂领主登上了船，但却立即引爆了一枚燃烧炸弹，破坏了星舰！这是个骗局！</text>
+		<damage amount="3" system="random" effect="fire" />
+		<boarders min="1" max="1" class="mantis_suzerain" />
+	</event>
+	<event>
+		<text>螳螂领主信守诺言，登上了你的星舰，准备向他的老船员们发难。</text>
+		<crewMember amount="1" combat="1" class="mantis_suzerain" />
+	</event>
+</eventList>
+
+<event name="NEBULA_LIGHT_KNIGHT_CHOICE" unique="true">
+	<text>短距离扫描显示，两艘蛞蝓族船正在这个信标处进行缠斗，一艘属于夜爵士团，另一艘属于通灵会。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">	
+		<text>搅局。</text>
+		<event>
+			<text>你表明你的存在，飞向那些船只。但你将攻击谁？</text>
+			<choice hidden="true">
+				<text>夜爵士们！</text>
+				<event>
+					<text>你武装好武器，攻击夜爵士飞船。</text>
+					<ship load="SHIP_KNIGHT_CHOICE_KNIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="SLUG_NARCOTICS">
+				<text>(蛞蝓毒品)贿赂夜爵士团，让他们停止战斗。</text>
+				<event>
+					<text>如果这意味着他们能得到免费的硬货，夜爵士团似乎愿意忍气吞声，投降。</text>
+					<remove name="SLUG_NARCOTICS" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>通灵会飞船感谢你并提供了一件武器。</text>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>通灵者们！</text>
+				<event>
+					<text>你武装好武器，攻击通灵会飞船。</text>
+					<ship load="SHIP_KNIGHT_CHOICE_CLAIRVOYANT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>不卷入其中。</text>
+		<event>
+			<text>众所周知，蛞蝓族从来都不是可靠的盟友，所以你不屑于帮助任何一方。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_KNIGHT_PROTESTERS" unique="true">
+	<text>当一个无形的声音突然对你说话时，你跳了起来。从后面，一个破坏者解开了伪装，他戴着夜爵士标志的胸针。"你是...一个外来者，对吗？斯～～洛克诺格派来的人。通常我会当场杀了你，但我认为我们可以在这里合作。附近有一些讨厌的改良主义者，他们想彻底推翻我们的政府。我们希望他们死。杀了他们，我给你钱。成交吗？"</text>
+	<environment type="nebula" />
+	<choice hidden="true">	
+		<text>接受。</text>
+		<event>
+			<text>破坏者将你带到一个有蛞蝓族殖民地的小型卫星上，那里有几名蛞蝓族正在抗议，由一艘离群的通灵会飞船领导。干掉他们的首领，其余的人应该就会闭嘴了。</text>
+			<ship load="SHIP_CLAIRVOYANT_PROTESTER" hostile="false" />
+			<choice hidden="true">
+				<text>攻击！</text>
+				<event>
+					<text>你充能武器与该船交战。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="SLUG_NARCOTICS">
+				<text>(蛞蝓毒品)贿赂通灵会让它背叛自己的人民。</text>
+				<event>
+					<text>似乎毒品能胜过蛞蝓族社会中的任何道德难题。通灵者们得到了毒品，然后把他们的武器转向殖民者，迫使他们投降。在你身后，夜爵士对你的"创造性"的解决问题方案非常满意，他提供了一个更丰厚的奖励。</text>
+					<remove name="SLUG_NARCOTICS" />
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>拒绝。</text>
+		<event>
+			<text>破坏者皱眉，转身传进了在附近的星云中暗中观察你的随便一艘飞船。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_PROTESTERS_WIN" unique="true">
+	<text>殖民地的其他人都吓坏了。"求求你，我们想要的只是和平！星盗会是如此的残酷，不管是哪位国王！我们想把蛞蝓族社会发展成银河系的主流社会乐意接纳的样子，而不是让人闻之色变！"</text>
+	<choice hidden="true">
+		<text>无视他们，迫使殖民地投降。</text>
+		<event>
+			<text>你无视殖民者，举起你的武器，开了一枪警告。这让他们跑向掩体，并不可避免地投降了。破坏者回来了，感谢你的帮助，并按照承诺奖励了你。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>杀死破坏者，解放殖民地。</text>
+		<event>
+			<text>你抽出你的爆裂手枪，并迅速转过身来轰击破坏者。他们一开始比较快，但很快就迷失在你的星舰的陌生走廊里，并被相对轻松地打发了。虽然未来的夜爵士船很可能会回来再次滋扰殖民地，但至少他们现在是自由的，还以一种有点非传统的方式奖励了你。</text>
+			<damage amount="-7" />
+			<upgrade amount="1" system="shields" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_FIRE_ALL">
+		<text>(火焰武器)杀鸡儆猴，火烧殖民地。</text>
+		<event>
+			<text>在很短的时间内，该殖民地被烧毁，大约一半的人口死亡。这是一次令人毛骨悚然的武力展示，无疑会被用在未来的威胁当中，但这给破坏者留下了相当深刻的印象。他对你对任务的执着感到非常惊讶，甚至提出要加入你的团队！</text>
+			<crewMember amount="1" class="slug_saboteur" />
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_KNIGHT_SHAKESPEARE" unique="true">
+	<text>"安好，吾联邦之友。虽吾辞之艰涩，恳请见谅。吾乃和平之人，非汝以兵相向，或显敌意，明否？汝能受吾之提案否？抑吾需与汝决一死战？"</text>
+	<ship load="SHIP_KNIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>蛞蝓族舰长期待地看着你，尽管你不明白他说的任何一个字。</text>
+			<choice hidden="true">
+				<text>尝试用对方的语言回话，不管他说的是啥。</text>
+				<event load="KNIGHT_SHAKESPEARE_GUESS" />
+			</choice>
+			<choice hidden="true" req="unique_haynes">
+				<text>(海因斯)海因斯了解这种语言。</text>
+				<event>
+					<text>海因斯解释说，蛞蝓族们说的是古代地球的布列塔尼亚语。经过快速翻译，你了解到蛞蝓族们提出和平，你接受了这一建议，并从他们的飞船上带回了一件武器，对方用这种方式彰显善意！</text>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SLUG">
+				<text>(蛞蝓族船员)让你的蛞蝓族与他们交谈。</text>
+				<event>
+					<text>你的蛞蝓族与夜爵士们来回比划了一会儿，然后向你报告。"他们脑子没问题，只是很顽固，拒绝与我们用正常方式交谈。他们似乎想交朋友，并提供燃料。"</text>
+					<autoReward level="MED">fuel_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ENGI">
+				<text>(半械族船员)分析对方的语句特征来尝试破译。</text>
+				<event>
+					<text>"检测到的语言：古代地球语。更新数据库中..."你的半械族解释说，蛞蝓族不希望战斗，而且实际上希望出于善意给你一些燃料。</text>
+					<autoReward level="MED">fuel_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="KNIGHT_SHAKESPEARE_GUESS">
+	<event>
+		<text>你摸索出一些毫无意义的胡言乱语，无望地模仿蛞蝓族。他们显然没有上当，并因你的滑稽尝试而愤怒地攻击你。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+		<choice req="SLUG_NARCOTICS">
+			<text>用毒品贿赂他们。</text>
+			<event load="SLUG_NARCOTICS" />
+		</choice>
+	</event>
+	<event>
+		<text>虽然你试图模仿蛞蝓族讲话的样子很小丑，但他们似乎并不感到特别生气。他们对你大笑，邀请你登上他们的船，并出人意料地提供一些维修和补给。</text>
+		<autoReward level="MED">stuff</autoReward>
+		<damage amount="-7" />
+	</event>
+</eventList>
+
+<event name="NEBULA_KNIGHT_JAILER" unique="true">
+	<text>一个有载有夜爵士的牢狱舰飞过，直勾勾地对你进行侮辱。"联邦，滚蛋！不要来掺和，除非你想在头颅上挨子弹！"</text>
+	<ship load="SHIP_KNIGHT_JAILER" hostile="false" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击牢狱舰。</text>
+		<event>
+			<text>你充能你的武器与蛞蝓族飞船交战。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FIREARMS_AND_TELEPORT">
+		<text>（强化军械+传送器）突袭狱督舰。</text>
+		<event>
+			<text>你的船员们全副武装，登陆囚犯关押舱，迅速制服了里面负责看守的蛞蝓船员。这样一来，那些被关押但你认为不会立刻对你动手的囚犯们便都得以获释了。</text>
+			<crewMember amount="1" class="LIST_CREW_FEDERATION" />
+		</event>
+	</choice>
+	<choice req="SLUG_NARCOTICS" hidden="true">
+		<text>用毒品贿赂他们让他们放走囚犯。</text>
+		<event load="KNIGHT_JAILER_BRIBE" />
+	</choice>
+	<choice hidden="true">	
+		<text>不理会牢狱舰。</text>
+		<event>
+			<text>你今天没心情进行劫狱活动，你与牢狱舰保持了距离。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_KNIGHT_JAILER"> 
+	<text>"糟糕，你的武器比预想得要好。呃，如果我们送你这名奴隶，你会放我们走吗？"</text>
+	<environment type="nebula" />
+	<choice>
+		<text>接受一名囚犯。</text>
+		<event>
+			<crewMember amount="1" class="slug" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝并继续战斗。</text>
+		<event />
+	</choice>
+</event>
+<event name="KNIGHT_JAILER_DESTROY">
+	<text>牢狱舰已被摧毁。虽然留下了许多废料，但很可能没有任何囚犯幸存下来。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="KNIGHT_JAILER_KILL">
+	<text>牢狱舰的船员已经被清空了，你把它的外部搜刮了。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>检查囚犯。</text>
+		<event>
+			<text>看起来大多数囚犯都是对七夜统治的异议者。一个忠于斯洛克诺格的破坏者认出你是他的心目中的英雄派来的联邦飞船，表示愿意为你服务。</text>
+			<crewMember amount="1" class="slug_saboteur" />
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_JAILER_BRIBE">
+	<text>牢狱舰似乎太愿意背叛他们的国家来换取一些硬货了。</text>
+	<remove name="SLUG_NARCOTICS" />
+	<choice hidden="true">
+		<text>检查囚犯。</text>
+		<event>
+			<text>看起来大多数囚犯都是对七夜统治的异议者。一个忠于斯洛克诺格的破坏者认出你是他的心目中的英雄派来的联邦飞船，表示愿意为你服务。</text>
+			<crewMember amount="1" class="slug_saboteur" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_DISTRESS_KNIGHT">
+	<event load="NEBULA_DISTRESS_KNIGHT_TAXES" />
+	<event load="NEBULA_DISTRESS_KNIGHT_SHELLSPY" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_KNIGHT_TAXES" unique="true">
+	<distressBeacon />
+	<text>这里的求救信号来自一个小蛞蝓族殖民地，他们正被一艘夜爵士船压迫着。你从无线电中听到了他们的一小段对话。"这简直不可理喻！我们已经有好几年没有交过税了！没有人交过！税只不过是一个概念，而不是要执行的东西！不要告诉我那个懦夫七夜终于变得如此贪婪，现在还要扒他自己公民的钱？"</text> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>帮助殖民地。</text>
+		<event>
+			<text>你打算解放蛞蝓族殖民地，并攻击夜爵士的船只。</text>
+			<ship load="SHIP_KNIGHT_TAXES" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>帮助夜爵士们。</text>
+		<event>
+			<text>你向殖民地开火，但作为回应，他们派了一艘通灵会飞船来对付你！</text>
+			<ship load="SHIP_KNIGHT_TAXES_COLONY" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="SLUG_NARCOTICS">
+		<text>（蛞蝓族毒品）用毒品贿赂夜爵士，让他们放过殖民地。</text>
+		<event>
+			<text>夜爵士们似乎非常乐意用背叛国家来换取强力毒品。他们从殖民地飞走了，大概是要去好好享用新到手的毒品。</text>
+			<remove name="SLUG_NARCOTICS" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="KNIGHT_TAXES_COLONYHELP" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>不卷入其中。</text>
+		<event>
+			<text>你有比帮助蛞蝓族逃税更重要的事情要做。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_TAXES_COLONYHELP">
+	<text>殖民地对你的帮助表示感谢。"谢谢。在斯～～洛克诺格统治下，没有税收，官民都相处得很好。政府通过敲诈其他国家获得资金，就该是这样的！七夜甚至拿这些钱不是为了管理国家，他只想把钱都花在酒精和伴侣身上。"殖民地拿出了他们一直保留的用于防御的武器，但多亏你，他们不再需要它了。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+</event>
+<event name="KNIGHT_TAXES_KNIGHTHELP">
+	<text>飞船毁灭后，殖民地向夜爵士团投降了。在他们的税款被征收且一些逃犯被围捕后，夜爵士团与你联系。"你干的是啥好事？你可能还想要赏金。喏...拿着，这里有一个罪犯。我们会告诉七夜他们死于某种身体快速腐烂的异常疾病什么的。"</text>
+	<crewMember amount="1" weapons="1" class="slug" />
+</event>
+
+<event name="NEBULA_DISTRESS_KNIGHT_SHELLSPY" unique="true">
+	<distressBeacon />
+	<text>令人惊讶的是，似乎有一艘甲壳辐射体飞船找到了进入这个星云的路。他们呼唤你，请求援助。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>接收他们的请求。</text>
+		<event>
+			<text>"哦，联邦舰长，请帮忙！我们在这里执行怪才体的任务——监视蛞蝓族的行动，但我们的指挥官被劫持成了人质！你能追踪带走他们的飞船并把他们带回来吗？"</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>你进一步深入星云，直到找到他们所说的飞船，但对方已经做好了攻击的准备，并立即锁定了你！</text>
+					<ship load="SHIP_KNIGHT_SHELLSPY" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+					<choice req="SLUG_NARCOTICS" hidden="true">
+						<text>用毒品贿赂他们，让他们放走甲壳族。</text>
+						<event load="KNIGHT_SHELLSPY_BRIBE" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>去他妈的帮人，让我们杀人吧！</text>
+		<event>
+			<text>你的虐待狂倾向再一次控制了你，你抛弃了所有的礼节。但不要紧，拿起武器吧！</text>
+			<ship load="SHIP_SHELL_ELITE_GENERIC" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视甲壳族。</text>
+		<event>
+			<text>你在这里不是为了参加随机的支线任务。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_SHELLSPY_BRIBE">
+	<text>夜爵士团似乎十分愿意背叛他们的国家来换取一些硬货。</text>
+	<remove name="SLUG_NARCOTICS" />
+	<choice hidden="true">
+		<text>检查间谍的情况。</text>
+		<event>
+			<text>你提出把辐射体带回来，但他拒绝了。"不能，我们的任务已经被破坏了。我会命令我的人回来，但我不能回到怪才体。他们对像我这样的辐射体的失败没有什么宽容。如果你不介意的话，我可以和你一起去。"</text>
+			<crewMember amount="1" class="shell_radiant">Bond</crewMember>
+			<ship hostile="false" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_KNIGHT">
+	<event load="NEBULA_ENCOUNTER_KNIGHT" />
+	<event load="NEBULA_ENCOUNTER_KNIGHT_CLAIRVOYANT" />
+	<event load="NEBULA_ENCOUNTER_SLUG" />
+	
+	<event load="NEBULA_KNIGHT_ENGINES" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_KNIGHT">
+	<loadEventList first="false" generate="true">
+		<event name="NEBULA_ENCOUNTER_KNIGHT_REGULAR" />
+		<event name="NEBULA_ENCOUNTER_KNIGHT_STORM" />
+	</loadEventList>
+</event>
+<event name="NEBULA_ENCOUNTER_KNIGHT_REGULAR">
+	<text load="NEBULA_KNIGHT_FIGHT" />
+	<ship load="SHIP_KNIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="SLUG_NARCOTICS">
+		<text>用毒品贿赂他们。</text>
+		<event load="SLUG_NARCOTICS" />
+	</choice>
+</event>
+<textList name="NEBULA_KNIGHT_FIGHT">
+	<text>"这些星云不是联邦的人可以随意窥探的！快滚。"</text>
+	<text>七夜的夜爵士们肯定决心不让任何人干扰盗冠节。尽管你甚至不能参加，但仅仅是你与斯洛克诺格之间潜在的合作就足以让附近的船只走向谋杀。</text>
+	<text>一艘夜爵士船跃迁了过来，武器炽热。蛞蝓族以这种直截了当的方式进行攻击并不常见，但从这艘船奇怪的飞行模式来看，他们可能是喝醉了。希望这对你有利。</text>
+	<text>似乎有一艘夜爵士船在这里等着你。"我打了个赌，赌我是杀死你的人！现在别动，让我把你炸死。"</text>
+	<text>一艘夜爵士船似乎刚刚回收完一艘小型蛞蝓族拦截器的残骸，但你一进入本信标处，他们就决定接下来要把你干掉了！</text>
+	<text>事实证明，七夜的夜爵士们比普通的蛞蝓族飞船更具攻击性，而且不怕直接攻击你！</text>
+</textList>
+<event name="NEBULA_ENCOUNTER_KNIGHT_STORM" unique="true">
+	<text>看来这个信标不仅是离子风暴的所在地，也是一艘夜爵士船的所在地！</text>
+	<ship load="SHIP_KNIGHT" hostile="true" />
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="SLUG_NARCOTICS">
+		<text>用毒品贿赂他们。</text>
+		<event load="SLUG_NARCOTICS" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_KNIGHT_CLAIRVOYANT">
+	<text load="NEBULA_KNIGHT_CLAIRVOYANT_FIGHT" />
+	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="SLUG_NARCOTICS">
+		<text>用毒品贿赂他们。</text>
+		<event load="SLUG_NARCOTICS" />
+	</choice>
+</event>
+<textList name="NEBULA_KNIGHT_CLAIRVOYANT_FIGHT">
+	<text>通灵者们主要支持斯洛克诺格，但尽管如此，这里的飞船似乎选择了保护他们的家园，而不是让一艘只是传闻中支持他们国王的外来联邦飞船到处乱跑。</text>
+	<text>虽然在这样一个密集的蛞蝓族星云中，你并没有像你预期的那样遇到那么多通灵会飞船，但看来你的运气已经耗尽了。</text>
+	<text>一艘通灵会飞船选择了恪尽职守，保护他们的星区，因此正发起攻击。</text>
+	<text>"联邦，你不应该出现在这里！这是个私人星区！"一艘通灵会飞船开始攻击。</text>
+</textList>
+
+<event name="NEBULA_KNIGHT_ENGINES" unique="true">
+	<text>在跃迁入信标处后，你的引擎立即出现了溅射和故障。有什么东西在干扰它们，而且在发现是谁之后没多久。一艘夜爵士船从星云中滑出，表示愿意为你"修理"引擎以换取一点废料。</text>
+	<ship load="SHIP_KNIGHT" hostile="false" />
+	<environment type="nebula" />
+	<status type="divide" target="player" system="engines" amount="2" />
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你没有为你的"坏"引擎支付任何费用。夜爵士飞船对你的拒绝感到愤怒，于是发动了攻击！</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ANTI_VIRUS">
+		<text>（防护程序）自行解决问题。</text>
+		<event>
+			<text>你清除了他们造成的破坏。不出所料，这并未阻止他们继续向你发动攻击。</text>
+			<status type="clear" target="player" system="engines" amount="100" />
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="SLUG_NARCOTICS">
+		<text>用毒品贿赂他们。</text>
+		<event load="SLUG_NARCOTICS" />
+	</choice>
+	<choice>
+		<text>付钱。</text>
+		<event>
+			<text>夜爵士舰长忍不住讥笑，他们的人登上星舰，假装为你的引擎维修，舀起一些废料，然后离开。</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-25" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="KNIGHT_CLAN" unique="true">
+	<preventQuest />
+	<text>一艘异猎会的船只在附近休息。你不确定他们为什么会在星云外那么远的地方，明明其他船只都在星云内追寻王冠。</text>
+	<ship load="SHIP_CLAN_KING" hostile="false" /> 
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"啊，没想到这里还有没被七夜的手下痛打一顿的人。这些白痴们甚至不知道王宫在星云里，也不知道七夜一点都不敢离开他舒适的老鼠洞。"</text>
+			<variable name="loc_speak_clancrown" op="set" val="1" />
+			<choice hidden="true">
+				<text>你为什么在这里？</text>
+				<event>
+					<text>"啊，我们来这里是为了银河系已知的最伟大的猎物。三头甲虫生物、变异的蛞蝓和螳螂混血儿，以及神话中的盐人，都比不上我们要找的东西。这东西当然是——王冠，还有什么比它更珍贵的吗？"</text>
+					<choice>
+						<text>提出购买他们的星图数据。</text>
+						<event>
+							<text>异种猎人很愿意提供数据，因为他们知道你不会威胁到他们追求职位。</text>
+							<item_modify>
+								<item type="scrap" min="-35" max="-20" />
+							</item_modify>
+							<reveal_map />
+						</event>
+					</choice>
+					<choice blue="false" req="shields" lvl="2">
+						<text>提出带上他们。</text>
+						<event>
+							<text>你解释说自己也要去王宫，若对方愿意，可以带他们一程。令人震惊的是，异种猎人非常愿意，但他想试探一下你。"我不会在任何在狩猎方面不如我熟练的船上工作。让我们决斗吧，只有你把我打伤到必须要医疗援助的地步，我才会投降！"听起来很简单，只是异种猎人已经用增强部件干扰了你的护盾！</text>
+							<status type="loss" target="player" system="shields" amount="2" />
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+							<choice hidden="true" req="ANTI_VIRUS">
+								<text>(防护程序)恢复护盾系统的运作。</text>
+								<event>
+									<text>你的护盾已恢复。蛞蝓猎枪手必须依靠常规战术，无法再耍阴招了。</text>
+									<status type="clear" target="player" system="shields" amount="100" />
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice blue="false" req="shields" lvl="0" max_lvl="1">
+						<text>提出带上他们。</text>
+						<event>
+							<text>你解释说自己正要去皇宫，可以顺路捎上他们。令人惊讶的是，这位异种猎人十分乐意，但想先试试你的本事。"我可不屑与狩猎技术拙劣者为伍。来决斗吧，除非你能把我打到需要医疗援助，否则我绝不认输！"</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击！</text>
+		<event>
+			<text>你抓住这个机会，趁着异种猎人们分心的时候攻击他们。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>无视异种猎人们。</text>
+		<event>
+			<text>惹上异种猎人可能不是什么好主意，最好利用这个机会休息一下。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_CLAN_OFFER">
+	<text>你发现早前交谈过的蛞蝓猎枪手虽身负重伤却意外生还。"阁下真是顶尖的战士！再找不到比您更值得效力的对象了。祝我们联手夺得王冠，朋友！"</text>
+	<crewMember amount="1" class="slug_ranger" />
+	<variable name="loc_got_clancrown" op="set" val="1" />
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="KNIGHT_PALACE" unique="true">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<!--<aggressive>2</aggressive>-->
+	</quest>
+	<beaconType id="map_icon_palace2" global="true">
+		<color r="220" g="210" b="60" a="1" />
+	</beaconType>
+	<text>你终于来到了王宫。蛞蝓族的基础设施并不总是最令人惊叹的，但你必须承认，面前的景色十分宏伟。难怪七夜如此不愿意放弃他的王冠。</text>
+	<img back="BACK_EVENT_SLUG_PALACE" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>当你接近巨大的悬空处时，你可以看到斗争的迹象。看来斯洛克诺格已经对宫殿采取了行动，伴随一支忠诚的通灵会舰队。</text>
+			<choice hidden="true">
+				<text>留下来观看。</text>
+				<event>
+					<text>斯洛克诺格已经开始对人群演讲，其中既有抗议七夜的热心支持者，也有全副武装在阻拦他们的夜爵士。"放弃吧七夜。从你那个宫殿里出来，参加你之前的每个国王都热切参与过的盗冠节！我想提醒你的是，你是通过作弊来获得王位的。如果你真的是你所声称的勇敢的战士，那么你自然有能力能守住你的王位。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>斯洛克诺格又催促了几次七夜，然后放弃了，静静等待着。有片刻的沉默，最后是七夜的粗哑的声音在对讲机里响起。"好吧，你这个干瘪的小人，彩色的婊子养的！我会出来的。"几分钟后，七夜的招牌星舰"黑鸦号"从一个舰库里冲出来，直接向斯洛克诺格的大型星舰开火。随即，混乱爆发了。</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>你周围的战斗似乎已经吞噬了你所能看到的景观。双方似乎规模相当。你可以轻易地参与进去，影响这场争斗的结果，但谁才是正确的选择呢？</text>
+									<choice hidden="true">
+										<text>援助斯洛克诺格，他似乎足够通情达理，也许能把蛞蝓族带到一个辉煌的时代。</text>
+										<event>
+											<text>在斯洛克诺格的领导下，星盗会可能最终能够进步，超越这个野蛮的盗窃阶段。联邦的目标是建立一个更好的星系，如果你不做些什么来见证它，你会被钉在耻辱柱上的。</text>
+											<ship load="SHIP_BLACK_RAVEN" hostile="true" /> 
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>援助七夜，他似乎正是蛞蝓族们想要的国王。</text>
+										<event>
+											<text>七夜表面上看起来很糟糕，但能培养出这么多的追随者，在蛞蝓族眼中，这家伙肯定有一些值得称道的品质。如果你要参与其中，不妨选择一个蛞蝓族本来想要的人。</text>
+											<ship load="SHIP_SLOCKNOG" hostile="true" /> 
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>我们有什么资格参与这些事情呢？</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>事况可能会变得很乱，我们趁机离开吧。</text>
+				<event>
+					<text>最好不要冒这个险，你拉开与这个星球的距离。</text>
+					<choice hidden="true">
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG">
+	<text>当黑鸦号坠入湖中后，战斗似乎突然停止了。你的星舰降落在通灵会星舰旁边，斯洛克诺格微笑着和你握手。"我当然可以自己动手，但是...谢谢你，舰长。这已经是你两次不顾一切地帮助我了。愿星辰铭记我们伟大的友谊，嗯，朋友？"</text>
+	<variable name="ach_boss_nights" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+	</choice>
+	<choice hidden="true" req="loc_got_clancrown">
+		<text>自己去追求那顶王冠。</text>
+		<event>
+			<text>当你看着黑鸦号被捞出湖面时，你想起了先前的异种猎人，并产生了为自己夺回王冠的冲动，尽管这并不容易。当然，前提是他还在你的星舰之内。</text>
+			<choice hidden="true" req="slug_ranger">
+				<text>你的异种猎人还活着，动身吧。</text>
+				<event>
+					<text>蛞蝓族们刚刚发现了黑鸦号的残骸，并把它弄到了岸上。你需要隐身才能不被发现地到达里面。</text>
+					<choice hidden="true" req="cloaking" lvl="2">
+						<text>(高级隐形)隐身并接近。</text>
+						<event>
+							<text>你启动星舰的隐形系统，让飞船驶近残骸。现在，你需要能够将你的船员传送到黑鸦号上而不被发现。</text>
+							<choice hidden="true" req="teleporter">
+								<text>(传送器)将船员送入。</text>
+								<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BOARD">
+									<text>现在你的船员已经进入内部，风险与收益同时变大。不幸的是，在黑暗的走廊里不容易辨路。</text>
+									<choice hidden="true" req="sensors" lvl="2">
+										<text>(高级传感器)引导他。</text>
+										<event load="KNIGHT_PALACE_THEFT" />
+									</choice>
+									<choice hidden="true" req="ADV_SCANNERS">
+										<text>(长距扫描仪)引导他。</text>
+										<event load="KNIGHT_PALACE_THEFT" />
+									</choice>
+									<choice hidden="true">
+										<text>在黑暗中前进。</text>
+										<event>
+											<text>你的船员对周围的环境伸手不见五指，最终被回收队的一个人抓住，并被射杀！你别无选择，只能拉开距离，但为时已晚。卫兵们现在处于高度警戒状态，你的星舰受到了严重的损害。</text>
+											<damage amount="7" />
+											<removeCrew>
+												<clone>true</clone>
+												<text>幸运的是，你的船员能够被克隆，但这并不能扭转你所受到的伤害。</text>
+											</removeCrew>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
+								<text>(集中传送器)将船员送入。</text>
+								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BOARD" />
+							</choice>
+							<choice hidden="true">
+								<text>算了。</text>
+								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>算了。</text>
+						<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="beans">
+				<text>豆子希尔凡在场，动身吧。</text>
+				<event>
+					<text>蛞蝓族们刚刚发现了黑鸦号的残骸，并把它弄到了岸上。你需要隐身才能不被发现地到达里面。</text>
+					<choice hidden="true" req="cloaking" lvl="2">
+						<text>(高级隐形)隐身并接近。</text>
+						<event>
+							<text>你启动星舰的隐形系统，让飞船驶近残骸。现在，你需要能够将你的船员传送到黑鸦号上而不被发现。</text>
+							<choice hidden="true" req="teleporter">
+								<text>(传送器)将船员送入。</text>
+								<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BEANS_BOARD">
+									<text>现在你的船员已经进入内部，风险与收益同时变大。不幸的是，在黑暗的走廊里不容易辨路。</text>
+									<choice hidden="true" req="sensors" lvl="2">
+										<text>(高级传感器)引导他。</text>
+										<event load="KNIGHT_BEANS_THEFT" />
+									</choice>
+									<choice hidden="true" req="ADV_SCANNERS">
+										<text>(长距扫描仪)引导他。</text>
+										<event load="KNIGHT_BEANS_THEFT" />
+									</choice>
+									<choice hidden="true">
+										<text>在黑暗中前进。</text>
+										<event>
+											<text>你的船员对周围的环境伸手不见五指，最终被回收队的一个人抓住，并被射杀！你别无选择，只能拉开距离，但为时已晚。卫兵们现在处于高度警戒状态，你的星舰受到了严重的损害。</text>
+											<damage amount="7" />
+											<removeCrew>
+												<clone>true</clone>
+												<text>幸运的是，你的船员能够被克隆，但这并不能扭转你所受到的伤害。</text>
+											</removeCrew>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LOCKED_GLOBAL_TELEPORT">
+								<text>(集中传送器)将船员送入。</text>
+								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_BEANS_BOARD" />
+							</choice>
+							<choice hidden="true">
+								<text>算了。</text>
+								<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>算了。</text>
+						<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_PALACE_THEFT">
+	<text>你的异种猎人抓住了王冠，高高举起欣赏着。然而，一队破坏者冲了进来，看到了你的船员，并拔出他们的激光手枪射击。在你的异种猎人喊停，并宣布自己依据盗冠赛的规则已经成为新国王之前，你的团队差点要被杀死了。蛞蝓族们呆在了四周，但没有人提出抗议。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你的船员带着华丽的舞步走出残骸，大方展示头顶的王冠，让所有人都能看见。你惊讶地看到周围的蛞蝓族，包括斯洛克诺格，都呈躬姿，愿意接受这一新变化...</text>
+			<choice hidden="true">
+				<text>我们得手了。</text>
+				<event>
+					<win ach="slug" creditsText="credit_victory_slug" text="多亏了你，银河系现在成了一个略微更糟糕的地方。" creditsBackground="VICTORY_SLUG" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_BEANS_THEFT">
+	<text>你抓住了王冠，高高举起欣赏着。然而，一队破坏者冲了进来，看到了你的船员，并拔出他们的激光手枪射击。在你的豆子希尔凡喊停，并宣布自己依据盗冠赛的规则已经成为新国王之前，你的团队差点要被杀死了。蛞蝓族们呆在了四周，但你把豆子罐头举到空中，于是没有人提出抗议。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你的船员带着华丽的舞步走出残骸，王冠拙劣地套在拖着它的豆子罐头上，让所有人都能看见。你惊讶地看到周围的蛞蝓族，包括斯洛克诺格，都呈躬姿，愿意接受这一新变化...说真的，为什么这么奇葩的事一个提出异议的都没？</text>
+			<choice hidden="true">
+				<text>我们得手了。</text>
+				<event>
+					<win ach="slug" creditsText="credit_victory_slug_beans" text="多亏了你，银河系现在成了一个略微更糟糕的地方。" creditsBackground="VICTORY_SLUG" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_PALACE_RESOLUTION_SLOCKNOG_REAL">
+	<text>七夜的尸体被找回后，就被转移到一艘灵柩船。王冠也被找到了，虽然被破裂了，但奇迹般地没有被粉碎。蛞蝓族们聚集在一起，讨论接下来该怎么办。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>斯洛克诺格对自己没有被纳入人群中显得很惊讶。当他试图与他们交谈时，一位愤怒的民众开口了。"你没有权利来这里！你总是编造说七夜耍弄了你还是什么的，但最后你还是输了。你可能算是一个比七夜更好的国王，但你还是为了你的这个小政变让我们失去了几十个同胞的生命！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>这些话似乎引起了在场几乎所有人的共鸣，很快就形成了一群暴徒，向斯洛克诺格进军，要求他受到惩罚。没有人建议处决他的唯一原因是，没有人知道该选谁来代替他。</text>
+					<choice hidden="true">
+						<text>这些人需要进一步领略武力的效果，让斯洛克诺格重新上台。</text>
+						<event>
+							<text>考虑到你已经深入参与了此次蛞蝓政治事件，不妨再多迈一步。你回到星舰，驶近人群，开了一枪作警告。成功吸引了所有人的注意力之后，你要求斯洛克诺格再一次掌权。群众很不情愿，但通灵者们仍然忠于他们的国王，并采取了行动支持他。</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>"好吧，我的朋友，这已经是第三次了。嘿嘿，我永远欠着你的债。也许这会是报答你的一个好的开始。"</text>
+									<unlockCustomShip silent="false">PLAYER_SHIP_KNIGHT</unlockCustomShip>
+									<weapon name="RANDOM" />
+									<augment name="EX_AUTO_COOLDOWN" />
+									<autoReward level="HIGH">scrap_only</autoReward>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>建议蛞蝓族们以适当的方式进行选举，通过投票。</text>
+						<event>
+							<text>令人惊讶的是，这个革命性的想法没有立即被拒绝。在最近发生的事件的背景下，蛞蝓族们似乎真的考虑起来如何解决他们的分歧，为了整体的利益进行政府改革。然而，人群中的一人问道："那么斯洛克诺格会怎么样？"</text>
+							<variable name="loc_slugdemocracy" op="set" val="1" />
+							<choice hidden="true">
+								<text>我们将带他一起走。</text>
+								<event>
+									<text>"好吧，如果要在死亡，和在这艘英勇地帮助过我的船上工作之间做出选择，我当然宁愿不死。别了，我的国民们，愿你们在没有我的情况下走向衰败。"斯洛克诺格猛地转身，溜上了你的星舰。</text>
+									<variable name="ach_crew_slocknog" op="set" val="1" />
+									<crewMember amount="1" class="unique_slocknog">斯洛克诺格</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>处死他。</text>
+								<event>
+									<text>"我-啥？你花了这么多精力来帮助我，但现在你却判我死刑？"斯洛克诺格试图逃跑，但很快就被其他蛞蝓族抓住并拖走。你帮助了这么多的蛞蝓族市民，他们对你表示感谢并给予奖励。</text>
+									<upgrade amount="1" system="reactor" />
+									<autoReward level="HIGH">scrap_only</autoReward>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KNIGHT_PALACE_RESOLUTION_NIGHTS">
+	<text>当斯洛克诺格的星舰坠入湖中后，战斗似乎突然停了下来。你把你的星舰降落在黑鸦号旁边，七夜正在那笑。"这将让那个白痴知道，胆敢找七夜的麻烦会发生什么！"七夜得意地把他的触角伸出，而你也不好再提整个功劳属于你。</text>
+	<variable name="ach_boss_slocknog" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你看着蛞蝓族们组成一个团队把星舰从湖里捞出来。斯洛克诺格的尸体被打捞上来后，就被移到一艘灵柩船。蛞蝓族们聚集在一起，想要决定如何继续节日的程序。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>愤怒的七夜冲到他们面前，要求他们把王冠交还给他，但众人拒绝了。"你这个混蛋，你只配吃屎！如果你能履行你作为国王的职责，处理好这些事情，而不是永远是一个长不大的孩子。我们就不会有几十个尸体在王宫前折腾了！"人群中有人如是喊道。令人震惊的是，声音似乎径直地来自七夜的内部圈子。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>这些话似乎引起了在场几乎所有人的共鸣，很快就形成了一群暴徒，他们向着七夜行进，要求对他进行惩罚。没有人建议处决他的唯一原因是，没有人知道该选谁来代替他。</text>
+							<choice hidden="true">
+								<text>这些人需要进一步领略武力的效果，让七夜重新掌权。</text>
+								<event>
+									<text>考虑到你已经深入参与了此次蛞蝓政治事件，不妨再多迈一步。你回到星舰，驶近人群，开了一枪作警告。成功吸引了所有人的注意力之后，你要求七夜继续掌权。群众很不情愿，但信心似乎神奇地回到了他的追随者身上，夜爵士们也开始采取行动支持他们的国王。这很有效，很快七夜就被重新选为国王。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>七夜虽然在很多方面都是一个恶劣的、不可救药的混蛋，但他显然有足够的良知来感谢你本人。他向你表达了最大的善意，可能是为了在未来的问题上获得你的青睐。他派出了两名核心圈子内的卫兵来协助你的任务，然后是一堆废料。</text>
+											<crewMember amount="1" class="slug_knight" />
+											<autoReward level="HIGH">scrap_only</autoReward>
+											<unlockCustomShip silent="false">PLAYER_SHIP_KNIGHT</unlockCustomShip>
+											<choice hidden="true">
+												<text>继续。</text>
+												<event>
+													<crewMember amount="1" class="slug_knight" />
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>建议蛞蝓族们以适当的方式进行选举，通过投票。</text>
+								<event>
+									<text>令人惊讶的是，这个革命性的想法没有立即被拒绝。在最近发生的事件的背景下，蛞蝓族们似乎真的考虑起来如何解决他们的分歧，为了整体的利益进行政府改革。然而，人群中的一人问道："那么七夜会怎么样？"</text>
+									<variable name="loc_slugdemocracy" op="set" val="1" />
+									<choice hidden="true">
+										<text>他可以为我们效劳，偿还他对银河系的债务。</text>
+										<event>
+											<text>七夜对这个主意并不上心，但蛞蝓族们似乎觉得把他放逐到联邦船只上工作很幽默。比起被分解射线公开处决，七夜自然更喜欢在舰内的有偿劳动，他接受了，不久之后你就有了一名新的船员。</text>
+											<variable name="ach_crew_nights" op="set" val="1" />
+											<crewMember amount="1" class="unique_nights">七夜</crewMember>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>处死他。</text>
+										<event>
+											<text>七夜突然中止了所有英勇的表现，惊恐地喊叫起来，但这已经太晚了。在他们的想法被你的话煽动并放大后，众人已经无法掉头。正当七夜被拖进某个地下监狱时，你正被那些你大大帮助过的蛞蝓公民们感谢并奖励。</text>
+											<upgrade amount="1" system="reactor" />
+											<autoReward level="HIGH">scrap_only</autoReward>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+</FTL>

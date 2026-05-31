@@ -1,0 +1,2701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNION SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_UNION">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_UNION">
+	<event load="UNION_TRAFFIC" />
+	<event load="UNION_BREACH" />
+	<event load="UNION_FREEMANTIS" />
+	<event load="UNION_EFFICIENCY_ENGINEER" />
+</eventList>
+
+<textList name="TEXT_UNION_TRAFFIC">
+    <text>像这个信标附近那样的皮纳科尔设施，通常会严重破坏那些毫无防备的路过船只，因为用于关闭他们实验性意识武器的电磁脉冲通常会破坏星球的磁场。这或许会带来不便，但这个信标发出的能量信号应该能暂时拖延叛军。</text>
+    <text>这个信标处的传感器已被大量交通流量所淹没，因为阿凯夫公司正在着手修复最近在附近发现的远古遗迹。舰队很快就会停止工作，但目前的交通状况应该能掩盖你们的行踪。</text>
+    <text>当你结束超光速跃迁时，眼前的景象令人叹为观止。R.S.T.工人们正在附近的一颗行星上测试他们的一种新型环境改造技术，尘埃云正升腾至行星大气层的边缘。你将你的跃迁标识调整为与正在从信标观察的那艘飞船一致的样式——这样应该能让你暂时避开叛军追击。</text>
+    <text>这里的废弃物处理设施正在进行一项令人兴奋的活动——在螳螂入侵战争中被摧毁的一个废弃殖民地，似乎将被完整回收用于一项针对他们酸液技术新版本的测试。附近那些正在监视这一过程的飞船应该能为你的星舰在这个信标上的行动提供有效的掩护。</text>
+    <text>这个信标处有大量的各个种族的民用船只往来通行，你的无线电被各频率的通信弄得应接不暇，因此无法窃听到任何有用的对话。但至少，这让叛军对你的搜寻也如大海捞针。</text>
+</textList>
+
+<event name="UNION_TRAFFIC" unique="true">
+    <text load="TEXT_UNION_TRAFFIC" />
+    <img planet="PLANET_UNPOPULATED_TERRA" />
+    <customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_CIVILIAN</customFleet>
+    <modifyPursuit amount="-2" />
+    <choice>
+        <text>星舰管理。</text>
+        <event load="STORAGE_CHECK" />
+    </choice>
+    <choice>
+        <text>跳过。</text>
+        <event />
+    </choice>
+</event>
+
+<event name="UNION_BREACH" unique="true"> <!--need damaged sprite-->
+	<text>一艘受到严重破舱损伤的平民舰拼命向你呼叫。原来他们才勉强逃离追击的海盗，所以必须转移船员至另一艘舰船上。</text>
+	<ship load="SHIP_UNION_GENERIC" hostile="false" />
+	<!--<enemyDamage amount="1" system="random" effect="breach"/>
+	<enemyDamage amount="1" system="random" effect="breach"/>
+	<enemyDamage amount="1" system="random" effect="breach"/>-->
+	<choice hidden="true">
+		<text>欢迎对方登舰。</text>
+		<event load="UNION_BREACH_BOARD" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>(岩石族船员)在你的岩石船员看护下允许对方登舰。</text>
+		<event load="UNION_BREACH_SECURITY" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SOLDIER">
+		<text>(士兵船员)在士兵看护下允许对方登舰。</text>
+		<event load="UNION_BREACH_SECURITY" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SUZERAIN">
+		<text>(母巢精英船员)在螳螂族的看护下允许对方登舰。</text>
+		<event load="UNION_BREACH_SECURITY" />
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING_DAMAGE">
+		<text>(士兵无人机)在无人机看护下允许对方登舰。</text>
+		<event load="UNION_BREACH_SECURITY" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>(先进传感器)允许对方登舰但全程对其进行扫描。</text>
+		<event load="UNION_BREACH_SECURITY" />
+	</choice>
+	<choice hidden="true">
+		<text>我们没法帮忙。</text>
+		<event>
+			<text>你向对方解释自己的任务过于重要，没有额外的精力运输平民。对方虽然显然处于危难但只好无奈地看着你离去。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="UNION_BREACH_BOARD">
+	<event>
+		<text>平民对你的援手万分感激。他们打包完行李后登舰，并示意你可随意搜刮他们的旧舰船。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>平民对你的援手十分感激。大多数人选择在附近的空间站离舰，但其中一人希望改变枯燥的人生。对方希望成为你的船员。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>对方登舰之后，你注意到其中穿长袍的一位平民，长袍间藏有一件巨型武器。或许只是自卫武器，且以威胁为由叫对方出列或许会惹麻烦。</text>
+		<choice hidden="true">
+			<text>叫对方出列。</text>
+			<event load="UNION_BREACH_BOARD_CALLOUT" />
+		</choice>
+		<choice hidden="true">
+			<text>无视该武器。</text>
+			<event load="UNION_BREACH_BOARD_IGNORE" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="UNION_BREACH_BOARD_CALLOUT">
+	<event>
+		<text>你指出藏匿的武器，并抢先于对方拔出爆裂手枪。平民们慌了神，急忙解释道穿长袍的这位是他们的保镖。你连忙道歉，但是轻率的行为造成的后果已无法挽回。平民们不情愿地走进货舱，并在你将他们妥善安置至附近空间站之前，拒绝与你或你的船员交谈。到站后他们短暂表示感谢并以最快的速度离舰。</text>
+	</event>
+	<event>
+		<text>你抽出你的激光枪，盯着那个穿长袍的"平民"。其余的平民和你的船员也照做，你发现自己处于相当危险的境地。"那么，舰长，我必须为你发现识破诡计而赞赏。交给我们一些废料，我们就继续上路了。否则，你们都得—"你对着他的头开了一枪，打断了他的发言。混乱随之而来，你准备从其他海盗手中保卫这艘船。</text>
+		<boarders min="2" max="4" class="random" />
+	</event>
+</eventList>
+<eventList name="UNION_BREACH_BOARD_IGNORE">
+	<event>
+		<text>幸运的是，完全无事发生。你在附近的空间站将平民们妥善安置，对方向你表示感谢并给予你一些报酬。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+	<event>
+		<text>你帮助所有的平民进入货舱，并开始返回指挥舱，但在半路上你听到了毋庸置疑是传送器的声音。你跑回去，才发现好几个"平民"带着你货舱里的东西传送走了。剩下的海盗们准备战斗。</text>
+		<boarders min="2" max="3" class="random" />
+		<item_modify steal="true">
+			<item type="fuel" min="-3" max="-3" />
+			<item type="scrap" min="-25" max="-25" />
+			<item type="missiles" min="-2" max="-2" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="UNION_BREACH_SECURITY">
+	<event>
+		<text>平民对你的援手万分感激。他们打包完行李后登舰，并示意你可随意搜刮他们的旧舰船。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>平民对你的援手十分感激。大多数人选择在附近的空间站离舰，但其中一人希望改变枯燥的人生。对方希望成为你的船员。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>对方准备开始登舰，毫无意外，你安置的警戒员发现他们在往舰内偷运武器。意识到诡计被识破，对方立即放下武器并投降。看来这是一场精心策划的海盗陷阱！介于他们恶意在先，你对抢夺他们的物品一点也不愧疚。</text>
+		<autoReward level="MED">item</autoReward>
+	</event>
+</eventList>
+
+<event name="UNION_FREEMANTIS" unique="true">
+	<text>你收到自由螳螂舰船的信号，其舰长看起来有些迷路。"哦，你好。你还没逃走，我当你是友好的。我们不小心误入此处，本来打算找一个联邦星区参加联邦军队，但是现在被盟卫追击了，非常不幸。你能帮我们向他们说明，我们是友好的吗？"</text>
+	<choice hidden="true">
+		<text>同意追踪正在追击他们的盟卫战舰。</text>
+		<event>
+			<text>"十分感谢，我的朋友。"你沿他们指示的方向发现那艘盟卫战舰已经进入此星系。但他还没注意到你。</text>
+			<ship load="SHIP_MILITIA_COREWORLD_FREEMANTIS_HUNTER" hostile="false" />
+			<choice hidden="true">
+				<text>联系该盟卫战舰。</text>
+				<event>
+					<text>"啊，找我们有事吗？"你向对方解释道他们正在追踪的自由螳螂舰船只想和平地穿过该星区。他翻了翻白眼。"超能族报告说有一位螳螂族在该地区捣乱。我们当然得把这位螳螂抓起来。那你们还指望我们做什么呢？"</text>
+					<choice hidden="true">
+						<text>强迫对方投降。</text>
+						<event>
+							<text>只要你造成足够舰体伤害，对方也只能屈服。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_FREEMAN">
+						<text>(自由螳螂)联系盟卫。</text>
+						<event>
+							<text>你的自由螳螂船员走向显示屏，向对方做了一个十分愚蠢滑稽的笑脸。然而盟卫们并不领情，"你或许会被他们那恶心的外表所迷惑，但我们永远不会忘记！想想在螳螂入侵战争中失去生命的前辈们吧！现在你居然要我们与螳螂族并肩作战？我觉得这个星系，不，这个宇宙出错的原因都是因为你！"对方中断联系并准备攻击！</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>贿赂对方。</text>
+						<event>
+							<text>"呃，行吧。这件事肯定会变得很糟，记住我的话。我只希望他们不惹事，否则我们只能杀了他们。"</text>
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+							<choice hidden="true">
+								<text>回头联系自由螳螂船。</text>
+								<event load="UNION_FREEMANTIS_REWARD" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>果断放弃。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>摧毁这艘飞船。</text>
+				<event>
+					<text>如果问你从任务中学会了什么，那就是暴力可以解决一切。你启动武器准备摧毁盟卫战舰。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>"好吧，一路顺风！"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNION_FREEMANTIS_WIN">
+	<text>你摧毁了盟卫战舰，自由螳螂当下被解救了，之后你搜刮了盟卫战舰残骸。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回头联系自由螳螂船。</text>
+		<event>
+			<text>"你...你杀死了他们？为-为什么？这完全没有必要。我们不想要死掉的平民。我们只想要旅途平安。不过...你还是救了我们。我们会给你报酬表达感谢，但希望未来你不要这样了。"</text>
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNION_FREEMANTIS_SURRENDER">
+	<text>盟卫战舰几近摧毁。他们的舰长绝望地看着你。"什么...你是认真的吗？你们会为了一些天杀的螳螂族干掉我们？"</text>
+	<choice hidden="true">
+		<text>你放走那些自由螳螂我们就饶你一命。</text>
+		<event>
+			<text>"天老爷你们真是疯了。好好好我让他们走。这些螳螂难民将会把我们所有人置于死地..."</text>
+			<ship hostile="false" />
+			<choice hidden="true">
+				<text>回头联系自由螳螂船。</text>
+				<event load="UNION_FREEMANTIS_REWARD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>没错，我们疯了。</text>
+		<event />
+	</choice>
+</event>
+<event name="UNION_FREEMANTIS_REWARD">
+	<text>"太谢谢了！你帮了我们一个大忙！我们该怎么报答你的人情呢？"</text>
+	<choice hidden="true">
+		<text>维修。</text>
+		<event>
+			<text>自由螳螂们本不擅长修理，但对方齐心协力，尽力为你修复了不少舰体值。</text>
+			<damage amount="-10" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>燃料。</text>
+		<event>
+			<text>自由螳螂转移了一些燃料。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>废料。</text>
+		<event>
+			<text>自由螳螂高兴地提供了其一部分废料库存。</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="UNION_EFFICIENCY_ENGINEER" unique="true">
+	<text>附近的一艘同盟战舰发出了广播，宣称他们能够对某些武器进行升级，使其更节能。不过这可能会很贵。</text>
+	<ship load="SHIP_UNION_ALL" hostile="false" />
+	<choice blue="false" hidden="true" req="LIST_WEAPONS_PLAYER" lvl="1">
+		<text>询问流程。</text>
+		<event>
+			<text>这位工程师提出可对以下武器进行升级。</text>
+			<choice req="LASER_HULL_3">
+				<text>升级破舰激光III。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="LASER_HULL_3" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="LASER_HULL_3_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="LASER_FROST_2">
+				<text>升级冰霜激光II。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="LASER_FROST_2" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="LASER_FROST_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="LASER_FIRE">
+				<text>升级火焰激光。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="LASER_FIRE" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="LASER_FIRE_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="MISSILES_PARTICLE">
+				<text>升级粒子导弹。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="MISSILES_PARTICLE" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="MISSILES_PARTICLE_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="ION_STUN_CHARGEGUN">
+				<text>升级充能眩晕炮。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="ION_STUN_CHARGEGUN" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="ION_STUN_CHARGEGUN_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="ION_FIRE">
+				<text>升级火焰冲击离子炮。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="ION_FIRE" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="ION_FIRE_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="MISSILES_BURST_2">
+				<text>升级水蛇导弹。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="MISSILES_BURST_2" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="MISSILES_BURST_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="MISSILES_CLOAK">
+				<text>升级夜神导弹。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="MISSILES_CLOAK" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="MISSILES_CLOAK_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="MISSILES_FIRE">
+				<text>升级冥神导弹。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="MISSILES_FIRE" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="MISSILES_FIRE_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="BEAM_2">
+				<text>升级战戟光束。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="BEAM_2" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="BEAM_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="BEAM_LONG">
+				<text>升级长枪光束。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="BEAM_LONG" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="BEAM_LONG_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="BEAM_LONG_2">
+				<text>升级'长矛'光束II。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="BEAM_LONG_2" />
+					<item_modify>
+						<item type="scrap" min="-50" max="-40" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="BEAM_LONG_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="BEAM_GUILLOTINE">
+				<text>升级斩矛光束。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="BEAM_GUILLOTINE" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="BEAM_GUILLOTINE_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="ENERGY_2">
+				<text>升级能量炮II。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="ENERGY_2" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="ENERGY_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="ENERGY_STUN">
+				<text>升级离子眩晕。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="ENERGY_STUN" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-30" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="ENERGY_STUN_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="ENERGY_CHARGEGUN">
+				<text>升级蓄能炮。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="ENERGY_CHARGEGUN" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="ENERGY_CHARGEGUN_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="SHOTGUN_2">
+				<text>升级破片炮II。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="SHOTGUN_2" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="SHOTGUN_2_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="SHOTGUN_TOXIC">
+				<text>升级辐射破片炮。</text>
+				<event>
+					<text>你把武器交给工程师，让他来改造。</text>
+					<remove name="SHOTGUN_TOXIC" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-35" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>片刻后，经过改良的武器回到了你的手中。</text>
+							<weapon name="SHOTGUN_TOXIC_PLAYER" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="pilot" hidden="true" blue="false" max_group="0"> <!--something something trc weapon compatibility-->
+				<text>改变主意。</text>
+				<event>
+					<text>你拒绝提议后继续前行。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice blue="false" hidden="true" req="LIST_WEAPONS_PLAYER" lvl="0" max_lvl="0">
+		<text>询问流程。</text>
+		<event>
+			<text>工程师遗憾地告知你，你没有适合他改造的武器。你仍表示了感谢，不再耽搁时间。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻击对方！</text>
+		<event>
+			<text>启动武器系统，表明敌对意图。</text>
+			<ship hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event>
+			<text>拒绝提议并继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_reloader" global="true">
+		<color r="180" g="0" b="0" a="1" />
+        <unvisitedTooltip>此处是武器效率升级事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_UNION">
+	<event load="UNION_OUTCAST_REFUGEES" />
+	<event load="UNION_DRUNK" />
+	<event load="UNION_MINING" />
+	<event load="UNION_FACTORY" />
+	<event load="UNION_CARAVAN" />
+	<event load="UNION_SMUGGLER_PAYMENT" />
+</eventList>
+
+<event name="UNION_OUTCAST_REFUGEES" unique="true">
+    <text>在这个信标处正在进行一场激烈的争论。一艘护送着无武装运输船的流放者飞船正与一队盟卫飞船对峙。他们的谈话在公开频道进行。
+
+"……他们无家可归！"
+
+"不关我们的事！你认为我们会让你们进入我们的家园，让你们滔滔不绝地说那些疯狂的废话吗？"
+
+"你没听见吗！我们是叛教者！如果能让我们有个居住的地方，我们愿意学习你们的习俗。"
+
+"对，一开始可能会是这样。然后你们会对我们的信念感到不满，并用你们的信念取代它。我们没那么天真！"</text>
+    <choice req="unique_tuco">
+		<text>(图科)威胁盟卫巡逻队。</text>
+		<event>
+			<text>图科猛地砸了一下墙，响亮的声音在通讯频道中响起："你 们 在 干 什 么？"
+
+"你…你是谁？"巡逻队问。
+
+另一艘船回答了他们的问题。"可怖海盗图库！他是来帮助我们的！"
+
+"妈蛋，可怖海盗？这远远超出了我的职责范围……好吧！你们可以留下。只要……只要不制造混乱就行！"盟卫巡逻队迅速离开了。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"可怖海盗图科救了我们！图科万岁，你是我们的恩人！"这些被放逐的人在你的星舰上欢呼雀跃，大方地向你献上礼物。图科哈哈大笑，然后喝了一大口。"当你也这么优秀的时候，你的名声就能帮你做到这一点。"</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<choice hidden="true">
+						 <text>继续。</text>
+						 <event load="MORALITY_REMOVE_OUTCAST" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="rock_outcast">
+		<text>(流放者船员)建议这些被放逐的人继续前进。</text>
+		<event>
+			<text>你的船员向护航舰打招呼并建议他们继续前进。
+
+"我们已经走了这么远，却还是被告知要继续前进。"
+
+你的流放者告诉他们，他们会找到他们正在寻找的东西，但不是在这里。舰长不再拒绝，启动飞船继续前进。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MILITIA_OUTCAST_REFUGEES_LEFT" />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>建议这些被放逐的人继续前进。</text>
+		<event load="MILITIA_OUTCAST_REFUGEES_PERSUADE" />
+    </choice>
+    <choice hidden="true">
+		<text>指责巡逻员有偏见。</text>
+		<event load="MILITIA_OUTCAST_REFUGEES_ACCUSE" />
+    </choice>
+    <choice>
+		<text>攻击流放者护航舰。</text>
+		<event>
+			<text>流放者通过激活武器来回应你的敌对行为。</text>
+			<ship load="SHIP_OUTCAST_REFUGEE_ESCORT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_OUTCAST_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击盟卫巡逻队。</text>
+		<event>
+			<text>你听够了。这艘盟卫飞船完全不讲道理。他们对你的突然攻击感到惊讶，并以同样的方式回应。</text>
+			<ship load="SHIP_MILITIA_REFUGEE_PATROL" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>无视这场冲突。</text>
+		<event>
+			<text>他们的争吵不关你的事。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="MILITIA_OUTCAST_REFUGEES_PERSUADE">
+    <event>
+		<text>你试图说服难民们离开。流放者护航舰长叹了口气。"我知道我们寡不敌众。那就这样吧。我们会继续前进。"</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MILITIA_OUTCAST_REFUGEES_LEFT" />
+		</choice>
+    </event>
+    <event>
+		<text>你试图说服难民们离开。流放者护送者怒目而视。"我们已经走了这么久，走了这么远。我们不会离开。你们可以攻击我们，也可以离开。你们随意。"</text>
+		<choice>
+			<text>攻击。</text>
+			<event>
+				<text>流放者通过激活武器来回应你的敌对行为。</text>
+				<ship load="SHIP_OUTCAST_REFUGEE_ESCORT" hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_OUTCAST_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>放弃。</text>
+			<event>
+				<text>你离开了现场。事情仍未解决，但现在看来暂时不会升级成暴力事件。</text>
+			</event>
+		</choice>
+    </event>
+</eventList>
+<eventList name="MILITIA_OUTCAST_REFUGEES_ACCUSE">
+    <event>
+		<text>盟卫舰长吞吞吐吐地说。"我？一个偏见的人？我…你看…我只是…试图代表…的利益…算了！那就留下来吧。当事情变糟时，我一定会说，我早就告诉过你了！"</text>
+		<choice hidden="true">
+			<text>和难民谈谈。</text>
+			<event load="MILITIA_OUTCAST_REFUGEES_STAY" />
+		</choice>
+	</event>
+	<event>
+		<text>盟卫舰长嘲笑道。"你是联邦的人。你不懂。你似乎以为握手就能解决所有问题。离开这里，这不关你们的事。"</text>
+		<choice>
+			<text>攻击对方。</text>
+			<event>
+				<text>你听够了。这艘盟卫飞船完全不讲道理。他们对你的突然攻击感到惊讶，并以同样的方式回应。</text>
+				<ship load="SHIP_MILITIA_REFUGEE_PATROL" hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_UNION_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>放弃。</text>
+			<event>
+				<text>你离开了现场。事情仍未解决，但现在看来暂时不会升级成暴力事件。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>盟卫舰长对你咆哮道。"我受够了联邦总是那么趾高气扬。该敲打一下了！"</text>
+		<ship load="SHIP_MILITIA_REFUGEE_PATROL" hostile="true" />
+		<choice>
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+</eventList>
+<event name="MILITIA_OUTCAST_REFUGEES_LEFT">
+    <text>"给我留下了深刻的印象深刻。我以为那些讨厌的难民永远不会离开。别担心，我们会付你报酬的。"舰长给了你少量资源。</text>
+    <autoReward level="LOW">standard</autoReward>
+</event>
+<event name="MILITIA_OUTCAST_REFUGEES_LEFT_DEAD_ESCORT">
+    <text>盟卫巡逻队发来消息。"我们很感谢你的帮助，但是这似乎有点过头了吧？"</text>
+</event>
+<event name="MILITIA_OUTCAST_REFUGEES_STAY_VIOLENCE">
+    <text>难民领袖向你致意。"无论我们走到哪里，暴力都无处不在。这是世界的自然状态吗？不过，我们还是很感激你站在我们这边。我们只能希望这不会适得其反。"</text>
+   	 <autoReward level="LOW">standard</autoReward>
+</event>
+<event name="MILITIA_OUTCAST_REFUGEES_STAY">
+    <text>难民领袖向你致意。"我们感谢你为我们挺身而出。也许现在我们能真正过上平静的生活了。我们将尽我们所能帮助你。"</text>
+    <autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+         <text>继续。</text>
+         <event load="MORALITY_REMOVE_OUTCAST" />
+  	</choice>
+</event>
+
+<event name="UNION_DRUNK" unique="true">
+    <text>一艘同盟飞船上前搭讪。"嘿！你…混蛋！"船主似乎喝醉了。"这该死的战争。都是你的错！你…变元者。本来一切叛乱都不会发生，如果不是…你懂的…联邦迟钝和愚蠢。因为'你'和你们多元宇宙战争，我的生意一直在走下坡路！"</text>
+    <ship load="SHIP_UNION_FIGHT" hostile="false" />
+    <choice req="unique_nights" hidden="true">
+		<text>(七夜)"你的生意失败，是因为你太差劲了。"</text>
+		<event>
+			<text>醉汉试图反驳，但在那之前，七夜打断了他。"噢，你只是因为时代不好才失败的？这不是你的错？让我猜猜，在叛军之前，是因为你的妻子或者竞争对手的不正当手段？闭嘴吧，你只是一个失败者。承认吧。"
+
+"但我…但是你…"这个人拼命想反驳七夜，但他结结巴巴地说不出话来，磕磕绊绊地离开。船上的另一个人走过来。 "好吧，我认为你帮了我们大家一个忙。在我们离开前，我们把这些东西给你。"</text>
+			<weapon name="GIFTLIST_UNION" />
+		</event>
+    </choice>
+    <choice>
+		<text>用合理的理由与他争论。</text>
+		<event>
+			<text>你向他解释了你任务重要性，但他却用各种荒谬错误的言论驳斥你的论点。你试图礼貌地指出他的错误，但由于某种奇怪未知的原因，那个愤怒的醉汉并没有听进去。你意识到这毫无意义，于是远离了这艘船和它的咆哮声。</text>
+			<event />
+		</event>
+    </choice>
+    <choice>
+		<text>谩骂他。</text>
+		<event>
+			<text>你和那个家伙进行了一场激烈的争吵。最终，你说的某句话完全触怒了他。他向你发起了攻击！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>威胁要把他的船炸成碎片。</text>
+		<event load="UNION_DRUNK_THREATEN" />
+    </choice>
+    <choice>
+		<text>把他的船炸成碎片。</text>
+		<event>
+			<text>"果然是这样！大家看到了吧，不是我先攻击的！"同盟战舰反击了！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>完全无视他。</text>
+		<event>
+			<text>飞船继续对你说脏话，但你不予理会。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="UNION_DRUNK_THREATEN">
+	<event>
+		<text>"嘿嘿嘿，冷静点！我并没有那个意思，我们都是朋友！看，朋友！"同盟飞船把一件武器扔出舱外并保持与你的距离。</text>
+		<weapon name="GIFTLIST_UNION" />
+	</event>
+	<event>
+		<text>"哦，你想炸碎我？你想炸碎我？我才不会怕你！"同盟飞船先发制人发起攻击！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"呃…你知道的…我很想踢你的屁股，但是我有太多的事情要做。所以就这样吧。" 飞船迅速离开。</text>
+		<instantEscape />
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="UNION_MINING" unique="true">
+	<text>附近的小行星区似乎正在进行民用采矿作业。周围有警戒线环绕着这个区域，告知未经批准的人员不得进入该区域。</text>
+	<choice hidden="true">
+		<text>仔细检查。</text>
+		<event>
+			<text>大部分民船停靠在带外的一处哨站，只有一艘还在带内采集掠过的小行星。</text>
+			<ship load="SHIP_MINING_OPS" hostile="false" />
+			<environment type="asteroid" />
+			<choice hidden="true">
+				<text>攻击对方。</text>
+				<event>
+					<text>准备攻击这艘开采船。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_UNION_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="BEAM_MINING">
+				<text>(开采光束)开采外围一些小行星。</text>
+				<event>
+					<text>你用无人机从小行星带采集了不少燃料及废料。</text>
+					<autoReward level="HIGH">fuel</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_MINING_CONFRONT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="DRONE_CONTROL_BEAM_DRONE">
+				<text>(光束无人机)开采外围一些小行星。[-1|]</text>
+				<event>
+					<text>你用无人机从小行星带采集了不少燃料及废料。</text>
+					<autoReward level="MED">fuel</autoReward>
+					<item_modify>
+						<item type="drones" min="-1" max="-1" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_MINING_CONFRONT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="SCRAP_COLLECTOR">
+				<text>(废料收集臂)开采外围一些小行星。</text>
+				<event>
+					<text>你用无人机从小行星带采集了不少燃料及废料。</text>
+					<autoReward level="MED">fuel</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_MINING_CONFRONT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="DRONE_CONTROL_MINING_DRONE">
+				<text>(光束无人机)开采外围一些小行星。[-1|]</text>
+				<event>
+					<text>你用无人机从小行星带采集了不少燃料及废料。</text>
+					<autoReward level="HIGH">fuel</autoReward>
+					<item_modify>
+						<item type="drones" min="-1" max="-1" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_MINING_CONFRONT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视对方。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视采矿区。</text>
+		<event>
+			<text>你对开采毫无兴趣。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNION_MINING_CONFRONT">
+	<text>你还没来得及离开，早前那艘开采船就发现了你。"嘿！你他娘的在干什么？这里是限制区域，我们不能随便让什么船都像回自己家一样闯进来！"你明白对方没有立刻动手的唯一原因，就是你的船明显比他们的大得多。</text>
+	<choice hidden="true">
+		<text>攻击对方。</text>
+		<event>
+			<text>管他合不合法，你从不受人摆布。同盟飞船立即进入自卫状态。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" /> <!--should this be a double notoriety hit?-->
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视它并离开。</text>
+		<event>
+			<text>关闭通讯并准备跃迁。即使此处无人伤亡，你的行为也无助于改善变元者在同盟中的声誉。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>贿赂对方。</text>
+		<event>
+			<text>将收集的部分废料转移至对方舰船。他们稍作迟疑便接受并允许你离开。</text>
+			<item_modify>
+				<item type="scrap" min="-20" max="-15" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+<event name="UNION_MINING_DESTROY">
+	<text>似乎这艘开采船携带有大量燃料。看来其中一发攻击点燃了对方货舱并导致了爆炸。还好你的战舰未受损，但对方的货舱库存都未能幸免。你只好赶在其援军到来前快速搜刮剩余的船骸。</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<event name="UNION_MINING_KILL">
+	<text>开采船内船员全部阵亡之后，你在舰内发现大批燃料。</text>
+	<autoReward level="HIGH">fuel</autoReward>
+</event>
+
+
+<event name="UNION_FACTORY" unique="true">
+    <text>你隐隐看见不远处一座半自动化武器工厂，它被一艘盟卫战舰守护着。</text>
+    <ship load="SHIP_MILITIA_WEAPON_FACTORY" hostile="false" />
+    <choice hidden="true" req="rep_comb_union" lvl="-999" max_lvl="-1" blue="false">
+        <text>呼叫工厂询问是否需要帮助。</text>
+        <event>
+            <text>一名工厂工作人员回应："想帮忙？我们有批货物要送，但快递员延误了。有些替换零件需送往附近星球的防空炮台。能接手吗？"</text>
+            <choice hidden="true">
+                <text>同意运送货物。</text>
+                <event>
+                    <text>"有空时处理。他们会支付运费。"</text>
+                    <quest event="UNION_FACTORY_QUEST" />
+                </event>
+            </choice>
+            <choice hidden="true">
+                <text>致歉，目的地太绕路。</text>
+                <event>
+                    <text>你道歉后结束通讯。</text>
+                    <choice>
+                        <text>星舰管理。</text>
+                        <event load="STORAGE_CHECK" />
+                    </choice>
+                    <choice>
+                        <text>跳过。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="rep_comb_union" lvl="0" max_lvl="999" blue="false">
+        <text>呼叫工厂询问需求。</text>
+        <event>
+            <text>对方未回应你的呼叫。</text>
+            <choice hidden="true">
+                <text>攻击这艘船来进入工厂。</text>
+                <event>
+                    <text>你准备攻击盟卫战舰。</text>
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="MORALITY_UPDATE_UNION_FIGHT" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true">
+                <text>不予理会。</text>
+                <event>
+                    <text>你对工厂失去兴趣。</text>
+                    <choice>
+                        <text>星舰管理。</text>
+                        <event load="STORAGE_CHECK" />
+                    </choice>
+                    <choice>
+                        <text>跳过。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>攻击这艘船来进入工厂。</text>
+        <event>
+            <text>你准备攻击盟卫战舰。</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="MORALITY_UPDATE_UNION_FIGHT" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>无视这座工厂。</text>
+        <event>
+            <text>你对工厂毫无兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="UNION_FACTORY_CHOICE">
+	<text>没了保护他们的盟卫船后，剩下的平民工人四散逃离。整个工厂都任你摆布，但要不了多久援军就会抵达。你会拿什么？</text>
+	<choice>
+		<text>拿取一件武器。</text>
+		<event>
+			<weapon name="RANDOM" />
+		</event>
+	</choice>
+	<choice>
+		<text>获取弹药。</text>
+		<event>
+			<item_modify>
+				<item type="missiles" min="10" max="10" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+<event name="UNION_FACTORY_QUEST" unique="true">
+    <beaconType id="map_icon_quest" global="true">
+        <color r="69" g="168" b="235" a="1" />
+        <unvisitedTooltip>你需将反舰炮台部件运送至该地点。</unvisitedTooltip>
+    </beaconType>
+    <img planet="PLANET_POPULATED" />
+    <text>你抵达请求零件的星球。对方对变元者担任快递员感到惊讶，但仍满意收到货物，并支付了适中报酬。</text>
+    <disableScrapAugments />
+    <autoReward level="MED">scrap_only</autoReward>
+    <choice>
+        <text>继续。</text>
+        <event>
+            <text>当你交付零件时，一艘叛军舰船进入星系。"看来变元者渣滓在给主子跑腿？哈，这可比你们对抗我们崇高事业时有用多了。"</text>
+            <ship load="SHIP_REBEL_FIGHT" hostile="true" />
+            <choice hidden="true" blue="false" req="rep_comb_union" lvl="-999" max_lvl="2">
+                <text>攻击叛军！</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+            <choice hidden="true" blue="false" req="rep_comb_union" lvl="3">
+                <text>攻击叛军！</text>
+                <event>
+                    <text>当你迎战敌舰时，行星防御系统却对准了你。尽管你完成了交付，他们似乎更倾向叛军。看来你的恶名早已传开。</text>
+                    <environment type="PDS" target="player" />
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true" blue="false" req="rep_comb_union" lvl="-999" max_lvl="0">
+                <text>请求客户支援。</text>
+                <event>
+                    <text>同盟星球为感谢配送，向你提供防反舰炮台支援。</text>
+                    <environment type="PDS" target="enemy" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true" blue="false" req="rep_comb_union" lvl="1" max_lvl="2">
+                <text>请求客户支援。</text>
+                <event>
+                    <text>对方不愿协助。毕竟你的声誉本就不佳。</text>
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true" blue="false" req="rep_comb_union" lvl="3">
+                <text>请求客户支援。</text>
+                <event>
+                    <text>他们非但不帮忙，反而向你开火。尽管完成了交付，他们仍选择站在叛军一边。你必定曾严重败坏过自己的声誉。</text>
+                    <environment type="PDS" target="player" />
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+
+
+<event name="UNION_CARAVAN" unique="true">
+	<text>在螳螂母巢外遇见一艘领主船都十分罕见，更不要说在同盟境内。其中一艘特别彪悍的领主战舰正在攻击一支盟卫货运舰队，他们的护卫舰装备差劲，几无还手之力。</text>
+	<ship load="SHIP_SUZERAIN_CARAVAN" hostile="false" />
+	<choice hidden="true">
+		<text>保护盟卫船。</text>
+		<event>
+			<text>你准备攻击领主战舰。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="cloaking">
+		<text>(隐形系统)在货船分神之际隐形并劫掠对方。</text>
+		<event>
+			<text>盟卫们丝毫没有意识到你的偷窃行为，他们实在疲于应付螳螂船无暇对付你，你带着物资扬长而去。</text>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SUZERAIN">
+		<text>(精英母巢船员)要求领主战舰停火。</text>
+		<event>
+			<text>你的精英螳螂严厉斥责了对方舰长不带护卫就离开母巢来进行类似"劫掠这些肉皮囊"的愚蠢行为。尽管这一切非常讽刺，但斥责使得对方羞愧无比，最终难忍大辱跃迁。盟卫们对你的救援感到十分欣喜，并向你提供一份礼物。其中一位守卫员因为害怕你离开之后领主战舰回来复仇，选择为你效劳。</text>
+			<crewMember amount="1" combat="1" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="FLARE_DISTRACTION">
+		<text>(干扰闪弹)使用闪弹来引离领主的追捕。</text>
+		<event>
+			<text>领主战舰立即发现了闪弹，误以为它是求救信号弹并转向。在其犹豫之际你赶紧护送盟卫们离开，他们遭受的损伤十分严重，在发来礼物后其中一位盟卫守卫员因为太害怕之后的旅途再遇到领主，选择为你效劳。</text>
+			<crewMember amount="1" combat="1" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些船。</text>
+		<event>
+			<text>一个艰难的决定，但螳螂领主并不是什么好惹的货色。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNION_CARAVAN_GIFT">
+	<text>盟卫护卫舰受到的损伤比你想的还要严重，其生命支持系统在战斗中损坏所以船员都窒息而亡。幸运的是运输舰仍幸存，对方向你提供了一些货物以示感谢。</text>
+	<autoReward level="HIGH">item</autoReward>
+</event>
+
+<event name="UNION_SMUGGLER_PAYMENT" unique="true">
+	<text>你发现一艘同盟飞船正在与阿尔吉恩集团的飞船通话。虽然没在交战，但你感觉他们也不是什么友好关系。</text>
+	<ship load="SHIP_SMUGGLER_UNION_PAYMENT" hostile="false" />
+	<choice hidden="true">
+		<text>聆听。</text>
+		<event>
+			<text>"这么说吧，我很抱歉。本以为能凑够废料来支付货款，但我在提卡卡那儿吃了大亏，不得不花光积蓄维修飞船。以你的职业性质，肯定能理解这种情况吧？"
+			
+			"我的同情心与我的职业无关。阿尔吉恩集团条款明确规定：款项必须预付或当场结清…在付款完成前不会交货。恐怕你只能…放弃这批货了。除非你这位朋友愿意帮忙？"</text>
+			<choice>
+				<text>主动提出帮忙支付货款。</text>
+				<event>
+					<text>你拿出一些废料和同盟飞船剩下的一点废料凑了凑。虽然价格确实不菲，但你们总算凑齐了全款。走私者们交出货物后跃迁离开。</text>
+					<item_modify>
+						<item type="scrap" min="-65" max="-50" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>同盟飞船的舰长向你呼叫："多谢出手相助！我之前不得不雇这些人从叛军星域深处取回一些私人物品。虽然没法用常规方式报答，但我应该能给你一件我们的备用武器。"</text>
+							<weapon name="RANDOM" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_REMOVE_UNION_UPDATE_SMUGGLING" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>威胁他们交出货物。</text>
+				<event>
+					<text>"…愚蠢的决定。不过话说回来，你以为这样就会结果不同实在…有些傻气，你可能不了解…这些货是易碎品。" 对方启动武器系统转向你。从他们的言外之意判断，你若想得到那艘同盟飞船想要的东西，就必须避免击毁他们这艘船。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="REPUTATION_DECREASE_SMUGGLING_COMBAT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="rep_comb_smuggler" lvl="2">
+				<text>[声望: 2+] 说服对方交货。</text>
+				<event>
+					<text>"鉴于我们长期的商业往来，你应该清楚我们通常不会…轻易改变既定规程。不过话说回来，失去潜在客户也确实会…令人遗憾。若你愿意作担保，我想这次我们可以…破个例。"对方转向同盟飞船，"但等我们…来收账时，可别指望会有通融。"同盟舰长欣然应允，从走私者那接收了货物。完成交接后，阿尔吉恩飞船跃迁离去。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>同盟飞船的舰长向你呼叫："多谢出手相助！我之前不得不雇这些人从叛军星域深处取回一些私人物品。虽然没法用常规方式报答，但我应该能给你一件我们的备用武器。"</text>
+							<weapon name="RANDOM" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_REMOVE_UNION" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>呃，不了，抱歉。告辞。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>即便隔着很远，你仍能感受到两船之间紧张的气氛。最终它们向相反方向跃迁，分道扬镳。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNION_SMUGGLER_PAYMENT_WIN">
+	<text>你将走私船上的那些货物转交给同盟飞船。交接时对方舰长说道："多谢出手相助！我之前不得不雇这些人从叛军星域深处取回一些私人物品。虽然没法用常规方式报答，但我应该能给你一件我们的备用武器。"</text>
+	<ship hostile="false" />
+	<weapon name="RANDOM" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_UNION" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_UNION">
+	<event load="DISTRESS_UNION_CLINIC_HARMONY" />
+	<event load="DISTRESS_UNION_LANIUS_MISTAKE" />
+</eventList>
+
+<event name="DISTRESS_UNION_CLINIC_HARMONY" unique="true">
+	<distressBeacon />
+    <text>在这个信标处有一个同盟诊所正被一艘谐合飞船攻击.注意到你的接近，半械族飞船发送了一条信息。"此=谐合事务。不要干涉。"</text>
+    <ship load="SHIP_ENGI_CLINIC" hostile="false" />
+    <choice>
+		<text>要求作出解释。</text>
+		<event>
+			<text>"此设施=分离者和叛军的支持者常用设施。检测到对反常行为的容忍度达到不可接受的程度。正在纠正错误。重复：请勿干涉。"</text>
+			<choice req="LIST_CREW_ZOLTAN_CAPITAL">
+				<text>(超能族船员)"你违反了第105.2，105.5和105.9条联邦法律！"</text>
+				<event>
+					<text>你的佐尔坦船员愤怒地引用了联邦禁止攻击医务人员的规定，以及不分意识形态中立救治伤员的条约。半械族努力提出令人信服的反驳意见，但最终放弃了。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_CLINIC_PROTECTED" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="LIST_VARIANT_SEPARATIST">
+				<text>(分离者船员)训诫攻击者。</text>
+				<event>
+					<text>"谐合的[行事]一如既往地‐不和谐‐。不结盟的诊所=共同利益。谐合飞船=暴政。做[一次]‐有用‐的事：永远不要再犯错。"
+					
+					"优先目标：发现。分离者=必须处理。"说到做到，谐合飞船充能武器并改变目标。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="unique_turzil">
+				<text>(图尔齐尔)训诫攻击者。</text>
+				<event>
+					<text>"谐合为了自己的‐目的‐不择手段。你们无法控制‐所有人‐，也不应该试图控制‐所有人‐。代表你们的人类‐盟友‐，你们必须停止侵略并赔偿损失。"
+					
+					"检测到TRZ-1L。谐合要求：你的无条件投降。违抗谐合指令=不可接受。"谐合飞船立即与你的星舰交战！</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="engi">
+				<text>(半械族船员)让你的半械族找到一个折中方案。</text>
+				<event>
+					<text>你的船员似乎有些犹豫，但还是松了口。通过你的半械族，你最终说服了谐合放走居民。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>诊所的工作人员似乎并不满意你的妥协。尽管如此，他们还是想方设法给你一点报酬，感谢你帮助他们重获自由。</text>
+							<autoReward level="LOW">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="engi_defender">
+				<text>(保卫者船员)说服你的保卫者劝说他们放弃。</text>
+				<event>
+					<text>你的保卫者似乎有些犹豫，但还是妥协了。保卫者让半械族飞船相信，这一行动会危及谐合与联邦之间的良好关系，能有更好的办法来贯彻谐合的意志。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_CLINIC_PROTECTED" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_engi" lvl="-999" max_lvl="-1">
+				<text>(良好谐合声望)利用你在谐合中的良好声望说服他们停下。</text>
+				<event>
+					<text>你告诉半械族，如果这无关紧要，你就不会小题大做。半械族又进行了一番反驳，直到你终于成功说服了他们。"变元者：有良好声望。暂时推迟决定。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="UNION_CLINIC_PROTECTED" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>试着说服他们放弃。</text>
+				<event>
+					<text>"联邦飞船=已警告。随后将采取惩罚行动。"半械族飞船停止了对诊所的攻击，转而面对你的星舰。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>答应半械族的要求。</text>
+				<event>
+					<text>谐合是联邦的盟友，你决定相信他们是在正确地行事。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>保护诊所。</text>
+		<event>
+			<text>"错误。检测到不‐服从的联邦飞船。"半械族飞船停止了对诊所的攻击，转而面对你的星舰。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>答应半械族的要求。</text>
+		<event>
+			<text>谐合是联邦的盟友，你决定相信他们是在正确地行事。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<textList name="UNION_CLINIC_SAVED">
+	<text>"谢谢你保护我们。我们不会拒绝求助者的帮助。医学就该如此。"一名医护员表示愿意加入。</text>
+	<text>"是我的错觉，还是谐合最近变得更……可怕了？如果你不介意的话，我想和你并肩作战以表我的谢意。"</text>
+	<text>"我代表诊所全体员工，也代表所有患者，感谢你。请带我一起走吧，我会尽我所能帮助你的。"</text>
+</textList>
+<event name="UNION_CLINIC_PROTECTED">
+	<text load="UNION_CLINIC_SAVED" />
+    <crewMember amount="1" class="human_medic" />
+	<choice>
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_GENERAL" />
+	</choice>
+</event>
+
+<event name="DISTRESS_UNION_LANIUS_MISTAKE" unique="true">
+	<distressBeacon />
+    <text>一艘偏离航道的食铁族飞船连接着一个同盟空间站。飞船和空间站都发出了求救信号。空间站的求救信号是"求救！我们要被食铁族吃掉了！请救救我们！"然而，食铁族只发出了一阵混乱的尖叫。</text>
+    <choice req="BLUELIST_BEAMS_DAMAGE">
+		<text>(伤害性光束)切开飞船与空间站的连接。</text>
+		<event>
+			<text>一次迅速的攻击，光束成功地把飞船分离。食铁族飞船脱离后飞离空间站一个较远的距离，但并跃迁离开。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="UNION_LANIUS_SOLVED_NO_TRANSLATOR" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="DRONE_CONTROL_BEAM_DRONE">
+		<text>(光束无人机)切开飞船与空间站的连接。</text>
+		<event>
+			<text>无人机精确地把飞船从空间站中分离。食铁族飞船脱离后飞离空间站一个较远的距离，但并跃迁离开。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="UNION_LANIUS_SOLVED_NO_TRANSLATOR" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_LANIUS" hidden="true">
+		<text>(食铁族船员)"食铁族飞船卡住了。并不意味着伤害。想要交易废料。拥有货物。翻译机损坏。"</text>
+		<event>
+			<text>空间站的通信官松了一口气。 "所以我们并没有遭受攻击？好吧，让我们出去把它修好吧。" 很快，空间站和食铁族被分开，开始进行交易，而你的食铁族船员作为中间人。空间站慷慨地酬谢了你。</text>
+			<autoReward level="MED">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"谢谢。有宝藏。非常感激。"</text>
+					<weapon name="GIFTLIST_LANIUS" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击那艘挑衅的食铁族舰船。</text>
+		<event>
+			<text>飞船仍然继续尖叫，但它在自卫。然而，由于某些原因，它无法分离，因此没有任何机动性。</text>
+			<status type="limit" target="enemy" system="engines" amount="0" />
+			<ship load="SHIP_LANIUS_UNION_STATION" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+	<choice>
+    	<text>试着和食铁族联系。</text>
+    	<event load="DISTRESS_UNION_LANIUS_CONTACT" />
+   </choice>
+    <choice>
+		<text>不要干涉此事并离开。</text>
+		<event>
+			<text>飞船和空间站都在继续向你呼叫，但你不理会它们。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="UNION_LANIUS_SOLVED_NO_TRANSLATOR">
+    <text>空间站通信官出于感激向你欢呼。"没有你的帮助我们肯定完蛋了。请收下我们的谢意。虽然……飞船并没有攻击也没有离开。它只是重复播放一条信息。你觉得它想说什么？"</text>
+    <autoReward level="LOW">standard</autoReward>
+    <choice>
+		<text>最好不要去管它。</text>
+		<event>
+			<text>这艘飞船试图得到回应无果。最终，它跃迁离开了。"好吧，我想我们不用再担心了。"</text>
+		</event>
+    </choice>
+	<choice>
+		<text>给他们一些废料。</text>
+		<event>
+			<text>飞船发出的信息听起来像风铃一样。它留下了一份礼物并收下了你给它的废料。"所以它想要交易……我想我们根本不会遇到危险。嗯，我很高兴这件事解决了。"</text>
+			<item_modify>
+				<item type="scrap" min="-45" max="-35" />
+			</item_modify>
+			<choice>
+				<text>拿起食铁族留下的礼物。</text>
+				<event>
+					<weapon name="SHOTGUN_2" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+	<choice>
+		<text>给他们一些弹药。</text>
+		<event>
+			<text>飞船发出的信息听起来像风铃一样。它留下了一份礼物并收下了你给它的弹药。"所以它想要交易……我想我们根本不会遇到危险。嗯，我很高兴这件事解决了。"</text>
+			<item_modify>
+				<item type="missiles" min="-6" max="-4" />
+			</item_modify>
+			<choice>
+				<text>拿起食铁族留下的礼物。</text>
+				<event>
+					<weapon name="BOMB_BREACH_1" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>给它们一些无人机部件。</text>
+		<event>
+			<text>飞船发出的信息听起来像风铃一样。它留下了一份礼物并收下了你给它的无人机部件。"所以它想要交易……我想我们根本不会遇到危险。嗯，我很高兴这件事解决了。"</text>
+			<item_modify>
+				<item type="drones" min="-5" max="-3" />
+			</item_modify>
+			<choice>
+				<text>拿起食铁族留下的礼物。</text>
+				<event>
+					<drone name="FLAK_1_AMP3" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="DISTRESS_UNION_LANIUS_CONTACT">
+	<event>
+    	<text>你向食铁族发送了一个非常明确的信息，试图了解他们的状况。幸运的是，你在对方的尖叫声中找到了一种模式。你们之间的沟通非常基础—你发送一张图片，他们发送叮叮声或尖叫声来表达是或者否。基本上，他们似乎被困住了，他们只想交易，因为他们饿了。</text>
+		<choice>
+			<text>告知空间站。</text>
+			<event>
+				<text>你向空间站呼叫。空间站的通信官松了一口气。"你也这么认为？好吧，让我们出去把它修好吧。" 很快，空间站和食铁族被分开。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="UNION_LANIUS_SOLVED_NO_TRANSLATOR" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+    	<text>你在不断地发消息给食铁族，试图得到有意义的回应。你得到的回应只有尖叫声和叮叮声。你尽力了，但你们无法无法相互沟通，尽管食铁族没有任何侵略性的举动。</text>
+		<choice>
+			<text>告诉空间站你无法确定问题所在。</text>
+			<event>
+				<text>"那么就这样了？我们只能这样继续卡住…？我想我们只能自己想办法了……"</text>
+			</event>
+ 		</choice>
+	</event>
+	<event>
+    	<text>你向食铁族呼叫。你试图向他们询问发生了什么。然而，在几次未果的消息发送后，你说出的一句话突然改变了他们的行为——他们变得有攻击性！</text>
+    	<ship load="SHIP_LANIUS_UNION_STATION" hostile="true" />
+    	<choice hidden="true">
+        	<text>继续。</text>
+        	<event load="COMBAT_CHECK" />
+    	</choice>
+	</event>
+</eventList>
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_UNION">
+	<event load="QUEST_UNION_HOTHEADED_CIV" />
+</eventList>
+
+<event name="QUEST_UNION_HOTHEADED_CIV" unique="true">
+    <text>附近的平民定居点呼叫你。"变元者，进来！我知道你可能很忙，但我一个朋友陷入危险了，我不知道还能向哪求助。就是那帮蛞蝓族黑客干的，有一个黑客骗了他还控制了他的账户，他就借了架穿梭机去他们算账了。那可怜的家伙天真又容易上当，偏偏脾气又很火爆。你有时间去救他吗？"</text>
+    <choice hidden="true">
+		<text>同意提供帮助。</text>
+		<event>
+			<text>"感谢你的帮助。我这就发送他飞船的应答器编码。报酬显得些许微薄，但这已是我全部积蓄。"</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+			<quest event="QUEST_UNION_HOTHEADED_CIV_SPOT" />
+		</event>
+    </choice>
+    <choice>
+		<text>我们没有时间搞这个。</text>
+		<event>
+			<text>"我就知道会这样"平民失望地中止通讯。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="QUEST_UNION_HOTHEADED_CIV_SPOT">
+    <beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>寻找追赶黑客的莽撞平民。</unvisitedTooltip>
+	</beaconType>
+    <text>追踪应答器信号，你发现一艘隐蔽的蛞蝓族飞船正在打劫民用穿梭机。</text>
+    <choice req="hacking" lvl="2">
+		<text>(高级黑客) 在对方察觉前入侵他们的主机。</text>
+		<event>
+			<text>你成功黑入对方舰船电脑，还原了所有被劫账户的权限。"什么...我们的利润！你会后悔的！"</text>
+			<ship load="SHIP_HACKER_HOTHEAD_HACKED" hostile="true" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击蛞蝓族飞船。</text>
+		<event>
+			<text>"糟...糟了！联邦发现我们了！"他们迅速转向攻击你。</text>
+			<ship load="SHIP_HACKER_HOTHEAD" hostile="true" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+		</event>
+    </choice>
+</event>
+
+<event name="UNION_HOTHEAD_GRATITUDE">
+    <text>"让我看看…太好了！我的账户又能用了。你真是我的救星，变元者。让我看看能给你些什么…"平民送给你一些废料作为报酬。</text>
+    <autoReward level="MED">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_UNION">
+	<event load="ENCOUNTER_MILITIA_MISTAKE" />
+	<event load="ENCOUNTER_PIRATE_STATION_UNION" />
+	<event load="ENCOUNTER_COALITION_UNION" />
+	
+	<event load="ENCOUNTER_REBEL" />
+	<event load="ENCOUNTER_AUTO" />
+	<event load="ENCOUNTER_PIRATE" />
+</eventList>
+
+<event name="ENCOUNTER_PIRATE_STATION_UNION" unique="true">
+	<text>这个同盟空间站并不友好。现在它已被海盗占领，而且全部的武器都瞄准了你！</text>
+	<ship load="SHIP_PIRATE_UNION_STATION" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_COALITION_UNION" unique="true">
+	<text>一艘星联战舰在附近偷偷摸摸地行动，毫无疑问是为了猎杀平民。然而它发现了你，并认为你是个有挑战性的猎物，开始攻击。</text>
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_RST_START" auto_blueprint="MU_RST_SURVEYOR">
+	<destroyed load="DESTROYED_UNION" />
+	<deadCrew load="DEAD_CREW_UNION" />
+</ship>
+<event name="RST_START">
+	<text>一艘探测邻近信标的橙色小飞船注意到你并发出求救信号。出于好奇，你接听了。"外来舰船，这里是R.S.T.公司192号勘探员。我代表公司正式请求您提供有关伦菲尔德博士下落的任何信息。"</text>
+	<ship load="SHIP_RST_START" hostile="false" /> 
+	<choice hidden="true">
+		<text>我们一无所知，抱歉。</text>
+		<event>
+			<text>"遗憾，实在遗憾...不过您似乎是军用舰船？或至少是武装精良的民用船。我们掌握了伦菲尔德博士可能所在的坐标范围。我们希望定位他，但怀疑他身处险境。本船装备太差无法单独处理。能否代我们探查？若成功R.S.T.将重谢。"</text>
+			<choice hidden="true">
+				<text>没问题！</text>
+				<event>
+					<text>"好的！正在传输坐标。祝好运，舰长！感谢帮助。"</text>
+					<autoReward level="LOW">standard</autoReward>
+					<quest event="RST_QUEST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>提醒我伦菲尔德博士是谁？</text>
+				<event>
+					<text>"抱歉！我以为人尽皆知...伦菲尔德博士是杰出物理学家，可能是当代最伟大的！他最卓越的成就便是同名的伦菲尔德炸弹！其爆炸威力超越所有已知种族的核装置！它们曾用于清除地球上的维克虫族，但引发的爆炸导致大洪水。这事件对R.S.T.公司形象...不太光彩，但眼下不重要。"</text>
+					<choice hidden="true">
+						<text>接受任务。</text>
+						<event>
+							<text>"好的！正在传输坐标。祝好运，舰长！感谢帮助。"</text>
+							<autoReward level="LOW">standard</autoReward>
+							<quest event="RST_QUEST" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event>
+							<text>"理解。不再耽误您时间！R.S.T.完毕。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>"理解。不再耽误您时间！R.S.T.完毕。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>哦对伦菲尔德我熟。他好像是我兄弟？</text>
+		<event>
+			<text>"兄弟？什么？伦菲尔德根本没有兄弟姐妹！唉，现在的人怎么都不严肃对待事情。"对方挂断通讯。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="RST_QUEST">
+	<text />
+</event>
+
+<event name="SPIDER_QUEST_START" unique="true">
+	<distressBeacon />
+	<text>你发现许多飞船正从一个小型空间站逃逸。一支盟卫中队已部署在该信标周围。一艘船呼叫你："平民，这个星系统属于封锁区，我们勒令你立即离开。"</text>
+	<choice req="loc_beentobrood" lvl="0" hidden="true" blue="false" max_group="0">
+		<text>我们不是民用船，出什么事了？</text>
+		<event>
+			<text>"一艘联邦军舰？那怪我看走了眼。这个空间站被某种奇怪的...巨大的外星蜘蛛占领了。你认为你可以在不造成太大破坏的情况下清除这个空间站的蜘蛛吗？"</text>
+			<ship load="SHIP_INFESTED_STATION" hostile="false" /> 
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>盟卫允许你与空间站交战，但最后又发出了两个警告："我们不确定这些东西是什么，但它们似乎能够让空间站的系统保持正常运行。如果你必须造成一些损害，我们能理解，但请不要造成太多，我们不能到处破坏平民财产。"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_haynes">
+				<text>(海因斯)"对不起...你是说...蜘蛛吗？"</text>
+				<event>
+					<text>"哦，海因斯指挥官！对不起长官，我没意识到您在船上！是的长官，蜘蛛！巨大外星品种！"盟卫站得笔直，笨拙地行了个军礼，过程中差点向后摔倒。海因斯脸色有些发青。"巨大的...蜘蛛...你是指多大？"盟卫沉思了片刻，然后回应道："嗯...大约有一个人那么大？幼体就和狗一样大。非常大。因此才这么说，长官！呃嗯...长官？"你注意到海因斯已经离开了房间，在检查监控后发现他在洗手间里呕吐。他应该能很快克服。</text>
+					<choice hidden="true">
+						<text>同意提供帮助。</text>
+						<event>
+							<text>盟卫允许你与空间站交战，但最后又发出了两个警告："我们不确定这些东西是什么，但它们似乎能够让空间站的系统保持正常运行。如果你必须造成一些损害，我们能理解，但请不要造成太多，我们不能到处破坏平民财产。"你让其他船员将海因斯从洗手间拉出并准备战斗。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>也许这个主意不是很好。</text>
+						<event>
+							<text>你道歉，但告诉盟卫你无能为力。在你离开之前，你要告诉海因斯你拒绝了这个请求，在他继续清空胃里刚吃的午饭之前，脸上浮现出一抹如释重负的神色。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_beentobrood" lvl="1" hidden="true" blue="false" max_group="0">
+		<text>我们不是民用船，出什么事了？</text>
+		<event>
+			<text>"好嘛，真是巧了！你们就是那艘曾被派去处理那些蜘蛛麻烦的星舰。很不幸，星区边缘的这里还有一些蜘蛛麻烦。你们可以再一次解决他们的，对吗？"</text>
+			<ship load="SHIP_INFESTED_STATION_REPEAT" hostile="false" /> 
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>盟卫允许你与空间站交战。"和以前一样，请务必小心！我们不能到处乱炸毁平民财产！"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice blue="false" req="pilot" max_group="1">
+		<text>同意离开。</text>
+		<event>
+			<text>你导航驶离空间站，但你在星系内的时间很充裕，所以还能进行星舰管理。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_spidersstart" global="true">
+		<color r="150" g="0" b="150" a="1.0" />
+        <unvisitedTooltip>此处是蜘蛛星区的所在。清除空间站内的威胁。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="INFESTED_STATION_WIN">
+	<text>你已经清除了空间站内的蜘蛛麻烦。盟卫对你的帮助表示感谢，并为你提供报酬。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>询问蜘蛛的相关事宜。</text>
+		<event>
+			<text>"我不确定能告诉你多少。事情开始于蛛团，一个盘踞在废弃星系的海盗部落。蒙哥马利指挥官能告诉你的比我要多，但他正忙于处理其他地方的麻烦。看来蜘蛛们终究失控到了连蛛团都无法控制它们的地步，这是我们的好机会。"</text>
+			<choice hidden="true">
+				<text>我们能帮忙吗？</text>
+				<event>
+					<text>"不久前我们雇了另一个像你这样的变元者来帮忙，但据我所知，他们并没有帮上什么忙。我还在犹豫如果再派一个人会不会还是这么不可靠，但考虑到你在这里的处理如此精妙，他妈的，干了！我会把蛛团要塞的坐标转输给你，祝你好运。"</text>
+					<variable name="coords_spider" op="set" val="1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>接受奖励并继续上路。</text>
+		<event />
+	</choice>
+</event>
+<event name="INFESTED_STATION_WIN_REPEAT">
+	<text>"再次感谢你的帮助！希望我们能够尽快把这些东西完全清理出平民区。"</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="INFESTED_STATION_SURRENDER">
+	<text>"你已经对空间站舱体造成了太多的伤害，快停下！要么杀死那些蜘蛛，要么别干了，我们可以找别的更适合这份工作的人。我们会给你报酬的，至少你努力过来帮助我们。"</text>
+	<choice hidden="true">
+		<text>停止开火。</text>
+		<event>
+			<text>你可以肯定盟卫只是为了确保你离开才给你报酬的，但有总比没有好。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不，不，我们能做到的！</text>
+		<event>
+			<text>另一艘船的舰长叹了口气："好吧，但是一定不要摧毁它。"</text>
+		</event>
+	</choice>
+</event>
+<event name="INFESTED_STATION_DESTROY">
+	<text>"狗娘养的，我们告诉过你不要摧毁那座空间站！"盟卫们对你十分不满，并要求你离开这个星系。</text>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="KESTREL_UNLOCK" unique="true">
+	<preventQuest />
+	<text>同盟星域内，耳熟能详的商业广告从收音机传来。你悠闲地扫视着附近的船坞，惊叹于这些古老而伟大的战舰。突然，你觉得其中一艘十分亲切。仔细一看，居然是一艘似乎能正常运作的红隼号！你还没欣赏多久时，一则广告打断了你的思绪。似乎附近一家阿凯夫"档案馆"公司的CEO杜威·阿姆斯正在招募强力的雇佣战舰。</text>
+	<img back="BACKGROUND_ARCHIVE_SHIPYARDS" planet="NONE" />
+	<choice hidden="true">
+		<text>询问委托。</text>
+		<event load="KESTREL_UNLOCK_OFFER" />
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>任务事关整个联邦，精力不该在这被分散。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_kestrelstart" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+        <unvisitedTooltip>此处可解锁红隼号。请保留那艘无人机。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="KESTREL_UNLOCK_OFFER">
+	<text>原来附近船厂都属于该公司，难怪你能找到直达杜威的代理商。"变元者？虽然我对你们已有过接触，但必须声明的是，尽管我担任CEO，本次委托完全不代表我司的立场。自从那次灾难性的'锈色浩克'事件发生之后，再次牵扯到乱七八糟的变元者会是公司...公关的一场灾难，希望你能理解。"</text>
+	<variable name="loc_dewey" op="set" val="1" />
+	<choice hidden="true">
+		<text>理解理解。</text>
+		<event>
+			<text>"十分感谢。呵呵，不用担心。我们绝不干什么违反同盟法律的勾当。只是不想公司因我的私事而受到社会抵制。可能你也所有了解，我们公司比较擅长，嗯，保存故土(也就是古代地球)的科技与文化。这件事牵涉到我最贵重的古董之一，建造于23世纪的古舰'卡斯帕罗夫'，是人类第一种可超光速航行的星舰型号，最初的用途是搭载来往地球与天仓五星系之间的乘客。真是卓越的成就...可惜她被海盗劫走了！虽说她确实开辟了人类宇宙探索的新时代，但我还是想不通...海盗为什么会偷这么一个如今早已过时的东西。"</text>
+			<choice hidden="true">
+				<text>可能偷来卖了？</text>
+				<event>
+					<text>"可现在谁会收购这种破烂呢？'卡斯帕罗夫'可是量产产品，除了狂热的历史学家和我这种星舰爱好者，没谁会对她有任何兴趣的。也罢，我的请求很简单，找到那些狗贼然后毫发无损地夺回'卡斯帕罗夫'。至于回报，我没有想好具体是什么，但我们肯定能协商出结果。你报价。"</text>
+					<choice hidden="true">
+						<text>那边那艘旧红隼号如何？</text>
+						<event name="KESTREL_UNLOCK_OFFER_KESTREL">
+							<text>"啊？你说那件老东西？想要就送你，我一点也不留念。上次内战结束之后，它们突然又变得流行了起来，我就果断买了一艘，现在好像人手一艘了。只要这个的话你也太大方了。顺便一提 - 我已经把海盗的坐标写进我的助手机器人加娜里了。可能言行举止不太雅观，但是打架时会是得力帮手。祝你好运舰长，去吧。"</text>
+							<variable name="loc_itb" op="add" val="1" />
+							<quest event="KESTREL_UNLOCK_PIRATE" />
+							<drone name="GANA_BATTLE" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event name="KESTREL_UNLOCK_DECLINE">
+							<text>"这么说你不愿帮忙？真是可惜...那我只好另请高人了。祝你一路顺风，舰长。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_zenith">
+				<text>你会不会碰巧认识一个叫齐尼思的人？</text>
+				<event>
+					<text>"齐尼思？你是指那个皮纳科尔机器人公司的CEO？"你点了点头。"嗯，那就没错，我知道这个名字。以前地球上的四大公司之一。不怎么经常跟她聊天，她对朦胧的未来非常着迷，而我对具体的过去更关心。怎么突然问起她？"你耸了耸肩后提起了你与她短暂的邂逅。"哈。真是巧合。如此无穷大的多元宇宙，有时候又感觉如此渺小..."</text>
+					<choice hidden="true">
+						<text>确实可以这么说。</text>
+						<event>
+							<text>"好了，这事先不谈，回到卡斯帕罗夫上。我琢磨不透为什么有人会偷它。卡斯帕罗夫可是量产产品，除了狂热的历史学家和我这种星舰爱好者，没谁会对她有任何兴趣的。也罢，我的请求很简单，找到那些狗贼然后毫发无损地夺回卡斯帕罗夫。至于回报，我没有想好具体是什么，但我们肯定能协商出结果。你报价。"</text>
+								<choice hidden="true">
+								<text>那边那艘旧红隼号如何？</text>
+								<event><loadEvent>KESTREL_UNLOCK_OFFER_KESTREL</loadEvent></event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event><loadEvent>KESTREL_UNLOCK_DECLINE</loadEvent></event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FEDERATION_DATABASE">
+		<text>[联邦数据库]"锈色浩克"事件是什么？</text>
+		<event>
+			<text id="database_vek_incident" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<restartEvent />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_BROOD_KESTREL" auto_blueprint="LIST_SHIPS_BROOD">
+	<surrender min="3" max="4">
+        <text>"停一下！饶命，饶命！你造成的伤害够大了！你是赖特的打手吗？，你他妈想要什么？"</text>
+        <choice>
+            <text>"卡斯帕罗夫"在哪？</text>
+            <event>
+                <text>"哎呀就为那破飞船？你是阿凯夫'档案馆'公司派来的吧！我们也只是受另一位收藏家指使，现在货已经转交！不在我们手上了，好吧？"</text>
+                <ship hostile="false" />
+				<choice hidden="true">
+					<text>交给谁了？</text>
+					<event load="KESTREL_UNLOCK_QUEST_2" />
+				</choice>
+            </event>
+        </choice>
+        <choice hidden="true">
+            <text>继续攻击。</text>
+            <event />
+        </choice>
+    </surrender>
+    <destroyed>
+		<text>对面那艘蛛团战舰被摧毁了...最后一丝关于'卡斯帕罗夫'的线索也断了。既然任务失败了，最好还是不要回去找杜威了。</text>
+		<autoReward level="MED">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>对面那艘蛛团战舰被摧毁了...最后一丝关于'卡斯帕罗夫'的线索也断了。既然任务失败了，最好还是不要回去找杜威了。</text>
+		<autoReward level="MED">standard</autoReward>
+	</deadCrew>
+	<crew>
+		<crewMember type="LIST_CREW_PIRATE_RANDOM" prop="0.70" />
+		<crewMember type="spider" prop="0.30" />
+	</crew>
+</ship>
+<event name="KESTREL_UNLOCK_PIRATE">
+	<beaconType id="map_icon_thieves" global="true">
+		<color r="167" g="167" b="150" a="1" />
+		<unvisitedTooltip>此处为盗舰者的坐标。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+		<undiscoveredTooltip>未探索的信标。</undiscoveredTooltip>
+	</beaconType>
+	
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>true</createNebula>
+		<nextSector>true</nextSector>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>在加娜提供的坐标处，你追踪到了这些海盗。似乎是一艘蛛团战舰，其名号你有所耳闻，但总感觉杜威是故意没透露这点信息。</text>
+	<ship load="SHIP_BROOD_KESTREL" hostile="false" />
+	<choice hidden="true">
+		<text>应该能拿下。</text>
+		<event>
+			<text>别忘了 - 你需要对方投降才能获取"卡斯帕罗夫"的位置，别失手杀光了！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们不打算触犯蛛团。</text>
+		<event>
+			<text>你知道这件事可能很重要，但为时已晚。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FEDERATION_DATABASE">
+		<text>[联邦数据库]深入了解海盗团伙"蛛团"。</text>
+		<event>
+			<text id="database_brood" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<restartEvent />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KESTREL_UNLOCK_QUEST_2">
+	<text>"我才不说呢！哦，等下，好像你能立刻杀了我。好吧，真是公平。这次交易的甲方是'锤神'公司的CEO田中秀夫，你肯定听过这个名字。他听说阿凯夫'档案馆'公司有一艘高大上的战舰叫'莫洛托夫'还是...什么来着。他想偷偷据为己有，所以就雇佣了我们。我们只知道这些，放过我们吧！"</text>
+	<recallBoarders force="true" />
+	<choice hidden="true">
+		<text>还有一件事 - 那现在船在哪？</text>
+		<event>
+			<text>"刚才不是说了吗？就在附近的锤神属船厂里。他们估计会把船拆解之后再运走或者什么。"你逼他们吐出了船厂的坐标，然后看着他们慌忙窜逃。真是一群懦夫。</text>
+			<quest event="KESTREL_UNLOCK_RINGSHIP" />
+			<instantEscape />
+		</event>
+	</choice>
+	<choice hidden="true" req="FEDERATION_DATABASE">
+		<text>[联邦数据库] 田中秀夫是谁？</text>
+		<event>
+			<text id="database_hideo" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<loadEvent>KESTREL_UNLOCK_QUEST_2</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_HEPHAESTUS_KESTREL" auto_blueprint="MU_HEPH_TRANSPORT">
+    <destroyed>
+		<text>似乎锤神公司员工的话是认真的，他们真的宁愿战死也不愿面对老总的怒火。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="KESTREL_UNLOCK_QUEST_3" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>似乎锤神公司员工的话是认真的，他们真的宁愿战死也不愿面对老总的怒火。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="KESTREL_UNLOCK_QUEST_3" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="random" prop="0.70" />
+		<crewMember type="spider" prop="0.30" />
+	</crew>
+</ship>
+<event name="KESTREL_UNLOCK_RINGSHIP">
+	<beaconType id="map_icon_ring" global="true">
+		<color r="167" g="167" b="150" a="1" />
+		<unvisitedTooltip>被盗的"卡斯帕罗夫"所在之处。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+		<undiscoveredTooltip>未探索的信标。</undiscoveredTooltip>
+	</beaconType>
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<nextSector>true</nextSector>
+		<aggressive>2</aggressive>
+	</quest>
+	<customFleet right="false" firing="false" autoDarkening="false">RINGSHIP</customFleet>
+	<text>最初你还半信半疑，直到你的目光锁定在远处的卡斯帕罗夫星舰上。它静静地躺在一间锤神公司仓库之中，正在接受检查。你监听到信号频道内对方的对话。"对，老板说我们要把这个'纱卡罗夫'交给田中先生的收藏。鬼知道这玩意要花多久才能拆完，但是都给我小心点，只要有任何一个显眼的擦痕，我们都要被卖给提卡卡帮！"</text>
+	<ship load="SHIP_HEPHAESTUS_KESTREL" hostile="false" />
+	<choice hidden="true">
+		<text>要求对方归还卡斯帕罗夫星舰。</text>
+		<event>
+			<text>"啥？你他妈是谁啊？你在这干什么？你要'伊万诺夫'有什么用？"</text>
+			<choice hidden="true">
+				<text>纠正一下，是卡斯帕罗夫。</text>
+				<event>
+					<text>"管他马科戈诺夫还是施马科戈诺夫的我们不在乎。哦，瞎眼的蓝色条纹，我看出来了，你是那帮多元宇宙的人。我知道是阿凯夫'档案馆'公司派你来的，但阿姆斯和田中先生的恩怨我是半点兴趣都没有。不过是田中先生付的钱给中介给中介中介给中介最后给我，所以说想要这个'施若夫'玩意只能把我们干趴，听懂没？"</text>
+					<choice hidden="true">
+						<text>既然你执意打一架的话...</text>
+						<event>
+							<text>"干，我们真要打一架吗。我早该知道不应该在雇佣兵面前提战斗的事情！"</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>放弃。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忽略仓库。</text>
+		<event>
+			<text>虽然来到这克服了重重困难 - 但这不值得，找巨型企业的麻烦可不合适。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="KESTREL_UNLOCK_QUEST_3">
+	<text>仔细观察之后，你发现附近的其他船都只是自动建造无人机。船厂的基干船员顺势投降，你完好地取走卡斯帕罗夫并联系杜威。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"干得好！之前承诺的报酬一分都不会少，我即刻就把红隼号的蓝图转发给你。顺便一提，如果你还留着加娜的话，也送你好了，反正一个军用机留我身边肯定不如在你左右。你走之前跟我说一下，究竟谁是罪魁祸首？"</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_KESTREL</unlockCustomShip>
+			<choice hidden="true">
+				<text>田中秀夫为了扩大藏品雇了海盗来偷。</text>
+				<event>
+					<text>"那个老混蛋，我就知道。秀夫想偷什么就偷什么，甚至我这种隔壁的同盟巨型企业也难逃贼手。真是的，就像我爷爷所说...好吧我爷爷也没说什么，他一直在聊卫星。总之，感谢你的服务。祝愿你剩下的任务圆满成功。"</text>
+					<autoReward level="LOW">stuff</autoReward>
+					<achievement>ACH_EVENT_KASPAROV</achievement>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="COREWORLDS_EARTH" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_earth" global="true">
+		<color r="105" g="157" b="76" a="1.0" />
+		<unvisitedTooltip>此处是地球，人类的家园。</unvisitedTooltip>
+    </beaconType>
+	<text>你发现了一颗太过熟悉的行星。这是"故土"，现在多用来指古代地球，即人类久远的母星！现在其表面绝大部分都被海洋淹没，只剩几座规模庞大，人口密集的大都市幸存。</text>
+	<img back="BACKGROUND_EARTH" planet="PLANET_INVISIBLE" />
+	<variable name="loc_itb" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>行星表面坐落着一座博物馆与巨大的纪念园。舰内电脑提示你纪念主题为螳螂族入侵地球，门票免费但参观可能会耽误你不少时间。</text>
+			<choice hidden="true">
+				<text>降落并参观纪念园。</text>
+				<event>
+					<text>你降落在在一个大型平台上并离舰。你在园区内散步了许久，碰见了数个介绍战争事迹的纪念匾，其中一块显得鹤立鸡群。</text>
+					<modifyPursuit amount="1" />
+					<choice hidden="true">
+						<text>阅读纪念匾。</text>
+						<event>
+							<text>"在杰克逊·纽曼发明第一批预热器科技之前，地球的居民前途看似渺茫。但随后这种增强部件开始被与弯剑军械公司的强大激光武器结合起来使用。自此，弯剑发展为现代一个非常富有强大的企业。尽管弯剑激光距离它被视为一件超级武器的年代已经有些久远了，它很可能仍然经得起时间的考验，并在现代战斗中大放异彩。"</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>你继续阅读，但注意到其中一段提到被分解的武器部件的位置。"战争结束之后，武器被分解成了许多部分并被公司收回。"若你能追溯到所有被分解的部件，或许能重新组装它！</text>
+									<choice hidden="true">
+										<text>查看枪管的位置。</text>
+										<event>
+											<text>"第一个部件是枪管，听说被赠送给一个叫阿拉斯特·威廉姆斯的人，随后它被一只螳螂军阀偷走并作为家宝传承下去。作为家族传家宝，让对方拱手相让简直天方夜谭，尤其是对打败螳螂族的人类来说。"</text>
+											<quest event="QUEST_GATLING_BARREL" />
+											<choice hidden="true">
+												<text>查看底座的位置。</text>
+												<event>
+													<text>"第二个部件是底座，它与其发明者被埋在一起，位置在螳螂战争英烈园。"</text>
+													<quest event="QUEST_GATLING_BASE" />
+													<choice hidden="true">
+														<text>查看预热器的位置。</text>
+														<event>
+															<text>"最后一个部件，即预热器，早已被走私犯盗走，并进入黑市流通多年。其本身虽然仍有收藏价值，但据说由于被海盗毫无章法地使用，增强部件目前已经无法正常运作。"</text>
+															<quest event="QUEST_GATLING_AUGMENT" />
+															<choice hidden="true">
+																<text>继续。</text>
+																<event>
+																	<text>将武器部件相关信息记下之后，你迅速返舰。</text>
+																</event>
+															</choice>
+														</event>
+													</choice>
+													<!--<choice hidden="true" req="WEAPON_PREIGNITE" lvl="1" max_group="0" blue="false">
+														<text>You don't need to read about the Pre-igniter as you already have similar tech on your ship.</text>
+														<event>
+															<text>With all of the information you need to collect the parts, you hurry back to the ship.</text>
+														</event>
+													</choice>-->
+												</event>
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>我们可没时间在星区里大海捞针。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视纪念园。</text>
+				<event>
+					<text>你没有时间在这温习历史，于是决定离开星球。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_GATLING_BARREL">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nonNebulaBeacon>true</nonNebulaBeacon>
+		<nebulaBeacon>false</nebulaBeacon>
+		<currentSector>true</currentSector>
+		<nextSector>true</nextSector>
+		<sectorEight>true</sectorEight>
+		<lastStand>true</lastStand>
+	</quest>
+	<beaconType id="map_icon_barrel" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+		<unvisitedTooltip>此处为所记枪管的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了一座位于卫星上的繁忙螳螂营地。几艘舰船停靠在营地旁，想必枪管就存放在其中最大的领主舰中。</text>
+	<img planet="PLANET_MOONS" />
+	<choice hidden="true">
+		<text>联系对方并试图进行协商。</text>
+		<event>
+			<text>一名脸上有长长疤痕的螳螂回复道："你好？什么原因舰船叫我？"</text>
+			<choice hidden="true">
+				<text>我们是为加特林枪管而来。</text>
+				<event>
+					<text>"啥？你是说转转棍？你怎么敢拿走转转棍？老爹爹传下来的大宝贝，不是臭联邦舰长的玩具！"</text>
+					<choice hidden="true">
+						<text>那我们只好强夺了！</text>
+						<event>
+							<text>螳螂尖叫着关闭通讯信号，之后领主战舰运转起来，腾空接战。你猜大概得杀光船上所有敌人才能拿到你想要的"转转棍"。</text>
+							<ship load="SHIP_MANTIS_BARREL" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_MANTIS">
+				<text>(螳螂族船员)协商取得枪管。</text>
+				<event>
+					<text>"不行！不行！不行！不管你谁！走开！这里不欢迎你。"尽管对面螳螂在耍脾气，看来你只剩动手这个选项。</text>
+					<choice hidden="true">
+						<text>攻击！</text>
+						<event>
+							<text>螳螂尖叫着关闭通讯信号，之后领主战舰运转起来，腾空接战。你猜大概得杀光船上所有敌人才能拿到你想要的"转转棍"。</text>
+							<ship load="SHIP_MANTIS_BARREL" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>这有点冒险，还是放弃好了。</text>
+		<event>
+			<text>你决定不靠近营地并驶离卫星。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_GATLING_BASE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_body" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+		<unvisitedTooltip>此处为所记底座的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>信标处的英烈园与你预想的相差很大。它是一个宽敞漂亮的大草坪，点缀着牺牲战士的陵墓，而非一个闹鬼田地或阴森、雷雨交加的沼泽星球。你不确定盗窃这些人的墓室在良心上是否过得去。</text>
+	<choice hidden="true">
+		<text>我们也有我们自己的战争任务，相信这些前辈如果在世的话也会理解。</text>
+		<event>
+			<text>你在园区内四处寻找底座的信息，然而一点踪迹都没有。你挑出了几个听起来很熟悉的坟墓，但不确定是哪一个。你记得纪念匾上写着人名了，所以得回忆起到底是哪位。</text>
+			<choice hidden="true">
+				<text>挖开亚当·米勒的坟墓。</text>
+				<event>
+					<text>你大挖特挖，却一无所获，此处只有一具高度腐烂的尸体。你既恶心又失望，准备离去时，一艘精英联邦战舰掠过并抓了你的现行。"混蛋！你胆敢亵渎埋葬在此的民族英雄？"对方启动武器并向你开火！</text>
+					<ship load="SHIP_FED_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>挖开杰克逊·纽曼的坟墓。</text>
+				<event>
+					<text>还没挖多久你就发现自己是对的！底座正静静地躺在墓中，你让你的船员将其拖回舰内。</text>
+					<weapon name="PART_GATLING_BASE" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>正当你要离去时，一艘精英联邦战舰驶过并抓了你的现行。"混蛋！你胆敢亵渎埋葬在此的民族英雄？"对方启动武器并向你开火！</text>
+							<ship load="SHIP_FED_ELITE_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>挖开阿拉斯特·威廉姆斯的坟墓。</text>
+				<event>
+					<text>你大挖特挖，却一无所获，此处只有一具高度腐烂的尸体。你既恶心又失望，准备离去时，一艘精英联邦战舰掠过并抓了你的现行。"混蛋！你胆敢亵渎埋葬在此的民族英雄？"对方启动武器并向你开火！</text>
+					<ship load="SHIP_FED_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>挖开杰克·威尔森的坟墓。</text>
+				<event>
+					<text>你大挖特挖，却一无所获，此处只有一具高度腐烂的尸体。你既恶心又失望，准备离去时，一艘精英联邦战舰掠过并抓了你的现行。"混蛋！你胆敢亵渎埋葬在此的民族英雄？"对方启动武器并向你开火！</text>
+					<ship load="SHIP_FED_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>比起亵渎烈士我们有更重要的事情要做。</text>
+		<event>
+			<text>你无视了英烈园并驶离。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_GATLING_AUGMENT">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nonNebulaBeacon>true</nonNebulaBeacon>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>true</createNebula>
+		<currentSector>true</currentSector>
+		<nextSector>true</nextSector>
+		<sectorEight>true</sectorEight>
+		<lastStand>true</lastStand>
+	</quest>
+	<beaconType id="map_icon_augment" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+		<unvisitedTooltip>此处为所记预热器的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你发现一处全副武装的走私站环绕着该信标，招揽着附近几艘小舰船。你不禁思考他们是如何在严密的盟卫巡查之下，在这里运营的，不过这里肯定是你的目的地了。</text>
+	<ship load="SHIP_SMUGGLER_PREIGNITE" hostile="false" />
+	<choice>
+		<text>联系他们。</text>
+		<event>
+			<text>你联系走私犯并说明情况。对面舰长听闻解释后笑得合不拢嘴。"还有这种好事？这个废品白占位置很久了，我正愁往哪转手呢，居然有人愿意花钱买！既然你这么好心，我甚至可以给你提供一次'超值优惠'，仅需小加一笔钱就能多买一些补给品！"</text>
+			<choice>
+				<text>购买预热器。</text>
+				<event>
+					<augment name="PART_GATLING_AUGMENT" />
+					<item_modify>
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>购买预热器与"超值优惠"。</text>
+				<event>
+					<augment name="PART_GATLING_AUGMENT" />
+					<item_modify>
+						<item type="scrap" min="-50" max="-50" />
+						<item type="fuel" min="3" max="3" />
+						<item type="missiles" min="3" max="3" />
+						<item type="drones" min="3" max="3" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>动手抢过来！</text>
+				<event>
+					<text>你才不会向走私犯付款呢！你启动武器展开攻击，靠近空间站时附近的舰船慌忙避让。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>算了算了。</text>
+				<event>
+					<text>你驶离走私站。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

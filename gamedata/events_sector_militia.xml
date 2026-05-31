@@ -1,0 +1,2073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MILITIA SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_MILITIA">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_MILITIA">
+	<event load="MILITIA_FREE_AMMO" />
+	<event load="MILITIA_CLANSMEN" />
+	<event load="MILITIA_AUTOGRAPHS" />
+	<event load="MILITIA_TEXTWALL" />
+</eventList>
+
+<event name="MILITIA_FREE_AMMO" unique="true">
+	<text load="MILITIA_FREE_AMMO" />
+	<autoReward level="MED">missiles_only</autoReward>
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+<textList name="MILITIA_FREE_AMMO">
+	<text>附近飘着一艘被烧毁得只剩骨架的盟卫运输舰残骸。除了一小箱弹药之外所剩无几。</text>
+	<text>你注意到附近飘荡着一颗空雷，周围还有更多。大多应该未被激活，可能是很久之前军事训练的遗留物。幸运的是，这意味着你应该能轻松地搜刮一番。</text>
+	<text>一个小型补给无人机掠过你后，停船，又追回并扫描了你的星舰。它将你识别为友军并免费为你补给弹药，然后又飞速驶离。</text>
+</textList>
+
+<event name="MILITIA_CLANSMEN" unique="true">
+	<text>你收到藏在附近一个小型卫星后的蛞蝓船信号。凑近后，发现船上都是异猎会的蛞蝓猎人们。</text>
+	<ship load="SHIP_CLAN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"真是一艘艘艘精美的多元战舰，好马配好鞍！我们听说盟卫招募所有有识识识之士士士加入作战，不论物种。我发现现现这可是是是个狩猎的绝好机会！但现在既然你来了，你能给我们提供一些'样品'吗？我们价格绝对合理！"</text>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+				<text>抽签决定交一名船员给蛞蝓族。</text>
+				<event>
+					<text>蛞蝓族不顾你船员的挣扎哭喊将其拖回自己舰船。"这位肯定能成为极好的战利品！感谢谢谢您的馈赠，废废废料请收好！"</text>
+					<autoReward level="HIGH">scrap_only</autoReward>
+					<removeCrew>
+						<clone>false</clone>
+						<text>虽然你的船员不久就会一命呜呼，但用克隆舱复活这位你亲手送给嗜血猎人的船员，貌似不是一个好主意。</text>
+					</removeCrew>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>尽管蛞蝓族有心灵感应的能力，他们似乎甚至没有意识到你的星舰上一个可以派过去的活物都没有...</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_CLAN">
+				<text>(异猎会船员)声称你也是猎手。</text>
+				<event>
+					<text>"啊，您也是是是猎人吗？太可惜了，我还以为我是是是第一个想到这个主意的...噢，您的星星星舰比我的大多了，估计您成功狩狩狩猎的机会多多了！"对方表示愿意为你效劳，希望它不介意狩猎叛军。</text>
+					<crewMember amount="1" class="slug_clansman" />
+				</event>
+			</choice>
+			<choice hidden="true" req="CREW_FIREARMS">
+				<text>(强化军械)声称你也是猎手。</text>
+				<event>
+					<text>"啊，您也是是是猎人吗？太可惜了，我还以为我是是是第一个想到这个主意的...噢，您的星星星舰比我的大多了，估计您成功狩狩狩猎的机会多多了！"对方表示愿意为你效劳，希望它不介意狩猎叛军。</text>
+					<crewMember amount="1" class="slug_clansman" />
+				</event>
+			</choice>
+			<choice>
+				<text>攻击这艘船！</text>
+				<event>
+					<text>你准备攻击异种猎人。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event load="MILITIA_CLANSMEN_REFUSE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MILITIA_CLANSMEN_REFUSE">
+	<event>
+		<text>"真可惜惜惜，我总是是是尽量先先先礼后兵，可人们经常不吃敬酒。也罢，这样事事事情变得更加有趣了！"</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"真不懂情趣。"异种猎人跃迁离开。</text>
+	</event>
+</eventList>
+
+<event name="MILITIA_AUTOGRAPHS" unique="true">
+	<text>不远处是一个由盟卫管辖的人口稠密的星球，来往交通繁忙。在星球表面找到交易市场应该不是难事。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+		<text>降落。</text>
+		<event>
+			<text>降落才不到几分钟，你就被平民、联邦官员与盟卫新兵们拥簇起来。他们认出了你变元者的身份，把你当做大明星了。显然，你这样的船在这里很罕见。</text>
+			<choice hidden="true">
+				<text>无视粉丝们并寻找一处商店。</text>
+				<event>
+					<text>你拼命地挤出人群，边道歉边赶路，最后终于找到一处商店。</text>
+					<store>STORE_STANDARD</store>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>签几个签名，但在叛军能追上你之前离开。</text>
+				<event>
+					<text>你决定和人群呆在一起，讲讲故事签签名。甚至还收到一些礼物，你决定在叛军能追上之前继续赶路。</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>和这些狂热粉丝耍一耍。</text>
+				<event>
+					<text>你决定和人群呆在一起，讲讲故事签签名。待的越久收到的礼物越多，但终究不能放任叛军继续追击，你停止了粉丝见面会。</text>
+					<autoReward level="HIGH">item</autoReward>
+					<modifyPursuit amount="2" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们暂时没有交易需求。</text>
+		<event>
+			<text>你飞过这颗星球。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="MILITIA_TEXTWALL" unique="true">
+	<text>一艘超能维和战舰驻扎于此，正在与附近与几艘盟卫舰船交流。一段时间之后，除了超能维和战舰的其他舰船都跃迁，你收到它的呼叫。</text>
+	<ship load="SHIP_ZOLTAN_ELITE_GENERIC" hostile="false" />
+	<choice>
+		<text>继续。</text>
+		<event>
+			<text>"哦，您好，我叫波琳，一名为盟卫效劳的超能族士兵。最近我正在努力练习准备在下次银河同盟大会发言的致词，但是找不到听众或者给我提建议的人。你介意我向你分享吗？"</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>"太好了！那我现在就开始。"她费力地拿出一本巨大的书，重重地扔在桌子上，掀开封皮。她清了清嗓子，开始照念...</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MILITIA_TEXTWALL_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>"我想也是...你继续上路吧..."</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_boline" global="true">
+		<color r="111" g="214" b="164" a="1.0" />
+        <unvisitedTooltip>此处是波琳事件的所在。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="MILITIA_TEXTWALL_LOAD">
+	<variable name="loc_boline_repeat" op="add" val="1" />
+	<loadEvent ignoreUnique="true">MILITIA_TEXTWALL_TEXT</loadEvent>
+</event>
+<event name="MILITIA_TEXTWALL_TEXT">
+	<text>"银河同盟的同胞们，联合联邦的附属机构与同盟星域内的法律监管者们，今天我想与你们谈论一件非常重要的事情。自从文明诞生以来，我们一直是被我们的战争武器所束缚的生物。每个物种，人类、超能族、水生族、岩石族、螳螂族，甚至是半械族与兰花族，都曾发动过战争。它们不仅针对彼此，有时甚至针对自己物种。我们中的许多人都无法接受，甚至无法想象，缴械交出这些毁灭性工具...但我要说不，这些根深蒂固的邪恶思想已经困扰我们太久太久了！我们都希望能够一直进化、学习和成长，但是若一直想着报仇与怨恨，这些愿望怎么能够实现呢？"</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"为了强调我的想法，我向大家分享一则故事。在臭名昭著的螳螂入侵战争期间，成立联邦的思想种子才刚刚播下，人类面对螳螂的进攻陷入了孤立无援的境地。这些危险强壮的螳螂向毫无准备的人类殖民地发起猛攻并造成严重破坏。人类只好向当时唯一的盟友，半械族求援。对方不情愿地答应了，条件是将半械奴隶一并从螳螂俘虏营中解救出来。两支舰队为争夺火星的控制权苦战多年，因为螳螂族将其武装成了一座入侵要塞。双方本该选择谈判停火或一方投降，但实际上战事延绵多年，直到将螳螂族逼至灭亡。螳螂也同样没有对人类手下留情，除非人类被彻底清除，否则决不罢休。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>波琳又清了清嗓子，神色略有困惑地翻过几页。"呃...螳螂族并不是唯一一个发动过侵略战争的充满暴力的物种。神权国所发起的圣战可能是银河系内最可怕的战争之一。以自己的物种优越为由，它们派出了一批又一批的战舰，里面载满了训练有素的圣战者，借神圣神权国之名将其他物种的星域占为己有。圣战者们所信仰的水晶信仰正是岩石长老们所利用的，用来恐吓与奴役自己人民的思想。显然这是一种不道德的行为。众所周知，岩石独裁神权国大概是银河系中最暴力无情的势力之一。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"神权国的宗教迫害并不是唯一的，额...对其他种族的野蛮不公正对待的例子。回到螳螂族们，螳螂族多年来奴役半械族以利用他们出色的维修能力。由于自身的生理缺陷，它们无法操控电子设备来执行精细工作，尽管其利爪有时能代替螺丝刀等工具。有时特点相反的物种间的对比就是这么有趣，类似的相反特点并不常见。但有些人认为兰花族和岩石族船员亦能融洽相处，因为岩石族的类石外皮的防火特性。"</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>"然而，显而易见的是兰花们或许更适合与甲壳们协同工作，高度依赖氧气的甲壳自然与提供氧气的植物般配。兰花的产氧能力令人惊叹，单个兰花族就能在一段时间内有效替代一套生命支持系统，简直是科学奇迹。许多生物学家，当中很多恰好是甲壳族，都在试图研究兰花族生物学。有些人或许不清楚，甲壳族非常重视科学研究，甚至偶尔会劫持游客或造访舰船来进行快速且无害的扫描。但这种缺乏沟通的行为导致了一些包容性差的种族，比如螳螂与岩石族，对甲壳族的文化产生了误解。蛞蝓族也对甲壳族特别感兴趣，但并非是出于好意。一群有着特殊癖好的蛞蝓族成立了一个名为异种猎人协会的俱乐部，其主要目的就是猎杀稀有或智能的物种。而甲壳族是它们的主要目标，因为它们看中了其外壳出色的防御能力。"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>"可怕的是，由异猎会，即之前提到的异种猎人协会，如果有人没听懂的话，发起的攻击，与历史上但仍相对年代较近的一系列概括为蛞蝓扩张战争的纷争几乎划上等号。相信在座的各位已经熟知蛞蝓扩张战争的历史，但我将为不知道的人简要分享一下这次冲突的介绍。"</text>
+											<choice hidden="true">
+												<text>继续。</text>
+												<event>
+													<text>波琳轻舔页脚，翻到下一页。她轻咳一声并拍了拍胸口，继续念稿。"自从叛军出现之后，联邦舰队就致力于从境内抹除叛军舰船。这使得大片星域无人守卫。之前因狡猾叛逆的本性而被联邦拒之门外的蛞蝓族注意到了这一点并开始大规模迁移至联邦境内。虽然他们一开始从隐秘的星云星区开始，但很快就嚣张到明目张胆地攻击普通星区，有时甚至开始将主权星域占为己有。当他们侵犯了螳螂族与岩石族的星域后，这种做法就导致了问题，因为这两个物种的掌权者自然不会容忍这种侵占。母巢与神权国长老一齐向蛞蝓族宣战，战争持续了数年。结果以蛞蝓战败投降并完全吐出吞并的星域结束。这些欺软怕硬的家伙甚至反而提出赠送胜方一些自己的星域，这为之后的星联的成立打下了基础。"</text>
+													<choice hidden="true">
+														<text>继续。</text>
+														<event>
+															<text>"联邦对同盟星域欠缺的保护也催生了盟卫的壮大。关于盟卫我不再赘述，想必在座的各位都对此十分清楚。"</text>
+															<choice hidden="true">
+																<text>真是太好了。</text>
+																<event>
+																	<text>"不过，我还是要讲讲星联的故事，以防你们对此不清楚。星联是由赛思念星盗会、尤则瑞安神权国、耶蒂伊克母巢与埃尔根共和国间的休战协议组成。这四个物种或许是银河系内威胁性最大的种族，因此星联的存在不仅对联邦威胁巨大，甚至连叛军也对其十分畏惧。此时此刻，星联还在不停壮大之中，甚至占领了数个叛军的星区。它们还获得了蛞蝓族运输星云气体制造人工星云的天体构造技术。虽然这些假星云无法形成真正的气态恒星，但其仍然会使传感器失效，甚至可以产生致命的离子风暴，相信在座的去过星云星区的驾驶员们应该对此很熟悉。"</text>
+																	<modifyPursuit amount="1" />
+																	<choice hidden="true">
+																		<text>继续。</text>
+																		<event>
+																			<text>"天体构造还不是唯一由蛞蝓族开发的独特科技。许多蛞蝓族还使用反生物武器，因其相近的橙色外观，人们经常把其与粒子科技武器混淆，至少在反生物武器后来被改造成粉色之前。而粒子科技实际上由超能族与万剑公司偶然联合开发得来，额...不对，名字读错了。"</text>
+																			<choice hidden="true">
+																				<text>继续。</text>
+																				<event>
+																					<text>"等下...是腕剑？纨剑？肯定是什么什么剑..."波琳急忙将翻回前页，寻找她要的答案。"啊，这里写对了，弯剑，就是这个。我刚才说到哪来着...哦，该死我忘了页数。你呃，你要不要我从头再来？"</text>
+																					<choice hidden="true" req="loc_boline_repeat" lvl="0" max_lvl="3" blue="false">
+																						<text>继续。</text>
+																						<event>
+																							<text>波琳等待你的回应。</text>
+																							<choice hidden="true">
+																								<text>是。</text>
+																								<event>
+																									<text>"好的，你说是就是！"她刷刷刷地翻回到第一页。"那么从头开始。"</text>
+																									<choice hidden="true">
+																										<text>继续。</text>
+																										<event load="MILITIA_TEXTWALL_LOAD" />
+																									</choice>
+																								</event>
+																							</choice>
+																							<choice hidden="true">
+																								<text>否。</text>
+																								<event>
+																									<text>"哦，好吧。有道理！"波琳把书合上。"感谢你的倾听这么些。所以，呃，你觉得如何？"</text>
+																									<choice hidden="true">
+																										<text>挺不错的。</text>
+																										<event>
+																											<text>"真的吗？你很喜欢？太好了！太感谢你的评价了。真的是，从来都没人夸过我的演讲，哪怕我自己的船员也没有！嘿我说...我能加入你的队伍吗？有你这么热心善良的人我相信能按时完成这份草稿用来演讲！"</text>
+																											<crewMember amount="1" class="zoltan_peacekeeper">波琳</crewMember>
+																										</event>
+																									</choice>
+																									<choice hidden="true">
+																										<text>苍天在上，这是我这辈子浪费时间最多的一次。</text>
+																										<event>
+																											<text>她羞愧地低下了头："好...好吧。"她切断了通讯信号。你也许不必如此无礼，但至少不用再听她唧唧歪歪了。</text>
+																										</event>
+																									</choice>
+																								</event>
+																							</choice>
+																						</event>
+																					</choice>
+																					<choice hidden="true" req="loc_boline_repeat" lvl="4" blue="false">
+																						<text>继续。</text>
+																						<event>
+																							<text>波琳等待你的回应。</text>
+																							<choice hidden="true">
+																								<text>是。</text>
+																								<event>
+																									<text>"认真的吗？再来一遍？我向你读了5遍稿子了！你是在...找我乐子吗？没意思了，伙计！"看来你真的把她逼急了，因为现在波琳的武器启动了！</text>
+																									<achievement>ACH_EVENT_BOLINE</achievement>
+																									<ship hostile="true" />
+																									<choice hidden="true">
+																										<text>继续。</text>
+																										<event load="COMBAT_CHECK" />
+																									</choice>
+																								</event>
+																							</choice>
+																							<choice hidden="true">
+																								<text>否。</text>
+																								<event>
+																									<text>"哦，好吧。有道理！"波琳把书合上。"感谢你的倾听这么些。所以，呃，你觉得如何？"</text>
+																									<choice hidden="true">
+																										<text>挺不错的。</text>
+																										<event>
+																											<text>"真的吗？你很喜欢？太好了！太感谢你的评价了。真的是，从来都没人夸过我的演讲，哪怕我自己的船员也没有！嘿我说...我能加入你的队伍吗？有你这么热心善良的人我相信能按时完成这份草稿用来演讲！"</text>
+																											<crewMember amount="1" class="zoltan_peacekeeper">波琳</crewMember>
+																										</event>
+																									</choice>
+																									<choice hidden="true">
+																										<text>苍天在上，这是我这辈子浪费时间最多的一次。</text>
+																										<event>
+																											<text>她羞愧地低下了头："好...好吧。"她切断了通讯信号。你也许不必如此无礼，但至少不用再听她唧唧歪歪了。</text>
+																										</event>
+																									</choice>
+																								</event>
+																							</choice>
+																						</event>
+																					</choice>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_MILITIA">
+	<event load="MILITIA_CHOICE" />
+	<event load="MILITIA_DEPOT" />
+	<event load="MILITIA_TRAINEES" />
+	<event load="MILITIA_RECRUITMENT" />
+	<event load="MILITIA_COCKY_ZOLTAN" />
+</eventList> 
+
+<event name="MILITIA_CHOICE">
+	<text load="TEXT_MILITIA_CHOICE" />
+	<ship load="SHIP_MILITIA_ALL" hostile="false" />
+	<choice hidden="true">
+		<text>攻击对方！</text>
+		<event>
+			<text>你为武器充能，攻击盟卫。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这艘盟卫舰船。</text>
+		<event>
+			<text>你掠过盟卫舰船。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_MILITIA_CHOICE">
+	<text>一艘盟卫舰船正在对其舰体进行战后轻微修补，附近没有其他舰船。</text>
+	<text>你注意到不远处另一艘低速行驶的盟卫舰船，功能完好但婉拒了所有呼叫。</text>
+	<text>一艘装备精良的盟卫军舰正在巡视本信标，鉴于你的联邦身份，它并不烦扰你。</text>
+</textList>
+
+<event name="MILITIA_DEPOT" unique="true">
+	<text>你发现附近有一个盟卫空间站。它似乎在为旅客提供补给。</text>
+	<ship load="SHIP_MILITIA_DEPOT" hostile="false" />
+	<choice>
+		<text>表明身份获取补给资源。</text>
+		<event>
+			<autoReward level="LOW">stuff</autoReward>
+			<status type="limit" target="enemy" system="artillery" amount="0" />
+		</event>
+	</choice>
+	<choice req="human_soldier">
+		<text>(士兵船员)请求更多补给。</text>
+		<event>
+			<autoReward level="HIGH">stuff</autoReward>
+			<status type="limit" target="enemy" system="artillery" amount="0" />
+		</event>
+	</choice>
+	<choice req="LIST_CREW_MEDIC">
+		<text>(医疗员船员)请求医疗补给。</text>
+		<event>
+			<autoReward level="MED">missiles_only</autoReward>
+			<weapon name="BOMB_HEAL" />
+			<status type="limit" target="enemy" system="artillery" amount="0" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击，显然这样能拿到更多！</text>
+		<event>
+			<text>你为武器充能，攻击盟卫。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忽略仓库。</text>
+		<event>
+			<text>你无视盟卫空间站。</text>
+			<status type="limit" target="enemy" system="artillery" amount="0" />
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="MILITIA_TRAINEES" unique="true">
+	<text>本信标正在进行盟卫演习训练。幸运的是，他们并没有用实弹，而且离信标也有一段距离。</text>
+	<choice hidden="true">
+		<text>联系他们请求参与演习。</text>
+		<event>
+			<text>小队指挥官回应道："你想参加训练？尽管来—损坏舰体无所谓，但是！别伤到我们新兵的性命。我们勉强可以…容忍失手，只要有克隆舱，但是无论如何最好还是收敛点。60秒后演习结束。"</text>
+			<ship load="SHIP_MILITIA_TRAINING" hostile="true" />
+			<choice hidden="true">
+				<text>开战！</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<triggeredEvent event="MILITIA_TRAINEES_WIN" thisFight="true" clearOnJump="true" time="60.0">
+				<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+					<warning time="10.0" flash="true" />
+					<tooltip>本轮演习只持续这么长时间，时间结束之前确保不要有人员伤亡！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+			<choice hidden="true">
+				<text>重新考虑并退出。</text>
+				<event>
+					<text>仔细想想，参与这事可能不太明智。</text>
+					<ship hostile="false" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忽略仓库。</text>
+		<event>
+			<text>这里没什么有用的东西—你继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MILITIA_TRAINEES_KILL">
+	<text>你下手没轻没重，现在手上沾满了血。旁边的训练舰没过多久就反应过来发生了什么，他们意识到战友被你杀死了之后，立即终止训练并向你开火。你受了些许舰体损伤，但及时逃开了。</text>
+	<damage amount="5" />
+	<ship hostile="false" />
+</event>
+<event name="MILITIA_TRAINEES_WIN">
+	<text>其他舰船离开后，舰长本人再次联系你："感谢您的协助！这些人都是刚招募来的新兵，几乎没有实战经验。我相信对他们来说与一位货真价实的多元宇宙变元者交战很有意义！我们没有多少资源可以给您，但这一件用于演习的战斗部件请您笑纳，或许您能物尽其用。"</text>
+	<augment name="GIFTLIST_AUGMENT_COMBAT" />
+	<ship hostile="false" />
+	<surrender />
+</event>
+
+<event name="MILITIA_RECRUITMENT" unique="true">
+	<text>一艘叛军战舰停靠在本信标处一个盟卫招募站边。快速扫描后发现他们已将盟卫绑架为人质。</text>
+	<ship load="SHIP_REBEL_MILITIA" hostile="false" />
+	<choice hidden="true">
+		<text>拯救这些盟卫！</text>
+		<event>
+			<text>你启动武器准备攻击叛军。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>联系这些叛军，试图与其理论。</text>
+		<event load="MILITIA_RECRUITMENT_TALK" />
+	</choice>
+	<choice hidden="true" req="cloaking" lvl="2">
+		<text>(高级隐形)开启隐形，趁叛军在空间站上时搜刮其战舰。</text>
+		<event>
+			<text>叛军忙于他事，无人看守军舰。你借着隐形系统的掩护偷偷扯下一些战舰外层护甲并迅速离开。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MONK">
+		<text>(信道者船员)耻骂叛军的暴力行为。</text>
+		<event>
+			<text>你的信道者花了30分钟叱责叛军的野蛮行为，攻击这些职责是保卫平民的盟卫。叛军们的心理防线渐渐崩溃，从低头，到下跪，再到掩面大哭。其中一名甚至决定加入你的船员，剩余的同意不再招惹盟卫。</text>
+			<crewMember amount="1" class="human" />
+		</event>
+	</choice>
+	<choice hidden="true" req="CREW_FIREARMS">
+		<text>(强化军械) 武装船员并登舰。</text>
+		<event>
+			<text>叛军们看见你从头武装到脚的船员之后，陷入了恐慌，很明显他们以为只会有酬不抵劳的盟卫舰船来拯救同伴。对方立即投降并释放盟卫人质，其中大部分留下处置叛军，但有一名士兵希望加入你！</text>
+			<crewMember amount="1" class="human" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>远离他们。</text>
+		<event>
+			<text>你飞过招募站，相信会有人来解决这次危机的。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MILITIA_RECRUITMENT_TALK">
+	<event>
+		<text>叛军们才不愿意听你的讲话，反而传送一批船员登陆你的星舰，你向叛军战舰开战。</text>
+		<boarders min="2" max="3" class="human_rebel" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>叛军们暂退一步，开始听你的发言。你本以为不会奏效，直到对方放下武器。意识到攻击平民如此可耻之后，他们返回自己的战舰并离开。被拯救的盟卫们对你十分感激，并向你支付报酬。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+<event name="MILITIA_COCKY_ZOLTAN" unique="true">
+	<text>一支超能族小舰队在此信标处—看起来他们正在进行能量护盾的耐久度训练。其中一艘飞船呼叫你："呃。变元者，在这？在盟卫星域可不常见。要知道，你在这片星区的舰船中实在太显眼了…"</text>
+	<choice>
+		<text>怎么说？</text>
+		<event>
+			<text>"我是说，你们那些东拼西凑的破烂技术！拿你们联邦和我们严整的军纪、先进的护盾技术相比，不觉得害臊吗？难怪同盟要向我们求援。表面上说是'联合行动'，实际上保障当地居民安全还得靠我们，谁让他们技术这么落后。"
+				
+				听到对话的编队指挥官插话挽回颜面："别纠缠变元者了。你还没见识过银河系其他地方的能耐。这种天真迟早会让你吃大亏！"</text>
+			<choice hidden="true">
+				<text>指出能量护盾的缺陷。</text>
+				<event>
+					<text>你解释说使用特定武器在较短的时间里就能轻易击破他们的护盾，并补充说，这种过度自信就像他们著名的能量护盾一样，没法保证他们在广袤银河中的安全。这番反驳激怒了新兵，他违抗停火命令向你开火！指挥官恳请避免无谓伤亡，但看来你得用些武力让袭击者知难而退。</text>
+					<ship load="SHIP_ZOLTAN_COCKY_TAUNTED" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="weapons" lvl="6">
+				<text>(先进武器) 炫耀你的武器。</text>
+				<event>
+					<text>你自豪地向超能族新兵展示武器，对方看得目瞪口呆。指挥官感谢你打消了属下的傲气，并给予你奖励。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="artillery" lvl="3">
+				<text>(先进巨炮) 炫耀你的武器。</text>
+				<event>
+					<text>你自豪地向超能族新兵展示巨炮，对方看得目瞪口呆。指挥官感谢你打消了属下的傲气，并给予你奖励。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="drones" lvl="5">
+				<text>(高级无人机控制) 证明你在科技上并不落伍。</text>
+				<event>
+					<text>你自豪地展示尖端的无人机技术，让新兵大吃一惊。指挥官感谢你打消了属下的傲气，并给予你奖励。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
+				<text>(能量护盾) 证明你在科技上并不落伍。</text>
+				<event>
+					<text>你自豪地展示你的能量护盾，让新兵大吃一惊。指挥官感谢你打消了属下的傲气，并给予你奖励。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="BYPASS_AND_BOMB">
+				<text>(护盾穿透+炸弹) 揭露他防御的漏洞。[-1}]</text>
+				<event>
+					<text>你将爆炸物直接传送至对方武器系统，让新兵大吃一惊。他立即呼叫你："呸！我们早该知道你们这些变元者都这么…混账！" 指挥官给予你奖励，表面上是感谢你指导士兵改进，但你怀疑他真正的动机是避免事态升级，只想打发你离开。</text>
+					<item_modify>
+						<item type="missiles" min="-1" max="-1" />
+					</item_modify>
+					<autoReward level="HIGH">droneparts</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="BYPASS_AND_TELEPORT">
+				<text>(穿透+传送器) 在他们回应前控制他的船员。</text>
+				<event>
+					<text>你传送登船小队轻松歼灭他们，证明已死新兵先前的自负多么可笑。你开始回收废料，但指挥官赶到现场阻止你！</text>
+					<autoReward level="LOW">standard</autoReward>
+					<ship load="SHIP_ZOLTAN_COCKY_CHIEF" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视傲慢的超能族，花时间做别的事。</text>
+				<event>
+					<text>你本就没征询谁的意见，置之不理才公平。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_MILITIA">
+	<event load="DISTRESS_MILITIA_KERNELS" />
+	<event load="DISTRESS_MILITIA_OUTPOST" />
+</eventList> 
+
+<event name="DISTRESS_MILITIA_KERNELS" unique="true">
+	<distressBeacon />
+	<text>求救信号是从附近一家兰花商店发出的，他们正受海盗攻击！我们是否协助？</text>
+	<ship load="SHIP_MILITIA_KERNELPIRATE" hostile="false" />
+	<choice hidden="true">
+		<text>帮助兰花族。</text>
+		<event>
+			<text>你启动武器准备与海盗对峙。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些船。</text>
+		<event>
+			<text>兰花族飞船通常火力强大，你估计他们能够自行解决本次危机。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MILITIA_KERNELS_SAVE">
+	<text>兰花族们感谢你的帮助。它们说被派来本星区是为了卖果核武器给盟卫们，作为你拔刀相助的报酬，它们免费送你其中一件。</text>
+	<weapon name="GIFTLIST_KERNEL" />
+</event>
+
+<event name="DISTRESS_MILITIA_OUTPOST" unique="true">
+	<distressBeacon />
+	<text>求救信号来自一处小型盟卫哨站，看起来正受到海盗的猛攻，估计坚持不了多久了。</text>
+	<ship load="SHIP_PIRATE_MILITIA_OUTPOST" hostile="false" />
+	<choice hidden="true">
+		<text>保护哨站。</text>
+		<event>
+			<text>你启动武器准备与海盗对峙。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="5">
+		<text>(高级武器)威胁海盗。</text>
+		<event>
+			<text>"你是什么玩...哦该死，行行行你们赢了，玩得愉快！"海盗立即跃迁逃窜，想必苦战许久的盟卫对你的武器也毫无招架之力。</text>
+			<instantEscape />
+			<choice hidden="true">
+				<text>告诉盟卫们他们安全了。</text>
+				<event>
+					<text>"太感谢您了，我们本来撑不了多久了！我们除了一些用不上的燃料之外别无可送了。"</text>
+					<autoReward level="LOW">fuel_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>要求对方提供其中一员作为奴隶。</text>
+				<event>
+					<text>对方无奈地从了你的意。</text>
+					<crewMember amount="1" class="random" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_GENERAL" /> <!--intended-->
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>摧毁哨站并搜刮残骸。</text>
+				<event>
+					<text>预料之中，哨站几无防御并很快被摧毁。</text>
+					<autoReward level="MED">standard</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_UNION" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们无能为力。</text>
+		<event>
+			<text>考虑到当前的处境，你决定避免与海盗冲突。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_MILITIA">
+	<event load="MILITIA_AUTOSEARCH" />
+</eventList> 
+
+<event name="MILITIA_AUTOSEARCH" unique="true">
+	<distressBeacon />
+	<text>你注意到有两艘盟卫船正在为某事争论，目前这个距离你只能隐约听出是关于自动舰。</text>
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"哈？哦我们没注意到其他舰船。事情是这样，我们打算建造盟卫自己的自动舰队以降低前线的人员伤亡，但暂时还没掌握这项技术，需要"参考"叛军自动舰的技术。你能帮我们捕获一艘完整的吗？"</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>"太好了！马上就把我们准备研究的自动舰坐标发给你，但是它很靠近附近的反舰炮台。如果能把它从那边引开的同时不让其损伤太严重的话，我们就能派一艘船过去取回它。"</text>
+					<quest event="MILITIA_AUTOSEARCH_QUEST" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_A55">
+				<text>(A55)让A55传输自动舰数据。</text>
+				<event>
+					<text>"我的天，太好了！这样我们的研发能加速不少。"</text>
+					<autoReward level="MED">augment</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ENGINEER">
+				<text>(工程师船员)让工程师转移自动舰的数据。</text>
+				<event>
+					<text>"我的天，太好了！这样我们的研发能加速不少。"</text>
+					<autoReward level="MED">augment</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_COGNITIVE_ALL">
+				<text>(认知体)让认知体转移自动舰的数据。</text>
+				<event>
+					<text>"我的天，太好了！这样我们的研发能加速不少。"</text>
+					<autoReward level="MED">augment</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>"理解。那么祝您在您的任务上好运，舰长。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们的任务紧迫，没时间管这琐事。</text>
+		<event>
+			<text>不管他们在讨论什么，估计对我们任务影响不大，你决定无视盟卫们。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MILITIA_AUTOSEARCH_QUEST">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>盟卫要求你引诱出一艘自动舰来帮助研究。</unvisitedTooltip>
+	</beaconType>
+	<text>你发现了盟卫口中的自动舰，同时你望见远处一个反舰炮台慢慢转向你。</text>
+	<ship load="SHIP_MILITIA_AUTOSEARCH" hostile="true" />
+	<choice hidden="true" req="PDS_DISABLE">
+		<text>(信号稀释器)关闭反舰炮台的瞄准系统。</text>
+		<event>
+			<text>反舰炮台无法确定你的位置，突然停止转向。但你仍需引诱这艘自动船离开，不过至少不用担心反舰炮台的事情了。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FLARE_DISTRACTION">
+		<text>(干扰闪弹)干扰反舰炮台系统。</text>
+		<event>
+			<text>你向炮台发射一簇闪弹，干扰了反舰炮台的瞄准系统。考虑到闪弹的大小，你很估计炮台一时半会处理不了，这样以来你就有充足时间来引诱自动舰离开。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>准备战斗。</text>
+		<event>
+			<text>正如盟卫所说，一个反舰炮台锁定了你的准确位置并立即开火。希望自动舰被引开之前我们不会遭受太多伤害。</text>
+			<environment type="PDS" target="player" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MILITIA_AUTOSEARCH_LURE">
+	<text>你成功将自动舰从此信标诱开。现在准备追击至它的目的地。</text>
+	<quest event="MILITIA_AUTOSEARCH_QUEST_2" />
+</event>
+<event name="MILITIA_AUTOSEARCH_QUEST_2">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>被引诱的自动舰的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你又一次追踪到了自动舰。附近是之前的盟卫舰船们，领先你一步，已经开始检查工作。</text>
+	<ship load="SHIP_MILITIA_AUTOSEARCH_2" hostile="false" />
+	<choice hidden="true">
+		<text>呼叫盟卫。</text>
+		<event>
+			<text>"啊，干得好。这艘舰船还能运行，太棒了！这是您的报酬。"</text>
+			<autoReward level="MED">stuff</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>正当你准备离去之时，听见盟卫的喊叫。你转身发现这艘自动舰再一次启动并立即炸毁了其中一艘盟卫舰船！现在它转而向你进攻。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+					<choice hidden="true" req="hacking" lvl="2">
+						<text>(高级黑客)在自动舰造成更多伤害之前将其关机。</text>
+						<event>
+							<text>你立刻将自动舰关闭了。被摧毁的舰船立即疏散人员，最后仅有几人的伤亡。盟卫们再次感谢你。</text>
+							<ship hostile="false" />
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_MILITIA">
+	<event load="ENCOUNTER_MILITIA_MISTAKE" />
+	<event load="ENCOUNTER_MILITIA_STATION_MISTAKE" />
+	
+	<event load="ENCOUNTER_MILITIA_ESCORT" />
+	
+	<event load="ENCOUNTER_PIRATE_MILITIA" />
+	<event load="ENCOUNTER_PIRATE_MILITIA_ONLY" />
+	<event load="ENCOUNTER_REBEL_MILITIA" />
+</eventList>
+
+<event name="ENCOUNTER_MILITIA_MISTAKE" unique="true">
+	<text load="TEXT_ENCOUNTER_MILITIA_MISTAKE" />
+	<ship load="SHIP_MILITIA_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MILITIA_MISTAKE">
+	<text>附近飘荡着一只平民船骸，在你下手搜刮之前，一艘盟卫船误把你当成凶手并准备复仇。</text>
+	<text>不幸的是，你遇到了一些突发情况，使得你无法向盟卫战舰表明自己的身份，没多久气氛开始变得焦灼！</text>
+	<text>此信标的盟卫似乎把你的一名船员误认为一位拥有高额悬赏的海盗。你并不准备交出这名船员，因此准备反抗。</text>
+	<text>你一般尽量对平民保持克制，但这种处理方式需要对方也配合。你莫名激怒了此处一艘盟卫战舰，它现在准备攻击。</text>
+</textList>
+
+<event name="ENCOUNTER_MILITIA_STATION_MISTAKE" unique="true">
+	<text>你途径一个盟卫空间站，它居然不让你通行。看样子这处信标需要缴纳过路费才能通行。</text>
+	<ship load="SHIP_MILITIA_STATION" hostile="false" />
+	<choice>
+		<text>拒绝付费。</text>
+		<event>
+			<text>看来盟卫空间站并不想费口舌，你刚回绝对方的武器就启动了！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>支付过路费。</text>
+		<event>
+			<text>对方收到付款之后示意你可以通行。</text>
+			<item_modify>
+				<item type="scrap" min="-20" max="-10" />
+			</item_modify>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ENCOUNTER_MILITIA_ESCORT" unique="true">
+	<text>一片盟卫运输站的残骸掠过，正好被附近一艘盟卫护卫船目睹。他们疑惑又害怕，并且似乎把你误认为了凶手。你试图解释情况但没有回应，看来唯一解决纷争的办法是打一架。</text>
+	<ship load="SHIP_MILITIA_ESCORTFIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_PIRATE_MILITIA">
+	<text load="TEXT_ENCOUNTER_PIRATE_MILITIA" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_MILITIA">
+	<text>敢于侵犯盟卫星域的大胆海盗舰长非蠢既坏。你希望面前这艘气势汹汹的敌舰是前者。</text>
+	<text>一艘海盗舰向你靠近，隐约能看见其武器正充能。从其嚣张气焰你能感觉到他在本星区还没遇到过对手，准备从盟卫舰船换换口味向你进攻！</text>
+	<text>在这种高度军事化的盟卫星区出现海盗泛滥问题十分讽刺。不过至少你下手不用考虑轻重，毕竟没人在乎这艘海盗舰的死活。</text>
+	<text>"哈，没想到吧！我可不是盟卫舰船！现在你肯定会在我的面前瑟瑟发扌——"你不等到这可笑的自白介绍便掐断通讯，准备应战。</text>
+	<text>你用余光瞥到抹紫色飞过。不久之后一艘海盗舰出现在了面前。"哈哈！就像之前的盟卫一样，你也会死在我手下！"准备战斗！</text>
+</textList>
+
+<event name="ENCOUNTER_PIRATE_MILITIA_ONLY">
+	<text load="TEXT_ENCOUNTER_PIRATE_MILITIA_ONLY" />
+	<ship load="SHIP_PIRATE_MILITIA" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_MILITIA_ONLY">
+	<text>盟卫舰队素来以数量闻名，但这也使他们成为想要新载具的海盗的首要目标。一艘海盗控制的盟卫船向你接近，火力全开。</text>
+	<text>为了测试它刚从盟卫偷来的新武器，一艘海盗舰锁定了你并准备攻击！</text>
+	<text>最开始你以为此处的盟卫战舰平常无奇，直到你发现装饰它舰体的海盗涂装。海盗来袭！</text>
+</textList>
+
+<event name="ENCOUNTER_REBEL_MILITIA">
+	<text load="TEXT_ENCOUNTER_REBEL_MILITIA" />
+	<ship load="SHIP_REBEL_ALL" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_MILITIA">
+	<text>"神军永远不败！联邦的结局只会是灭亡！"你无法理解这句话是如何从一个仅为了防守星区就滥杀平民的人嘴中说出的，但若是叛军要战，那便战。</text>
+	<text>叛军似乎对盟卫些许积怨。此处的叛军极度渴望战斗，而你是此处唯一的可选目标。</text>
+	<text>这艘叛军船刚刚屠光附近一个盟卫空间站，你跃迁进来几秒之后，就成了它的下个目标。</text>
+	<text>盟卫们已经尽力扫清星区内的叛军，但他们力量有限。一艘前哨叛军侦察舰发现了你并展开攻击。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="ENCOUNTER_MILITIA_ELITE" unique="true">
+	<text>精英护卫队是盟卫舰队中的精英，其拥有训练有素的船员，这些战舰在战斗中可不是开玩笑的。不幸的是，你目前这艘视你为威胁并开始攻击！</text>
+	<ship load="SHIP_MILITIA_ELITE_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="MILITIA_DETECTIVE" unique="true">
+	<preventQuest />
+	<text>附近有几艘盟卫舰船停靠在一个平民补给站边。</text>
+	<ship load="SHIP_UNION_REFUEL_DETECTIVE" hostile="false" />
+	<status type="limit" target="enemy" system="sensors" amount="0" />
+	<choice hidden="true">
+		<text>查看一下情况。</text>
+		<event>
+			<text>停靠的时候，其中一位盟卫人员试图表示抗议，但被一位身着绿色外衣，嘴里叼着古代地球外观设计的烟斗的人类打断了。"啊，是一名变元者嘛？我叫夏洛克·海因斯，我来自地球，不过早就加入盟卫了。目前作为侦探效力于盟卫。现在我这里有一个很棘手的案子，或许你能帮忙？"</text>
+			<choice hidden="true">
+				<text>帮什么忙？</text>
+				<event>
+					<text>"当然是帮忙断案！昨天夜里，就在这个空间站，一名叫亨利·科尔曼的人被枪杀了。我们推断他携带了关于一个叛军密谋的重要情报，但无法确定具体是什么。空间站内只驻扎了四个人，犯罪发生后现在只剩三个。案发之前及之后的24小时内都没有其他舰船停靠补给站，所以真相只有一个！"</text>
+					<choice hidden="true">
+						<text>也就是？</text>
+						<event>
+							<text>"真是的，这可是基础知识，我亲爱的额...尊姓大名舰长。说明这三人中有一人是叛军间谍！现在问题是，到底是谁呢？我跨越维度的朋友，你愿不愿意帮我个忙断了这个案子？"</text>
+							<choice hidden="true">
+								<text>当然。</text>
+								<event>
+									<text>"啊，太好了！我还没深入研究多少，如果你需要什么帮助的话，随便来问我。嫌疑人是这三个：托姆·尼科尔森先生、艾米·谢帕德小姐以及丹尼尔·布朗博士。我期待你的假设！"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>"啊，真是不幸。你最好还是离开吧，我不喜欢调查的时候被分心。"</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_haynes">
+		<text>(海因斯)联系空间站。</text>
+		<event>
+			<text>另一空间站上的海因斯收到了信号，震惊地看见通讯另一端的自己的镜像。"我，听好了。凶手是托姆。他操控士兵无人机射杀了亨利。两人都是叛军间谍。托姆从丹尼尔博士那学会了如何操控无人机。别浪费时间了，叛军即将发起进攻，听懂没？很好，上船吧。我们有一个舰库要拯救。"</text>
+			<variable name="ach_crew_haynes" op="set" val="1" />
+			<crewMember amount="1" class="unique_haynes">夏洛克·海因斯</crewMember>
+			<quest event="DETECTIVE_HANGARATTACK" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视空间站。</text>
+		<event>
+			<text>可能这里发生了什么重要事情，但跟你没什么关系。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_detectivestart" global="true">
+		<color r="12" g="122" b="3" a="1.0" />
+        <unvisitedTooltip>此处是谋杀之谜的所在。在指认嫌疑人前请先查阅维基。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="DETECTIVE_EVIDENCE_MENU_LOAD">
+	<loadEvent ignoreUnique="true">DETECTIVE_EVIDENCE_MENU</loadEvent>
+</event>
+<event name="DETECTIVE_EVIDENCE_MENU">
+	<text>你站在补给站大厅，查看四周情况。
+[你可以不限次数不限顺序调查情况。]</text>
+	<choice hidden="true">
+		<text>与夏洛克或嫌犯交谈。</text>
+		<event>
+			<text>想与谁交谈？</text>
+			<choice hidden="true">
+				<text>与夏洛克交谈。</text>
+				<event load="DETECTIVE_TALK_SHERLOCK" />
+			</choice>
+			<choice hidden="true">
+				<text>与托姆交谈。</text>
+				<event load="DETECTIVE_TALK_THOM" />
+			</choice>
+			<choice hidden="true">
+				<text>与艾米交谈。</text>
+				<event load="DETECTIVE_TALK_AMY" />
+			</choice>
+			<choice hidden="true">
+				<text>与丹尼尔交谈。</text>
+				<event load="DETECTIVE_TALK_DANIEL" />
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>检查尸体。</text>
+		<event load="DETECTIVE_CORPSE" />
+	</choice>
+	<choice hidden="true">
+		<text>调查补给站现场。</text>
+		<event>
+			<text>补给站内有多个系统，你希望调查哪一个？</text>
+			<choice hidden="true">
+				<text>调查舱门系统。</text>
+				<event load="DETECTIVE_SYSTEM_DOORS" />
+			</choice>
+			<choice hidden="true">
+				<text>调查无人机系统。</text>
+				<event load="DETECTIVE_SYSTEM_DRONES" />
+			</choice>
+			<choice hidden="true">
+				<text>调查生命支持系统。</text>
+				<event load="DETECTIVE_SYSTEM_OXYGEN" />
+			</choice>
+			<choice hidden="true">
+				<text>调查护盾系统。</text>
+				<event load="DETECTIVE_SYSTEM_SHIELDS" />
+			</choice>
+			<choice hidden="true">
+				<text>调查传感器系统。</text>
+				<event load="DETECTIVE_SYSTEM_SENSORS" />
+			</choice>
+			<choice hidden="true">
+				<text>调查武器系统。</text>
+				<event load="DETECTIVE_SYSTEM_WEAPONS" />
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>指控一名嫌犯。</text>
+		<event>
+			<text>夏洛克眉眼轻动，"这么说你已经得出结论了？那么是谁射杀的老亨利？"
+			[你只能指控已交谈过的嫌犯]</text>
+			<choice hidden="true" req="loc_evidence_dronekiller" blue="true">
+				<text>他们都没有直接参与，亨利被士兵无人机杀了！</text>
+				<event load="DETECTIVE_ACCUSE_DRONE" />
+			</choice>
+			<choice hidden="true" req="loc_evidence_thom" blue="false">
+				<text>指控托姆·尼科尔森。</text>
+				<event load="DETECTIVE_ACCUSE_THOM" />
+			</choice>
+			<choice hidden="true" req="loc_evidence_amy" blue="false">
+				<text>指控艾米·谢帕德。</text>
+				<event load="DETECTIVE_ACCUSE_AMY" />
+			</choice>
+			<choice hidden="true" req="loc_evidence_daniel" blue="false">
+				<text>指控丹尼尔·布朗。</text>
+				<event load="DETECTIVE_ACCUSE_DANIEL" />
+			</choice>
+			<choice hidden="true" req="loc_evidence_sherlock" blue="false">
+				<text>指控夏洛克·海因斯。</text>
+				<event load="DETECTIVE_ACCUSE_SHERLOCK" />
+			</choice>
+			<choice hidden="true">
+				<text>呃，算了。我还要再调查调查。</text>
+				<event>
+					<text>海因斯咯咯笑道。"那好吧。不着急，处理这种事情再谨慎也不为过。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_CORPSE">
+	<text>你走向亨利的尸体仔细查看。你注意到体表没有明显划伤，不过他背部有一处较大的灼烧痕，想必是爆裂子弹造成的，但伤口的半径对于标准手持式爆裂手枪来说太大了。</text>
+	<variable name="loc_evidence_burns" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_ACCUSE_SHERLOCK">
+	<text>你向嫌犯跨了一大步，随即旋向夏洛克并指着他。"你，呃，觉得我是凶手？你应该意识到我今天之前压根没来过这个空间站吧？"</text>
+	<choice hidden="true" req="loc_spit" lvl="0" max_lvl="2" blue="false">
+		<text>怎么听都像凶手的狡辩措辞！</text>
+		<event load="DETECTIVE_WRONG" />
+	</choice>
+	<choice hidden="true" req="loc_spit" lvl="3" blue="false">
+		<text>怎么听都像凶手的狡辩措辞！</text>
+		<event>
+			<text>夏洛克双手抱胸，怒目而视。"你冲进这里，向我所有的嫌犯脸上吐唾沫，然后还指控我是凶手？滚蛋。立马滚蛋。你精神错乱了。这就是我委托变元者处理这种严肃事情的后果。"</text>
+			<achievement>ACH_EVENT_MYSTERY</achievement>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_UNION" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_ACCUSE_DRONE">
+	<text>夏洛克与嫌犯们一样都吃了一惊。"那件无人机，是吗？确实是个有趣的理论！但有一件事 - 一定是有人在操控无人机。但是谁操控的呢？"</text>
+	<choice hidden="true" req="loc_evidence_oxygendaniel" lvl="0" blue="false" max_group="0">
+		<text>丹尼尔是凶手！</text>
+		<event>
+			<text>丹尼尔一脸震惊，无法相信你指控他。夏洛克点点头。"对，布朗博士确实是这里的首席工程师，作为嫌犯的怀疑也很大。然而，不可能是他干的！你若是检查过氧气系统，并且盘问过丹尼尔的话，就该知道他昨天整晚都忙着升级氧气系统。你不可能谋杀亨利的同时还在升级氧气系统，氧气系统升级花的时间太长了。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_WRONG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_evidence_oxygendaniel" lvl="1" blue="false" max_group="0">
+		<text>你已经为丹尼尔找到了个可靠的不在场证明，你知道不可能是他。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" max_group="1">
+		<text>艾米是凶手！</text>
+		<event>
+			<text>艾米的眉头更加紧锁。夏洛克摇了摇头。"不，不可能是谢帕德小姐干的。她对无人机系统一窍不通，不太可能可以这么长时间操控无人机来杀害亨利的。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_WRONG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" max_group="2">
+		<text>托姆是凶手！</text>
+		<event>
+			<text>托姆的眼睛瞪得大大的。"什-什么？不，不可能是我！我对无人机一点也不懂啊！"他平易近人的乡村口音突然消失不见，语气愈发不安。</text>
+			<choice hidden="true" req="loc_evidence_thomlie">
+				<text>不，你在说谎！</text>
+				<event>
+					<text>夏洛克歪了歪头。你随即解释道托姆曾经向丹尼尔请教过如何操控无人机，并且是在案发前不久。夏洛克思索了一番。"你说得对。天啊，这个细节连我都没有注意到！"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_CORRECT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>夏洛克点了点头。"是的，托姆先生说得对。这个设施的首席工程师确实是丹尼尔，而不是托姆。托姆不太可能可以这么长时间操控无人机来杀害亨利的"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_WRONG" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>额，我不知道。</text>
+		<event>
+			<text>夏洛克眉头紧锁。"你不能来这扯一通天马行空的理论还不说是谁干的！再继续调查。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_ACCUSE_THOM">
+	<text>托姆听到你的指控后眼睛瞪得大大的。夏洛克从他那里起身走向你。"确实是一个有意思的假设。然而，如果你检查过亨利身上的伤口就会知道，用的肯定不是普通的爆裂手枪。尼科尔森先生只有一支标准级自卫手枪。整个站内能留下这样的伤痕的只有士兵无人机的武器，而尼科尔森先生对操控无人机毫无经验。"</text>
+	<choice hidden="true" req="loc_evidence_dronekiller" blue="true">
+		<text>没错，那架无人机就是凶器。但是谁下令杀害亨利的？是托姆！</text>
+		<event>
+			<text>托姆的眼睛瞪得大大的。"什-什么？不，不可能是我！我对无人机一点也不懂啊！"他平易近人的乡村口音突然消失不见，语气愈发不安。</text>
+			<choice hidden="true" req="loc_evidence_thomlie">
+				<text>不，你在说谎！</text>
+				<event>
+					<text>夏洛克歪了歪头。你随即解释道托姆曾经向丹尼尔请教过如何操控无人机，并且是在案发前不久。夏洛克思索了一番。"你说得对。天啊，这个细节连我都没有注意到！"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_CORRECT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>夏洛克点了点头。"是的，托姆先生说得对。这个设施的首席工程师确实是丹尼尔，而不是托姆。托姆不太可能可以这么长时间操控无人机来杀害亨利的"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_WRONG" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_WRONG" />
+	</choice>
+</event>
+<event name="DETECTIVE_ACCUSE_AMY">
+	<text>艾米瞪着你。夏洛克从他那里起身走向你。"确实是一个有意思的假设。然而，如果你检查过亨利身上的伤口就会知道，用的肯定不是普通的爆裂手枪。谢帕德小姐只有一支标准级自卫手枪。整个站内能留下这样的伤痕的只有士兵无人机的武器，而尼科尔森先生对操控无人机毫无经验。"</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_WRONG" />
+	</choice>
+</event>
+<event name="DETECTIVE_ACCUSE_DANIEL">
+	<text>丹尼尔被你的指控冒犯了。夏洛克从他那里起身走向你。"确实是一个有意思的假设。然而，丹尼尔在谋杀的那晚忙其他事了。你若是检查过氧气系统，并且与丹尼尔交谈过的话，就该知道他昨天整晚都忙着升级氧气系统。这样他并没有足够的时间同时超越控制无人机系统并杀害亨利。"</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_WRONG" />
+	</choice>
+</event>
+<event name="DETECTIVE_WRONG">
+	<text>突然灯光熄灭，爆裂手枪的火光在舱室闪烁！当照明恢复时，嫌疑人和后备的援军早已逃之夭夭。夏洛克对你怒吼："见鬼！真凶跑了！快走，杀手逍遥法外，这里太危险了！"更糟的是，你回到星舰发现船上被安装了一个发射器，将你的坐标发给了叛军舰队，想必这是凶手逃跑时安装的。必须赶快行动！</text>
+	<modifyPursuit amount="2" />
+</event>
+<textList name="TEXT_SHERLOCK_TALK"> <!--duplicated to prevent that weird issue that supposedly happens with not enough text-->
+	<text>"诶，真是一件有趣的案子，不是吗？真希望我们能知道被害人掌握的信息有多重要。很难判断这次的案子有多重要。我断过许多案子，还没有一件在演绎上比这次精彩的！"</text>
+	<text>"可惜他们都是人类，对吧？如果哪怕有一个是外星人的话我们都能直接把它排除了。或者也不一定，也许会让案件变得更有趣！"</text>
+	<text>"哎，我干这一行一直没厌倦。就希望我能少碰些牵扯到嗜血叛军的案子。追捕嫌犯的时候我的搭档们没少吃流弹流血牺牲。"</text>
+	<text>夏洛克正在忙着擦亮他的左轮。"我是古代地球科技的爱好者。这件武器的做工着实异常精美。如果这里的事情变得棘手的话，我希望可以相信我的准度，在嫌犯把我的脑袋打爆之前，先把打爆他的脑袋。"</text>
+	<text>"切记，你永远无法确定人们是否在说真话！相信实物证据，而不是人为编造的故事。"</text>
+	
+	<text>"诶，真是一件有趣的案子，不是吗？真希望我们能知道被害人掌握的信息有多重要。很难判断这次的案子有多重要。我断过许多案子，还没有一件在演绎上比这次精彩的！"</text>
+	<text>"可惜他们都是人类，对吧？如果哪怕有一个是外星人的话我们都能直接把它排除了。或者也不一定，也许会让案件变得更有趣！"</text>
+	<text>"哎，我干这一行一直没厌倦。就希望我能少碰些牵扯到嗜血叛军的案子。追捕嫌犯的时候我的搭档们没少吃流弹流血牺牲。"</text>
+	<text>夏洛克正在忙着擦亮他的左轮。"我是古代地球科技的爱好者。这件武器的做工着实异常精美。如果这里的事情变得棘手的话，我希望可以相信我的准度，在嫌犯把我的脑袋打爆之前，先把打爆他的脑袋。"</text>
+	<text>"切记，你永远无法确定人们是否在说真话！相信实物证据，而不是人为编造的故事。"</text>
+
+	<text>"诶，真是一件有趣的案子，不是吗？真希望我们能知道被害人掌握的信息有多重要。很难判断这次的案子有多重要。我断过许多案子，还没有一件在演绎上比这次精彩的！"</text>
+	<text>"可惜他们都是人类，对吧？如果哪怕有一个是外星人的话我们都能直接把它排除了。或者也不一定，也许会让案件变得更有趣！"</text>
+	<text>"哎，我干这一行一直没厌倦。就希望我能少碰些牵扯到嗜血叛军的案子。追捕嫌犯的时候我的搭档们没少吃流弹流血牺牲。"</text>
+	<text>夏洛克正在忙着擦亮他的左轮。"我是古代地球科技的爱好者。这件武器的做工着实异常精美。如果这里的事情变得棘手的话，我希望可以相信我的准度，在嫌犯把我的脑袋打爆之前，先把打爆他的脑袋。"</text>
+	<text>"切记，你永远无法确定人们是否在说真话！相信实物证据，而不是人为编造的故事。"</text>
+	
+	<text>"诶，真是一件有趣的案子，不是吗？真希望我们能知道被害人掌握的信息有多重要。很难判断这次的案子有多重要。我断过许多案子，还没有一件在演绎上比这次精彩的！"</text>
+	<text>"可惜他们都是人类，对吧？如果哪怕有一个是外星人的话我们都能直接把它排除了。或者也不一定，也许会让案件变得更有趣！"</text>
+	<text>"哎，我干这一行一直没厌倦。就希望我能少碰些牵扯到嗜血叛军的案子。追捕嫌犯的时候我的搭档们没少吃流弹流血牺牲。"</text>
+	<text>夏洛克正在忙着擦亮他的左轮。"我是古代地球科技的爱好者。这件武器的做工着实异常精美。如果这里的事情变得棘手的话，我希望可以相信我的准度，在嫌犯把我的脑袋打爆之前，先把打爆他的脑袋。"</text>
+	<text>"切记，你永远无法确定人们是否在说真话！相信实物证据，而不是人为编造的故事。"</text>
+</textList>
+<event name="DETECTIVE_TALK_SHERLOCK">
+	<variable name="loc_evidence_sherlock" op="set" val="1" />
+	<text load="TEXT_SHERLOCK_TALK" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_THOM">
+	<text>想问托姆什么？</text>
+	<variable name="loc_evidence_thom" op="set" val="1" />
+	<choice hidden="true">
+		<text>让托姆介绍一下自己。</text>
+		<event>
+			<text>托姆向你叙述了一些他的人生。他本是小型农业陆地星球一个农场工，直到有一天一位岩石圣战者将其小镇一把火烧光了。无家可归之后，他决定加入盟卫来保卫平民星域，防止发生在自身的命运降临在他人身上。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问托姆是否与叛军有牵连。</text>
+		<event>
+			<text>他摇了摇头："没-没有，先生。虽然我见过不少叛军，但基本没有与任何叛军交友。我一直是一名联邦公民，而且特别忠诚。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问托姆在补给站内的职务。</text>
+		<event>
+			<text>"我负责维护重要系统。在农场上我学会了很多装备的操作事项，很多甚至都能转化成空间站维护的相关知识！我帮忙维护护盾系统和生命维持系统，以及在部件损坏时去商店进行采购与换新。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问托姆有关被害人的信息。</text>
+		<event>
+			<text>"我其实没怎么跟亨利说过话，因为他给我感觉一直很安静内向。不管怎样，我还是不敢相信他被杀了..."</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问托姆对其他嫌犯的看法。</text>
+		<event>
+			<text>你想询问托姆对谁的看法？</text>
+			<choice hidden="true">
+				<text>艾米。</text>
+				<event>
+					<text>"艾米？她额...挺特别的我觉得。她总是对我们絮絮叨叨的，脾气也是我见过最暴躁的，不过她干活也很干脆利落。我不觉得她会杀害别人！虽然我知道她不太待见亨利。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>丹尼尔。</text>
+				<event>
+					<text>"布朗博士？喔，他真是一位和蔼的先生，对工作也尽职尽责。他与可怜的亨利交情那么好，我想他估计对谋杀还是很震惊..."</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>往托姆脸上吐唾沫。</text>
+		<event>
+			<text>你不知道为什么，突然涌起了唾托姆的冲动。夏洛克瞪了你一眼，但并没作声。</text>
+			<variable name="loc_spit" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问托姆关于证据的事情。</text>
+		<event>
+			<text>想询问托姆哪一件证据？
+			[随着调查进行，更多可选证据将会出现]</text>
+			<choice hidden="true" req="loc_evidence_drones">
+				<text>问托姆关于无人机系统的事情。</text>
+				<event>
+					<text>"没，我从没学过什么无人机的东西。我相信布朗博士能够操控它们，因为我甚至连启动无人机都不会！"</text>
+					<choice hidden="true" req="loc_evidence_thomlie">
+						<text>指出托姆在说谎。</text>
+						<event load="DETECTIVE_TALK_THOM_LIE" />
+					</choice>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_evidence_sensors">
+				<text>问托姆关于传感器系统的事情。</text>
+                <event>
+                    <text>"没有监控录像？那还真是麻烦，不过您是侦探吧，相信没有它们您也能做出精彩的推理，对吧？"</text>
+                    <choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_evidence_oxygen">
+				<text>问托姆关于氧气系统的事情。</text>
+				<event>
+					<text>"哦，这件事有点奇怪，也不是我去升级了氧气系统。案发那天晚上我很忙，我一直没时间检查。但我依稀记得氧气系统在那天前一直都是1级。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_THOM_LIE">
+	<text>你指出丹尼尔告诉你说对方曾向他请教过如何操控无人机。托姆一时语塞，不知道该怎么回复，你也不继续深究，但将这个细节记下来。</text>
+	<variable name="loc_evidence_thomcatch" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_AMY">
+	<text>想问艾米什么？</text>
+	<variable name="loc_evidence_amy" op="set" val="1" />
+	<choice hidden="true">
+		<text>让艾米介绍一下自己。</text>
+		<event>
+			<text>艾米对加入盟卫的理由没有太多可说的，主要就是她希望逃离乡星然后杀一些海盗。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问艾米是否与叛军有牵连。</text>
+		<event>
+			<text>艾米看起来想要扇你一巴掌的样子，而且如果不是会殃及自身的话可能真的会扇上来。"你胆敢把我和那帮渣滓联系起来！我从来没当过叛军，以后也不会。回答完毕。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问艾米在补给站内的职务。</text>
+		<event>
+			<text>"以前主要负责星区边境的巡逻工作，直到我们弄到了那个该死的士兵无人机。以前我几乎天天都能揍到那些海盗们，而现在却被调遣到那个该死的武器室整天按按钮！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问艾米与被害人的关系。</text>
+		<event>
+			<text>"亨利？哈，他就像空气一样，一点存在感都没。真是个怪咖，整天就一个人躲在自己舱室里，只有吃饭打水才会出来。他的死估计不会对站内生活造成任何影响，真是可惜，在这个空间站里真他妈无聊。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问艾米对其他嫌犯的看法。</text>
+		<event>
+			<text>你想询问艾米对谁的看法？</text>
+			<choice hidden="true">
+				<text>托姆。</text>
+				<event>
+					<text>"托姆人特别好说话。他总是说这里的生活多么美好，可我完全无法理解这破补给站上的生活有什么好，我告诉你！不过...托姆当杀人凶手？无法想象...除非他演技特别强。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>丹尼尔。</text>
+				<event>
+					<text>"那个老头子？感觉他随时都可能化作尘土！我觉得他跟他经常打交道的无人机一样缺乏性格，或许这就是他与亨利关系这么好的原因吧。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>往艾米脸上吐唾沫。</text>
+		<event>
+			<text>你不知道为什么，突然涌起了唾艾米的冲动。夏洛克瞪了你一眼，但并没作声。</text>
+			<variable name="loc_spit" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问艾米关于证据的事情。</text>
+        <event>
+            <text>想询问艾米哪一件证据？
+			[随着调查进行，更多可选证据将会出现]</text>
+            <choice hidden="true" req="loc_evidence_drones">
+                <text>问艾米关于无人机系统。</text>
+                <event>
+                    <text>"那些无人机？从来没碰过。就是那个该死的机器人抢走了我之前猎杀海盗的工作。如果我真是凶手，我一定会先毁了它而不是亨利！反正这该死的机器也没有痛觉..."</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_evidence_sensors">
+				<text>问艾米关于传感器系统的事情。</text>
+				<event>
+					<text>"你们好像没留存监控录像，还是什么的。不过你们这些侦探不是没录像也能推理弄清事情吗？你问我这些干嘛？"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_evidence_oxygen">
+				<text>问艾米关于氧气系统的事情。</text>
+				<event>
+					<text>"我对生命维持系统一窍不通。这是托姆的职责，不是我的。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_DANIEL">
+	<text>想问丹尼尔什么？</text>
+	<variable name="loc_evidence_daniel" op="set" val="1" />
+	<choice hidden="true">
+		<text>让丹尼尔介绍一下自己。</text>
+		<event>
+			<text>"我？我就是个老头子。年轻的时候学了几年无人机科技，然后在桃源公司当一名工程师工作到退休。但...感觉退休生活实在不适合我，所以志愿加入盟卫，而不是在什么海景房里虚度光阴。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问丹尼尔是否与叛军有牵连。</text>
+		<event>
+			<text>他低下了头。"从来没当过叛军，不过我确实与他们有过接触。我当初在桃源公司参与过开发C.I.C.A.中枢智能战斗助手，不过它后来一般被称为'自由漫游者'事件。这个就是叛军用于建造其自动舰队的AI，但谁能料到这项技术会用来做这种邪恶之事。在意识到我的科技最后的归途后，我立即辞职了。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问丹尼尔在补给站内的职务。</text>
+		<event>
+			<text>"我是这里的驻站工程师。自从我说服其他人接受安装无人机系统和一件士兵无人机之后，就一直负责维护它们。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问丹尼尔与被害人的关系。</text>
+		<event>
+			<text>"哎，可怜的亨利。他人真的很好。我以前在他舱室内一起吃过午饭。很可惜其他人没了解过他，亨利一直都很内向。哎亨利啊，你怎么落得这个下场..."</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问丹尼尔对其他嫌犯的看法。</text>
+		<event>
+			<text>你想询问丹尼尔对谁的看法？</text>
+			<choice hidden="true">
+				<text>托姆。</text>
+				<event>
+					<text>"托姆是个不错的人。虽然我与他的接触不及与亨利那么深，但我们经常聊天，他也一直是个乐天派。最近，他对无人机产生了特别的兴趣，向我询问无人机操作的相关事宜！他学得很快。可我感觉他可能只是为了让我不那么无聊才开始学的，毕竟我一直很想教学生..."</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>艾米。</text>
+				<event>
+					<text>"我希望我也能有她那种干劲，我年轻的时候甚至都没她这么有精神。可惜她经常把自己的精力都用来吼我们。幸好她只会在操控武器时自骂自咧。我不喜欢指名道姓，可如果说我们三个中有人会去行凶的话，我觉得最有可能的就是她了..."</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>往丹尼尔脸上吐唾沫。</text>
+		<event>
+			<text>你不知道为什么，突然涌起了唾丹尼尔的冲动。夏洛克瞪了你一眼，但并没作声。</text>
+			<variable name="loc_spit" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>问丹尼尔关于证据的事情。</text>
+		<event>
+			<text>想询问丹尼尔哪一件证据？
+			[随着调查进行，更多可选证据将会出现]</text>
+			<choice hidden="true" req="loc_evidence_drones">
+				<text>问丹尼尔关于无人机系统。</text>
+				<event load="DETECTIVE_TALK_DANIEL_EVIDENCE_DRONE" /> <!--separate to give a marker-->
+			</choice>
+			<choice hidden="true" req="loc_evidence_sensors">
+				<text>问丹尼尔关于传感器系统的事情。</text>
+				<event>
+					<text>"传感器系统突然坏了？天呐，可真是不走运。相信没有录像也一定能有办法抓住幕后凶手！"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_evidence_oxygen">
+				<text>问丹尼尔关于氧气系统的事情。</text>
+				<event load="DETECTIVE_TALK_DANIEL_EVIDENCE_OXYGEN" />
+			</choice>
+			<choice hidden="true">
+				<text>算了。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_DANIEL_EVIDENCE_OXYGEN">
+	<text>"哦是的，那个其实是我的功劳！本来重要系统是由托姆负责的，但是那天晚上他在忙着捣鼓无人机，而我正好无所事事，就决定活动活动筋骨改进一下我们的氧气系统。亨...亨利一直我抱怨通风系统不好使..."</text>
+	<variable name="loc_evidence_oxygendaniel" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_TALK_DANIEL_EVIDENCE_DRONE">
+	<text>"哦对，你可问对人了！毕竟我毕生都在研究它。我敢说没有配备无人机系统的舰船和空间站都是不完整的。最近托姆也在这上面花了不少时间，还向我请教了如何操控无人机。"</text>
+	<variable name="loc_evidence_thomlie" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_DOORS">
+	<text>你仔细检查了舱门系统。似乎之前做过一些防破改进，但估计与案子没什么太大关系。作为员工所有的嫌犯以及被害人都已录入系统数据库，所以他们都可以任意活动。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_DRONES">
+	<text>你看了一眼无人机系统。尽管站内电脑上并没有录入太多蓝图，但你注意到有一件士兵无人机以及标准配备的战斗无人机。</text>
+	<variable name="loc_evidence_drones" op="set" val="1" />
+	<choice hidden="true">
+		<text>检查战斗无人机。</text>
+		<event>
+			<text>战斗无人机蓝图看上去自从购入系统后只被用过3次。更多数据显示它仅仅是购入系统的赠品。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>检查士兵无人机。</text>
+		<event>
+			<text>系统显示士兵无人机共被使用过38次，不过并不意外，因为这个星区海盗愈发猖獗，面对被登站入侵的情况自然很多。</text>
+			<variable name="loc_evidence_burns" op="set" val="1" />
+			<choice hidden="true">
+				<text>检查士兵无人机的激光武器。</text>
+				<event load="DETECTIVE_DRONE_CANNON" />
+			</choice>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视无人机。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_DRONE_CANNON">
+	<text>你仔细检查了士兵无人机的激光武器。令你感到意外的是，这个附着在机臂上的武器看上去比标准级自卫爆裂手枪杀伤力更大，显然能够造成亨利背上那么大的灼烧痕！</text>
+	<variable name="loc_evidence_dronekiller" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_SHIELDS">
+	<text>你仔细检查了护盾系统。看起来系统正常运作，没有什么异常。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_OXYGEN">
+	<text>你仔细检查了氧气系统。系统比平常的等级更高，而且看起来非常新。看上去它应该刚刚被升级改进没多久。</text>
+	<variable name="loc_evidence_oxygen" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_SENSORS">
+	<text>你仔细检查了传感器系统。貌似有人故意破坏了系统电脑，并且删除了案发当晚的所有监控录像！剩下的都没有什么价值，但肯定是有人干的好事...</text>
+	<variable name="loc_evidence_sensors" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+<event name="DETECTIVE_SYSTEM_WEAPONS">
+	<text>你仔细检查了武器系统。一些装饰挂件零落在舱内，另外还有一个写有艾米名字的小背包，这很明显是艾米的工位。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="DETECTIVE_EVIDENCE_MENU_LOAD" />
+	</choice>
+</event>
+
+<event name="DETECTIVE_CORRECT">
+	<text>托姆意识到自己暴露了。他手忙脚乱地想拔出自己的爆裂手枪，但被夏洛克射中了膝盖。其他盟卫卫兵们立即上前将托姆用手铐铐住，并护送艾米与丹尼尔安全离开。夏洛克将枪放回枪套，向你表示感谢。"干得好！接下来我们该调查事件发生的原因了。"</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>托姆被转移到了夏洛克舰船上的一间空舱室，并绑在椅子上。夏洛克反复踱步。"所以说你是那个叛军间谍？"托姆挣扎了一会，试图挣松绳索。最终，他放弃了。"你根本就不懂！我认识的每个人，我的家人、朋友都被那个石头人杀死了！难道还有什么比这更好证据吗？所有异种都是对人类的威胁！联邦哪怕当时有一点作用，也不会是这个结果，连自己的人民都保护不了的政府，又有什么存在意义呢？！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>夏洛克坐在桌子另一端，翘起二郎腿。"所以你加入叛军只是为了复仇？"托姆点了点头。"神军所构想的银河系才是人类应得的银河系！而不是现在软弱的联邦！"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>夏洛克轻蔑地笑了笑："行吧，我们对你们的宣言不感兴趣，你只需要告诉我们你试图抹除的叛军情报。"托姆吞了吞口水。"我死也不说！"</text>
+							<choice hidden="true">
+								<text>扇他一巴掌。</text>
+								<event>
+									<text>挨了一巴掌后托姆似乎稍微清醒了一点。"好 - 好，我说！我本来是派来潜伏观望这片星区，神军一直以来计划入侵本星区，并围攻盟卫的舰库以及军火库，计划实施的时间就是今天！亨利跟我一样是卧底间谍，被派到跟我一样的补给站。然而他跟那个老头布朗博士的关系越来越好。当他听说这次计划会对这里的所有盟卫，包括博士，都有威胁时，他退缩了，并准备告密。我铲除了这个懦夫，确保了神军的计划安然实施！"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>"那还真是确保呢，毕竟你才把'神军'的计划全盘托出。"夏洛克示意一名盟卫堵住托姆的嘴，并将他拖出舱室。"操蛋的，如果他说的情报有一点真话的话我们面对的形势可非常严峻，需要立即前往中央舰库并向上将汇报情况！我看你的星舰应该更快，希望你不介意搭我一程。"</text>
+											<variable name="ach_crew_haynes" op="set" val="1" />
+											<crewMember amount="1" class="unique_haynes">夏洛克·海因斯</crewMember>
+											<quest event="DETECTIVE_HANGARATTACK" />
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_MILITIA_BOSS" auto_blueprint="MU_MILITIA_DREAD">
+	<triggeredEvent event="DETECTIVE_HANGARATTACK_FAILURE" time="100" thisFight="true" clearOnJump="true">
+		<triggeredEventBox load="DEFAULT_TIMER">
+			<warning time="10.0" flash="true" />
+			<tooltip>敌方护盾系统在这段时间内会被暂时锁定，最好能够在时间耗尽前击败这艘无畏舰。</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+	<destroyed>
+		<text>无畏舰爆炸了，向下方溅射船骸，其中一些下坠路上甚至带走了数艘舰船。还好护盾供能器几乎没有受到爆炸的影响。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="DETECTIVE_HANGARATTACK_DESTROY" />    
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>无畏舰内的船员已无人生还，无人操控的它坠入附近的行星表面，下坠路上还带走了数艘舰船。还好护盾供能器几乎没有受到爆炸的影响。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>	
+			<event load="DETECTIVE_HANGARATTACK_DEADCREW" />    
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="human_soldier" prop="0.20" />
+		<crewMember type="human_engineer" prop="0.20" />
+		<crewMember type="LIST_CREW_REBEL_RANDOM" prop="0.60" />	
+	</crew>
+</ship>
+<event name="DETECTIVE_HANGARATTACK">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_hangar" global="true">
+		<color r="84" g="201" b="30" a="1.0" />
+		<unvisitedTooltip>盟卫中央舰库。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标。</visitedTooltip>
+	</beaconType>
+	<text>看来你还是晚了一步，叛军已经开始大举入侵。远处一艘巨型盟卫军舰正向己方部队开火，这只能意味着一件事。叛军已经俘虏了那艘军舰，并用它充当进攻先锋！</text>
+	<img back="BACK_EVENT_HANGAR" planet="PLANET_INVISIBLE" />
+	<ship load="SHIP_MILITIA_BOSS" hostile="false" /> 
+	<choice hidden="true">
+		<text>联系盟卫询问是否能帮忙。</text>
+		<event>
+			<text>盟卫上将回复道。"是的，看在上帝的份上请帮帮我们！我们还没来得及启动力场护盾供能器，数艘叛军军舰就突袭进来了。虽然现在勉强启动完成，但是它已经受到了严重伤害，那艘该死的无畏舰马上就要彻底摧毁护盾了。我们在护盾被摧毁，彻底玩完儿之前没有多少时间了！如果我们能摧毁无畏舰 - 或者俘虏他 - 我们还有希望修复护盾供能器，抵御叛军舰队的进攻！"</text>
+			<choice hidden="true">
+				<text>攻击无畏舰。</text>
+				<event>
+					<text>你启动引擎，上前拦截正向护盾供能器开火的战舰。这次下手要快！</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>这太冒险了。</text>
+				<event>
+					<text>你可不希望接在时限内击败无畏舰这种差事，你启动引擎准备以最快速度离开这个地方。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>逃跑。</text>
+		<event>
+			<text>你才不会跟那个东西交战。你以最快速度撤离。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_HANGARATTACK_FAILURE">
+	<text>舰后突然传来一声巨大的爆炸声，一个淡蓝色球面耀光吞噬了巨大的护盾供能器，将整个设施化为废墟！你失败了，现在星区的力场护盾已失效。无畏舰跃迁，大批叛军舰队涌入。</text>
+	<recallBoarders force="true" />
+	<choice hidden="true">
+		<text>快跑！</text>
+		<event>
+			<text>你设法躲过大部分敌舰，但舰体仍遭受了数枚导弹的袭击，并且附近一艘叛军运输船向你舰上传送了一批叛军士兵。尽管如此，事情的结果原本可能会更糟糕...并且盟卫前途渺茫。</text>
+			<instantEscape />
+			<damage amount="7" />
+			<boarders min="2" max="3" class="human_soldier" />
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_HANGARATTACK_DESTROY">
+	<text>没有了无畏舰来摧毁供能器后，力场护盾内的叛军舰队宛若瓮中之鳖。它们随即被赶来的盟卫援军消灭，一队工程师开始加紧修复力场护盾的损伤。随后赶到的叛军舰队发现无法进入舰库。他们盲目地向立场护盾开火，却很快意识到自己不过是在白费力气。</text>
+	<variable name="ach_boss_mildread" op="set" val="1" />
+	<choice hidden="true">
+		<text>联系盟卫指挥部。</text>
+		<event>
+			<text>盟卫上将向你致谢。"若非你出手相助，这座建筑恐怕现在已被夷为平地。我们实在无以为报，但我们会尽力而为。" 盟卫调拨了一批补给，并提供了一艘他们舰船的蓝图以协助联邦。</text>
+			<autoReward level="MED">standard</autoReward>
+			<weapon name="LASER_BURST_8" />
+			<unlockCustomShip silent="false">PLAYER_SHIP_MILITIA</unlockCustomShip>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DETECTIVE_HANGARATTACK_DEADCREW"> <!--give better reward?-->
+	<text>没有了无畏舰来摧毁供能器后，力场护盾内的叛军舰队宛若瓮中之鳖。它们随即被赶来的盟卫援军消灭，一队工程师开始加紧修复力场护盾的损伤。随后赶到的叛军舰队发现无法进入舰库。他们盲目地向立场护盾开火，却很快意识到自己不过是在白费力气。</text>
+	<variable name="ach_boss_mildread" op="set" val="1" />
+	<choice hidden="true">
+		<text>联系盟卫指挥部。</text>
+		<event>
+			<text>盟卫上将向你致谢。"若非你出手相助，这座建筑恐怕现在已被夷为平地。我们实在无以为报，但我们会尽力而为。" 盟卫调拨了一批补给，并提供了一艘他们舰船的蓝图以协助联邦。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<weapon name="LASER_BURST_8" />
+			<unlockCustomShip silent="false">PLAYER_SHIP_MILITIA</unlockCustomShip>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

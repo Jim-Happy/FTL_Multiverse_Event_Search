@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						THREAT LEVELS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--WILL NEED AN OVERHAUL-->
+
+<event name="FLEET_THREAT_VLOW">
+	<revisitEvent>FLEET_THREAT_VLOW</revisitEvent> <!--CAUSES ISSUES ON REVISIT (NO ASB AND FLEET, NO RESTART UNTIL SHIP KILLED), ONLY SINGULAR EVENT LOADS WORK PROPERLY-->
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<!--0% Ace chance-->
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_LOW">
+	<revisitEvent>FLEET_THREAT_LOW</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<!--10% Ace chance-->
+		<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_MLOW">
+	<revisitEvent>FLEET_THREAT_MLOW</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<!--20% Ace chance-->
+		<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_MEDIUM">
+	<revisitEvent>FLEET_THREAT_MEDIUM</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<event name="FLEET_ELITE" />
+		<!--30% Ace chance-->
+		<event name="FLEET_ACE" />
+		<event name="FLEET_ACE" />
+		<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_HIGH">
+	<revisitEvent>FLEET_THREAT_HIGH</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<!--50% Ace chance-->
+		<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_VHIGH">
+	<revisitEvent>FLEET_THREAT_VHIGH</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE" />
+		<!--75% Ace chance-->
+		<event name="FLEET_ACE" />
+		<event name="FLEET_ACE" />
+		<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_CRITICAL">
+	<revisitEvent>FLEET_THREAT_CRITICAL</revisitEvent>
+	<loadEventList>
+		<!--100% Ace chance-->
+	<event name="FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_CRITICAL_S8">
+	<revisitEvent>FLEET_THREAT_CRITICAL_S8</revisitEvent>
+	<loadEventList>
+		<!--100% Ace chance-->
+	<event name="FLEET_ACE_S8" />
+	</loadEventList>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						STANDARD
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="FINISH_BEACON_FLEET_ELITE">
+    <loadEventList seeded="true" first="false">
+		<event name="FINISH_BEACON_DEBT_FLEET" req="LOANS" lvl="1" /> <!--in events_special_standard.xml-->
+		<event name="FINISH_BEACON_FLEET_ELITE_REAL" />
+	</loadEventList>
+</event>
+
+<event name="FINISH_BEACON_FLEET_ACE">
+    <loadEventList seeded="true" first="false">
+		<event name="FINISH_BEACON_DEBT_FLEET" req="LOANS" lvl="1" /> <!--in events_special_standard.xml-->
+		<event name="FINISH_BEACON_FLEET_ACE_REAL" />
+	</loadEventList>
+</event>
+
+<event name="FINISH_BEACON_FLEET_ELITE_REAL">
+	<revisitEvent>FINISH_BEACON_FLEET_ELITE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>你已经找到了出口信标，但叛军已经捷足先登！你必须坚持足够长的时间才能跃迁到下一星区。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+<event name="FINISH_BEACON_FLEET_ACE_REAL">
+	<revisitEvent>FINISH_BEACON_FLEET_ACE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>你已经找到了出口信标，但叛军已经捷足先登！你必须坚持足够长的时间才能跃迁到下一星区。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="FLEET_ELITE">
+	<revisitEvent>FLEET_ELITE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队发现了你，附近的战舰前来拦截。远处的巡洋舰正在向你开火！</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="FLEET_ACE">
+	<revisitEvent>FLEET_ACE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队发现了你，附近的一艘船转过身来与你交战。靠近的这艘船不是普通的精英，而是一艘MFK王牌！它比大多数叛军的战舰要强得多，如果你能打败它，可能会让舰队多花一些时间才能找到你。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="FLEET_ACE_S8">
+	<revisitEvent>FLEET_ACE_S8</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队发现了你，附近的一艘船转过身来与你交战。靠近的这艘船不是普通的精英，而是一艘MFK王牌！它比大多数叛军战舰都要强大得多，虽然你仍有可能打败它，但你应该把力量留给叛军旗舰。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET_S8" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<eventList name="FLEET_ESCAPE">
+	<event>
+		<text>你没能成功逃离精英。你准备战斗。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你没能成功逃离精英。你准备战斗。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你设法逃脱了舰队船只的追捕。然后你花了一点时间稍作休整。</text>
+		<ship hostile="false" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						NEBULA
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_LIGHT_FLEET_THREAT_VLOW">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_VLOW</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--0% Ace chance-->
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_LOW">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_LOW</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--10% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_MLOW">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_MLOW</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--20% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_MEDIUM">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_MEDIUM</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--30% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_HIGH">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_HIGH</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--50% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_VHIGH">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_VHIGH</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_ELITE" />
+		<!--75% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_THREAT_CRITICAL">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_THREAT_CRITICAL</revisitEvent>
+	<loadEventList>
+		<!--100% Ace chance-->
+		<event name="NEBULA_LIGHT_FLEET_ACE" />
+	</loadEventList>
+</event>
+
+<event name="NEBULA_LIGHT_FLEET_ELITE">
+	<revisitEvent>NEBULA_LIGHT_FLEET_ELITE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队发现了你，附近的战舰前来拦截。远处的巡洋舰正在向你开火！</text>
+	<ship load="SHIP_REBEL_FLEET" hostile="true" />
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_FLEET_ACE">
+	<revisitEvent>NEBULA_LIGHT_FLEET_ACE</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队发现了你，附近的一艘船转过身来与你交战。靠近的这艘船不是普通的精英，而是一艘MFK王牌！它比大多数叛军的战舰要强得多，如果你能打败它，可能会让舰队多花一些时间才能找到你。</text>
+	<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						SUN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="FLEET_THREAT_VLOW_SUN">
+	<revisitEvent>FLEET_THREAT_VLOW_SUN</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_AUTO_SUN" />
+		<event name="FLEET_AUTO_BLUEGIANT" />
+		<!--0% Ace chance-->
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_VLOW_SUN_NEBULA">
+	<revisitEvent>FLEET_THREAT_VLOW_SUN_NEBULA</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_AUTO_SUN" />
+		<event name="NEBULA_LIGHT_FLEET_AUTO_BLUEGIANT" />
+		<!--0% Ace chance-->
+	</loadEventList>
+</event>
+<event name="FLEET_AUTO_SUN">
+	<revisitEvent>FLEET_AUTO_SUN</revisitEvent>
+	<text>叛军肯定不会想因为盲目地将战舰投入恒星森林而浪费生命。他们已经派出自动舰来追踪你们了！</text>
+	<ship load="SHIP_AUTO_FLEET_STAR" hostile="true" />
+	<variable name="loc_dives" op="add" val="1" />
+	<environment type="sun" target="both" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+<event name="FLEET_AUTO_BLUEGIANT">
+	<revisitEvent>FLEET_AUTO_SUN</revisitEvent>
+	<text>叛军肯定不会想因为盲目地将战舰投入恒星森林而浪费生命。他们已经派出自动舰来追踪你们了！</text>
+	<ship load="SHIP_AUTO_FLEET_STAR" hostile="true" />
+	<variable name="loc_dives" op="add" val="1" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_FLEET_AUTO_SUN">
+	<revisitEvent>NEBULA_LIGHT_FLEET_AUTO_SUN</revisitEvent>
+	<text>叛军肯定不会想因为盲目地将战舰投入恒星森林而浪费生命。他们已经派出自动舰来追踪你们了！</text>
+	<ship load="SHIP_AUTO_FLEET_STAR" hostile="true" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="sun" target="both" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_FLEET_AUTO_BLUEGIANT">
+	<revisitEvent>NEBULA_LIGHT_FLEET_AUTO_SUN</revisitEvent>
+	<text>叛军肯定不会想因为盲目地将战舰投入恒星森林而浪费生命。他们已经派出自动舰来追踪你们了！</text>
+	<ship load="SHIP_AUTO_FLEET_STAR" hostile="true" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						FEDERATION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FLEET_THREAT_VLOW_FEDERATION">
+	<revisitEvent>FLEET_THREAT_VLOW_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event load="FLEET_ELITE_FEDERATION" />
+		<!--0% Ace chance-->
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_LOW_FEDERATION">
+	<revisitEvent>FLEET_THREAT_LOW_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<!--10% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_MLOW_FEDERATION">
+	<revisitEvent>FLEET_THREAT_MLOW_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<!--20% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_MEDIUM_FEDERATION">
+	<revisitEvent>FLEET_THREAT_MEDIUM_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<event name="FLEET_ELITE_FEDERATION" />
+		<!--30% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+		<event name="FLEET_ACE_FEDERATION" />
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_HIGH_FEDERATION">
+	<revisitEvent>FLEET_THREAT_HIGH_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE_FEDERATION" />
+		<!--50% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_VHIGH_FEDERATION">
+	<revisitEvent>FLEET_THREAT_VHIGH_FEDERATION</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_ELITE_FEDERATION" />
+		<!--75% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+		<event name="FLEET_ACE_FEDERATION" />
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+<event name="FLEET_THREAT_CRITICAL_FEDERATION">
+	<revisitEvent>FLEET_THREAT_CRITICAL_FEDERATION</revisitEvent>
+	<loadEventList>
+		<!--100% Ace chance-->
+		<event name="FLEET_ACE_FEDERATION" />
+	</loadEventList>
+</event>
+
+<event name="FLEET_ELITE_FEDERATION">
+	<revisitEvent>FLEET_ELITE_FEDERATION</revisitEvent>
+	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_FED</customFleet>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队已经控制了这个信标，但他们遭到了联邦军队的反抗。当战舰在远处激战时，一艘精英战舰脱离出来与你作战。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET" hostile="true" />
+	<environment type="PDS" target="all" />
+	<noASBPlanet />
+	<fleet>rebel</fleet>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="FLEET_ACE_FEDERATION">
+	<revisitEvent>FLEET_ACE_FEDERATION</revisitEvent>
+	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_FED</customFleet>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>叛军舰队已经控制了这个信标，但他们遭到了联邦军队的反抗。当战舰在远处激战时，一艘MFK王牌战舰脱离出来与你作战。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="all" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<event name="FINISH_BEACON_FLEET_ELITE_FEDERATION">
+	<revisitEvent>FINISH_BEACON_FLEET_ELITE_FEDERATION</revisitEvent>
+	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_FED</customFleet>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>你已经找到了出口信标，但叛军已经到达，而且还派出了一艘精英舰追踪你！联邦舰队正在进行反击，但你的使命使你必须尽快跃迁至下一星区。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="all" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+<event name="FINISH_BEACON_FLEET_ACE_FEDERATION">
+	<revisitEvent>FINISH_BEACON_FLEET_ACE_FEDERATION</revisitEvent>
+	<customFleet right="true" firing="false" autoDarkening="true">CUSTOM_FLEET_FED</customFleet>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<text>你已经找到了出口信标，但叛军已经到达，而且还派出了一艘精英舰追踪你！联邦舰队正在进行反击，但你的使命使你必须尽快跃迁至下一星区。</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="all" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_AUTO_FLEET" auto_blueprint="LIST_SHIPS_ESTATE_AUTO">
+	<destroyed>
+		<text>你设法击败了舰队派的战舰，但除了一罐燃料以外根本没有时间回收其他物品。</text>
+		<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_ENGINEER</customFleet>
+		<environment type="PDS" target="player" />
+		<noASBPlanet />
+		<item_modify>
+			<item type="fuel" min="1" max="1" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="LOW">standard</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</destroyed>
+</ship>
+<ship name="SHIP_AUTO_FLEET_STAR" auto_blueprint="LIST_SHIPS_ESTATE_AUTO">
+	<destroyed>
+		<text>你设法击败了舰队派的战舰，但除了一罐燃料以外根本没有时间回收其他物品。</text>
+		<item_modify>
+			<item type="fuel" min="1" max="1" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="LOW">standard</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</destroyed>
+</ship>
+<event name="FLEET_AUTO">
+	<revisitEvent>FLEET_AUTO</revisitEvent>
+	<loadEventList>
+		<event name="FLEET_AUTO_REAL" />
+	</loadEventList>
+</event>
+<event name="FLEET_AUTO_REAL">
+	<revisitEvent>FLEET_AUTO</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_ENGINEER</customFleet>
+	<text>虽然远处战舰表明叛军数量众多，但少有精英在此逗留。看来舰队的功能只是作为一支庞大自动舰群的母舰，现在正向你涌来。呃哦...</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_AUTO_FLEET" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+
+<event name="FINISH_BEACON_FLEET_AUTO">
+    <loadEventList seeded="true" first="false">
+		<event name="FINISH_BEACON_DEBT_FLEET" req="LOANS" lvl="1" /> <!--in events_special_standard.xml-->
+		<event name="FINISH_BEACON_FLEET_AUTO_REAL" />
+	</loadEventList>
+</event>
+
+<event name="FINISH_BEACON_FLEET_AUTO_REAL">
+	<revisitEvent>FINISH_BEACON_FLEET_AUTO</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_ENGINEER</customFleet>
+	<text>你已经找到了出口信标，但叛军已经捷足先登。虽然远处战舰表明叛军数量众多，但少有精英在此逗留。看来舰队的功能只是作为一支庞大自动舰群的母舰，现在正向你涌来。呃哦...</text>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_AUTO_FLEET" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<noASBPlanet />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_FLEET_AUTO">
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<revisitEvent>NEBULA_LIGHT_FLEET_AUTO</revisitEvent>
+	<loadEventList>
+		<event name="NEBULA_LIGHT_FLEET_AUTO_REAL" />
+	</loadEventList>
+</event>
+<event name="NEBULA_LIGHT_FLEET_AUTO_REAL">
+	<revisitEvent>NEBULA_LIGHT_FLEET_AUTO</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_ENGINEER</customFleet>
+	<text>虽然远处战舰表明叛军数量众多，但少有精英在此逗留。看来舰队的功能只是作为一支庞大自动舰群的母舰，现在正向你涌来。呃哦...</text>
+	<ship load="SHIP_AUTO_FLEET" hostile="true" />
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<fleet>rebel</fleet>
+	<environment type="PDS" target="player" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+						CHAOS MODE
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_CHAOS_FLEET_GUNBOAT" auto_blueprint="MU_MFK_GUNBOAT_WEAK">
+	<destroyed>
+		<text>你设法击败了炮艇，但几乎没有时间回收多少物资。</text>
+		<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+		<environment type="sun" target="player" />
+		<item_modify>
+			<item type="fuel" min="3" max="3" />
+			<item type="missiles" min="1" max="1" />
+			<item type="drones" min="1" max="1" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="LOW">stuff</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>你设法击败了炮艇，但几乎没有时间回收多少物资。</text>
+		<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+		<environment type="sun" target="player" />
+		<item_modify>
+			<item type="fuel" min="3" max="3" />
+			<item type="missiles" min="1" max="1" />
+			<item type="drones" min="1" max="1" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="LOW">stuff</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="human_soldier" prop="0.5" />
+		<crewMember type="human_mfk" prop="0.5" />
+	</crew>
+</ship>
+<ship name="SHIP_CHAOS_FLEET_FLAGSHIP" auto_blueprint="FLAGSHIP_CONSTRUCTION">
+	<destroyed>
+		<text>你设法击败了旗舰，但几乎没有时间回收多少物资。</text>
+		<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+		<environment type="sun" target="player" />
+		<item_modify>
+			<item type="fuel" min="5" max="5" />
+			<item type="missiles" min="3" max="3" />
+			<item type="drones" min="3" max="3" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="MED">stuff</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>你设法击败了旗舰，但几乎没有时间回收多少物资。</text>
+		<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+		<environment type="sun" target="player" />
+		<item_modify>
+			<item type="fuel" min="5" max="5" />
+			<item type="missiles" min="3" max="3" />
+			<item type="drones" min="3" max="3" />
+		</item_modify>
+		<choice req="MAGNET_ARM">
+			<text>(磁性回收臂)进一步回收残骸。</text>
+			<event>
+				<autoReward level="MED">stuff</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+	</deadCrew>
+	<triggeredEvent event="POWER_SURGE_BARRAGE_CONSTRUCTION" seeded="false" loops="999999999" thisFight="true" minTime="30.0" maxTime="40.0">
+		<warningMessage id="warning_power_surge" x="692" y="84" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+	<crew>
+		<crewMember type="human_engineer" prop="0.5" />
+		<crewMember type="human_mfk" prop="0.5" />
+	</crew>
+</ship>
+
+<event name="FLEET_CHAOS">
+	<revisitEvent>FLEET_CHAOS</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+	<text>你原本以为会在这里发现叛军舰队，而实际上你确实找到了。然而，这舰队却显得一片混乱，因为一颗巨大的恒星竟然出现在了信标处！而且，这里的舰船比你预想的要强大得多。准备好战斗吧！</text>
+	<playSound>gm_fleet</playSound>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_CHAOS_FLEET_GUNBOAT" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="sun" target="player" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event>
+			<text>在你准备启动跃迁引擎之前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text>在杰瑞开口说出第二句话前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_FLEET_CHAOS">
+	<revisitEvent>NEBULA_LIGHT_FLEET_CHAOS</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+	<text>你原本以为会在这里发现叛军舰队，而实际上你确实找到了。然而，这舰队却显得一片混乱，因为一颗巨大的恒星竟然出现在了信标处！而且，这里的舰船比你预想的要强大得多。准备好战斗吧！</text>
+	<playSound>gm_fleet</playSound>
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_CHAOS_FLEET_GUNBOAT" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="sun" target="player" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event>
+			<text>在你准备启动跃迁引擎之前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text>在杰瑞开口说出第二句话前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="FLEET_CHAOS_FLAGSHIP">
+	<revisitEvent>FLEET_CHAOS_FLAGSHIP</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+	<text>你本料想遇见的是叛军舰队，而事实也不出所料。然而叛军舰队看上去处于混乱中，一个巨大的恒星出现在信标处！甚至一艘尚未完工的旗舰也鬼使神差般出现在此。准备应战吧！</text>
+	<playSound>gm_flagship</playSound>
+	<variable name="loc_dives" op="add" val="1" />
+	<ship load="SHIP_CHAOS_FLEET_FLAGSHIP" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="sun" target="player" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event>
+			<text>在你准备启动跃迁引擎之前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text>在杰瑞开口说出第二句话前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_FLEET_CHAOS_FLAGSHIP">
+	<revisitEvent>NEBULA_LIGHT_FLEET_CHAOS_FLAGSHIP</revisitEvent>
+	<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_MFK</customFleet>
+	<text>你本料想遇见的是叛军舰队，而事实也不出所料。然而叛军舰队看上去处于混乱中，一个巨大的恒星出现在信标处！甚至一艘尚未完工的旗舰也鬼使神差般出现在此。准备应战吧！</text>
+	<playSound>gm_flagship</playSound>
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<variable name="loc_dives" op="add" val="1" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_CHAOS_FLEET_FLAGSHIP" hostile="true" />
+	<fleet>rebel</fleet>
+	<environment type="sun" target="player" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离精英舰。</text>
+		<event>
+			<text>在你准备启动跃迁引擎之前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text>在杰瑞开口说出第二句话前矮人便开始尖叫。你被打扰得无法继续干事，而叛军战舰已经趁机锁定了你！</text>
+			<playSound>gm_cheating</playSound>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>
+

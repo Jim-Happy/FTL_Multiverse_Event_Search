@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<event name="OPTION_INVALID">
+	<text>年轻人，我看到你在搞小聪明了，啊？我劝你，耗子尾汁！</text>
+	<item_modify>
+		<item type="fuel" min="-99999" max="-99999" />
+		<item type="scrap" min="-99999" max="-99999" />
+		<item type="missiles" min="-99999" max="-99999" />
+		<item type="drones" min="-99999" max="-99999" />
+	</item_modify>
+</event>
+
+<event name="QUIT_GAME">
+	<text>拜拜！</text>
+</event>
+
+<event name="CANCEL">
+	<event />
+</event>
+
+<event name="DEATH">
+	<metaVariable name="prof_deaths" op="add" val="1" />
+	<loadEvent>THE_JUDGES_VARIABLE_CLEAR</loadEvent>
+</event>
+
+<event name="TEST_HEKTAR_STORE">
+	<text>演示商店。</text>
+	<store>STORE_HEKTAR_DEMO</store>
+</event>
+<event name="HEKTAR_VIRTUAL_STORE">
+	<store>STORE_HEKTAR_VIRTUAL</store>
+</event>
+<event name="STOP_MUSIC">
+	<playMusic />
+</event>
+
+<event name="CHAOS_MODE">
+	<text>当你带上矮人后，诡异的红光洒满舰库。你四处张望但是其他人对此无动于衷。你紧张兮兮地把矮人带回你的星舰。
+
+[混沌模式激活]</text>
+	<playSound>gm_hahe</playSound>
+	<changeBackground>BACK_SECTOR_START_RED</changeBackground>
+	<crewMember amount="1" class="gnome">乔姆斯基</crewMember>
+	<variable name="chaos_mode" op="set" val="1" />
+	
+	<triggeredEvent name="GNOME_DEATH_TRIGGER" event="CHAOS_MODE_TRIGGER" loops="999999999" seeded="false">
+	  <jumps amount="1" type="1" />
+	</triggeredEvent>
+	<triggeredEvent event="CHAOS_MODE_DAMAGE_PLAYER_LIST" loops="999999999" seeded="false">
+	  <playerDamage amount="1" />
+	</triggeredEvent>
+	<jumpEvent name="GNOME_CHECK">CHAOS_MODE_RESET_CHECK</jumpEvent>
+	
+	<eventAlias name="FLEET_ELITE">FLEET_CHAOS</eventAlias>
+	<eventAlias name="FLEET_ACE">FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="FLEET_ACE_S8">FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="FINISH_BEACON_FLEET_ELITE">FLEET_CHAOS</eventAlias>
+	<eventAlias name="FINISH_BEACON_FLEET_ACE">FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="NEBULA_LIGHT_FLEET_ELITE">NEBULA_LIGHT_FLEET_CHAOS</eventAlias>
+	<eventAlias name="NEBULA_LIGHT_FLEET_ACE">NEBULA_LIGHT_FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="FLEET_ELITE_FEDERATION">FLEET_CHAOS</eventAlias>
+	<eventAlias name="FLEET_ACE_FEDERATION">FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="FINISH_BEACON_FLEET_ELITE_FEDERATION">FLEET_CHAOS</eventAlias>
+	<eventAlias name="FINISH_BEACON_FLEET_ACE_FEDERATION">FLEET_CHAOS_FLAGSHIP</eventAlias>
+	<eventAlias name="FLEET_AUTO_REAL">FLEET_CHAOS</eventAlias>
+	<eventAlias name="NEBULA_LIGHT_FLEET_AUTO_REAL">NEBULA_LIGHT_FLEET_CHAOS</eventAlias>
+	<eventAlias name="FINISH_BEACON_FLEET_AUTO">FLEET_CHAOS</eventAlias>
+	
+	<eventAlias name="MV_TRAVELER_BOSS_CASUAL">MV_TRAVELER_BOSS_CHAOS</eventAlias>
+	<eventAlias name="MV_TRAVELER_BOSS_NORMAL">MV_TRAVELER_BOSS_CHAOS</eventAlias>
+	<eventAlias name="MV_TRAVELER_BOSS_CHALLENGE">MV_TRAVELER_BOSS_CHAOS</eventAlias>
+	<eventAlias name="MV_TRAVELER_BOSS_EXTREME">MV_TRAVELER_BOSS_CHAOS</eventAlias>
+</event>
+<event name="CHAOS_MODE_TRIGGER">
+	<triggeredEvent event="CHAOS_MODE_DAMAGE_PLAYER_LIST" loops="999999999" seeded="false">
+	  <playerDamage amount="1" />
+	</triggeredEvent>
+	<jumpEvent name="GNOME_CHECK">CHAOS_MODE_RESET_CHECK</jumpEvent>
+</event>
+<event name="CHAOS_MODE_RESET_CHECK">
+	<loadEventList seeded="false">
+		<event name="CHAOS_MODE_RESET" req="GNOME_RESPAWN_CHECK" />
+	</loadEventList>
+</event>
+<event name="CHAOS_MODE_RESET">
+	<text>突然间，如魔法一般，矮人重现在你的星舰上。它开始对你尖叫，你的部分舰体发生坍塌。也许下次你该对矮人的人身安全更加谨慎一些。</text>
+	<playSound>gm_revive</playSound>
+	<variable name="gnome_deaths" op="add" val="1" />
+	<crewMember amount="1" class="gnome">乔姆斯基</crewMember>
+	<damage amount="7" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_LIST">
+	<variable name="gnome_punishment_hazards" op="add" val="-1" />
+	<variable name="gnome_punishment_boarders" op="add" val="-1" />
+	<variable name="gnome_punishment_revenge" op="add" val="-1" />
+	<variable name="gnome_punishment_surge" op="add" val="-1" />
+	<variable name="gnome_punishment_shield" op="add" val="-1" />
+	<variable name="gnome_punishment_ion" op="add" val="-1" />
+	<variable name="gnome_punishment_beam" op="add" val="-1" />
+	<loadEventList seeded="false" first="false">
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_FIRE" req="gnome_punishment_hazards" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_BREACH" req="gnome_punishment_hazards" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_HUMAN" req="gnome_punishment_boarders" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_SIREN" req="gnome_punishment_boarders" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_MANY" req="gnome_punishment_boarders" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_REVENGE" req="gnome_punishment_revenge" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_SURGE" req="gnome_punishment_surge" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_SHIELD" req="gnome_punishment_shield" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_ION" req="gnome_punishment_ion" lvl="-999" max_lvl="0" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_BEAM" req="gnome_punishment_beam" lvl="-999" max_lvl="0" />
+		
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+		<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING" />
+	</loadEventList>
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_NOTHING">
+	<playSound>gm_owie</playSound>
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_FIRE">
+	<playSound>gm_fires</playSound>
+	<variable name="gnome_punishment_hazards" op="set" val="2" />
+	<damage amount="0" effect="fire" system="room" />
+	<damage amount="0" effect="fire" system="room" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_BREACH">
+	<playSound>gm_breach</playSound>
+	<variable name="gnome_punishment_hazards" op="set" val="2" />
+	<damage amount="0" effect="breach" system="random" />
+	<damage amount="0" effect="breach" system="random" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_HUMAN">
+	<playSound>gm_boarder</playSound>
+	<variable name="gnome_punishment_boarders" op="set" val="2" />
+	<boarders min="1" max="1" class="random" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_SIREN">
+	<playSound>gm_boarder</playSound>
+	<variable name="gnome_punishment_boarders" op="set" val="2" />
+	<boarders min="1" max="1" class="siren" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_BOARDERS_MANY">
+	<playSound>gm_boarder</playSound>
+	<variable name="gnome_punishment_boarders" op="set" val="2" />
+	<boarders min="2" max="2" class="human" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_REVENGE">
+	<playSound>gm_revenge</playSound>
+	<variable name="gnome_punishment_revenge" op="set" val="2" />
+	<enemyDamage amount="1" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_SURGE">
+	<playSound>gm_surge</playSound>
+	<variable name="gnome_punishment_surge" op="set" val="3" />
+	<superBarrage player="true" name="GNOME_SURGE" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_SHIELD">
+	<playSound>gm_shield</playSound>
+	<variable name="gnome_punishment_shield" op="set" val="4" />
+	<superShields player="true" amount="3" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_ION">
+	<playSound>gm_shock</playSound>
+	<variable name="gnome_punishment_ion" op="set" val="3" />
+	<superBarrage player="true" name="GNOME_ION" />
+	<loadEvent>CHAOS_MODE_DAMAGE_PLAYER_ION_2</loadEvent>
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_ION_2">
+	<superBarrage player="false" name="GNOME_ION" />
+</event>
+<event name="CHAOS_MODE_DAMAGE_PLAYER_BEAM">
+	<playSound>gm_beam</playSound>
+	<variable name="gnome_punishment_beam" op="set" val="5" />
+	<superBarrage player="false" name="GNOME_BEAM" />
+</event>
+
+<event name="DETERGENT_MODE">
+	<text>洗涤模式已开启！
+	自信的变元者，你已经证明了你的勇气，并选择开启洗涤模式！你需要变得更加勇敢无畏，因为在未来的旅途中，许多艰险与磨难正等待着你！你需要果敢、力量、机智，还有最重要的——坚韧不拔的毅力，来面对洗涤模式将向你展现的挑战。
+	
+	祝你好运，变元者。愿你超越众巅，在洗涤模式面前经受住考验。</text>
+	<playSound>unlock</playSound>
+	<variable name="detergent_mode" op="set" val="1" />
+</event>
+
+<event name="ATM_MACHINE_WITHDRAW_CHECK">
+	<loadEventList seeded="false" first="true">
+		<event name="ATM_MACHINE_CLEAR" req="ATM_MACHINE" lvl="0" max_lvl="0" />
+		<event name="ATM_MACHINE_WITHDRAW" req="ATM_MACHINE" lvl="1" />
+	</loadEventList>
+</event>
+<event name="ATM_MACHINE_WITHDRAW">
+	<disableScrapAugments />
+	<disableScrapScore />
+	<item_modify>
+		<item type="scrap" min="2" max="2" />
+	</item_modify>
+</event>
+<event name="ATM_MACHINE_CLEAR">
+	<clearTriggeredEvent name="ATM_CHECKER" />
+</event>
+
+<event name="SPORE_WITHDRAW_CHECK">
+	<loadEventList seeded="false" first="true">
+		<event name="SPORE_CLEAR" req="SPORE_SHIPMENT" lvl="0" max_lvl="0" />
+		<event name="SPORE_WITHDRAW" req="SPORE_SHIPMENT" lvl="1" />
+	</loadEventList>
+</event>
+<event name="SPORE_WITHDRAW">
+	<disableScrapAugments />
+	<disableScrapScore />
+	<item_modify>
+		<item type="scrap" min="5" max="5" />
+	</item_modify>
+</event>
+<event name="SPORE_CLEAR">
+	<clearTriggeredEvent name="SPORE_CHECKER" />
+</event>
+
+<event name="BLUE_GIANT_FLARE_QUEUE">
+	<!-- Copy this triggeredEvent into another event to turn it into a blue giant hazard -->
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+</event>
+<event name="BLUE_GIANT_FLARE" />
+
+<event name="GRAVITY_SURGE_QUEUE">
+	<!-- Copy this triggeredEvent into another event to turn it into a gravity hazard -->
+	<triggeredEvent name="GRAVASTAR" event="GRAVITY_SURGE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="18.0" maxTime="24.0">
+		<warningMessage id="warning_gravity_wave" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+</event>
+<event name="GRAVITY_SURGE" />
+
+<!--
+////////////////////////
+PROTO-MV CRUISERS
+////////////////////////
+-->
+<event name="MV_DRIVE_EXPLODE">
+	<damage amount="1" system="engines" />
+</event>
+
+<event name="EXTRA_LIFE_HEAL">
+	<text>" 灾 难 性 舰 体 故 障 迫 在 眉 睫 - 激 活 紧 急 协 议 。"
+你的舰体已经修复，且资源得到补充！</text>
+	<damage amount="-30" />
+	<remove name="EXTRA_LIFE" />
+	<item_modify>
+		<item type="fuel" min="5" max="5" />
+		<item type="missiles" min="7" max="7" />
+		<item type="drones" min="7" max="7" />
+	</item_modify>
+</event>
+
+<event name="UNSTABLE_CHECKER">
+	<triggeredEvent event="UNSTABLE_COMBUST" playerDamage="5" clearOnJump="true" />
+</event>
+<event name="UNSTABLE_COMBUST">
+	<triggeredEvent event="UNSTABLE_COMBUST" playerDamage="5" clearOnJump="true" />
+	<damage amount="0" system="random" effect="fire" />
+	<damage amount="0" system="random" effect="fire" />
+	<damage amount="0" system="random" effect="fire" />
+</event>
+
+<event name="TULLY_CALL_AIRSTRIKE">
+	<triggeredEvent event="TULLY_CALL_AIRSTRIKE_SUPPORT" time="5" thisFight="true">
+		<warningMessage id="warning_support" r="120" g="255" b="120" x="444" y="46" time="5.0" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+</event>
+<event name="TULLY_CALL_AIRSTRIKE_SUPPORT">
+	<superBarrage player="true" name="TULLY_AIRSTRIKE" />
+</event>
+
+<!--
+////////////////////////
+FLAGSHIP POWER SURGES
+////////////////////////
+-->
+<event name="FLAGSHIP_STAGE2_TRACKER">
+	<clearSuperDrones player="true" />
+	<triggeredEvent event="POWER_SURGE_DRONES" seeded="false" loops="999999999" thisFight="true" minTime="20.0" maxTime="30.0">
+		<warningMessage id="warning_power_surge_player" x="444" y="46" time="5.0" r="120" g="255" b="120" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+</event>
+<event name="POWER_SURGE_DRONES">
+	<superDrones player="true" />
+</event>
+
+<event name="FLAGSHIP_STAGE3_TRACKER">
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE1</removeItem>
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE2</removeItem>
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE3</removeItem>
+	<clearSuperDrones player="true" />
+	<triggeredEvent event="FLAGSHIP_POWER_SURGE_3" seeded="false" loops="999999999" thisFight="true" minTime="20.0" maxTime="30.0">
+		<warningMessage id="warning_power_surge_player" x="444" y="46" time="5.0" r="120" g="255" b="120" centerText="true" flash="true" sound="surgeWarning" useWarningLine="true" />
+	</triggeredEvent>
+</event>
+<event name="FLAGSHIP_POWER_SURGE_3">
+	<loadEventList seeded="false">
+		<event name="POWER_SURGE_BARRAGE1" req="MARKER_STAGE3_SURGE1" lvl="0" />
+		<event name="POWER_SURGE_BARRAGE2" req="MARKER_STAGE3_SURGE1" />
+		<event name="POWER_SURGE_BARRAGE3" req="MARKER_STAGE3_SURGE2" />
+		<event name="POWER_SURGE_SHIELD" req="MARKER_STAGE3_SURGE3" />
+	</loadEventList> 
+</event>
+<event name="POWER_SURGE_BARRAGE1">
+	<hiddenAug>MARKER_STAGE3_SURGE1</hiddenAug>
+	<superBarrage player="true" />
+</event>
+<event name="POWER_SURGE_BARRAGE2">
+	<hiddenAug>MARKER_STAGE3_SURGE2</hiddenAug>
+	<superBarrage player="true" />
+</event>
+<event name="POWER_SURGE_BARRAGE3">
+	<hiddenAug>MARKER_STAGE3_SURGE3</hiddenAug>
+	<superBarrage player="true" />
+</event>
+<event name="POWER_SURGE_SHIELD">
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE1</removeItem>
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE2</removeItem>
+	<removeItem>HIDDEN MARKER_STAGE3_SURGE3</removeItem>
+	<superShields player="true" />
+</event>
+</FTL>
+

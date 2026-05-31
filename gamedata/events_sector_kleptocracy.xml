@@ -1,0 +1,3345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					KLEPTOCRACY SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_SLUG">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="CLEARING_SLUG_MV">
+	<event load="HOSTILE_SLUG_CLEARING" />
+	<event load="DISTRESS_SLUG_CLEARING" />
+</eventList>
+<!--HOSTILE-->
+<eventList name="HOSTILE_SLUG_CLEARING">
+	<event load="ENCOUNTER_SLUG_CLEARING" />
+	<event load="ENCOUNTER_SLUG_PIRATE_CLEARING" />
+	<event load="ENCOUNTER_SLUG_REBEL_CLEARING" />
+	<event load="ENCOUNTER_SLUG_MANTIS_CLEARING" />
+</eventList>
+
+<event name="ENCOUNTER_SLUG_CLEARING" unique="true">
+	<text>考虑到其习性，蛞蝓舰船暴露在空旷太空中十分罕见。你眼前这艘船要么是迷路了，要么只是路过，哪种情况你无从得知。但很明显，它准备攻击你！</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_SLUG_PIRATE_CLEARING">
+	<text load="TEXT_SLUG_PIRATE_CLEARING" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_SLUG_PIRATE_CLEARING">
+	<text>有一艘海盗舰在附近，保持警惕。想在蛞蝓族星域捕猎的，要么极其可怕，要么极度愚蠢，而在宇宙中，这两者都是危险的。</text>
+	<text>"我们早就知道任何愚蠢到试图偷偷穿过蛞蝓族星云的人都会选择从开阔地带通过。交出你的货物，我们可能会让你活下去。"你没有回应他们，而是切断了通讯。</text>
+	<text>在你从最近的星云来到开阔地带，准备修整之前，一艘海盗舰出现在星舰后方并向你开火。</text>
+</textList>
+
+<event name="ENCOUNTER_SLUG_REBEL_CLEARING">
+	<text load="TEXT_SLUG_REBEL_CLEARING" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_SLUG_REBEL_CLEARING">
+	<text>当你到达信标时，一艘敌舰立刻被记录到你的传感器上。你没想到叛军能把他们的势力范围扩展到蛞蝓族星域。为武器充能！</text>
+	<text>你跃迁至开阔空间，看到传感器不断闪烁、恢复运作，你松了一口气。但是，你不太高兴地看到它立即记录了一艘附近的叛军战舰！</text>
+	<text>你从附近的一艘船上收到一条消息："看来我们的情报是正确的！潜入蛞蝓们待的星云…没有人能躲过起义军的法眼！"</text>
+</textList>
+
+<event name="ENCOUNTER_SLUG_MANTIS_CLEARING" unique="true">
+	<text>你拦截了来自一艘靠近中的螳螂船的通讯。"你看。这艘船似乎不是那些黏糊糊的家伙。切开他们可能不会那样难闻。"他们向你的位置靠近。</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event> 
+
+<!--DISTRESS-->
+<eventList name="DISTRESS_SLUG_CLEARING">
+	<event load="DISTRESS_REFUGEE_SLUG_MV" />
+	<event load="DISTRESS_SLUG_MANTIS_MV" />
+</eventList>
+
+<event name="DISTRESS_REFUGEE_SLUG_MV" unique="true">
+	<distressBeacon />
+	<text>你遇到一艘难民船在太空漂流。看起来它是逃避叛军舰队而来并且用光了燃料。它的求救信标是激活的，但你不确定是否还有人在船上。</text>
+	<choice>
+		<text>联系他们。</text>
+		<event load="REFUGEE_HAIL_LIST_SLUG_MV" />
+	</choice>
+	<choice>
+		<text>无视这艘难民船。</text>
+		<event>
+			<text>你发现难民船没什么需要担心的，可以安心进行星舰管理了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event> 
+<eventList name="REFUGEE_HAIL_LIST_SLUG_MV">
+	<event load="REFUGEE_TRADER" />
+	<event>
+		<text>在你联系这艘货船时，一艘蛞蝓族舰船跃迁进入星系...它之前狩猎这艘难民船作消遣，但是现在找到你当替代了！</text>
+		<ship load="SHIP_SLUG_REFUGEE" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="DISTRESS_SLUG_MANTIS_MV" unique="true">
+	<text>求救信号似乎来自一艘被螳螂族掠夺者在开阔区域攻击的蛞蝓族飞船。他们在紧急频道上与你联系："请你帮帮我们，如果你救了我们，我们将给你我们的所～～有东西！"</text>
+	<choice hidden="true">
+		<text>攻击螳螂族战舰。</text>
+		<event>
+			<text>你锁定了螳螂族飞船并准备交火。</text>
+			<ship load="SHIP_SLUG_DISTRESS_MANTIS" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击蛞蝓族飞船。</text>
+		<event>
+			<text>你前去完成螳螂族未尽之事。</text>
+			<ship load="SHIP_SLUG_DISTRESS_MANTIS_SLUG" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>在银河系中的所有物种中，这两种可谓是卧龙凤雏。你启动跃迁推进器。</text>
+		<event>
+			<text>似乎就连星联的存在也无法阻止螳螂对蛞蝓族发火。肯定是他们自找的。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SLUG_DISTRESS_MANTIS_SURRENDER">
+	<event>
+		<text>看起来他们不能承受更多的伤害。几发攻击后，他们的船解体了，你前去回收残骸。</text>
+		<autoReward level="RANDOM">standard</autoReward>
+	</event>
+	<event>	
+		<text>蛞蝓族舰长向你呼叫："误会！一个单纯的误会。我们当然会给你报酬！看到了没？一个增强部件已经运送过去了。"你允许他们活着离开。</text>
+		<autoReward level="LOW">augment</autoReward>
+	</event>
+</eventList>
+
+<eventList name="CLEARING_SLUG_UNIQUE">
+	<event load="HOSTILE_SLUG_UNIQUE_CLEARING" />
+	<event load="DISTRESS_SLUG_UNIQUE_CLEARING" />
+</eventList>
+<!--HOSTILE-->
+<eventList name="HOSTILE_SLUG_UNIQUE_CLEARING">
+	<event load="ENCOUNTER_SLUG_CLEARING" />
+	<event load="ENCOUNTER_SLUG_MANTIS_CLEARING" />
+	<event load="ENCOUNTER_SLUG_PIRATE_CLEARING" />
+	<event load="ENCOUNTER_SLUG_REBEL_CLEARING" />
+</eventList>
+
+<!--DISTRESS-->
+<eventList name="DISTRESS_SLUG_UNIQUE_CLEARING">
+	<event load="DISTRESS_REFUGEE_SLUG_MV" />
+	<event load="DISTRESS_SLUG_MANTIS_MV" />
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_SLUG_MV">
+	<event load="NEBULA_SLUG_HIGH_PRICE" />
+	<event load="NEBULA_SLUG_BIOLAB" />
+	<event load="NEBULA_SLUG_MYSTERIOUS_TECH" />
+	<event load="NEBULA_SLUG_CREW_UPGRADE" /> <!--switch with clone?-->
+</eventList>
+
+<event name="NEBULA_SLUG_HIGH_PRICE" unique="true">   
+	<text>一座蛞蝓空间站隐藏在星云之中。它显得可疑，但你暂时没看出任何明显的诡计。他们向你呼叫，提出卖给你一些"超～～级便～～宜"的燃料。</text>
+	<ship load="SHIP_SLUG_STATION" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>购买他们的燃料。</text>
+		<event>
+			<text>当你把废料递给他时，那只蛞蝓族竭力憋笑，因为你掉进他那荒唐骗局的把他给逗乐了。顺便说一句，你 真 是 太愚蠢了。</text>
+			<item_modify>
+				<item type="fuel" min="1" max="1" />
+				<item type="scrap" min="-100" max="-100" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="SCAM_UNLOCK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>协商一个更低的价格。</text>
+		<event>
+			<text>"好吧...真贪心..."</text>
+			<choice>
+				<text>以新的价格购买燃料。</text>
+				<event>
+					<text>当你把废料递给他时，那只蛞蝓族竭力憋笑，因为你掉进他那荒唐骗局的把他给逗乐了。顺便说一句，你 真 是 太愚蠢了。</text>
+					<item_modify>
+						<item type="fuel" min="1" max="1" />
+						<item type="scrap" min="-99" max="-99" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="SCAM_UNLOCK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>协商一个还要更低的价格。</text>
+				<event>
+					<text>"呃，你非要这样强人所～难吗？"</text>
+					<choice>
+						<text>购买他们的燃料。</text>
+						<event>
+							<text>当你把废料递给他时，那只蛞蝓族竭力憋笑，因为你掉进他那荒唐骗局的把他给逗乐了。顺便说一句，你 真 是 太愚蠢了。</text>
+							<item_modify>
+								<item type="fuel" min="1" max="1" />
+								<item type="scrap" min="-98" max="-98" />
+							</item_modify>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="SCAM_UNLOCK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>继续议价。</text>
+						<event>
+							<text>"在我看来，你真是～～个讨厌的家伙，舰长。"</text>
+							<choice>
+								<text>购买他们的燃料。</text>
+								<event>
+									<text>当你把废料递给他时，那只蛞蝓族竭力憋笑，因为你掉进他那荒唐骗局的把他给逗乐了。顺便说一句，你 真 是 太愚蠢了。</text>
+									<item_modify>
+										<item type="fuel" min="1" max="1" />
+										<item type="scrap" min="-97" max="-97" />
+									</item_modify>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="SCAM_UNLOCK" />
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>继续议价。</text>
+								<event>
+									<text>"这是什么病态的玩笑吗？我不会再还价了，一口价！"</text>
+									<choice>
+										<text>购买他们的燃料。</text>
+										<event>
+											<text>当你把废料递给他时，那只蛞蝓族竭力憋笑，因为你掉进他那荒唐骗局的把他给逗乐了。顺便说一句，你 真 是 太愚蠢了。</text>
+											<item_modify>
+												<item type="fuel" min="1" max="1" />
+												<item type="scrap" min="-96" max="-96" />
+											</item_modify>
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="SCAM_UNLOCK" />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>继续议价。</text>
+										<event load="SLUG_HIGH_PRICE_LASTTIME" />
+									</choice>
+									<choice hidden="true">
+										<text>不，谢谢。</text>
+										<event>
+											<text>蛞蝓族不再理你了。</text>
+											<choice>
+												<text>星舰管理。</text>
+												<event load="STORAGE_CHECK" />
+											</choice>
+											<choice>
+												<text>跳过。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>不，谢谢。</text>
+								<event>
+									<text>蛞蝓族不再理你了。</text>
+									<choice>
+										<text>星舰管理。</text>
+										<event load="STORAGE_CHECK" />
+									</choice>
+									<choice>
+										<text>跳过。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>不，谢谢。</text>
+						<event>
+							<text>蛞蝓族不再理你了。</text>
+							<choice>
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不，谢谢。</text>
+				<event>
+					<text>蛞蝓族不再理你了。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不，谢谢。</text>
+		<event>
+			<text>蛞蝓族不再理你了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_goldstart" global="true">
+        <color r="251" g="255" b="0" a="1.0" />
+        <unvisitedTooltip>此处是蛞蝓族骗子的所在。花费 100 废铁向他们购买燃料。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<eventList name="SLUG_HIGH_PRICE_LASTTIME">
+	<event>
+		<text>蛞蝓族被激怒了，你居然胆敢再次讲价来侮辱他们，他们向你开火！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"额...我不能...但我必须...公平交易！这是你的机会！"</text>
+		<choice>
+			<text>购买他们的燃料。</text>
+			<event>
+				<item_modify>
+					<item type="fuel" min="1" max="1" />
+					<item type="scrap" min="-1" max="-1" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice>
+			<text>继续议价。</text>
+			<event>
+				<text>"不。"</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>不，谢谢。</text>
+			<event>
+				<text>"我恨死你了。"蛞蝓族不再与你联系。</text>
+				<choice>
+					<text>星舰管理。</text>
+					<event load="STORAGE_CHECK" />
+				</choice>
+				<choice>
+					<text>跳过。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="SCAM_UNLOCK">   
+	<unlockCustomShip silent="false">PLAYER_SHIP_GOLD</unlockCustomShip>
+</event>
+
+<event name="NEBULA_SLUG_BIOLAB" unique="true">   
+	<text>附近有一座崭新的蛞蝓科学站。外部没有明显的损坏，但该站似乎没有任何活动迹象。</text>
+	<ship load="SHIP_SLUG_STATION" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>与该站对接。</text>
+		<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>在没有进一步信息的情况下，亲自进入是个可怕的做法。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2" max_lvl="2">
+		<text>(高级传感器)扫描科学站。</text>
+		<event load="NEBULA_SLUG_BIOLAB_SCANS" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>(先进传感器) 扫描科学站。</text>
+		<event load="NEBULA_SLUG_BIOLAB_SCANS_GOOD" />
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING">
+		<text>(士兵无人机)把无人机送进科学站。</text>
+		<event load="NEBULA_SLUG_BIOLAB_SCANS_BOARD" />
+	</choice>
+	<choice hidden="true">
+		<text>避开科学站。</text>
+		<event>
+			<text>星云深处的一个神秘的蛞蝓空间站？这很可能是一个陷阱，你避开了这个空间站。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE">
+	<event>
+		<text>站内是一个可怕的景象。周围到处都是蛞蝓族的尸体，他们的皮肤呈幽暗的白色。似乎没有任何挣扎或战斗的迹象...</text>
+		<choice hidden="true">
+			<text>继续寻找。</text>
+			<event>
+				<text>在你探索实验室的时候，你发现了几根破碎的试管。看起来蛞蝓们正在制造某种生物武器，但实验品逃了出来，并杀死了所有的科学家！这就是为什么他们死在了这里！</text>
+				<choice hidden="true">
+					<text>回头。</text>
+					<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE_LEAVE" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>你感到不太妙，于是往回走。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>站内的景象并不好看。蛞蝓科学家们躺在地上，没有任何生命迹象。你探索了实验室，注意到一个壁橱里传出敲击声。</text>
+		<choice hidden="true">
+			<text>打开壁橱。</text>
+			<event load="NEBULA_SLUG_BIOLAB_INVESTIGATE_CLOSET" />
+		</choice>
+		<choice hidden="true">
+			<text>无视这个壁橱，离开。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>令你惊讶的是，该科学站的工作人员仍然活着，而且对你的入侵感到不高兴！准备战斗吧。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE_LEAVE">
+	<event>
+		<text>当你回到星舰时，你的一名船员开始喘气，并倒在地上，痛苦地抽搐着。你命令船员们立即将这具尸体扔到船外，以免病菌扩散到其他人身上。</text>
+		<removeCrew>
+			<clone>false</clone>
+			<text>你不确定人造病毒能否传播给克隆体，但这不值得冒险。你从克隆舱中删除了这名船员的数据。</text>
+		</removeCrew>
+	</event>
+	<event />
+</eventList>
+<eventList name="NEBULA_SLUG_BIOLAB_INVESTIGATE_CLOSET">
+	<event>
+		<text>在壁橱里，你找到了一个还活着的蛞蝓科学家。他解释说，该站正在研发一种生物工程病毒，但一场意外导致船员被感染并迅速死亡。由于所有的宿主都死了，病毒不太可能还存活在附近，但科学家建议你离开。在你离开之前，你收集了他们的技术。</text>
+		<crewMember amount="1" class="slug" />
+		<augment name="COMBAT_OXYGEN_UNSTABLE" />
+	</event>
+	<event>
+		<text>你打开柜子，一名蛞蝓族掉了出来。他惊恐地尖叫着，倒在地上抽搐，皮肤苍白、瘪了下去。你不知道到底发生了什么，但你在这种神秘的疾病蔓延之前离开了。</text>
+	</event>
+</eventList>
+<event name="NEBULA_SLUG_BIOLAB_SCANS">
+	<text>你的扫描显示了一个相当令人不快的场景，死掉的蛞蝓族科学家散落在站内。死因不明，但你认为进入调查不安全。反之，你刮下了空间站的外体。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="NEBULA_SLUG_BIOLAB_SCANS_GOOD">
+	<text>你的扫描显示了一个相当令人不快的场景，死掉的蛞蝓族科学家散落在站内。扫描能够确定其原因是一种病毒，这也与他们实验室中的一些试管相吻合。由于所有的宿主都死了好几天了，估计病毒不再具有传染性了。你登进科学站，顺手带走了他们的一些技术资料。</text>
+	<augment name="COMBAT_OXYGEN_UNSTABLE" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<event name="NEBULA_SLUG_BIOLAB_SCANS_BOARD">
+	<text>通过内置摄像头观察，很明显，空间站出了大问题。所有的蛞蝓族科学家都死了，他们的尸体散落在地上。你让无人机抓起一件有趣的技术部件和一些燃料，并对返舱的无人机立即消毒。</text>
+	<augment name="COMBAT_OXYGEN_UNSTABLE" />
+	<autoReward level="LOW">fuel_only</autoReward>
+</event>
+
+<event name="NEBULA_SLUG_MYSTERIOUS_TECH" unique="true">   
+	<text>一艘隐藏在星云深处的赫克塔飞船向你发出了邀请。"你好，舰长，你有一艘精良的飞船。但，我们还有一些技术，我们保证它们会使你的飞船变得更好！"</text>
+	<ship load="SHIP_HEKTAR_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>用15废料购买他们的技术品。</text>
+		<event load="NEBULA_SLUG_MYSTERIOUS_TECH_PURCHASE" />
+	</choice>
+	<choice hidden="true">
+		<text>不，谢谢。</text>
+		<event>
+			<text>蛞蝓族切断了通讯，溜向星云深处。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_SLUG_MYSTERIOUS_TECH_PURCHASE">
+	<event>
+		<text>"享受吧！记住，概不退款！"蛞蝓族们在你的星舰上安装了一个奇怪的红色按钮后跃迁跑路。</text>
+		<augment name="COMBAT_PANIC_BUTTON" />
+		<item_modify>
+			<item type="scrap" min="-15" max="-15" />
+		</item_modify>
+	</event>
+	<event>
+		<text>虽然你把钱付给了蛞蝓族，但当你发现他们真的升级了你的反应堆时，你很惊讶，居然没有任何花招！</text>
+		<upgrade amount="1" system="reactor" />
+		<item_modify>
+			<item type="scrap" min="-15" max="-15" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="NEBULA_SLUG_CREW_UPGRADE" unique="true">   
+	<text>一个蛞蝓科学站呼叫你。"对我们双方来说，今天真是个好日子。我们有一些新的技术想测试一下，而你看起来是一艘好船选。如果你同意的话，我们都会从中受益。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>听听他们的建议。</text>
+		<event>
+			<text>"我们在心灵控制技术方面取得了有趣的突破，我们相信我们可能已经找到了能够改变一个人的记忆或专业知识的方法。目前，我们正在寻找一名没有经验的人类、半械族、岩石族，或者超能族作为试验对象。"</text>
+			<choice hidden="true" req="human" blue="false">
+				<text>派出你的人类船员参加。</text>
+				<event>
+					<text>"很好...现在，只要支付一定的费用，我们就能把你的人类的专长改为你的意向！"</text>
+					<choice>
+						<text>让你的人类船员变为工程师。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-30" max="-20" />
+							</item_modify>
+							<transformRace class="human">human_engineer</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的人类船员变为士兵。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-55" max="-40" />
+							</item_modify>
+							<transformRace class="human">human_soldier</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>你没说过任何关于收费的事！</text>
+						<event>
+							<text id="slug_crew_no" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="engi" blue="false">
+				<text>派出你的半械族船员参加。</text>
+				<event>
+					<text>"很好...现在，只要支付一定的费用，我们就能把你的半械族专长改为你的意向！"</text>
+					<choice>
+						<text>让你的普通半械族变为分离者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-30" max="-20" />
+							</item_modify>
+							<transformRace class="engi">engi_separatist</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通半械族变为保卫者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-70" max="-55" />
+							</item_modify>
+							<transformRace class="engi">engi_defender</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>你没说过任何关于收费的事！</text>
+						<event>
+							<text id="slug_crew_no" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="rock" blue="false">
+				<text>派出你的岩石族船员参加。</text>
+				<event>
+					<text>"很好...现在，只要支付一定的费用，我们就能把你的岩石族船员的专长改为你的意向！"</text>
+					<choice>
+						<text>让你的普通岩石族变为流放者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-7" max="-7" />
+							</item_modify>
+						<transformRace class="rock">rock_outcast</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通岩石族变为突击兵。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+						<transformRace class="rock">rock_commando</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通岩石族变为圣战者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-60" max="-50" />
+							</item_modify>
+							<transformRace class="rock">rock_crusader</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>你没说过任何关于收费的事！</text>
+						<event>
+							<text id="slug_crew_no" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="zoltan" blue="false">
+				<text>派出你的超能族船员参加。</text>
+				<event>
+					<text>"很好...现在，只要支付一定的费用，我们就能把你的超能族专长改为你的意向！"</text>
+					<choice>
+						<text>让你的普通超能族变为暮临投身者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-15" max="-15" />
+							</item_modify>
+							<transformRace class="zoltan">zoltan_devotee</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通超能族变为信道者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-10" max="-10" />
+							</item_modify>
+							<transformRace class="zoltan">zoltan_monk</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通超能族变为维和兵。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-75" max="-60" />
+							</item_modify>
+							<transformRace class="zoltan">zoltan_peacekeeper</transformRace>
+						</event>
+					</choice>
+					<choice>
+						<text>让你的普通超能族变为暮临殉义者。</text>
+						<event>
+							<text id="slug_crew_upgrade" />
+							<item_modify>
+								<item type="scrap" min="-65" max="-50" />
+							</item_modify>
+							<transformRace class="zoltan">zoltan_martyr</transformRace>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>你没说过任何关于收费的事！</text>
+						<event>
+							<text id="slug_crew_no" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>听起来风险过高。</text>
+				<event>
+					<text>"呃，如果你意识不到风险是科学进步中的一环的话，那显然就并不适合进行本次实验。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们没兴趣当实验对象。</text>
+		<event>
+			<text>"头脑简单的联邦佬，对新思想太闭塞..."</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_slugupgrade" global="true">
+		<color r="214" g="200" b="111" a="1.0" />
+        <unvisitedTooltip>此处是蛞蝓船员升级事件的所在。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+
+<eventList name="NEBULA_ITEMS_SLUG_UNIQUE">
+	<event load="NEBULA_SLUG_CASINO" />
+	<event load="NEBULA_SLUG_ILLEGAL_CLONES" /> <!--switch with crew upgrades?-->
+	<event load="NEBULA_STORM_SLUG_POWER" />
+	
+	<event load="NEBULA_SLUG_HIGH_PRICE" />
+	<event load="NEBULA_SLUG_BIOLAB" />
+	<event load="NEBULA_SLUG_MYSTERIOUS_TECH" />
+</eventList>
+
+<event name="NEBULA_SLUG_CASINO" unique="true">
+	<text>在星云深处，这里可能是你最不希望看到的东西...</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>这是个繁忙的赌场！船只来来往往，虽然大多数是蛞蝓族，但也有其他种类的船只。</text>
+			<choice hidden="true">
+				<text>停下来看看。</text>
+				<event>
+					<text>里面有几种不同的游戏，大多数都需要其他玩家一起玩。不幸的是，这里的玩家正好是蛞蝓族，你根本没机会赢。你注意到一些奇怪的老虎机，它们被设定为接受废料并吐出物资...</text>
+					<choice>
+						<text>赌一些燃料。</text>
+						<event>
+							<text>你把废料投入老虎机...</text>
+							<item_modify>
+								<item type="scrap" min="-24" max="-24" />
+							</item_modify>
+							<choice hidden="true">
+								<text>拉动杠杆等待结果。</text>
+								<event load="SLUG_CASINO_FUEL" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>赌一些弹药。</text>
+						<event>
+							<text>你把废料投入老虎机...</text>
+							<item_modify>
+								<item type="scrap" min="-30" max="-30" />
+							</item_modify>
+							<choice hidden="true">
+								<text>拉动杠杆等待结果。</text>
+								<event load="SLUG_CASINO_MISSILES" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>赌一些无人机部件。</text>
+						<event>
+							<text>你把废料投入老虎机...</text>
+							<item_modify>
+								<item type="scrap" min="-40" max="-40" />
+							</item_modify>
+							<choice hidden="true">
+								<text>拉动杠杆等待结果。</text>
+								<event load="SLUG_CASINO_DRONES" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>算了，咱们走。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视赌场。</text>
+				<event>
+					<text>由蛞蝓族经营的赌场是不可信的，更何况本来你就没时间来赌博。</text>
+					<choice hidden="true">
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SLUG_CASINO_FUEL">
+	<event>
+		<text>今天一定是你的幸运日，因为机器闪烁着明亮的金色，几瓶燃料罐弹出。</text>
+		<item_modify>
+			<item type="fuel" min="8" max="8" />
+		</item_modify>
+	</event>
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+</eventList>
+<eventList name="SLUG_CASINO_MISSILES">
+	<event>
+		<text>今天一定是你的幸运日，因为机器闪烁着明亮的金光，几发弹药弹出。最好小心点，别让它们掉下来...</text>
+		<item_modify>
+			<item type="missiles" min="5" max="5" />
+		</item_modify>
+	</event>
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+</eventList>
+<eventList name="SLUG_CASINO_DRONES">
+	<event>
+		<text>今天一定是你的幸运日，因为机器闪烁着亮金色的光芒，几件无人机部件蹦了出来。</text>
+		<item_modify>
+			<item type="drones" min="5" max="5" />
+		</item_modify>
+	</event>
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+	<event load="SLUG_CASINO_FAIL" />
+</eventList>
+<event name="SLUG_CASINO_FAIL">
+	<text>失望之余，你离开了赌场。然而，当你离开时，你无意中听到几个游客在争吵。事情听起来好像变得很激烈，但你不确定是什么原因。</text>
+	<choice hidden="true">
+		<text>回去看看发生了什么。</text>
+		<event>
+			<text>里面的情况比你想象的要糟糕得多。似乎有人发现机器被操纵了，现在这些顾客想要退还他们的钱...但赌场的工作人员不打算贸然交出，宁愿一战。</text>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+				<text>援助顾客们。</text>
+				<event load="SLUG_CASINO_CUSTOMER" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+				<text>援助工作人员。</text>
+				<event load="SLUG_CASINO_STAFF" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>你无法只身一人参与此事。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ZOLTAN">
+				<text>(超能族船员)说服他们达成一个和平的解决方案。</text>
+				<event>
+					<text>你的超能族向两边的人讲授和平解决与和平主义的必要性...但只是使整个人群都陷入了沉眠。你趁机搜刮了一些散落在赌场各处的物资，然后回到了星舰。</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>在卷入之前先退出。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>匆忙离开。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="SLUG_CASINO_CUSTOMER">
+	<event>
+		<text>在你训练有素的船员的协助下，你制服了赌场的工作人员。然而，由于没有能统一意见的人，顾客们完全陷入了混乱。趁着大家都处于混乱之中，你赶紧去搜刮了一些物资，然后回到星舰。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>看来赌场工作人员的训练程度比你预想得要好，他们把顾客们反推了回去。你决定最好不要进一步参与，然后回到了星舰。</text>
+	</event>
+</eventList>
+<eventList name="SLUG_CASINO_STAFF">
+	<event>
+		<text>你的协助似乎起到了作用。在你训练有素的军事人员的协助下，你吓跑了顾客们。赌场感谢你并为你提供退款。</text>
+		<item_modify>
+			<item type="scrap" min="50" max="50" />
+		</item_modify>
+	</event>
+	<event>
+		<text>看来你的船员不是成群结队的愤怒顾客们的对手，所以你赶回了星舰，身后还跟着一名赌场的工作人员。看样子他是这里的老板，在他的这笔生意即将化为乌有的情况下，估计会很感激能在你的星舰有一居之处。</text>
+		<crewMember amount="1" class="slug">斯罗茨</crewMember>
+	</event>
+	<event>
+		<text>看来你的船员不是成群结队的愤怒顾客们的对手。一个特别激动的岩石族举起一整台老虎机，朝你的一个船员头上砸去，当场将其砸死。你不想再承受任何损失，于是赶回星舰。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是克隆舱能够让你的船员复活，尽管他很可能从现在开始患上了赌场恐惧症。</text>
+		</removeCrew>
+	</event>
+</eventList>
+
+<event name="NEBULA_SLUG_ILLEGAL_CLONES" unique="true">
+	<text>附近的一个蛞蝓实验室似乎正在进行克隆技术的研究。他们招呼你，提出了一个"特别的提议"。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>表现出兴趣。</text>
+		<event>
+			<text>"正如你所知，目光短浅的联邦已经决定将克隆仍然活着的机体列为非法。不过幸好这里不是联邦的星域。只要付一点钱，我们就愿意复制你的一个船员，虽然克隆人不会继承原来船员的记忆或技能。"</text>
+			<choice req="LIST_CREW_HUMAN" blue="false" hidden="true">
+				<text>克隆你的人类船员。[-25~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="human" />
+					<item_modify>
+						<item type="scrap" min="-25" max="-25" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_ENGI" blue="false" hidden="true">
+				<text>克隆你的半械族船员。[-35~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="engi" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_ZOLTAN" blue="false" hidden="true">
+				<text>克隆你的超能族船员。[-35~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="zoltan" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_ORCHID" blue="false" hidden="true">
+				<text>克隆你的兰花族船员。[-35~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="orchid" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_MANTIS" blue="false" hidden="true">
+				<text>克隆你的螳螂族船员。[-40~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="mantis" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_ROCK" blue="false" hidden="true">
+				<text>克隆你的岩石族船员。[-40~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="rock" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_CRYSTAL" blue="false" hidden="true">
+				<text>克隆你的水晶族船员。[-45~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="crystal" />
+					<item_modify>
+						<item type="scrap" min="-45" max="-45" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_SLUG" blue="false" hidden="true">
+				<text>克隆你的蛞蝓族船员。[-30~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="slug" />
+					<item_modify>
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_SHELL" blue="false" hidden="true">
+				<text>克隆你的甲壳族船员。[-35~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="shell" />
+					<item_modify>
+						<item type="scrap" min="-35" max="-35" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_PHANTOM" blue="false" hidden="true">
+				<text>克隆你的幻灵船员。[-20~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="phantom" />
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_GOUL" blue="false" hidden="true">
+				<text>克隆你的燃灵船员。[-20~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="phantom_goul" />
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_MARE" blue="false" hidden="true">
+				<text>克隆你的蚀灵船员。[-20~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="phantom_mare" />
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_WRAITH" blue="false" hidden="true">
+				<text>克隆你的电灵船员。[-20~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="phantom_wraith" />
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_LANIUS" blue="false" hidden="true">
+				<text>克隆你的食铁族船员。[-40~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="lanius" />
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_SPIDER" blue="false" hidden="true">
+				<text>克隆你的蜘蛛族船员。[-20~]</text>
+				<event>
+					<text id="slughome_crew_clone" />
+					<crewMember amount="1" class="spider" />
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_ANCIENT" blue="false" hidden="true">
+				<text>克隆你的方碑族船员。[-60~]</text>
+				<event>
+					<text>"真是一种奇怪的生物。哦好吧，如果他们可以被克隆，我也没啥好问的。"蛞蝓族们在消失回他们的飞船之前留下了克隆人。</text>
+					<crewMember amount="1" class="obelisk" />
+					<item_modify>
+						<item type="scrap" min="-60" max="-60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们不会违反联邦的法律。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你不给蛞蝓族再解释的机会，停止了与他们沟通。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_STORM_SLUG_POWER" unique="true">
+	<text>这里的蛞蝓族似乎已经取得了一些独特的成就。这里的供能站似乎是通过收集这里的离子风暴的电荷来供能的！</text>
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>攻击对方！</text>
+		<event>
+			<text>出于某种原因，你决定攻击蛞蝓族。虽然该设施没有武装，但他们的一艘船却起来迎接你并保卫他们。</text>
+			<ship load="SHIP_SLUG_POWERPLANT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>给他们钱，让他们对星舰的反应堆做一些工作。</text>
+		<event>
+			<text>蛞蝓族们过去曾接触过许多反应堆的事务，凭借他们在能量方面的专业知识(更不用说给他们的那份不错的废料了)，蛞蝓族们开始对你的反应堆动工。</text>
+			<upgrade amount="1" system="reactor" />
+			<item_modify>
+				<item type="scrap" min="-20" max="-20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视供能站。</text>
+		<event>
+			<text>你决定经过供能站，不做任何事。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_SLUG_MV">
+	<event load="NEBULA_SLUG_DRUGS" />
+	<event load="NEBULA_SLUG_JAILER" />
+	<event load="NEBULA_REFUGEE_SLUG_MV" />
+	<event load="NEBULA_SLUG_DRINK_MV" />
+	<event load="NEBULA_SLUG_CHOOSE_DEATH_MV" />
+	<event load="NEBULA_SLUG_HULLFIX_MV" />
+	<event load="NEBULA_ROCK_SLUG_ARGUMENT_MV" />
+</eventList>
+
+<event name="NEBULA_SLUG_DRUGS" unique="true">
+	<text>附近的一艘极其整洁的蛞蝓族飞船向你呼叫。"你好，欢迎来到这个信标。你愿意上船来喝一杯吗？我们习惯于招待来访者。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>这些蛞蝓族似乎值得信赖。</text>
+		<event>
+			<text>蛞蝓族们欢迎你上船，以供你参观。它实际上相当不错，而且你也没有发现任何违禁品。他们用一些外星水果给你提供了一杯果汁，你为你们的新友谊干杯，然后回到了星舰。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="NEBULA_SLUG_DRUGS_LEAVE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>礼貌地拒绝。</text>
+		<event>
+			<text>你拒绝了蛞蝓族的提议。他们表示理解，甚至出于善意给了你一些燃料。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_SLUG_DRUGS_LEAVE">
+	<event>
+		<text>当你返回星舰时，蛞蝓族给了你一些燃料，以感谢你对他们的信任。</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>当你回到星舰时，发现自己的头感觉很轻。你跌跌撞撞，差点摔倒。一阵刺耳的警报声响彻星舰，你跑向指挥舱。一艘巨大的、来势汹汹的岩石族飞船正在向你进攻！你的船员们奇怪地看着你下达了从岩石族手中保卫星舰的命令，但他们没有反驳。</text>
+		<ship load="SHIP_ROCK_DRUGS" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK_FAIL" />
+		</choice>
+	</event>
+	<event>
+		<text>当你回到星舰时，发现自己的头感觉很轻。你跌跌撞撞，差点摔倒。一阵刺耳的警报声响彻星舰，你跑向指挥舱。一艘巨大的、来势汹汹的岩石族飞船正在向你进攻！你的船员们奇怪地看着你下达了从岩石族手中保卫星舰的命令，但他们没有反驳。</text>
+		<ship load="SHIP_ROCK_DRUGS" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK_FAIL" />
+		</choice>
+	</event>
+</eventList>
+<event name="ROCK_DRUGS_WIN">
+	<text>你的昏迷感逐渐消失了，你突然意识到，你正在战斗的飞船根本就不是什么岩石族飞船。相反，它只是一些漂入星云的小行星。幸运的是，你对它们造成的伤害暴露了一些可收获的燃料。</text>
+	<autoReward level="HIGH">fuel_only</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="NEBULA_SLUG_DRUGS_WIN" />
+	</choice>
+</event>
+<eventList name="NEBULA_SLUG_DRUGS_WIN">
+	<event>
+		<text>蛞蝓族们笑成一团，对你与一些大石块的疯狂互动感到十分搞笑。你无视了那些给你下药的混蛋，继续前进。</text>
+	</event>
+	<event>
+		<text>你捕捉到蛞蝓族飞船上的聊天记录。"等等，糟糕。我们是不是给了他致幻瓜？"对方再次向你呼叫，为他们的错误深表歉意。"真的非常抱歉...估计这毁了我们尽全力才赢得的信任，但我们该怎么做才能让你原谅呢？"</text>
+		<choice hidden="true">
+			<text>你可以通过在我们的飞船上效劳来偿还你的债务。</text>
+			<event>
+				<text>"真的吗？你会让我在你的飞船上工作？我一直都想看看这些星云之外的银河系..."</text>
+				<crewMember amount="1" class="slug" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>修复小行星造成的损害。</text>
+			<event>
+				<text>"没问题，我们可以搞定！"蛞蝓族们开始工作，维修星舰损坏之处。</text>
+				<damage amount="-20" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>我们需要一些废料。</text>
+			<event>
+				<text>"没问题，我们可以搞定！"蛞蝓族们从他们的仓库里给了你一些废料。</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>滚吧。</text>
+			<event>
+				<text>你的话明显伤到了这名蛞蝓族，但他没有再说什么。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你捕捉到蛞蝓族飞船上的聊天记录。"等等，糟糕。我们是不是给了他致幻瓜？"对方再次向你呼叫，为他们的错误深表歉意。"真的非常抱歉...估计这毁了我们尽全力才赢得的信任，但我们该怎么做才能让你原谅呢？"</text>
+		<choice hidden="true">
+			<text>你可以通过在我们的飞船上效劳来偿还你的债务。</text>
+			<event>
+				<text>"真的吗？你会让我在你的飞船上工作？我一直都想看看这些星云之外的银河系..."</text>
+				<crewMember amount="1" class="slug_saboteur" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>修复小行星造成的损害。</text>
+			<event>
+				<text>"没问题，我们可以搞定！"蛞蝓族们开始工作，维修星舰损坏之处。</text>
+				<damage amount="-20" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>我们需要一些废料。</text>
+			<event>
+				<text>"没问题，我们可以搞定！"蛞蝓族们从他们的仓库里给了你一些废料。</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>滚吧。</text>
+			<event>
+				<text>你的话明显伤到了这名蛞蝓族，但他没有再说什么。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_SLUG_JAILER" unique="true">
+	<text>一艘蛞蝓牢狱舰正在星云中溜达，寻找可以抓捕的逃犯。他们似乎没有注意到你。</text>
+	<ship load="SHIP_SLUG_JAILER" hostile="false" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击牢狱舰。</text>
+		<event>
+			<text>你充能你的武器与蛞蝓族飞船交战。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FIREARMS_AND_TELEPORT">
+		<text>（强化军械+传送器）闪击这些狱卒。</text>
+		<event>
+			<text>你的船员们全副武装，登陆囚犯关押舱，迅速制服了里面负责看守的蛞蝓船员。这样一来，那些被关押但你认为不会立刻对你动手的囚犯们便都得以获释了。</text>
+			<crewMember amount="1" class="LIST_CREW_FEDERATION" />
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>不理会牢狱舰。</text>
+		<event>
+			<text>你今天没心情进行劫狱活动，你与牢狱舰保持了距离。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_SLUG_JAILER"> 
+	<text>"我发现你们的武器储备...相当充足。不过，你们的人员看起来有点少。也许我们可以提供一个船员给你？"</text>
+	<environment type="nebula" />
+	<choice>
+		<text>接受一名囚犯。</text>
+		<event>
+			<crewMember amount="1" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝并继续战斗。</text>
+		<event />
+	</choice>
+</event>
+<event name="SLUG_JAILER_DESTROY">
+	<text>牢狱舰已被摧毁。虽然留下了许多废料，但很可能没有任何囚犯幸存下来。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="SLUG_JAILER_KILL">
+	<text>牢狱舰的船员已经被清空了，你把它的外部搜刮了。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>检查囚犯。</text>
+		<event load="SLUG_JAILER_KILL_SLAVES" />
+	</choice>
+</event>
+<eventList name="SLUG_JAILER_KILL_SLAVES">
+	<event>
+		<text>看来囚犯们没有在战斗中幸存下来。除了离开，你没有什么可做的了。</text>
+	</event>
+	<event>
+		<text>看来大多数囚犯都在战斗中死亡或受重伤。一个孤独的幸存者跌跌撞撞地走出牢房，在星舰内医护人员的帮助下，他的健康状况成功恢复到足以在星舰内工作的程度。</text>
+		<crewMember amount="1" class="human" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event />
+		</choice>
+		<choice hidden="true" req="clonebay" lvl="2">
+			<text>(高级克隆舱)设法拯救一些囚犯。</text>
+			<event>
+				<text>你成功从一些受伤的囚犯身上获取了基因样本，并将它们录入了克隆舱中。在将他们复活后，他们向你表示感谢，并用他们随身携带的仅有的少量物品来向你表示感谢。</text>
+				<autoReward level="LOW">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>许多囚犯似乎都活了下来。你打算释放所有人，但你有可能说服其中一人加入你的团队。</text>
+		<choice>
+			<text>招募一名人类。</text>
+			<event>
+				<crewMember amount="1" class="human" />
+			</event>
+		</choice>
+		<choice>
+			<text>招募一名半械族。</text>
+			<event>
+				<crewMember amount="1" class="engi" />
+			</event>
+		</choice>
+		<choice>
+			<text>招募一名超能族。</text>
+			<event>
+				<crewMember amount="1" class="zoltan" />
+			</event>
+		</choice>
+		<choice>
+			<text>我们不需要更多的船员。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_REFUGEE_SLUG_MV"> 
+	<text>你的传感器侦测到一艘漂荡在这个星系中的难民船，毫无疑问，它是众多逃离叛军进攻的船只之一。它似乎没有发现你...否则它会尽量避免被发现。</text>
+	<environment type="nebula" />
+	<choice>
+		<text>联系他们。</text>
+		<event load="REFUGEE_HAIL_LIST_SLUG_MV" />
+	</choice>
+	<choice>
+		<text>无视这艘难民船。</text>
+		<event>
+			<text>你发现难民船没什么需要担心的，可以安心进行星舰管理了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_SLUG_DRINK_MV" unique="true">
+	<environment type="nebula" />
+	<text>一名蛞蝓族舰长传来消息，请求你允许他传至星舰，来展示一瓶黏糊糊的东西。"现在，我最亲切的舰长，你必须和我一起为我们的联盟喝一杯！"</text>
+	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>接受。</text>
+		<event load="SLUG_DRINK_DRINK_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>蛞蝓族对你的拒绝佯装生气，但你感觉他其实对你的谨慎有些敬意。然而，这并不妨碍他回到他的船并开火。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>(岩石族船员)让你的岩石族冒充舰长。</text>
+		<event load="SLUG_DRINK_ROCK_MV" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>(甲壳族船员)让你的甲壳族冒充舰长。</text>
+		<event load="SLUG_DRINK_SHELL" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_GHOST">
+		<text>(魂灵族船员)让你的魂灵族冒充舰长。</text>
+		<event load="SLUG_DRINK_GHOST" />
+	</choice>
+</event>
+<eventList name="SLUG_DRINK_DRINK_MV">
+	<event>
+		<text>你小心翼翼地喝了一口。它很臭，但没有造成任何持续伤害。一般只有千分之一的概率，但这名蛞蝓族似乎真的可以信任。他随兴地庆祝你们新建立的信任，修理了星舰的一部分，并向你出售他的商品。</text>
+		<damage amount="-10" />
+		<store>STORE_SLUG</store>
+	</event>
+	<event>
+		<text>你喝了一口，然后和其他船员一起在货舱里醒来...货舱里的废料明显比以前少了一些。</text>
+		<item_modify steal="true">
+			<item type="scrap" min="-35" max="-25" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="SLUG_DRINK_ROCK_MV">
+	<event>
+		<text>即便饮料里有恶意的成分，你估计岩石族的消化系统也不会被它影响到。蛞蝓族随兴地庆祝你们新建立的信任，修理了星舰的一部分，并向你出售他的商品。</text>
+		<damage amount="-10" />
+		<store>STORE_SLUG</store>
+	</event>
+	<event>
+		<text>你的船员在感到略微昏昏欲睡之时，及时识别出了瓶中含有的重度麻醉剂(岩石族的消化系统非常强大)。对方的诡计被发现了，这名蛞蝓族立即返回了他的飞船并开火。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList> 
+<eventList name="SLUG_DRINK_SHELL">
+	<event>
+		<text>众所周知，甲壳族在毒素面前是安全的，所以你相信饮料中的任何有毒物质都影响不到他们。他们大口大口地喝，似乎没有任何问题，蛞蝓族向你祝庆，修复了你的舰体并开放了他的商品。你很好奇他是否真的是想修复甲壳族和蛞蝓族之间脆弱的关系，还是说他只是因为没有其他选项而选择伪装。不论如何，一切都很顺利，你准备看看他们能提供什么。</text>
+		<damage amount="-10" />
+		<store>STORE_SLUG</store>
+	</event>
+	<event>
+		<text>你的甲壳族尝了一口酒...随后立即准备把它吐回蛞蝓族的脸上。"愚蠢的烂球...我要把你的畜体卖给猎..."
+
+你的甲壳族似乎没兴趣听完对方的威胁，直接用爆裂手枪开火让对方闭了嘴。你希望甲壳族对这杯酒的反应是正当的，而不是单纯地只是因为这杯酒对他而言味道不好...现在少了一个蛞蝓骗子，但你仍然要对付来犯的敌舰，里面都是同样坏的罪犯。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList> 
+<eventList name="SLUG_DRINK_GHOST">
+	<event>
+		<text>你的魂灵族，由于主要由气体构成，不仅对毒药免疫，还完全无法喝酒。蛞蝓族很困惑，但似乎理解了他的这种不便。他带着真诚的态度，修复了你的舰体，并提出进行交易。</text>
+		<damage amount="-10" />
+		<store>STORE_SLUG</store>
+	</event>
+	<event>
+		<text>你的魂灵族一上船，蛞蝓族舰长就骂了起来。"你派那些连酒都喝不上的船员来侮辱我？当然，虽说我无论如何都会背刺你，但这实在是太无礼了！"</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList> 
+
+<event name="NEBULA_SLUG_CHOOSE_DEATH_MV" unique="true">
+	<text>跃迁之后，你立即被一艘看起来很危险的飞船叫住，它正守卫着一个空间站。"我今天很大度。我将允许你选择自己的死亡方式。你最喜欢哪一个：护盾、氧气，还是武器？"</text>
+	<environment type="nebula" />
+	<choice req="shields" lvl="2" blue="false" max_group="0">
+		<text>护盾。</text>
+		<event>
+			<text>"很好！"你的护盾供能骤降，他们冲了过来。</text>
+			<ship load="SHIP_SLUG_STATUS_SHIELDS" hostile="true" />
+			<status type="divide" target="player" system="shields" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="ANTI_VIRUS">
+				<text>(防护程序)恢复护盾系统的运作。</text>
+				<event>
+					<text>.....................................................................恢复成功。</text>
+					<status type="clear" target="player" system="shields" amount="100" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="shields" lvl="0" max_lvl="1" blue="false" hidden="true" max_group="0">
+		<text>护盾。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice req="weapons" lvl="2" blue="false" max_group="1">
+		<text>武器。</text>
+		<event>
+			<text>"你对死亡的坦然非常令人钦佩..."你的武器系统突然监测到一个黑客模块。他们开始攻击，而你几乎没有时间来作出反应。</text>
+			<ship load="SHIP_SLUG_STATUS_WEAPONS" hostile="true" />
+			<status type="divide" target="player" system="weapons" amount="2" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice req="ANTI_VIRUS">
+				<text>(防护程序)恢复武器系统的运作。</text>
+				<event>
+					<text>你的武器系统成功满功率恢复。</text>
+					<status type="clear" target="player" system="weapons" amount="100" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="weapons" lvl="0" max_lvl="1" blue="false" hidden="true" max_group="1">
+		<text>武器。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice blue="false" req="oxygen" lvl="1" max_group="2">
+		<text>氧气。</text>
+		<event>
+			<text>"一个会选择窒息的生物？那就怪不得我了..."你的氧气系统被破坏了，他们开始攻击。</text>
+			<ship load="SHIP_SLUG_STATUS_OXYGEN" hostile="true" />
+			<status type="divide" target="player" system="oxygen" amount="2" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice req="ANTI_VIRUS">
+				<text>(防护程序)恢复氧气系统的运作。</text>
+				<event>
+					<text>.....................................................................恢复成功。</text>
+					<status type="clear" target="player" system="oxygen" amount="100" />
+					<choice>
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="oxygen" lvl="0" max_lvl="0" blue="false" hidden="true" max_group="2">
+		<text>氧气。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="pilot" blue="false" max_group="3">
+		<text>交出35废料作为过路费。</text>
+		<event>
+			<text>"我今天真的很大度..."他拿着废料离开了。</text>
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking" max_group="4"> <!-- CHANGED-->
+		<text>(黑客系统)反击任何黑客意图。</text>
+		<event>
+			<text>"沉默不能保护你，我会替你做出选择...等等，为什么这不起作用？"你切断了传输，并开始攻击。</text>
+			<ship load="SHIP_SLUG_STATUS_HACKING" hostile="true" />
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+			
+<event name="NEBULA_SLUG_HULLFIX_MV" unique="true">
+	<text>你来到这里，发现一座小型蛞蝓维修站。"你好旅行者！要不要来修理一下？我们可以轻易地修补一些损坏。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>不，谢谢。</text>
+		<event>
+			<text>"太糟糕了！这年头信任已经沦为了一种奢侈品。"你准备跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>当然。</text>
+		<event load="NEBULA_SLUG_HULLFIX_MV_RESULT1" />
+	</choice>
+	<choice hidden="true">
+		<text>询问他们是否需要付款。</text>
+		<event load="NEBULA_SLUG_HULLFIX_MV_REQUEST" />
+	</choice>
+</event>
+<eventList name="NEBULA_SLUG_HULLFIX_MV_RESULT1">
+	<event>
+		<text>你把星舰停在维修站上，过了一会儿，对方修复了10点舰体损伤。你开始表示感谢，但发现你无法从该空间站脱身。</text>
+		<damage amount="-10" />
+		<choice>
+			<text>要求作出解释。</text>
+			<event load="NEBULA_SLUG_HULLFIX_MV_RESULT2" />
+		</choice>
+	</event>
+	<event>
+		<text>你与该空间站对接，希望能快速完事，但自动机器花了很长时间。当这个过程最终完成时，你注意到只有单单的1点舰体值被修复了。</text>
+		<modifyPursuit amount="1" />
+		<damage amount="-1" />
+		<choice>
+			<text>要求作出解释。</text>
+			<event load="NEBULA_SLUG_HULLFIX_MV_RESULT2" />
+		</choice>
+	</event>
+	<event>
+		<text>当你与空间站对接时，星舰的读数开始变得混乱不堪。一场电磁爆炸在整个星舰产生了共鸣，你的引擎停摆了。你成了一只坐以待毙的鸭子，而一艘飞船出现，并一声不发地开始攻击！</text>
+		<ship load="SHIP_SLUG_STATUS_ENGINES" hostile="true" />
+		<status type="limit" target="player" system="engines" amount="1" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="NEBULA_SLUG_HULLFIX_MV_RESULT2">
+	<event>
+		<text>"我们很高兴你能享受我们的服务。也许一些燃料会是一个适当的补偿？"</text>
+		<choice hidden="true">
+			<text>给他们提供所要求的15份燃料。</text>
+			<event>
+				<text>你转移燃料，他们释放了你的星舰。"记得把我们也介绍给你的朋友们！"他们的可移动空间站滑入云层。</text>
+				<item_modify>
+					<item type="fuel" min="-15" max="-15" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>这真是太荒谬了！</text>
+			<event>
+				<text>"我很抱歉听到这个消息。"他按下一个按钮，一场爆炸震撼了整个星舰。他们一定是在"修理"时安放了炸弹！准备战斗吧！</text>
+				<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+				<damage amount="4" />
+				<damage amount="1" system="random" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>"我们很高兴你享受了我们的服务。现在是付款问题。为了确保你会合作，我们擅自在你的武器系统上安装了一个限制器。"</text>
+		<choice hidden="true">
+			<text>给他们提供所要求的50废料。</text>
+			<event>
+				<text>你转移废料，他们释放了你的星舰。"记得把我们也介绍给你的朋友们！"他们的可移动空间站滑入云层。</text>
+				<item_modify>
+					<item type="scrap" min="-50" max="-50" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>离开这里！</text>
+			<event>
+				<text>你启动你的推进器，强行离开空间站。一艘飞船迅速驶来，与你交战。你需要快速离开这里，可能来不及重新让武器完全投入使用！</text>
+				<ship load="SHIP_SLUG_STATUS_WEAPONS" hostile="true" />
+				<status type="divide" target="player" system="weapons" amount="2" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="NEBULA_SLUG_HULLFIX_MV_REQUEST">
+	<event>
+		<text>"啊，一个生意伙伴。我们向你提议用40废料来修复10点舰体损伤。"</text>
+		<choice hidden="true">
+			<text>接受。</text>
+			<event>
+				<text>你接受了交易，并仔细监视他们的机器进行船体修补。然而，一切似乎平安。他们完成之后，你准备跃迁离去。</text>
+				<damage amount="-10" />				
+				<item_modify>
+					<item type="scrap" min="-40" max="-40" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>拒绝。</text>
+			<event>
+				<text>"太糟糕了。再会，旅行者。"他们的可移动空间站滑入云层。</text>
+				<choice>
+					<text>星舰管理。</text>
+					<event load="STORAGE_CHECK" />
+				</choice>
+				<choice>
+					<text>跳过。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>就在传输被切断之前，你听到："他们不会上当的。只需杀了船员，我们就可以拿..."看来你不可能不战而离。</text>
+		<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_ROCK_SLUG_ARGUMENT_MV" unique="true">
+	<environment type="nebula" />
+	<text>你探测到附近有好几艘全功率运转的舰船，但浓密的星云遮蔽下什么也看不到。</text>
+	<choice>
+		<text>靠近一点。</text>
+		<event load="ROCK_SLUG_ARGUMENT_MV" /> <!--rock file-->
+	</choice>
+	<choice>
+		<text>无视对方。</text>
+		<event>
+			<text>以防万一，你远离了那些舰船。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEBULA_NEUTRAL_SLUG_UNIQUE">
+	<event load="NEBULA_SLUG_IMPORTANT_PRISONER" />
+	<event load="NEBULA_LIGHT_SLUG_GRAVE" />
+	<event load="NEBULA_LIGHT_SLUG_MINDSLAVES" />
+	
+	<event load="NEBULA_SLUG_CHOOSE_DEATH_MV" />
+	<event load="NEBULA_SLUG_HULLFIX_MV" />
+	<event load="NEBULA_SLUG_DRINK_MV" />
+	<event load="NEBULA_SLUG_JAILER" />
+	<event load="NEBULA_SLUG_DRUGS" />
+</eventList>
+
+<event name="NEBULA_SLUG_IMPORTANT_PRISONER" unique="true">
+	<text>一艘蛞蝓精英舰似乎在保护一艘小型蛞蝓牢狱舰。你不确定为什么，但说不定有重要的东西被保存在那里？</text>
+	<ship load="SHIP_SLUG_PRISONER_ELITE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击精英舰以接近牢狱舰。</text>
+		<event>
+			<text>牢狱舰向后退去，而强得多的精英舰向你发起进攻。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这两艘船。</text>
+		<event>
+			<text>不久之后，蛞蝓族们就消失在星云中。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_SLUG_GRAVE" unique="true">
+	<text>几艘忧郁的蛞蝓族飞船正从一个荒芜的星球出发。它看起来并不适合居住，但电脑告诉你，这个星球是用来埋葬前任蛞蝓族国王和其他蛞蝓族王室成员的地方。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>尝试劫掠墓地。</text>
+		<event>
+			<text>当你接近墓地时，一艘精英蛞蝓飞船进驻以保护这个星球！</text>
+			<ship load="SHIP_SLUG_GRAVE_ELITE" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视坟墓。</text>
+		<event>
+			<text>只有想自杀的人，才会试图劫掠蛞蝓母星系中蛞蝓族前王室成员的坟墓。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SLUG_GRAVE_WIN">
+	<text>虽然墓地上分布着许多不同的坟墓，但有三座特别惹你注目。</text>
+	<choice hidden="true">
+		<text>劫掠标记为"阿尔萨"的坟墓。</text>
+		<event>
+			<text>阿尔萨的坟墓里有一座由纯金制成的细致雕塑，来表现他的伟大。它是如此金光闪闪，你看着几乎要瞎了。</text>
+			<choice hidden="true">
+				<text>击开墓穴。</text>
+				<event load="SLUG_GRAVE_RAID" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>劫掠标记为"特拉克"的坟墓。</text>
+		<event>
+			<text>看来特拉克有一段漫长而深刻的人生故事，在他的"简传"上镌刻了几千段。幸运的是，你有完全不读它的理由。</text>
+			<choice hidden="true">
+				<text>击开墓穴。</text>
+				<event load="SLUG_GRAVE_RAID" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>袭击标记为"欧瑟克"的坟墓。</text>
+		<event>
+			<text>欧瑟克的人生大概不是很有趣，因为他的坟墓几乎没有任何装饰品。他的墓志铭只有一句话，就是"他死如归"。</text>
+			<choice hidden="true">
+				<text>击开墓穴。</text>
+				<event load="SLUG_GRAVE_RAID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SLUG_GRAVE_RAID">
+	<event>
+		<text>在坟墓里，你发现了一件能用的武器！这很奇怪，但你认为它一定是国王生活中的某个重要部分。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>很奇怪的是，这个墓穴里有几千个燃料电池。你显然不能把它们全部带走，所以你尽可能多地抓住你能携带的东西，把它们带回星舰。</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>坟墓里似乎有该星区的星图！显然，没有可以解释原因的人在场，但你怀疑这与"引导精神"或者什么有关。</text>
+		<reveal_map />
+	</event>
+	<event>
+		<text>当一名瘦弱、饥饿的蛞蝓族从坟墓里爬出来时，你震惊地跳了起来。"你救了我！"你几乎以为这是古代国王的尸体复活了，结果发现，这名蛞蝓族是一个被困住的盗墓者！他在被困住近一周后终于自由了，现在很乐意接受你星舰上的职位。</text>
+		<crewMember amount="1" class="slug" />
+	</event>
+</eventList>
+
+<event name="NEBULA_LIGHT_SLUG_MINDSLAVES" unique="true">
+	<text>一个天体构造空间站在附近的行星上运行，尽管它没有试图与你联系。星云已经开始笼罩信标，但还不足以完全干扰你的传感器。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_POPULATED" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_SLUG_MINDLSAVES" hostile="false" />
+	<choice hidden="true">	
+		<text>在这个星球上登陆看看他们是否有交易市场。</text>
+		<event>
+			<text>附近一个殖民地的表面是一个非常奇怪的景象。居民们，各种不同的种族，像无意识的木偶一样，有条不紊地蹒跚着。似乎他们被控制了...也许是被你在太空中看到的那个"天体构造站"控制了？</text>
+			<choice hidden="true">	
+				<text>解放他们。摧毁该空间站！</text>
+				<event>
+					<text>这些人需要被解救！你给引擎充能，与天体构造站交火。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">	
+				<text>我们需要离开这里！</text>
+				<event>
+					<text>在蛞蝓族试图对你施展任何其他伎俩之前，你迅速指挥星舰驶离了空间站。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">	
+				<text>我们需要离开这里！</text>
+				<event load="SLUG_MINDSLAVES_ESCAPE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视那个行星。</text>
+		<event>
+			<text>你决定不在这个星球上降落。如果蛞蝓族与此事有关，那肯定有鬼。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SLUG_MINDSLAVES_WIN">
+	<event>
+		<text>在被蛞蝓族操纵了几个月之后，殖民地的公民们都吓坏了。一个特别害怕的平民提出要加入你的船员，这样他就可以逃离这个星区。</text>
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>殖民地的公民似乎不明白发生了什么。当你解释情况后，他们感谢你，并提出进行交易。</text>
+		<store>STORE_SLUG</store>
+	</event>
+</eventList>
+<eventList name="SLUG_MINDSLAVES_ESCAPE">
+	<event />
+	<event />
+	<event>
+		<text>当你拉开距离时，你的一个船员开始表现得很奇怪，你突然发现你并没有逃过蛞蝓族的利眼！在船员发疯之前，你没有多少时间了。</text>
+		<choice hidden="true">
+			<text>我们无能为力，准备战斗吧！</text>
+			<event>
+				<text>你的船员的嘴开始抽搐，他们像狂热的动物一样开始攻击！</text>
+				<crewMember amount="-1" class="traitor" />
+			</event>
+		</choice>
+		<choice req="mind" hidden="true">
+			<text>(心灵控制)逆转效果。</text>
+			<event>
+				<text>万幸的是，系统能够使你的船员恢复正常状态，于是你得以迅速逃脱。</text>
+			</event>
+		</choice>
+		<choice req="BLUELIST_WEAPONS_MIND_AFFECT" hidden="true">
+			<text>(心灵干涉武器)抵消影响。</text>
+			<event>
+				<text>万幸的是，武器能够使你的船员恢复正常状态，于是你得以迅速逃脱。</text>
+			</event>
+		</choice>
+		<choice req="hacking" hidden="true">
+			<text>(黑客)逆转效果。</text>
+			<event>
+				<text>万幸的是，系统能够使你的船员恢复正常状态，于是你得以迅速逃脱。</text>
+			</event>
+		</choice>
+		<!--<choice req="BLUELIST_WEAPONS_HACK" hidden="true">
+			<text>(Hacking Weapon) Reverse the effects.</text>
+			<event>
+				<text>Luckily your weapon is able to disrupt the signal, and you escape quickly.</text>
+			</event>
+		</choice>-->
+		<choice req="LIST_CREW_SLUG" hidden="true">
+			<text>(蛞蝓族船员)让你的蛞蝓族用心灵感应和他说话。</text>
+			<event>
+				<text>幸运的是，你的蛞蝓族能够帮助你的船员保持足够长的理智，而你也迅速逃脱。</text>
+			</event>
+		</choice>
+		<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+			<text>(心灵感应甲壳族)让你的甲壳族以心灵感应的方式与他交谈。</text>
+			<event>
+				<text>幸运的是，你的甲壳族能够帮助你的船员保持足够长的理智，而你也迅速逃脱。</text>
+			</event>
+		</choice>
+		<choice req="engines" lvl="4" hidden="true">
+			<text>(高级引擎)尽可能快地逃出空间站的范围。</text>
+			<event>
+				<text>星舰迅速离开了空间站，你的船员也转为正常。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_DISTRESS_SLUG_MV">
+	<event load="NEBULA_SLUG_DISTRESS_TRICK" />
+	<event load="NEBULA_SLUG_DISTRESS_ROCK" />
+	<event load="NEBULA_DISTRESS_SLUG_QUESTION" />
+</eventList>
+
+<event name="NEBULA_SLUG_DISTRESS_TRICK" unique="true">
+	<distressBeacon />
+	<text>你发现一艘播放求救信号的蛞蝓飞船，并与他们联系。"啊，太好了，我们的氧气生成装置出了问题。也许你们的船员可以协助修理？"</text>
+	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>派一些船员去帮忙。</text>
+		<event load="SLUG_DISTRESS_TRICK_MV_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>你没有船员可帮忙。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你知道最好不要相信蛞蝓族。你切断通讯准备跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MANTIS">
+		<text>(螳螂族船员)让你的螳螂族监督维修。</text>
+		<event>
+			<text>进船之后，你的船员发现对方的氧气系统并没有任何问题。几乎在预料之中，你的螳螂族平静地回应了这个陷阱。几块蛞蝓族被分扯到舱壁上之后，其余的投降了。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_REPAIR_CREW">
+		<text>(维修无人机)派出一架无人机来解决他们的问题。</text>
+		<event>
+			<text>你的无人机很容易就处理了情况。顷刻之间，它就完成了必要的修理步骤，而你则带着一些额外的废料离开。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_BOMB_REPAIR">
+		<text>(修复炸弹)发射一发修复炸弹来修理他们的维生系统。[-1}]</text>
+		<event>
+			<text>只需一发修复炸弹就能彻底修复他们的维生系统。而这些蛞蝓会给你一笔丰厚的报酬来支付费用。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+			<item_modify>    
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+<eventList name="SLUG_DISTRESS_TRICK_MV_LIST">
+	<event>
+		<text>当你的船员进入飞船之后，对方的敌对意图就变得很明显了。尽管寡不敌众，你的船员还是挣脱了蛞蝓族的陷阱，回到了星舰的气闸。你甩开了与敌舰的距离，但还是有几名蛞蝓族跟了进来。</text>
+		<ship hostile="true" />
+		<boarders min="1" max="3" class="slug" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>当你的船员进入飞船之后，对方的敌对意图就变得很明显了。在返回星舰气闸的路上，你的一名船员被一名枪法精准的蛞蝓族用爆裂手枪击倒了。</text>
+		<ship hostile="true" />
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员立即被克隆舱复活了。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你小心翼翼地进入了他们的飞船，并立即闻到了氧气系统失灵导致的空气恶臭。你很快就解决了这个问题，然后带着货舱里的一些额外新废料再次启航。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_SLUG_DISTRESS_ROCK" unique="true">
+	<distressBeacon />
+	<text>你来到这里，发现一艘蛞蝓族飞船的船员正在登上一艘停摆的岩石族货船。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>与蛞蝓族舰交战。</text>
+		<event load="SLUG_DISTRESS_ROCK_FIGHT_MV" />
+	</choice>
+	<choice>
+		<text>无视对方。</text>
+		<event load="SLUG_DISTRESS_ROCK_AVOID_MV" />
+	</choice>
+</event>
+<eventList name="SLUG_DISTRESS_ROCK_FIGHT_MV">
+	<event>
+		<text>你给武器充能，蛞蝓族们立即退了回去。当你再次查看货船时，发现岩石族已经修复了他们最严重的损伤，并且没有说什么就跃迁走了。</text>
+	</event>
+	<event>
+		<text>你一边充能武器，蛞蝓族飞船迅速变道，迎接你的攻击。</text>
+		<ship load="SHIP_SLUG_DISTRESS_ROCK" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="SLUG_DISTRESS_ROCK_AVOID_MV">
+	<event>
+		<text>你不想在蛞蝓族的星域内挑衅他们，于是把他们抛之脑后。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>你不想在蛞蝓族的星域内挑衅他们，于是把他们抛之脑后。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>蛞蝓族登船后，你惊讶地看到岩石族飞船突然复活，并消灭了另一艘船。岩石族发来消息说："真废物。你要么是个懦夫，要么是蛞蝓族的盟友。无论怎样，你都不配活着。"</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="SLUG_DISTRESS_ROCK_RESULT_MV">
+	<event>
+		<text>看来，岩石族飞船在你们战斗之时离开了。你很想知道他们还能如何对你的援助更不领情。</text>
+	</event>
+	<event>
+		<text>战斗结束后，岩石族飞船向你示意。他们的舰长只声道谢，然后就跃迁走了。考虑到岩石族的率性，这已经很客气了。</text>
+	</event>
+	<event>	
+		<text>看来这艘岩石族飞船早就被废弃了，你从它身上剥下了能获取的东西。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_DISTRESS_SLUG_QUESTION" unique="true">
+	<distressBeacon />
+	<text>你到达了求救信标信号附近。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="SLUG_DISTRESS_QUESTION_LIST" />
+	</choice>
+</event>
+<eventList name="SLUG_DISTRESS_QUESTION_LIST">
+	<event>
+		<text>你艰难地追踪求救信标，发现它来自隐藏在星云中的一颗行星的五颗卫星的其中一颗。</text>
+		<choice hidden="true">
+			<text>调查。</text>
+			<event>
+				<text>当你渐渐靠近时，一个被困在该卫星表面的蛞蝓族与你联系。"如果你能回答我这个简单的问题，我就，我就加入你的团队。这里的行星有多少颗卫星环绕着？"</text>
+				<choice hidden="true">
+					<text>5颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
+				</choice>
+				<choice hidden="true">
+					<text>6颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>7颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>11颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你艰难地追踪求救信标，发现它来自隐藏在星云中的一颗行星的六颗卫星的其中一颗。</text>
+		<choice hidden="true">
+			<text>调查。</text>
+			<event>
+				<text>当你渐渐靠近时，一个被困在该卫星表面的蛞蝓族与你联系。"如果你能回答我这个简单的问题，我就，我就加入你的团队。这里的行星有多少颗卫星环绕着？"</text>
+				<choice hidden="true">
+					<text>5颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>6颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
+				</choice>
+				<choice hidden="true">
+					<text>7颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>11颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你艰难地追踪求救信标，发现它来自隐藏在星云中的一颗行星的七颗卫星的其中一颗。</text>
+		<choice hidden="true">
+			<text>调查。</text>
+			<event>
+				<text>当你渐渐靠近时，一个被困在该卫星表面的蛞蝓族与你联系。"如果你能回答我这个简单的问题，我就，我就加入你的团队。这里的行星有多少颗卫星环绕着？"</text>
+				<choice hidden="true">
+					<text>5颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>6颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>7颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
+				</choice>
+				<choice hidden="true">
+					<text>11颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你艰难地追踪求救信标，发现它来自隐藏在星云中的一颗行星的十一颗卫星的其中一颗。</text>
+		<choice hidden="true">
+			<text>调查。</text>
+			<event>
+				<text>当你渐渐靠近时，一个被困在该卫星表面的蛞蝓族与你联系。"如果你能回答我这个简单的问题，我就，我就加入你的团队。这里的行星有多少颗卫星环绕着？"</text>
+				<choice hidden="true">
+					<text>5颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>6颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>7颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_FALSE" />
+				</choice>
+				<choice hidden="true">
+					<text>11颗。</text>
+					<event load="SLUG_DISTRESS_QUESTION_TRUE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="SLUG_DISTRESS_QUESTION_FALSE">
+	<text>"回答...错误。"不仅如此，我还利用了你的迟钝，传送到你的船上，偷了你的东西！</text>
+	<item_modify steal="true">
+		<item type="scrap" min="-35" max="-35" />
+		<item type="fuel" min="-4" max="-2" />
+		<item type="drones" min="-2" max="-1" />
+	</item_modify>
+</event>
+<event name="SLUG_DISTRESS_QUESTION_TRUE">   
+	<text>"回答...正确。你让我很吃惊。联邦的人，是吗？好的...我们可以成为伙伴。"蛞蝓族登上了星舰，并加入了你的船员！</text>
+	<crewMember amount="1" class="slug" />  
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_QUEST_SLUG_MV">
+	<event load="NEBULA_SLUG_ROCK_SALTY" />
+	<event load="NEBULA_QUEST_SLUG_PIRATE_TRAP" />
+</eventList>
+
+<event name="NEBULA_SLUG_ROCK_SALTY" unique="true">   
+	<text>附近的星云已经被各种蛞蝓族飞船的残骸所污染。残骸的中心是一艘精锐的岩石族飞船，它是一场可怕的战斗中唯一的幸存者。</text>
+	<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>向岩石族呼叫。</text>
+		<event>
+			<text>岩石族们解释说，他们是来为在蛞蝓族扩张战争中死去的兄弟报仇的。他们在这个星云中猎杀蛞蝓族已经有一段时间了，但到目前为止，有一艘飞船设法躲过了他们的追捕。他们希望你能够追踪到那些蛞蝓族的下落。如果你成功了，将会有奖励等着你。</text>
+			<choice hidden="true">
+				<text>同意追捕蛞蝓族。</text>
+				<event>
+					<text>尽管蛞蝓扩张战争已经过去了5年多，并根据蛞蝓族与岩石族之间的休战协议得到了解决，你还是非常愿意做岩石族的脏活，只要能从中得到一些废料的话。</text>
+					<quest event="NEBULA_SLUG_ROCK_SALTY_HUNT" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们不是雇佣兵。</text>
+				<event>
+					<text>岩石族似乎并不在意，并切断了通讯。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>与飞船战斗。</text>
+		<event>
+			<text>出于某种原因，你决定与这艘精英岩石战舰纠缠。你的船员们赶忙进入战斗状态。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们应该离开这个鬼地方。</text>
+		<event>
+			<text>与精英岩石战舰纠缠是最糟糕的做法，你离开了它。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_SLUG_ROCK_SALTY_HUNT">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一个岩石圣战者要求你在这里追击一艘蛞蝓族飞船。</unvisitedTooltip>
+	</beaconType>   
+	<text>你发现岩石族提到的蛞蝓飞船正在向星云中溜走，你不确定他们是否注意到了你。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>跟随他们。</text>
+		<event>
+			<text>蛞蝓族们拼命地想要甩掉你，但你不依不饶。最后，他们放弃了，并向你呼叫。"那些肮脏的岩石族派你来的，对吧？求你了，我们会付钱给你。只要让我们活下去。"</text>
+			<ship load="SHIP_SLUG_ROCK_HUNT" hostile="false" />
+			<choice hidden="true">
+				<text>无视他们的请求并进行攻击。</text>
+				<event>
+					<text>你不会让蛞蝓族不战而逃。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>接受他们的贿赂。</text>
+				<event>
+					<item_modify>
+						<item type="scrap" min="15" max="35" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忘了这件事，转身离开。</text>
+		<event>
+			<text>你已经对奖励失去了兴趣，决定不再追捕蛞蝓族们。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_SLUG_ROCK_SALTY_HUNT_WIN">   
+	<text>当岩石族飞船从星云中的隐蔽处出来时，你甚至还没来得及与他们联系。"干得好。你让我们岩石族感到骄傲。按照承诺，付款已经就绪。"</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="RANDOM" />
+</event>
+
+<event name="NEBULA_QUEST_SLUG_PIRATE_TRAP" unique="true">
+	<text>你在通讯范围内看到了两艘蛞蝓族舰，而他们没有看到你。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>调整至他们的通讯频率。</text>
+		<event>
+			<text>你偷听了他们的谈话，得知他们正计划突袭该地区一艘作恶多端因此可能很有钱的海盗飞船。这两艘船离开，你记下了他们的目的地坐标。</text>
+			<quest event="NEBULA_QUEST_SLUG_PIRATE_TRAP2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你对蛞蝓族们的任何目标都没兴趣，是时候继续前进了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_QUEST_SLUG_PIRATE_TRAP2">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>被两艘蛞蝓族飞船盯上的所谓富裕海盗的位置。</unvisitedTooltip>
+	</beaconType> 
+	<environment type="nebula" />
+	<text>你追上了那两艘蛞蝓飞船，它们已经在进行突袭了！一艘正在与海盗近身搏斗，另一艘似乎正在前往海盗所保护的一个小型空间储藏舱。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>突然间，第一艘船爆燃了，剩下的蛞蝓族发出了紧急呼叫。"我们建～～议你能引开那艘海盗船，而我们则取回贵重物品，五五分成。"</text>
+			<choice hidden="true">
+				<text>迎击海盗。</text>
+				<event>
+					<text>这里有钱可赚，蛞蝓族们知道这点。你向海盗飞船开火，在它到达储藏舱之前拦截住了它！</text>
+					<ship load="SHIP_QUEST_SLUG_PIRATE_TRAP1" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>朝储藏舱进发。</text>
+				<event>
+					<text>当他看到你打算前往储藏舱时，蛞蝓族舰长叫道："愚蠢的外星人，不识好歹。那就祝你好运。"他们跃迁离开，留下你和海盗对峙！</text>
+					<ship load="SHIP_QUEST_SLUG_PIRATE_TRAP2" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_QUEST_SLUG_UNIQUE">
+	<event load="NEBULA_SLUG_ROCK_SALTY" />
+	<event load="NEBULA_QUEST_SLUG_PIRATE_TRAP" />
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_SLUG_MV">
+	<event load="NEBULA_ENCOUNTER_SLUG" />
+	<event load="NEBULA_SLUG_MANTIS" />
+	<event load="NEBULA_SLUG_PIRATE" />
+	<event load="NEBULA_SLUG_POISON" />
+	<event load="NEBULA_SLUG_LIMIT" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_SLUG">
+	<loadEventList first="false" generate="true">
+		<event name="NEBULA_ENCOUNTER_SLUG_REGULAR" />
+		<event name="NEBULA_ENCOUNTER_SLUG_STORM" />
+	</loadEventList>
+</event>
+<event name="NEBULA_ENCOUNTER_SLUG_REGULAR">
+	<text load="NEBULA_SLUG_FIGHT" />
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_SLUG_FIGHT">
+	<text>星舰的传感器完全无法媲美蛞蝓族的心灵感应能力，一艘战舰在你毫无防备的情况下从侧面发起攻击！</text>
+	<text>你在这里遇到的蛞蝓族飞船显然已经取得了很成功的猎绩，并希望测试其新的武器装备。他们选错了攻击的船只。</text>
+	<text>一艘蛞蝓族客船在呼叫："您好，尊敬的外星人殿下，我们没有武器，正在寻求庇护。"你小心翼翼地靠近，武器立即从他们的舰体上弹出！</text>
+	<text>一艘蛞蝓族飞船靠近，但当他看到你是联邦的时候，他放弃了偷袭，转为发射他所有的武器。</text>
+	<text>蛞蝓族不喜欢直接攻击，但你在这个信标处看到的三艘船中，有一艘有胆量开始靠近你！</text>
+</textList>
+<event name="NEBULA_ENCOUNTER_SLUG_STORM" unique="true">
+	<text load="STORM_SLUG_FIGHT" />
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="STORM_SLUG_FIGHT">
+	<text>这里的离子风暴有可能使你的核心系统失灵，而此处一艘像太空秃鹫一般盘旋着，基本不受风暴影响的蛞蝓族飞船则使得情况更加糟糕。</text>
+	<text>当你进入离子风暴时，一艘蛞蝓族飞船进入你的视野，但它一定是察觉到了你的困境。准备防御！</text>
+	<text>你到达在一场离子风暴中。蛞蝓族通常会避开这些风暴，但你发现有一艘埋伏在附近。准备战斗吧！</text>
+	<text>你发现自己被困在一场离子风暴中，一艘蛞蝓族飞船就在不远处，拒绝任何呼叫。你小心翼翼地试图进一步溜进云层，但他们却突然朝你攻击！</text>	
+</textList>
+
+<event name="NEBULA_SLUG_MANTIS" unique="true">
+	<text>这里的螳螂族攻击舰看起来是在他们的主场猎杀蛞蝓族，这对最强大的螳螂族船员来说是一次难得的荣誉考验。武器启动！</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_SLUG_PIRATE" unique="true">
+	<text>你很惊讶地发现一艘没有蛞蝓族标志的船一直被搁在这里，于是就前去提供帮助。当你看到舰体上的海盗标志时，你很快就改变主意了。</text>
+	<ship load="SHIP_PIRATE_ALL_NOSLUG" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>攻击！</text>
+		<event>
+			<text>你准备作战。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>保持距离，希望他们还没有看到你。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="NEBULA_SLUG_POISON" unique="true">
+	<loadEventList seeded="false" first="false" generate="false">
+		<event name="NEBULA_ENCOUNTER_SLUG_REGULAR" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" />
+		<event name="NEBULA_SLUG_INFECTOR" req="LIST_CHECK_ANY_CREW" lvl="1" />
+	</loadEventList>
+</event>
+
+<event name="NEBULA_SLUG_INFECTOR">
+	<text>你听到你的船员的喊声，然后跑了过来。一名蛞蝓族给他们注射了一根长针，并迅速传送走。对方与你联系，声称给你的船员注射了一种致命的化学物质，除非你付钱买解药，否则你的船员会死。</text>
+	<triggeredEvent name="TIMER_SLUG_INFECTOR_POISON" event="SLUG_INFECTOR_DEATH" jumps="1">
+		<triggeredEventBox load="DEFAULT_JUMPS">
+			<warning flash="false" />
+			<tooltip>你的船员要被毒死了。如果你不治好他们就跃迁走，他们就会死。</tooltip>
+		</triggeredEventBox>
+	</triggeredEvent>
+	<ship load="SHIP_SLUG_INFECTOR" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>我们不会为你那该死的解药付钱！我们会从你手里得到它！</text>
+		<event>
+			<text>你赶紧为武器充能，准备从蛞蝓族那里拿回解药。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>支付赎金。</text>
+		<event>
+			<text>蛞蝓族笑着把解毒剂送了过来。除了把它给你的船员之外，你没有什么选择。幸运的是，你的船员之后似乎感觉好多了。蛞蝓族跃迁走了。</text>
+			<clearTriggeredEvent name="TIMER_SLUG_INFECTOR_POISON" />
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="medbay" lvl="2">
+		<text>(高级医疗舱)治好你的船员。</text>
+		<event>
+			<text>幸运的是，你能够治疗你的船员。蛞蝓族们很恼火，但现在他们没有了筹码，他们很无奈，给了你一些废料，以让他们安然离开。</text>
+			<clearTriggeredEvent name="TIMER_SLUG_INFECTOR_POISON" />
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="SLUG_INFECTOR_DEATH">
+	<text>你的船员在痛苦中倒下，喘着粗气。没有解毒剂，你只能看着他死去。</text>
+	<removeCrew>
+		<clone>false</clone>
+		<text>似乎蛞蝓族使用的任何东西都会在下一世延续到你的船员身上。你别无选择，只能将他们的条目从克隆舱中删除。</text>
+	</removeCrew>
+</event>
+
+<event name="NEBULA_SLUG_LIMIT">
+	<loadEventList first="false" generate="true">
+		<event name="NEBULA_SLUG_DOOR_JAM" />
+		<event name="NEBULA_SLUG_DOORS" />
+		<event name="NEBULA_SLUG_O2_JAM" />
+		<event name="NEBULA_SLUG_MEDBAY" />
+	</loadEventList>
+</event>
+<event name="NEBULA_SLUG_DOOR_JAM" unique="true">
+	<loadEventList seeded="false" first="false" generate="false">
+		<event name="NEBULA_ENCOUNTER_SLUG_REGULAR" req="oxygen" lvl="0" max_lvl="0" />
+		<event name="NEBULA_SLUG_DOORS" req="oxygen" lvl="1" /> <!-- not a typo, checking for oxygen to see if fires are worth-->
+	</loadEventList>
+</event>
+<event name="NEBULA_SLUG_DOORS">
+	<text>银河系中很少有比被逼到墙角的蛞蝓族更凶恶的野兽。这艘装备有火焰武器的摇摇欲坠的飞船使用了远程黑客工具，试图破坏你的舱门系统——他们打算把你烧死！</text>
+	<ship load="SHIP_SLUG_STATUS_DOORS" hostile="true" />
+	<environment type="nebula" />
+	<status type="limit" target="player" system="doors" amount="0" />
+	<choice>
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>(黑客系统)对抗远程黑客。</text>
+		<event>
+			<text>你的黑客系统自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<status type="clear" target="player" system="doors" amount="100" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ANTI_VIRUS">
+		<text>(防护程序)阻止对方黑客入侵。</text>
+		<event>
+			<text>你的防护程序自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<status type="clear" target="player" system="doors" amount="100" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_SLUG_O2_JAM" unique="true">
+	<loadEventList seeded="false" first="false" generate="false">
+		<event name="NEBULA_ENCOUNTER_SLUG_REGULAR" req="oxygen" lvl="0" max_lvl="0" />
+		<event name="NEBULA_SLUG_OXYGEN" req="oxygen" lvl="1" />
+	</loadEventList>
+</event>
+<event name="NEBULA_SLUG_OXYGEN">
+	<text>这里的蛞蝓族使用了一种你希望永远都不会看到的战术：他们使用了远程黑客轨道器来瓦解你的氧气系统，然后给火焰武器充能——你将要窒息而死！</text>
+	<status type="limit" target="player" system="oxygen" amount="0" />
+	<ship load="SHIP_SLUG_STATUS_OXYGEN_FIRE" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="oxygen" lvl="2">
+		<text>(高级氧气)尽量为系统争取一些额外的供能。</text>
+		<event>
+			<text>值得庆幸的是，你高级的子系统能够对抗他们的黑客攻击，足以使氧气系统勉强运作。这应该至少能让你活着...</text>
+			<status type="divide" target="player" system="oxygen" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>(黑客系统)对抗远程黑客。</text>
+		<event>
+			<text>你的黑客系统自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<status type="clear" target="player" system="oxygen" amount="100" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ANTI_VIRUS">
+		<text>(防护程序)阻止对方黑客入侵。</text>
+		<event>
+			<text>你的防护程序自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<status type="clear" target="player" system="oxygen" amount="100" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_SLUG_MEDBAY" unique="true"> 
+	<text>一艘蛞蝓族飞船向你呼叫："我们检测到你的一些医疗单位正放出令人担忧的辐射，也许你应该接受一下检查？"当他挂断后，你的系统被关闭了，他们的船员从附近的空间站传送至星舰。他们看起来可不像是工程师。</text>
+	<ship load="SHIP_SLUG_STATUS_MEDBAY" hostile="true" />
+	<boarders min="2" max="2" class="slug" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你的医疗系统被关闭了，你准备保卫你的星舰。</text>
+			<status type="limit" target="player" system="medbay" amount="0" />
+			<status type="limit" target="player" system="clonebay" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="medbay" lvl="2">
+		<text>(高级医疗舱)尽量为系统争取一些额外的供能。</text>
+		<event>
+			<text>由于害怕即将到来的战斗，你拼命地试图让医疗舱重新工作。它的灯光重新闪烁起来，于是你投身面对入侵者们。</text>
+			<status type="divide" target="player" system="medbay" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="clonebay" lvl="2">
+		<text>(高级克隆舱)尽量为系统争取一些额外的供能。</text>
+		<event>
+			<text>由于害怕即将到来的战斗，你拼命地试图让克隆舱重新工作。它的灯光重新闪烁起来，于是你投身面对入侵者们。</text>
+			<status type="divide" target="player" system="clonebay" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>(黑客系统)对抗远程黑客。</text>
+		<event>
+			<text>你成功弥补了对方的远程黑客轨道器对星舰的破坏，但这暂时完全透支了你的黑客系统。是时候用老办法干掉敌人了。</text>
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ANTI_VIRUS">
+		<text>(防护程序)阻止对方黑客入侵。</text>
+		<event>
+			<text>你的防护程序自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEBULA_HOSTILE_SLUG_UNIQUE">
+	<event load="NEBULA_ENCOUNTER_SLUG_HACKER" />
+	
+	<event load="NEBULA_ENCOUNTER_SLUG" />
+	<event load="NEBULA_SLUG_POISON" />
+	<event load="NEBULA_SLUG_LIMIT" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_SLUG_HACKER" unique="true">
+	<text>蛞蝓族黑客出奇的少，即使在蛞蝓族的星域也是如此。尽管如此，你似乎很不幸地在这个信标处遇到了一个。</text>
+	<ship load="SHIP_HACKER" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_ENCOUNTER_SLUG_ELITE" unique="true">
+	<text>尽管蛞蝓族不守规矩，但他们对自己的帝国和王室有着虔诚的自豪感。这里的蛞蝓族精英舰似乎把你对他们星域的入侵当作一种侮辱，并决定把你从这里赶走。</text>
+	<ship load="SHIP_SLUG_ELITE_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_DISTRESS_SLOCKNOG_START" unique="true">
+	<distressBeacon />
+	<preventQuest />
+    <text>这里的求救信标似乎是通过星云中的一块空地进行广播。顺着它，你遇到了一个漂流在深渊中的流浪星球。扫描显示，有东西坠落在表面。</text>
+    <img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_WATER" />
+    <status type="loss" target="player" system="sensors" amount="1" />
+    <choice req="loc_found_slocknog" lvl="0" hidden="true" max_group="0" blue="false">
+        <text>调查。</text>
+        <event load="DISTRESS_SLOCKNOG_INVESTIGATE" />
+    </choice>
+    <choice req="loc_found_slocknog" lvl="1" hidden="true" max_group="0" blue="false">
+        <text>调查。</text>
+        <event load="DISTRESS_SLOCKNOG_INVESTIGATE_BORING" />
+    </choice> 
+    <choice req="pilot" lvl="1" hidden="true" max_group="1" blue="false">
+        <text>无视残骸。</text>
+        <event>
+            <text>你知道最好不要落入蛞蝓族星域中的潜在陷阱。</text>
+            <choice hidden="true">
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+<beaconType id="map_icon_hbm_slocknogstart" global="true">
+        <color r="255" g="245" b="0" a="1.0" />
+        <unvisitedTooltip>此处是斯洛克诺格的残骸所在。需要携带 50 废铁。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="DISTRESS_SLOCKNOG_INVESTIGATE" unique="true">
+	<variable name="loc_found_slocknog" op="set" val="1" />
+	<text>你试着靠近这颗星球。虽然这里几乎完全是一片漆黑，但从一艘大型精英蛞蝓星舰处传来了一束光！你一靠近，就有一名亮黄色的蛞蝓族从里面爬出来，手里捏着武器。</text>
+	<choice>
+		<text>与蛞蝓族交谈。</text>
+		<event>
+			<text>"啊，一个智慧物种，经过这么长的时间后。我是斯洛克诺格，一个寻求冒险的漂泊英雄。我被放逐到这里已经很久了...我的飞船需要帮助，而我的船员都死光了。你能不能好心地借给我一点儿废料？"</text>
+			<choice>
+				<text>给予他所请求的"一点儿废料"。</text>
+				<event>
+					<text>数额比你愿意的要高很多，但你还是按要求如数送给了他。"哦，你真是个意外之喜。我经营这个帝国太久了，以至于几乎忘了这些星云之外的其他人经常会有的善意..."</text>
+					<item_modify>
+						<item type="scrap" min="-50" max="-50" />
+					</item_modify>
+					<choice hidden="true">
+						<text>等等，你是说，经营，这个帝国？</text>
+						<event load="SLOCKNOG_REVEAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>他要的太多了，给他一半。</text>
+				<event>
+					<text>"这不是很多，但还是比没有要好。"</text>
+					<item_modify>
+						<item type="scrap" min="-25" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"我不再需要这个武器了，你可以替我使用它。感谢你最慷慨的提议。"</text>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="DRONE_CONTROL_REPAIR_ALL">
+				<text>(维修无人机)用它和一些无人机部件来完全修复他的飞船。</text>
+				<event>
+					<text>"哦，你真是个意外之喜。我经营这个帝国太久了，以至于几乎忘了这些星云之外的其他人经常会有的善意..."</text>
+					<item_modify>
+						<item type="drones" min="-3" max="-3" />
+					</item_modify>
+					<choice hidden="true">
+						<text>等等，你是说，经营，这个帝国？</text>
+						<event load="SLOCKNOG_REVEAL" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝。</text>
+				<event>
+					<text>"你太不近人情了，而且浪费了大量的时间。如果我有武器把你赶出这块大石头，我会的，但可惜我唯一的选项是瞪着你直到你离开。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>轰掉他，废掉他的船，搜刮他的废料。</text>
+		<event>
+			<text>不冒任何潜在的风险，你立即射杀了这名蛞蝓族，把他变成了一簇带有渗出物的血雾。你降落在地表并拆除了他的星舰。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+</event>
+<event name="SLOCKNOG_REVEAL">
+	<text>"哦，嘿嘿，是的。关于漂泊英雄的部分，我撒了谎，我实际上是斯洛克诺格·德西利爵士。我曾经是这个地方的国王，直到那个混蛋七夜骗了我，抢走了王冠，然后把我流放了！"</text>
+	<choice hidden="true">
+		<text>七夜？就是那个海盗舰长？</text>
+		<event>
+			<text>"是的，就是那个七夜，他也自称是一个'混蛋'。每四年，蛞蝓族们都会举行'盗冠节'，小偷们在那时会竞争谁先偷到王冠，并成为下一任国王。这是一个久负盛名且非暴力的传统，至少在七夜杀了我的人并强迫我把王冠给他之前都是这样的！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"我曾是国王，直到那个卑鄙小人玩阴的，夺走了我的一切！但现在有了这些废料，我可以修复我的飞船，重新夺回我的王位！谢谢你，舰长。拿好这个增强部件，如果你想亲自来观赏一下，这里有王家星云的坐标。"</text>
+					<augment name="RANDOM" />
+					<variable name="coords_nights" op="set" val="1" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="DISTRESS_SLOCKNOG_INVESTIGATE_BORING">
+	<text>带着一种奇怪的既视感，你驾驶星舰靠近了这颗星球。啊哦，除了一艘蛞蝓运输舰的废墟，没有其他什么东西。虽然只有能带回星舰的废料，你也没什么好抱怨的。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_SLUG_UNLOCK" unique="true">
+<preventQuest />
+	<text>似乎有一艘通灵会飞船在保卫这个星系。发现了你这艘联邦飞船之后，他们发动攻击！</text>
+	<ship load="SHIP_SLUG_UNLOCK_1" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+<beaconType id="map_icon_hbm_clairvoyantstart" global="true">
+        <color r="255" g="254" b="0" a="1.0" />
+        <unvisitedTooltip>此处是蛞蝓族的所在。放过那艘船。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="SURRENDER_SLUG_UNLOCK">
+	<text>"求你了，真的求你了！你击败了我们！让我们走吧，我们可以让你不虚此行！你可能知道我们的诡计多端，但当我们没有退路时，我们也可以遵守承诺！"</text>
+	<choice hidden="true">
+		<text>放他们一条生路。</text>
+		<event>
+			<text>"我们所能提供的只有这个改良的原型反生物光束，他们要是知道我们弄丢了这个，不会给我们好脸色的..."</text>
+			<ship hostile="false" />
+			<surrender />
+			<choice>
+				<text>接受原型武器。</text>
+				<event>
+					<text>蛞蝓族赠送的武器似乎是标准反生物光束的某种原型变体。它令你大开眼界，你不禁想知道银河系里还可能存在多少其他的变体版本。</text>
+					<weapon name="LOOT_SLUG_1" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>作为一名通灵者，你肯定知道你本该把这件武器带给谁。</text>
+				<event>
+					<text>"嘎，你想知道的太多了，我们会因为这个而被杀死的！这种武器将被安装在我们最新生产线的战舰上。随着星联的不断壮大，我们有余力为战舰进行额外的准备，以防那些岩石族或螳螂族的叛变。"经过一番询问，蛞蝓族不情愿地交出了建造平台的坐标。</text>
+					<quest event="SLUG_UNLOCK_2_MV" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SLUG_UNLOCK_2_MV">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一处秘密的蛞蝓族建造平台坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了通灵者们给你的坐标，无比危险地邻近一座巨大的蛞蝓建造场，该场有一间武装精良的蛞蝓空间站保护。幸运的是，你在被发现之前迅速溜进了星云，现在至少你可以确定这是正确的位置。</text>
+	<environment type="nebula" />
+	<ship load="SHIP_SLUG_UNLOCK_2" hostile="false" />
+	<choice hidden="true">
+		<text>搞定空间站。</text>
+		<event>
+			<text>要是你大老远跑过来结果只是逃避，会被人诅咒的。你弹出武器，攻击该空间站。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>似乎离开是个明智的主意。</text>
+		<event />
+	</choice>
+</event>
+<event name="SLUG_UNLOCK_3_MV">
+	<text>该空间站已被击败。背景中响起了响亮的警报声，一支装备简陋的小型防卫队走了出来，但当他们看到你的星舰时就停了下来。看来蛞蝓族们几乎完全依靠该空间站进行防御。</text>
+	<choice hidden="true">
+		<text>要求他们给你保护费。</text>
+		<event>
+			<text>事况到了这一歩之后，已经不需要再做什么就能让蛞蝓族投降了。他们十分害怕你会把整个建造场都夷平，所以提供了一件与之前那件类似的原型武器、一些废料，以及一份蛞蝓星舰的蓝图！</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_SLUG</unlockCustomShip>
+			<weapon name="LOOT_SLUG_1" />
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_SLUG_PLEASURE_1" unique="true">
+	<preventQuest />
+	<text>这个信标处的星云已经部分散去，露出了一艘巨大的蛞蝓欢愉游艇！这些船上到处都是蛞蝓族，渴望获得......愉快的体验。尽管它很庞大，但这艘船似乎根本没有配备任何武器。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_PLEASURE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>突击游艇，应该很容易。</text>
+		<event>
+			<text>当你准备攻击时，一艘护送游艇的小船进场防御。你一定漏看了巨大的游艇后面的他们，但现在一场战斗不可避免。</text>
+			<ship load="SHIP_PLEASURE_ESCORT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视游艇。</text>
+		<event>
+			<text>这艘船上满是蛞蝓族平民，所以没有理由去攻击他们。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_pleasurestart" global="true">
+        <color r="184" g="89" b="188" a="1.0" />
+        <unvisitedTooltip>此处是极乐游艇事件的所在。需要三级传感器。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="SLUG_PLEASURE_1_WIN">
+	<noQuestText />
+	<text>扫描显示，这艘游艇不会在这个信标处停留太久，因为它的引擎已经在充能，并试图逃离。在它逃跑之前，你没有时间在这里与它战斗。</text>
+	<choice hidden="true">
+		<text>我们没有别的办法了，让它跃迁吧。</text>
+		<event>
+			<noQuestText />
+			<text>你可能无法在这里与它战斗，但也许你会有运气在这个星区或下一个星区再次遇到它。</text>
+			<quest event="SLUG_LIGHT_PLEASURE_2_NOQUEST" />
+		</event>
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>(先进传感器)追踪他们的跃迁特征。</text>
+		<event>
+			<text>你虽然无法在这里与它战斗，但你能够锁定飞船的跃迁特征。现在你可以轻松地跟踪它了。</text>
+			<quest event="SLUG_LIGHT_PLEASURE_2" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>(蛞蝓族船员)追踪他们的跃迁特征。</text>
+		<event>
+			<text>你虽然无法在这里与它战斗，但你的蛞蝓族能够锁定飞船的跃迁特征。现在你可以轻松地跟踪它了。</text>
+			<quest event="SLUG_LIGHT_PLEASURE_2" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(心灵感应甲壳族)追踪他们的跃迁特征。</text>
+		<event>
+			<text>你虽然无法在这里与它战斗，但你的甲壳族能够锁定飞船的跃迁特征。现在你可以轻松地跟踪它了。</text>
+			<quest event="SLUG_LIGHT_PLEASURE_2" />
+		</event>
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS">
+		<text>(长距扫描仪)追踪他们的跃迁特征。</text>
+		<event>
+			<text>你虽然无法在这里与它战斗，但你能够锁定飞船的跃迁特征。现在你可以轻松地跟踪它了。</text>
+			<quest event="SLUG_LIGHT_PLEASURE_2" />
+		</event>
+	</choice>
+</event>
+<event name="SLUG_LIGHT_PLEASURE_2_NOQUEST">
+	<preventQuest />
+	<beaconType id="map_icon_none" global="false"> <!--has no beacon-->
+		<color r="255" g="255" b="255" a="0" />
+	</beaconType>
+	<text>今天一定是你的幸运日，看来你又一次偶然发现了欢愉游艇！</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_PLEASURE_BARGE" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="SLUG_LIGHT_PLEASURE_2" />
+	</choice>
+</event>
+<event name="SLUG_LIGHT_PLEASURE_2">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>欢愉游艇的疑似位置。</unvisitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<text>这一次，你又追踪到了游艇，它没有护卫。除了它的传送系统外，它完全没有任何防护。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_PLEASURE_BARGE" hostile="false" />
+	<choice hidden="true">
+		<text>攻击，把他们干掉！</text>
+		<event>
+			<text>你接近游艇，准备一劳永逸地解决它。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>你做得太过火了，还是别管他们了。</text>
+		<event>
+			<text>你已经不必要地惊吓了船上的蛞蝓族，没有理由继续进行攻击。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_PLEASURE_BARGE" auto_blueprint="MU_PLEASURE_BARGE">
+	<escape min="6" max="7" timer="80">
+		<text>当你继续攻击游艇时，你注意到有几个逃生舱从船上分离出来了！看来这些平民正试图逃跑。与此同时，欢愉游艇开始为它的引擎充能。</text>
+		<choice hidden="true">
+			<text>继续射击！</text>
+			<event />
+		</choice>
+		<choice hidden="true">
+			<text>停止攻击，截住一些逃生舱。</text>
+			<event>
+				<text>你放弃了游艇，去截了一些逃生舱。看来你又一次走运...这间逃生舱里有一名蛞蝓破坏者！</text>
+				<ship hostile="false" />
+				<choice>
+					<text>他任由我们摆布——迫使他在星舰上服务。</text>
+					<event>
+						<crewMember amount="1" class="slug_saboteur" />
+					</event>
+				</choice>
+				<choice>
+					<text>迫使他交出自己的一切，以换取生命。</text>
+					<event>
+						<autoReward level="HIGH">augment</autoReward>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</escape>
+	<surrender min="1" max="2">
+		<text>你收到了游艇舰长的呼叫。"拜托，这艘船上有那么多无辜的人。我可以给你一切，只要你不杀我们！"</text>
+		<choice>
+			<text>同意他们投降。</text>
+			<event>
+				<text>"好的，没问题！我现在就把物资传送过去。"</text>
+				<ship hostile="false" />
+				<autoReward level="HIGH">standard</autoReward>
+				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>你们的边角料提不起我们的兴趣，这点东西能打发谁？</text>
+			<event>
+				<text>"没问题的！我说过我会给你一切！我将在你的船上服务，听起来如何？"</text>
+				<choice>
+					<text>同意他的新投降条件。</text>
+					<event>
+						<text>蛞蝓族传送过来。他不情愿作为你的船员工作，但意识到这是将平民从你的愤怒中拯救出来的唯一方法。</text>
+						<ship hostile="false" />
+						<crewMember amount="1" pilot="2" class="slug_saboteur" />
+						<variable name="ach_boss_pleasurebarge" op="set" val="1" />
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>还不够，你的格局必须打开，大开！好好想一想这其中的利害关系。</text>
+					<event>
+						<text>"好吧！把整艘船都拿去吧！我无所谓。只要让我们走。"</text>
+						<choice hidden="true">
+							<text>现在这他妈才是一个我们无法拒绝的提议。</text>
+							<event>
+								<text>其余的平民都离开了游艇。你把内部搜刮了个精光，尽可能多地带走。如果让这艘船被浪费掉，那就太可惜了。你对飞船的超光速推进器进行重新编程，使其回到最近的联邦基地，在那它将被扫描并为未来的多元宇宙旅行者们重建。</text>
+								<ship hostile="false" />
+								<drone name="BUTLER_DEFENSE" />
+								<autoReward level="HIGH">stuff</autoReward>
+								<variable name="ach_boss_pleasurebarge" op="set" val="1" />
+								<unlockCustomShip silent="false">PLAYER_SHIP_PLEASURE</unlockCustomShip>
+							</event>
+						</choice>
+						<choice hidden="true">
+							<text>我们不会接受你的投降。</text>
+							<event />
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</surrender>
+	<destroyed>
+		<text>欢愉游艇爆炸了，散落了碎片和几十具平民蛞蝓族的尸体。你回收残骸，收获颇丰。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>当你飞走时，你发现了一个在爆炸中幸存的逃生舱。里面是一个被迫在游艇上工作的奴隶。现在他自由了，加入了你的船员。</text>
+				<crewMember amount="1" />
+				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
+			</event>
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>你已经把游艇上的船员全部清空了。在你四处捞取残骸的过程中，你还发现了一个奇怪的无人机蓝图和大量的资源。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+		<drone name="BUTLER_DEFENSE" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>这艘船安静得令人毛骨悚然。你已经熟练地完成了清理船员的工作，如果让这艘船白白浪费，那就太可惜了。你对飞船的超光速推进器进行重新编程，引导飞船回到最近的联邦基地，在那它将被扫描并为未来的多元宇宙旅行者重建。</text>
+				<variable name="ach_boss_pleasurebarge" op="set" val="1" />
+				<unlockCustomShip silent="false">PLAYER_SHIP_PLEASURE</unlockCustomShip>
+			</event>
+		</choice>
+	</deadCrew>
+</ship>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

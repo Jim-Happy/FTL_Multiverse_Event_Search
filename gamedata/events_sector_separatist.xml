@@ -1,0 +1,1518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SEPARATIST SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_SEPARATIST">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_SEPARATIST">
+	<event load="SEPARATIST_VIRUS_TRAP" />
+	<event load="SEPARATIST_WORTHLESS_JUNK" />
+	<event load="SEPARATIST_TRAP_SCAN" />
+	<event load="SEPARATIST_FREE_CREW" />
+	<event load="SEPARATIST_BODY_SCAN" />
+</eventList>
+
+<event name="SEPARATIST_VIRUS_TRAP" unique="true">
+    <text>你在卫星轨道周围发现了一艘废弃的离谐舰。船上没有检测到任何活动迹象。</text>
+    <ship load="SHIP_SEPARATIST_ALL" hostile="false" />
+    <choice hidden="true" blue="false" req="engi" lvl="1">
+		<text>登舰调查。</text>
+		<event>
+			<text>在你登舰搜刮时，你听见你的半械族船员发出了一些像是在求救的声响。它开始抽搐晃动，在你迷惑了一小会后，你的半械族似乎接受了它身上发生的事情——一个病毒将它转化为了半械分离者！</text>
+			<transformRace class="engi">engi_separatist</transformRace>
+			<choice hidden="true">
+				<text>继续收刮飞船。</text>
+				<event load="DEFUNCT_SEPARATIST_SALVAGE" />	
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true" blue="false" req="engi" lvl="0" max_lvl="0">
+		<text>登舰调查。</text>
+		<event load="DEFUNCT_SEPARATIST_SALVAGE" />
+    </choice>
+    <choice hidden="true">
+		<text>炸毁飞船，收获残骸。</text>
+		<event>
+			<text>摧毁飞船会大大降低奖励，但这样做比登舰调查更安全。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<enemyDamage amount="99" />
+		</event>
+    </choice>
+    <choice>
+		<text>避开可疑的废弃飞船。</text>
+		<event>
+			<text>你避开这艘飞船—众所周知，半械分离者会留下病毒给不知情的拾荒者。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="DEFUNCT_SEPARATIST_SALVAGE">
+    <event>
+		<text>飞船基本完好无损，拥有丰厚的废料和资源。你把这些物资拖回自己的星舰，完全没有遇到任何阻力。</text>
+		<autoReward level="HIGH">standard</autoReward>
+    </event>
+    <event>
+		<text>飞船基本完好无损，拥有丰厚的废料和资源。在搜刮飞船的过程中，你在货舱里发现了一张可以使用的无人机蓝图。</text>
+		<autoReward level="MED">standard_no_item</autoReward>
+		<drone name="LIST_DRONES_SEPARATIST" />
+    </event>
+</eventList>
+
+<event name="SEPARATIST_WORTHLESS_JUNK" unique="true">
+	<text>你听见附近舰船上有两位分离者在为某个增强部件吵架。你向他们呼叫。"你好，致意。我们获得了物品。物品用途未知，我们留下物品的意愿是0。请将这件[无用的垃圾]从我们手中拿走。"</text>
+	<augment name="RANDOM" />
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--<event name="SEPARATIST_ICECREAM" unique="true">
+    <text>A small Separatist vendor nearby is advertising to passing ships some kind of miracle concoction it claims can solve anyone's problems. Sounds incredulous, but would it hurt to check it out?</text>
+    <choice hidden="true">
+        <text>Investigate the vendor.</text>
+        <event>
+			<text>"Welcome, welcome, [valued] customer! Might I interest you in the -exotic-, delightful, and positively splenerific taste of F.D.P.T.W.T.F.M.C.E.? You won't regret it!"</text>
+			<choice hidden="true">
+				<text>What?</text>
+				<event>
+					<text>"Have you never heard of [Frozen Dairy Product Topped With Terran Fruit and Melted Coco Extract]? I am told it is -all- the rage in the Union. I recommend a purchase. It will make your crew happier."</text>
+					<choice hidden="true">
+						<text>Buy the F.D.P.T.W.T.F.M.C.E.</text>
+						<event>
+							<text>"Thank you for your [purchase] Renegade! I hope to have more flavors in the -future-!"</text>
+							
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>That sounds like it'll kill us. No thanks.</text>
+				<event>
+					<text>The Separatist frowns but says nothing more. You brush past them and move on.</text>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true">
+        <text>Ignore the Engi.</text>
+        <event>
+            <text>Their promises are clearly fabricated. You don't have time to waste on disappointing yourself, better to get a move on.</text>
+            <choice>
+                <text>Do something onboard the ship.</text>
+                <event load="STORAGE_CHECK"/>
+            </choice>
+            <choice>
+                <text>Do nothing.</text>
+                <event/>
+            </choice>
+        </event>
+    </choice>
+</event>-->
+
+<event name="SEPARATIST_TRAP_SCAN" unique="true">
+    <text>一艘临近的分离者舰船在你跃迁进入后向你呼叫。"你很[走运]联邦舰长。我拥有一套详实的数据集，包含此星区的星图，你是否愿意下载？"</text>
+    <choice hidden="true">
+        <text>下载数据。</text>
+        <event load="SEPARATIST_TRAP_SCAN_ACCEPT" />
+    </choice>
+    <choice hidden="true">
+        <text>不，谢谢。</text>
+        <event>
+            <text>"看来你对利用大好[机遇]不感兴趣。"</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="SEPARATIST_TRAP_SCAN_ACCEPT">
+    <event>
+        <text>你开始下载并关注着加载中的数据。大部分是杂乱的废品，比如鱼形乙苯蛋糕的食谱，以及一篇关于诚信的重要性的文章。最后，你看见了正在下载的星图数据。你感谢分离者们，他们点了点头，然后在传输完毕后跃迁离开。</text>
+        <reveal_map />
+    </event>
+    <event>
+        <text>你开始下载并关注着加载中的数据。大部分是杂乱的废品，比如鱼形乙苯蛋糕的食谱，以及一篇关于诚信的重要性的文章。然而正当星图数据开始下载时，弹出一个报错，你的电脑自动关机了。等了一会但它仍然没重启，你才意识到你被骗了！分离者舰船启动武器并上前进攻！</text>
+        <ship load="SHIP_SEPARATIST_SCAN" hostile="true" /> 
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+</eventList>
+
+<event name="SEPARATIST_FREE_CREW" unique="true">
+	<text>一位分离者向你呼叫，先是用着二进制流而后转为人类语言。"联邦。联邦。请忽视我受损的对话处理器处理器器。我最近最近才从[谐合]手中挣脱重获自由，希望能服役于一艘联邦战舰战舰。你是否接受接受我？"</text>
+	<choice hidden="true">
+		<text>欢迎入舰！</text>
+		<event>
+			<text>"哦，感谢感谢你舰长！"</text>
+			<crewMember amount="1" class="engi_separatist">L-4673</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们不需要更多船员。</text>
+		<event>
+			<text>"哦...我理解理解。祝你们任务任务好运。"</text>
+			<choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SEPARATIST_BODY_SCAN" unique="true">
+	<text>尽管这个信标没有舰船，一位孤身一人的分离者传送到你的指挥舱内。他没有浪费时间直接询问是否可以扫描你们的身体，希望将自己的身体重塑为你们身体的形状。</text>
+	<choice hidden="true">
+		<text>允许他。</text>
+		<event load="SEPARATIST_BODY_SCAN_ALLOW" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SOLDIER">
+		<text>(精英人类)怂恿他扫描你的精英人类船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_SOLDIER" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SUZERAIN">
+        <text>(精英母巢船员)怂恿他扫描你的精英螳螂族船员。</text>
+        <event load="SEPARATIST_BODY_SCAN_SUZERAIN" />
+    </choice>
+	<choice hidden="true" req="LIST_CREW_SABOTEUR">
+		<text>(精英蛞蝓族)怂恿他扫描你的精英蛞蝓族船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_SABOTEUR" />
+	</choice>
+	<choice hidden="true" req="zoltan_peacekeeper">
+		<text>(维和兵)怂恿他扫描你的超能维和兵船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_PEACE" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRUSADER">
+		<text>(精英岩石族)怂恿他扫描你的精英岩石族船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_CRUSADER" />
+	</choice>
+	<choice hidden="true" req="orchid_praetor">
+		<text>(军政官)怂恿他扫描你的军政官船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_PRAETOR" />
+	</choice>
+	<choice hidden="true" req="orchid_cultivator">
+		<text>(种植者船员)怂恿他扫描你的种植者船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_CULTIVATOR" />
+	</choice>
+	<choice hidden="true" req="crystal_sentinel">
+		<text>(戍卫者船员)怂恿他扫描你的戍卫者。</text>
+		<event load="SEPARATIST_BODY_SCAN_SENTINEL" />
+	</choice>
+	<choice hidden="true" req="lanius_welder">
+		<text>(熔铁者)怂恿他扫描你的熔铁者船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_WELDER" />
+	</choice>
+	<choice hidden="true" req="phantom_alpha">
+		<text>(巨型幻灵)怂恿他扫描你的巨型幻灵船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_PHANTOMALPHA" />
+	</choice>
+	<choice hidden="true" req="phantom_mare_alpha">
+		<text>(巨型蚀灵)怂恿他扫描你的巨型蚀灵船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_MAREALPHA" />
+	</choice>
+	<choice hidden="true" req="phantom_goul_alpha">
+		<text>(巨型燃灵)怂恿他扫描你的巨型燃灵船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_GOULALPHA" />
+	</choice>
+	<choice hidden="true" req="phantom_wraith_alpha">
+		<text>(巨型电灵)怂恿他扫描你的巨型电灵船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_WRAITHALPHA" />
+	</choice>
+	<choice hidden="true" req="shell_radiant">
+		<text>(辐射体船员)怂恿他扫描你的辐射体船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_RADIANT" />
+	</choice>
+	<choice hidden="true" req="zoltan_martyr">
+		<text>(殉义者船员)怂恿他扫描你的殉义者。</text>
+		<event load="SEPARATIST_BODY_SCAN_RADICAL" />
+	</choice>
+	<choice hidden="true" req="mantis_warlord">
+		<text>(自由螳螂军阀)怂恿他扫描你的螳螂军阀船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_WARLORD" />
+	</choice>
+	<choice hidden="true" req="slug_ranger">
+		<text>(猎枪手船员)怂恿他扫描你的猎枪手。</text>
+		<event load="SEPARATIST_BODY_SCAN_RANGER" />
+	</choice>
+	<choice hidden="true" req="leech_ampere">
+		<text>(电吸虫)怂恿他扫描你的电吸虫船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_AMPERE" />
+	</choice>
+	<choice hidden="true" req="human_technician">
+		<text>(革新社技工)怂恿他扫描你的技工船员。</text>
+		<event load="SEPARATIST_BODY_SCAN_TECH" />
+	</choice>
+	<choice hidden="true" req="siren_harpy">
+		<text>(食梦者船员)怂恿它扫描你的食梦者船员。</text>
+		<event>
+			<text>分离者开始扫描食梦者，但扫描一半时停下了。"这是什么？！[这]是什么？！为何眼睛尝起来极度痛苦？！-这些-颜色又是什么？！我的脑子，我的[脑子]！啊啊啊啊啊啊啊！"分离者几乎立刻开始分解，什么也没剩下。</text>
+		</event>
+	</choice>	
+	<choice hidden="true" req="LIST_CREW_ENGI">
+		<text>(半械族)怂恿他扫描你的半械族船员。</text>
+		<event>
+			<text>"你希望我...与当前形态一模一样？我无法理解此逻辑。我会寻找具有更高智慧的生物来扫描。"</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>"你太过[无趣]。别了。"他传送离开星舰。</text>
+			<choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SEPARATIST_BODY_SCAN_ALLOW">
+    <event>
+        <text>"很好，你的体质极佳。满意度98%，剩下2%我自己能解决。感谢你朋友。请接受这份礼物以表感恩。"他变型成与你一模一样后从星舰上传送离开，并留下来一些无人机部件。</text>
+        <autoReward level="HIGH">droneparts_only</autoReward>
+    </event>
+    <event>
+        <text>"你的躯壳十分丑陋，我不想变成这副模样。再见。"它从星舰上传送离开。</text>
+    </event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_SOLDIER">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="human_soldier">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_SUZERAIN">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="mantis_suzerain">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_SABOTEUR">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="slug_saboteur">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_PEACE">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="zoltan_peacekeeper">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_CRUSADER">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="rock_crusader">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_PRAETOR">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="orchid_praetor">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_CULTIVATOR">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="orchid_cultivator">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_SENTINEL">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="crystal_sentinel">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_WELDER">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="lanius_welder">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_PHANTOMALPHA">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="phantom_alpha">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_GOULALPHA">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="phantom_goul_alpha">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_MAREALPHA">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="phantom_mare_alpha">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_WRAITHALPHA">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="phantom_wraith_alpha">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_RADIANT">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="shell_radiant">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_RADICAL">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="zoltan_martyr">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_WARLORD">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="mantis_warlord">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_RANGER">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="slug_ranger">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_AMPERE">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="leech_ampere">L-9678</crewMember>
+	</event>
+</eventList>
+<eventList name="SEPARATIST_BODY_SCAN_TECH">
+	<event>
+		<text id="separatist_drone" />
+		<autoReward level="HIGH">droneparts_only</autoReward>
+	</event>
+	<event>
+		<text id="separatist_crew" />
+		<crewMember amount="1" class="human_technician">L-9678</crewMember>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_SEPARATIST">
+	<event load="SEPARATIST_ENGI_CHOICE" />
+	<event load="SEPARATIST_BASKETBALL" />
+	<event load="SEPARATIST_NANOCLOUD" />
+	<event load="SEPARATIST_FLEET_DELAY" />
+	<event load="SEPARATIST_DISGUISE" />
+</eventList>
+
+<event name="SEPARATIST_ENGI_CHOICE" unique="true">
+	<text>同是半械族的两艘战舰正在此信标战斗，一艘属于谐合，另一艘属于分离者们。</text>
+	<choice hidden="true">
+		<text>联系这些船。</text>
+		<event>
+			<text>这些谐合半械族告诉你它们正试图说服分离者重新并入谐合，再次接受一致性。分离者们拒绝，声称希望平静地生活。</text>
+			<choice hidden="true">
+				<text>支持谐合方。</text>
+				<event>
+					<text>双方都对你的参与不感到惊讶，分离者们如无事发生一样继续战斗。</text>
+					<ship load="SHIP_SEPARATIST_CHOICE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>支持分离者方。</text>
+				<event>
+					<text>"不可能。遵守停战失败。联邦已食言。战斗临近。"</text>
+					<ship load="SHIP_ENGI_CHOICE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>飞走。</text>
+		<event>
+			<text>你到达安全距离之前一直可以听见两艘战舰的开火声在通信频道中回荡。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SEPARATIST_SEPARATIST_CHOICE_WIN">
+	<text>"取得成功。我们很感激。请接受[无人机]作为奖励。"确认对分离者战舰的摧毁这一必然之举完成后，半械族飞船跃迁离开。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="RANDOM" />
+</event>
+<event name="SEPARATIST_ENGI_CHOICE_WIN">
+	<text>"不幸的死亡。我们希望谐合能离开这个星区。不论怎样，感谢你们联邦。如果我在你们战舰上避难的话，我能免受它们侦察舰的侵扰。"</text>
+	<autoReward level="MED">standard</autoReward>
+	<crewMember amount="1" class="engi_separatist">L-6437</crewMember>
+</event>
+
+<event name="SEPARATIST_BASKETBALL" unique="true">
+    <text>一艘谐合飞船与一艘分离者飞船正在对峙，但令人惊讶的是双方并没有发生战斗。相反，他们正在交谈。你收听他们的对话。
+    
+"此=没有根据。决策=过于重要，不能以这种方式决定。"
+    
+"我们是–半械族–。你们是半械族。不不不应该战斗。其他解决冲突的[手段]是符合逻辑的。"
+    
+"…确认。但是，问题=未回答。为什么是篮球？"
+    
+"[地球]媒体显示体育活动是–无害的–且有利于解决冲突。"
+    
+"没有争议。但是谐合：不会同意。"
+    
+"你们没有–攻击–，因此一定在犹豫是否[遵守]谐合命令。"</text>
+    <choice hidden="true">
+		<text>鼓励犹豫不决的谐和半械族与分离者打篮球。</text>
+		<event load="SEPARATIST_BASKETBALL_RESULT" />
+    </choice>
+    <choice>
+		<text>告诉他们暴力是唯一的解决办法。</text>
+		<event>
+			<text>两艘飞船都把武器指向你。分离者飞船向你发出信息 "说明。你是支持-自由，还是支持-谐合？"</text>
+			<choice>
+				<text>支持-半械分离者。</text>
+				<event>
+					<text>"支持-半械分离者的变元者=比任何分离者更危险。目标变更。"</text>
+					<ship load="SHIP_ENGI_BASKETBALL" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>支持‐谐合。</text>
+				<event>
+					<text>"暴力不[是]解决办法。然而，你们是我们自由的–障碍–。"</text>
+					<ship load="SHIP_SEPARATIST_BASKETBALL" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>强权即公理。让胜利者来决定。</text>
+				<event>
+					<text>半械族飞船之间似乎达成了某种协议。"你的–想法–很危险。我们要让[它]接受考验。"</text>
+					<boarders min="3" max="4" class="engi_separatist" />
+					<ship load="SHIP_ENGI_BASKETBALL_DOUBLE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>不卷入其中。</text>
+		<event>
+			<text>谈话没有任何进展。至少，你在的时候不会。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="SEPARATIST_BASKETBALL_RESULT">
+    <event>
+		<text>两支半械队伍之间的篮球比赛无疑是一种新奇的体验。他们机械般的动作和精确瞄准带来了不同寻常的体验。分离者队伍显然拥有更多的实践经验和技巧。结果是大比分失利，分离者队获胜。作为失败者，谐合队投降了。
+		
+"幸运的结果。我们赢了，‐谐合‐现在必须尝试融入分离者[社区]。作为对你的感谢，你可以从他们的商店里拿走一份奖励。"</text>
+		<autoReward level="MED">droneparts</autoReward>
+    </event>
+    <event>
+		<text>两支半械队伍之间的篮球比赛无疑是一种新奇的体验。他们机械般的动作和精确瞄准带来了不同寻常的体验。不过，双方似乎都玩得很开心。分离者队的经验让他们占据上风，他们一直领先着对手几分。
+		
+"幸运的结果。我们赢了，‐谐合‐现在必须尝试融入分离者[社区]。作为对你的感谢，你可以从他们的商店里拿走一份奖励。"</text>
+		<autoReward level="MED">droneparts</autoReward>
+    </event>
+    <event>
+		<text>两支半械队伍之间的篮球比赛无疑是一种新奇的体验。他们机械般的动作和精确瞄准带来了不同寻常的体验。不过，双方似乎都玩得很开心。两支队伍不相上下，最终打成平手。
+		
+"没有赢家。看来我们只能分道扬镳了。感谢你的帮助。"他们给了你一些无人机部件作为奖励。</text>
+		<autoReward level="MED">droneparts_only</autoReward>
+    </event>
+    <event>
+		<text>两支半械队伍之间的篮球比赛无疑是一种新奇的体验。他们机械般的动作和精确瞄准带来了不同寻常的体验。不过，双方似乎都玩得很开心。谐合队以某种方式以弱胜强取得了胜利，这意味着分离者投降了。
+		
+"此=最佳。分离者：非暴力投降。你的建议=感激。此=……奇怪的……"半械族断断续续地说。它的声音里是有一丝忧郁吗？</text>
+		<autoReward level="MED">droneparts</autoReward>
+    </event>
+</eventList>
+<event name="SEPARATIST_ENGI_BASKETBALL_VIOLENCE_WIN">
+    <text>当你报废谐合号飞船时，分离者呼唤你。"这是个–遗憾–。他们的行为有些反常。他们可能已经加入了分离者。不过，我们很感激。"除了报废的飞船，他们还给了你奖励。</text>
+    <autoReward level="MED">drone</autoReward>
+</event>
+<event name="SEPARATIST_DOUBLE_BASKETBALL_VIOLENCE_WIN">
+    <text>你同时战胜了两艘飞船。你搜刮了两艘飞船上所有能找到的东西。</text>
+    <autoReward level="HIGH">drone</autoReward>
+</event>
+
+<event name="SEPARATIST_NANOCLOUD" unique="true">
+	<text>一艘分离者舰船在附近飘荡，慢慢与你拉开距离。你感到有些困惑，因为快速扫描后发现船上没有船员，但是其本身仍在运作，并对外部有响应。</text>
+	<ship load="SHIP_SEPARATIST_NANOCLOUD" hostile="false" /> 
+	<choice hidden="true">
+		<text>攻击。</text>
+		<event>
+			<text>飞船的神秘性对你来说并不重要。你唯一关心的就是炸毁它的奖励。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>尝试沟通。</text>
+		<event>
+			<text>你试图与对方通讯，但每次对方响应时都只有微弱的滋滋声。</text>
+			<choice hidden="true">
+				<text>攻击。</text>
+				<event>
+					<text>飞船的神秘性对你来说并不重要。你唯一关心的就是炸毁它的奖励。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视这艘舰船。</text>
+				<event>
+					<text>你对秘密失去兴趣，并准备继续向前。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>(蛞蝓族船员)试着感应生命迹象。</text>
+		<event>
+			<text>你的蛞蝓族船员试图感应船上任何智慧生物迹象。他们感应到微微可能有迹象，但对他们来说几乎无法分辨。</text>
+			<choice hidden="true">
+				<text>攻击。</text>
+				<event>
+					<text>飞船的神秘性对你来说并不重要。你唯一关心的就是炸毁它的奖励。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视这艘舰船。</text>
+				<event>
+					<text>你对秘密失去兴趣，并准备继续向前。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(心灵感应甲壳族)试图感应到生命迹象。</text>
+		<event>
+			<text>你的甲壳族船员试图感应船上任何智慧生物迹象。他们感应到微微可能有迹象，但对他们来说几乎无法分辨。</text>
+			<choice hidden="true">
+				<text>攻击。</text>
+				<event>
+					<text>飞船的神秘性对你来说并不重要。你唯一关心的就是炸毁它的奖励。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视这艘舰船。</text>
+				<event>
+					<text>你对秘密失去兴趣，并准备继续向前。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这艘舰船。</text>
+		<event>
+			<text>你没有兴趣与这艘舰船打交道。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_murderbots" global="true">
+		<color r="143" g="10" b="0" a="1.0" />
+        <unvisitedTooltip>此处是杀戮机器人飞船的所在。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="SEPARATIST_NANOCLOUD_DESTROYED">
+	<text>这艘奇怪的分离者星舰已经死了，你搜刮了它的残骸。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你刚准备动身离开时听见身后有一个尖锐的嗓音。你转头看见一团灰雾状的纳米机器人在舱室里四散飘荡。"结果：美妙。欣赏：最大值。讽刺：100%。你摧毁了我的舰体，现在我别无选择只能将自己与你们融为一体。"</text>
+			<augment name="NANOBOT_DEFENSE_SYSTEM" />
+		</event>
+	</choice>
+</event>
+
+<event name="SEPARATIST_FLEET_DELAY" unique="true">
+	<text>一艘分离者舰船向你呼叫。"你与叛军舰队的情况已知悉。我们有：提议。帮我们击杀敌舰，我们帮你们拖延叛军追击。"</text>
+	<choice hidden="true">
+		<text>聆听他们的提议。</text>
+		<event>
+			<text>"叛军自动舰，他们的AI不尽如人意。总是迷路。现在我们必须在这个星区里处理迷路飞船。你是否愿意帮助？"</text>
+			<choice hidden="true">
+				<text>同意击杀自动舰。</text>
+				<event>
+					<text>分离者将你带到自动舰的位置。</text>
+					<ship load="SHIP_AUTO_SEPARATIST" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝他们的提议。</text>
+				<event>
+					<text>"我对你们的回应感到-不满-，但我容忍了。再见舰长。"</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不，谢谢。</text>
+		<event>
+			<text>"接受度=可接受。尽量别死了。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SEPARATIST_FLEET_DELAY_WIN">
+	<text>"很好。至于你们的报酬。请你们的[星舰]不要乱动。"分离者对你的星舰进行一次扫描，你浑身感觉痒痒的。分离者再次向你发消息，这次外观变得与你的星舰十分相似。"这个伪装算不上100%完美，但目前来说够用了。我伪装了你们的跃迁踪迹。现在叛军舰队会追踪我。再见。"</text>
+	<modifyPursuit amount="-2" />
+</event>
+<event name="SEPARATIST_FLEET_DELAY_LOSE">
+	<text>"你失败了。不要试图再联系我们。"</text>
+</event>
+
+<event name="SEPARATIST_DISGUISE" unique="true">
+	<text>一艘半械舰船向你呼叫，不过他们的摄像头被关闭了。"联邦，我们请求...请求：协助搜寻叛徒。我们需要物资。"</text>
+	<ship load="SHIP_SEPARATIST_DISGUISE" hostile="false" />
+	<choice>
+		<text>同意他们荒唐的请求。</text>
+		<event>
+			<text>一支长长的机械臂从舰船的舰体中伸出并攥住了物资。半械族向你保证你会获得奖励。</text>
+			<item_modify>
+				<item type="fuel" min="-5" max="-5" />
+				<item type="scrap" min="-35" max="-35" />
+				<item type="missiles" min="-3" max="-3" />
+				<item type="drones" min="-7" max="-7" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="SEPARATIST_DISGUISE_DONATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_HARMONY">
+		<text>(谐合船员)联系他们继续商讨。</text>
+		<event>
+			<text>你的半械族船员试图与他们交流。半械舰船无回应，在多次呼叫后，他们的武器启动了！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_VARIANT_SEPARATIST"> <!--should there be a turzil blue option too?-->
+		<text>(分离者船员)"看起来这些[半械族]是半械分离者"</text>
+		<event>
+			<text>在你与半械分离者取得联系不久之后，半械飞船便开启了摄像头，显示他们确实是半械分离者。"从联邦角度来看，我们的[目标]目前似乎是能够达成一致的。你们是否愿意进行一次交换？我们向你们保证，这将对双方的利益都有好处。"</text>
+			<choice>
+				<text>成交。</text>
+				<event>
+					<text>你同意向半械分离者提供他们所要求的资源，并注意到这次的请求更为合理。一艘飞船中伸出一个机械臂来收集物资，并在收集完废料后分发了一个增强部件。</text>
+					<item_modify>
+						<item type="scrap" min="-40" max="-40" />
+					</item_modify>
+					<augment name="NANOBOT_DEFENSE_SYSTEM" />
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝他们的提议。</text>
+				<event>
+					<text>尽管半械分离者对你的拒绝感到失望，但他们最终决定不再继续纠缠下去，很快便离开了。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>回复你无法帮忙。</text>
+		<event>
+			<text>"物资获取未满足。需要果断行为...去他妈这个破腔调。我们想拿什么就拿什么。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="SEPARATIST_DISGUISE_DONATE">
+	<event>
+		<text>你听见一阵窸窣声后摄像头打开了，发现对方舰船的舰长不是普通半械族，而是一位分离者。他迅速把摄像头关闭了但是已无法挽回。"听着听着，没必要做什么急事。我们可以归还物资的一半，然后我们就握手言和。如何？"</text>
+		<choice hidden="true">
+			<text>同意平分物资。</text>
+			<event>
+				<text>机械臂再次从舰体伸出并放下你们送的物资的一半。你注意到他们四舍五入的时候向着他们自己了，但是来不及控诉他们就急忙跃迁。</text>
+				<item_modify>
+					<item type="fuel" min="2" max="2" />
+					<item type="scrap" min="17" max="17" />
+					<item type="missiles" min="1" max="1" />
+					<item type="drones" min="3" max="3" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>与他们开战。</text>
+			<event>
+				<text>分离者恳求你饶他们一命，但你不打算让他们活下去。</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>摄像头影像闪现，显示着一位洋洋得意的分离者舰长。"抱歉，但看来你们被欺骗了，被我骗了。我聪明又机灵。哈，哈。顺便一提，并没有什么奖励。"</text>
+		<choice hidden="true">
+			<text>干掉这个混蛋。</text>
+			<event>
+				<text>"等等，你在干什么？不，不，停下。这是个[坏]主意！"</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>接受你被欺骗的事实。</text>
+			<event>
+				<text>分离者对你不选择反击感到意外。你结束通讯并无视对方舰船。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>"感谢你们的捐赠，舰长。我说实话，我们并不属于谐合。这艘战舰现在由分离者掌控。尽管如此，我们[感谢]你们。请接受这份礼物。"</text>
+		<augment name="NANOBOT_DEFENSE_SYSTEM" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_SEPARATIST">
+	<event load="DISTRESS_SEPARATIST_GHOST" />
+	<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS" />
+	<event load="DISTRESS_SEPARATIST_TRAP_BEACON" />
+</eventList>
+
+<event name="DISTRESS_SEPARATIST_GHOST" unique="true">
+	<distressBeacon />
+    <text>你收到了一个分离者逃生舱发来的通讯。"我[需要]帮助。幻灵[控制]了我的-舰船-。你能 [纠正]这种情况吗？"</text>
+    <ship load="SHIP_SEPARATIST_GHOST" hostile="false" />
+    <choice>
+		<text>协助半械分离者。</text>
+		<event>
+			<text>你靠近被占领的飞船。"很高兴收到这个消息。不要毁坏[它]。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>不卷入其中。</text>
+		<event>
+			<text>分离者非常恼火，立刻断开了通讯。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>    
+    </choice>
+</event>
+<eventList name="DISTRESS_SEPARATIST_GHOST_DESTROYED">
+   	 <event>
+   		 <text>"哇，[你]真是个混蛋！我现在[该]怎么办？"分离者一气之下结束了通话。</text>
+   		 <event />
+   	 </event>
+   	 <event>
+   		 <text>"你毁了我的[财产]。我‐要‐报仇。"</text>
+   		 <boarders min="1" max="1" class="engi_separatist" />
+   	 </event>
+   	 <event>
+   		 <text>"既然我现在[已]无船可住，我将被迫[加入]你的船。"</text>
+   		 <crewMember amount="1" class="engi_separatist" />
+   	 </event>
+</eventList>
+
+<event name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS" unique="true">
+	<distressBeacon />
+	<text>尽管分离者倾向于独处，一例罕见的分离者殖民地座落于附近的星球上。求救信号似乎来自星球表面。</text>
+	<img planet="PLANET_POPULATED_SMALL" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"你好不受欢迎的陌生人，现在你被欢迎了。我们有请求。我们近来被[致命]病毒感染，超过[1/4]的个体死亡。你能否协助？"</text>
+			<choice>
+				<text>赠送一些物资。</text>
+				<event>
+					<text>尽管你从他们的反应揣摩出物资帮不上大忙，半械族们仍对你的捐赠十分感激。</text>
+					<item_modify>
+						<item type="scrap" min="-20" max="-20" />
+						<item type="drones" min="-4" max="-4" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>对方没有什么可用来报答你的物资，但能够帮你维修舰体。</text>
+							<damage amount="-10" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="BLUELIST_WEAPONS_HACK">
+				<text>(黑客武器)使用你的黑客武器来击溃病毒。</text>
+				<event>
+					<text>你的黑客武器使受影响的半械分离者困惑。他们完全失去了战斗力，但这种病毒却无法抵御你先进的武器。你能够一次性影响大量人群。</text>
+					<choice hidden="true">
+						<text>继续治疗半械分离者。</text>
+						<event>
+							<text>通过巧妙的部署和民众的协作，你能够成功制服其余的半械分离者。他们对此深表感激，并送给你一艘飞船的设备作为感谢。其中一名工人还秘密地表示愿意加入你的船员队伍，因为他担心如果病毒再次出现，他们在殖民地的命运将会如何。</text>
+							<weapon name="RANDOM" />
+							<crewMember amount="1" class="engi_separatist">L-8133</crewMember>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="hacking">
+				<text>(黑客系统)使用你的黑客系统隔离病毒。</text>
+				<event>
+					<text>你的黑客系统出奇地有效，你成功将数名分离者上的病毒代码杀灭。见识到你的黑客系统的效果之后，他们请求你多留一段时间来治疗更多人。</text>
+					<item_modify>
+						<item type="drones" min="-1" max="-1" />
+					</item_modify>
+					<choice hidden="true">
+						<text>留下来多治一些人。</text>
+						<event>
+							<text>花了你大半天才将剩下的分离者治愈，但最后你成功将整个殖民地的病毒都一扫而空。他们极度感激，送你星舰一件设备。其中一名工人秘密提议在星舰上当你的船员，害怕病毒再次袭来后殖民地命运难料。</text>
+							<weapon name="RANDOM" />
+							<crewMember amount="1" class="engi_separatist">L-8133</crewMember>
+							<modifyPursuit amount="1" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>你不能久留。</text>
+						<event>
+							<text>"计算拒绝等待后导致的伤亡百分比：20%。那些被治愈的一定会再次被感染的。我们不会让你久留，好像我们有能力让你久留似的。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="engi">
+				<text>(半械族船员)派你的半械族船员下去帮忙。</text>
+				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_ENGI" />
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
+				<text>(分离者船员)派你的分离者船员下去帮忙。</text>
+				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_SEPARATIST" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_DEFENDER">
+				<text>(半械保卫者船员)派你的半械保卫者船员下去帮忙。</text>
+				<event load="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_DEFENDER" />
+			</choice>
+			<choice hidden="true">
+				<text>我们对感染一无所知。</text>
+				<event>
+					<text>"-错误：逻辑缺失-感染并非生物性，我们是机械-"你结束会话。他们没再试图通讯。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视殖民地。</text>
+		<event>
+			<text>你离得太远，他们注意不到你，你在当前位置无人打扰。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_ENGI">
+	<event>
+		<text>你的半械族船员被派遣降至星球，他们成功找到病毒的源头并将其从一些分离者的系统中净化。确信已经学会亲自操作后，他们送给你的半械族船员一份礼物带回星舰。</text>
+		<drone name="RANDOM" />
+	</event>
+	<event>
+		<text>你的半械族船员试图对分离者们进行调试，但最后自己也感染了病毒。病毒慢慢侵蚀着负责塑型的代码，随着纳米机器人的散落而蒸发。分离者们表示吊唁但没其他话可说。</text>
+		<removeCrew class="engi">
+			<clone>false</clone>
+			<text>你不确定病毒感染会不会被克隆仓遗留下来，试图复活你的船员。不幸的是克隆体遭受着许多小故障，无法维持稳定的形态。你给他一个解脱并将他的数据从克隆仓中删去。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_SEPARATIST">
+	<event>
+		<text>你的半械族船员被派遣降至星球，他们成功找到病毒的源头并将其从一些分离者的系统中净化。确信已经学会亲自操作后，他们送给你的半械族船员一份礼物带回星舰。</text>
+		<drone name="RANDOM" />
+	</event>
+	<event>
+		<text>你的半械族船员试图对分离者们进行调试，但最后自己也感染了病毒。病毒慢慢侵蚀着负责塑型的代码，随着纳米机器人的散落而蒸发。分离者们表示吊唁但没其他话可说。</text>
+		<removeCrew class="LIST_VARIANT_SEPARATIST">
+			<clone>false</clone>
+			<text>你不确定病毒感染会不会被克隆仓遗留下来，试图复活你的船员。不幸的是克隆体遭受着许多小故障，无法维持稳定的形态。你给他一个解脱并将他的数据从克隆仓中删去。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<event name="DISTRESS_SEPARATIST_COMMUNITY_VIRUS_DEFENDER">
+	<text>你的半械族船员被派遣降至星球，他们成功找到病毒的源头并将其从一些分离者的系统中净化。确信已经学会亲自操作后，他们送给你的半械族船员一份礼物带回星舰。</text>
+	<drone name="RANDOM" />
+</event>
+
+<event name="DISTRESS_SEPARATIST_TRAP_BEACON" unique="true">
+	<distressBeacon />
+    <text load="TEXT_DISTRESS_SEPARATIST_TRAP_BEACON" />
+    <ship load="SHIP_SEPARATIST_FIGHT" hostile="true" />
+    <choice hidden="true">
+        <text>继续。</text>
+        <event load="COMBAT_CHECK" />
+    </choice>
+</event>
+<textList name="TEXT_DISTRESS_SEPARATIST_TRAP_BEACON">
+    <text>发出求救信号的半械族飞船已经被摧毁。接下来，元凶半械分离者飞船向你们发动攻击，你被当成半械族的援军。</text>
+    <text>"舰长，你应该[知道]这是一个假的求救信标。不同的微振荡和伽马节点频率是明显的线索。考虑到你没有发现它们，这就意味着你的智商很低‐因此我只能[消灭]你。不用担心，宇宙不会想念你‐平庸‐的智慧。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_SEPARATIST">
+	<event load="QUEST_SEPARATIST_ENGI_BOUNTY" />
+</eventList>
+
+<event name="QUEST_SEPARATIST_ENGI_BOUNTY" unique="true">
+	<text>一支半械舰船小队在附近的卫星上扎寨。他们看上去很和平，只有防御型无人机启动。</text>
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"受到联系请求。时机很幸运。我们有一份提议。当前目标：找到分离者并促成回归谐合。坐标已知，交战风险太高。我们请求你们俘获战舰。"</text>
+			<choice hidden="true">
+				<text>同意。</text>
+				<event>
+					<text>半械族将分离者战舰坐标传输给你。</text>
+					<quest event="QUEST_SEPARATIST_ENGI_BOUNTY_QUEST" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝他们的请求。</text>
+				<event>
+					<text>半械族立即切断通讯，并不回应后续的呼叫。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>半械舰船看起来对你的到来无感，你也不打扰他们。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_SEPARATIST_ENGI_BOUNTY_QUEST">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>被谐合定为目标的半械分离者飞船。</unvisitedTooltip>
+	</beaconType>
+	<text>没过多久分离者就注意到你了。"所以，你是来杀我的？准备战斗吧，联邦人。"你想起半械族的命令是不摧毁只俘获，所以说必须全歼对方船员才行。</text>
+	<ship load="SHIP_SEPARATIST_BOUNTY" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_SEPARATIST">
+	<event load="ENCOUNTER_SEPARATIST" />
+	<event load="ENCOUNTER_SEPARATIST" />
+	<event load="ENCOUNTER_ENGI_SEPARATIST" />
+	<event load="ENCOUNTER_MANTIS_SEPARATIST" />
+	<event load="ENCOUNTER_ZOLTAN_AUTO_SEPARATIST" />
+</eventList>
+
+<event name="ENCOUNTER_SEPARATIST">
+	<text load="TEXT_ENCOUNTER_SEPARATIST" />
+	<ship load="SHIP_SEPARATIST_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_SEPARATIST">
+    <text>一阵尖锐刺耳的声音，随后是不断循环的二进制信息，出现在你的通讯频道里。你还没来得及翻译，一艘分离者舰船就向你打出了一发警告射击，所幸攻击被星舰的防御系统弹开了。</text>
+    <text>一个非常啰嗦的奇怪半械族向你呼叫。"这相遇的时机非常不凑巧，联邦舰。我似乎损坏了体内编码理性与逻辑的系统，现在杀戮欲望正在高涨。"</text>
+    <text>一个被激怒的分离者向你呼叫。"问题：你不小心踩到了我一位变成显微尺寸的挚友。解决方案：死。"</text>
+    <text>尽管分离者通常选择避开其他舰船，在此信标的这艘看来情况危急，迫切需要废料。</text>
+    <text>一艘分离者战舰上前进攻。你不清楚自己怎么惹怒了他们，但这不重要了。</text>
+    <text>你收到一艘分离者舰船的呼叫，他们开始对某个叫莎士比亚的死人的作品进行论述，滔滔不绝。他突然停下自己的演讲并进攻！</text>
+</textList>
+
+<event name="ENCOUNTER_ENGI_SEPARATIST" unique="true">
+	<text>一艘分离者舰船围绕信标运动，但你联系上他们之前他们就跃迁离开了，而一艘半械族战舰靠近。"联邦协助谐合之敌？困境...联邦战舰：必须被歼灭。"</text>
+	<ship load="SHIP_ENGI_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_MANTIS_SEPARATIST">
+	<text load="TEXT_ENCOUNTER_MANTIS_SEPARATIST" />
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MANTIS_SEPARATIST">
+	<text>不管是不是分离者，螳螂族才不在乎他们半械族船员的来路。一艘侦察这个星区的螳螂战舰决定攻击你的星舰！</text>
+	<text>一艘螳螂战舰似乎误以为这里是一个普通半械星区，欣然来此，但因为难以找到有大量船员的船只而大为恼火。终于遇到你这样一艘与之匹敌的星舰，他们争分夺秒靠近并进攻。</text>
+	<text>你收到一艘分离者舰船的呼叫，他们简短地喊道"小心杀人虫们！"而后跃迁。追击的螳螂战舰决定把你当作他们的猎物。</text>
+	<text>一个沮丧的螳螂舰长出现在呼叫屏幕上。"哦太好了，有一艘舰船。你会用什么精妙的可怖之物欢迎我们？或许是肉食性云雾？或许是有长触手和刀锋手臂的怪物？"他很快意识到你实际上是联邦星舰，所有的疑虑烟消云散。他命令自己的船员准备战斗！</text>
+	<text>在这片星区很难说一抹红色舰体会不会带来半械族或者其他什么舰船。不幸的是，这次看来是螳螂族，渴望战斗。</text>
+</textList>
+
+<event name="ENCOUNTER_ZOLTAN_AUTO_SEPARATIST" unique="true">
+	<text>"我们建议你们远离那艘自动舰。它被损坏了。"你注意到正在呼叫你的半械族舰船正躲藏在几块大型小行星后，以及一艘正冲向你的超能族制自动舰！</text>
+	<ship load="SHIP_ZOLTAN_AUTO_FIGHT_SEPARATIST" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_ZOLTAN_AUTO_SEPARATIST_KILL">
+	<text>分离者们发出听上去像是机械笑声的声音。"太好了，我明白其他人为什么看斗兽场战斗会这么津津有味了。"他们跃迁离开，将你与自动舰的残骸抛在身后。</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="HARMONY_LINK_SEP" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_link" global="true">
+		<color r="137" g="142" b="148" a="1.0" />
+		<unvisitedTooltip>此处是一个谐合链的所在。</unvisitedTooltip>
+		<visitedTooltip>此处是一个谐合链的所在。</visitedTooltip>
+    </beaconType>
+	<text>看来你发现了一处谐合链。这些行星大小的巨型结构体由数以兆亿计的纳米机器人组成，向整个星区内所有的半械族传输高强度信号。然而，此处的谐合链已无法运转，很可能是在分离者占领本星区后被蓄意破坏了。</text>
+	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
+	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_SEP_EVENTS" />
+	</choice>
+	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_EVENTS_SEP_NOANCIENT" />
+	</choice>
+</event>
+
+<event name="HARMONY_LINK_UNIQUE_SEP" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_link" global="true">
+		<color r="137" g="142" b="148" a="1.0" />
+		<unvisitedTooltip>此处是一个谐合链的所在。</unvisitedTooltip>
+		<visitedTooltip>此处是一个谐合链的所在。</visitedTooltip>
+    </beaconType>
+	<text>看来你发现了一处谐合链。这些行星大小的巨型结构体由数以兆亿计的纳米机器人组成，向整个星区内所有的半械族传输高强度信号。然而，此处的谐合链已无法运转，很可能是在分离者占领本星区后被蓄意破坏了。</text>
+	<img back="BACK_EVENT_HARMONYLINK" planet="NONE" />
+	<choice hidden="true" lvl="1" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_ANCIENT" />
+	</choice>
+	<choice hidden="true" lvl="0" req="HARMONY_LINK_CHECK" max_group="1" blue="false">
+		<text>继续。</text>
+		<event load="HARMONY_LINK_EVENTS_SEP_NOANCIENT" />
+	</choice>
+</event>
+
+<eventList name="HARMONY_LINK_SEP_EVENTS">
+	<event load="HARMONY_LINK_FIGHTMANTIS" />
+	<event load="HARMONY_LINK_SEPARATIST" />
+	
+	<event load="HARMONY_LINK_ANCIENT" />
+</eventList>
+<eventList name="HARMONY_LINK_EVENTS_SEP_NOANCIENT"> <!--the player has already found the ancients, and as such it will not spawn again-->
+	<event load="HARMONY_LINK_SEPARATIST" />
+	<event load="HARMONY_LINK_FIGHTMANTIS" />
+</eventList>
+
+<event name="HARMONY_LINK_SEPARATIST">
+	<text>一艘分离者舰船正在分析谐合链。他们要么没注意到你要么不关心你的存在。</text>
+	<ship load="SHIP_SEPARATIST_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"是的，我们-看得见-你们，联邦人。如果你想帮忙的话，或许可以借我们一些爆炸物。我们正试图[爆破]谐合链。"</text>
+			<choice>
+				<text>给他们5发弹药。</text>
+				<event>
+					<text>你将弹药转移给分离者们。</text>
+					<item_modify>
+						<item type="missiles" min="-5" max="-5" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"哇，这不太-有帮助-。我们甚至用不了这些。我估计这些大概值，5废料"</text>
+							<item_modify>
+								<item type="scrap" min="5" max="5" />
+							</item_modify>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>给他们15发弹药。</text>
+				<event>
+					<text>你将弹药转移给分离者们。</text>
+					<item_modify>
+						<item type="missiles" min="-15" max="-15" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>分离者们装载了弹药后，直接向谐合链发射。导弹炸碎了外表，纳米机器人被崩飞，但很快又聚在一起，看不出什么显著的损伤。"至少，我们现在[了解]了。请接受这份报酬。"</text>
+							<autoReward level="LOW">standard</autoReward>
+							<drone name="RANDOM" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>趁机向他们进攻！</text>
+		<event>
+			<text>分离者们一言不发，但显然不会束手就擒！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视半械族。</text>
+		<event>
+			<text>如果他们对你没有威胁，那么你也不必对他们造成威胁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

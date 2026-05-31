@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					VAGABOND SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_VAGABOND">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="CLEARING_VAGABOND">
+	<event load="VAGABOND_SEPARATISTS" />
+	<event load="VAGABOND_TRASHKING" />
+	<event load="VAGABOND_STORM" />
+	<event load="GHOST_REBEL_TRUCE" />
+</eventList>
+
+<event name="VAGABOND_SEPARATISTS" unique="true">
+	<text>"已确认船只的联邦身份。可从隶属关系推测出协助能力。目前在逃：分离者'B0N-N3'和电灵'克莱迪欧'。其已较长时间躲过谐合的追捕。请求：在半械族增援部队到达前，联邦舰艇拖住罪犯。协议是否可接受？"</text>
+	<ship load="SHIP_ENGI_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>接受。</text>
+		<event>
+			<text>"正在转移坐标。若你方舰船未能使歹徒投降，但仍然将其消灭，将给予次等报酬。谐合之首要任务：确保分离者的进一步破坏企图不成功。"</text>
+			<quest event="VAGABOND_SEPARATISTS_OUTLAWS" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>半械族没有再多说一句话便切断了通讯。你知道他们的机器人本性与更严肃的文化可能会导致很唐突的行为，但他们真的有必要如此粗鲁吗？</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="VAGABOND_SEPARATISTS_OUTLAWS">
+	<environment type="nebula" />
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>谐合搜寻到的分离者和电灵逃犯的位置。</unvisitedTooltip>
+	</beaconType>
+	<text>一艘相当大的分离者船只就在附近，证明这个位置是正确的。你的接近似乎惊动了歹徒。"宝宝，你觉得那艘联邦船是不是有点不对劲？""你的假设是[正确]的。这艘联邦船只-最近-与[谐合]方的船只有过接触。你对异常的怀疑是[合理的]。"</text>
+	<choice hidden="true">
+		<text>按要求行事。</text>
+		<event>
+			<text>如果你没记错的话，半械族告诉你，如果可以的话，不要杀这些人。你必须等待半械族的到来，或者迫使他们投降！</text>
+			<ship load="SHIP_VAGABOND_OUTLAWS" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>主动提出为他们提供庇护让他们远离谐合。</text>
+		<event>
+			<text>"你什么都做不了，帮不了我们！我们是亡命之徒，联邦不需要我们！我们不是普通的逃犯，我们是为宝宝的人民的解放而战！别管我们，或者做你该做的事，我不会磨磨蹭蹭的。"</text>
+			<choice hidden="true">
+				<text>与他们开战。</text>
+				<event>
+					<text>如果你没记错的话，半械族告诉你，如果可以的话，不要杀这些人。你必须等待半械族的到来，或者迫使他们投降！</text>
+					<ship load="SHIP_VAGABOND_OUTLAWS" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不管他们。</text>
+				<event>
+					<text>当你开始出发离开时，你又被歹徒拦住了。"你不打算消灭我们？为什么？谐合给你的钱不够吗？"</text>
+					<choice hidden="true">
+						<text>我们不是谐合的傀儡，我们是变元者，我们只以我们认为合适的方式行事。</text>
+						<event>
+							<text>"见义勇为？谁能想到—"随着一艘谐合飞船跃迁进入本信标，这个不法分子突然被炮火声打断。看起来援军比预期的要早到！</text>
+							<ship load="SHIP_VAGABOND_OUTLAWS_ENGI" hostile="false" />
+							<choice hidden="true">
+								<text>假装你干了活并领取工资。</text>
+								<event>
+									<text>不法分子被抓获后，谐合再次与你联系。"事实证明，联邦舰船起到了作用。拖延歹徒使成功的几率提高了75%。谐合很可能下次会再次请求你的帮助。"</text>
+									<drone name="RANDOM" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_REMOVE_ENGI" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>捍卫这些亡命之徒。</text>
+								<event>
+									<text>你已经听说了谐合如何对待分离者的故事。半械族虽说是联邦的盟友，但这并不意味着你不能反抗他们。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_ENGI_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我今天不想打架。</text>
+						<event>
+							<text>"呵。你们是一群非常奇怪的雇佣兵..."</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>他们怀疑起我们了，离开。</text>
+		<event>
+			<text>当他们已经开始呼叫你的时候再去做这件事就不是个好主意了。你溜进远离信标的遥远的星云中。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="VAGABOND_TRASHKING" unique="true">
+	<text>这个信标包含了大量的污染物，各种大块的碎片卡在其轨道上。即使在这个星球的外侧也聚集了一堆大得惊人的垃圾。</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>试着收集一些残骸。</text>
+		<event>
+			<text>你打算开始收集废料时被一艘漂浪群飞船拦住了。"停！所有进入这个轨道范围的非活物都属于我们的主人，垃圾之王！"</text>
+			<choice hidden="true">
+				<text>垃圾之王？</text>
+				<event>
+					<text>"不要告诉我们你还没有听过垃圾之王的大名！当他们的呼喊被你的白眼回应后，魂灵族们似乎泄气了。"好吧。跟着我。"魂灵族们带你到一个完全由垃圾建成的巨大城堡，然后进入一间宏伟的王室。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>迎接你的是一个戴着纸糊王冠的大块头蚀灵，一名巨型魂灵族。由于是纸糊的，这个王冠能勉强挂在他的气态的"头"上，不至于落下。"我！是垃圾之王！向我臣服，你们这些会喘气的！"</text>
+							<choice hidden="true">
+								<text>鞠躬。</text>
+								<event>
+									<text>"很好。你取悦了我。如果你希望满载着我宝贵的垃圾离开这里，你必须在角斗场上证明你自己！"</text>
+									<choice hidden="true">
+										<text>与他最强的一艘船作战。</text>
+										<event>
+											<text>"一桩挑战！那就来吧！召唤我的冠军！"垃圾之王叫来了他最强大的一艘船与你作战。</text>
+											<ship load="SHIP_GHOST_TRASHKING_ELITE" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>与他的一艘较弱的船作战。</text>
+										<event>
+											<text>"一桩挑战！那就来吧！"垃圾之王招呼他的一艘船来和你战斗。</text>
+											<ship load="SHIP_GHOST_TRASHKING_NORMAL" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>不，谢谢。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>垃圾之王咆哮道。"我说了 臣 服 ！"</text>
+									<choice hidden="true">
+										<text>鞠躬。</text>
+										<event>
+											<text>"很好。你取悦了我。如果你希望满载着我宝贵的垃圾离开这里，你必须在角斗场上证明你自己！"</text>
+											<choice hidden="true">
+												<text>与他最强的一艘船作战。</text>
+												<event>
+													<text>"一桩挑战！那就来吧！召唤我的冠军！"垃圾之王叫来了他最强大的一艘船与你作战。</text>
+													<ship load="SHIP_GHOST_TRASHKING_ELITE" hostile="true" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>与他的一艘较弱的船作战。</text>
+												<event>
+													<text>"一桩挑战！那就来吧！"垃圾之王招呼他的一艘船来和你战斗。</text>
+													<ship load="SHIP_GHOST_TRASHKING_NORMAL" hostile="true" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>不，谢谢。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不要教我们做事！</text>
+				<event>
+					<text>你武装好武器攻击魂灵族。</text>
+					<ship load="SHIP_GHOST_TRASHKING_BORING" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开这些碎片。</text>
+		<event>
+			<text>这里似乎没有什么值得关注的东西，因此也没有必要对该地区进行进一步的调查。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="VAGABOND_STORM" unique="true">
+	<text>这个信标不在任何星云附近，除了一些远在前方的星云。但附近的星球上有一个大型漂浪群营地。简短的扫描显示居民们正在快速移动。</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+		<text>靠近。</text>
+		<event>
+			<text>当你降落在这个星球上时，你没有受到魂灵族的干扰，但当你接近营地时，其中一名魂灵族阻止了你。"你为什么来这？北方大风暴每时每刻都在逼近！它的电场会报废我们的计算机。我们建议你立即离开！"</text>
+			<choice hidden="true">
+				<text>离开。</text>
+				<event />
+			</choice>
+			<choice hidden="true">
+				<text>主动留下来帮助搬运他们的设备。</text>
+				<event>
+					<text>"你想帮忙？那么我们不会妨碍你，只要你对风险有觉悟。"你命令你的船员开始把各种设备，如集湿农场、太阳能电池板，还有一个极速咖啡机，拖进室内。魂灵族们的确没有说谎，你可以看到云层正以令人担忧的速度逼近。</text>
+					<choice hidden="true">
+						<text>躲在室内！</text>
+						<event>
+							<text>你的船员们匆匆忙忙地进了魂灵族们设立的庇护所。风暴最终笼罩了整个星球，在几乎整整一天的时间里，你们都和散发着恶臭的魂灵族们困在一起。不过，他们对你成为他们的客人再高兴不过了。当风暴最终消散后，他们送给你一件他们最好的武器作为礼物。</text>
+							<weapon name="RANDOM" />
+							<modifyPursuit amount="2" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>继续搬！</text>
+						<event>
+							<text>你命令船员们继续工作，即使大多数魂灵族都已退到了庇护所内部。当云层吞噬了这个星球，把你困在完全的黑暗中时，你跌跌撞撞地进入了庇护所，但发现你的一名船员失踪了！你和魂灵族们被困在里面将近一天，不过他们至少证明是有魅力的接待者。</text>
+							<modifyPursuit amount="2" />
+							<choice hidden="true" blue="false" req="BACKUP_DNA" lvl="0" max_lvl="0">
+								<text>继续。</text>
+								<event>
+									<text>当你终于重获自由时，你到处寻找你的那名船员，但无功而返。看来他已经永远离开了。然而，他的牺牲并没有白费，因为你们的努力挽救了魂灵族们的大部分重要设备。深知这一天对你造成的损失，他们提供了大量的废料和他们最好的武器之一。</text>
+									<removeCrew>
+										<clone>false</clone>
+										<text>哪怕你的船员死了，你也无能为力。因为克隆舱会被风暴中断供能，无论如何都无法克隆他们。</text>
+									</removeCrew>
+									<autoReward level="HIGH">standard</autoReward>
+									<weapon name="RANDOM" />
+								</event>
+							</choice>
+							<choice hidden="true" blue="false" req="BACKUP_DNA" lvl="1">
+								<text>继续。</text>
+								<event>
+									<text>当你终于重获自由时，你到处寻找你的那名船员，但无功而返。看来他已经永远离开了。然而，他的牺牲并没有白费，因为你们的努力挽救了魂灵族们的大部分重要设备。深知这一天对你造成的损失，他们提供了大量的废料和他们最好的武器之一。</text>
+									<removeCrew>
+										<clone>true</clone>
+										<text>值得庆幸的是，尽管风暴会中断供能，但备份基因库能保证你再次克隆船员。</text>
+									</removeCrew>
+									<autoReward level="HIGH">standard</autoReward>
+									<weapon name="RANDOM" />
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>回到星舰！</text>
+						<event>
+							<text>这场风暴将是毁灭性的，你不能冒险被困于其中。不幸的是，你回得太晚了。一股强大的冲击波袭击了你的星舰，使引擎瘫痪，并引起了电气火灾。更糟的是，看起来有一艘灵朝的飞船，被风暴的移动一路相逼，现在也到了这里！</text>
+							<environment type="storm" />
+							<damage amount="3" system="engines" effect="fire" />
+							<ship load="SHIP_DYNASTY_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+		<text>星舰内的人工智能拒绝让你在没有任何其他船员的情况下接近营地，已经有过许多自动舰被贪婪的魂灵族夺走的教训。这一安全措施确保这一数字不再增加。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>先向营地呼叫。</text>
+		<event>
+			<text>你只收到魂灵族们的简短回应。"一场风暴正在迅速逼近。我们必须重新安置。建议你尽快离开。"你不太确定这个说法的真实性，但你在这里对魂灵族们也做不了什么。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>当你准备管理星舰之时，你打算把四处乱窜的魂灵族们当乐子看。然而，你不禁注意到，远处的云层似乎正在快速接近...</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="GHOST_REBEL_TRUCE" unique="true">
+	<text>一艘叛军飞船已经占据了这个信标，但令人惊讶的是他们向你发出了呼叫，而不是战斗。"我本该攻击你...但是这个星区到处都是魂灵族，我们终于从云层中找到了一个突破口。"</text>
+	<ship load="SHIP_REBEL_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>同意不打扰他们。</text>
+		<event>
+			<text>"很好，很高兴看到我们都能在某些方面达成一致。"你感觉到双方在这里都很尴尬，但你决定通过做其他事情来转移注意力。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>去他妈的休战，杀了他们。</text>
+		<event>
+			<text>叛军舰长在你们俩准备战斗时对你们大喊："这就是联邦必须垮台的原因！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>给他们钱让他们拖延叛军舰队追击。</text>
+		<event>
+			<text>叛军舰长不知道该如何回应，但很明显他不想拒绝这桩买卖。他不情愿地接受了并承诺在返回舰队时提供虚假信息。</text>
+			<modifyPursuit amount="-1" />
+			<item_modify>
+				<item type="scrap" min="-20" max="-20" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_VAGABOND">
+	<event load="NEBULA_GHOST_DEADSHIP" />
+	<event load="NEBULA_LIGHT_VAGABOND_FLEETCRASH" />
+	<event load="NEBULA_VAGABOND_ACID" />
+	<event load="NEBULA_GHOST_BOO" />
+	<event load="NEBULA_GHOST_DONATION" />
+	<event load="NEBULA_GHOST_BREEDER" />
+</eventList>
+
+<event name="NEBULA_GHOST_DEADSHIP" unique="true">
+	<text load="TEXT_GHOST_DEADSHIP" />
+	<environment type="nebula" />
+	<autoReward level="LOW">standard</autoReward>
+</event>
+<textList name="TEXT_GHOST_DEADSHIP">	
+	<text>你从座位上跳起来，准备与漂浮在这个信标处的残骸战斗，但它没被魂灵族占领。你搜刮了剩下的东西。</text>	
+	<text>你已经准备好战斗了，但这个废船悄然无声。它的船员都死了，攻击者也早已离开。你小心翼翼地搜刮这艘船。</text>	
+	<text>一艘失事的船飘荡在这个信标里。你扫描了它以探测魂灵族的存在，但所有的结果都显示这艘船是空的。你认为尽力回收也不会有风险。</text>	
+	<text>不管是谁在这个信标处摧毁了这艘船，现在都不重要了。攻击者一定不是魂灵族，因为里面一名船员都没有。你选择把它搜刮了。</text>	
+</textList>
+
+<event name="NEBULA_LIGHT_VAGABOND_FLEETCRASH" unique="true">
+	<text>在附近的熔岩星球上，扫描发现了一些大型的东西。看起来是一个巨大的灵朝F级无畏舰！当然，它已经完全被毁坏了，可能再也飞不起来了...但这并没有阻止漂浪群的寄居。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_LAVA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>尽量搜刮战舰外侧的部分。</text>
+		<event load="VAGABOND_FLEETCRASH_SCRAP" />
+	</choice>
+	<choice hidden="true" req="SCRAP_COLLECTOR">
+		<text>(废料收集臂)利用你的废料收集臂来搜刮飞船的外部区域。</text>
+		<event>
+			<text>你的废料收集臂能让你迅速收集到大量舰骸。在清理过程中，魂灵族们肯定已经发现了你，但不知为何他们却从未试图阻止你。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="MAGNET_ARM">
+		<text>(磁性回收臂)利用你的磁性回收臂来搜刮飞船的外部区域。</text>
+		<event>
+			<text>你巧妙地运用磁性回收臂，几乎瞬间就收集好了飞船外部散落的废料。希望它不会遗漏东西。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>向魂灵族呼叫。</text>
+		<event>
+			<text>噼里啪啦的静电通过你的音响最终转变为可辨认的话语。"我们称之为家的这个地方不是为了给联邦占有的。我们将进行交易，如果你们有弹药的话。"</text>
+			<choice>
+				<text>给他们一些弹药以进入一间商店。</text>
+				<event>
+					<store>STORE_DYNASTY</store>
+					<item_modify>
+						<item type="missiles" min="-5" max="-2" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视他们的要求搜刮这个残骸。</text>
+				<event>
+					<text>"你是一个动机可怕的人，我将迅速杀死你。"一艘魂灵精英战舰从残骸中飞出应对你。</text>
+					<autoReward level="LOW">standard</autoReward>
+					<ship load="SHIP_GHOST_ELITE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝并离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开这片残骸。</text>
+		<event>
+			<text>那已经不是一片残骸区了，而可能会是几十名魂灵族的家。最好不要闯入他们的领地。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="VAGABOND_FLEETCRASH_SCRAP">
+	<event>
+		<text>你很确定魂灵族多次发现你，但他们从未试图阻止你。也许他们只是非常善解人意？</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>没过多久，魂灵族们就发现了你...有一艘飞船飞出来对付你。看起来它是一艘精英舰，但现在它在魂灵族的手里！</text>
+		<autoReward level="LOW">standard</autoReward>
+		<ship load="SHIP_GHOST_ELITE" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_VAGABOND_ACID" unique="true">
+	<text>"你好，旅行者！我是探索家多莫迪乌斯，对在这些黑暗的星云内航行可能需要的所有知识都了如指掌。除了一个一直都在躲着我的重要事实。我听过一个所谓的...'酸性'星云的传说。但我自己从未见过！我必须找到它！"</text>
+	<ship load="SHIP_GHOST_ALL" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>我们不太明白。你能描述一下吗？</text>
+		<event>
+			<text>"嗯，它们是绿色的色调，而且具有星云的性质。就这两点。"</text>
+			<choice hidden="true">
+				<text>撒谎说你听说过它们。</text>
+				<event>
+					<text>"真的吗？！这太令我吃惊了！拜托，哦拜托，你必须告诉我它在哪里！"</text>
+					<choice hidden="true">
+						<text>编造一些坐标。</text>
+						<event load="VAGABOND_ACID_LIE" />
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>(心灵控制)给他一个非常"令人信服"的谎言。</text>
+						<event>
+							<text>"噢，噢，噢！我必须马上去那里！感谢您的帮助，噢，您真是那些渴望被发现的东西的先知！"</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+						<text>(心灵控制)给他一个非常"令人信服"的谎言。</text>
+						<event>
+							<text>"噢，噢，噢！我必须马上去那里！感谢您的帮助，噢，您真是那些渴望被发现的东西的先知！"</text>
+							<autoReward level="MED">stuff</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>说实话，你从来没有见过。</text>
+				<event>
+					<text>"没关系！如果我们探索家品尽了所有的星空，那就没有什么可供探索的了！朋友，一路顺风，希望这能帮助你。"</text>
+					<autoReward level="LOW">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="sensors" lvl="3">
+				<text>(先进传感器)向他发送你的星图数据。</text>
+				<event>
+					<text>多莫迪乌斯看了看你给他的数据。"嗯，这派不上多大用场。尽管如此，这证明你是一位优秀的知识提供者，也是一位有着敏锐眼光的探索者！如果我加入你的行列，我们的共同智慧应该是无与伦比的！"</text>
+					<crewMember amount="1" class="phantom_wraith">多莫迪乌斯</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true" req="ADV_SCANNERS">
+				<text>(长距扫描仪)向他提供你的详细星图数据。</text>
+				<event>
+					<text>多莫迪乌斯看了看你给他的数据。"嗯，这派不上多大用场。尽管如此，这证明你是一位优秀的知识提供者，也是一位有着敏锐眼光的探索者！如果我加入你的行列，我们的共同智慧应该是无与伦比的！"</text>
+					<crewMember amount="1" class="phantom_wraith">多莫迪乌斯</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true" req="PRE_SCANNER">
+				<text>(滑流扫描仪)向他提供详细的星图数据。</text>
+				<event>
+					<text>多莫迪乌斯看了看你给他的数据。"嗯，这派不上多大用场。尽管如此，这证明你是一位优秀的知识提供者，也是一位有着敏锐眼光的探索者！如果我加入你的行列，我们的共同智慧应该是无与伦比的！"</text>
+					<crewMember amount="1" class="phantom_wraith">多莫迪乌斯</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_wither">
+		<text>(安威斯)"哦。是的，我知道那是什么。"</text>
+		<event>
+			<text>安威斯解释说，酸性星云不是来自这个现实，也不来自任何其他类似的现实。这似乎让多莫迪乌斯满意。"我从来没有听说过你说的这个...船长版本，但它听起来非常可怕。我从来没有为生活在这个现实中而如此地高兴。你这么有见识，我应该和你一起走，这样我们的智力结合起来就能突破极限！"</text>
+			<crewMember amount="1" class="phantom_wraith">多莫迪乌斯</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>完全没听过。</text>
+		<event>
+			<text>"哦，真遗憾！那么再见了，跨元航行者！"</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="VAGABOND_ACID_LIE">
+	<event>
+		<text>"啊？但我已经去过那里了！我已经看到了那个星系所能展露的一切，但没有看到酸性星云的存在。如果你只是回答没见过，那就没什么大碍，但对我撒谎？不可饶恕，我不能忍受这样的侮辱不受惩罚！"</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"噢，噢，噢！我必须马上去那里！感谢您的帮助，噢，您真是那些渴望被发现的东西的先知！"</text>
+		<autoReward level="MED">stuff</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_GHOST_BOO" unique="true">
+	<text>这片星云似乎是空的，但在你跃迁进入不久后，舰内所有的灯就都熄灭了。几秒钟后，你的主屏幕进入活跃状态。你略微期待地向后靠，看着闪烁的光标开始输出文字...</text>
+	<environment type="nebula" />
+	<status type="limit" target="player" system="sensors" amount="0" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"嘣！"这个字在屏幕上闪现，不久后又出现了这样的文字："吓到你了没？"</text>
+			<choice hidden="true">
+				<text>吓死我了。</text>
+				<event>
+					<text>屏幕上一片空白，然后一个魂灵族直接传送进指挥舱。"哈哈！你给我带来了快乐的感觉。这是一种我在很多个生理周期内都没有感受过的情绪。我想我会和你待在一起，要呼吸的生物。"</text>
+					<crewMember amount="1" class="phantom_mare" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>并没有。</text>
+				<event>
+					<text>计算机关闭了，一群魂灵族直接传送进指挥舱内，并向你走来。你招呼你的船员做好战斗准备。</text>
+					<boarders min="2" max="3" class="phantom_mare" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_GHOST_DONATION" unique="true">
+    <text>魂灵族漂浪群通常会长期居住在他们的船上，直到飞船的损耗大到无法忽视。这个信标处的魂灵族飞船已是强弩之末，但出乎意料的是，魂灵族船员没有试图攻击你的飞船。一番快速的扫描显示了原因：他们的武器几乎无法使用，引擎也在快速泄露燃料。</text>
+    <ship load="SHIP_GHOST_ALL" hostile="false" />
+	<environment type="nebula" />
+    <choice hidden="true">
+        <text>送上门的靶子，攻击！</text>
+        <event>
+            <text>居然这一次是是发起的战斗。你充能你的武器准备摧毁这艘已经残破不堪的旧船。</text>
+            <status type="divide" target="enemy" system="weapons" amount="2" />
+            <status type="limit" target="enemy" system="engines" amount="1" />
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>付给他们废料来修复他们的舰体。[-35~]</text>
+        <event load="GHOST_DONATION_CREW" />
+    </choice>
+    <choice hidden="true">
+        <text>无视这艘舰船。</text>
+        <event>
+            <text>魂灵族没有试图与你交流，并最终溜回云层，留下你一个人。</text>
+            <choice hidden="true">
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="GHOST_DONATION_CREW">
+    <event>
+        <text>"你们的捐赠大为慷慨，但它不足以修复所有人的住所。这艘船还能再将就一会，但我必须寻找新家来继续我的旅行。你的看起来就不错。"</text>
+        <item_modify>
+            <item type="scrap" min="-35" max="-35" />
+        </item_modify>
+        <crewMember amount="1" class="phantom_goul" />
+    </event>
+    <event>
+        <text>"你们的捐赠大为慷慨，但它不足以修复所有人的住所。这艘船还能再将就一会，但我必须寻找新家来继续我的旅行。你的看起来就不错。"</text>
+        <item_modify>
+            <item type="scrap" min="-35" max="-35" />
+        </item_modify>
+        <crewMember amount="1" class="phantom_mare" />
+    </event>
+    <event>
+        <text>"你们的捐赠大为慷慨，但它不足以修复所有人的住所。这艘船还能再将就一会，但我必须寻找新家来继续我的旅行。你的看起来就不错。"</text>
+        <item_modify>
+            <item type="scrap" min="-35" max="-35" />
+        </item_modify>
+        <crewMember amount="1" class="phantom_wraith" />
+    </event>
+</eventList>
+
+<event name="NEBULA_GHOST_BREEDER" unique="true">
+	<text>一艘蛞蝓族船已经在这个信标处，被几艘漂浪群船包围。奇怪的是，没有一个魂灵族在攻击蛞蝓族，蛞蝓族也不在搜刮这些残骸。</text>
+	<ship load="SHIP_SLUG_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>蛞蝓族舰长用沮丧的语气回答，不断地环顾自己周围，偶尔转过身来对他的船员大喊。"哦，你们是联邦。我们是一艘科学船，我们最近开始尝试繁殖魂灵族。结果发现它们不会繁殖。所以..."</text>
+			<choice>
+				<text>提出购买他们的一个试验对象作为船员。</text>
+				<event load="GHOST_BREEDER_PURCHASE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_GHOST">
+				<text>(魂灵族船员)让你的魂灵族船员解释魂灵族的增殖过程。</text>
+				<event>
+					<text>你的魂灵族在一个小平板上打出它的回复，以便蛞蝓族能够理解。根据他们的说法，魂灵族通过收集他们同化到体内的自然气体来"成熟"。一旦他们达到一个最大的尺寸，体型就会被称为"巨型"。进入巨型阶段后，随时就可以进行分裂，创造一名新的魂灵族。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"什么？这是不可能的！嘶...这些玩意儿放在我这儿没啥用。什么，你说这些大家伙很重要？好吧，你可以拿走一个，随便吧。可是这又有什么意义呢..."</text>
+							<crewMember amount="1" class="phantom_goul_alpha" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="GHOST_DUPLICATOR">
+				<text>(魂灵分裂器)给他们看看复制器。</text>
+				<event>
+					<text>科学家急切地调查着这个装置，观察每一个缝隙，研究每一寸地方。你考虑过抱怨这些粘上的黏液，但不想打断他的专注。过了一会儿，他给机器打了一拳，然后大叫起来。"我一定要试试这个！多少钱？"</text>
+					<choice req="GHOST_DUPLICATOR" blue="false">
+						<text>卖给他们这件增强部件。</text>
+						<event>
+							<text>蛞蝓族几乎无法控制自己，把废料扔给你，带着他最新的奖赏跑了。</text>
+							<remove name="GHOST_DUPLICATOR" />
+							<item_modify>
+								<item type="scrap" min="60" max="60" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event>
+							<text>蛞蝓族大叫着侮辱性的话语，说你在浪费他时间，然后气急败坏地回到了他的船上。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>结束通话。</text>
+				<event>
+					<text>你耸耸肩结束了通话。你猜这位科学家不会在意。</text>
+					<choice hidden="true">
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>蛞蝓族，即使是科学家，也不能够信任，你也不希望激怒一群魂灵族。你决定与他们的阴暗交易保持一定距离。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="GHOST_BREEDER_PURCHASE">
+	<event>
+		<text>"你...你想 买 一个这样的怪胎？好吧，总不能和废料过不去。"</text>
+		<item_modify>
+			<item type="scrap" min="-40" max="-40" />
+		</item_modify>
+		<crewMember amount="1" class="phantom" />
+	</event>
+	<event>
+		<text>"你...你想 买 一个这样的怪胎？好吧，总不能和废料过不去。"</text>
+		<item_modify>
+			<item type="scrap" min="-40" max="-40" />
+		</item_modify>
+		<crewMember amount="1" class="phantom_goul" />
+	</event>
+	<event>
+		<text>"你...你想 买 一个这样的怪胎？好吧，总不能和废料过不去。"</text>
+		<item_modify>
+			<item type="scrap" min="-40" max="-40" />
+		</item_modify>
+		<crewMember amount="1" class="phantom_mare" />
+	</event>
+	<event>
+		<text>"你...你想 买 一个这样的怪胎？好吧，总不能和废料过不去。"</text>
+		<item_modify>
+			<item type="scrap" min="-40" max="-40" />
+		</item_modify>
+		<crewMember amount="1" class="phantom_wraith" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_VAGABOND">
+	<event load="NEBULA_LIGHT_GHOST_GASGIANT" />
+	<event load="NEBULA_GHOST_FEDMORALITY" />
+	<event load="NEBULA_GHOST_ANGERY_SLUG" />
+	<event load="NEBULA_DRIFTER_CHOICE_GHOST" />
+	<event load="NEBULA_GHOST_INSANE_ROCKMEN" />
+	<event load="NEBULA_GHOST_UPGRADERS" />
+</eventList>
+
+<event name="NEBULA_LIGHT_GHOST_GASGIANT" unique="true">
+	<text>看起来一艘漂浪群飞船正在扫描附近的气态巨行星，但当你跃迁进入时，很快就呼叫你。"我亲爱的是不是很美？"</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_GAS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>你的...谁？</text>
+		<event>
+			<text>"别傻了！我知道你能看到。她挺大的！"没多久你就意识到他们指的是这颗气态星球。"你能帮我一个忙吗？我亲爱的饿了！我必须喂她。但我缺乏食物。你必须给我带来一架舰骸。我听说有一个恶魔在附近徘徊！或者也许你更愿意去找一些叛军..."</text>
+			<choice hidden="true">
+				<text>去找那个"恶魔"。</text>
+				<event>
+					<text>看起来，这个"恶魔"是...叛军自动舰？好吧，无论如何你都得杀了这个玩意，准备战斗吧！</text>
+					<ship load="SHIP_GASGIANT_AUTO" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>去找叛军。</text>
+				<event>
+					<text>幸运的是，离这里不远的地方有一艘叛军的飞船。你可以轻而易举地把这些家伙干掉，但愿。</text>
+					<ship load="SHIP_GASGIANT_REBEL" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>"好吧...跟联邦舰长说再见吧，亲爱的！"气态巨人依然沉默不语，在远处旋转着默默地审视着你。</text>
+					<choice hidden="true">
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GHOST_GASGIANT_FEED">
+	<text>"太好了！哦，你胜利了！我的挚爱今晚不会再挨饿了！"魂灵族将残骸与他自己的船只连接起来，然后用把它弹射入气态巨星。这艘船在被行星吞噬的过程中螺旋地渐渐消失。"很好。你应该得到最丰厚的回报！"</text>
+	<drone name="RANDOM" />
+</event>
+
+<event name="NEBULA_GHOST_FEDMORALITY" unique="true">
+	<text>你已经习惯了在周围看不到有什么联邦战舰的情况，所以在这里看到一艘令你相当震惊。更奇怪的是，他们的武器已然充能，舰体显示出一些轻微的损坏。他们一定是刚刚参加过战斗。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>舰长抬起头来，心不在焉。"啊？哦！好耶，大伙看看这是谁。我以为我们在这些星云中是孤独的。除了魂灵族，就是魂灵族了。我正在努力清除离这里不远的一个营地，那些混蛋被困在里面了！清理完我就可以随心所欲地来回航行了！"</text>
+			<choice hidden="true">
+				<text>但为什么呢？</text>
+				<event>
+					<text>"哈！为什么不呢？容易搜刮，还能使这片星云不那么拥挤。等解决了叛军，联邦八成要深入扩张，不如现在就开始清理那些渣滓吧。"</text>
+					<choice hidden="true">
+						<text>帮助他们清除魂灵族。</text>
+						<event>
+							<text>你的帮助提议让联邦舰长很高兴。他带你到魂灵族营地，在那里你发现了你的目标。</text>
+							<choice hidden="true">
+								<text>攻击其中一个螳螂族的残骸。</text>
+								<event>
+									<text>当你准备攻击漂浪群飞船的时候，你看见其他的船移动到那艘联邦船只附近作战。希望你们都能挺过去。</text>
+									<ship load="SHIP_GHOST_FEDMORALITY_MANTIS" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>攻击半械族的一个残骸。</text>
+								<event>
+									<text>当你准备攻击漂浪群飞船的时候，你看见其他的船移动到那艘联邦船只附近作战。希望你们都能挺过去。</text>
+									<ship load="SHIP_GHOST_FEDMORALITY_ENGI" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>攻击其中一个超能族的残骸。</text>
+								<event>
+									<text>当你准备攻击漂浪群飞船的时候，你看见其他的船移动到那艘联邦船只附近作战。希望你们都能挺过去。</text>
+									<ship load="SHIP_GHOST_FEDMORALITY_ZOLTAN" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>太卑劣了！攻击联邦飞船。</text>
+						<event>
+							<text>"哈？！你到底在做什么？"你将这艘船静音并进行攻击。</text>
+							<ship load="SHIP_FED_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>不管他们。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这艘飞船。</text>
+		<event>
+			<text>这艘联邦舰艇看起来心事重重，并没有注意到，或者完全不在乎你。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GHOST_FEDMORALITY_FINISH">
+	<text>"干得漂亮！我们让那些毒气鬼见识了联......"联邦飞船的通讯被切断了，因为一艘漂浪群飞船的开火将他们的舰体炸成了两半！"滚开，呼气的！"你很快就消灭了第二艘魂灵族飞船，但联邦飞船也坚持不了多久了。</text>
+	<choice>
+		<text>拯救舰长。</text>
+		<event>
+			<text>"谢谢。这就是为什么我们要站在联邦一边，这个星系充满了无端的危险！"</text>
+			<crewMember amount="1" pilot="2" class="human" />
+		</event>
+	</choice>
+	<choice>
+		<text>让他们去死然后搜刮他们的船，这对大家都好。</text>
+		<event>
+			<text>你感到有点内疚，但这些人大概率也是有罪的。今日的谋杀之血只沾染了你的手，但你应该能够很快地调整心态。</text>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_GHOST_ANGERY_SLUG">
+	<text>你被一个愤怒的蛞蝓族舰长叫住了。"该死的魂灵族！这片星云是我们的！我要处理的问题够多了，我没时间陪你们这些联邦的玩。"</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>向对方表示你不是在玩。</text>
+		<event>
+			<text>"我早就知道你会这样。我最好毁掉你的飞船以免魂灵族们占据它。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>向他们保证你会离开。</text>
+		<event>
+			<text>"好吧...但不要让我看到你回来。"</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DRIFTER_CHOICE_GHOST" unique="true">
+	<text>一艘被遗弃的旧船，灯光熄灭，似乎空无一人，漂浮在附近。它对你的呼叫没有反应。</text>
+	<ship load="SHIP_GHOST_ALL" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>搜刮它。</text>
+		<event load="NEBULA_DRIFTER_CHOICE_GHOST_SCRAP" />
+	</choice>
+	<choice req="weapons" lvl="1" blue="false" hidden="true">
+		<text>把这艘船轰个稀巴烂。</text>
+		<event>
+			<text>你直接向旧船的船体开了一炮，引起了爆炸，使扭曲的金属向四处迸发。船上是否有魂灵族，这已经不重要了。不幸的是，随着碎片散落到星云的深处，没有任何可抢救的物资留下。</text>
+			<enemyDamage amount="999" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这艘舰船。</text>
+		<event load="NEBULA_DRIFTER_CHOICE_GHOST_IGNORE" />
+	</choice>
+</event>
+<eventList name="NEBULA_DRIFTER_CHOICE_GHOST_SCRAP">
+	<event>
+		<text>在收集时，这艘船出乎意料地闪烁起生命的光芒！魂灵族飞船的船员们被你试图拆毁他们新得来的家园的行为惊醒了，他们开始行动。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>当你分解它的舰体时这艘船保持着毫无生气的状态。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+</eventList>
+<eventList name="NEBULA_DRIFTER_CHOICE_GHOST_IGNORE">
+	<event>
+		<text>你打算无视这艘旧船，但似乎船上的魂灵族打算和你战斗！这艘船启动了，它的武器也开始充能。留给你的只有一个选择：战斗。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>如果船上有魂灵族的话，你没有兴趣唤醒他们。你决定把你的时间花在别的事情上。</text>
+		<choice hidden="true">
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice hidden="true">
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_GHOST_INSANE_ROCKMEN" unique="true">
+	<text>你一跃迁至这个信标，就被一艘岩石族船呼唤。他们的船员蜷缩在地上，来回摇晃着。舰长猛烈地摇晃着镜头，对你大喊大叫。"魂————灵，魂—————灵！你是魂灵吗？"</text>
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>千真万确。</text>
+		<event load="NEBULA_GHOST_INSANE_ROCKMEN_YES" />
+	</choice>
+	<choice hidden="true">
+		<text>否。</text>
+		<event load="NEBULA_GHOST_INSANE_ROCKMEN_NO" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_GHOST">
+		<text>(魂灵族船员)让他们看看你的魂灵族船员。</text>
+		<event load="NEBULA_GHOST_INSANE_ROCKMEN_GHOST" />
+	</choice>
+</event>
+<eventList name="NEBULA_GHOST_INSANE_ROCKMEN_YES">
+	<event>
+		<text>岩石族开始嘶吼并砸碎了摄像机。没过多久他们的武器就上线了。这些疯狂的岩石族准备好了要摧毁你。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>舰长吓得浑身发抖求你不要吃他们的肚子。你完全不觉得魂灵族是食肉动物，但岩石族显然不知道这一点。</text>
+		<choice hidden="true">
+			<text>我们要吃了你。</text>
+			<event>
+				<text>岩石族开始哭了。"不不不，不，不！"他把拳头砸在他面前的桌子上，命令他的精神病船员振作起来进行攻击。</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>我们对你没有恶意。</text>
+			<event>
+				<text>"哦，谢谢你，非常感谢，我无以为报，谢谢，非常感谢，谢谢..."舰长哭得稀里哗啦，嘴里喃喃地说着谢谢和其他语无伦次的话。你自行离开了。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="NEBULA_GHOST_INSANE_ROCKMEN_NO">
+	<event>
+		<text>"你们...你们不是魂灵族？我不相信！我们在这里只遇到过地狱造物，所以很明显，只有恶魔居住在这个星区！"按照他们的逻辑，他们自己也该是魂灵族，可你没时间解释，因为他们的武器已激活。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"好，哦好的，好的...你一定要小心！魂灵族，他们无处不在！"岩石族爆发出一阵神经质的笑声，结束了通话。你让两艘船之间拉开了一些距离。</text>
+		<choice hidden="true">
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice hidden="true">
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+<event name="NEBULA_GHOST_INSANE_ROCKMEN_GHOST">
+	<text>岩石族发出了一声高亢的尖叫，你甚至认为他的声带不可能发出这样的声音。突然间，他倒下了，抽搐着，真的死了。你的魂灵族一定让他心脏病发作了，如果他们有心脏的话。他们的其他船员都疯到什么都做不了，你刮下了他们船的外层部分。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+<event name="NEBULA_GHOST_UPGRADERS" unique="true">
+	<text>信标似乎是空的，但你很快否定了这个想法，因为静电噪音在你的船舱里回响。你冲到引擎系统舱室看到3个魂灵族，正在检查超光速推进器。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>在魂灵族破坏你的系统之前与他们战斗。</text>
+		<event>
+			<boarders min="3" max="3" class="phantom_wraith" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>等等看。</text>
+		<event load="NEBULA_GHOST_UPGRADERS_WAIT" />
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>(心灵控制)让他们自行处理吧，但也要准备好心灵控制手段，以防万一。</text>
+		<event load="NEBULA_GHOST_UPGRADERS_MINDCONTROL" />
+	</choice>
+</event>
+<eventList name="NEBULA_GHOST_UPGRADERS_WAIT">
+	<event>
+		<text>你等待着，看着魂灵族查看你系统的每一寸地方。虽然他们没有可见的工具，但你很好奇他们是否在进行测量。其中一名魂灵族摆弄了一下内部的机械构造，然后就像他们突然出现一样，这些魂灵族突然走出舱门，瞬间消失了。你不知道他们做了什么，但你基本确定星舰的引擎正比以前更高的水平运行着。</text>
+		<upgrade amount="1" system="engines" />
+	</event>
+	<event>
+		<text>你等待着，看着魂灵族查看你系统的每一寸地方。突然，在一个剧烈的运动中，其中一个魂灵族扯下了多元推进器外壳上的一块金属板，导致了剧烈的爆炸！你没有继续等待，而是命令船员们进攻。</text>
+		<boarders min="3" max="3" class="phantom_wraith" />
+		<damage amount="3" system="engines" />
+	</event>
+</eventList>
+<eventList name="NEBULA_GHOST_UPGRADERS_MINDCONTROL">
+	<event>
+		<text>你等待着，看着魂灵族查看你系统的每一寸地方。虽然他们没有可见的工具，但你很好奇他们是否在进行测量。其中一名魂灵族摆弄了一下内部的机械构造，然后就像他们突然出现一样，这些魂灵族突然走出舱门，瞬间消失了。你不知道他们做了什么，但你基本确定星舰的引擎正比以前更高的水平运行着。</text>
+		<upgrade amount="1" system="engines" />
+	</event>
+	<event>
+		<text>你静静地看着那些魂灵族，它们仔细检查着你的整个系统。突然，其中一只魂灵族似乎要撕下多元推进器外壳上的一个重要部件，但幸运的是，你能在它们成功之前启动心灵控制系统。你甚至能让它们击倒另一只魂灵族，但其余的魂灵族仍需你一一击退。</text>
+		<boarders min="2" max="2" class="phantom_wraith" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_DISTRESS_VAGABOND">
+	<event load="NEBULA_VAGABOND_ORCHID" />
+	<event load="NEBULA_GHOST_ESCORT" />
+</eventList>
+
+<event name="NEBULA_VAGABOND_ORCHID" unique="true">
+	<distressBeacon />
+	<text>看起来，一艘兰花族飞船是这个求救信号的来源。他们的一名船员向你求救："请帮帮我们！我们被集议会派去与一个不断焚烧我们殖民地的燃灵谈判，但我们的舰长被扣为人质，他们不肯交出他！"</text>	
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>同意提供帮助。</text>
+		<event>
+			<text>你按照兰花族的指示来到一个主要由燃灵居住的漂浪群战争营地。你要求与他们的首领直接对话："你是否在乎这个虚弱的植物生命到了，有进一步的野心来寻求我们的青睐以释放他的程度？如果你希望这个植物人不再受苦，那么你必须证明你的价值，摧毁一艘一直困扰我的人民的灵朝船只。"</text>
+			<choice hidden="true">
+				<text>我们会与灵朝飞船作战。</text>
+				<event>
+					<text>漂浪群将你引向不远处的一艘灵朝船只。准备战斗吧！</text>
+					<ship load="SHIP_VAGABOND_ORCHID_DYNASTY" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝，只需攻击这群漂浪群即可。</text>
+				<event>
+					<text>"一如既往的可预测性！这场战斗之后，别指望这朵兰花的生命能坚持多久！"</text>
+					<ship load="SHIP_VAGABOND_ORCHID_VAGABOND" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_GOUL">
+				<text>(燃灵船员)与他们进行谈判。</text>
+				<event>
+					<text>两名燃灵来回说了一段时间，但最终达成了共识。在用与灵朝合作的潜在兰花族入侵的不祥警告来吓唬他们之后，对方燃灵似乎不再想把兰花族作为人质了。兰花族安全返回后，他们为你的协助支付了报酬。</text>
+					<autoReward level="LOW">standard</autoReward>
+					<weapon name="GIFTLIST_KERNEL" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你向兰花族们道歉，但这些事不适合你参与。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_GHOST_ESCORT" unique="true">
+	<distressBeacon />
+	<text>一艘装备简陋的民用飞船正在发送求救信号。他们迷路了，很害怕，请求你护送他们到目的地，并保护他们不受魂灵族的伤害。</text>	
+	<ship load="SHIP_UNION_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<status type="limit" target="enemy" system="teleporter" amount="0" />
+	<choice>
+		<text>接受。</text>
+		<event>
+			<text>平民们感谢你，并付给你一些废料作为定金。他们保证在他们的最终目的地会有更多。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<quest event="NEBULA_GHOST_ESCORT_DESTINATION" />
+		</event>
+	</choice>
+	<choice>
+		<text>攻击。</text>
+		<event>
+			<text>平民们对你们突然的敌意感到惊讶，但除了战斗别无选择。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>我们没有时间去帮助每一个愚蠢到闯入魂灵族星云的平民。你拒绝了他们的请求，为超光速推进器充能。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_GHOST_ESCORT_DESTINATION">
+	<event>
+		<beaconType id="map_icon_quest" global="true">
+			<color r="69" g="168" b="235" a="1" />
+			<unvisitedTooltip>护送一艘毫无准备的飞船前往这个坐标。</unvisitedTooltip>
+		</beaconType>
+		<text>你到达了你的目的地，但一艘魂灵族飞船已经在这里了。你向平民发出信号，让他们退后，而你则准备消除威胁。</text>
+		<ship load="SHIP_GHOST_ESCORT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event load="NEBULA_GHOST_ESCORT_DESTINATION_GOOD" />
+</eventList>
+<event name="NEBULA_GHOST_ESCORT_DESTINATION_GOOD">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>护送一艘毫无准备的飞船前往这个坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>平民们感谢你的帮助，并把剩下的废料付给你。</text>
+	<autoReward level="MED">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_VAGABOND">
+	<event load="NEBULA_ENCOUNTER_VAGABOND" />
+	<event load="NEBULA_ENCOUNTER_VAGABOND" />
+	<event load="NEBULA_ENCOUNTER_DYNASTY" />	<!-- events_dynasty -->
+	
+	<event load="NEBULA_ENCOUNTER_SLUG_GHOST" />
+	<event load="NEBULA_GHOST_AUTO_ESCAPE" />
+	<event load="NEBULA_GHOST_LANIUS" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_VAGABOND">
+	<text load="NEBULA_GHOST_FIGHT" />
+	<ship load="SHIP_GHOST_ALL" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_GHOST_FIGHT">	
+	<text>魂灵族可能不是真的超自然现象，但他们仍然会让你感到紧张。当你跃迁时，一艘漂浪群飞船从星云中漂移出来。各就各位！</text>	
+	<text>你发现当你在魂灵族星域遇到废弃的船总是有点忌惮。但这次你不用多想了，因为这个信标处的废船已经先向你移动攻击。</text>	
+	<text>漂浪魂灵族的船通常是从受害者那里偷来的，但如果他们遇到一艘已经被遗弃的船，他们会很高兴地居住于此。无论他们以哪种方式继承的这艘船都不重要，因为它是有敌意的，而且移动过来攻击。</text>	
+	<text>这座信标的残骸并不是被遗忘在云层中的闲置船只。它充斥着随时准备偷走你的船的魂灵族。</text>	
+	<text>你已经在身处联邦的时候做足了准备并经历过各种情况，但没有什么能像魂灵族的漂浪群残骸那样让你惊愕，他们总是从这些云层中窜出。</text>	
+	<text>你的飞船收到了呼叫，但你不确定来自哪里。你接受了，喇叭里充斥着痛苦的噪音，侮辱着你的血统，称你为"肮脏的肺部呼吸者"。一艘魂灵族船正在接近，武器已经准备好了！</text>	
+	<text>"我听说我们令人厌恶的气味来自于一种硫醇的混合物。这很有趣，不是吗？啊，但真正让我着迷的是，你是如何掉入我这套十分聪明的话术干扰陷阱里的！"</text>	
+	<text>漂浪群魂灵族一般富有侵略性。在抛弃了以战争为导向的本土派别，即灵朝之后，无政府状态的生活对一个人来说确实是有影响。然而，他们仍然是你要消灭的目标！</text>	
+</textList>
+
+<event name="NEBULA_ENCOUNTER_SLUG_GHOST" unique="true">
+	<text>一艘蛞蝓族飞船在呼叫你。"不管你是不是魂灵族，我们都不在乎。这片星云属于星盗会和异猎会，不属于鬼魂，当然也不属于联邦！"</text>
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_GHOST_AUTO_ESCAPE" unique="true">
+	<text>看起来像是一艘叛军的自动舰在探索这个区域，但在星云中迷路了。现在，它试图在魂灵族抓捕它之前返回基地。在它的超光速推进器充能的同时，它架起武器来保护自己。</text>
+	<ship load="SHIP_AUTO_GHOST_ESCAPE" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_GHOST_LANIUS" unique="true">
+	<text>食铁族在星云区并不常见，但他们被魂灵族吸引。食铁族是魂灵族的天敌，他们捕食魂灵族，吸收他们的飞船。这里的食铁族不在乎你不是魂灵族，而是直接发动了攻击。</text>
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_ENCOUNTER_VAGABOND_ELITE" unique="true">
+	<text>你看到了一个看起来像是前精英船的残骸，这可能会带来丰富的打捞物。突然'残骸'转向了你，吓了你一跳，揭露出它现在已经被魂灵族占据了！随着这艘飞船在第二次新生中重新焕发活力，它决定让你永远地安息。</text>
+	<ship load="SHIP_GHOST_ELITE" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="UNLOCK_GHOST_QUEST" unique="true">
+	<preventQuest />
+	<text>一艘涂成白色、背后有奇怪标志的叛军掠夺舰向你呼叫。"你好，旅行者！我们是猎魂...呃...寻鬼敢死队！我们有一个独特的提议给你..."</text>
+	<ship load="SHIP_GHOSTBUSTER" hostile="false" />
+	<choice hidden="true">
+		<text>说来听听。</text>
+		<event>
+			<text>"也许你听说过灵朝与叛军的混战？嗯，这一切都发生在灵朝干掉了叛军的第一批旗舰原型的一艘之后！这激起了一场大规模的战争，然后就是...巴拉巴拉...问题是，那艘旗舰仍然存在！事实上，它就在这个星区！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"你大概觉得我们只是一些叛军罢了。大错特错！我们以前跟他们一起混，但现在不是了。我们现在是雇佣兵，被联邦派来干掉那只巨兽。看来现在它在漂浪群手里，确切地说是个叫游灵的帮派，以某个叫'哥泽什'的蠢货为首。帮我们干掉这帮狗娘养的，我们可以跟你们平分赏金。怎样？"</text>
+					<choice hidden="true">
+						<text>同意。</text>
+						<event>
+							<text>"太好了！我们会向你传输旗舰的最后已知坐标。那里见。"</text>
+							<quest event="UNLOCK_GHOST_QUEST_2" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event>
+							<text>舰长暗地里说了两句。"行吧，我们会再找个其他愿意来干掉某个破战舰的人，来领取银河系史上最高额的赏金！"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>叛军战舰就是叛军战舰。进攻！</text>
+		<event>
+			<text>只有死叛军才是好叛军。你准备进攻。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你不愿意和疯子打交道，尤其是在这种地方。你关闭通讯时听见舰长的一声叹气。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_spookchasersstart" global="true">
+        <color r="255" g="255" b="255" a="1.0" />
+        <unvisitedTooltip>此处是魂灵猎手的所在。摧毁那艘闹鬼的旗舰。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="GHOSTBUSTER_KILL">
+	<text>当飞船爆炸时，你似乎感觉到了......某种汹涌的、浩瀚的，澎湃而激荡的存在；数以百计的、难以言说的缕缕形体呼啸着从这些船体中漂浮出来。你最终意识到你可能已经做了某些非常糟糕的决定，但单单一个宇宙陷入被诅咒的时间线又能激起什么大浪呢？</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="UNLOCK_GHOST_QUEST_2">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_bounty" global="true">
+		<color r="255" g="255" b="255" a="1.0" />
+	</beaconType>
+	<text>你到达了信标，但这里似乎没有船。你久久凝视着云层直到一个橙色的尾翼滑过。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>跟随它。</text>
+		<event>
+			<text>你跟着它溜过星云，只发现云层中有一个巨大的缺口；在缺口的正中央，停泊着那艘旧叛军旗舰。"很好，哦很好，你成功了！现在，帮我们一把，好吗？"寻鬼敢死队们喊道。他们一边向你大喊一边向旗舰开火，但似乎毫无效果。</text>
+			<ship load="SHIP_GHOST_FLAGSHIP" hostile="false" />
+			<choice hidden="true">
+				<text>帮助他们！</text>
+				<event>
+					<text>你不是懦夫。如果你想在这次任务的终点有希望击败一艘真正的穿越多元宇宙的旗舰，你也必须具备能把这艘船干掉的能力。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>逃跑。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="UNLOCK_GHOST_DAMAGE">
+	<text>你注意到你的同伴，猎魂者们，飞了过去。虽然开始他们的武器对旗舰没有什么作用，但他们的一发炮弹居然打到了旗舰的引擎上，使其关闭。然而，传送器的能量特征表明，你又被登舰了。</text>
+	<boarders min="3" max="3" class="phantom_goul" />
+	<enemyDamage amount="2" system="engines" />
+</event>
+<event name="UNLOCK_GHOST_QUEST_WIN">
+	<text>这艘你听过很多传说的巨舰，在引擎的爆炸导致它爆发出火焰和爆炸之前，终于发出了最后一次震颤。旗舰，以及和它在一起的漂浪群，已经死了...再一次。</text>
+	<variable name="ach_boss_ghostflag" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>猎魂者呼叫你。"那，可真是，泰裤辣！你知道我们将变得多么富有吗？等等，哦对，对。你的报酬。考虑到这次的赏金足以让我们买下一整个卫星，甚至一个小星球，我想给你一些特别的东西也无妨。我们有一艘在造的新星舰，我想不出还有谁比你更配得上驾驭它。"</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_GHOST</unlockCustomShip>
+			<damage amount="-5" />
+			<item_modify>
+				<item type="fuel" min="10" max="15" />
+				<item type="scrap" min="80" max="110" />
+				<item type="missiles" min="7" max="10" />
+				<item type="drones" min="5" max="9" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"哦，哦！最后还有一件事。赏金已到手，我们这辈子再也不用工作了。所以现在把这个给你也无妨。还有其他的游灵成员仍然在银河系中游荡，而你是一个很好的人选，可以把他们剩下的人都干掉！"</text>
+					<augment name="PROTON_PACK" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+</FTL>

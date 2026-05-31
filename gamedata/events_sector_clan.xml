@@ -1,0 +1,3262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EHG SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="CLEARING_CLAN">
+	<event load="CLAN_FAUNA" />
+	<event load="CLAN_TOURISTS" />
+	<event load="CLAN_CRISIS" />
+	<event load="CLAN_SPICES" />
+</eventList>
+
+<event name="CLAN_FAUNA" unique="true">
+	<img planet="PLANET_POPULATED_GRASSY" />
+	<ship load="SHIP_CLAN_ALL" hostile="false" />
+	<loadEvent>CLAN_FAUNA_START</loadEvent>
+</event>
+<event name="CLAN_FAUNA_START">
+	<text>一艘异种猎人战舰停留在一颗充满树栖生物的星球的轨道上，你一到来，他们就向你呼叫。"下面这颗星球居住着整个宇宙中最危险的树栖生物。它们在战斗中所向披靡，还能用先天的精神力扰乱你的思维。大多数物种都没法伤它们分毫，它们也难以被击晕。我们的蛞蝓族可以帮忙，但还没强到独自面对它们。"</text>
+	<choice>
+		<text>询问他们为什么不用自己飞船上安装的武器。</text>
+		<event>
+			<text>"你难道不明白狩猎的真谛吗？如果我们动用舰载武器，就等于承认了自己的无能。何况狂轰滥炸只会留下冒烟的弹坑，而不是值得展示的战利品。更何况——谁都不想看到整片森林在狩猎中化为焦土吧？"</text>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<loadEvent ignoreUnique="true">CLAN_FAUNA_START</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>主动提供帮助。</text>
+		<event load="CLAN_FAUNA_OFFER_TO_HELP" />
+	</choice>
+	<choice>
+		<text>攻击这些猎人。</text>
+		<event>
+			<text>猎手们即将沦为猎物。他们虽显慌乱，但迅速稳住阵脚。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>我们没法帮忙。</text>
+		<event>
+			<text>你向他们道歉，并决定不介入此事。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CLAN_FAUNA_OFFER_TO_HELP">
+	<text>"你们有什——么狩猎的妙计？"</text>
+	<choice req="LIST_A55" hidden="true">
+		<text>（A55）"让我来教你怎么做！" [-1|]</text>
+		<event>
+			<text>在异种猎人的帮助下A55娴熟的制服了猎物。"哈！这赏金猎物挺能打，但还不是咱的对手！"异种猎人们对这台无人机完美的精准和出人意料的狡黠深感震撼。</text>
+			<item_modify>
+				<item type="drone" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS">
+					<item_modify>
+						<item type="drone" min="1" max="1" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="BLUELIST_POWERFUL_BOARDING_NO_A55" hidden="true">
+		<text>（特殊士兵无人机）派遣一架强力无人机协助蛞蝓族。[-1|]</text>
+		<event load="CLAN_50_50_POWERFUL" />
+	</choice>
+	<choice req="BLUELIST_MID_LEVEL_BOARDING" hidden="true">
+		<text>（登舰无人机进攻）派遣无人机协助蛞蝓族作战[-1|]。</text>
+		<event load="CLAN_25_50_25_MID" />
+	</choice>
+	<choice req="BLUELIST_BOARDING_SUPPORT" hidden="true">
+		<text>（登舰无人机支援）派遣一台弱效无人机协助蛞蝓族作战。[-1|]</text>
+		<event load="CLAN_50_50_SUPPORT" />
+	</choice>
+	<choice req="BLUELIST_HOLODRONE_CHAOS" hidden="true">
+		<text>（混沌全息无人机）告诉他们你有个绝妙主意。[-1|]</text>
+		<event>
+			<text>混沌全息无人机生成了一名船员。然而对异种猎人们而言不幸的是，这名船员立刻选择与巨兽为伍。一人一兽轻而易举地屠尽了整个狩猎队。您新获得的忠诚船员心满意足地回到船上，迫不及待地向所有人宣扬他们最好朋友的英勇事迹。</text>
+			<crewMember amount="1" combat="2" class="LIST_CREW_HOLODRONE_CHAOS">野兽兄弟</crewMember>
+			<item_modify>
+				<item type="drone" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="CLAN_FAUNA_CATASTROPHIC_FAILURE" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="eldritch_cat" hidden="true">
+		<text>（押韵者）"诸位请靠边站，且让我为你们指引恐怖之径！"</text>
+		<event>
+			<text>"岁月流转，经年未见？今朝得遇狐尊重现。饥肠辘辘，渴求难掩，腹中翻腾何等焦煎。梦想与血肉皆他所愿，双口喂食是其弱点。此刻献上所有渴求，了结这群恶徒残生。"押韵者将巨兽径直传送到异猎会舰船上。猎人们的惊慌与恐惧很快被巨兽吞噬一切的动静所取代。押韵者将敌方舰船的丰厚战利品尽数奉予你。</text>
+			<autoReward level="HIGH">weapon</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"吃饱喝足得自由，银河任他逍遥游。巧遇零食，邂逅美餐，役使有用之人齐跪参。天地广阔任探索，且看他将踏遍多少奇境异域！"</text>
+					<instantEscape />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_SIREN" hidden="true">
+		<text>（异鸣族船员）你的异鸣族船员或许能派上用场。</text>
+		<event load="CLAN_50_50_SIREN" />
+	</choice>
+	<choice req="unique_irwin" hidden="true">
+		<text>（厄文）让厄文指挥他们。</text>
+		<event>
+			<text>"从没亲眼见过这可爱生物，但直觉告诉我该怎么制伏它。"厄文向所有异猎会成员发号施令。在他精准无误的指挥下，巨兽被毫发无伤地麻醉捕获。猎手们目睹传奇技艺后惊叹不已。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="unique_vortigon" hidden="true">
+		<text>（沃蒂根）沃蒂根似乎跃跃欲试。</text>
+		<event load="CLAN_50_50_VORTIGON" />
+	</choice>
+	<choice req="BLUELIST_SNAIL_ALKALI" hidden="true">
+		<text>(心灵感应阿尔科莱)"有意思。如果你们让我研究这头野兽，我可以提供医疗支援。"</text>
+		<event load="CLAN_25_75_ALKALI" />
+	</choice>
+	<choice req="unique_turzil" hidden="true">
+		<text>(图尔齐尔)图尔齐尔支持全力进攻。</text>
+		<event load="CLAN_33_66_TURZIL" />
+	</choice>
+	<choice req="rock_cultist" hidden="true">
+		<text>(异教徒)你的异教徒自愿出战。</text>
+		<event load="CLAN_25_50_25_CULTIST" />
+	</choice>
+	<choice req="LIST_VARIANT_SEPARATIST" hidden="true">
+		<text>(分离主义者船员)你派出半械分离主义者。</text>
+		<event load="CLAN_25_75_SEPARATIST" />
+	</choice>
+	<choice req="engi_defender" hidden="true">
+		<text>(保卫者船员)你派出半械保卫者。</text>
+		<event load="CLAN_50_50_DEFENDER" />
+	</choice>
+	<choice req="zoltan_osmian" hidden="true">
+		<text>(原能族船员)你的原能族可提供支援。</text>
+		<event load="CLAN_66_33_OSMIAN" />
+	</choice>
+	<choice req="human_technician" hidden="true">
+		<text>(技工船员)你的技工可提供支援。</text>
+		<event load="CLAN_66_33_TECHNICIAN" />
+	</choice>
+	<choice>
+		<text>改为攻击他们。</text>
+		<event>
+			<text>看来猎人要变成猎物了。他们似乎措手不及，但很快恢复过来。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>算了，我们没有合适的帮手。</text>
+		<event>
+			<text>你道歉并决定不插手。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="CLAN_50_50_POWERFUL">
+	<event>
+		<text>即使面对机敏的野兽，无人机也造成了可观的伤害。它尽力保护狩猎队，但这头聪明的生物还是在被制服前杀死了一名蛞蝓族。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event>
+		<text>野兽对专业无人机的强悍感到惊讶。即使集中攻击，它也勉强在受损的狩猎队制服它之前摧毁了无人机。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CLAN_25_50_25_MID">
+	<event>
+		<text>突击无人机尽职尽责，既承受了野兽的大部分攻击，也自身造成了可观伤害。异猎会成员以一人伤亡的代价赢得了胜利。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event name="CLAN_FAUNA_MID_PYRRHIC">
+		<text>野兽大多无视无人机，专注于柔软的目标，但这被证明是错误决定，因为无人机用其战斗能力惩罚了这一选择。不幸的是，蛞蝓族狩猎队在此过程中伤亡惨重。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_MID_PYRRHIC" />
+	<event>
+		<text>野兽运用智慧智取了无人机，专注于攻击狩猎队。不幸的是，当无人机最终发动攻击时，已经没有蛞蝓族可以支援它了。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_FAILURE" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CLAN_50_50_SUPPORT">
+	<event>
+		<text>你的无人机尽力支援异猎会成员，但野兽无视了它并将狩猎队撕碎。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_FAILURE" />
+		</choice>
+	</event>
+	<event>
+		<text>支援无人机通过履行职责和充当盾牌，帮助异猎会成员赢得了胜利，但沿途有一些严重的伤亡。</text>
+		<item_modify>
+			<item type="drone" min="-1" max="-1" />
+		</item_modify>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CLAN_50_50_SIREN">
+	<event>
+		<text>野兽立即冲向异鸣族，将其视为最大威胁。不知何故，这生物的心智能力在异鸣族面前似乎变得混乱，异鸣族利用这一点进行防御性战斗，而异猎会成员则能对其干净利落地开枪。然而，你的异鸣族似乎不太关心猎人们的性命，其中一些人受伤了。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event>
+		<text>野兽立即冲向异鸣族，将其视为最大威胁。你的船员躲避了它的攻击，而异猎会成员则能干净利落地开枪。最终，这生物完全狂暴，撕碎了猎人们，之后异鸣族终于安抚住它，让少数幸存的蛞蝓族之一结果了它的性命。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CLAN_50_50_VORTIGON">
+	<event>
+		<text>沃蒂根的狂热甚至突破了这头灵能野兽的力量。野兽既无法颠覆沃蒂根的意志，也无法有效伤害他。沃蒂根将野兽钳制在擒抱中，蛞蝓族得以在零伤亡的情况下将其制服。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+		</choice>
+	</event>
+	<event>
+		<text>沃蒂根的狂热甚至突破了这头灵能野兽的力量。野兽既无法颠覆沃蒂根的意志，也无法有效伤害他。它设法挣脱了他的掌控，并尽力远离他。尽管战斗艰苦，蛞蝓族得以在沃蒂根魁梧身躯的掩护下躲藏。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="CLAN_25_75_ALKALI">
+	<event>
+		<text>蛞蝓族围绕阿尔科莱组成阵型。得益于他敏锐的外星生物学洞察力，野兽无法突破阵型。无论他们受了多重的伤，整个狩猎队都能得到所需的医疗援助。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+		</choice>
+	</event>
+	<event name="CLAN_FAUNA_ALKALI_SUCCESS">
+		<text>异猎会成员围绕阿尔科莱组成阵型。野兽能够撕裂一些蛞蝓族，但他设法在大多数人倒下前稳住他们的状态。然而，一名侧翼的猎人有点大意，在阿尔科莱能施救前就被撕成了碎片。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_ALKALI_SUCCESS" />
+	<event load="CLAN_FAUNA_ALKALI_SUCCESS" />
+</eventList>
+
+<eventList name="CLAN_33_66_TURZIL">
+	<event>
+		<text>图尔齐尔以精准的度量指挥异猎会成员。一旦野兽被引诱，图尔齐尔就召集整个小队到他的位置。随着他的防护场在每个蛞蝓族周围生成，他们几乎对生物的攻击免疫，从而取得了胜利。狩猎队为他们的胜利将军欢呼。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+		</choice>
+	</event>
+	<event name="CLAN_FAUNA_TURZIL_SUCCESS">
+		<text>图尔齐尔以精准的度量指挥狩猎队。一旦野兽被引诱，图尔齐尔就召集整个小队到他的位置。随着他的防护场在每个蛞蝓族周围生成，他们几乎对生物的攻击免疫。它最终意识到了这一点，并中断了攻击，以便等待防护场消失。图尔齐尔的防护场消散后，保护效果已经消失，但伤害已经造成，野兽受伤过重，无法有效利用这一点。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_TURZIL_SUCCESS" />
+</eventList>
+
+<eventList name="CLAN_25_50_25_CULTIST">
+	<event>
+		<text>异教徒迅速行动，服用兴奋剂并冲向生物。它完全没料到这位狂热者平凡却无法穿透的意志，无法发动有效攻击。即使在药效过后，野兽也已精疲力尽并被压制，让猎人们得以将其解决。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_IMPRESSIVE_SUCCESS" />
+		</choice>
+	</event>
+	<event name="CLAN_FAUNA_CULTIST_SUCCESS">
+		<text>异教徒服用兴奋剂并追击野兽。带着野蛮的狂热，他们倾泻着一连串打击，但药效一过，生物就设法与你的船员拉开了距离。然而，此时它已足够虚弱，蛞蝓族能够应付了。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_CULTIST_SUCCESS" />
+	<event>
+		<text>异教徒服用兴奋剂并追击野兽。尽管你的船员充满狂热，但他们精神纪律上的一个小小裂痕被证明足以让生物躲避许多攻击。虽然最终以相当大的伤亡赢得了战斗，但你的岩石族未能全力以赴。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="CLAN_25_75_SEPARATIST">
+	<event>
+		<text>你的分离主义者进入纳米模式并蜂拥攻击生物。它浪费了大量能量试图与这个幽灵般的身影战斗，同时还要承受蛞蝓族的枪林弹雨。在被几次击中后，它无视了你的半械族，开始在狩猎队中肆虐。令人惊讶的是，他们仍然 somehow 赢了。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+	<event name="CLAN_FAUNA_SEPARATIST_FAILURE">
+		<text>你的分离主义者进入纳米模式并蜂拥攻击生物。野兽完全无视了这个幻影，而是跟着鼻子走，找出并屠杀了整个狩猎队。当你将半械族召回舰船时，你开始纳闷自己刚才那步棋到底是怎么想的。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_FAILURE" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_SEPARATIST_FAILURE" />
+	<event load="CLAN_FAUNA_SEPARATIST_FAILURE" />
+</eventList>
+
+<eventList name="CLAN_50_50_DEFENDER">
+	<event>
+		<text>你的保卫者担任前锋。野兽注意到这个闪亮、看似无防备的身影并发起攻击，但它的护盾同时保护它免受物理和精神攻击。你的船员紧紧抓住生物，而狩猎队则从远处向它开火。野兽挣脱半械族的控制并不太难，但伤害已经造成。不幸的是，它仍然将狩猎队撕碎。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+	<event>
+		<text>你的保卫者担任前锋。野兽短暂攻击，但在击中护盾后迅速放弃。狩猎队对生物毫无防御能力，因为它完全无视了你的半械族。至少你成功收回了你的船员。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_FAILURE" />
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="CLAN_66_33_OSMIAN">
+	<event name="CLAN_FAUNA_OSMIAN_SUCCESS">
+		<text>你的原能族巧妙地利用他们的全息影像生成能力，同时远离危险。野兽不知道如何与全息影像战斗，因为它既无法有效攻击它们，也无法忽视它们。蛞蝓族保持距离并择机开枪，尽管最终有些人受伤了。尽管如此，战斗还是赢了。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_OSMIAN_SUCCESS" />
+	<event>
+		<text>你的原能族巧妙地利用他们的全息影像生成能力，同时远离危险。他们的猎物不知道如何与全息影像战斗，因为它既无法有效攻击它们，但能够躲避它们。野兽被全息影像和蛞蝓族消耗殆尽，但在此过程中损失了许多生命。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="CLAN_66_33_TECHNICIAN">
+	<event name="CLAN_FAUNA_TECHNICIAN_SUCCESS">
+		<text>你的技工在安全距离外派出遥控无人机骚扰野兽。他们的猎物无法忽视这些无人机，它们总在它背后出现并攻击。结合狩猎队保持的谨慎距离，消耗战最终获胜，尽管一些蛞蝓族受伤了。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_MODEST_SUCCESS" />
+		</choice>
+	</event>
+	<event load="CLAN_FAUNA_TECHNICIAN_SUCCESS" />
+	<event>
+		<text>你的技工在安全距离外派出遥控无人机骚扰野兽。他们的猎物无法忽视这些无人机，它们总在它背后出现并攻击。然而，无人机的攻击速度不够快，无法阻止它杀死许多蛞蝓族狩猎队成员。战斗血腥，但狩猎队胜利归来。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CLAN_FAUNA_PYRRHIC_SUCCESS" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="CLAN_FAUNA_IMPRESSIVE_SUCCESS">
+	<text>"真是精彩～～。我们欠这次成功的狩猎给你，变元者。他们肯定会歌颂这次伟大的狩猎。"异猎会成员给予你丰厚的奖励。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+</event>
+<event name="CLAN_FAUNA_MODEST_SUCCESS">
+	<text>"这绝对是一次成功～～。挑战野兽就是与死亡调情。这是你应得的奖励。"异猎会成员赠予你一些废料。</text>
+	<autoReward level="HIGH">scrap_only</autoReward>
+</event>
+<event name="CLAN_FAUNA_PYRRHIC_SUCCESS">
+	<text>"真是一场灾难～～。我们可能赢了，但本可以做得更好。尽管如此，你的帮助，尽管有限，也是有意义的。"异猎会成员扔给你一份象征性的奖励。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+<event name="CLAN_FAUNA_FAILURE">
+	<text>"真是一场灾难～～。你根本毫无帮助。在我们哀悼死者时，从我们眼前消失。"</text>
+</event>
+<event name="CLAN_FAUNA_CATASTROPHIC_FAILURE">
+	<text>"你到底有什么问题～～？你是整个多元宇宙最蠢的变元者吗？"</text>
+	<ship hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="CLAN_TOURISTS" unique="true">
+	<text>有些水晶族倾向于排外和敌对，但有些水晶族可以非常友好和好客，你面前的后者在旅游胜地很常见。</text>
+	<ship load="SHIP_CRYSTAL_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>这些水晶族是活靶子，攻击！</text>
+		<event>
+			<text>你武装好武器，与水晶族游客交战。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CLAN">
+		<text>(异猎会船员)向他们提供一份打卡名单。</text>
+		<event>
+			<text>"哦，你是他们中的一员！我非常感谢你的提议，但没有必要。我们之前已经买了一张星图，如果你愿意，我们可以给你一份！"</text>
+			<reveal_map />
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="5">
+		<text>(高级武器)把你的一切都给我，否则就死。</text>
+		<event>
+			<text>"我的老墓穴！没必要这么有敌意！我们会给你任何你想要的东西！"水晶族送来了一些物资。</text>
+			<autoReward level="LOW">stuff</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_CRYSTAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>(水晶族船员)请求补给。</text>
+		<event>
+			<text>"哦，朋友你好！我想你一定是有什么可爱的纪念品想买，但又缺钱，我很乐意帮忙！"水晶族送来一些废料，你也懒得提你是一艘军舰。</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视水晶族。</text>
+		<event>
+			<text>你留下游客，然后飞走。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="CLAN_CRISIS" unique="true">
+	<text>一艘异猎会飞船正在附近漂流。它仍有动力，但所有非关键系统都在线。</text>
+	<ship load="SHIP_CLAN_CRISIS" hostile="false" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>船上有反应，显示一个异种猎人正在疯狂地抓着他的感着器。"我怎么会在这里？为什么我的生活会变成这样？一个他人的影子，一个暴力的杀手..."</text>
+			<choice hidden="true">
+				<text>让这个人脱离苦海。</text>
+				<event>
+					<text>你武装好你的武器，攻击异种猎人。看上去他甚至没有试图反击。</text>
+					<status type="limit" target="enemy" system="weapons" amount="0" />
+					<status type="limit" target="enemy" system="teleporter" amount="0" />
+					<status type="limit" target="enemy" system="cloaking" amount="0" />
+					<status type="limit" target="enemy" system="mind" amount="0" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>这家伙是个可怜虫，离开他。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视异种猎人。</text>
+		<event>
+			<text>就你所知，这可能是一个陷阱。你无视了异种猎人。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="CLAN_SPICES" unique="true">
+	<text>虽然异猎会的人通常像蛞蝓族一样呆在星云中，但似乎在这片空旷的星域内建有一座贸易站，以招揽更旺的生意。这个策略似乎很奏效...因为一艘漆黑的、非常强大的蛞蝓族飞船正挟持着该站，要求异种猎人们交出他们的"异种香料"。如果你要猜的话，可能是指毒品。</text>
+	<choice hidden="true">
+		<text>攻击漆黑的蛞蝓族飞船。</text>
+		<event>
+			<text>你武装好武器，攻击那艘奇怪的蛞蝓族飞船。</text>
+			<ship load="SHIP_CLAN_SPICES_KNIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>帮助蛞蝓族进行勒索，自己也分一杯羹。</text>
+		<event>
+			<text>要做到这一点，你必须在不破坏贸易站的情况下杀死异种猎人们，要小心！</text>
+			<ship load="SHIP_CLAN_SPICES_CLAN" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>这艘新奇的蛞蝓族飞船的来历将不得不成为一个谜。当手头有更重要的事情时，参与太冒险了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_CLAN">
+	<event load="NEBULA_LIGHT_CLAN_SHARPSHOOTER" />
+	<event load="NEBULA_CLAN_JAMMER_SALESMAN" />
+	<event load="NEBULA_CLAN_RODEO" />
+	<event load="NEBULA_CLAN_PLUSHIES" />
+</eventList>
+
+<event name="NEBULA_LIGHT_CLAN_SHARPSHOOTER" unique="true">
+	<text>这片空地并非此信标处唯一的兴趣点。在附近一颗行星的表面，你发现了一个射击场，这里似乎异常地聚集了大量外来舰船。不幸的是，入场似乎并非免费，你需要支付一些废料才能进入。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_POPULATED" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice>
+		<text>支付入场费。</text>
+		<event>
+			<text>你交出入场费，很快就被引了进去。</text>
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="NEBULA_CLAN_SHARPSHOOTER_INTERIOR" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CLAN">
+		<text>(异猎会船员)请求会员折扣。</text>
+		<event>
+			<text>你交出打了折的入场费，很快就被引了进去。</text>
+			<item_modify>
+				<item type="scrap" min="-7" max="-7" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="NEBULA_CLAN_SHARPSHOOTER_INTERIOR" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忽略射击场。</text>
+		<event>
+			<text>尽管你想在这里消磨时间，但在叛军舰隊到达之前，你实在没有那么多空闲。你准备出发。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_CLAN_SHARPSHOOTER_INTERIOR">
+	<text>到达主射击场后，一名蛞蝓族职员赠送你一份高品质超光速燃料作为免费礼物。你怀疑这份奇怪的礼物是吸引这么多舰船前来原因的一部分，因为似乎没多少人参与预定的各种景点活动。射击场本身分为几个主题关卡，兰花族和水晶族的主题游引起了你的注意。奇怪的是，似乎每种关卡的第一次尝试是免费的，后续尝试则需要付费。</text>
+	<autoReward level="HIGH">fuel_only</autoReward>
+	<choice>
+		<text>试试兰花族主题的"柇柆柯枙守护者"关卡。</text>
+		<event>
+			<text>这个特定景点似乎涉及射击描绘试图入侵兰花族大花园的血草兰花的木制靶子。所描绘的场景荒谬得不切实际，无疑迎合了许多不幸的刻板印象，但这不应对你在此成功的尝试构成太大问题。</text>
+			<choice hidden="true">
+				<text>亲自试试。</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_SOLO" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SOLDIER">
+				<text>(士兵船员)你士兵的枪械训练应该能让他们在这个游戏中占优势。</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
+			</choice>
+			<choice hidden="true" req="orchid_praetor">
+				<text>(军政官船员)你军政官的独特枪械应该能让他们在这个游戏中占优势。</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
+			</choice>
+			<choice hidden="true" req="unique_haynes">
+				<text>(海因斯)海因斯的独特枪械应该能在这个游戏中帮上忙。</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
+			</choice>
+			<choice hidden="true" req="unique_irwin">
+				<text>(厄文)厄文的独特枪械应该能在这个游戏中帮上忙。</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_CREW" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY_GRIEF">
+				<text>(杰瑞)杰瑞有一把非常、非常大的枪。还需要多说吗？</text>
+				<event load="CLAN_SHARPSHOOTER_KERNEL_JERRY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>试试水晶族主题的"伊卡西恩的奇观"关卡。</text>
+		<event>
+			<text>这个特定景点设有基于未知生物的晶体雕塑。查看相关的小字说明后，你发现这些晶体生物应该是看似神话般的前水晶族皇帝伊卡西恩墓穴中的怪物居民。在一个旅游陷阱里将如此精美的雕刻技术浪费在一次性、不存在的神秘生物上似乎很浪费，但众所周知蛞蝓族对此类事物相当过分。</text>
+			<choice hidden="true">
+				<text>亲自试试。</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_SOLO" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SOLDIER">
+				<text>(士兵船员)你士兵的枪械训练应该能让他们在这个游戏中占优势。</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
+			</choice>
+			<choice hidden="true" req="orchid_praetor">
+				<text>(军政官船员)你军政官的独特枪械应该能让他们在这个游戏中占优势。</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
+			</choice>
+			<choice hidden="true" req="unique_haynes">
+				<text>(海因斯)海因斯的独特枪械应该能在这个游戏中帮上忙。</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
+			</choice>
+			<choice hidden="true" req="unique_irwin">
+				<text>(厄文)厄文的独特枪械应该能在这个游戏中帮上忙。</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_CREW" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY_GRIEF">
+				<text>(杰瑞)杰瑞有一把非常、非常大的枪。还需要多说吗？</text>
+				<event load="CLAN_SHARPSHOOTER_CRYSTAL_JERRY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>试着和其他不感兴趣的这里的人交谈。</text>
+		<event load="CLAN_SHARPSHOOTER_CONVERSATION" />
+	</choice>
+</event>
+<eventList name="CLAN_SHARPSHOOTER_KERNEL_SOLO">
+	<event>
+		<text>尽管尽了最大努力，你几乎没击中任何目标。为了再试一次，你必须付钱。</text>
+		<choice>
+			<text>再试一次。</text>
+			<event name="CLAN_SHARPSHOOTER_KERNEL_SOLO_2">
+				<text>你付钱再试一次。这最好值得。</text>
+				<item_modify>
+					<item type="scrap" min="-40" max="-40" />
+				</item_modify>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event>
+						<text>幸运的是，凭借上一次尝试的经验，你成功击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"恭喜你成功～～。这是给你的奖品。就别问我们怎么弄到的了，不能让军政院在这里问太多问题～～。"</text>
+						<weapon name="GIFTLIST_KERNEL" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>趁还占优时收手。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>你尽力尝试，虽然击中了大部分目标，但仍有少数完好无损。为了再试一次，你必须付钱。</text>
+		<choice>
+			<text>再试一次。</text>
+			<event load="CLAN_SHARPSHOOTER_KERNEL_SOLO_2" />
+		</choice>
+		<choice>
+			<text>趁还占优时收手。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>奇迹般地，你第一次尝试就击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，不能让军政院在这里问太多问题～～。"</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+<event name="CLAN_SHARPSHOOTER_KERNEL_CREW">
+	<text>凭借专业知识和一把得力的枪械，你的船员成员第一次尝试就击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，不能让军政院在这里问太多问题～～。"</text>
+	<weapon name="GIFTLIST_KERNEL" />
+</event>
+<event name="CLAN_SHARPSHOOTER_KERNEL_JERRY">
+	<text>杰瑞刚走到摊位前，就以惊人的精度向目标开火。不知何故，没有一枪错过目标。当你评论说庆幸不是与他为敌时，一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，不能让军政院在这里问太多问题～～。"</text>
+	<weapon name="GIFTLIST_KERNEL" />
+</event>
+<eventList name="CLAN_SHARPSHOOTER_CRYSTAL_SOLO">
+	<event>
+		<text>尽管尽了最大努力，你几乎没击中任何目标。为了再试一次，你必须付钱。</text>
+		<choice>
+			<text>再试一次。</text>
+			<event name="CLAN_SHARPSHOOTER_CRYSTAL_SOLO_2">
+				<text>你付钱再试一次。这最好值得。</text>
+				<item_modify>
+					<item type="scrap" min="-40" max="-40" />
+				</item_modify>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event>
+						<text>幸运的是，凭借上一次尝试的经验，你成功击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"恭喜你成功～～。这是给你的奖品。就别问我们怎么弄到的了，你根本不知道水晶族对这些东西有多严格～～。"</text>
+						<weapon name="GIFTLIST_CRYSTAL" />
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>趁还占优时收手。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>你尽力尝试，虽然击中了大部分目标，但仍有少数完好无损。为了再试一次，你必须付钱。</text>
+		<choice>
+			<text>再试一次。</text>
+			<event load="CLAN_SHARPSHOOTER_CRYSTAL_SOLO_2" />
+		</choice>
+		<choice>
+			<text>趁还占优时收手。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>奇迹般地，你第一次尝试就击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，你根本不知道水晶族对这些东西有多严格～～。"</text>
+		<weapon name="GIFTLIST_CRYSTAL" />
+	</event>
+</eventList>
+<event name="CLAN_SHARPSHOOTER_CRYSTAL_CREW">
+	<text>凭借专业知识和一把得力的枪械，你的船员成员第一次尝试就击中了所有目标。一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，你根本不知道水晶族对这些东西有多严格～～。"</text>
+	<weapon name="GIFTLIST_CRYSTAL" />
+</event>
+<event name="CLAN_SHARPSHOOTER_CRYSTAL_JERRY">
+	<text>杰瑞刚走到摊位前，就以惊人的精度向目标开火。不知何故，没有一枪错过目标。当你评论说庆幸不是与他为敌时，一名蛞蝓族异猎会成员从后面接近你。"干得好～～。没多少人第一次尝试就能做到。事实上，这是我们大部分利润的来源。不管怎样，这是你的奖品。就别问我们怎么弄到的了，你根本不知道水晶族对这些东西有多严格～～。"</text>
+	<weapon name="GIFTLIST_CRYSTAL" />
+</event>
+<eventList name="CLAN_SHARPSHOOTER_CONVERSATION">
+	<event>
+		<text>这里的大多数其他访客除了闲聊外不愿多谈，但很快你发现一个血草兰花商贩在试图推销他们的商品。你不完全确定他们为什么在这里这么做，但你决定离开射击场，跟他们回到船上浏览商品。</text>
+		<store>STORE_VAMPWEED</store>
+	</event>
+	<event>
+		<text>似乎你的变元者背景让这里的大多数其他访客不敢与你交谈。然而，你很快找到了一位盟卫士兵作伴。他们不太愿意说明来这里的原因，但似乎也愿意加入你的船员。</text>
+		<crewMember amount="1" combat="1" class="human_soldier" />
+	</event>
+	<event>
+		<text>一名水晶族很快接近你，心里似乎有事。"啊，一位军方舰长！正是我们在找的人。不知怎的，我们早些时候遇到了一些异常热情的蛞蝓族。发生了一些……这么说吧，误会，然后他们就给了我们某种令人反感的武器。不过我相信你不会对此有意见的。"水晶族将所说的武器作为礼物送给你，它似乎是一件反生物武器。</text>
+		<weapon name="GIFTLIST_SLUG" />
+	</event>
+</eventList>
+
+<event name="NEBULA_CLAN_JAMMER_SALESMAN" unique="true">
+    <text>这里有一个小舍。"想给你的狩猎加点料吗？让我来告诉你吧，没有比用干扰器削弱猎物更好的狩猎方法了。快来看看吧！"</text>
+    <environment type="nebula" />
+	<choice>
+		<text>购买跃迁干扰器。</text>
+		<event load="JAMMER_SALESMAN_ENGINES" />
+    </choice>
+    <choice>
+		<text>购买瞄准干扰器。</text>
+		<event load="JAMMER_SALESMAN_OFFENSIVE_SYSTEMS" />
+    </choice>
+    <choice>
+		<text>购买追踪闪弹。</text>
+		<event load="JAMMER_SALESMAN_DEFENSIVE_SYSTEMS" />
+    </choice>
+    <choice>
+		<text>购买电磁脉冲场。</text>
+		<event load="JAMMER_SALESMAN_MISC" />
+    </choice>
+    <choice>
+		<text>拒绝。</text>
+		<event>
+			<text>你拒绝了小舍的好意。还有时间在这个信标做点什么。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="JAMMER_SALESMAN_OFFENSIVE_SYSTEMS">
+    <event>
+		<item_modify>
+			<item type="scrap" min="-45" max="-35" />
+		</item_modify>
+		<augment name="COMBAT_WEAPON_JAMMER" />
+    </event>
+    <event>
+		<item_modify>
+			<item type="scrap" min="-55" max="-45" />
+		</item_modify>
+		<augment name="COMBAT_WARP_JAMMER" />
+    </event>
+</eventList>
+<eventList name="JAMMER_SALESMAN_DEFENSIVE_SYSTEMS">
+    <event>
+		<item_modify>
+			<item type="scrap" min="-75" max="-60" />
+		</item_modify>
+		<augment name="COMBAT_CLOAKING_JAMMER" />
+    </event>
+    <event>
+		<item_modify>
+			<item type="scrap" min="-50" max="-40" />
+		</item_modify>
+		<augment name="COMBAT_SHIELDS_JAMMER" />
+    </event>
+</eventList>
+<eventList name="JAMMER_SALESMAN_ENGINES">
+    <event>
+		<item_modify>
+			<item type="scrap" min="-35" max="-25" />
+		</item_modify>
+		<augment name="EX_FTL_JAMMER" />
+    </event>
+    <event>
+		<item_modify>
+			<item type="scrap" min="-45" max="-35" />
+		</item_modify>
+		<augment name="COMBAT_ENGINE_JAMMER" />
+    </event>
+</eventList>
+<eventList name="JAMMER_SALESMAN_MISC">
+    <event>
+		<item_modify>
+			<item type="scrap" min="-90" max="-75" />
+		</item_modify>
+		<augment name="COMBAT_REACTOR_JAMMER" />
+    </event>
+    <event>
+		<item_modify>
+			<item type="scrap" min="-40" max="-30" />
+		</item_modify>
+		<augment name="COMBAT_OXYGEN_JAMMER" />
+    </event>
+</eventList>
+
+<event name="NEBULA_CLAN_RODEO" unique="true">
+	<text>当你探索附近的星系时，你发现有一大批外来船只聚集在一起，大部分属于异猎会。它们看起来很友好，所以你在附近降落并仔细观察，发现似乎正在举办一项牛仔运动竞赛！</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>询问有关牛仔竞赛的情况。</text>
+		<event>
+			<text>迎接你的是一位戴着超大帽子的蛞蝓猎枪手，他向你解释了基本情况。"我们召集了不少六脚马，准备举行一场盛大的宇宙竞速比赛！如果你愿意，你可以让你的一位船员参加，只需交纳25废料的小额入场费。坚持时间最长的参与者将获得奖品——一件绝非是偷来的武器！它是一件强大的光束武器，心动了吗？"</text>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+				<text>参与牛仔竞赛。</text>
+				<event>
+					<text>你把一些废料交给异种猎人，他放心地对你说："也不要担心你的船员，我们的专业程度也不是吃素的！我们有一整个医疗队，意外发生之时可以随时响应！"</text>
+					<item_modify>
+						<item type="scrap" min="-25" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>随机派出一名船员。</text>
+						<event>
+							<text>你的船员与其他外星人一起走进了选手的房间。几名异种猎人完成了准备工作，然后迎来了第一批参赛者...</text>
+							<choice hidden="true">
+								<text>祝你的船员好运，等待结果。</text>
+								<event load="CLAN_RODEO_NORMAL" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_SOLDIER">
+						<text>(士兵船员)你的士兵有过一些骑马作战的训练，派他去。</text>
+						<event>
+							<text>你的船员与其他外星人一起走进了选手的房间。几名异种猎人完成了准备工作，然后迎来了第一批参赛者...</text>
+							<choice hidden="true">
+								<text>祝你的船员好运，等待结果。</text>
+								<event load="CLAN_RODEO_GOOD" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_JERRY">
+						<text>(杰瑞)杰瑞真的非常想骑马！派他去吧。</text>
+						<event>
+							<text>杰瑞与其他一些外星人走进了选手的房间。几名异种猎人完成了准备工作，然后迎来了第一批参赛者...</text>
+							<choice hidden="true">
+								<text>祝你的船员好运，等待结果。</text>
+								<event load="CLAN_RODEO_JERRY" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_LIZARD">
+						<text>(蜥蜴族船员)你的蜥蜴族曾经骑过六脚马，派他去吧。</text>
+						<event>
+							<text>你的船员与其他外星人一起走进了选手的房间。几名异种猎人完成了准备工作，然后迎来了第一批参赛者...</text>
+							<choice hidden="true">
+								<text>祝你的船员好运，等待结果。</text>
+								<event load="CLAN_RODEO_GOOD" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+				<text>你身边没有任何符合条件能做骑手的船员，更不用想着让无人机骑在那些马上。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true">
+				<text>询问有关这些"六脚马族"。</text>
+				<event>
+					<text>"没有人真的知道他们最初来自哪里，但通过时空旅行，他们已经被引进到银河系中的几百颗星球。只要你对他们好，他们一般也很平和。"</text>
+					<choice>
+						<text>购买一名被驯服的六脚马族。</text>
+						<event>
+							<item_modify>
+								<item type="scrap" min="-30" max="-30" />
+							</item_modify>
+							<crewMember amount="1" class="pony_tamed" />
+						</event>
+					</choice>
+					<choice>
+						<text>购买一名年轻的、未驯服的六脚马族。</text>
+						<event>
+							<item_modify>
+								<item type="scrap" min="-20" max="-20" />
+							</item_modify>
+							<crewMember amount="1" class="pony" />
+						</event>
+					</choice>
+					<choice>
+						<text>有意思，但没有理由耗费时间。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们的任务太重要了，不能浪费时间参加比赛。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>显然，你对骑外星马不感兴趣。总而言之，你很无趣。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="CLAN_RODEO_NORMAL">
+	<event>
+		<text>你的船员骑上了六脚马，并尽力拼搏，可惜那只野兽太不听话了，你的船员被甩进了泥土中。一次惨痛的失败，还有惨痛的废料。</text>
+	</event>
+	<event>
+		<text>你的船员骑在六脚马上，在被甩来甩去的过程中紧紧抓住不放。不知何故，他设法坚持了下来，到比赛邻近结束之时，他居然是赢家！蛞蝓族们把奖品拿了出来。</text>
+		<weapon name="GIFTLIST_BIG_BEAM" />
+	</event>
+</eventList>
+<eventList name="CLAN_RODEO_GOOD">
+	<event>
+		<text>你的船员骑上了六脚马，并尽力拼搏，可惜那只野兽太不听话了，你的船员被甩进了泥土中。一次惨痛的失败，还有惨痛的废料。</text>
+	</event>
+	<event>
+		<text>你的船员骑在六脚马上，在被甩来甩去的过程中紧紧抓住不放。不知何故，他设法坚持了下来，到比赛邻近结束之时，他居然是赢家！蛞蝓族们把奖品拿了出来。</text>
+		<weapon name="GIFTLIST_BIG_BEAM" />
+	</event>
+	<event>
+		<text>你的船员骑在六脚马上，在被甩来甩去的过程中紧紧抓住不放。不知何故，他设法坚持了下来，到比赛邻近结束之时，他居然是赢家！蛞蝓族们把奖品拿了出来。</text>
+		<weapon name="GIFTLIST_BIG_BEAM" />
+	</event>
+</eventList>
+<event name="CLAN_RODEO_JERRY">
+	<text>当杰瑞骑上这匹野兽时，它立即安静下来，温顺地站着，而杰瑞则轻轻地抚摸着它的鬃毛。人群一片哗然，指责你作弊，但通过快速的药物测试，确认你没用药迷马。你被宣布为赢家，奖品也被拿出来了！</text>
+	<achievement>ACH_JERRY_RODEO</achievement>
+	<weapon name="GIFTLIST_BIG_BEAM" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>当你准备离开牛仔竞技赛场时，你看到一名六脚马族拖着异种猎人向你跑来。"哇，哇！停下！"异种猎人好不容易把六脚马族拉住停了下来，但其实只是因为马自己在杰瑞面前停下。"这只马冲出了隔离区，一路追着你到了这里！我猜她是真的喜欢你的朋友，所以最好还是留着她吧，我们还有很多。"</text>
+			<crewMember amount="1" combat="2" class="pony_tamed" />
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_CLAN_PLUSHIES" unique="true">
+	<text>看来你又在星云中发现了一间小舍。奇怪的是，它似乎已经被改造成了一个...旅游景点？</text>
+	<ship load="SHIP_CLAN_LODGE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>进入查看。</text>
+		<event>
+			<text>一位异种猎枪手正靠在墙上，与一小群超能族官员交谈，官员在你进来后不久就离开了。"噗，真的是～～一群完全不知变通的人。那些超能族来到这里，问我是～～否有经营这家商～～店的许 可！他们以为这是～～谁的星区呢？然后他们甚～～至什～～么都没买..."</text>
+			<choice hidden="true">
+				<text>你在卖什么？</text>
+				<event>
+					<text>"啊，问得好！毛绒玩具！原型是～～我在整个银河系看到的各种的异国生～～物。来吧，看一看！虽然你很可能会是～～第一个下单的人..."</text>
+					<choice hidden="true">
+						<text>看看那个蜘蛛毛绒玩具。</text>
+						<event>
+							<text>"那是～～一只巨大异形蜘蛛！不知道学名叫什～～么，大家都这么称呼它们。"</text>
+							<choice hidden="true">
+								<text>购买毛绒玩具。[7~]</text>
+								<event>
+									<text>"哦，感谢惠顾！这可能...是～～我有史～～以来的第一笔利润。看来在星云中开店不是～～个好主意。"</text>
+									<item_modify>
+										<item type="scrap" min="-7" max="-7" />
+									</item_modify>
+									<choice hidden="true">
+										<text>把剩下的也一并买下。[14~]</text>
+										<event>
+											<text>"你 - 你全都要？震撼到我...你要么真 的 喜欢我的毛绒玩具，要么就是～～一个骨灰级的带慈善家。这么着吧，既然我在这里的生～～意不是～～很好，所以我和你待一段时间好了！"</text>
+											<item_modify>
+												<item type="scrap" min="-14" max="-14" />
+											</item_modify>
+											<crewMember amount="1" class="slug_ranger" />
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>离开。</text>
+										<event>
+											<text>"好吧，那就再见了。谢谢你让我今天过得很愉快，旅行者！"</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>"啊，哦好吧。至少谢谢你动了购买的念头..."</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>看看那个马的毛绒玩具。</text>
+						<event>
+							<text>"那是一种六脚马族动物！它们有六条腿，而且严格来说它们并不是马。听说甚至有几只在这个星区！我倒是不惊讶。"</text>
+							<choice hidden="true">
+								<text>购买它。[7~]</text>
+								<event>
+									<text>"哦，感谢惠顾！这可能...是～～我有史～～以来的第一笔利润。看来在星云中开店不是～～个好主意。"</text>
+									<item_modify>
+										<item type="scrap" min="-7" max="-7" />
+									</item_modify>
+									<choice hidden="true">
+										<text>把剩下的也一并买下。[14~]</text>
+										<event>
+											<text>"你 - 你全都要？震撼到我...你要么真 的 喜欢我的毛绒玩具，要么就是～～一个骨灰级的带慈善家。这么着吧，既然我在这里的生～～意不是～～很好，所以我和你待一段时间好了！"</text>
+											<item_modify>
+												<item type="scrap" min="-14" max="-14" />
+											</item_modify>
+											<crewMember amount="1" class="slug_ranger" />
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>离开。</text>
+										<event>
+											<text>"好吧，那就再见了。谢谢你让我今天过得很愉快，旅行者！"</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>"啊，哦好吧。至少谢谢你动了购买的念头..."</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>看看那只蜥蜴毛绒玩具。</text>
+						<event>
+							<text>"那是一种...嗯，我其实不知道名字。它们只是蜥蜴家伙吧大概。"</text>
+							<choice hidden="true">
+								<text>购买它。[7~]</text>
+								<event>
+									<text>"哦，感谢惠顾！这可能...是～～我有史～～以来的第一笔利润。看来在星云中开店不是～～个好主意。"</text>
+									<item_modify>
+										<item type="scrap" min="-7" max="-7" />
+									</item_modify>
+									<choice hidden="true">
+										<text>把剩下的也一并买下。[14~]</text>
+										<event>
+											<text>"你 - 你全都要？震撼到我...你要么真 的 喜欢我的毛绒玩具，要么就是～～一个骨灰级的带慈善家。这么着吧，既然我在这里的生～～意不是～～很好，所以我和你待一段时间好了！"</text>
+											<item_modify>
+												<item type="scrap" min="-14" max="-14" />
+											</item_modify>
+											<crewMember amount="1" class="slug_ranger" />
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>离开。</text>
+										<event>
+											<text>"好吧，那就再见了。谢谢你让我今天过得很愉快，旅行者！"</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>"啊，哦，好吧。至少谢谢你动了购买的念头..."</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击空间站！</text>
+		<event>
+			<text>你的杀戮欲望再次高涨，现在正在攻击越来越多的人。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视空间站。</text>
+		<event>
+			<text>比起参观什么讹人的旅游景点，你有更重要的事情要做。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_CLAN">
+	<event load="NEBULA_CLAN_SHELL_MECHANIC" />
+	<event load="NEBULA_CLAN_SHELLANGRY" />
+	<event load="NEBULA_CLAN_SHELL_RADIANT" />
+	<event load="NEBULA_CLAN_SUZERAIN" />
+	<event load="NEBULA_CLAN_TAX" />
+</eventList>
+
+<event name="NEBULA_CLAN_SHELL_MECHANIC" unique="true">
+    <text>这里有一名甲壳机械师。你刚抵达对方就联系你。"你是来反对异猎会的？还是来支持他们的？"</text>
+    <ship load="SHIP_SHELL_MECH" hostile="false" />
+	<environment type="nebula" />
+    <choice>
+		<text>支持异猎会。</text>
+		<event>
+			<text>"那你就和其他占领者一起死吧！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_SHELL">
+		<text>(甲壳族船员)反对异猎会。</text>
+		<event load="CLAN_MECHANIC_BELIEF" />
+    </choice>
+    <choice req="LIST_CREW_SHELL" lvl="0" max_lvl="0" blue="false">
+		<text>反对异猎会。</text>
+		<event load="CLAN_MECHANIC_ALLY_NOSHELL" />
+    </choice>
+    <choice>
+		<text>都不是。</text>
+		<event load="CLAN_MECHANIC_NEITHER" />
+    </choice>
+</event>
+<eventList name="CLAN_MECHANIC_NEITHER">
+    <event>
+   	 <text>"那就随你便吧。但不要犹豫杀掉任何妨碍你的异种猎人。"</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+    </event>
+    <event>
+		<text>"那你就是个中立的懦夫。滚出去。"</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+    </event>
+    <event>
+		<text>"如果你不反对他们，那你就是支持他们。"飞船给武器充能！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+</eventList>
+<eventList name="CLAN_MECHANIC_ALLY_NOSHELL">
+    <event load="CLAN_MECHANIC_BELIEF" />
+    <event>
+   	 	<text>"你有没有人可以证明你的说法……？如果没有，我们感谢你的支持，但我们必须谨慎行事。再见。"</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+    </event>
+</eventList>
+<event name="CLAN_MECHANIC_BELIEF">
+    <text>"啊，原来你是盟友啊。你想让我们帮你修补飞船吗？还是你更需要补给？"</text>
+    <choice hidden="true">
+		<text>请求维修。</text>
+		<event>
+			<text>"不错的选择，这是我们引以为豪的。"</text>
+			<damage amount="-15" />
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>请求弹药。</text>
+		<event>
+			<text>"我们能分出一些。好好利用它们。"</text>
+			<item_modify>
+				<item type="missiles" min="3" max="6" />
+			</item_modify>
+		</event>
+    </choice>   		 
+    <choice hidden="true">
+		<text>请求无人机部件。</text>
+		<event>
+			<text>"我们能分出一些。好好利用它们。"</text>
+			<item_modify>
+				<item type="drones" min="2" max="5" />
+			</item_modify>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>请求废料。</text>
+		<event>
+			<text>"如果你需要废料，我们可以给你一些储备。别浪费了。"</text>
+			<autoReward level="MED">scrap_only</autoReward>
+		</event>
+    </choice>
+    <choice>
+		<text>我们不需要任何帮助。</text>
+		<event>
+			<text>"那祝你好运。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="NEBULA_CLAN_SHELLANGRY" unique="true"> <!--technically hostile??? but I need more neutral events :(-->
+	<text>一艘甲壳飞船发现自己深入到了异猎会的星域，但他们似乎并不害怕四周那些寻找新鲜血液的贪婪猎人们。相反，他们发现你的存在后显得很愤怒。"哦，棒极了，现在联邦和异猎会是一伙的了？你为什么不买一颗良心，停止杀害无辜的人，你们这些败类！"</text>
+	<ship load="SHIP_SHELL_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>你怎么敢说我们是人渣！</text>
+		<event>
+			<text>你尽量不去想你正在证明甲壳族的观点的正确性，并准备为自己辩护...用暴力谋杀的方式。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SHELL">
+		<text>(甲壳族船员)与他们讲道理。</text>
+		<event>
+			<text>你的甲壳族与其他甲壳族争论，解释说你通过这个星区只是为了完成你的任务，前往节点17。幸运的是，甲壳族们很通情达理，并向你道歉，提供了一些燃料和废料来帮助你。</text>
+			<autoReward level="MED">fuel</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MONK">
+		<text>(信道者船员)与他们说理。</text>
+		<event>
+			<text>你的信道者与甲壳族说理，解释你只是途经本星区前往节点17执行任务，并立即指责外国人手沾鲜血是非理性行为。幸运的是，甲壳族很讲道理并道了歉，还提供了一些燃料和废料来帮助你。</text>
+			<autoReward level="MED">fuel</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="COMBAT_OXYGEN_JAMMER">
+		<text>(窒息器)给他们一个教训。</text>
+		<event>
+			<text>你关闭了甲壳族飞船的氧气，吓得他们不得不屈服。"好吧，我很抱歉，不该叫你败类！我们投降！"</text>
+			<autoReward level="MED">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>这完全是一场误会。</text>
+		<event load="CLAN_SHELLANGRY_REASON" />
+	</choice>
+</event>
+<eventList name="CLAN_SHELLANGRY_REASON">
+	<event>
+		<text>你与甲壳族们交谈，并尝试与他们讲道理。幸运的是，甲壳族是理性且讲逻辑的生物，通常不像超能族或蛞蝓族那样顽固或恶毒。他们似乎理解到了自己搞错了，于是让你通过。</text>
+	</event>
+	<event>
+		<text>你与甲壳族们交谈，并尝试与他们讲道理。幸运的是，甲壳族是理性且讲逻辑的生物，通常不像超能族或蛞蝓族那样顽固或恶毒。他们似乎理解到了自己搞错了，于是让你通过。</text>
+	</event>
+	<event>
+		<text>结果，你的辩论似乎并不奏效。甲壳族仍然指责你是一个杀人犯(难道不是吗)，并进行了攻击！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_CLAN_SHELL_RADIANT" unique="true">
+	<text>你几乎立即收到了来自附近的一艘甲壳辐射体飞船的简短信息。"最好赶紧离开联邦。怪才体已经向这一星区派遣了军队，情况可能很快就会变得混乱。"</text>
+	<ship load="SHIP_SHELL_ELITE_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>怪才体在异猎会星域里做什么？</text>
+		<event>
+			<text>你不确定你是否期望能得到回应，但幸运的是，屏幕上出现了一个友好的辐射体，他十分愿意交谈。"异猎会已经猎杀我们的族人太久了。我们不想承受与星盗会进行全面战争的风险，但现在终于到了我们该表态的时候了。我们将把异猎会赶出这个星区，并迫使星盗会规范他们的活动，至死方休。当然我也不打算死。"</text>
+			<choice hidden="true">
+				<text>保卫异猎会，攻击辐射体们！</text>
+				<event>
+					<text>你不太确定该如何合理化你的行为，但你确信之后能想出什么服众的理由。现在，是时候战斗了！</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_SHELL_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>向甲壳族们提供帮助。</text>
+				<event>
+					<text>"你想帮忙？好吧，反正也不碍事。如果你有的话，我们需要一些物资。"</text>
+					<choice hidden="true">
+						<text>给他们7发弹药。</text>
+						<event>
+							<text>"谢谢你，联邦。既然我们现在有大量的弹药，我想我们不需要这架无人机了。"</text>
+							<item_modify>
+								<item type="missiles" min="-7" max="-7" />
+							</item_modify>
+							<drone name="RANDOM" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>给他们7件无人机部件。</text>
+						<event>
+							<text>"谢谢你，联邦。既然我们现在有大量的无人机部件，我想我们不需要这件武器了。"</text>
+							<item_modify>
+								<item type="drones" min="-7" max="-7" />
+							</item_modify>
+							<weapon name="RANDOM" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>算了。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SHELL">
+				<text>(甲壳族船员)请求帮助。</text>
+				<event>
+					<text>"我有一种感觉，他并不是怪才体的人...但我们甲壳族必须团结在一起。也许这个会有帮助？"</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>好吧，祝你好运。</text>
+				<event>
+					<text>"谢谢你，联邦。愿你的任务也有好运气。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>遵守他们的警告并离开。</text>
+		<event>
+			<text>你现在有了一些可支配的闲暇时光。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_CLAN_SUZERAIN" unique="true">
+	<text>附近的星系中，有一些螳螂领主，当他们的战舰穿过星云时，你能听到他们的喃喃自语。他们似乎并不关心你在这里的存在。</text>
+	<ship load="SHIP_SUZERAIN_FIGHT" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>呼叫领主们。</text>
+		<event>
+			<text>"不打扰我！异猎会偷走所有的杀人。母巢最令人畏惧，占有所有猎物的时候去哪了？空间现在是猎人的星域，恶心！"</text>
+			<choice hidden="true">
+				<text>但这不是一个星云吗？</text>
+				<event>
+					<text>"哈哈，愚蠢的联邦舰长以为所有星云区以前是星云区！难道没听说过星联的天体构造技术吗？异猎会与星联贸易，买了很多很多的星云来制造这个星区！"</text>
+					<choice hidden="true" req="ach_boss_cealaformer">
+						<text>我们之前和其中一座战斗过。</text>
+						<event>
+							<text>"哦？那你为全银河系做好事！蛞蝓族想他们可以使一切变成星云？他们错了！很明显，联邦抓住了他们！哈哈哈！这种服务不能没有报酬！"</text>
+							<autoReward level="HIGH">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>从未听说过那些。</text>
+						<event>
+							<text>"当然没有遇过！秘密的星联技术，联邦不知道！等等，哦，我犯了一个错误。不能让任何人知道我告诉你这个！"</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>为什么？难道异猎会不是属于星联的星盗会的一部分？</text>
+						<event>
+							<text>"对的。但异猎会对星区的改造不是星盗会干的。而且星联很像联邦，有自己的舰库、预算，和士兵。他们不只是把天体构造技术送给猎手。"</text>
+							<choice hidden="true">
+								<text>如果异猎会不被允许在这里使用天体构造技术，为什么星联会把它卖给他们？</text>
+								<event>
+									<text>"可能因为蛞蝓在其他成员背后做坏事！或者...我不知道。我全知道这里曾经不是星云区，现在异猎会偷走了所有珍贵的猎物这里！"</text>
+									<choice hidden="true">
+										<text>这个星区是一些奇异物种的家园吗？</text>
+										<event>
+											<text>"是，也不是。大多数，异猎会自己带来的。啊，问得太多了！我说过不打扰我，你打扰我！"</text>
+											<choice hidden="true">
+												<text>对不起。</text>
+												<event>
+													<text>"好好，随便吧。现在离开！"</text>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>再问一个问题。</text>
+												<event>
+													<text>"啊——！你太烦人了！去死吧！"</text>
+													<ship hostile="true" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>但螳螂族和蛞蝓族不是结盟了吗？即通过星联？</text>
+				<event>
+					<text>"不不，小小联邦大脑没办法理解。星联和联邦很像。半械族、超能族、兰花族、人类，除了我们种族更好，比如螳螂族...和其他种族。"</text>
+					<choice hidden="true">
+						<text>所以...你们应该是盟友？</text>
+						<event>
+							<text>"嘎！你不明白。是的，我们是盟友。但星联的边界不像联邦的边界那样。所有种族都保有自己的星域，并共享星联的星域。"</text>
+							<choice hidden="true">
+								<text>这不就意味着异猎会只能在蛞蝓族的地盘上打猎吗？</text>
+								<event>
+									<text>"是聋子吗？你错过整个要点！异猎会应该只在蛞蝓族星域打猎。这不是蛞蝓族星域！这个星区是在蛞蝓扩张战争结束后宣称的。肮脏的鼻涕虫从不遵守条约！"</text>
+									<choice hidden="true">
+										<text>那为什么星联的其他成员不出面呢？</text>
+										<event>
+											<text>"岩石族不关心，吸虫族太忙。母巢害怕更多的冲突，在扩张战争中受到打击很大。似乎只有我一个在关心..."</text>
+											<choice hidden="true">
+												<text>为什么不把事态掌控在自己手中？</text>
+												<event>
+													<text>"然后做什么？我一个螳螂族，很多很多蛞蝓族。你认为我可以自己杀死整个星盗会？你愚蠢的人！你的大脑有阿尔及的浆果那么大！哈哈！那非常小，如果不知道的话。我说你是个笨蛋。现在别管了。"</text>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>我同意，这很卑鄙。</text>
+												<event>
+													<text>"至少联邦遵守边境法律，即使总是相互争论。星联太弱了，注定要失败。也许是时候在我卷入民事纠纷前寻找替代方案了..."</text>
+													<choice hidden="true">
+														<text>你可以加入联邦。</text>
+														<event>
+															<text>"哈哈哈！你非常有趣！而且还蠢。我在一百万年都不会加入联邦！你们没星域给螳螂族，忙着让自由螳螂毁掉它们。现在，你已经浪费了足够的时间。消失。"</text>
+														</event>
+													</choice>
+													<choice hidden="true" req="LIST_CREW_HIVE">
+														<text>(母巢螳螂族)说服他加入你。</text>
+														<event>
+															<text>"联邦有螳螂族？我以为只欢迎自由螳螂。联邦虽然在不利地位，但不像星联那样糟糕！我接受提议，舰长。"</text>
+															<crewMember amount="1" class="mantis_suzerain" />
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>为什么不单干呢？作为一名螳螂领主，你当然可以在短时间内成为一个著名的赏金猎人。</text>
+														<event>
+															<text>"哦！联邦现在提出了好主意！是的，爪子锋利，爪子杀人！我不一会就要富了！你是个天才，尽管你还是又臭又蠢。对于你非常聪明的想法，接受这个，我很快不需要它了！"</text>
+															<autoReward level="HIGH">standard</autoReward>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>什么条约？这片土地最先属于谁？</text>
+										<event>
+											<text>"在蛞蝓扩张战争之后，星联形成并签订了协议，都不从其他种族夺取土地。每个种族都有自己的扩张法则，蛞蝓族保留所有的星云。这片星区在母巢的范围内，但蛞蝓族首先占领它！"</text>
+											<choice hidden="true">
+												<text>为什么不把事态掌控在自己手中？</text>
+												<event>
+													<text>"然后做什么？我一个螳螂族，很多很多蛞蝓族。你认为我可以自己杀死整个星盗会？你愚蠢的人！你的大脑有阿尔及的浆果那么大！哈哈！那非常小，如果不知道的话。我说你是个笨蛋。现在别管了。"</text>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>我同意，这很卑鄙。</text>
+												<event>
+													<text>"至少联邦遵守边境法律，即使总是相互争论。星联太弱了，注定要失败。也许是时候在我卷入民事纠纷前寻找替代方案了..."</text>
+													<choice hidden="true">
+														<text>你可以加入联邦。</text>
+														<event>
+															<text>"哈哈哈！你非常有趣！而且还蠢。我在一百万年都不会加入联邦！你们没星域给螳螂族，忙着让自由螳螂毁掉它们。现在，你已经浪费了足够的时间。消失。"</text>
+														</event>
+													</choice>
+													<choice hidden="true" req="LIST_CREW_HIVE">
+														<text>(母巢螳螂族)说服他加入你。</text>
+														<event>
+															<text>"联邦有螳螂族？我以为只欢迎自由螳螂。联邦虽然在不利地位，但不像星联那样糟糕！我接受提议，舰长。"</text>
+															<crewMember amount="1" class="mantis_suzerain" />
+														</event>
+													</choice>
+													<choice hidden="true">
+														<text>为什么不单干呢？作为一名螳螂领主，你当然可以在短时间内成为一个著名的赏金猎人。</text>
+														<event>
+															<text>"哦！联邦现在提出了好主意！是的，爪子锋利，爪子杀人！我不一会就要富了！你是个天才，尽管你还是又臭又蠢。对于你非常聪明的想法，接受这个，我很快不需要它了！"</text>
+															<autoReward level="HIGH">standard</autoReward>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>你就不能请求允许在这里打猎吗？异猎会似乎对游客和外来者相当友好。</text>
+								<event>
+									<text>"哦！这一次，联邦有了好主意。为什么不这样想，而要杀死蛞蝓族...你很有道理。我付钱给你，因为你有聪明的大脑和帮助我。"</text>
+									<autoReward level="MED">standard</autoReward>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>但你们不是都讨厌对方吗？</text>
+						<event>
+							<text>"是的，当然！蛞蝓族贪婪，岩石族迟钝，笨拙。吸虫族臭气熏天，让我联想到老尸体，希望他们是。螳螂族不喜欢这些，但母巢说联盟对防止蛞蝓族进入螳螂族的星域有好处。"</text>
+							<choice hidden="true">
+								<text>一个联盟不是意味着会有更多的蛞蝓族跑到螳螂族的星域吗？</text>
+								<event>
+									<text>"如果是愚蠢的联邦，是的！但我们更聪明，星联不允许其他种族进入其他星域。星联的星域是共享的，其他的都是独立的。对星联的生存至关重要。很有道理吧？"</text>
+									<choice hidden="true">
+										<text>当然，是的。</text>
+										<event>
+											<text>"好。现在停止和我说话，非常无聊，厌烦。"</text>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>不，我仍然感到困惑。</text>
+										<event>
+											<text>"嘎，非常烦人。问了太多的问题，什么都不懂！联邦舰长智力低下，我要杀了！"</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我明白了，这很大程度上消除了我的疑惑。</text>
+						<event>
+							<text>"好。现在停止和我说话，非常无聊，厌烦。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我懂你，伙计。蛞蝓们很糟糕。</text>
+				<event>
+					<text>"是的是的，我们同意这一点。很高兴在太空中看到其他有理性思维的人，即使是讨厌的联邦！我们讨厌鼻涕虫的人必须团结起来，与臭鼻涕虫作斗争。"螳螂领主对你同意他的观点感到非常高兴，他甚至提出为你的船体损伤进行修补。</text>
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>这家伙心情不好，不要打扰他。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些螳螂领主。</text>
+		<event>
+			<text>你不知道为什么母巢把它最可怕的战士之一安置在蛞蝓族星域这么遥远的地方，但这估计不是啥好事。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_CLAN_TAX" unique="true">
+	<text>你才刚刚进入信标，就有一艘异种猎人的飞船飞过，后面还跟着几艘大型通灵会飞船。你知道异猎会仍然是星盗会的一部分，所以你无法想象为什么星盗会派了执法者来这里。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>追赶他们。</text>
+		<event>
+			<text>你在星云中追赶蛞蝓族，发现异种猎人蜷缩进了一个山洞里，不肯出来。通灵者们似乎束手无策。</text>
+			<ship load="SHIP_CLAIRVOYANT_TAX" hostile="false" />
+			<choice hidden="true">
+				<text>询问他们的情况。</text>
+				<event>
+					<text>"情况是，通常星盗会不会介入异猎会的事务，但他们的成员仍然是我们国家的公民，他们得交税。你可以看出，那个把自己关在山洞里的人欠了...很多。"</text>
+					<choice hidden="true">
+						<text>多少钱？</text>
+						<event>
+							<text>"哦，呃...大概一千七百万星盗会币。如果换算成这里流通的废料的话，那大概会是...两亿六千万。"</text>
+							<choice>
+								<text>用一些导弹把异种猎人轰出山洞。</text>
+								<event>
+									<text>你把炸弹安放在山洞周围，然后等着它们爆炸。冲击力使山洞崩塌，迫使异种猎人出来，当场被逮捕。</text>
+									<item_modify>
+										<item type="missiles" min="-7" max="-7" />
+									</item_modify>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="NEBULA_CLAN_TAX_SAVEKLEPT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>与通灵会作战，以帮助异种猎人。</text>
+								<event>
+									<text>众所周知，你是一个在旅行中犯下了诸多罪行的人。虽然你的罪行通常是战争罪，而本次是一个逃税的案例，但这并不意味着你不能帮助一个罪犯。当然，是以联邦的名义。</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_SLUG">
+								<text>(蛞蝓族船员)尝试与异种猎人讲道理。</text>
+								<event>
+									<text>你的蛞蝓族走到山洞的洞口附近，与异种猎人交谈起来。他利用出色的头脑，说服对方被困在山洞里憋死比进监狱更为凄惨，哪怕是蛞蝓的监狱。这很有效，异种猎人投降了。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="NEBULA_CLAN_TAX_SAVEKLEPT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_SLUG_KING">
+								<text>(前蛞蝓王)"也许我可以赦免他们？"</text>
+								<event>
+									<text>"哦！呃，先生！我没有注意到你，吾王。呃，前王。我不...您其实现在已经没有这个权力，但我是个通灵者，我认为您为我们的国家做了伟大的贡献，虽然不算当时最顶尖的一批领导人。如果您愿意为这些人站出来，我不会怀疑。"蛞蝓族清除了他们的债务，然后飞走了。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="NEBULA_CLAN_TAX_SAVECLAN" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>没有理由进一步介入。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>多么有趣和不可预测的情况。不过，是时候继续前进了。</text>
+		<event>
+			<text>你现在有了一些可支配的闲暇时光。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_CLAN_TAX_SAVECLAN">
+	<text>你走近异种猎人，他低声说："他们走了吗？"你向他保证通灵会已经走了后，他走出山洞，并向你表示感谢。"哈哈！逃税的工作又一次完美谢幕！呃...我想我应该奖励你。升级一次反应堆怎么样？"</text>
+	<upgrade amount="1" system="reactor" />
+</event>
+<event name="NEBULA_CLAN_TAX_SAVEKLEPT">
+	<text>"啊，这下事情解决了。谢谢你，联邦。我还不知道你们对帮助星盗会事务感兴趣。也许一点废料能补偿你为解决这个问题提供的帮助。"</text>
+	<autoReward level="MED">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_DISTRESS_CLAN">
+	<event load="NEBULA_DISTRESS_CLAN_GHOST" />
+	<event load="NEBULA_DISTRESS_CLAN_DUSK" />
+</eventList>
+
+<event name="NEBULA_DISTRESS_CLAN_GHOST" unique="true">
+	<distressBeacon />
+	<text>你不确定是从哪里来的，但你收到了一个异猎会猎枪手的呼叫。"想找点活干吗？一些魂灵族偷走了我的船！我不惜一切手段也要把它弄回来，而你看起来像是一个非常合适的人手。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>接受。</text>
+		<event>
+			<text>"好，好！请不要毁掉它！"</text>
+			<ship load="SHIP_CLAN_GHOST" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice> 
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你并不是什么零钱雇佣兵。你有行事准则！你让蛞蝓族静音。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_DISTRESS_CLAN_DUSK" unique="true">
+	<distressBeacon />
+	<text>似乎一个求救信号从一艘被暮临派追捕的异种猎人飞船中发出。你很快就被呼叫了："请帮帮我们！我们犯了一个大错，试图在活的暮临派俘虏身上研究爆炸技术是如何奏效的...现在他们疯了，想要我们的命。我其实对这个结果不是很惊讶，但请你还是帮帮我吧？"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>协助异种猎人们。</text>
+		<event>
+			<text>你武装好武器，与暮临派交战。</text>
+			<ship load="SHIP_CLAN_DUSK_DUSK" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>协助暮临派。</text>
+		<event>
+			<text>你将武器武装起来，与异种猎人船只交战。</text>
+			<ship load="SHIP_CLAN_DUSK_CLAN" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>否。</text>
+		<event>
+			<text>你让异种猎人哑口无言，继续维持你无益的存在。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_CLAN">
+	<event load="NEBULA_ENCOUNTER_CLAN" />
+	<event load="NEBULA_ENCOUNTER_CLAN" />
+	<event load="NEBULA_ENCOUNTER_SLUG_CLAN" />
+	<event load="NEBULA_ENCOUNTER_SHELL_CLAN" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_CLAN">
+	<loadEventList first="false" generate="true">
+		<event name="NEBULA_ENCOUNTER_CLAN_REGULAR" />
+		<event name="NEBULA_ENCOUNTER_CLAN_STORM" />
+	</loadEventList>
+</event>
+<event name="NEBULA_ENCOUNTER_CLAN_REGULAR">
+	<text load="NEBULA_CLAN_FIGHT" />
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_CLAN_FIGHT">
+	<text>异猎会有许多侦察兵在这个星区巡逻，还有一些稀疏平常的猎人们。当他们发现你在这里，并认出你是一艘联邦飞船后，他们迅速武装起来准备战斗。他们的理由是什么？要么他们认为你是一个威胁，要么他们想用你的皮肤做一件外套。或者两者都是。</text>
+	<text>你周围的星云的寂静开始让你感到不安。幸运的是，这个信标似乎是空的。哦，等等，看来你搞错了。异种猎人来了！</text>
+	<text>你发现附近的一个异种猎人从远处看着你。"好吧，我会的，那是一副很好的牙齿，伙计！我要把那些牙齿做成一幅精美的项链！"</text>
+	<text>"变元飞船？你没有收到提醒吗？这里是异猎会的地盘！我们从星盗会手下买下这块星域，并不是为了让那些该死的互不相干的混蛋突然闯入，偷走我们所有的猎物！"</text>
+	<text>附近的一艘异猎会飞船靠近了，它的武器已经开始充能。你不得不佩服这些异种猎人的勇气，尽管这通常以他们的死亡而告终。</text>
+	<text>"嘿，那是一艘飞船吗？哦，糟糕，是的！"一个异种猎人惊恐地拿起他的步枪，然后让他的船准备与你对战！</text>
+	<text>异猎会员们是有声望的猎人，他们可不会放弃高质量的狩猎机会。虽然你可能是一艘为战斗而生的军舰，但这似乎并不能阻止附近的船只。</text>
+</textList>
+<event name="NEBULA_ENCOUNTER_CLAN_STORM">
+	<text>这个信标受到了移动的离子风暴的影响。一艘异猎会飞船现身，明显带有敌意。这一点也不奇怪：这种情况只会进一步助长他们捕食目标的倾向，就好像他们包围了一头陷入陷阱的野兽。</text>
+	<ship load="SHIP_CLAN_FIGHT" hostile="true" />
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_SLUG_CLAN">
+	<text load="NEBULA_SLUG_CLAN_FIGHT" />
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_SLUG_CLAN_FIGHT">
+	<text>通常情况下，你在这里看到的蛞蝓族飞船都是异猎会的财产，但有时星盗会的公民也会到这个星区来打猎。和往常一样，看起来你就是那个被猎杀的人！</text>
+	<text>"联邦！这里是星盗会的所在地。不要以为异猎会能容忍外人进入，你们就会受到我们的欢迎！"</text>
+	<text>一艘蛞蝓族的船来了！他们虽然不是异猎会，但他们仍然是你需要消除或逃避的敌人！</text>
+	<text>"你是我通过会员资格考试，成为异猎会成员所需要的最后一个猎杀名额！现在站住别动，我已经厌倦了为这花费精力！"</text>
+	<text>异猎会星域里有很多蛞蝓族，但你没想到会看到一个普通的星盗会公民。你并不感到惊讶，但你对他们已经转为敌意感到轻微的不悦！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_SHELL_CLAN">
+	<text load="NEBULA_SHELL_CLAN_FIGHT" />
+	<ship load="SHIP_SHELL_FIGHT" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="NEBULA_SHELL_CLAN_FIGHT">
+	<text>你没想到甲壳族会有这么大的敌意，但显然异猎会的活动真的激怒了附近的船只，因为它们已经开始攻击了！</text>
+	<text>甲壳族通常是非常欣赏科学的，但这里的飞船似乎放弃了所有的理性，直接攻击。异猎会可能与这种轻率的行为有关，但现在诊断已经太晚了！</text>
+	<text>"你必须赶紧跑！我的船员们，他们在突袭一个异猎会空间站时，从一个六脚马族身上染上了罕见的太空狂犬—"甲壳族被打断了，因为他被他的一个朋友杀了，后者正准备控制飞船并进行攻击。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="NEBULA_CLAN_PHEROMONES" unique="true">
+	<preventQuest />
+	<text>在你的变元者旅行生涯中，你见过很多东西，但你从未见过一大半个螳螂舰队的残骸散落在一座异猎会巨构前。一个巨大的机械臂似乎正在逐一收集这些残骸，并将它们移向一个小的对接舱。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>进一步调查。</text>
+		<event>
+			<text>你向巨构靠近，通过舰库门进入，一名异种猎人迎接了你。"妈耶，你不会是来了结我们的吧？"</text>
+			<choice hidden="true">
+				<text>不是。</text>
+				<event>
+					<text>"哦，感谢上帝。等等，所以你为什么来这？是来观看我的作业吗？这里是一座信息素提取厂。信息素产业正在蓬勃发展，我们想在那些自由螳螂混蛋垄断整个产业之前牢牢掌控它。"</text>
+					<choice>
+						<text>购买一些信息素。</text>
+						<event>
+							<text>"交易愉快！就是记住不要告诉联邦，或者母巢。我的意思是，请不要告诉任何人。"</text>
+							<augment name="CREW_STIMS" />
+							<item_modify>
+								<item type="scrap" min="-15" max="-15" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>所有这些螳螂族都是从哪来的？</text>
+						<event>
+							<text>"哦，呃...我们从魂灵族那里买的。是真的，真的...是这么回事。"</text>
+							<choice hidden="true">
+								<text>那么魂灵族从哪里得到这么多的螳螂族舰船呢？</text>
+								<event>
+									<text>"螳..螂..族的...商店？"</text>
+									<choice hidden="true">
+										<text>我可没听说过有这么个东西。</text>
+										<event>
+											<text>"哦，不...哦没错，它绝对是真的！我可以给你坐标，如果你在乎的话！"</text>
+											<choice hidden="true">
+												<text>你在撒谎。</text>
+												<event>
+													<text>"滚蛋吧联邦！你们没资格指手画脚的！"异种猎人匆匆离去，拉响了警报。看来要打架了！</text>
+													<ship load="SHIP_CLAN_PHEROMONES" hostile="true" /> 
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>那就给我吧！</text>
+												<event>
+													<text>"嗯嗯，好的..."异种猎人迅速抽出一支笔，潦草地写下一些勉强可辨的数字，递给你，然后匆匆离去。</text>
+													<quest event="NEBULA_QUEST_CLAN_PHEROMONES_STORE" />
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>有点意思，不过我们没兴趣。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>最好不要介入。</text>
+		<event>
+			<text>如果你不想有像这些螳螂族一样的结局，你可能不应该再靠近了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_crapbucketstart" global="true">
+        <color r="0" g="105" b="107" a="1.0" />
+        <unvisitedTooltip>此处是信息素供应商的所在。询问他们的货源，需要携带500废铁。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="CLAN_PHEROMONES_DEMAND">
+	<text>"好吧，你已经杀了我的人，现在呢？你要关闭我的设施吗？逮捕我？还是让我做一个难堪的动作？"</text>
+	<choice hidden="true">
+		<text>关闭他的设施。</text>
+		<event>
+			<text>明面上讲你没有权力这么做，不过你从来都不是一个遵规蹈矩的人。你假装有权这么做，带走了所有能携带的东西，然后命令他关闭整个设施。你很清楚对方可能实际上不会，但怎么你都已经得到了你想要的东西。</text>
+			<augment name="CREW_STIMS" />
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>逮捕他。</text>
+		<event>
+			<text>你身上其实没有手铐，而且你也不太清楚你在做什么。幸运的是，这位异种猎人似乎也不太了解联邦法律，所以当你告诉他，联邦罪犯应该在逮捕他们的飞船上服役时，对方并没有质疑。</text>
+			<crewMember amount="1" class="slug_clansman" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>让他跳舞。</text>
+		<event>
+			<text>略带哀愁地，这位异种猎人跳起了华尔兹，但最终还是破防了，变成了一个啜泣者。你可怜这个家伙，只偷了他的部分废料，而不是全部。</text>
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ZOLTAN">
+		<text>(超能族船员)以官方的名义进行这次逮捕。</text>
+		<event>
+			<text>你的超能族不知从哪里拿出了一副手铐，把异种猎人们一个个铐了起来。你的船员命令关闭设施，引用各种律码，不知情的人可能会以为这些都是编造的。然后他把异种猎人们赶上星舰，缴获了几箱物资。当你问接下来会发生什么时，你的超能族耸耸肩，认为你不妨先接受这一切。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<crewMember amount="1" class="slug_clansman" />
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_QUEST_CLAN_PHEROMONES_STORE">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一名猎枪手提供的过于可疑的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>尽管更有可能是异种猎人在撒谎，你还是去了他指定的坐标处一趟。出乎意外的是，你看到了一个螳螂飞船的垃圾场，里面有一艘由魂灵族占领的螳螂飞船守护着。</text>
+	<ship load="SHIP_CLAN_PHEROMONES_MANTISSTORE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>请问，这里是螳螂族的商店吗？</text>
+		<event>
+			<text>在你的翻译器能够弄清魂灵族的古怪语言之前，有几刻短暂的沉默。"是的，欢迎。我们出售二手螳螂飞船。在一个著名行会的成员订购了一大批货后，我们的库存大大减少，但肯定还剩一个能令你满意的模型。"</text>
+			<choice>
+				<text>购买一艘螳螂飞船。</text>
+				<event>
+					<text>这可能是你在一件物品上所花费的最多的废料，希望它是值得的。魂灵族们带来了一艘螳螂族飞船，你发现里面还有以前船员们的尸体，以及他们的武器！</text>
+					<item_modify>
+						<item type="scrap" min="-500" max="-500" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>虽然这艘船本身对你没有什么用处，但你不介意把所有能回收的都回收。就从武器开始...</text>
+							<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>你从舰体上拉出又一件武器。</text>
+									<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>你从舰体上拉出又一件武器。</text>
+											<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event>
+													<text>你从舰体上拉出又一件武器。</text>
+													<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event>
+															<text>你从舰体上拉出又一件武器。</text>
+															<weapon name="LIST_WEAPONS_ALL_CRAPBUCKET" />
+															<choice hidden="true">
+																<text>继续。</text>
+																<event load="BOUGHT_THE_GHOST_SHIP" />
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>攻击魂灵族！</text>
+				<event>
+					<text>你武装好武器，攻击魂灵族飞船。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>好吧，那我们没有什么理由再待下去了。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我已经看够了。</text>
+		<event>
+			<text>这数量实在太多了，哪怕对你来说。有些事情注定不该被了解、看到或与之互动。你猜这就是其中之一，于是尽可能地把星舰引向远处。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_QUEST_CLAN_PHEROMONES_STORE_CHOICE">
+	<text>魂灵族们都死了，但船厂似乎仍有许多其他魂灵族在游荡。是否在走之前冒险劫取一些物资？</text>
+	<choice hidden="true">
+		<text>掠走一些东西。</text>
+		<event>
+			<text>你在螳螂飞船中四处搜刮，取得了更多的物资，但一队愤怒的魂灵族爬进星舰来为他们死去的朋友报仇！</text>
+			<autoReward level="MED">standard</autoReward>
+			<boarders min="2" max="3" class="phantom_goul" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不冒这个险，离开。</text>
+		<event />
+	</choice>
+</event>
+<event name="BOUGHT_THE_GHOST_SHIP">
+	<text>虽然你已经从船上拿走了你目前需要的一切，但把残骸送回联邦舰库总没坏处...所以为什么不呢？</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_STUPIDGHOST</unlockCustomShip>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="PONY_WORLD">
+	<preventQuest />
+	<quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>你似乎偶然发现了一个郁郁葱葱的星球，充满了各种奇异的生命。从那些保存得不可思议地完好的草原和令人惊叹的岩石雕塑来看，这一定是异猎会维护得最好的狩猎场之一。这些地方只保留给最富有的客户，而不仅仅是会内人员，特意备有养殖的异世界生命体。这个星球似乎完全没有受到人工建筑物的影响，除了扫描显示有一处异常——有一艘飞船在地表。</text>
+	<img back="BACK_EVENT_PONYWORLD" planet="NONE" />
+	<choice hidden="true">
+		<text>靠近。</text>
+		<event>
+			<text>你让星舰靠近坠毁的飞船，注意到它是一艘异猎会的船只。然而它非常古老，有锈败的迹象。几只颜色鲜艳的六脚马在附近吃草，你看着它们平静地漫步，这时一个声音对你说。"不要打搅六脚马们，朋友。他们是受折磨的灵魂，异猎会可不仁慈。"</text>
+			<choice hidden="true">
+				<text>谁在那里？</text>
+				<event>
+					<text>你转了一圈，但没有看到任何人。你的目光落在一片朦胧的灰云上，它似乎吞噬了你面前的区域，但你不确定它是什么。"不要害怕。我们只不过是一个古老的声音。我们是说书人，多年来我们一直是这些土地的监督者。你想听一个故事吗？"</text>
+					<choice hidden="true">
+						<text>当然。</text>
+						<event>
+							<text>你在吃草的小马们旁边坐下，其中一只走过来，把头托在你的肩膀上。这朵云开始似乎无规律的移动，讲起了故事。"许多年前，有一个男孩经常和他的叔叔来这里。他的父亲消失了，而母亲则去世了。他的叔叔是个骄傲的人，但这个男孩却很温顺。这些旅行对男孩而言极不寻常，并不是一种易得的自由，但他的叔叔非常想要讨好这个男孩。"</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>"起初，他们过来只是简单地观看野生动物，但他们从未靠得太近，因为他的叔叔禁止这样做。但有一天，他的叔叔带来了一把枪，向男孩展示了如何使用它，并从天上射下一只鸟。男孩却只是哭。他的叔叔不理解，随后这种情况每天都会重复发生。那两人过来，一只动物被杀死，然后男孩就哭。男孩也使用过几次枪，精准度高得惊人，但他从未瞄准过任何一只动物。相反，他只会射击罐子和石头。"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>"后来有一天，他的叔叔干脆放弃了。他选择呆在自己的飞船上，放任这个男孩自由行动。他希望，一旦男孩发现六脚马们对男孩的爱不像男孩对他们的爱那样，男孩就会学会冷漠。可是，男孩却每天都热切地在幸福中饲养着六脚马们，马驹们也把他当作自己的小马驹。事实上，男孩与六脚马们的共同点比与他的亲叔叔的还要多。都被冷待，都没有家，都被一个不了解他们真正本性的高高在上之人强迫接纳一个新的生活方式。"</text>
+											<choice hidden="true">
+												<text>继续。</text>
+												<event>
+													<text>"每天，男孩都会求他的叔叔到送他来这，而他叔叔的嫉妒日益增长。男孩怎么能爱一个无意识的外星人胜过自己的血肉同胞？又有一天，六脚马们比平常走得更远，男孩也跟着走了。不久，他甚至离开了他叔叔的视线，他叔叔惊慌失措地意识到自己看丢了这个宝贝孩子，于是急忙追赶起他。男孩漫无目的地游荡着，但不怎么害怕，直到他发现了一艘坠毁船。长满青苔、锈迹斑斑的船年久失修，由一名失散的半械族驾驶。"</text>
+													<choice hidden="true">
+														<text>继续。</text>
+														<event>
+															<text>"半械族受伤了，他之前被一个异种猎人击落，因为猎人看穿了他偷来飞船的伪装。半械族，一样，也与六脚马族是好朋友，而六脚马们认为是时候让男孩见见半械族了。两人成了好朋友，他们相谈了好几个小时，没有什么刻意的话题。半械族在自己的旅行中经历了很多，但了解得很少，而男孩一直受到'保护'，但却了解他所经历过的一切。男孩教会了半械族许多东西，而半械族用许多故事来逗男孩开心。"</text>
+															<choice hidden="true">
+																<text>继续。</text>
+																<event>
+																	<text>"夜幕降临后，男孩感到疲倦，于是向半械族道了晚安。他走开了，再次由六脚马们指引着。这个男孩再也没有回来过。我们不知道他发生了什么。我们怀念他的声音。六脚马们虽然也是好伙伴，但他们不理解我们的故事..."</text>
+																	<choice hidden="true">
+																		<text>我想你就是故事中的半械族吧？</text>
+																		<event>
+																			<text>"是的，但我们不再是那个半械族了。我们已经与谐合分离了太久，完全不记得作为它的一部分时是什么样子了。我们只不过是这个地方的守护者。许多船只来来往往，可我们不介意它们，只要它们不惊扰六脚马们..."</text>
+																			<achievement>ACH_EVENT_STORYTELLER</achievement>
+																			<choice hidden="true">
+																				<text>继续。</text>
+																				<event load="PONY_WORLD_HUNTERS" />
+																			</choice>
+																		</event>
+																	</choice>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>不用了，但我们会待上一段时间。</text>
+						<event>
+							<text>"好吧。很少有人会花时间来欣赏像如此这般的世外之地的美。游客经常有，但他们只是匆匆而来，又匆匆而去。我们并不介意他们，只要他们不惊扰六脚马们..."</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="PONY_WORLD_HUNTERS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>不用了，我们没时间听故事，而是得走了。</text>
+						<event>
+							<text>"真可惜。这些天里大家都很忙...好吧，我们不会离开这里。上路吧，旅行者。如果你改变主意，你知道我们在哪..."</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视那个行星。</text>
+		<event>
+			<text>异猎会估计不会喜欢你在他们的特殊狩猎区周围打探，最好不要冒这个险。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_ponystart" global="true">
+        <color r="255" g="0" b="207" a="1.0" />
+        <unvisitedTooltip>此处是小马世界的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="PONY_WORLD_HUNTERS">
+	<text>正巧，一艘新的船只来到了这里。漆黑色的舰体表明这是某种特殊的、非常重要的蛞蝓族船只。他们似乎并不介意你，而是在附近降落，拿出他们的狩猎装备，同时进行着愉快的闲谈。直到说书人飘至他们附近，礼貌地要求他们把船移到别处，以免打扰六脚马们。蛞蝓族们大笑起来，并立即开始用枪嘲弄地瞄准小马们。</text>
+	<ship load="SHIP_PONY_WORLD_KNIGHT" hostile="false" /> 
+	<choice hidden="true">
+		<text>干预。</text>
+		<event>
+			<text>不出所料，蛞蝓族们对你打断他们不太高兴。"所以为什么联邦的飞船会在这里？这里是异猎会的星域！看起来你即刻成为了我们的下一个猎物！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>看来麻烦正在酝酿，我们最好离开。</text>
+		<event />
+	</choice>
+</event>
+<ship name="SHIP_PONY_WORLD_KNIGHT" auto_blueprint="LIST_SHIPS_KNIGHT_LARGE">
+	<destroyed load="PONY_WORLD_WIN" />
+	<deadCrew load="PONY_WORLD_WIN" />
+	<crew>
+		<crewMember type="slug" prop="0.25" />
+		<crewMember type="slug_saboteur" prop="0.25" />
+		<crewMember type="slug_knight" prop="0.50" />	
+	</crew>
+</ship>
+<event name="PONY_WORLD_WIN">
+	<text>蛞蝓族飞船已被摧毁。不幸的是，残骸破坏了这里的景观，但幸好没有任何动物被击中。当你在回收残骸的时候，你注意到有几名蛞蝓族还在地表上折磨着六脚马族。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>在你想动手之前，那片灰色的云突然变大，把蛞蝓族掩盖在灰幕里。你听到一声令人血脉喷张的尖叫，随后云层突然消散，只留下一滩被撕裂的血肉。"我们警告过他们不要打扰六脚马们…可有些人就是不听..."</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>你看着说书人飘回他的船，在那等着你。"你选择协助我们，这很不寻常。你确实是因为我们的飞船才找到这个地方的，对吗？那就带走它吧，我们不再需要它了。"</text>
+					<unlockCustomShip silent="false">PLAYER_SHIP_CLAN</unlockCustomShip>
+					<autoReward level="HIGH">standard</autoReward>
+					<choice hidden="true">
+						<text>接受船只并离开。</text>
+						<event>
+							<text>"再见，朋友。我们将确保你的传奇故事不会不为人知..."</text>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_JERRY">
+						<text>(杰瑞)"我想我就是你故事中的那个男孩..."</text>
+						<event>
+							<text>说书人飘到杰瑞身边，慢慢地开始凝结成一名深红色的半械族。"我们的朋友。我们已经很久没有见过你了...星随人愿，赐予了我们此次重逢？我们仍然可以看到你眼中的纯真。我们为我们的胡言乱语感到抱歉。我们多么希望能够加入你们，但我们不能，我们只能提供一份礼物。我们祝愿你的旅程顺利，杰瑞，还有你的朋友们。现在这个故事终于可以有一个圆满的结局了..."</text>
+							<achievement>ACH_JERRY_CRYSTALPONY</achievement>
+							<crewMember amount="1" combat="2" class="ponyc" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>提出带走说书人。</text>
+						<event>
+							<text>"我们恐怕决不能离开这个地方。一个好的守护者绝不会丢下他们所该保护的东西。而且你本也不需要我们，我们不是战士。别担心，我们会确保你的故事不会不为人知..."</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SYLVAN_SALT_QUEST_INTRO_LOAD">
+	<loadEventList seeded="false" first="true">
+		<event name="SYLVAN_SALT_QUEST_INTRO_CHAOS" req="chaos_mode" lvl="1" />
+		<event name="SYLVAN_SALT_QUEST_INTRO" />
+	</loadEventList>
+</event>
+<event name="SYLVAN_SALT_QUEST_INTRO_CHAOS">
+	<text>你踏进小舍，感觉似乎你注定要在这遇到什么人。然而，没有人冒出来。你四处游荡，直到你的耳朵捕捉到一名异种猎人与一名海盗之间关于一个叫"盐人"的人的有趣对话。你在与他们相邻的桌子旁坐下，凑近听他们在说什么。</text>
+	<choice hidden="true">
+		<text>说来听听。</text>
+		<event>
+			<text>突然，你听到一个响亮而令人厌恶的声音，使你从椅子上摔了下来。你抬头一看，发现矮人神秘地出现在桌子上，现在正对你大喊大叫。舍长们对你的奇怪行为感到恼火，要求你离开。你向他们道歉，并将责任归咎于矮人，但这只是让他们更加困惑。在来回争论矮人是真是假之后，你回到星舰，发现仪表盘上钉着一组神秘的坐标和一张纸条。"请为我找到他。—希"</text>
+			<playSound>gm_obyn</playSound>
+			<quest event="NEBULA_LIGHT_SALT_QUEST_CHAOS" />
+		</event>
+	</choice>
+</event>
+
+<event name="SYLVAN_SALT_QUEST_INTRO_NOPE">
+	<text>你踏进小舍，感觉似乎你注定要在这遇到什么人。然而，没有人冒出来。你四处游荡，直到你的耳朵捕捉到一名异种猎人与一名海盗之间关于一个叫"盐人"的人的有趣对话。你在与他们相邻的桌子旁坐下，凑近听他们在说什么。</text>
+	<choice hidden="true">
+		<text>说来听听。</text>
+		<event>
+			<text>不幸的是，他们两人注意到你在偷听，你怀疑当他们冷冷地盯着你时情况可能会升级，但他们只是转移到视线之外，以免引起不必要的注意。看来真的没什么有趣的事。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="SYLVAN_SALT_QUEST_INTRO">
+	<text>你开始在舍内走动，这时你注意到人群后面有一张熟悉的面孔。"陌生人！哦，真是巧了！？巧死了...想买点什么吗？我可以带你到我的船上去，看看有什么东西..."</text>
+	<choice hidden="true">
+		<text>跟随希尔凡。</text>
+		<event>
+			<text>你跟着希尔凡，他在路上闲聊。"呵呵，我曾经是异猎会里的猎枪手，不过后来我们和个叫盐人的家伙发生了争执。他是他的物种里的最后一个，也是一个可怕的赏金猎人。但异猎会想要他死，真是可耻。我就是不忍心下手，谁懂？总之，关于那个东西..."</text>
+			<choice hidden="true">
+				<text>告诉我更多关于盐人的事。</text>
+				<event>
+					<text>希尔凡低头看了一会儿地面。"呵，勾起你的兴趣了，是吗？他是个迷人的家伙，也许是我弃会而成为游商的唯一原因。你当然可以称我们为...朋友...但我已经好几年没和他说过话了..."</text>
+					<choice>
+						<text>继续。</text>
+						<event>
+							<text>"说实话，这次我也是来找他的...嗯...我想你可以帮我一个忙，帮我路过一下这个坐标，好吗？我听说他现在就在那里等着。你到了之后，确保他别死，好吗？为我道句好话...我会很感激你的，陌生人。"</text>
+							<choice hidden="true">
+								<text>接受。</text>
+								<event load="SYLVAN_SALT_QUEST_ACCEPT" />
+							</choice>
+							<choice hidden="true">
+								<text>你为什么不自己去呢？</text>
+								<event>
+									<text>"啊...嗯，我是一个非常忙碌的蛞蝓，陌生～～人。你知道是怎么回事，在多元宇宙中穿梭和那些有的没的。这只不过是一个举手之劳，不是吗？也不是说他有什么危险，我只是想确保他没事。他当然会没事的，嘿嘿..."希尔凡听起来对自己不是很有把握，但没有说更多。</text>
+									<choice hidden="true">
+										<text>接受。</text>
+										<event load="SYLVAN_SALT_QUEST_ACCEPT" />
+									</choice>
+									<choice hidden="true">
+										<text>拒绝。</text>
+										<event load="SYLVAN_SALT_QUEST_DECLINE" />
+									</choice>
+								</event>
+							</choice>
+							<!--<choice hidden="true" req="unique_obyn">
+								<text>(Obyn) *Cough*</text>
+								<event>
+									<text>"Oh... Obyn! You're- you're here? Oh... uhm. Well, not my Obyn."</text>
+									
+								</event>
+							</choice>-->
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event load="SYLVAN_SALT_QUEST_DECLINE" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>看看他带了什么货。</text>
+				<event>
+					<text>"啊，陌生人，你很幸运。我手上有一些高质量的装备，你肯定会感兴趣的！"希尔凡从他的飞船里拿出了一些武器向你展示。</text>
+					<choice>
+						<text>同意。</text>
+						<event load="SYLVAN_TRADES" />
+					</choice>
+					<choice>
+						<text>拒绝。</text>
+						<event>
+							<text>"啊，哦，好吧，陌生～～人。那就再会，也许？我相信我们下次见面会在下次的！"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_SALT_QUEST_ACCEPT">
+	<text>"啊！这可太好了，陌生人！你们这些变元者，太可靠了。这就是为什么我喜欢你，陌生人。现在，你觉得做个小交易怎么样？"</text>
+	<quest event="NEBULA_LIGHT_SALT_QUEST" />
+	<choice>
+		<text>同意。</text>
+		<event load="SYLVAN_TRADES" />
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event>
+			<text>"啊，哦，好吧，陌生～～人。那就再会，也许？我相信我们下次见面会在下次的！"</text>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_SALT_QUEST_DECLINE">
+	<text>"啊...我的错...不应该把公事和私事混为一谈，是的..."希尔凡皱着眉头，但保持着他那爽朗的语气。"好吧，无论如何，交易怎样，陌生人？"</text>
+	<choice>
+		<text>同意。</text>
+		<event load="SYLVAN_TRADES" />
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event>
+			<text>"今天就是有心情说不，嗯，陌生人？哦，好吧...也许下次。"希尔凡很快就回到了小舍。</text>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_SALT_ABANDONED" auto_blueprint="MU_SALT_CRUISER">
+	<surrender min="3" max="4">
+		<text>"你们都该死，你们这些腐烂的霉菌孢子！要怎么才能停下你们？我说过，老板不在这里，没有理由杀我们，异猎会根本不在乎我们！"</text>
+		<choice hidden="true">
+			<text>我们来这里不是为了杀你。</text>
+			<event>
+				<text>"你...哦...看来我的判断严重失误了。那你为什么来这？"</text>
+				<ship hostile="false" />
+				<variable name="ach_boss_salt" op="set" val="1" />
+				<choice hidden="true">
+					<text>希尔凡让我们来的。</text>
+					<event>
+						<text>"希尔凡？这个名字我已经很久没有听到了！我还以为他在那件事之后就永远离开了...你懂的。"</text>
+						<choice hidden="true">
+							<text>懂的懂的，那些细枝末节就别管了。你的老板在哪？</text>
+							<event load="SALT_QUEST_COORDS" />
+						</choice>
+						<choice hidden="true">
+							<text>我不知道。</text>
+							<event>
+								<text>"哦，呃...我不擅长解释这些东西，也不知道该如何处理那些黏糊糊的人际关系...我只管暴打别人。"</text>
+								<choice hidden="true">
+									<text>好吧...</text>
+									<event load="SALT_QUEST_COORDS" />
+								</choice>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>我本来不打算杀你，但你又说我是霉菌孢子，这很不爽。</text>
+			<event />
+		</choice>
+	</surrender>
+	<destroyed>
+		<text>看来你已经摧毁了盐人的飞船。虽然他确实不在船上，但你估计找不到他的位置了。</text>
+		<autoReward level="MED">standard</autoReward>
+		<variable name="ach_boss_salt" op="set" val="1" />
+	</destroyed>
+	<deadCrew>
+		<text>看来你已经杀死了盐人的船员。虽然他确实不在船上，但你估计找不到他的位置了。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<variable name="ach_boss_salt" op="set" val="1" />
+	</deadCrew>
+</ship>
+<ship name="SHIP_SALT_ABANDONED_CHAOS" auto_blueprint="MU_SALT_CRUISER">
+	<surrender min="3" max="4">
+		<text>"你们都该死，你们这些腐烂的霉菌孢子！要怎么才能停下你们？我说过，老板不在这里，没有理由杀我们，异猎会根本不在乎我们！"</text>
+		<choice hidden="true">
+			<text>我们来这里不是为了杀你。</text>
+			<event>
+				<text>"你...哦...看来我的判断严重失误了。那你为什么来这？"</text>
+				<ship hostile="false" />
+				<variable name="ach_boss_salt" op="set" val="1" />
+				<choice hidden="true">
+					<text>矮人告诉我们来这里。此外，有人给了我们到这里的坐标。</text>
+					<event>
+						<text>"啥？...啥叫你来的？算了，关我啥事。不管是谁派你来的，很抱歉老板已经不在这里了。"</text>
+						<choice hidden="true">
+							<text>那你的老板在哪？</text>
+							<event load="SALT_QUEST_COORDS_CHAOS" />
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>*%$##@*%!</text>
+			<event load="OPTION_INVALID" />
+		</choice>
+	</surrender>
+	<destroyed>
+		<text>看来你已经摧毁了盐人的飞船。虽然他确实不在船上，但你估计找不到他的位置了。</text>
+		<autoReward level="MED">standard</autoReward>
+		<variable name="ach_boss_salt" op="set" val="1" />
+	</destroyed>
+	<deadCrew>
+		<text>看来你已经杀死了盐人的船员。虽然他确实不在船上，但你估计找不到他的位置了。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<variable name="ach_boss_salt" op="set" val="1" />
+	</deadCrew>
+</ship>
+<event name="NEBULA_LIGHT_SALT_QUEST">
+	<beaconType id="map_icon_merchantquest_major" global="true">
+        <color r="155" g="90" b="205" a="1.0" />
+        <unvisitedTooltip>希尔凡给出的盐人疑似位置。</unvisitedTooltip>
+        <visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+    </beaconType>
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>透过星云中的一道空，你在所有的天体中，发现了一个巨大的结晶小行星，但没有你要找的盐人的影子。不过，希尔凡确信他一定在这里...</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>盐人可能不在这里，但我们可以利用这颗小行星。</text>
+		<event>
+			<text>你接近这颗小行星，对它的巨大体积感到惊叹。它几乎和你的星舰一样大！这时你才意识到，它是一艘飞船！你接近它时，它一动不动，你怀疑它可能是空的。</text>
+			<ship load="SHIP_SALT_ABANDONED" hostile="false" />
+			<choice hidden="true">
+				<text>测试一下你的理论，派一些船员上船。</text>
+				<event>
+					<text>就如你之前的小行星理论一般，你的空船理论也被证伪。这艘船只剩下了最低配额的船员，这些由不同种族组成的船员集结起来对抗你。"妈的，看来异猎会的一个赏金猎人趁老板不在的时候找到了我们！集合了兄弟们，我们得给这些雇佣兵点颜色看看！"你也许可以不杀他们就能脱身，但你猜对方在你把他们的船弄得更糟一些之前，不会愿意心平气和地说话的。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不值得冒险，撤走。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>看来盐人已经不在这了，没有理由再在这徘徊。</text>
+		<event>
+			<text>希尔凡不曾有过错误的情报，但你也不好说。你甚至不知道他的情报是怎么来的。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_SALT_QUEST_CHAOS">
+	<beaconType id="map_icon_merchantquest_major" global="true">
+        <color r="155" g="90" b="205" a="1.0" />
+        <unvisitedTooltip>矮人给出的盐人疑似位置。</unvisitedTooltip>
+        <visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+    </beaconType>
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<text>透过星云中的一道空，你在所有的天体中，发现了一个巨大的结晶小行星，但没有你要找的盐人的影子。不过，这就是坐标指向的地方...</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>盐人可能不在这里，但我们可以利用这颗小行星。</text>
+		<event>
+			<text>你接近这颗小行星，对它的巨大体积感到惊叹。它几乎和你的星舰一样大！这时你才意识到，它是一艘飞船！你接近它时，它一动不动，你怀疑它可能是空的。</text>
+			<playSound>gm_asteroididiot</playSound>
+			<ship load="SHIP_SALT_ABANDONED_CHAOS" hostile="false" />
+			<choice hidden="true">
+				<text>测试一下你的理论，派一些船员上船。</text>
+				<event>
+					<text>就如你之前的小行星理论一般，你的空船理论也被证伪。这艘船只剩下了最低配额的船员，这些由不同种族组成的船员集结起来对抗你。"妈的，看来异猎会的一个赏金猎人趁老板不在的时候找到了我们！集合了兄弟们，我们得给这些雇佣兵点颜色看看！"你也许可以不杀他们就能脱身，但你猜对方在你把他们的船弄得更糟一些之前，不会愿意心平气和地说话的。</text>
+					<playSound>gm_liver</playSound>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不值得冒险，撤走。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>看来盐人已经不在这了，没有理由再在这徘徊。</text>
+		<event>
+			<text>希尔凡不曾有过错误的情报，但你也不好说。你甚至不知道他的情报是怎么来的。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SALT_QUEST_COORDS">
+	<text>"我们之前正在执行一项任务，要干掉异猎会的一个不太友好的解剖中心，但老板遇到了个麻烦。他被抓了，目前被关在那里，但我们逃脱了。他最后的命令是让我们呆在船上，躲起来。我们没有条件劫狱了，特别是现在这次小争吵过后。不过，你这个变元者可能刚好最适合干这个活，特别是有希尔凡在你身边的话！"</text>
+	<choice hidden="true">
+		<text>希尔凡不会来。</text>
+		<event>
+			<text>"他...不来？哦。嗯...那你一个也足够。虽然没有希尔凡那么好，但我至少有信心你能把事情办好。坐标反正先传给你。祝你好运，尽量不要死！"</text>
+			<quest event="NEBULA_SALT_QUEST_2" />
+		</event>
+	</choice>
+</event>
+<event name="SALT_QUEST_COORDS_CHAOS">
+	<text>"我们之前正在执行一项任务，要干掉异猎会的一个不太友好的解剖中心，但老板遇到了个麻烦。他被抓了，目前被关在那里，但我们逃脱了。他最后的命令是让我们呆在船上，躲起来。我们没有条件劫狱了，特别是现在这次小争吵过后。不过，你这个变元者可能刚好最适合干这个活！坐标反正先传给你。祝你好运，尽量不要死！"</text>
+	<quest event="NEBULA_SALT_QUEST_2" />
+</event>
+
+<event name="NEBULA_SALT_QUEST_2">
+	<beaconType id="map_icon_merchantquest_major" global="true">
+        <color r="155" g="90" b="205" a="1.0" />
+        <unvisitedTooltip>盐人被关押在一个异猎会设施中。</unvisitedTooltip>
+        <visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+    </beaconType>
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<preventFleet />
+	<text>你发现自己到了另一片空地，能看到一个巨大的海湾。这里风景宜人，你不确定异种猎人们能把像"解剖中心"这样邪恶的东西安置在哪里...直到你看向天空。</text>
+	<img back="BACK_EVENT_CLANJAIL" planet="NONE" />
+	<choice hidden="true">
+		<text>这他妈可真大。</text>
+		<event>
+			<text>的确，这个设施是如此巨大，几乎遮住了所有可感知的天空，但下面的市场却热闹非凡，他们仿佛对头顶上那座巨大而不祥的悬浮设施视若无睹。</text>
+			<choice hidden="true">
+				<text>直接飞到设施旁，能出什么问题？</text>
+				<event>
+					<text>事实证明，出了大问题。当你经过解剖中心舰库的屏障时，内部一门巨大的反舰炮旋转到面对你的星舰，几个异种猎人开始对你大喊大叫。"你这家伙到底在干什么？你有进入这里的许可证吗？"</text>
+					<choice hidden="true">
+						<text>当然了！</text>
+						<event>
+							<text>异种猎人呆住，死死地盯着你的眼睛。"那异猎会的座右铭是什么？"</text>
+							<choice hidden="true">
+								<text>掌控汝之思想，掌控汝之荣耀！</text>
+								<event load="SALT_QUEST_2_MOTTO_WRONG" />
+							</choice>
+							<choice hidden="true">
+								<text>宁英死，不懦生！</text>
+								<event load="SALT_QUEST_2_MOTTO_WRONG" />
+							</choice>
+							<choice hidden="true">
+								<text>能者为尊！</text>
+								<event load="SALT_QUEST_2_MOTTO_WRONG" />
+							</choice>
+							<choice hidden="true">
+								<text>你！才忘了吧，你问我只是为了自己不显得愚蠢。</text>
+								<event>
+									<text>"什么？你在说什..."这名异种猎人被他的一个朋友打断了。"他说得没错，珀西，你真的知道异猎会的座右铭吗？"异种猎人结结巴巴地说："我...我我打赌你也不知道！"另一个异种猎人把他的触角伸到他的后脑勺，紧张地抓挠着。"没错，我也不知道。这里真的有人知道吗？"房间里的其他异种猎人都互相看了看，摇摇头。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>那位名叫珀西的异种猎人再次转向你。"啊，好吧。看来我们得为将来找个更好的面试问题了。这次就先让你通过吧。"</text>
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="SALT_QUEST_2_SUCCESS" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>(心灵控制)当然了！</text>
+						<event>
+							<text>不知怎的，你有了一个最睿智的想法，那就是用心灵控制去控制…有心灵感应能力的蛞蝓族。大炮在你的星舰上炸了一个洞，你被迫降落，引来了一队愤怒的卫兵来"迎接"你。</text>
+							<damage amount="5" system="random" effect="breach" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="SALT_QUEST_2_STUPID" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+						<text>(心灵控制武器)当然！</text>
+						<event>
+							<text>不知怎的，你有了一个最睿智的想法，那就是用心灵控制去控制…有心灵感应能力的蛞蝓族。大炮在你的星舰上炸了一个洞，你被迫降落，引来了一队愤怒的卫兵来"迎接"你。</text>
+							<damage amount="5" system="random" effect="breach" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="SALT_QUEST_2_STUPID" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="LIST_CREW_CLAN">
+						<text>(异猎会船员)"当然！"</text>
+						<event>
+							<text>你的异种猎人船员闪过一个微笑，掏出了他的会员卡。在对的地方有点关系总是能带来好处，不过最好祈祷这不是错的地方。</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="SALT_QUEST_2_SUCCESS" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>没有。</text>
+						<event>
+							<text>异种猎人叹息道。"好吧，至少你很诚实。"一队异种猎人守卫冲上了星舰。</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="SALT_QUEST_2_STUPID" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SALT_QUEST_2_MOTTO_WRONG">
+	<text>"答得好，虽然答错了。你在撒谎，修理屁股的时间到了，伙计。"</text>
+	<choice hidden="true">
+		<text>不，你在撒谎。</text>
+		<event>
+			<text>"额，我没有时间搞这个。"异种猎人示意一队卫兵登上你的星舰。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="SALT_QUEST_2_STUPID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SALT_QUEST_2_STUPID">
+	<text>几位异种猎人在你的星舰上东翻西倒，寻找任何可疑的东西。你紧张地等待着。</text>
+	<choice hidden="true">
+		<text>等待他们完成检查。</text>
+		<event>
+			<text>幸运的是，异种猎人对你的军事物资没有什么兴趣，但即使通过了检查，也不能改变你没有进入设施的许可这一事实。异种猎人们，在完全不知晓你的恶意的情况下，和你做了一笔交易，提供了一个打折的"临时"会员资格，即25废料。</text>
+			<choice>
+				<text>购买会员资格。</text>
+				<event>
+					<text>你隐隐感觉，这甚至不是什么正式的手续，也不是异猎会的章程，所有的废料都会落入这些蛞蝓族手中。尽管如此，它允许你从现在开始无忧无虑地进入，至少在你救出盐人之前。</text>
+					<item_modify>
+						<item type="scrap" min="-25" max="-25" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="SALT_QUEST_2_SUCCESS" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝。</text>
+				<event>
+					<text>你不愿意付钱，这意味着你的旅程到此为止。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_CLAN_CRUISER" auto_blueprint="MU_CLAN_CRUISER">
+	<destroyed>
+		<text>你干掉了异种猎人的战舰，但几乎没有时间去庆祝。另一艘战舰从附近跃迁了过来，接着是另一艘，再接着又是一艘，甚至在他们后面还有一支更大的异种猎人舰队！你不可能把这些船都干掉...</text>
+		<choice hidden="true">
+			<text>啊哦...</text>
+			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>你干掉了异种猎人的战舰，但几乎没有时间去庆祝。另一艘战舰从附近跃迁了过来，接着是另一艘，再接着又是一艘，甚至在他们后面还有一支更大的异种猎人舰队！你不可能把这些船都干掉...</text>
+		<choice hidden="true">
+			<text>啊哦...</text>
+			<event load="SYLVAN_DOES_AN_EX_MACHINA" />
+		</choice>
+	</deadCrew>
+</ship>
+<ship name="SHIP_CLAN_CRUISER_CHAOS" auto_blueprint="MU_CLAN_CRUISER">
+	<destroyed>
+		<text>你干掉了异种猎人的战舰，但几乎没有时间去庆祝。另一艘战舰从附近跃迁了过来，接着是另一艘，再接着又是一艘，甚至在他们后面还有一支更大的异种猎人舰队！你不可能把这些船都干掉...</text>
+		<choice hidden="true">
+			<text>啊哦...</text>
+			<event load="GNOME_DOES_AN_EX_MACHINA" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>你干掉了异种猎人的战舰，但几乎没有时间去庆祝。另一艘战舰从附近跃迁了过来，接着是另一艘，再接着又是一艘，甚至在他们后面还有一支更大的异种猎人舰队！你不可能把这些船都干掉...</text>
+		<choice hidden="true">
+			<text>啊哦...</text>
+			<event load="GNOME_DOES_AN_EX_MACHINA" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="SALT_QUEST_2_SUCCESS">
+	<loadEventList seeded="false" first="true">
+		<event name="SALT_QUEST_2_SUCCESS_CHAOS" req="chaos_mode" lvl="1" />
+		<event name="SALT_QUEST_2_SUCCESS_NORMAL" />
+	</loadEventList>
+</event>
+<event name="SALT_QUEST_2_SUCCESS_NORMAL">
+	<text>你终于来到了标有"异种生物收容所"的监狱。在路中你射杀了几个守卫，从其中一个守卫手中捡到了一张钥匙卡，用它打开了盐人的牢房。你发现一个巨大的灰色生物正靠在墙上，仿佛在等你。"我敢打赌你不是异猎会的人，因为你胸前的绿色渗液好像是别人的。"他伸出他巨大的手。"我叫奥宾，不过大多数人都叫我'盐人'。趁现在好好欣赏一下吧，我可不是经常能见到的。"</text>
+	<choice hidden="true">
+		<text>你说得对，希尔凡派我来找你。</text>
+		<event>
+			<text>"我-我没听错吧？希尔凡，就是那个希尔凡？那个星游商人？就那个？"盐人似乎有一种既兴奋又犹豫的语气。</text>
+			<choice hidden="true">
+				<text>对，就是那个。有那艘很大的诡异的飞船，总是叫我"陌生人"。</text>
+				<event>
+					<text>"我最亲爱的人在这里？哦，天哪，我对这样的重逢几乎没有准备...我-等等，那么他在哪里？"</text>
+					<choice hidden="true">
+						<text>额...他实际上不在这里。</text>
+						<event>
+							<text>"当然不在，我早就猜到了。是不是很讽刺？我们几年来作为朋友，躲在一群蜥蜴中间横跨银河系并肩作战。一切都很好，直到我表达了想要寻找我物种的其他人的想法，突然间就到了分手的时候。那个小软蛋太胆小了，不敢抛下他卖武器给杀人的流浪汉这样舒适的小日子。所以他当然不会在过去6年里在我面前露面！"</text>
+							<choice hidden="true">
+								<text>冷静下来，我们必须先把你救出来。</text>
+								<event>
+									<text>"对，对。好吧。你碰巧遇到了我的船员吗？考虑到我那胆小的前任根本懒得找我，他肯定不知道我在这里，所以你一定是从什么别的地方得到我的坐标的。"你告诉奥宾你确实见过他的船员。"太好了。至少我可以指望他们不会把我丢下。好了，我们赶快离开这里吧。你闯进来倒是相当轻松，但异猎会的人不会轻易放跑我们的。"</text>
+									<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
+										<text>继续。</text>
+										<event>
+											<text>奥宾跟着你穿过设施的走廊，回到了停放你的星舰的舰库。你赶紧进去，从这个巨大的设施中起飞，一路回到市场。你起初认为居然真的不费吹灰之力就能离开这里。但这时，一艘异种猎人的星舰突然跃迁了进来！"啊，你在这，你这个小肛门坠落物！偷窃异猎会的东西只会让你在一个地方终结！一个浅浅的坟墓！"</text>
+											<triggeredEvent event="TEMP_OBYN_JUMP" jumps="1" />
+											<crewMember amount="1" class="unique_obyn_temp">奥宾</crewMember>
+											<ship load="SHIP_CLAN_CRUISER" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+										<text>继续。</text>
+										<event>
+											<text>奥宾跟着你穿过设施的走廊，回到了停放你的星舰的舰库。你赶紧进去，从这个巨大的设施中起飞，一路回到市场。你起初认为居然真的不费吹灰之力就能离开这里。但这时，一艘异种猎人的星舰突然跃迁了进来！"啊，你在这，你这个小肛门坠落物！偷窃异猎会的东西只会让你在一个地方终结！一个浅浅的坟墓！"</text>
+											<crewMember amount="1" class="unique_obyn">奥宾</crewMember>
+											<ship load="SHIP_CLAN_CRUISER" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="TEMP_OBYN_JUMP">
+	<loadEventList first="false">
+		<event name="TEMP_OBYN_JUMP_CONVERT" req="unique_obyn_temp" />
+	</loadEventList>
+</event>
+<event name="TEMP_OBYN_JUMP_CONVERT">
+	<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
+</event>
+<event name="SALT_QUEST_2_SUCCESS_CHAOS">
+	<text>你终于来到了标有"异种生物收容所"的监狱。在路中你射杀了几个守卫，从其中一个守卫手中捡到了一张钥匙卡，用它打开了盐人的牢房。你发现一个巨大的灰色生物正靠在墙上，仿佛在等你。"我敢打赌你不是异猎会的人，因为你胸前的绿色渗液好像是别人的。"他伸出他巨大的手。"我叫奥宾，不过大多数人都叫我'盐人'。趁现在好好欣赏一下吧，我可不是经常能见到的。"</text>
+	<choice hidden="true">
+		<text>你说得没错，除非这只矮人是异猎会的。</text>
+		<event>
+			<text>"这只...什么？什么矮人？介意我问一下'矮人'到底是什么吗？"</text>
+			<choice hidden="true">
+				<text>给他展示矮人。</text>
+				<event>
+					<text>当你试图把矮人摆在奥宾面前时，他只是一脸迷惑。"我...怎么了？你手里没有任何东西。算了，关我啥事。我和足够多的疯子共事过，知道什么时候无需在意你这样的胡言乱语。如果是矮人派你来的，那就感谢神的保佑。你告诉奥宾你确实见过他的船员。"太好了。至少我可以指望他们不会把我丢下。好了，我们赶快离开这里吧。你闯进来倒是相当轻松，但异猎会的人不会轻易放跑我们的。"</text>
+					<playSound>gm_gnobyn</playSound>
+					<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="1">
+						<text>继续。</text>
+						<event>
+							<text>奥宾跟着你穿过设施的走廊，回到了停放你的星舰的舰库。你赶紧进去，从这个巨大的设施中起飞，一路回到市场。你起初认为居然真的不费吹灰之力就能离开这里。但这时，一艘异种猎人的星舰突然跃迁了进来！"啊，你在这，你这个小肛门坠落物！偷窃异猎会的东西只会让你在一个地方终结！一个浅浅的坟墓！"</text>
+							<triggeredEvent event="TEMP_OBYN_JUMP" jumps="1" />
+							<crewMember amount="1" class="unique_obyn_temp">奥宾</crewMember>
+							<ship load="SHIP_CLAN_CRUISER_CHAOS" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" blue="false" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0">
+						<text>继续。</text>
+						<event>
+							<text>奥宾跟着你穿过设施的走廊，回到了停放你的星舰的舰库。你赶紧进去，从这个巨大的设施中起飞，一路回到市场。你起初认为居然真的不费吹灰之力就能离开这里。但这时，一艘异种猎人的星舰突然跃迁了进来！"啊，你在这，你这个小肛门坠落物！偷窃异猎会的东西只会让你在一个地方终结！一个浅浅的坟墓！"</text>
+							<crewMember amount="1" class="unique_obyn">奥宾</crewMember>
+							<ship load="SHIP_CLAN_CRUISER_CHAOS" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="SYLVAN_DOES_AN_EX_MACHINA">
+	<text>在巨大的解剖中心的阴影下，随着越来越多的飞船靠近，你的好运明显已经到头了。"异猎会已经受够了你们在我们的星域里乱来！你们这些变元者根本不顾星盗会对这些星云的神圣控制权，也不顾我们开发这些星云中的资源的权利！交出盐人，要么就被消灭！"</text>
+	<variable name="ach_boss_clancruiser" op="set" val="1" />
+	<clearTriggeredEvent name="TEMP_OBYN_JUMP" />
+	<choice hidden="true" req="pilot" blue="false" max_group="0">
+		<text>不，去你的！我听烦了你那愚蠢的口音！</text>
+		<event>
+			<text>"哎！伙计，你不必这么粗鲁！总之，你已经做出了选择。该是承受后果的时候了..."
+
+异种猎人还没来得及把话说完，一发激光就把他的护盾和引擎都打掉了，导致他螺旋式地撞向附近的一艘船，以一个毁灭性火球的形式撞向下方的市场！希尔凡的飞船从天而降，紧随其后的是盐人自己的星舰，向舰队开着火。
+
+"糟糕，糟糕，是 他 ！快跑！"异种猎人们纷纷四散奔逃。你知道希尔凡有一艘特别...装备精良的飞船，但没想到他能强大到足以吓跑整个舰队。显而易见，他离开异猎会时的情况在会内广为人知。</text>
+			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="1">
+				<text>继续。</text>
+				<event>
+					<text>你看着希尔凡与盐人的星舰在你面前降落。"我希望我来得不算太晚，陌生～～人！"希尔凡紧张地笑着，然后面对奥宾，但在开口之前，被对方打断了。
+
+"如果你敢称呼我为'陌生人'，我就敲开你的头。"
+
+"嘿嘿，我做梦也想不到此刻，奥宾。好久不见，过得如何？"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"哦没什么，就是在这个人渣横行的星区游荡，然后被囚禁在实验室里，然后他们为了好玩而肢解人。"
+奥宾顿了顿。"六。年。而你就这么只问我'过得怎么样？'！"
+
+希尔凡紧张地嘴角上扬。"我想他们把这叫做标本制作，不过我确实一直觉得这很恶心..."
+希尔凡停顿了一下。"对不起，奥宾，我离开了你。我一直都觉得还没准备好与你再次相遇，毕竟过了这么久，但当我听说你可能有麻烦时，我就来了。我...我还是太懦夫了，所以我派我的这些朋友来了。"</text>
+							<choice hidden="true">
+								<text>继续听。</text>
+								<event>
+									<text>奥宾叹了口气。"很难对你生起气来。你要弥补的事情还有很多—不过至少你还是来了。我想这算补偿了一点吧。后面还有时间细水长流。现在，过来。"
+
+两人靠在一起拥抱，尽管希尔凡与他们的身体间保持了足够的距离，以防止他的肉体被奥宾的盐性外壳灼焦。你意识到，这是一种相当喜感的关系。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="SYLVAN_SALT_REWARD_OBYN" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>伙计们，这很甜，但能不能请你们把私人事务留到以后再说？</text>
+								<event>
+									<text>两人盯着你看了一会儿，但随后希尔凡笑了起来。"啊，好的，我不小心又失神了。接受我最真挚的感谢，陌生人！如果我不为你辛劳给一份奖赏，我还算是什么人！"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="SYLVAN_SALT_REWARD_OBYN" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="0" max_lvl="0">
+				<text>继续。</text>
+				<event load="SYLVAN_SALT_REWARD_NOCREW" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
+		<text>放弃盐人。</text>
+		<event>
+			<text>盐人震惊地看着你，但你别无他选，你无法对付整个舰队！你把他往前推，他被一队异种猎人接走。"明智的选择，小子。看来你还是能活到明天的。但请帮我们一个忙，不要再来了。"</text>
+			<removeCrew class="unique_obyn_temp">
+				<clone>false</clone>
+				<text>你几分钟前才救得盐人，然后现在就放弃了他，做得好。</text>
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
+		<text>放弃盐人。</text>
+		<event>
+			<text>盐人震惊地看着你，但你别无他选，你无法对付整个舰队！你把他往前推，他被一队异种猎人接走。"明智的选择，小子。看来你还是能活到明天的。但请帮我们一个忙，不要再来了。"</text>
+			<removeCrew class="unique_obyn">
+				<clone>false</clone>
+				<text>你几分钟前才救得盐人，然后现在就放弃了他，做得好。</text>
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+<event name="GNOME_DOES_AN_EX_MACHINA">
+	<text>在巨大的解剖中心的阴影下，随着越来越多的飞船靠近，你的好运明显已经到头了。"异猎会已经受够了你们在我们的星域里乱来！你们这些变元者根本不顾星盗会对这些星云的神圣控制权，也不顾我们开发这些星云中的资源的权利！交出盐人，要么就被消灭！"</text>
+	<variable name="ach_boss_clancruiser" op="set" val="1" />
+	<clearTriggeredEvent name="TEMP_OBYN_JUMP" />
+	<choice hidden="true" req="pilot" blue="false" max_group="0">
+		<text>不，去你的！我听烦了你那愚蠢的口音！</text>
+		<event>
+			<text>"哎！伙计，你不必这么粗鲁！总之，你已经做出了选择。该是承受后果的时候了..."
+
+异种猎人还没来得及把话说完，他的船就突然崩塌，凝缩成一小块渗出绿色血液的金属褶皱，随后一闪即逝。你瞥了一眼矮人，它似乎在兴奋地抖动，并大口地呼吸。其他船只吓坏了，立即掉头跳走。</text>
+			<playSound>gm_evillaugh</playSound>
+			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="1">
+				<text>继续。</text>
+				<event load="CHAOS_SALT_REWARD_OBYN" />
+			</choice>
+			<choice hidden="true" req="OBYN_GUILD" blue="false" lvl="0" max_lvl="0">
+				<text>继续。</text>
+				<event load="CHAOS_SALT_REWARD_NOCREW" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
+		<text>放弃盐人。</text>
+		<event>
+			<text>盐人震惊地看着你，但你别无他选，你无法对付整个舰队！你把他往前推，他被一队异种猎人接走。"明智的选择，小子。看来你还是能活到明天的。但请帮我们一个忙，不要再来了。"</text>
+			<removeCrew class="unique_obyn_temp">
+				<clone>false</clone>
+				<text>你几分钟前才救得盐人，然后现在就放弃了他，做得好。</text>
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
+		<text>放弃盐人。</text>
+		<event>
+			<text>盐人震惊地看着你，但你别无他选，你无法对付整个舰队！你把他往前推，他被一队异种猎人接走。"明智的选择，小子。看来你还是能活到明天的。但请帮我们一个忙，不要再来了。"</text>
+			<removeCrew class="unique_obyn">
+				<clone>false</clone>
+				<text>你几分钟前才救得盐人，然后现在就放弃了他，做得好。</text>
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+<event name="SYLVAN_SALT_REWARD_NOCREW">
+	<text>你看着希尔凡和盐人的星舰在你面前降落。希尔凡一言不发，完全可以理解。他在奥宾的前船员的帮助下，搬来了一大箱废料。他们把奥宾的船只的一些蓝图也转交给了你，认为它们对联邦可能会有一些用处。你可以看出希尔凡对于失去奥宾伤心至极，但无力回天。"陌生人，我手上还有一把他的旧枪。我...我想我不能再把它带在身边了。所以，也许你带走它最好。我不怪你，可.........算了。我甚至连我的朋友不能拯救，拥有这样一艘船又有什么用呢？"</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
+	<autoReward level="HIGH">scrap_only</autoReward>
+	<weapon name="SALT_LAUNCHER" />
+</event>
+<event name="CHAOS_SALT_REWARD_NOCREW">
+	<text>不幸的是，奥宾没有在战斗中幸存下来。由于害怕矮人可能会吃掉你的肝脏，你回头看了看它，但似乎在哪里都看不见它。你担心自己可能弄丢了它，于是四处寻找，但慢慢地开始忘记自己在找什么。最后你停了下来，意识到你不知道自己在做什么。你很困惑为什么你会在这里，于是你回到指挥舱，准备离开。</text>
+	<variable name="chaos_mode" op="set" val="0" />
+	<removeCrew class="gnome">
+		<clone>false</clone>
+		<text />
+	</removeCrew>
+</event>
+<event name="SYLVAN_SALT_REWARD_OBYN">
+	<text>希尔凡在奥宾和他的船员的帮助下，搬来了一大箱废料。奥宾也把他船上的一些蓝图转给了你，他认为这些蓝图可能对联邦有一些用处。希尔凡回到他的船上，但奥宾站在三艘飞船之间，脸上露出犹豫不决的表情。希尔凡转过身来看着他，但奥宾摇了摇头。
+
+"我不能跟你走，老朋友。我们已经...你自己清楚怎么回事，我可以原谅，但绝不会忘记。你是个商人，而我是个赏金猎人。在这种环境下，它们可能算是类似的身份，但在某些地方还是有区别的。而且我仍然没有放弃我的寻途，银河系还有许多我的族人，我确信这一点。我仍然记得我逃离我的殖民地的那一天...嗯，我必须继续寻找，我不能就这样放弃。"</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
+	<autoReward level="HIGH">scrap_only</autoReward>
+	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="0">
+		<text>你可以先和我们一起走，先成为一个英雄，之后继续你的追寻。</text>
+		<event>
+			<text>"成为联邦的英雄？你太懂我的心思了...我曾经尝试过做赏金猎人，但事情显然不顺利，游商的生活也不适合我。我相信我们会再次见面的，希尔凡。至于你，胡椒。"奥本转身面对先前与你交谈的岩石族。"我把我的船托付给你。好好照顾它。"奥宾转向你。"现在，我们可以出发了吗？远处的冒险在向我们招手呢！谁知道呢，也许在旅途中我能找到一条线索，唯一的办法就是保持希望。"说着，他向希尔凡短暂告别，两人再次分开。</text>
+			<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
+			<variable name="ach_crew_obyn" op="set" val="1" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn" blue="false" max_group="0">
+		<text>你可以先和我们一起走，先成为一个英雄，之后继续你的追寻。</text>
+		<event>
+			<text>"成为联邦的英雄？你太懂我的心思了...我曾经尝试过做赏金猎人，但事情显然不顺利，游商的生活也不适合我。我相信我们会再次见面的，希尔凡。至于你，胡椒。"奥本转身面对先前与你交谈的岩石族。"我把我的船托付给你。好好照顾它。"奥宾转向你。"现在，我们可以出发了吗？远处的冒险在向我们招手呢！谁知道呢，也许在旅途中我能找到一条线索，唯一的办法就是保持希望。"说着，他向希尔凡短暂告别，两人再次分开。</text>
+			<variable name="ach_crew_obyn" op="set" val="1" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="1">
+		<text>怂恿他和他的老船员一起，继续他的追寻。</text>
+		<event>
+			<text>"是的，我想没有时间可以浪费了。再见，希尔凡。我确信我们会再次团聚。至于你，变元者。我对你表示感谢。而且既然感激是宇宙通用的货币，也许这件武器也会让你满意。下次见。"说着，他向希尔凡示意，然后两人再次分开，乘着各自的飞船飞走了。</text>
+			<weapon name="SALT_LAUNCHER" />
+			<removeCrew class="unique_obyn_temp">
+				<clone>false</clone>
+				<text />
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn" blue="false" max_group="1">
+		<text>怂恿他和他的老船员一起，继续他的追寻。</text>
+		<event>
+			<text>"是的，我想没有时间可以浪费了。再见，希尔凡。我确信我们会再次团聚。至于你，变元者。我对你表示感谢。而且既然感激是宇宙通用的货币，也许这件武器也会让你满意。下次见。"说着，他向希尔凡示意，然后两人再次分开，乘着各自的飞船飞走了。</text>
+			<weapon name="SALT_LAUNCHER" />
+			<removeCrew class="unique_obyn">
+				<clone>false</clone>
+				<text />
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+<event name="CHAOS_SALT_REWARD_OBYN">
+	<text>奥宾震惊地看着刚刚发生的一切。这一次，他终于低下头来，似乎意识到了矮人的存在。"在我探索银河系寻找更多同类的这些年里，我见过很多、许许多多奇怪的事情。但我从来没有见过这样的东西。你们是什么？神吗？这个矮人是神吗？"奥本摇摇晃晃，双腿微微颤抖。</text>
+	<autoReward level="HIGH">scrap_only</autoReward>
+	<choice hidden="true" req="unique_obyn_temp" blue="false" max_group="0">
+		<text>我也不知道发生了什么，但矮人想让你和我们一起走。</text>
+		<event>
+			<text>"如果这是矮人之意，我将遵循。愿神保佑我们所有人。我想我已经不需要我的飞船了，所以你可以拥有它。也许这还能取悦这只矮人，谁知道呢。"</text>
+			<playSound>gnome_keepliver</playSound>
+			<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
+			<transformRace class="unique_obyn_temp">unique_obyn</transformRace>
+			<variable name="ach_crew_obyn" op="set" val="1" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_obyn" blue="false" max_group="0">
+		<text>我也不知道发生了什么，但矮人想让你和我们一起走。</text>
+		<event>
+			<text>"如果这是矮人之意，我将遵循。愿神保佑我们所有人。我想我已经不需要我的飞船了，所以你可以拥有它。也许这还能取悦这只矮人，谁知道呢。"</text>
+			<playSound>gnome_keepliver</playSound>
+			<unlockCustomShip silent="false">PLAYER_SHIP_SALT</unlockCustomShip>
+			<variable name="ach_crew_obyn" op="set" val="1" />
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+</FTL>

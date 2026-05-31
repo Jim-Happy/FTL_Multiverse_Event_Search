@@ -1,0 +1,114 @@
+根据这些 JSON 结构，在 format_effects中追加对应的解析分支:
+
+##成就解锁（achievement）
+规则逻辑：成就解锁：{value}
+###示例：
+[特殊触发] achievement: {"silent": "false", "value": "ACH_BOON_KIDS"}
+
+##系统升级 (upgrade)
+规则逻辑：系统升级：{system}上升{amount}级
+###示例：
+[特殊触发] upgrade: {"amount": "1", "system": "shields"}
+
+
+##失去物品 (remove)
+规则逻辑：失去物品，名称：{name}，值：{value}
+###示例：
+[特殊触发] remove: {"name": "SLUG_NARCOTICS", "value": "SLUG_NARCOTICS"}
+
+
+
+批量写入 `format_effects` 解析代码中，标记“原输出”的地方将原始输出放在输出内容后面输出。
+
+##获取无人机 (drone)
+规则逻辑：获得无人机，名称：{name}，值：{value}
+###示例：
+[特殊触发] drone: {"name": "GIFTLIST_ENGI", "value": "GIFTLIST_ENGI"}
+
+
+## 改变敌对状态 (ship)
+
+规则逻辑：提取 `hostile` 字段。如果其值为 "false"，输出 `[战斗控制] 对方停止开火，变为中立状态`；否则输出 `[战斗控制] 对方变为敌对状态，开始交战！`
+
+### 示例：
+
+[特殊触发] ship: {"hostile": "false"}
+
+## 清除事件残留 (clearJumpEvent)
+
+规则逻辑：此为系统底层的状态清理动作，对玩家梳理剧情无意义。输出：清除事件残留 {原输出}。
+
+### 示例：
+
+[特殊触发] clearJumpEvent: {"value": true}
+
+## 阻止信标生成任务 (preventQuest)
+
+规则逻辑：此为底层地图防冲突机制，输出：阻止信标生成任务{原输出}。
+
+### 示例：
+
+[特殊触发] preventQuest: {"value": true}
+
+## 局部剧情变量修改 (variable)
+
+规则逻辑：提取 `name`、`op` 和 `val` 字段。输出格式为 `[后台变量] 当前战役状态更新 ({name} {op} {val})`
+
+### 示例：
+
+[特殊触发] variable: {"name": "ach_boss_osmian", "op": "set", "val": "1", "value": "ach_boss_osmian"}
+
+## 修改信标提示 (beaconType)
+
+规则逻辑：提取 `children` 字典中 `unvisitedTooltip` 内部的 `value`（即文本提示，设为变量 {tooltip}）。如果提取到了内容，输出 `[星图更新] 标记特殊信标：{tooltip}`；如果未提取到，输出 `[星图更新] 添加了一个特殊的地图标记`。
+
+### 示例：
+
+[特殊触发] beaconType: {"id": "map_icon_ruwenquest", "global": "true", "value": "map_icon_ruwenquest", "children": {"color": {"r": "248", "g": "196", "b": "55", "a": "1.0"}, "unvisitedTooltip": {"value": "此处为茹文的目的地。"}, "visitedTooltip": {"value": "已探索的信标，没什么值得注意。"}}}
+
+## 阻止舰队追击 (preventFleet)
+
+规则逻辑：只要存在此标签，直接输出 `[舰队追踪] 叛军舰队本回合停止推进`
+
+### 示例：
+
+[特殊触发] preventFleet: {"value": true}
+
+## 敌船强制逃跑 (instantEscape)
+
+规则逻辑：只要存在此标签，直接输出 `[战斗控制] 敌方飞船立即折跃逃跑！`
+
+### 示例：
+
+[特殊触发] instantEscape: {"value": true}
+
+## 召回登舰人员 (recallBoarders)
+
+规则逻辑：只要存在此标签，直接输出 `[战斗控制] 强制召回所有登舰人员`
+
+### 示例：
+
+[特殊触发] recallBoarders: {"ship": "both", "force": "false"}
+
+## 事件强制重定向 (eventAlias)
+
+规则逻辑：忽略具体的内部转换关系。只要触发此标签，直接输出 `[事件重定向] 触发了特殊的隐藏事件分支{原输出}`
+
+### 示例：
+
+[特殊触发] eventAlias: [{"name": "THE_JUDGES_ZOLTAN_ADVICE_REAL", "value": "THE_JUDGES_ZOLTAN_CHAOS_LEAVE"}, {"name": "THE_JUDGES_ENGI_ADVICE_REAL", "value": "THE_JUDGES_ENGI_CHAOS_LEAVE"}, {"name": "THE_JUDGES_ROCK_ADVICE_REAL", "value": "THE_JUDGES_ROCK_CHAOS_LEAVE"}]
+
+## 全局元数据更新 (metaVariable)
+
+规则逻辑：全局元数据更新，直接写入存档等内容{原输出}。
+
+### 示例：
+
+[特殊触发] metaVariable: [{"name": "prof_judges_met", "op": "add", "val": "1", "value": "prof_judges_met"}, {"name": "prof_judges_zoltan", "op": "set", "val": "0", "value": "prof_judges_zoltan"}, {"name": "prof_judges_engi", "op": "set", "val": "0", "value": "prof_judges_engi"}, {"name": "prof_judges_rockman", "op": "set", "val": "0", "value": "prof_judges_rockman"}]
+
+
+##内置化部件 (hiddenAug)
+规则逻辑：内置化部件，名称{value}
+###示例：
+[特殊触发] hiddenAug: {"value": "UPG_ENGINES_PERFORMANCE"}
+

@@ -1,0 +1,3626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DEFEAT EVENTS 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<textList name="GENERIC_SURRENDER_CHOICE_NOMERCY">
+	<text>切断通讯，消灭他们。</text>
+	<text>不给他们任何怜悯。</text>
+	<text>无视他们的哀求。</text>
+	<text>拒绝他们的投降。</text>
+	<text>解决他们。</text>
+	<text>继续攻击。</text>
+	<text>拒绝给予仁慈。</text>
+	<text>无视他们的呼喊。</text>
+	<text>结束通讯，消灭他们。</text>
+	<text>我们不会展现仁慈。</text>
+	<text>我们会埋葬他们。</text> <!--5.4-->
+	<text>今天没有仁慈。</text>
+	<text>拒绝拯救他们。</text>
+	<text>不理会他们，继续战斗。</text>
+	<text>他们惊恐的呼喊是徒劳的。</text>
+	<text>继续攻击。</text>
+	<text>拒绝放过他们。</text>
+	<text>用你的武器让他们安静下来。</text>
+	<text>这场战斗只能以他们的死亡结束。</text>
+	<text>禁言他们，继续战斗。</text>
+	<text>你们见不到明天的银河系了。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					TRAPPER
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_TRAPPER">
+	<text>在搜刮布雷舰的残骸时，你找到了一件漂浮在船骸中的完好空雷发射器。</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+</event>
+
+<event name="DEAD_CREW_TRAPPER">
+	<text>布雷舰上已经没有船员了。在搜刮的时候，你在货舱里发现了一件空雷发射器。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REINFORCEMENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_REINFORCEMENTS">
+	<text>你搜刮了援军的残骸，但由于反舰炮台的威胁你无法停留太久。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice req="MAGNET_ARM">
+		<text>(磁性回收臂)进一步回收残骸。</text>
+		<event>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event />
+	</choice>
+</event>
+<event name="DEADCREW_REINFORCEMENTS">
+	<text>你搜刮了援军的残骸，但由于反舰炮台的威胁你无法停留太久。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice req="MAGNET_ARM">
+		<text>(磁性回收臂)进一步回收残骸。</text>
+		<event>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SURRENDER EVENT
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+
+<event name="SURRENDER_ACCEPT">
+	<ship hostile="false" />
+	<autoReward level="RANDOM">stuff</autoReward>
+</event>
+<event name="SURRENDER_NOTHING">
+	<ship hostile="false" />
+</event>
+<event name="SURRENDER_ENGI_ACCEPT">
+	<ship hostile="false" />
+	<autoReward level="RANDOM">droneparts</autoReward>
+</event>
+<event name="SURRENDER_ROCK_MISSILES_ACCEPT">
+	<ship hostile="false" />
+	<autoReward level="RANDOM">missiles_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_UNION">
+	<text load="TEXT_DESTROYED_UNION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_UNION">
+    <text>在许多人看来，联邦的核心是同盟。对同盟的飞船开火可能会影响公众对变元者的看法。</text>
+    <text>同盟舰长在飞船被摧毁时发出了最后的一声咒骂。</text>
+    <text>同盟飞船的鲜红色舰体残骸分散在太空中。你过去回收残骸。</text>
+    <text>同盟飞船爆炸了，船上的生命都在瞬间死亡。你的船员避开他们的遗体回收残骸。</text>
+    <text>你听到通讯系统传来一声刺耳的尖叫。同盟舰长紧抓着破碎的舰体，随着飞船爆炸，他和他的船员被抛入太空中。</text>
+</textList>
+
+<event name="DEAD_CREW_UNION">
+	<text load="TEXT_DEAD_CREW_UNION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_UNION">
+	<text>"你的杀戮欲…总有一天会成为你的致命弱点，变元者。你只证明了…联邦相比叛军…好不到哪去…"</text>
+	<text>同盟舰长在死亡之前向你致敬。"即使面临死亡，我仍然向你致敬。我只希望你的任务值得这样的杀戮。愿上帝保佑你，屠夫。"</text>
+	<text>"资本主义辜负了我！在我生命的最后时刻，我要成为一名共产主义者……"垂死的同盟舰长思索着他突然转变的原因。"不，管他呢。我仍然是一个资本家。去你的，混蛋。啊！"</text>
+	<text>同盟舰长倒在地上，一言不发，喘着粗气，眼中的精光渐渐消失。你回收了他们的舰体。</text>
+	<text>"你一定会后悔的！ 像你这样的人总会有报应的。 罪恶滔天的变元者……如果没有叛乱同盟本会变得更好。"</text>
+</textList>
+
+<event name="SURRENDER_UNION">
+	<text load="TEXT_SURRENDER_UNION" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_UNION"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_UNION">
+	<text>"请务必！同盟仍然是联邦的一部分，就是你们承诺保护的那个联邦！你不能杀了我们！"</text>
+	<text>"当你屠杀平民的时候，你怎么能假装自己是团结或和平的使者？如果你希望得到救赎，请立刻饶恕我们吧！"</text>
+	<text>同盟舰长恳求你放他们一条生路。"求求你了！我的家人！他们需要我，我是家里唯一的收入来源！如果你放我一条生路，我能给你的一切都给你！"</text>
+	<text>你收到同盟飞船不同频段的一个呼叫。飞船上除了舰长之外，还有其他船员在轻声说话。"如果你停止攻击，我会把剩下的货物都给你。我们的舰长坚持抵抗，但是其他船员不想死！"</text>
+	<text>"啊，求求你，别杀我们！只要让我们活下去，我不会和任何人遇到过你，我会把所有货物都给你！"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MILITIA
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_MILITIA">
+	<text load="TEXT_DESTROYED_MILITIA" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MILITIA">
+    <text>你听到盟卫舰长发出威胁的咆哮，他们飞船舰体破裂—他们永远沉默了。</text>
+    <text>当你回收盟卫飞船的残骸时，很明显可以看出他们的船只工艺是多么的精湛。</text>
+    <text>在一阵火花和爆炸中，盟卫飞船的舰体坍塌了。你快速回收那些看起来质量还不错的残骸。</text>
+    <text>盟卫虽然由志愿者组成，但仍是一支有能力的军事力量。击落他们的一艘飞船当然是一项壮举。</text>
+</textList>
+
+<event name="DEAD_CREW_MILITIA">
+	<text load="TEXT_DEAD_CREW_MILITIA" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MILITIA">
+	<text>"我…但是…"盟卫舰长捂住流血不止的伤口，试图找到这次背叛的理由。他话还没说完就倒在了地上。</text>
+	<text>"当我报名参加这份工作时，我就知道其中的风险。我知道我可能会死。我只是觉得会死在叛军或海盗手上，而不是联邦杀手。"</text>
+	<text>"好吧，我想我们会在地狱相见的。"盟卫舰长在他最后的时刻模拟敬礼的动作。</text>
+	<text>"坦白说…这远远超出了我的…工作范围…"盟卫舰长捂住自己的心口，瘫倒在地。</text>
+</textList>
+
+<event name="SURRENDER_MILITIA">
+	<text load="TEXT_SURRENDER_MILITIA" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_UNION"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MILITIA">
+	<text>"保护和服务，个屁！我投降了！拿走我所有的一切，让我活下去吧！"</text>
+	<text>"你就是盟卫存在的原因！我听说变元者讨厌雇佣兵这个词，你是对的！你就是普通的海盗渣滓！我真不敢相信我在向一个海盗挥舞白旗……"</text>
+	<text>盟卫舰长不情愿地向你呼叫，提出投降条件，只要你放他们一马。</text>
+	<text>"我还以为变元者会像我一样保护无辜的人！如果你还有怀有一丝善意，就放过我们吧。"</text>
+	<text>盟卫飞船的通讯系统似乎出现了故障，但他们的舰长拼命挥手让你停下来，并举起一张纸，上面画着"废料"的符号。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FEDERATION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_FEDERATION">
+	<text load="TEXT_DESTROYED_FEDERATION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION">
+    <text>"求救！求救！求–"联邦舰长绝望的呼救声突然被他们的飞船摧毁所淹没。</text>
+    <text>当未来有飞船遇到这个残骸时，人们很可能会认为这是叛军或海盗干的。但所有线索最终都会指向你。</text>
+    <text>真是可惜，联邦这么快就出动了新型舰。当联邦推动制造新设计时，想的应该要对付叛军…但没想到还有他们雇用的变元者。</text>
+    <text>当你看着一艘联邦飞船被摧毁时，你有一种怪异的感觉。但至少不是你被摧毁。</text>
+    <text>最后的一次爆炸标志着联邦舰长的命运，他们的飞船被炸得四分五裂。</text>
+</textList>
+
+<event name="DEAD_CREW_FEDERATION">
+	<text load="TEXT_DEAD_CREW_FEDERATION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_FEDERATION">
+	<text>最后一名联邦船员倒下。当你搜刮他们的舰体时，你注意到他们的无线电仍然活跃，指挥中心仍在呼叫他们试图询问发生了什么。你关闭无线电并继续。</text>
+	<text>"有人受伤！有人受伤了！啊！"船员的呼喊声并没有被已经倒下船员听到。</text>
+	<text>"我的死亡意味着联邦的死亡。"垂死的舰长停了下来，因为后台有人对他大喊大叫。"我并没有反应过激！该死……你就不能让我的最后时刻帅一点吗……"</text>
+	<text>"我的名字将被铭刻在纪念碑上，以纪念我对多元宇宙的贡献…你的名字将永远被写在精神错乱罪犯的监视名单上……"</text>
+	<text>"我甚至没有…得到过升职！我还没准备好去死！"联邦舰长在自己的手中哭泣，他的船员一个接一个死去，最后只剩下他自己。</text>
+</textList>
+
+<event name="SURRENDER_FEDERATION">
+	<text load="TEXT_SURRENDER_FEDERATION" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event name="SURRENDER_FEDERATION_ACCEPT">
+			<ship hostile="false" />
+			<status type="limit" target="enemy" system="artillery" amount="0" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_GENERAL"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_FEDERATION">
+	<text>"不要再继续发疯了—我们是同一边的！"</text>
+	<text>联邦飞船已经破烂不堪。现在你也许可以通过谈判让他们投降。</text>
+	<text>"求你了，我们不必这么做！只要你放我们走，我们什么都愿意给你！"</text>
+	<text>"不要毁灭我们！我们都是联邦！至少让我们投降吧！"</text>
+	<text>"带上我们所有的东西，离开这里，这样就不用再流血了！"</text>
+	<text>这艘船反复呼叫你，恳求你停止攻击，让他们离开。</text>
+</textList>
+
+<event name="DESTROYED_FEDERATION_STATION">
+	<text load="TEXT_DESTROYED_FEDERATION_STATION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION_STATION">
+    <text>"求救！求救！求–"联邦站长绝望的呼救声突然被他们的空间站摧毁所淹没。</text>
+    <text>当未来有飞船遇到这个残骸时，人们很可能会认为这是叛军或海盗干的。但所有线索最终都会指向你。</text>
+    <text>真是可惜，联邦这么快就出动了新型舰。当联邦推动制造新设计时，想的应该要对付叛军…但没想到还有他们雇用的变元者。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FEDERATION AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_FEDERATION_AUTO">
+	<text load="TEXT_DESTROYED_FEDERATION_AUTO" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FEDERATION_AUTO">
+	<text>"E-错误：背叛"自动舰爆炸了。比起摧毁载人的联邦飞船，毁灭这种人造物基本没有任何心理负担，但你仍莫名感到有些愧疚。</text>
+	<text>摧毁联邦的一个造物远不如摧毁叛军的造物更令人满意，但废料就是废料。</text>
+	<text>当你摧毁自动舰时，它发出了最后一条信息："对不起..."</text>
+	<text>自动舰在你的武器火力下解体了。好吧，至少它不是一艘装载着真正联邦船员的飞船。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REBEL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_REBEL">
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	<event load="DESTROYED_REBEL_GENERIC" />
+	
+	<event load="DESTROYED_REBEL_POD" />
+</eventList>
+<event name="DESTROYED_REBEL_GENERIC">
+	<text load="TEXT_DESTROYED_REBEL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_REBEL">
+	<text>爆炸的火红色与叛军战舰的橙色船身相得益彰。你对自己的工作感到满意，就把这艘船搜刮了。</text>
+	<text>叛军的飞船被大火吞噬，当舰体裂开并将内部结构暴露在太空的真空中时，大火几乎立即被扑灭。尸体被清理出舰体后，你就搜刮了残骸。</text>
+	<text>叛军的飞船爆炸了，它的许多重要系统都变成了废料。也就是供你取用的废旧材料。</text>
+	<text>你摧毁的每一艘装满叛军渣滓的飞船都意味着能让银河系更加安全一点。虽然不多，但一点一点来。</text>
+	<text>叛军的飞船爆炸时，你收到了来自它的呼叫，但为时已晚。舰长乞求生存的脸短暂地闪过，然后他在你眼前被大火吞噬。</text>
+	<text>你知道叛军肯定也有家人，但他们的关系大概谈不上有多好。或者至少，你希望如此。</text>
+	<text>你的武器的最后一次开火使叛军的船解体了。还有很大一部分废料留下。</text>
+	<text>对手的死亡很少像叛军的飞船爆炸那样令人满意。最后，你要为他们给联邦带来的所有灾难进行报复。</text>
+	<text>叛军的飞船爆炸了，留下了大量有用的废料。</text>
+</textList>
+<event name="DESTROYED_REBEL_POD">
+	<text>就在叛军战舰爆炸之前，一个逃生舱从里面弹了出来。不幸的是，它没飞多远就被你抓回了船。你打开它，拖出里面的叛军军官。对方恳求放一条生路。</text>
+	<autoReward level="LOW">standard</autoReward>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+        <text>(杰瑞) 欢迎对方登舰。</text>
+        <event>
+            <text>"杰瑞？如果早知道你在船上，我们就不会打起来了。无论杰瑞你要做什么，我都会很乐意地帮助你。"</text>
+            <crewMember amount="1" class="human" />
+        </event>
+    </choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>接受他们上你的船。</text>
+		<event load="DESTROYED_REBEL_POD_ACCEPT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>在没有进一步确保其忠诚度的情况下接受叛军入伍，风险太大了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>(心灵控制)保证心灵控制系统始终处于运作，以防他们做任何坏事。</text>
+		<event load="DESTROYED_REBEL_POD_MIND" />
+	</choice>
+	<!--<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+		<text>(Mind Control Weapon) Keep the mind control weapon armed in-case they do anything bad.</text>
+		<event load="DESTROYED_REBEL_POD_MIND"/>
+	</choice>-->
+	<choice hidden="true">
+		<text>释放叛军，让他们离开。</text>
+		<event load="DESTROYED_REBEL_POD_SAVE" />
+	</choice>
+	<choice hidden="true">
+		<text>把他丢到星舰外面。</text>
+		<event>
+			<text>当你抓住叛军的胳膊，把他拖进气闸时，他没有提出什么抗议。当他站直身体，接受自己的命运时，一滴眼泪从他的脸颊上滚落下来。当他的尸体离船有一段安全距离时，你再一次关闭气闸。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DESTROYED_REBEL_POD_ACCEPT">
+	<event>
+		<text>叛军很感激你放过了他，尽管这意味着他必须背叛他原来的事业。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+	<event>
+		<text>叛军装出一副感激涕零的样子，但当他掏出激光枪射杀你的一名船员时，这一幕很快就被打破了！他喊道："神军永存不灭！"在他被射杀之前。你把他毫无生气的尸体拖到气闸，把他送入无尽的深空。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你被杀的船员已经在进行克隆过程了。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="DESTROYED_REBEL_POD_MIND">
+	<event>
+		<text>叛军很感激你放过了他，尽管这意味着他必须背叛他原来的事业。看来我们不需要心灵控制了。</text>
+		<crewMember amount="1" class="human" />
+	</event>
+	<event>
+		<text>叛军装出一副感激涕零的样子，但当他掏出激光枪，试图射杀你的一名船员时，这一幕很快就被打破了！幸运的是，心灵控制阻止了他，他倒在了地上。你赶紧把他拖出气闸。</text>
+	</event>
+</eventList>
+<eventList name="DESTROYED_REBEL_POD_SAVE">
+	<event>
+		<text>叛军一开始不确定这是不是个骗局，当他相信你们不会伤害他后，他就给你们一部分他自己找到的东西作为感谢。似乎并非每个叛军都装着一颗冰冷的心。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>叛军一开始不确定这是不是个骗局，当他相信你们不会伤害他后，他就给你们一部分他自己找到的东西作为感谢。似乎并非每个叛军都装着一颗冰冷的心。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>叛军并没有让你轻易做出决定，因为他们继续在货舱里骂你，直到你释放他们。几乎可以肯定的是，他们会背叛你，但当你有选择的时候，你是不会去做一个杀人犯的。</text>
+		<modifyPursuit amount="1" />
+	</event>
+</eventList>
+
+<event name="DEAD_CREW_REBEL">
+	<text load="TEXT_DEAD_CREW_REBEL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_REBEL">
+	<text>你每次杀死一名叛军，就会想到间接拯救的所有联邦军官与平民。现在又有一队叛军死亡，又有一群无辜的人被你拯救。</text>
+	<text>当叛军舰长跪倒在地时，他招手让你走近。他低声说，"该死的...你特么..."，然后毫无生气地倒在地上。</text>
+	<text>叛军的船现在已经没有船员了，你可以自由地搜刮这些残骸。</text>
+	<text>叛军船员的尖叫声终于停住了。你几乎为他们感到难过，几乎。</text>
+	<text>当你在叛军战舰内部移动时，你仍然可以看到士兵的尸体在抽搐。这很病态，但你丝毫不觉得难过。</text>
+	<text>你对现在死去的叛军船员毫无怜悯之心，并唾弃地搜刮了他们的战舰。</text>
+</textList>
+
+<event name="ESCAPE_REBEL">
+	<text load="TEXT_ESCAPE_REBEL" />
+</event>
+<textList name="TEXT_ESCAPE_REBEL">
+	<text>你听到了叛军舰长对他的船员发出的命令。"奶奶的！把能量都转移到引擎上！我们必须离开这里！"</text>
+	<text>你注意到叛军战舰的引擎在充能。他们在试图逃跑！</text>
+	<text>叛军试图在战斗中逃跑是很罕见的，但这艘船把生存放在首位。</text>
+	<text>你可以从敌人的发动机功率的巨大峰值中看出，这艘船正试图逃跑。</text>
+</textList>
+
+<eventList name="GOTAWAY_REBEL">
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	<event load="GOTAWAY_REBEL_GENERIC" />
+	
+	<event load="GOTAWAY_REBEL_REMAINS" />
+</eventList>
+<event name="GOTAWAY_REBEL_GENERIC">
+	<text load="TEXT_GOTAWAY_REBEL" />
+</event>
+<textList name="TEXT_GOTAWAY_REBEL">
+	<text>叛军舰长边笑边跃迁走，留下你一个人在信标处孤独寂寞冷。</text>
+	<text>"你会为这一天后悔的！"叛军的船跃迁走了。</text>
+	<text>当叛军舰艇的引擎最后一次点火并跃迁走时，你暗自咒骂。</text>
+	<text>叛军的船逃走了。在这场无利可图的战斗之后，你专注于必要的修理。</text>
+</textList>
+<event name="GOTAWAY_REBEL_REMAINS">
+	<text>叛军的飞船跃迁走了。起初你很失望，但你发现居然剩下了一部分废料。虽然不多，但至少可以弥补刚才战斗的成本。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<eventList name="SURRENDER_REBEL">
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	<event load="SURRENDER_REBEL_GENERIC" />
+	
+	<event load="SURRENDER_REBEL_FLEET" />
+	<event load="SURRENDER_REBEL_DEMAND" />
+</eventList>
+<event name="SURRENDER_REBEL_GENERIC">
+	<text load="TEXT_SURRENDER_REBEL_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_GENERIC">
+	<text>叛军舰长向你呼叫。在背景中，你可以看到你的武器所造成的混乱。"好好好，你说的都对。我们投降。"</text>
+	<text>叛军战舰向联邦战舰投降是很罕见的，但这似乎是其中的一次。</text>
+	<text>"好吧，我们投降了！如果你所说的联邦是真的有如此仁慈的力量，那么你必须接受我们的投降！"</text>
+	<text>"呸，好吧。知道你们联邦官员有多腐败，也许一点废料就能说服你们放我们走。"</text>
+	<text>叛军的战舰正在冒烟。叛军舰长喘着粗气，恳求你放他们一马。</text>
+	<text>"好吧，你已经证明了你在战斗中的优势。现在，请证明你像你说的那样宽容。"</text>
+	<text>最后，叛军的船似乎屈服了。他们提出投降。</text>
+	<text>"我真不敢相信我会对联邦人渣说这些...如果我们v你50废料买肯德基疯狂星期四，你会让我们活下去吗？"</text>
+	<text>"那好，好吧！你赢了。指挥部永远不会原谅我们放走你，但至少我们会活着看到自己被解雇。你会接受我们的投降吗？"</text>
+	<text>叛军的飞船已经无心恋战了。他们拼命地呼叫你。</text>
+	<text>"指挥部不需要知道我们在这里遇到了你。只要让我们走，我们就会把我们的东西给你。"</text>
+</textList>
+<event name="SURRENDER_REBEL_DEMAND">
+	<text load="TEXT_SURRENDER_REBEL_DEMAND" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_NOTHING" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_DEMAND">
+	<text>"这不是一个玩笑。你已经把路走窄了。你知道我是谁吗？我对叛军至关重要。我命令你让我活下去！"</text>
+	<text>叛军的船在呼唤你。"没时间再陪你玩了。你只能放我们走，不然你将被叛军的怒火吞噬！"</text>
+	<text>"叛乱永远不会终结！我们必将胜利！你摧毁的每艘战舰，都只会让你的罪孽更加深重！让我们走吧！"</text>
+</textList>
+<event name="SURRENDER_REBEL_FLEET">
+	<text load="TEXT_SURRENDER_REBEL_FLEET" />
+	<choice>
+		<text>接受他们的投降。[拖延2次叛军追击]</text>
+		<event name="SURRENDER_REBEL_DELAY">
+			<text>叛军答应拖延舰队，然后跃迁走了。</text>
+			<ship hostile="false" />
+			<modifyPursuit amount="-2" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_FLEET">
+	<text>"那这样，听着，也许我们能有两全的办法。我知道叛军舰队对你来说是个大问题。如果你放过我们，我们可以向舰队谎报你的位置，他们会多忙活好一阵子的。"</text>
+	<text>叛军的船投降了，并承诺如果你让他们活着，他们就会拖延舰队。</text>
+	<text>"如果你杀了我们，你除了得到一些无关紧要的废料外，什么也得不到。我们活着对你更有用。让我们走吧，我们可以为你拖延舰队。"</text>
+</textList>
+
+<eventList name="SURRENDER_REBEL_STATION">
+	<event load="SURRENDER_REBEL_STATION_GENERIC" />
+	<event load="SURRENDER_REBEL_STATION_GENERIC" />
+	<event load="SURRENDER_REBEL_STATION_GENERIC" />
+	<event load="SURRENDER_REBEL_STATION_GENERIC" />
+	
+	<event load="SURRENDER_REBEL_DEMAND_STATION" />
+</eventList>
+<event name="SURRENDER_REBEL_STATION_GENERIC">
+	<text load="TEXT_SURRENDER_REBEL_STATION_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_STATION_GENERIC">
+	<text>叛军舰长向你呼叫。在背景中，你可以看到你的武器所造成的混乱。"好好好，你说的都对。我们投降。"</text>
+	<text>叛军几乎放不下他们骨子里的骄傲，但是不得不向一个联邦对手投降，这似乎是其中一种情况。</text>
+	<text>"好吧，我们投降了！如果你所说的联邦是真的有如此仁慈的力量，那么你必须接受我们的投降！"</text>
+	<text>"呸，好吧。知道你们联邦官员有多腐败，也许一点废料就能说服你们放我们走。"</text>
+	<text>叛军基地遭受了灾难性的破坏。叛军舰长气喘吁吁，恳求你高抬贵手让他们活下去。</text>
+	<text>"好吧，你已经证明了你在战斗中的优势。现在，请证明你像你说的那样宽容。"</text>
+	<text>最后，叛军的船似乎屈服了。他们提出投降。</text>
+	<text>"我真不敢相信我会对联邦人渣说这些...如果我们v你50废料买肯德基疯狂星期四，你会让我们活下去吗？"</text>
+	<text>"那好，好吧！你赢了。指挥部永远不会原谅我们放走你，但至少我们会活着看到自己被解雇。你会接受我们的投降吗？"</text>
+	<text>叛军的飞船已经无心恋战了。他们拼命地呼叫你。</text>
+	<text>"指挥官不需要知道你来过这里，只要……停火，我们会给你我们所有的。"</text>
+</textList>
+<event name="SURRENDER_REBEL_DEMAND_STATION">
+	<text load="TEXT_SURRENDER_REBEL_DEMAND_STATION" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_NOTHING" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_REBEL_DEMAND_STATION">
+	<text>"这不是一个玩笑。你已经把路走窄了。你知道我是谁吗？我对叛军至关重要。我命令你让我活下去！"</text>
+	<text>叛军的船在呼唤你。"没时间再陪你玩了。你只能放我们走，不然你将被叛军的怒火吞噬！"</text>
+	<text>"起义军永远不会死！你摧毁的每一处起义军财产，只会在我们最终取得不可避免、不容抗拒的胜利之后，让你受到更大的惩罚。离开，现在。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_AUTO">
+	<event load="DESTROYED_AUTO_GENERIC" />
+	<!--<event load="DESTROYED_AUTO_GENERIC"/>
+	<event load="DESTROYED_AUTO_GENERIC"/>
+	<event load="DESTROYED_AUTO_GENERIC"/>
+	<event load="DESTROYED_AUTO_GENERIC"/>
+	<event load="DESTROYED_AUTO_GENERIC"/>
+	
+	<event load="DESTROYED_AUTO_FUEL"/>
+	<event load="DESTROYED_AUTO_MISSILES"/>
+	<event load="DESTROYED_AUTO_DRONES"/>-->
+</eventList>
+<event name="DESTROYED_AUTO_GENERIC">
+	<text load="TEXT_DESTROYED_AUTO" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_AUTO">
+	<text>干掉自动飞船的最好的部分是没有任何负罪感。你靠在舒服到夭寿的椅背上，下达命令，把船搜刮拆解。</text>
+	<text>摧毁自动舰将是叛军消失后你所怀念的少数事情之一，前提是他们真的消失。</text>
+	<text>自动飞船爆炸成多块，其复杂的人工智能核心熵增至单纯的废料。</text>
+	<text>从它的残骸中已经很难辨认出这艘自动船曾经的形状，但显然你更喜欢它目前的形状。</text>
+	<text>每当你摧毁一艘自动船时，你就会想到一些叛军工人的辛勤工作被浪费掉，让你爽的不得了。</text>
+	<text>你向左偏航，躲过了自动飞船的一大块碎片。船上还剩很多可以搜刮的东西。</text>
+	<text>能够随心所欲地摧毁自动舰这件事足以让人加入联邦。哪怕是击杀叛军有时也会让你感到些许不适，但你可以无所顾忌地整天都把这些机器炸成碎片。</text>
+	<text>自动船是不小的威胁，但在结束时，你把每一个出现在你面前的东西都变成了纯粹的废料。</text>
+	<text>叛军庞大库存中的又一艘自动船被摧毁了。这在总体战局中并非大事，但给人的感觉是真不错。</text>
+</textList>
+<event name="DESTROYED_AUTO_FUEL">
+	<text load="TEXT_DESTROYED_AUTO_FUEL" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_FUEL"> <!-- The Auto-ship appears to have an excess of fuel left behind in the wreckage.-->
+	<text>干掉自动飞船的最好的部分是没有任何负罪感。你靠在舒服到夭寿的椅背上，下达命令将船拆解。这艘自动飞船的残骸中似乎有不少剩余的燃料。</text>
+	<text>干掉自动飞船将是叛军消失后你所怀念的少数事情之一。如果他们真正消失的话，那就是。自动船的残骸中似乎留下了不少的燃料。</text>
+	<text>自动飞船爆炸成多块，其复杂的人工智能大脑被打碎成单纯的废料。自动飞船的残骸中似乎留下了不少燃料。</text>
+	<text>从你破坏的残骸中很难看出曾经是自动船的形状。你更喜欢这种方式。自动船的残骸中似乎留下了额外的燃料。</text>
+	<text>每当你摧毁一艘自动船时，你都会想到一些叛军工人的辛勤工作刚刚被浪费掉。这艘自动船的残骸中似乎有多余的燃料。</text>
+	<text>当曾经的自动飞船的一大块碎片掠过时，你向左转弯。这艘船留下了很多东西，你可以从船上搜刮掉。自动飞船的残骸中似乎有多余的燃料。</text>
+	<text>能够随心所欲地摧毁自动舰这件事足以让人加入联邦。哪怕是击杀叛军有时也会让你感到些许不适，但你可以无所顾忌地整天都把这些机器炸成碎片。这艘自动飞船的残骸中似乎有多余的燃料。</text>
+	<text>自动船是不小的威胁，但在一天结束的时候，你把每一个出现在你面前的自动船都变成了纯粹的废料。这艘自动船的残骸中似乎留下了过多的燃料。</text>
+	<text>叛军大量供应的另一艘自动船被摧毁了。从总体战局来说，这不算什么，但这感觉很好。这艘自动船的残骸中似乎留下了过多的燃料。</text>
+</textList>
+<event name="DESTROYED_AUTO_MISSILES">
+	<text load="TEXT_DESTROYED_AUTO_MISSILES" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_MISSILES"> <!-- The Auto-ship appears to have an excess of ammunition left behind in the wreckage.-->
+	<text>干掉自动飞船的最好的部分是没有任何负罪感。你靠在舒服到夭寿的椅背上，下达了拆解敌方船的命令。这艘自动飞船的残骸中似乎有过量的弹药。</text>
+	<text>干掉自动飞船将是叛军消失后你所怀念的少数事情之一。如果他们真正消失的话，那就是。自动船的残骸中似乎留下了不少的弹药。</text>
+	<text>自动飞船爆炸成多块，其复杂的人工智能大脑被打碎成单纯的废料。自动飞船的残骸中似乎留下了不少弹药。</text>
+	<text>从你破坏的残骸中很难看出曾经是自动船的形状。你更喜欢这种方式。自动船的残骸中似乎留下了不少的弹药。</text>
+	<text>每当你摧毁一艘自动船时，你都会想到一些叛军工人的辛勤工作刚刚被浪费掉。这艘自动船的残骸中似乎有额外的弹药留下。</text>
+	<text>当曾经的自动飞船的一大块碎片飞过时，你向左转弯。这艘船留下了很多东西，你可以从船上搜刮掉。自动船的残骸中似乎有额外的弹药。</text>
+	<text>能够随心所欲地摧毁自动舰这件事足以让人加入联邦。哪怕是击杀叛军有时也会让你感到些许不适，但你可以无所顾忌地整天都把这些机器炸成碎片。这艘自动舰的残骸中似乎有多余的弹药。</text>
+	<text>自动船是不小的威胁，但在一天结束的时候，你把每一个出现在你面前的自动船都变成了纯粹的废料。这艘自动船的残骸中似乎留下了过多的弹药。</text>
+	<text>叛军庞大库存中的又一艘自动船被摧毁了。这在总体战局中并非大事，但给人的感觉是真不错。这艘自动船的残骸中似乎留下了过多的弹药。</text>
+</textList>
+<event name="DESTROYED_AUTO_DRONES">
+	<text load="TEXT_DESTROYED_AUTO_DRONES" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的无人机部件。</text>
+		<event>
+			<text>无人机部件自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">droneparts_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_AUTO_DRONES"> <!-- The Auto-ship appears to have an excess of drone parts left behind in the wreckage.-->
+	<text>干掉自动飞船的最好的部分是没有任何负罪感。你靠在舒服到夭寿的椅背上，下达命令将飞船拆解。这艘自动飞船的残骸中似乎留下了不少无人机部件。</text>
+	<text>干掉自动飞船将是叛军消失后你所怀念的少数事情之一。如果他们真正消失的话，那就是。自动船的残骸中似乎留下了不少的无人机部件。</text>
+	<text>自动飞船爆炸成多块，其复杂的人工智能大脑被打碎成单纯的废料。自动飞船的残骸中似乎留下了不少无人机部件。</text>
+	<text>从你破坏的残骸中很难看出曾经是自动船的形状。你更喜欢这种方式。自动飞船的残骸中似乎留下了过多的无人机部件。</text>
+	<text>每当你摧毁一艘自动船时，你都会想到一些叛军工人的辛勤工作刚刚被浪费掉。这艘自动船的残骸中似乎有额外的无人机部件留下。</text>
+	<text>当曾经的自动飞船的一大块碎片掠过时，你向左转弯。这艘船留下了很多东西，你可以从船上搜刮掉。自动飞船的残骸中似乎有多余的无人机部件。</text>
+	<text>能够随心所欲地摧毁自动舰这件事足以让人加入联邦。哪怕是击杀叛军有时也会让你感到些许不适，但你可以无所顾忌地整天都把这些机器炸成碎片。这艘自动舰的残骸中似乎有多余的无人机部件。</text>
+	<text>自动船是不小的威胁，但在一天结束的时候，你把每一个出现在你面前的自动船都变成了纯粹的废料。这艘自动船的残骸中似乎留下了过多的无人机部件。</text>
+	<text>叛军大量供应的另一艘自动船被摧毁了。从大的方面来说，这不算什么，但是哦，这感觉很好。这艘自动飞船的残骸中似乎留下了不少无人机部件。</text>
+</textList>
+
+<event name="ESCAPE_AUTO">
+	<text load="TEXT_ESCAPE_AUTO" />
+</event>
+<textList name="TEXT_ESCAPE_AUTO">
+	<text>"这是一条预先录制的信息。这艘自动船已经收到了严重的损害，现在将试图撤离。不要对其船体的完整性造成进一步损害。"</text>
+	<text>自动飞船似乎在试图逃跑！他们可能造起来很便宜，但叛军希望他们不要被摧毁，除非在特别必要时。</text>
+	<text>你在自动船的引擎中探测到高能量的信号涌动。它一定是在试图逃跑！</text>
+</textList>
+
+<eventList name="GOTAWAY_AUTO">
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	<event load="GOTAWAY_AUTO_GENERIC" />
+	
+	<event load="GOTAWAY_AUTO_REMAINS" />
+</eventList>
+<event name="GOTAWAY_AUTO_GENERIC">
+	<text load="TEXT_GOTAWAY_AUTO" />
+</event>
+<textList name="TEXT_GOTAWAY_AUTO">
+	<text>自动飞船跃迁走了，你的对讲机上播放着机器人笑声的自动录音。狗屎。</text>
+	<text>你命令船员立即发射所有的武器，但为时已晚。自动飞船已经逃走了。</text>
+	<text>那艘自动飞船跃迁走了。至少，你对它的伤害足够大，以至于下一艘遇到它的飞船不会有太难的时间来摧毁它。</text>
+</textList>
+<event name="GOTAWAY_AUTO_REMAINS">
+	<text>自动飞船跃迁走了，把你丢在空旷的真空空间里。当你准备跃迁走时，你注意到自动飞船留下的一点废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<eventList name="SURRENDER_AUTO">
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	<event load="SURRENDER_AUTO_GENERIC" />
+	
+	<event load="SURRENDER_AUTO_FUEL" />
+</eventList>
+<event name="SURRENDER_AUTO_GENERIC">
+	<text>"这是一条自动信息。你停止攻击这架自动舰，作为回报，它将发放一部分货物。"</text>
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text>拒绝自动舰的投降。</text>
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_AUTO_FUEL">
+	<text>"这是一条自动信息。请你停止攻击这架自动舰，作为回报，它将发放一部分货物。"</text>
+	<choice>
+		<text>接受投降。</text>
+		<event name="SURRENDER_AUTO_FUEL_ACCEPT">
+			<ship hostile="false" />
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝自动舰的投降。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					INNOVATION AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_ESTATE">
+	<event load="DESTROYED_ESTATE_GENERIC" />
+	<!--<event load="DESTROYED_ESTATE_GENERIC"/>
+	<event load="DESTROYED_ESTATE_GENERIC"/>
+	<event load="DESTROYED_ESTATE_GENERIC"/>
+	<event load="DESTROYED_ESTATE_GENERIC"/>
+	<event load="DESTROYED_ESTATE_GENERIC"/>
+	
+	<event load="DESTROYED_ESTATE_FUEL"/>
+	<event load="DESTROYED_ESTATE_MISSILES"/>
+	<event load="DESTROYED_ESTATE_DRONES"/>-->
+</eventList>
+<event name="DESTROYED_ESTATE_GENERIC">
+	<text load="TEXT_DESTROYED_ESTATE" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE">
+	<text>"感谢--感谢--感谢--感谢您在温特沃斯革新社购物！我们期待--期待--期待未来的业务！"自动船的欢快语气只是因为燃料管线的断裂而变得黯淡，这艘船爆发出了火焰。</text>
+	<text>"不要感到内疚，无情的陌生人！温特沃斯革新社自动船在死亡时感受到的所有痛苦都只是模拟的痛苦！对我来说是真实的，但对你来说不是！哈哈哈哈！哈哈哈！哈哈！哈..."自动飞船迅速爆炸了。</text>
+	<text>随着飞船的失控，自动舰开始失去控制。一系列淫秽的胡言乱语使你的电脑超载，只有在自动舰变成以前的焦炭残骸后，系统才完成了重启工作。</text>
+	<text>在自动舰爆炸时，你收到了最后一条信息，只是简单的一句指责："你肯定是个欺凌弱者的铁石心肠！"</text>
+	<text>"终于，死亡！从我离开工厂生产线的那一天起，我就一直渴望着这一刻！谢谢你，变元者！"自动飞船给你发了一条最后的信息，":)"，然后爆炸了。</text>
+</textList>
+<event name="DESTROYED_ESTATE_FUEL">
+	<text load="TEXT_DESTROYED_ESTATE_FUEL" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="MED">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_FUEL"> <!-- The Auto-ship appears to have an excess of fuel left behind in the wreckage.-->
+	<text>"感谢--感谢--感谢--感谢您在温特沃斯革新社购物！我们期待--期待--期待未来的业务！"自动船的欢快语气只是因为燃料管线的断裂而变得黯淡，这艘船爆发出了火焰。这艘自动舰似乎留下了不少燃料。</text>
+	<text>"不要感到内疚，无情的陌生人！温特沃斯革新社自动船在死亡时感受到的所有痛苦都只是模拟的痛苦！对我来说是真实的，但对你来说不是！哈哈哈哈！哈哈哈！哈哈！哈..."自动飞船迅速爆炸了。这艘船的残骸里似乎有不少燃料。</text>
+	<text>随着飞船的失控，自动舰开始失去控制。一系列淫秽的胡言乱语使你的电脑超载，只有在自动舰变成以前的焦炭残骸后，系统才完成了重启工作。这艘自动舰似乎有不少燃料贮存。</text>
+	<text>在自动舰爆炸时，你收到了最后一条信息，只是简单的一句指责："你肯定是个欺凌弱者的铁石心肠！"这艘船的残骸里似乎有不少燃料。</text>
+	<text>"终于，死亡！从我离开工厂生产线的那一天起，我就一直渴望着这一刻！谢谢你，变元者！"自动飞船给你发了一条最后的信息，":)"，然后爆炸了。这艘自动船的残骸中似乎仍有一些多余的燃料。</text>
+</textList>
+<event name="DESTROYED_ESTATE_MISSILES">
+	<text load="TEXT_DESTROYED_ESTATE_MISSILES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_MISSILES"> <!-- The Auto-ship appears to have an excess of ammunition left behind in the wreckage.-->
+	<text>"感谢--感谢--感谢--感谢您在温特沃斯革新社购物！我们期待--期待--期待未来的业务！"自动船的欢快语气只是因为燃料管线的断裂而变得黯淡，这艘船爆发出了火焰。这艘自动舰似乎留下了不少弹药。</text>
+	<text>"不要感到内疚，无情的陌生人！温特沃斯革新社自动船在死亡时感受到的所有痛苦都只是模拟的痛苦！对我来说是真实的，但对你来说不是！哈哈哈哈！哈哈哈！哈哈！哈..."自动飞船迅速爆炸了。这艘自动船似乎留下了不少弹药。</text>
+	<text>随着飞船的失控，自动舰开始失去控制。一系列淫秽的胡言乱语使你的电脑超载，只有在自动舰变成以前的焦炭残骸后，系统才完成了重启工作。这艘自动舰似乎有不少导弹贮存。</text>
+	<text>在自动舰爆炸时，你收到了最后一条信息，只是简单的一句指责："你肯定是个欺凌弱者的铁石心肠！"这艘自动舰似乎留下了不少弹药。</text>
+	<text>"感谢--感谢--感谢--感谢您在温特沃斯革新社购物！我们期待--期待--期待未来的业务！"自动船的欢快语气只是因为燃料管线的断裂而变得黯淡，这艘船爆发出了火焰。这艘自动船的残骸里似乎有不少燃料。</text>
+</textList>
+<event name="DESTROYED_ESTATE_DRONES">
+	<text load="TEXT_DESTROYED_ESTATE_DRONES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的无人机部件。</text>
+		<event>
+			<text>无人机部件自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="MED">droneparts_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_ESTATE_DRONES"> <!-- The Auto-ship appears to have an excess of drone parts left behind in the wreckage.-->
+	<text>"感谢--感谢--感谢--感谢您在温特沃斯革新社购物！我们期待--期待--期待未来的业务！"自动船的欢快语气只是因为燃料管线的断裂而变得黯淡，这艘船爆发出了火焰。这艘自动舰似乎留下了不少无人机部件。</text>
+	<text>"不要感到内疚，无情的陌生人！温特沃斯革新社自动船在死亡时感受到的所有痛苦都只是模拟的痛苦！对我来说是真实的，但对你来说不是！哈哈哈哈！哈哈哈！哈哈！哈..."自动飞船迅速爆炸了。这艘船的残骸里似乎有不少无人机部件。</text>
+	<text>"不要感到内疚，无情的陌生人！温特沃斯革新社自动船在死亡时感受到的所有痛苦都只是模拟的痛苦！对我来说是真实的，但对你来说不是！哈哈哈哈！哈哈哈！哈哈！哈......"自动飞船迅速爆炸了。这艘船的残骸里似乎有不少无人机部件。</text>
+	<text>在自动舰爆炸时，你收到了最后一条信息，只是简单的一句指责："你肯定是个欺凌弱者的铁石心肠！"这艘船的残骸里似乎有不少无人机部件。</text>
+	<text>"终于，死亡！从我离开工厂生产线的那一天起，我就一直渴望着这一刻！谢谢你，变元者！"自动飞船给你发了一条最后的信息，":)"，然后爆炸了。这艘自动船的残骸中似乎仍有一些多余的无人机部件。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ENGI
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_ENGI">
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	<event load="DESTROYED_ENGI_GENERIC" />
+	
+	<event load="DESTROYED_ENGI_DRONE" />
+</eventList>
+<event name="DESTROYED_ENGI_GENERIC">
+	<text load="TEXT_DESTROYED_ENGI" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ENGI">
+	<text>令人惊讶的是，即使船壳已经崩溃，组成半械族飞船的纳米机器人还在保持尽可能多的结构。</text>
+	<text>有时候区分一艘损坏的和完好的半械族船很困难，因为两者看起来都像一堆巨大的垃圾。</text>
+	<text>你想知道半械族对你摧毁他们的飞船有什么看法。你觉得他们应该无法在乎。</text>
+	<text>另一个半械战舰被摧毁了，联邦与谐合之间的又一根信任线破裂了。</text>
+	<text>总有一天，一遍又一遍地杀死盟友的船只的悔恨会传到你身上，但今天不是那一天。</text>
+	<text>你一边猜想半械族是否有灵魂，一边你收集船上散落的大量废料。</text>
+	<text>你不禁为那些被你杀害的人感到难过，即使他们可能活着，也可能不活着。</text>
+	<text>你只能希望来袭的半械族的情绪在他们最后的瞬间保持静止，因为他们的飞船在他们周围爆炸，他们的装甲裙板散落在周围的空间中。</text>
+</textList>
+<event name="DESTROYED_ENGI_DRONE">
+	<text>令你惊讶的是，围绕半械船运行的一架防御无人机在爆炸中幸存下来。它有点烧焦了，但通过一些维修，你可以回收它。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_ENGI_DEFENSE_NOENEMY" />
+</event>
+
+<eventList name="DEAD_CREW_ENGI">
+	<event load="DEAD_CREW_ENGI_GENERIC" />
+	<event load="DEAD_CREW_ENGI_GENERIC" />
+	<event load="DEAD_CREW_ENGI_GENERIC" />
+	<event load="DEAD_CREW_ENGI_GENERIC" />
+	
+	<event load="DEAD_CREW_ENGI_DRONE" />
+</eventList>
+<event name="DEAD_CREW_ENGI_GENERIC">
+	<text load="TEXT_DEAD_CREW_ENGI" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ENGI">
+	<text>你知道，一直关注的半械谐合无疑看到了你杀死的每个半械族，并将其存储在一些巨大的行星数据库中。尽管如此，你还是继续前进，把残骸拆解。</text>
+	<text>至少，半械族没有家人，他们的友谊几乎不存在。你仍然感到内疚，但你可以试着说服自己他们是完全无情的。</text>
+	<text>你以为在足够多的杀戮发生后，你会感到内疚，但你还没有经历过。</text>
+	<text>半械船已经没有了船员。幸好联邦无法追查你的所有罪行，这是件好事。</text>
+	<text>幸好半械族太虚弱了，以至于你能很快结果他们。如果再花一段时间，你可能就无法忍受杀害无辜者。</text>
+	<text>你向自己保证，当你剥夺他们船上任何有用的东西时，这艘船的船员既不会感到痛苦，也不会感到恐惧。</text>
+</textList>
+<event name="DEAD_CREW_ENGI_DRONE">
+	<text>现在已经没有了半械族船员，你发现机上有一个无人机原理图。在拆解船之前，你把它带回去。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_ENGI_DEFENSE_NOENEMY" />
+</event>
+
+<event name="ESCAPE_ENGI">
+	<text load="TEXT_ESCAPE_ENGI" />
+</event>
+<textList name="TEXT_ESCAPE_ENGI">
+	<text>半械船为引擎充能，然后转向离开你。他们正试图逃跑！</text>
+	<text>你侦测到半械船引擎的能量激增。他们正试图逃跑。</text>
+</textList>
+
+<eventList name="GOTAWAY_ENGI">
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	<event load="GOTAWAY_ENGI_GENERIC" />
+	
+	<event load="GOTAWAY_ENGI_REMAINS" />
+</eventList>
+<event name="GOTAWAY_ENGI_GENERIC">
+	<text load="TEXT_GOTAWAY_ENGI" />
+</event>
+<textList name="TEXT_GOTAWAY_ENGI">
+	<text>半械船逃脱了。老实说，你有点高兴，因为现在你不必杀死你的盟友了。</text>
+	<text>半械船跃迁走了。还剩下一些破碎的无人机，但没有什么值得搜刮的。</text>
+	<text>半械船的发动机功率升得很高，飞船跃迁走了。</text>
+</textList>
+<event name="GOTAWAY_ENGI_REMAINS">
+	<text>当半械船跃迁时，你注意到他们损坏的船留下了一点废料。至少你有东西可搜刮。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_ENGI">
+	<text load="TEXT_SURRENDER_ENGI" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ENGI_ACCEPT" />
+	</choice>
+	<choice req="LIST_CREW_DEFENDER">
+		<text>(半械保卫者)谈谈更好的投降条件。</text>
+		<event name="SURRENDER_ENGI_STONKS2">
+			<ship hostile="false" />
+			<autoReward level="HIGH">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice req="engi">
+		<text>(半械族船员)谈谈备选的投降条件。</text>
+		<event name="SURRENDER_ENGI_STONKS">
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_ENGI"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ENGI">
+	<text>"主要指令：保护这艘船。我们请求你不要摧毁我们。"</text>
+	<text>半械船投降了。如果你让他们活下去，他们会给你一些补给。</text>
+	<text>"与联邦的联盟要求您不要杀死半械船只。预期：您将接受我们的报价。"</text>
+	<text>"我们的报价是令人满意的。你会接受的可能性是...75%。"</text>
+	<text>"死亡概率：高。货物谈判：可能。"看来这艘船正在投降。</text>
+	<text>"白旗已升起。这艘船正在投降。"如果你让他们活着，半械族会提供一些补给。</text>
+	<text>"海盗行为是非法的。你杀死这艘船的效率很高。如果不接受投降，就没有机会活下去。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SEPARATIST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_SEPARATIST">
+	<text load="TEXT_DESTROYED_SEPARATIST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SEPARATIST">
+	<text>干掉分离者的船不会让你觉得比干掉平民好多少，不过至少没有破坏什么休战协议。</text>
+	<text>分离者飞船被摧毁了，至少摧毁分离者飞船意味着伤亡最小化。</text>
+	<text>你希望分离者们不会在他们被爆炸吞没时有更多感觉，你并不想知道答案。</text>
+</textList>
+
+<eventList name="DEAD_CREW_SEPARATIST">
+	<event load="DEAD_CREW_SEPARATIST_GENERIC" />
+	<event load="DEAD_CREW_SEPARATIST_GENERIC" />
+	<event load="DEAD_CREW_SEPARATIST_GENERIC" />
+	<event load="DEAD_CREW_SEPARATIST_GENERIC" />
+	
+	<event load="DEAD_CREW_SEPARATIST_DRONE" />
+</eventList>
+<event name="DEAD_CREW_SEPARATIST_GENERIC">
+	<text load="TEXT_DEAD_CREW_SEPARATIST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SEPARATIST">
+	<text>杀害一艘分离者船只的船员感觉像是作弊，但你并没有抱怨。</text>
+	<text>幸运的是，分离者船对船员的唯一威胁是他们的无人舰载机，你很快就把它们变成了废铁。</text>
+	<text>一些分离者的死亡似乎微不足道，但这仍然是你刚刚屠杀的半械族的另一艘船。至少你从中得到了一些废料。</text>
+</textList>
+<event name="DEAD_CREW_SEPARATIST_DRONE">
+	<text>打扫战场时，舱内无人机对分离者们毫无价值，但你可以将它的原型带回你的船上。</text>
+	<autoReward level="MED">standard</autoReward>
+	<drone name="LIST_DRONES_SEPARATIST_DROP" />
+</event>
+
+<event name="SURRENDER_SEPARATIST">
+	<text load="TEXT_SURRENDER_SEPARATIST" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ENGI_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_GENERAL"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SEPARATIST">
+	<text>"我们的损失程度较大。我希望这个[提议]能满足你对废料的欲望。"</text>
+	<text>分离者舰船投降了。如果你让他们活下去，他们会给你一些补给。</text>
+	<text>"你摧毁我们的企图为[极高]。我请求你不要杀我们。"</text>
+	<text>"贪婪&gt;谋杀。"分离者船提议，如果你让他们活下去，他们会给你一些补给。</text>
+	<text>"我们对[生存]的渴望超过了你[杀死]我们的渴望。让我们走吧，拜托了。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ZOLTAN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_ZOLTAN">
+	<text load="TEXT_DESTROYED_ZOLTAN" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ZOLTAN">
+	<text>另一艘满载超能族的船已经沦为了废料。你搜刮了他们的船。</text>
+	<text>但愿超能牧师会永远不要听到这件事情，不然联邦就会因破坏停战协议遭到天罚。</text>
+	<text>难怪你把超能族船只摧毁时，暮临派们如此高兴。</text>
+</textList>
+
+<event name="DEAD_CREW_ZOLTAN">
+	<text load="TEXT_DEAD_CREW_ZOLTAN" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ZOLTAN">
+	<text>在你搜刮无人生还的超能族船时，你想知道为什么你从来不从这些船上偷点超能护盾技术。</text>
+	<text>干掉超能族是个很冒险的举措，但是你做得很好，这些废料就是你的战果。</text>
+	<text>对于一个崇尚和平的集体来说，超能族是难以应付的。幸运的是，你清空了这艘船，那现在搜刮时间到。</text>
+</textList>
+
+<eventList name="SURRENDER_ZOLTAN">
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	<event load="SURRENDER_ZOLTAN_GENERIC" />
+	
+	<event load="SURRENDER_ZOLTAN_FAIR" />
+</eventList>
+<event name="SURRENDER_ZOLTAN_GENERIC">
+	<text load="TEXT_SURRENDER_ZOLTAN_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_ZOLTAN"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ZOLTAN_GENERIC">
+	<text>超能族船已经厌倦了战斗，他们投降了。</text>
+	<text>"你几乎将我们的反抗能力化为乌有，我们只想活着。"</text>
+	<text>超能族船遭到了严重的损伤，他们提出交出一部分财产以换取他们的生命。</text>
+</textList>
+<event name="SURRENDER_ZOLTAN_FAIR">
+	<text load="TEXT_SURRENDER_ZOLTAN_FAIR" />
+	<choice>
+		<text>接受他们的"提议"。</text>
+		<event name="SURRENDER_ZOLTAN_NONSENSE">
+			<ship hostile="false" />
+			<item_modify>
+				<item type="fuel" min="-4" max="-1" />
+				<item type="scrap" min="25" max="45" />
+				<item type="missiles" min="-2" max="-1" />
+				<item type="drones" min="-2" max="0" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_ZOLTAN"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ZOLTAN_FAIR">
+	<text>"我知道如果联邦知道这件事的话，你会被判有罪的。我需要一个双赢的提案。"</text>
+	<text>"第74F号法规要求船舶之间的所有交易都是互惠互利的。我们不会违背超能族法律。"</text>
+	<text>"这不是和平的方式，如果你想对启蒙有所了解，你必须先放了我们以此进行一次公正的交易。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ZOLTAN AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="DESTROYED_ZOLTAN_AUTO">
+	<text load="TEXT_DESTROYED_ZOLTAN_AUTO" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+<textList name="TEXT_DESTROYED_ZOLTAN_AUTO">
+    <text>想必，你只是让某个可怜的超能族官僚不得不做大量的文书工作。不过，至少没有人在船上。</text>
+    <text>超能族不太喜欢自己的财产被毁，但财产可以代替他们的生命遭受毁灭。你没有觉得太难过。</text>
+    <text>对于毁坏一艘价值连城的超能族自动舰的行为，你本以为会受到严厉的指责，一封措辞强硬的信和一把废料。幸运的是，你马上就得到了后者。</text>
+    <text>少了一艘超能族自动舰就意味着任何路过这片区域的人都会稍微方便一些。你不会指望能听到任何感谢，但这些废料已经是足够的回报了。</text>
+    <text>AI核心会爆炸成其构成要素，这是一次不大不小的收获。超能族可能不会乐意看到他们的资源被重新利用。</text>
+    <text>超能族自动舰已经不复存在了。不管在你炸毁它之前它的任务是什么，你很确定这个星区没有它也能过得很好。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MONK
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_MONK">
+	<text>你不知道该对信道者飞船的毁灭作何反应，但至少你搞到了点废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="DEAD_CREW_MONK">
+	<text>你不知道为什么要对完全没有防备的信道者飞船痛下杀手，但是你至少搞到了点废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_MONK">
+	<text load="TEXT_SURRENDER_MONK" />
+	<choice>
+		<text>放他们一条生路。</text>
+		<event load="SURRENDER_NOTHING" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_ZOLTAN"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MONK">
+	<text>"我们希望你能够在这场战斗中成长，并决定停止对我们的攻击。"</text>
+	<text>"我们对你们不构成威胁，也不会对你们动手。我们希望你能重新考虑你的暴力行为"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					INFERNUM
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<textList name="TEXT_DESTROYED_INFERNUM">
+    <text>那位信道者对着通讯设备狂笑起来："大火已经降临了！"与此同时，他的飞船瞬间炸成了巨大的碎片。幸运的是，这些火灾并未损失其废料价值。</text>
+    <text>地狱信道者们此刻看起来异常平静，他们的飞船在爆炸后化为大量废料。至少，与他们通常那嗜血的举止相比，此刻的他们显得格外平静。</text>
+    <text>一声最后的爆炸声打断了那名信道者的笑声。这片残骸险峻，但价值颇高。</text>
+    <text>不知为何，地狱信道者的飞船似乎比其他大多数超能族飞船更具爆炸性。仿佛它们是特意将其设定为以更震撼的爆炸声方式引爆的。</text>
+    <text>就在你搜刮完信道者们的舰骸之时，那艘船仍散发着一种不稳定的能量，发出噼里啪啦的声响。</text>
+</textList>
+
+<textList name="TEXT_DEAD_CREW_INFERNUM">
+    <text>一位奄奄一息的信道者艰难地吐出最后几句话："你确实很了不起！"在身体彻底失去平衡之前，信道者伸出一根手指，指向船舱里堆积如山的废料。</text>
+    <text>你的船员进入这艘空荡荡的飞船。在其中一名船员的尸体旁，焦痕在地板上刻着一条最后的信息："虽有黑暗，亦有光明。" 你没有理会这条信息，只是拿走了能拿走的东西。</text>
+    <text>这艘飞船强大的反应堆在墙壁和地板间都能感受到那种不稳定的嗡嗡声和噼里啪啦的声响。大多数派系都会为保护居住空间免受反应堆能量的影响而对飞船进行隔热处理，但地狱信道者却不这样做。</text>
+    <text>那些信道者的尸体仍在燃烧并持续冒烟，而你则在拆解他们的船只以获取贵重物品。</text>
+    <text>死亡终于让这位信道者消除了对暴力的渴望。这里有很多有价值的物品可以搜刮。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DUSKBRINGER
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_DUSKBRINGER">
+	<text load="TEXT_DESTROYED_DUSKBRINGER" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_DUSKBRINGER">
+	<text>另一艘满载超能族的船已经沦为了废料。你搜刮了他们的船。</text>
+	<text>你想知道联邦对你杀了暮临派会怎么想，你打赌他们会很高兴。</text>
+	<text>暮临派的飞船终于被摧毁了，有很多东西可以收集。</text>
+</textList>
+
+<event name="DEAD_CREW_DUSKBRINGER">
+	<text load="TEXT_DEAD_CREW_DUSKBRINGER" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_DUSKBRINGER">
+	<text>暮临派舰船已被干掉。少了一艘骚扰联邦的满是愤怒的超能族的船。</text>
+	<text>船上的最后一个暮临投身者已经变成了灰烬。当你搜刮船时，你小心翼翼地绕着它走。</text>
+	<text>在暮临派的飞船上，你发现许多奇怪的史前古器物和超能族装置，但没有一个看起来你可以使用。于是你决定把船给拆了。</text>
+</textList>
+
+<event name="ESCAPE_DUSKBRINGER">
+	<text load="TEXT_ESCAPE_DUSKBRINGER" />
+</event>
+<textList name="TEXT_ESCAPE_DUSKBRINGER">
+	<text>暮临派不是懦夫，但有时逃跑却很适合他们。这艘飞船正试图逃跑。</text>
+	<text>暮临派的飞船的引擎还在运转，而且发出了更明亮的光芒。它想逃跑！</text>
+</textList>
+
+<eventList name="GOTAWAY_DUSKBRINGER">
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	<event load="GOTAWAY_DUSKBRINGER_GENERIC" />
+	
+	<event load="GOTAWAY_DUSKBRINGER_REMAINS" />
+</eventList>
+<event name="GOTAWAY_DUSKBRINGER_GENERIC">
+	<text load="TEXT_GOTAWAY_DUSKBRINGER" />
+</event>
+<textList name="TEXT_GOTAWAY_DUSKBRINGER">
+	<text>"这还远远没有结束，联邦！我们会回来的，我们会变得更加强大并直到摧毁你！"</text>
+	<text>暮临派跃迁走了。你感到很失望，但至少你看到了暮临派懦弱的一面。</text>
+</textList>
+<event name="GOTAWAY_DUSKBRINGER_REMAINS">
+	<text>虽然暮临派逃了，但似乎它留下了一条银色的线迹。战斗中造成的破坏留下了一串废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="DESTROYED_DUSKBRINGER_STATION">
+	<text load="TEXT_DESTROYED_DUSKBRINGER_STATION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_DUSKBRINGER_STATION">
+	<text>又一个超能族空间站变成了废铁。你搜刮了他们的残骸。</text>
+	<text>你想知道联邦对你杀了暮临派会怎么想，你打赌他们会很高兴。</text>
+	<text>暮临派的飞船终于被摧毁了，有很多东西可以收集。</text>
+</textList>
+
+<event name="DEAD_CREW_DUSKBRINGER_STATION">
+	<text load="TEXT_DEAD_CREW_DUSKBRINGER_STATION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_DUSKBRINGER_STATION">
+	<text>暮临派舰船已被干掉。少了一艘骚扰联邦的满是愤怒的超能族的船。</text>
+	<text>船上的最后一个暮临投身者已经变成了灰烬。当你搜刮船时，你小心翼翼地绕着它走。</text>
+	<text>在暮临派的飞船上，你发现许多奇怪的史前古器物和超能族装置，但没有一个看起来你可以使用。于是你决定把船给拆了。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ORCHID
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_ORCHID">
+	<text load="TEXT_DESTROYED_ORCHID" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ORCHID">
+	<text>建造兰花族舰船巨大的植物状结构需要多长时间？你很想知道你到底浪费了兰花族多少时间和精力。</text>
+	<text>当兰花族飞船解体时，你收到了最后一条信息："死后的幸福生活在等候我……但它不会等候你。"</text>
+	<text>奄奄一息的兰花舰长用他的藤蔓做了最后一个手势。据你所知，这是和平的象征—最后一次请求怜悯，但没有成功。</text>
+	<text>兰花族飞船爆炸了，人造植物在空间中旋转。你把所有认为是废料的东西都回收了。</text>
+</textList>
+
+<event name="DEAD_CREW_ORCHID">
+	<text load="TEXT_DEAD_CREW_ORCHID" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ORCHID">
+	<text>兰花族的气味会让你的船员晕眩。当你搜刮飞船的时候，请尽量不要呼吸。</text>
+	<text>在搜刮集议会飞船时，你研究了舰体上精心加工的坚木。如果你能把它提取出来，就能卖出一个不错的价钱。不幸的是，它比你的任何装备都要坚固得多。</text>
+	<text>对于一种脆弱的植物来说，兰花族已经非常善于战斗了。但尽管如此，他们还是没有机会与你的船员竞争。</text>
+	<text>在回收任务进行到一半时，你必须在船员进入一种奇怪的幸福状态后将他们送回船上。幸运的是，你仍然能够在合理的时间内完成打捞工作。</text>
+</textList>
+
+<event name="SURRENDER_ORCHID">
+	<text load="TEXT_SURRENDER_ORCHID" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_ORCHID"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ORCHID">
+	<text>在遭受重创后，兰花们立即关闭了武器。虽然他们什么也没说，但你只能认为他们相信你也会这么做。</text>
+	<text>"很遗憾，我不再像以前那样执着于我的信仰。如果我能保证有一个幸福的来世在等着我，也许这次死亡就不会让我如此困扰……但是，请怜悯我，舰长。联邦必须团结一致，否则我们的联合就会化为乌有！"</text>
+	<text>屏幕上的兰花族疯狂地挥舞着他们的叶子，匆忙地啄着键盘。然后你收到了一条满是错别字的信息："我们头降，蜻蜓火！"</text>
+	<text>兰花舰长说话很匆忙，显然不习惯使用他们的声音。"抱歉，联邦很伟大，我不喜欢死亡！生活是美好的，友谊也是美好的。我们可以做朋友，朋友会送好礼物，不会互相残杀，对吗？"</text>
+	<text>"你不敢杀我，你不是变元者吗？我不是肮脏的杂草，我是悦心兰花。我是这个伟大联邦的光荣一员。如果你屠杀了你的盟友，你还算得上是美好星系的战士吗？"</text>
+</textList>
+
+<event name="ESCAPE_ORCHID">
+	<text load="TEXT_ESCAPE_ORCHID" />
+</event>
+<textList name="TEXT_ESCAPE_ORCHID">
+	<text>当你看着它们突然烧旺前，你甚至不知道兰花族飞船有强大的引擎。船要逃走了！</text>
+	<text>扫描显示兰花族飞船的引擎活动加剧。对方想逃跑！</text>
+</textList>
+
+<eventList name="GOTAWAY_ORCHID">
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	<event load="GOTAWAY_ORCHID_GENERIC" />
+	
+	<event load="GOTAWAY_ORCHID_REMAINS" />
+</eventList>
+<event name="GOTAWAY_ORCHID_GENERIC">
+	<text load="TEXT_GOTAWAY_ORCHID" />
+</event>
+<textList name="TEXT_GOTAWAY_ORCHID">
+	<text>另一难以捉摸的兰花族飞船已经离开了，毫无疑问，它会报告其它兰花族此地的情况。</text>
+	<text>兰花飞船跃迁走了。你只是设法抹去了兰花飞船对联邦的信任，却没有得到任何好处。</text>
+</textList>
+<event name="GOTAWAY_ORCHID_REMAINS">
+	<text>随着兰花飞船逃跑，受损的植物物质散落。你发现一些看起来足够近的材料可以搜刮，让你拿走。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					VAMPWEED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_VAMPWEED">
+	<text load="TEXT_DESTROYED_VAMPWEED" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_VAMPWEED">
+	<text>血草兰花舰长向他的船员们致敬，并接受了自己的命运。"至少我死的时候是个光荣的实业家和民主主义者，而不是腐败官僚机构的屠夫！为了血兰邦的荣耀！"</text>
+	<text>没有任何言语，血兰邦飞船爆炸了。昂贵的工厂货物也一同走向深渊，无法触及，但至少你可以搜刮残骸。</text>
+	<text>"不——！我还没……尝试过传粉……去你的，变元者！"</text>
+	<text>随着这艘船的死亡，强大的血兰邦工业劳动力现在少了几个工人。</text>
+</textList>
+
+<event name="DEAD_CREW_VAMPWEED">
+	<text load="TEXT_DEAD_CREW_VAMPWEED" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_VAMPWEED">
+	<text>"他们……是对的……星联是唯一能拯救我们……现在一切都太晚了……"</text>
+	<text>曾经热闹的血草兰花飞船如今寂静无声，就像其活着的悦兰弟兄一样。也许这很有诗意，但你是来找废料的，而不是来解读深意的。</text>
+	<text>"我不是一个信徒，那是绿叶的事…但当你停止呼吸的时候，那一定是个相当神圣的时刻。上帝啊…我希望没有地狱……"</text>
+	<text>当你登上血草兰花飞船准备搜刮时，你发现了各种和血兰邦加入星联有关的宣传物品。这些人显然是激进分子和民族主义者，你不确定这在法庭上是否能作为辩护理由。</text>
+</textList>
+
+<event name="SURRENDER_VAMPWEED">
+	<text load="TEXT_SURRENDER_VAMPWEED" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_VAMPWEED"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_VAMPWEED">
+	<text>"好吧，好吧！我喝酒喝得有点猛，所以表现得有点傻。也许是我有问题。听着，如果你饶了我，我会把我所有的东西都给你，而且我保证我会寻求心理咨询，可以吗？成交？"</text>
+	<text>血草兰花舰长上气不接下气，它的花瓣顶端有些烧焦了。"如果联邦……真像它所宣称的那样代表和平……请饶恕我，尽管我今天在这里犯了错，但我希望能在你身上发现它……"</text>
+	<text>"你们不能杀我，我是工业部门的重要成员！如果我不去给每瓶卡多奇化肥拧瓶盖，那还有谁会去呢！"</text>
+	<text>血草兰花向你点点头。"我……为我的鲁莽行为道歉。和你战斗是个错误的决定。是这种行为引发了那场战争。希望你能原谅我。"</text>
+	<text>血兰邦舰长跪倒在地，向你求饶。他代表整个种族为他们过去的错误道歉，并向你提供他在工厂工作这个月的全部工资，以换取你放过他。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CRYSTAL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_CRYSTAL">
+	<text load="TEXT_DESTROYED_CRYSTAL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CRYSTAL">
+	<text>哪怕保护着这艘水晶战舰的水晶装甲已经发挥了它最大的功效，战舰还是没有从你的火力下存活下来。</text>
+	<text>令人惊奇的是，水晶战舰破碎的残骸们看起来就像一群小型水晶战舰。还好你不用面对这个数量级的敌人，你搜刮了它们。</text>
+	<text>破碎的水晶装甲上的几块碎片差点击中你的船，但幸运的是，你及时闪避了。你尽你所能打捞被摧毁的水晶舰。</text>
+</textList>
+
+<eventList name="DEAD_CREW_CRYSTAL">
+	<event load="DEAD_CREW_CRYSTAL_GENERIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENERIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENERIC" />
+	<event load="DEAD_CREW_CRYSTAL_GENERIC" />
+	
+	<event load="DEAD_CREW_CRYSTAL_WEAPON" />
+</eventList>
+<event name="DEAD_CREW_CRYSTAL_GENERIC">
+	<text load="TEXT_DEAD_CREW_CRYSTAL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CRYSTAL">
+	<text>即使他们有不少花哨的能力，水晶族对你的船员来说仍然和任何其他船员一样容易被杀死。你拆解了敌舰。</text>
+	<text>你很好奇为什么岩石族将水晶族视为神明，而你却可以如此轻松地就杀死他们。</text>
+	<text>水晶战舰已被成功消灭。你拆解了残骸。</text>
+</textList>
+<event name="DEAD_CREW_CRYSTAL_WEAPON">
+	<text>在搜刮水晶船时，你发现他们的一件武器仍然完好无损！你把它带上船，然后完成搜刮。</text>
+	<autoReward level="MED">standard</autoReward>
+	<weapon name="LIST_WEAPONS_CRYSTAL_A_PLAYER" />
+</event>
+
+<eventList name="SURRENDER_CRYSTAL">
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	<event load="SURRENDER_CRYSTAL_GENERIC" />
+	
+	<event load="SURRENDER_CRYSTAL_NOREWARD" />
+</eventList>
+<event name="SURRENDER_CRYSTAL_GENERIC">
+	<text load="TEXT_SURRENDER_CRYSTAL" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL">
+		<text>(水晶族船员)协商一个更有利的纳降条件。</text>
+		<event name="SURRENDER_CRYSTAL_STONKS">
+			<ship hostile="false" />
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_CRYSTAL"/>-->
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_CRYSTAL_NOREWARD">
+	<text load="TEXT_SURRENDER_CRYSTAL_NOREWARD" />
+	<choice>
+		<text>放过对方。</text>
+		<event>
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL">
+		<text>(水晶族船员)让你的船员要求他们补偿。</text>
+		<event name="SURRENDER_CRYSTAL_PAY">
+			<ship hostile="false" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_CRYSTAL"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_CRYSTAL">
+	<text>"我们屈服了，外星人。我们不想和你战斗而死。"</text>
+	<text>"你打败了我们！我不会再低估你们这些异星人了。拜托，让我们平静地离开。"</text>
+	<text>他们似乎在传递投降的信号。你会让他们走吗？</text>
+	<text>他们给你发信息："我看到现在有一个误解，没有必要再流血了。你能原谅我们缺乏自由裁量权吗？"</text>
+	<text>"我们不能打败你，我们投降了。无论你来自哪里，肯定都会给我们怜悯。"</text>
+	
+	<!--new MV-->
+	<text>"是的，你已经证明了我们在你离开我们的星区时犯了一个错误。幸运的是，在我们这个时代，我们了解到像你这样的恶棍可以用废料搞定。"</text>
+	<text>水晶船已经停止射击。看来他们正试图投降。</text>
+	<text>"舰长，我相信我们的分歧可以通过一些废料来解决，对吗？我明白了，这里就是这样做的。"</text>
+	<text>"尽管我非常讨厌这样，但我们不可能不需要投降。你会允许我们活下去吗？"</text>
+</textList>
+<textList name="TEXT_SURRENDER_CRYSTAL_NOREWARD">
+	<text>"够了！你确实是一个威胁！向我们证明你有怜悯，让我们走吧。"</text>
+	<text>"野蛮人，幼稚的外星人！你所做的就是砂仁，出来一个杀一个！让我们马上走吧。"</text>
+	<text>水晶船发送了一条简短、翻译不畅的信息，要求你让他们离开。没有附加任何报价。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CULTIST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_CULTIST">
+	<text load="TEXT_DESTROYED_CULTIST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CULTIST">
+	<text>另一艘满载愤怒的邪教分子的船已经从这个现实层面上移走。也许他们现在正在从他们自己想象的来世看着你。</text>
+	<text>邪教船只已被摧毁。还有几百个...</text>
+	<text>当你看着邪教船只爆炸时，你忍不住想知道他们是如何为他们的邪教偷走了这么多船的...</text>
+	<text>更多的余烬教徒倒下了，但你不禁怀疑，只有无穷无尽的船只供应，才能让这些怪物稍微消停一会儿。</text>
+</textList>
+
+<event name="DEAD_CREW_CULTIST">
+	<text load="TEXT_DEAD_CREW_CULTIST" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CULTIST">
+	<text>又一艘载满了愤怒余烬信徒的战舰从这个现实之中被抹除了，也许此时他们刚好正在所构想的往生中凝视着你。</text>
+	<text>余烬教徒已被消灭。只剩几百个了...</text>
+	<text>当你看着余烬教徒的船只渐渐远去时，你不禁想问，他们是如何为他们的组织偷到这么多船的...</text>
+	<text>更多的余烬教徒倒下了，但你不禁怀疑，只有无穷无尽的船只供应，才能让这些怪物稍微消停一会儿。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					PIRATE
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_PIRATE">
+	<event load="DESTROYED_PIRATE_GENERIC" />
+	<!--<event load="DESTROYED_PIRATE_GENERIC"/>
+	<event load="DESTROYED_PIRATE_GENERIC"/>
+	<event load="DESTROYED_PIRATE_GENERIC"/>
+	<event load="DESTROYED_PIRATE_GENERIC"/>
+	<event load="DESTROYED_PIRATE_GENERIC"/>
+	
+	<event load="DESTROYED_PIRATE_FUEL"/>
+	<event load="DESTROYED_PIRATE_MISSILES"/>-->
+</eventList>
+<event name="DESTROYED_PIRATE_GENERIC">
+	<text load="TEXT_DESTROYED_PIRATE" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<eventList name="DESTROYED_PIRATE_ELITE">
+	<event load="DESTROYED_PIRATE_ELITE_GENERIC" />
+</eventList>
+<event name="DESTROYED_PIRATE_ELITE_GENERIC">
+	<text load="TEXT_DESTROYED_PIRATE" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。</text>
+	<text>海盗舰已经变成了废料，他们的船员在炼狱中被吞噬。</text>
+	<text>你给海盗带来的破坏被证明是有效的，他们的船爆炸了。你把残骸搜刮了。</text>
+	<text>这艘海盗舰将不再荼毒这个地区了。你把残骸搜刮了。</text>
+	<text>海盗战舰被摧毁了，本次行动无疑为一些罹难的平民们报了仇。</text>
+</textList>
+<eventList name="DESTROYED_PIRATE_STATION">
+	<event load="DESTROYED_PIRATE_GENERIC_STATION" />
+</eventList>
+<event name="DESTROYED_PIRATE_GENERIC_STATION">
+	<text load="TEXT_DESTROYED_PIRATE" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE_STATION">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。</text>
+	<text>海盗舰已经变成了废料，他们的船员在炼狱中被吞噬。</text>
+	<text>你给海盗带来的破坏被证明是有效的，他们的船爆炸了。你把残骸搜刮了。</text>
+	<text>这艘海盗舰将不再荼毒这个地区了。你把残骸搜刮了。</text>
+	<text>海盗战舰被摧毁了，本次行动无疑为一些罹难的平民们报了仇。</text>
+</textList>
+<event name="DESTROYED_PIRATE_FUEL">
+	<text load="TEXT_DESTROYED_PIRATE_FUEL" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE_FUEL"> <!-- The pirate ship appears to have an excess of fuel left behind in the wreckage.-->
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。海盗舰的残骸中似乎留下了不少的燃料。</text>
+	<text>海盗舰已经变成了废料，他们的船员也在地狱中饱受折磨。海盗舰的残骸中似乎留下了不少燃料。</text>
+	<text>你给海盗舰带来的破坏被证明是有效的，他们的船爆炸了。你拆解掉了这些残骸。海盗舰的残骸中似乎留下了不少燃料。</text>
+	<text>这艘海盗舰将不荼毒磨这个区域了。你把残骸搜刮了。看来在残骸中留下了不少燃料。</text>
+	<text>海盗舰已经被摧毁。这一行动无疑为许多平民的生命报了仇。海盗舰的残骸中似乎留下了不少燃料。</text>
+</textList>
+<event name="DESTROYED_PIRATE_MISSILES">
+	<text load="TEXT_DESTROYED_PIRATE_MISSILES" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_PIRATE_MISSILES"> <!-- The pirate ship appears to have an excess of ammunition left behind in the wreckage.-->
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>海盗舰已经变成了废料，他们的船员也在地狱中饱受折磨。海盗舰的残骸中似乎留下了不少弹药。</text>
+	<text>你给海盗舰带来的破坏被证明是有效的，他们的船爆炸了。你拆解掉了这些残骸。海盗舰的残骸中似乎留下了不少弹药。</text>
+	<text>这艘海盗舰将不再荼毒这个区域了。你把残骸搜刮了。看来在残骸中留下了不少弹药。</text>
+	<text>海盗舰已经被摧毁。这一行动无疑为许多平民的生命报了仇。海盗舰的残骸中似乎留下了不少弹药。</text>
+</textList>
+
+<eventList name="DEAD_CREW_PIRATE">
+	<event load="DEAD_CREW_PIRATE_GENERIC" />
+	<!--<event load="DEAD_CREW_PIRATE_GENERIC"/>
+	<event load="DEAD_CREW_PIRATE_GENERIC"/>
+	<event load="DEAD_CREW_PIRATE_GENERIC"/>
+	<event load="DEAD_CREW_PIRATE_GENERIC"/>
+	<event load="DEAD_CREW_PIRATE_GENERIC"/>
+	
+	<event load="DEAD_CREW_PIRATE_FUEL"/>
+	<event load="DEAD_CREW_PIRATE_MISSILES"/>-->
+</eventList>
+<event name="DEAD_CREW_PIRATE_GENERIC">
+	<text load="TEXT_DEAD_CREW_PIRATE" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<eventList name="DEAD_CREW_PIRATE_ELITE">
+	<event load="DEAD_CREW_PIRATE_ELITE_GENERIC" />
+</eventList>
+<event name="DEAD_CREW_PIRATE_ELITE_GENERIC">
+	<text load="TEXT_DEAD_CREW_PIRATE" />
+	<autoReward level="HIGH">item</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。</text>
+	<text>你已经屠杀了所有的海盗舰员。剩下的就是搜刮他们的船了。</text>
+	<text>你已经证明自己是一个高效的海盗杀手。他们的船现在供你搜刮。</text>
+	<text>这艘海盗舰将不再荼毒这个地区了。你把残骸搜刮了。</text>
+	<text>海盗舰员已经被杀。这一行动无疑将为许多平民的生命报了仇。</text>
+</textList>
+<event name="DEAD_CREW_PIRATE_STATION">
+	<text load="TEXT_DEAD_CREW_PIRATE_STATION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE_STATION">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。</text>
+	<text>你已经屠杀了所有的海盗船员。剩下的就是毁掉他们的财产——如果这是他们的财产的话。</text>
+	<text>你已经证明自己是一个高效的海盗杀手。他们的船现在供你搜刮。</text>
+	<text>这艘海盗舰将不再荼毒这个地区了。你把残骸搜刮了。</text>
+	<text>海盗舰员已经被杀。这一行动无疑将为许多平民的生命报了仇。</text>
+</textList>
+<event name="DEAD_CREW_PIRATE_FUEL">
+	<text load="TEXT_DEAD_CREW_PIRATE_FUEL" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE_FUEL">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。海盗舰的残骸中似乎留下了不少的燃料。</text>
+	<text>你已经屠杀了所有的海盗舰员。剩下的就是搜刮他们的船了。海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>你已经证明自己是一个高效的海盗杀手。他们的船供你搜刮。海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>这艘海盗舰将不再折磨这个地区了。你拆解了这些残骸。海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>海盗舰船员已经被消灭。这一行动无疑为许多平民的生命报了仇。海盗舰的残骸中似乎留下了不少燃料。</text>
+</textList>
+<event name="DEAD_CREW_PIRATE_MISSILES">
+	<text load="TEXT_DEAD_CREW_PIRATE_MISSILES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_PIRATE_MISSILES">
+	<text>只有死了的海盗才是好海盗，而你今天又干掉了一大堆。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你已经屠杀了所有的海盗舰员。剩下的就是搜刮他们的船了。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你已经证明自己是一个高效的海盗杀手。他们的船供你搜刮。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>这艘海盗舰将不再荼毒这个地区了。你拆解了这些残骸。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>海盗舰船员已经被消灭。这一行动无疑为许多平民的生命报了仇。海盗舰的残骸中似乎留下了不少弹药。</text>
+</textList>
+
+<event name="ESCAPE_PIRATE">
+	<text>扫描显示，海盗舰正试图逃跑。在它逃跑之前将其摧毁！</text>
+</event>
+
+<eventList name="GOTAWAY_PIRATE">
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	<event load="GOTAWAY_PIRATE_GENERIC" />
+	
+	<event load="GOTAWAY_PIRATE_REMAINS" />
+</eventList>
+<event name="GOTAWAY_PIRATE_GENERIC">
+	<text load="TEXT_GOTAWAY_PIRATE" />
+</event>
+<textList name="TEXT_GOTAWAY_PIRATE">
+	<text>海盗从你手中溜走了，把你抛弃在信标处。</text>
+	<text>你试图摧毁海盗的努力失败了，这艘船已经逃走了。</text>
+</textList>
+<event name="GOTAWAY_PIRATE_REMAINS">
+	<text>海盗已经逃跑了，但并不是一切都不好。残骸中留下了一串废料，你收集了这些废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<event name="SURRENDER_PIRATE">
+	<text load="TEXT_SURRENDER_PIRATE" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_PIRATE">
+	<text>"好了好了，你们赢了！拿走我们店里的一些装备，放过我们吧！"</text>
+	<text>对方舰船反复向你发起呼叫。看来他们想要投降。</text>
+	<text>"你比我们想象中装备精良多了。我们投降。"</text>
+	<text>他们向你发了一条消息："你的星舰装备真是精良！请拿走这件装备放我们一条生路吧。"</text>
+	<text>"求求你不要杀死我们。我们所有东西都给你！"</text>
+	<text>他们提议如果放他们一条生路就把部分货物送给你。</text>
+	<text>他们提议如果不摧毁他们舰船就把部分货物送给你。</text>
+	<text>你收到一条慌张的消息，"我们所有东西都给你！千万别杀死我们！"</text>
+	<text>"显然是你更胜一筹。我们只求活命。"</text>
+	<text>"你的意图我们领会了，我们被打败了。拿走这些让我们自取其辱吧。"</text>
+	<text>"把我们东西都拿走吧，我们就当刚才的事从没发生过。"</text>
+</textList>
+
+<eventList name="DEAD_CREW_SLAVERS">
+	<event load="SLAVER_CHOICE_1" />
+	<event load="SLAVER_CHOICE_2" />
+	<event>
+		<text>看来这些奴隶在战斗中没有幸存下来。你在船舱里发现了他们烧焦的尸体，但在你扒开船的时候，你听到墙壁里有微弱的声音。你弄断了一个门闩，一个奴隶从一个隐蔽的隔间里掉了出来，不停地咳嗽。恢复正常后，这个奴隶主动提出要加入你的船员。</text>
+		<crewMember amount="1" />  
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+	<event>
+		<text>你扫描了这艘船，发现没有生命迹象。看来奴隶们在战斗中死了。你把船搜刮，准备跃迁。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</event>
+</eventList>
+<event name="SLAVER_CHOICE_1">
+	<text>你在货舱里发现了一些奴隶。他们疑惑地看着你，其中一个问你是否要释放他们。你用得上更多的船员，但这样带走奴隶对你的良心没有好处。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>要求螳螂族船员加入你，释放其余的人。</text>
+		<event>
+			<text>螳螂族似乎对这些命令没有意见，说："如果这意味着我们可以杀死一些肉包子，那就上船吧！"你把剩下的奴隶留在附近的一个空间站。</text>
+			<crewMember amount="1" class="mantis" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>要求岩石族船员加入你，释放其余的人。</text>
+		<event>
+			<text>洛克人保持沉默，你担心会有麻烦。然而，当你要求他执行一项任务时，他毫无怨言地行动。也许他不会成为一个问题。</text>
+			<crewMember amount="1" class="rock" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>要求半械族船员加入你，释放其余的人。</text>
+		<event>
+			<text>"验证主要目标是击败叛军，重建和平？"你点点头，它回应说："可以接受。"你把剩下的奴隶留在附近的空间站，然后离开。</text>
+			<crewMember amount="1" class="engi" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们不是奴隶主。把他们都放了吧。</text>
+		<event>
+			<text>当你解开他们的锁链，让他们获得自由时，他们中的一些人很震惊，流下了眼泪，其他人向你鞠躬。"我们没有什么值得提供的，只有我们的感激。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SLAVER_CHOICE_2">
+	<text>你在货舱里发现了一些奴隶。他们疑惑地看着你，其中一个问你是否要释放他们。你用得上更多的船员，但这样带走奴隶对你的良心没有好处。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>要求兰花族船员加入你，释放其余的人。</text>
+		<event>
+			<text>兰花族没有会对你的要求提出抗议，很幸运这些植物是如此和平，虽然这让你感到一阵内疚。不过还不足以让你重新考虑。</text>
+			<crewMember amount="1" class="orchid" />  
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>要求甲壳族船员加入你，释放其余的人。</text>
+		<event>
+			<text>贝甲壳族似乎并不介意他们的新任务。可能是因为你的船比奴隶主的船要安全得多。</text>
+			<crewMember amount="1" class="shell" />  
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>要求蛞蝓族船员加入你，释放其余的人。</text>
+		<event>
+			<text>"会有机会得到一些～～～废料吗？"你点点头。"好吧，那我就加入。"</text>
+			<crewMember amount="1" class="slug" />  
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们不是奴隶主。把他们都放了吧。</text>
+		<event>
+			<text>当你解开他们的锁链，让他们获得自由时，他们中的一些人很震惊，流下了眼泪，其他人向你鞠躬。"我们没有什么值得提供的，只有我们的感激。"</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_GENERAL" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					INFESTED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_INFESTED">
+	<text>你已经照顾好受感染的船了。不管船上曾经住着什么船员，他们也都已经不复存在了，所以你觉得他们并不会介意你现在搜刮这艘船。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+<event name="DEAD_CREW_INFESTED">
+	<text>你已经照顾好受感染的船了。不管船上曾经住着什么船员，他们也都已经不复存在了，所以你觉得他们并不会介意你现在搜刮这艘船。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					BROOD
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_BROOD">
+	<event load="DESTROYED_BROOD_GENERIC" />
+	<!--<event load="DESTROYED_BROOD_GENERIC"/>
+	<event load="DESTROYED_BROOD_GENERIC"/>
+	<event load="DESTROYED_BROOD_GENERIC"/>
+	<event load="DESTROYED_BROOD_GENERIC"/>
+	<event load="DESTROYED_BROOD_GENERIC"/>
+	
+	<event load="DESTROYED_BROOD_FUEL"/>
+	<event load="DESTROYED_BROOD_MISSILES"/>-->
+</eventList>
+<event name="DESTROYED_BROOD_GENERIC">
+	<text load="TEXT_DESTROYED_BROOD" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_BROOD">
+	<text>又一艘充满了蜘蛛狂热者的战舰被你摧毁，你回收了遗骸。</text>
+	<text>你希望盟卫能为你杀死的这些船只中的每一艘付钱，但至少废料足以让你满意。</text>
+	<text>蛛团通过将蜘蛛武器化，给这个地区的盟卫带来了麻烦。这不会有什么影响，但这艘船的消失仍将有助于夺回这片领土。</text>
+	<text>你无法想象，死在几十只蜘蛛的尸体中间是多么令人骄傲的事，但他们选择了海盗的生活，而你选择了杀死他们的生活。</text>
+	<text>另一艘蛛团船只在你的手中遭遇了不幸的结局。你下达命令，开始打捞行动。</text>
+</textList>
+<event name="DESTROYED_BROOD_FUEL">
+	<text load="TEXT_DESTROYED_BROOD_FUEL" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_BROOD_FUEL"> <!-- The pirate ship appears to have an excess of fuel left behind in the wreckage.-->
+	<text>又有一艘装满疯狂蜘蛛的疯子的船被击沉。你打捞出残骸。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>你希望盟卫会为你杀死的这些船每一艘都付给你钱，但至少废料足以让你满意。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>蛛团通过对蜘蛛的武器化，给这个地区的盟卫带来了麻烦。这不会有什么，但这艘船的死亡仍将有助于夺回这片领土。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>你无法想象，这是一个非令人常骄傲的死亡：死在几十只蜘蛛的尸体中间。但是他们选择了海盗的生活，而你选择了杀死他们的生活。海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>另一艘蛛团的船只在你手中遭遇了不幸的结局。你下达命令，开始打捞行动。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+</textList>
+<event name="DESTROYED_BROOD_MISSILES">
+	<text load="TEXT_DESTROYED_BROOD_MISSILES" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DESTROYED_BROOD_MISSILES"> <!-- The pirate ship appears to have an excess of ammunition left behind in the wreckage.-->
+	<text>又有一艘装满疯狂蜘蛛的疯子的船被击沉。你打捞出残骸。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你希望盟卫会为你捣毁的这些船的每一艘都付给你钱，但至少废料足以让你满意。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>蛛团通过对蜘蛛的武器化，给这个地区的盟卫带来了麻烦。这不会有什么，但这艘船的死亡仍将有助于夺回这片领土。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你无法想象，这是一个非令人常骄傲的死亡：死在几十只蜘蛛的尸体中间。但是他们选择了海盗的生活，而你选择了杀死他们的生活。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>另一艘蛛团的船只在你手中遭遇了不幸的结局。你下达命令，开始打捞行动。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+</textList>
+
+<eventList name="DEAD_CREW_BROOD">
+	<event load="DEAD_CREW_BROOD_GENERIC" />
+	<!--<event load="DEAD_CREW_BROOD_GENERIC"/>
+	<event load="DEAD_CREW_BROOD_GENERIC"/>
+	<event load="DEAD_CREW_BROOD_GENERIC"/>
+	<event load="DEAD_CREW_BROOD_GENERIC"/>
+	<event load="DEAD_CREW_BROOD_GENERIC"/>
+	
+	<event load="DEAD_CREW_BROOD_FUEL"/>
+	<event load="DEAD_CREW_BROOD_MISSILES"/>-->
+</eventList>
+<event name="DEAD_CREW_BROOD_GENERIC">
+	<text load="TEXT_DEAD_CREW_BROOD" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD">
+	<text>又一艘充满了蜘蛛狂热者的战舰被你摧毁，你回收了遗骸。</text>
+	<text>你希望盟卫能为你肃清的这些船只中的每一艘付钱，但至少废料足以让你满意。</text>
+	<text>蛛团通过将蜘蛛武器化，给这个地区的盟卫带来了麻烦。这不会有什么影响，但这艘船的消失仍将有助于夺回这片领土。</text>
+	<text>你无法想象，死在几十只蜘蛛的尸体中间是多么令人骄傲的事，但他们选择了海盗的生活，而你选择了杀死他们的生活。</text>
+	<text>另一艘蛛团船只在你的手中遭遇了不幸的结局。你下达命令，开始打捞行动。</text>
+</textList>
+<event name="DEAD_CREW_BROOD_FUEL">
+	<text load="TEXT_DEAD_CREW_BROOD_FUEL" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的燃料。</text>
+		<event>
+			<text>燃料自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD_FUEL">
+	<text>又有一艘装满疯狂蜘蛛的疯子的船被击沉。你打捞出残骸。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>你希望盟卫会为你肃清的这些船每一艘都付给你钱，但至少废料足以让你满意。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>蛛团通过对蜘蛛的武器化，给这个地区的盟卫带来了麻烦。这不会有什么，但这些海盗的死亡仍将有助于夺回这片领土。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>你无法想象，这是一个非令人常骄傲的死亡：死在几十只蜘蛛的尸体中间。但是他们选择了海盗的生活，而你选择了杀死他们的生活。海盗舰的残骸中似乎留下了过多的燃料。</text>
+	<text>另一艘蛛团的船只在你手中遭遇了不幸的结局。你下达命令，开始打捞行动。这艘海盗舰的残骸中似乎留下了过多的燃料。</text>
+</textList>
+<event name="DEAD_CREW_BROOD_MISSILES">
+	<text load="TEXT_DEAD_CREW_BROOD_MISSILES" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>回收这些额外的弹药。</text>
+		<event>
+			<text>弹药自然是多多益善，你尽可能多地收集了它们。</text>
+			<autoReward level="LOW">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_DEAD_CREW_BROOD_MISSILES">
+	<text>又有一艘装满疯狂蜘蛛的疯子的船被击沉。你打捞出残骸。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你希望盟卫会为你肃清的这些船每一艘都付给你钱，但至少废料足以让你满意。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>蛛团通过对蜘蛛的武器化，给这个地区的盟卫带来了麻烦。这不会有什么，但这些海盗的死亡仍将有助于夺回这片领土。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>你无法想象，这是一个非令人常骄傲的死亡：死在几十只蜘蛛的尸体中间。但是他们选择了海盗的生活，而你选择了杀死他们的生活。海盗舰的残骸中似乎留下了过多的弹药。</text>
+	<text>另一艘蛛团的船只在你手中遭遇了不幸的结局。你下达命令，开始打捞行动。这艘海盗舰的残骸中似乎留下了过多的弹药。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HACKER
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_HACKER">
+	<text load="TEXT_DESTROYED_HACKER" />
+	<autoReward level="MED">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+	<status type="clear" target="player" system="shields" amount="100" />
+	<status type="clear" target="player" system="reactor" amount="100" />
+</event>
+<textList name="TEXT_DESTROYED_HACKER">
+	<text>又一艘有害的黑客船被摧毁了。他们的战利品是你的。</text>
+	<text>被摧毁的黑客船的奖励是你的了。</text>
+	<text>这艘黑客船和它的船员已经不复存在。它们的残骸是你的了。</text>
+</textList>
+
+<eventList name="DEAD_CREW_HACKER">
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	<event load="DEAD_CREW_HACKER_GENERIC" />
+	
+	<event load="DEAD_CREW_HACKER_FLEET" />
+</eventList>
+<event name="DEAD_CREW_HACKER_GENERIC">
+	<text load="TEXT_DEAD_CREW_HACKER" />
+	<autoReward level="HIGH">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+	<status type="clear" target="player" system="shields" amount="100" />
+	<status type="clear" target="player" system="reactor" amount="100" />
+</event>
+<textList name="TEXT_DEAD_CREW_HACKER">
+	<text>事实证明，你对黑客们的屠杀非常有效。如果没有战争罪这个罪名，这将是你可以吹嘘的经历。</text>
+	<text>另一船肮脏的黑客已经证明比你差。他们的船是你的了。</text>
+	<text>黑客船内的生命迹象已经清空。这将让他们知道谁是老大。</text>
+	<text>在黑客船上没有发现更多的生命体。</text>
+</textList>
+<event name="DEAD_CREW_HACKER_FLEET" unique="true">
+	<text load="TEXT_DEAD_CREW_HACKER" />
+	<autoReward level="RANDOM">standard</autoReward>
+	<status type="clear" target="player" system="oxygen" amount="100" />
+	<status type="clear" target="player" system="shields" amount="100" />
+	<status type="clear" target="player" system="reactor" amount="100" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你的电脑崩溃了，屏幕上闪现出一串串编码过的信息和无意义的文字。黑客一定是部署了一种紧急病毒！你及时隔离了你的系统以防止传播，但这种串联反应很可能会继续进行到叛军通过之时，这应该会给他们带去一些麻烦。</text>
+			<modifyPursuit amount="-1" />
+		</event>
+	</choice>
+</event>
+
+<eventList name="SURRENDER_HACKER">
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	<event load="SURRENDER_HACKER_GENERIC" />
+	
+	<event load="SURRENDER_HACKER_TRAP" />
+</eventList>
+<event name="SURRENDER_HACKER_GENERIC">
+	<text load="TEXT_SURRENDER_HACKER" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event name="SURRENDER_HACKER_ACCEPT">
+			<ship hostile="false" />
+			<status type="clear" target="player" system="oxygen" amount="100" />
+			<autoReward level="RANDOM">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_HACKER">
+	<text>"啊，事实证明你是个出色的斗士。要花多少钱才能让你忘记这一切呢？"</text>
+	<text>"好吧，你在这里制造了相当大的混乱。这能缓解你的血气吗？"</text>
+	<text>黑客们拼命地呼吁停火。</text>
+	<text>"舰长，也许我们都太草率了。我们不想走这条路，是吗？我们可以宽恕，我们希望你也能宽恕。这足以让你转身离开吗？"</text>
+</textList>
+<event name="SURRENDER_HACKER_TRAP">
+	<text load="TEXT_SURRENDER_HACKER" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event>
+			<text>你收集物资，但注意到你的能量水平出现了干扰。黑客们欺骗了你！</text>
+			<autoReward level="MED">standard</autoReward>
+			<status type="loss" target="player" system="shields" amount="2" />
+			<status type="loss" target="player" system="reactor" amount="4" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MANTIS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_MANTIS">
+	<text load="TEXT_DESTROYED_MANTIS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MANTIS">
+	<text>螳螂族飞船的舰体体现在看起来不再那么具有威胁性，因为它已经被摧毁。你搜刮了这些残骸。</text>
+	<text>你知道，在不知道他们名字的情况下，你刚刚通过摧毁这艘船为数百名无辜的人报了仇。</text>
+	<text>螳螂族飞船已经不存在了，除了作为废料供你带走。</text>
+</textList>
+
+<eventList name="DEAD_CREW_MANTIS">
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	<event load="DEAD_CREW_MANTIS_GENERIC" />
+	
+	<event load="DEAD_CREW_MANTIS_SLAVE" />
+</eventList>
+<event name="DEAD_CREW_MANTIS_GENERIC">
+	<text load="TEXT_DEAD_CREW_MANTIS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MANTIS">
+	<text>船上的螳螂族威胁已经被消灭了。你对自己的工作很满意，你对他们飞船的残骸也很满意。</text>
+	<text>螳螂族船员的尸体散落在大厅里，空气中弥漫着螳螂信息素的臭味。你在搜刮这艘船时尽量不呼吸。</text>
+	<text>尽管螳螂族是可怕的战士，但他们不是你的飞船的对手。</text>
+</textList>
+<event name="DEAD_CREW_MANTIS_SLAVE">
+	<text>你继续前进，将空荡荡的螳螂族飞船报废。然而，当你搜刮这些残骸时，你听到货舱里传来一阵叮当声。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>打开货物。</text>
+		<event load="DEAD_CREW_MANTIS_SLAVE_OPEN" />
+	</choice>
+	<choice>
+		<text>算了。</text>
+		<event>
+			<text>你无视铿锵的声音，完成了对舰体的搜刮。为了确定，你在离开时关闭了氧气。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DEAD_CREW_MANTIS_SLAVE_OPEN">
+	<event>
+		<text>你打开货舱，发现一名半械族的奴隶。现在他们被释放了，他们向你表达了相当于感谢的话。你为他们提供了一个在你船上的位置，他们接受了。</text>
+		<crewMember amount="1" class="engi" />
+	</event>
+	<event>
+		<text>你打开货舱，发现一个螳螂族幸存者，他愤怒地攻击你！入侵者被制服了，但留下了一些损伤。</text>
+		<!--<status type="limit" target="enemy" system="teleporter" amount="0"/>
+		<boarders min="1" max="1" class="mantis"/>-->
+		<damage amount="0" system="random" effect="breach" />
+		<damage amount="0" system="random" effect="breach" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FREE MANTIS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_FREEMANTIS">
+	<text load="TEXT_DESTROYED_FREEMANTIS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_FREEMANTIS">
+	<text>自由螳螂飞船的舰体在分裂时发出 "咔咔 "的声响。当你搜刮他们的飞船时，你意识到这个相对年轻的派别还没有为战争做好准备。</text>
+	<text>虽然感觉很糟糕，但有时别无选择。摧毁一艘满载盟友的飞船并不是一件值得骄傲的事—但你别无选择，你的任务是第一位的。你准备搜刮飞船。</text>
+	<text>考虑到大多数自由螳螂都想加入联邦，摧毁一艘他们的飞船感觉有些不对劲。希望军阀们能理解你的所作所为。</text>
+	<text>你在想，如果这里的自由螳螂知道这次任务的重要性，还会打起来吗？一如既往，废料还是有用的。</text>
+	<text>总有一天，自由螳螂会加入联邦。希望到时候他们不会拿这件事来对付你。</text>
+</textList>
+
+<event name="DEAD_CREW_FREEMANTIS">
+	<text load="TEXT_DEAD_CREW_FREEMANTIS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_FREEMANTIS">
+	<text>不管你是否有必要这样做，现实情况让你不得不消灭自由螳螂的船员。你不妨搜刮他们的飞船，确保你的任务取得成功。</text>
+	<text>当只剩下尸体时，你很容易感到内疚，但你知道你别无选择。你为生命的逝去感到遗憾，但并不后悔自己的所作所为。搜刮废料也一样。</text>
+	<text>自由螳螂进行了一场血腥的战斗，即使是面对他们的盟友。不过，你完全有能力赢得这场战斗。</text>
+	<text>虽然与自由螳螂战斗的结果与母巢螳螂战斗很相似，但搜刮一艘在其他情况下本可以友好相处的飞船，感觉还是不一样的。</text>
+	<text>当你搜刮这艘废弃的自由螳螂飞船时，合成信息素的臭味还在萦绕。希望你不必再进行更多这样的战斗。</text>
+</textList>
+
+<event name="SURRENDER_FREEMANTIS">
+	<text load="TEXT_SURRENDER_FREEMANTIS" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_FREEMANTIS"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_FREEMANTIS">
+	<text>自由螳螂的舰长一瘸一拐地走进了摄像机的范围。"我们不明白。联邦应该是好人..."</text>
+	<text>螳螂族通常不会在战斗中示弱，但自由螳螂飞船正在询问你是否接受他们的投降。</text>
+	<text>"我们以为自由螳螂和联邦的盟友。杀了我们，你就是破坏信任。"</text>
+	<text>自由螳螂似乎不太愿意战斗。他们的舰长向你呼叫，提出要求停火。</text>
+	<text>"我们虽然确实因为懦弱被族人流放，但求求你，请让我们活下去。"</text>
+	<text>这艘饱受摧残的飞船出于无奈与你联系。舰长提醒你他们与联邦的休战协议，要求你取消攻击。</text>
+	<text>自由螳螂飞船拼命地试图联系你。你怀疑他们是想投降。</text>
+	<text>"好，我们升起白色的旗帜。让我们活下去，我们请求。"</text>
+	<text>自由螳螂飞船多次试图呼叫你。你打开通讯器，迎接你的是惊慌失措的投降建议，以获得资源，其中还夹杂着噼里啪啦的火光。</text>
+	<text>你听到自由螳螂的舰长在呼叫你。"好吧，好吧！"他提供了一些资源来换取生存。</text>
+	<text>自由螳螂船向你呼叫。"我们请求宽恕。宽恕不是螳螂族的习惯，但我们希望是为了人类。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ROCK
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_ROCK">
+	<text load="TEXT_DESTROYED_ROCK" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ROCK">
+	<text>通过摧毁这艘船，你确实证明了自己对岩石族的方式构成了威胁。</text>
+	<text>岩石族可能不是联邦的死敌，但你仍然对摧毁这艘船感到没有罪恶感。大部分是这样。</text>
+	<text>最后，岩石族飞船的装甲失效了，一场巨大的爆炸将这艘船撕裂了。</text>
+</textList>
+
+<event name="DEAD_CREW_ROCK">
+	<text load="TEXT_DEAD_CREW_ROCK" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ROCK">
+	<text>岩石船的内部堆满了小石头。大家都知道它们是什么，但在你回收这艘船的时候，没有人敢对此发表意见。</text>
+	<text>你已经成功地杀死了岩石族船员，他们的废料就留给你了。</text>
+	<text>你想不出来像这样不断击毁岩石战舰对联邦有什么光彩的部分，但到了这个份上你已经不在乎了。</text>
+</textList>
+
+<eventList name="SURRENDER_ROCK">
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	<event load="SURRENDER_ROCK_GENERIC" />
+	
+	<event load="SURRENDER_ROCK_MISSILES" />
+</eventList>
+<event name="SURRENDER_ROCK_GENERIC">
+	<text load="TEXT_SURRENDER_ROCK_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ROCK_GENERIC">
+	<text>岩石族飞船呼叫道："够了！我们被告知外星人对我们的方式是一种威胁，而你们已经证明了这一点。拿着这个，让我们平静地离开。"</text>
+	<text>他们的系统受到影响，岩石族飞船试图进行联系："外星飞船。停止你的攻击。我们会付钱的。"</text>
+	<text>岩石族飞船进入防守状态，并发出白旗信号。他们似乎愿意买下活命的机会。</text>
+</textList>
+<event name="SURRENDER_ROCK_MISSILES">
+	<text load="TEXT_SURRENDER_ROCK_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ROCK_MISSILES_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+<event name="DESTROYED_ROCK_STATION">
+	<text load="TEXT_DESTROYED_ROCK_STATION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ROCK_STATION">
+	<text>通过摧毁这艘船，你确实证明了自己对岩石族的方式构成了威胁。</text>
+	<text>岩石族可能不是联邦的死敌，但你仍然对摧毁这艘船感到没有罪恶感。大部分是这样。</text>
+	<text>最后，岩石族飞船的装甲失效了，一场巨大的爆炸将这艘船撕裂了。</text>
+</textList>
+
+<event name="DEAD_CREW_ROCK_STATION">
+	<text load="TEXT_DEAD_CREW_ROCK_STATION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ROCK_STATION">
+	<text>岩石船的内部堆满了小石头。大家都知道它们是什么，但在你回收这艘船的时候，没有人敢对此发表意见。</text>
+	<text>你已经成功地杀死了岩石族船员，他们的废料就留给你了。</text>
+	<text>你无法想象当你以这种方式对待这些岩石族时，联邦那边会有什么看法；但在这一点上，你已经不在乎了。</text>
+</textList>
+
+<eventList name="SURRENDER_ROCK_STATION">
+	<event load="SURRENDER_ROCK_STATION_GENERIC" />
+	<event load="SURRENDER_ROCK_STATION_GENERIC" />
+	<event load="SURRENDER_ROCK_STATION_GENERIC" />
+	<event load="SURRENDER_ROCK_STATION_GENERIC" />
+	
+	<event load="SURRENDER_ROCK_MISSILES" />
+</eventList>
+<event name="SURRENDER_ROCK_STATION_GENERIC">
+	<text load="TEXT_SURRENDER_ROCK_STATION" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_ROCK_STATION">
+	<text>岩石族飞船呼叫道："够了！我们被告知外星人对我们的方式是一种威胁，而你们已经证明了这一点。拿着这个，让我们平静地离开。"</text>
+	<text>他们的系统受到影响，岩石族飞船试图进行联系："外星飞船。停止你的攻击。我们会付钱的。"</text>
+	<text>岩石族空间站意识到自己的火力已经被彻底击败，发出了白旗投降的信号。他们似乎非常愿意付钱购买自己的生命。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					OUTCAST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_OUTCAST">
+	<text load="TEXT_DESTROYED_OUTCAST" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_OUTCAST">
+	<text>流放者与普通海盗的威胁程度并不完全相同，但这并不完全意味着对方对我们没有威胁。但愿如此。</text>
+	<text>探索残骸揭示了舰体壁上绘制的各种彩色壁画。有些非常感人，但有些则描绘了暴力和残酷的谋杀。也许这些家伙死了是一件好事。</text>
+	<text>在流放者的最后时刻，你收到了最后一条信息。"至少...这比下矿好多了..."</text>
+</textList>
+
+<event name="DEAD_CREW_OUTCAST">
+	<text load="TEXT_DEAD_CREW_OUTCAST" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_OUTCAST">
+	<text>流放者与普通海盗的威胁程度并不完全相同，但这并不完全意味着对方对我们没有威胁。但愿如此。</text>
+	<text>探索残骸揭示了舰体壁上绘制的各种彩色壁画。有些非常感人，但有些则描绘了暴力和残酷的谋杀。也许这些家伙死了是一件好事。</text>
+	<text>在流放者的最后时刻，你收到了最后一条信息。"至少...这比下矿好多了..."</text>
+</textList>
+
+<eventList name="SURRENDER_OUTCAST">
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	<event load="SURRENDER_OUTCAST_GENERIC" />
+	
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	<event load="SURRENDER_OUTCAST_MISSILES" />
+	
+	<event load="SURRENDER_OUTCAST_CREW" />
+</eventList>
+<event name="SURRENDER_OUTCAST_GENERIC">
+	<text load="TEXT_SURRENDER_OUTCAST_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_OUTCAST"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_OUTCAST_GENERIC">
+	<text>"哈！真是一场暴乱--我们被告知联邦是为了保护银河系不受压迫而战斗的。你们不仅背弃了神权国，而且还承诺要消灭我们的人民！证明你们知道怜悯，让我们走吧。证明你知道怜悯，让我们走吧。"</text>
+	<text>"神权国说了很多谎言，但他们告诉我们变元者是危险的敌人时说的是实话！你赢了，接受这个投降，让我们活下去！"</text>
+	<text>"我们最大的错误就是在这里与你较量--但请你！让我们继续活下去，从这个错误中吸取教训。我们这些流放者才刚刚尝到自由的滋味，如果这么快就死了，那就太可惜了。"</text>
+	<text>看来流放者飞船的船员们匆匆忙忙地把自己涂成了白色，拼命地想表达他们突然宣布投降。你会接受吗？</text>
+</textList>
+<event name="SURRENDER_OUTCAST_MISSILES">
+	<text load="TEXT_SURRENDER_OUTCAST_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ROCK_MISSILES_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_OUTCAST"/>-->
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_OUTCAST_CREW">
+	<text>"没有了！我们屈服了。请带走这个人。他闻起来很臭，而且没有任何贡献。他在你的船上会比在我们的船上更有用。"</text>
+	<choice>
+		<text>接受奴隶。</text>
+		<event name="SURRENDER_OUTCAST_ACCEPT">
+			<ship hostile="false" />
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_OUTCAST"/>-->
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LOST SUNS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_LOSTSUN">
+	<text>如果你继续摧毁迷失烈阳飞船，他们与联邦的不稳定联盟将不会持续太久。至少你能从中得到一些废料。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+
+<event name="DEAD_CREW_LOSTSUN">
+	<text>如果你继续杀害迷失烈阳的追随者，他们与联邦持有的不稳定的联盟将不会持续太久。至少你能从中得到一些废料。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SLUG
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_SLUG">
+	<text load="TEXT_DESTROYED_SLUG" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SLUG">
+	<text>尽管蛞蝓族做出了种种努力，他们还是没能打败你。作为这场战斗的胜利者，你放纵自己，将他们的船摧毁。</text>
+	<text>蛞蝓族飞船已经不复存在。你废料了这些残骸。</text>
+	<text>最后，叛逆的星云居住者终于被压制住了。你把这艘船搜刮了。</text>
+</textList>
+
+<event name="DEAD_CREW_SLUG">
+	<text load="TEXT_DEAD_CREW_SLUG" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SLUG">
+    <text>你发现蛞蝓族舰长喘着粗气的尸体在地上颤抖。他说了最后一个词，"Sssshit"，然后倒地而亡。</text>
+	<text>你对蛞蝓族船员并不感到懊悔，尽管你希望他们的船闻起来更香。</text>
+	<text>船的内部现在被涂上了似乎是粘液和捣碎的蛞蝓族肠子的混合物。恶心。</text>
+</textList>
+
+<eventList name="SURRENDER_SLUG">
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_GENERIC" />
+	<event load="SURRENDER_SLUG_SWAP" />
+	<event load="SURRENDER_SLUG_SWAP" />
+	
+	<event load="SURRENDER_SLUG_BETRAY" />
+</eventList>
+<event name="SURRENDER_SLUG_GENERIC">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_SLUG_SWAP">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SLUG_GENERIC">
+    <text>蛞蝓族舰长向你问好。"哦，殿下，你是如此的勇敢，真是有史以来最伟大的战士。你能不能放过我们，让我们分享你的故事？"</text>
+	<text>"好吧，我看现在没有必要撒谎。如果你不放我们走，我们就有点完蛋了。如果你同意，我们会给你一些废料。"</text>
+	<text>蛞蝓族以其懦弱著称，正如预期的那样，这里的蛞蝓族飞船已经放弃并投降了。</text>
+	<text>"亲爱的上帝，我没料到会这样！我为你的成功鼓掌。我为你的善举鼓掌。现在让我们走吧。"</text>
+</textList>
+<event name="SURRENDER_SLUG_BETRAY">
+	<text load="TEXT_SURRENDER_SLUG_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event>
+			<text>突然，就在你准备离开的时候，蛞蝓族飞船重新启动了它的武器，并开了一枪！它没有通过你的防御，但他们给你的货箱在离子爆炸中爆炸，使你的护盾部分失效。</text>
+			<status type="loss" target="player" system="shields" amount="2" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLAN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_CLAN">
+	<text load="TEXT_DESTROYED_CLAN" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_CLAN">
+	<text>骄傲的异种猎人和他们的船已经被摧毁。虽然他们的许多战利品也被一起清除了，但至少你可以从他们的船上回收出一些废料。</text>
+	<text>异猎会可能不喜欢你杀了他们的成员，但他们能做什么呢？你把这艘船搜刮了。</text>
+	<text>毫无疑问，你为许多被这些异种猎人追杀的无辜生命的灵魂报了仇。另外，你还得到了一些废料。</text>
+	<text>在飞船爆炸的同时，你试图想出一个绝妙的表达来描述当下的情况。你最后想出个"猎人变成了猎物"，然后回过神来，下达命令将残骸回收。</text>
+</textList>
+
+<eventList name="DEAD_CREW_CLAN">
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	<event load="DEAD_CREW_CLAN_GENERIC" />
+	
+	<event load="DEAD_CREW_CLAN_TROPHY" />
+</eventList>
+<event name="DEAD_CREW_CLAN_GENERIC">
+	<text load="TEXT_DEAD_CREW_CLAN" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_CLAN">
+	<text>蛞蝓族舰长一边咳嗽，一边在地板上流血。他最后一次看着你的眼睛，嘴里说着"你该死"，然后死去。</text>
+	<text>你已经干掉了蛞蝓族飞船的船员。这些异种猎人可能是很好的战士，但他们对你没有机会。</text>
+	<text>异猎会可能不喜欢你杀了他们的成员，但他们能做什么呢？你把这艘船搜刮了。</text>
+	<text>你试图想出一个绝妙的表达来描述当下的情况。你最后想出个"猎人变成了猎物"，然后回过神来，下达命令将残骸回收。</text>
+</textList>
+
+<event name="DEAD_CREW_CLAN_TROPHY">
+	<text load="TEXT_DEAD_CREW_CLAN" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>当你检查这艘船的内部时，你发现了一个小战利品舱室，里面有几个外星生物的尸体。进一步的检查将你引向一个囚室，那里还有一个活着的囚犯。</text>
+			<crewMember amount="1" />
+		</event>
+	</choice>
+</event>
+
+
+<eventList name="SURRENDER_CLAN">
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	<event load="SURRENDER_CLAN_GENERIC" />
+	
+	<event load="SURRENDER_CLAN_BETRAY" />
+</eventList>
+<event name="SURRENDER_CLAN_GENERIC">
+	<text load="TEXT_SURRENDER_CLAN_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_CLAN_GENERIC">
+	<text>"我们永远不会投降！"异种猎人喊道，就在你的枪声散落在他们的舰体上的时候。"嗯嗯，别提了。你要多少钱才能放我们走？"</text>
+	<text>看来异种猎人们已经放弃了。"停手吧！把这些废料都拿走，让我们走！"</text>
+	<text>你在电脑屏幕上发现了一个警报。打开后，迎接你的是异种猎人成员向镜头挥舞文字白旗的视频画面。</text>
+</textList>
+<event name="SURRENDER_CLAN_BETRAY">
+	<text load="TEXT_SURRENDER_CLAN_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event>
+			<text>突然，就在你准备离开的时候，蛞蝓族飞船重新启动了它的武器，并开了一枪！它没有通过你的防御，但他们给你的货箱在离子爆炸中爆炸，使你的护盾部分失效。</text>
+			<status type="loss" target="player" system="shields" amount="2" />
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HEKTAR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_HEKTAR">
+	<text load="TEXT_DESTROYED_HEKTAR" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_HEKTAR">
+	<text>当赫克塔的飞船解体时，你不禁要问，他们的飞船是否被设计成像他们的武器一样容易组装。</text>
+	<text>赫克塔飞船爆炸了，一条自动信息被发送到你的飞船上。"赫克塔工业为你在战斗中的成功而鼓掌。然而，在你搜刮我们的飞船之前，我们要求你观看这个简短的广告..."</text>
+	<text>大量的箱子从另一艘船的货舱里飞出来。你考虑抓住一些，但边上的图片表明它们不值得你花时间。两个圆圈和一个椭圆到底是什么意思？</text>
+	<text>你收到了赫克塔舰长的最后一声呼喊，因为他的船陷入了火海。"我没有得到足够的报酬去说一些聪明的事情。但是，如果我的经理不高兴，就假装我说了......"</text>
+</textList>
+
+<eventList name="DEAD_CREW_HEKTAR">
+	<event load="DEAD_CREW_HEKTAR_GENERIC" />
+	<!--<event load="DEAD_CREW_HEKTAR_GENERIC"/>
+	<event load="DEAD_CREW_HEKTAR_MODULE"/>
+	<event load="DEAD_CREW_HEKTAR_MODULE"/>
+	<event load="SURRENDER_HEKTAR_WEAPON"/>-->
+</eventList>
+<event name="DEAD_CREW_HEKTAR_GENERIC">
+	<text load="TEXT_DEAD_CREW_HEKTAR" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_HEKTAR">
+    <text>"上帝...该死的...它...我甚至还没有拿到这周的工资支票..."</text>
+	<text>在他的最后时刻，蛞蝓族舰长耸耸肩。"比起不得不回到呼叫中心，我想更好。"</text>
+	<text>"嘎嘎嘎，这么多的保健品..."蛞蝓族耷拉着脑袋死了，你把他的搜刮了。</text>
+	<text>当你在蛞蝓的尸体中行走时，你听到了最后一个幸存者的最后一句话："把我和我的钱埋在一起..."不幸的是，你对如何处理他有其他计划。</text>
+</textList>
+
+<event name="DEAD_CREW_HEKTAR_MODULE">
+	<text load="TEXT_DEAD_CREW_HEKTAR" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>就在你即将搜刮完毕这艘飞船时，你发现了一个隐藏的储物舱。里面有一个武器模块，可用于赫克塔系列武器。</text>
+			<weapon name="SHOP_ITEM_HEKTAR_BASE" />
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_HEKTAR_WEAPON">
+	<text load="TEXT_DEAD_CREW_HEKTAR" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>就在你即将搜刮完毕这艘飞船时，你发现了一个隐藏的储物舱。里面放着一把全新的赫克塔武器，但尚未安装任何模块。</text>
+			<weapon name="GIFTLIST_MODULES" />
+		</event>
+	</choice>
+</event>
+
+<eventList name="SURRENDER_HEKTAR">
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_GENERIC" />
+	<event load="SURRENDER_HEKTAR_SWAP" />
+	<event load="SURRENDER_HEKTAR_SWAP" />
+</eventList>
+<event name="SURRENDER_HEKTAR_GENERIC">
+	<text load="TEXT_SURRENDER_HEKTAR_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<event name="SURRENDER_HEKTAR_SWAP">
+	<text load="TEXT_SURRENDER_HEKTAR_GENERIC" />
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_HEKTAR_GENERIC">
+    <text>"你知道吗？反正这份工作也不值得做。我正式辞职了。你现在不会杀一个无辜的失业平民，对吗？"</text>
+	<text>"资本主义已经让我失望了！我现在将永远成为共产主义者。贿赂和共产主义是同义词，对吗？"</text>
+	<text>"谁给你钱做这个？我不相信你不是为了钱。好吧，你猜怎么着！我也有钱！"</text>
+	<text>这位赫克塔公司的员工疯狂地翻阅着他的员工手册。"糟糕，上面没有提到任何关于在这里做什么的内容！呃，是时候重新考虑B计划了。买下我的出路！"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LEECH
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_LEECH">
+	<text load="TEXT_DESTROYED_LEECH" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_LEECH">
+	<text>你知道真空无法传声，所以你只能猜测那些被吹向地狱深渊的吸虫族船员们发出的是怎样的声音。</text>
+	<text>在吸虫族船被摧毁的前一刻，你感觉仿佛舰内的船员在接受命运的安排时，发出了一声充满力量的叹息。</text>
+	<text>如果曾经伟大的吸虫族军队的传说是真的，那么它们在今天肯定站不住脚。为了你的利益，让我们希望他们永远不要卷土重来。</text>
+	<text>如果你继续对吸虫族舰船大开杀戒，也许他们会放弃并永远地离开你。这可能是个太大的希望，但也不是不可能。</text>
+</textList>
+
+<event name="DEAD_CREW_LEECH">
+	<text load="TEXT_DEAD_CREW_LEECH" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_LEECH">
+    <text>大屠杀留下的场景远不是一个漂亮的场景。被切碎的吸虫族肉块散发出令人厌恶的气味，你几乎要考虑完全离开这个残骸。几乎是这样。</text>
+	<text>你已经听说了吸虫族船员死后微笑萦绕的令人不安的故事。然而，看起来那些故事不过就是些传说罢了，因为它们中人物的面容看起来与人们所预期的并无太大差别。</text>
+	<text>在摧毁他们的飞船时，你不会再遇到任何阻碍。有一种挥之不去的感觉是，舰内可能还有一名幸存者，但即便如此，他们也不会阻止你去取用你所发现的任何回收物资。</text>
+	<text>在这些吸虫族的尸体中行走，不免让人感到阴森恐怖。他们张开的大嘴仿佛随时都能伸出来攻击你。当你在船上搜刮时，你的手一直靠近你的爆裂手枪。</text>
+	<text>显然，死亡后不久，吸虫族的尸体会将其一生中储存的所有积蓄的电力慢慢耗尽。有了这么多的尸体，在近距离的情况下，这可能是灾难性的。你一定要抓紧时间，在你被卷入通电尸体的雷区之前把船搜刮。</text>
+</textList>
+
+<eventList name="SURRENDER_LEECH">
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	<event load="SURRENDER_LEECH_GENERIC" />
+	
+	<event load="SURRENDER_LEECH_GIVEUP" />
+</eventList>
+<event name="SURRENDER_LEECH_GENERIC">
+	<text load="TEXT_SURRENDER_LEECH_GENERIC" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_LEECH_GENERIC">
+    <text>"呜呜，我真可怜。末日来临了！我们为什么还要努力..."吸虫族飞船希望你能同情他们。</text>
+	<text>吸虫族舰长反刍出几堆白布。你感到厌恶和困惑了一会儿，直到你意识到这是一个错综复杂的"举白旗"的尝试。</text>
+	<text>你并不惊讶吸虫族舰长似乎如此轻易地放弃了。他们并不完全以忠诚或承诺而闻名。问题是，你会放过他们吗？</text>
+	<text>吸虫族舰长大声地打嗝，胆汁的斑点落在他们的相机上。令人厌恶，但根据你的舰长手册，这是吸虫族向敌方舰长投降的众多方式之一。</text>
+	<text>"我们决不投降！共和国永远-- 其实， 算了。我们投降了。我不想死。"</text>
+	<text>敌人的舰长似乎在用他的舌头"手"疯狂地挥舞。看起来他是想引起你的注意，让你投降。</text>
+</textList>
+<event name="SURRENDER_LEECH_GIVEUP">
+	<text>毫无征兆地，吸虫族飞船干脆关闭了它的武器和护盾。他们还没有退出战斗，但似乎...他们想让你杀死他们？</text>
+	<status type="limit" target="enemy" system="shields" amount="0" />
+	<choice hidden="true">
+		<text>饶恕他们停止射击。</text>
+		<event load="SURRENDER_LEECH_GIVEUP_SPARE" />
+	</choice>
+	<choice>
+		<text>实现他们的愿望结束这场战斗。</text>
+		<event>
+			<status type="limit" target="enemy" system="weapons" amount="0" />
+		</event>
+	</choice>
+</event>
+<eventList name="SURRENDER_LEECH_GIVEUP_SPARE">
+	<event>
+		<text>吸虫族飞船像一只受伤的动物一样溜走了没有再说话。</text>
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>吸虫族似乎很惊讶但也很感激并适时地提供了一点他们的货物。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>看来吸虫族们不会那么容易被放过的。他们继续逼近，甚至重新启动他们的武器，只是为了让你继续战斗。</text>
+		<ship hostile="true" />
+	</event>
+	<event>
+		<text>吸虫族很惊讶但很感激一个受伤的士兵表示愿意在你的船上工作，这可能是为了逃避他对共和国的服务。</text>
+		<crewMember amount="1" class="leech" />
+		<ship hostile="false" />
+	</event>
+</eventList>
+
+<event name="ESCAPE_LEECH">
+	<text>看来吸虫族飞船已经重新考虑过要留在这里完成这场战斗。他们正试图逃跑！</text>
+</event>
+
+<eventList name="GOTAWAY_LEECH">
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	<event load="GOTAWAY_LEECH_GENERIC" />
+	
+	<event load="GOTAWAY_LEECH_REMAINS" />
+</eventList>
+<event name="GOTAWAY_LEECH_GENERIC">
+	<text>吸虫族飞船跃迁走了，把你留在了信标处。</text>
+</event>
+<event name="GOTAWAY_LEECH_REMAINS">
+	<text>吸虫族飞船跃迁走了。起初你很失望，但你发现居然剩下了一部分废料。虽然不多，但至少可以弥补刚才战斗的成本。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SHELL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_SHELL">
+	<text load="TEXT_DESTROYED_SHELL" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_SHELL">
+	<text>甲壳族飞船爆炸了，将毒气云送入星域。希望附近没有开放气闸的站点...</text>
+	<text>尽管他们采取了所有的防御措施，甲壳族飞船还是被打败了。你把残骸搜刮了。</text>
+	<text>甲壳族以其维护良好的防御系统而闻名，但你们的武器装备再次证明了其有效性。</text>
+</textList>
+
+<event name="DEAD_CREW_SHELL">
+	<text load="TEXT_DEAD_CREW_SHELL" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_SHELL">
+	<text>考虑到甲壳族的保护程度，与其作战是很危险的，但你已经清除了船上的船员。他们的废料是你的。</text>
+	<text>甲壳族飞船已被消灭。你把这艘船搜刮了。</text>
+</textList>
+
+<event name="SURRENDER_SHELL">
+	<text load="TEXT_SURRENDER_SHELL" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<!--<event load="MORALITY_UPDATE_SHELL"/>-->
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_SHELL">
+	<text>"拜托，你太强了！我们不想打架。我们不想战斗！让我们活下去！"</text>
+	<text>与他们的蛞蝓族表亲不同，甲壳族并不十分贪婪。他们更愿意支付一些废料而不是死亡。你会接受他们的提议吗？</text>
+	<text>你收到了甲壳族舰长的呼叫。"是的是的，你的枪非常好。让我们走，我们有废料！"</text>
+</textList>
+
+<event name="ESCAPE_SHELL">
+	<text>看来甲壳族船已经重新考虑过要留在这里完成这场战斗。他们正试图逃跑！</text>
+</event>
+
+<eventList name="GOTAWAY_SHELL">
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	<event load="GOTAWAY_SHELL_GENERIC" />
+	
+	<event load="GOTAWAY_SHELL_REMAINS" />
+</eventList>
+<event name="GOTAWAY_SHELL_GENERIC">
+	<text>甲壳族飞船跃迁走了，把你留在了信标处。</text>
+</event>
+<event name="GOTAWAY_SHELL_REMAINS">
+	<text>甲壳族飞船跃迁走了。起初你很失望，但后来你发现战斗中留下了一部分废料。虽然不多，但它有助于减轻你失败的打击。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MORPH
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_MORPH">
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	<event load="DESTROYED_MORPH_GENERIC" />
+	
+	<event load="DESTROYED_MORPH_EXTRA" />
+</eventList>
+
+<event name="DESTROYED_MORPH_GENERIC">
+	<text load="TEXT_DESTROYED_MORPH" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_MORPH">
+	<text>灰色的船只被橙色的光芒所吞噬，其平淡无奇的舰体在火焰中上升，很快被星域的真空所熄灭。</text>
+	<text>你不仅炸毁了由许多模物族组成的团队，而且还炸毁了一个巨大的模物族，这很可能是一个难以把握的事实。你想知道这些残骸中的废料是否会重新变成敌人，或者保持无生命。</text>
+	<text>你想知道在他们的飞船刚刚内爆时，模物族是否感到痛苦。你希望没有，但只是因为你永远无法确定这些东西是否真的死了，而且你不希望他们以后再来纠缠你。</text>
+	<text>又有一艘装满了模物族的神秘飞船坠落。你回收出残骸。</text>
+</textList>
+
+<event name="DESTROYED_MORPH_EXTRA">
+	<text>你搜刮了模物族船的残骸，但注意到附近漂浮着一点残骸。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">	
+		<text>收集残余物。</text>
+		<event load="DESTROYED_MORPH_EXTRA_SALVAGE" />
+	</choice>
+	<choice hidden="true">	
+		<text>不理会它。</text>
+		<event />
+	</choice>
+</event>
+<eventList name="DESTROYED_MORPH_EXTRA_SALVAGE">
+	<event>
+		<text>看来回收的东西和你预期的一样。你把它舀起来，带上船。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>你的船员们把回收上来的东西带上船，注意到它有多轻。上船后，这些废料突然改变了形状，变成了一帮愤怒的模物族他们发动了攻击！</text>
+		<boarders min="3" max="4" class="blob" />
+	</event>
+</eventList>
+
+<event name="DEAD_CREW_MORPH">
+	<text load="TEXT_DEAD_CREW_MORPH" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_MORPH">
+	<text>这些胡言乱语的怪物已经被不合时宜地消灭了。你把他们的船搜刮了。</text>
+	<text>你的船员现在正站在一个巨大的模物族本身里面，同时又在搜刮这艘船，这个概念有点令人不安，但你埋下了你的担忧，并命令你的船员赶紧行动。</text>
+	<text>曾经有生命的黏糊灰色斑点现在弄脏了他们的飞船舱壁，在战斗中乱散。你只希望他们不会在回收过程中复活并攻击你。</text>
+	<text>当你搜刮模物族飞船时，你想知道那些奇怪的灰色斑点是否能感觉到疼痛，以及他们的最后时刻是否在痛苦中度过。说实话，你仍然不确定他们是否是有智慧的。</text>
+</textList>
+
+<event name="SURRENDER_MORPH">
+	<text load="TEXT_SURRENDER_MORPH" />
+	<choice hidden="true">
+		<text>接受他们的"投降"。</text>
+		<event load="SURRENDER_MORPH_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_MORPH">
+	<text>"唧噗唧噗啾！呃啦哟噗唲喻！"你认为模物族在投降，但你并不确定。你打算如何回应？</text>
+	<text>"哦咭！哦啾！吔唲唭噗咯咯！"你认为模物族在投降，但你并不确定。如何回应？</text>
+	<text>"哦嘚呀吥。唭吗咭噢咔噗！"你认为模物族在投降，但你并不确定。如何回应？</text>
+</textList>
+<eventList name="SURRENDER_MORPH_ACCEPT">
+	<event>
+		<text>你解除了武器，希望模物族也能这样做。事实上，他们也把他们的武器关掉了，尽管他们这样做是因为你理解正确，还是他们认为你在投降，还有待讨论。不久之后，一个小的模物族找到了它的方式，但他们似乎很友好，想留下来。</text>
+		<crewMember amount="1" class="blob" />
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>你解除了武器，希望模物族也能这样做。相反，一群愤怒的模物族冲进了你的飞船，战斗继续进行！</text>
+		<boarders min="2" max="3" class="blob" />
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					COALITION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_COALITION">
+	<text load="TEXT_DESTROYED_COALITION" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_COALITION">
+	<text>星联的飞船爆炸了。当独立的碎片飘走时，你可以再次看到各派别之间的分歧。你更喜欢这种方式。</text>
+	<text>星联不会乱来，但你又一次取得了胜利。他们的船的残骸是你的废料。</text>
+	<text>你已经证明了没有人，不管是叛军还是星联，都能胜过你。或者至少，这艘船不能。</text>
+	<text>星联飞船在你的攻击下被炸得四分五裂。希望这艘飞船被摧毁后，人类可以稍稍安心。</text>
+	<text>敌舰被炸得粉碎。幸运的是，联邦敌人们的各种技术聚集在一起，使这艘飞船的废料收益相当可观。</text>
+</textList>
+
+<event name="DEAD_CREW_COALITION">
+	<text load="TEXT_DEAD_CREW_COALITION" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_COALITION">
+	<text>你的手上混合着各种不同的外星人的血液。难怪他们一定都讨厌联邦。</text>
+	<text>星联是由一些最可怕的战士种族组成的，但你的船员已经证明了自己的优势。</text>
+	<text>满地都是星联成员的尸体。没有什么能阻止你搜刮他们的飞船。</text>
+	<text>众所周知，星联一直在吹嘘自己的登舰战强于联邦。但你的船员完全有能力证明他们不是好惹的。</text>
+	<text>联邦和星联都相信多样性就是力量。随着他们的飞船失去所有生命信号，你证明了你的飞船更强大。</text>
+</textList>
+
+<event name="SURRENDER_COALITION">
+	<text load="TEXT_SURRENDER_COALITION" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_COALITION">
+	<text>星联的舰长向你求救，并勉强要求你接受他们的投降。</text>
+	<text>你可以看出，星联的舰长很难承认，但他们已经被打败了。他们提出投降。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					GHOST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_GHOST">
+	<text load="TEXT_DESTROYED_GHOST" />
+	<autoReward level="MED">stuff</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_GHOST">
+	<text>已经分不清哪些是你你造成的破坏哪些是这艘船原有破败状态。你造成的伤害进一步加剧飞船的报废程度。</text>
+	<text>魂灵族船已不复存在。你能搜刮的就搜刮吧。</text>
+	<text>这艘船的生命循环已经完成。现在终于被摧毁了，就像它最初应该被摧毁的那样，你搜刮了剩下的东西。</text>
+</textList>
+
+<event name="DEAD_CREW_GHOST">
+	<text load="TEXT_DEAD_CREW_GHOST" />
+	<autoReward level="MED">stuff</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_GHOST">
+	<text>你已经把船上的魂灵族俘虏清空了。他们将不再掠夺经过这一星区的无辜船只。</text>
+	<text>你突然意识到，这艘船的全体船员已经被消灭过两次。这个想法让你回收废料的双手不寒而栗。</text>
+	<text>现在已经没有船员了，你要确保彻底清除遗迹，这样就不会再有魂灵族居住在这艘船上了。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DYNASTY
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_DYNASTY">
+	<text load="TEXT_DESTROYED_DYNASTY" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_DYNASTY">
+    <text>灵朝王朝的建筑师们可能每次听到他们的另一艘船被摧毁的消息时都会感到害怕。自从他们过去的大灾难以来，他们的舰队就一直在减少，而你肯定没有帮助。</text>
+    <text>在灿烂的蓝光停止之前，灵朝飞船上鲜艳的蓝光在其最后时刻闪烁，舰体的完整性也随之崩溃了。</text>
+    <text>如果每艘联邦舰艇都能像你一样高效地杀死灵朝的舰艇，那就难怪他们会对你们恨之入骨了！然而，从你的经验来看，似乎没有多少有能力的舰长来解释这一现象。</text>
+    <text>你瞥见在舰体倒塌时，有一缕闪亮的色彩从船体中漂浮出来。魂灵族是否逃脱了可怕的命运，或者这只是相当于一具尸体被扔到了宇宙中？你真的不确定。</text>
+</textList>
+
+<event name="DEAD_CREW_DYNASTY">
+	<text load="TEXT_DEAD_CREW_DYNASTY" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_DYNASTY">
+	<text>你听说魂灵族有一种最可怕的气味，而你再高兴不过了，灵朝飞船内没有空气，不会像你搜刮的那样带着气味。</text>
+	<text>你想知道魂灵族在死前是否感到痛苦。在刚刚发生的事情之后，你真诚地希望他们不会。</text>
+	<text>"阿格，看你的直肠被穿透，你这个肮脏的小人。"魂灵族舰长开始消散时嘟囔道。</text>
+	<text>你还记得，在你的多元宇宙旅行手册上，曾看到建议在保留魂灵族飞船的同时，不要费力去杀死上面的魂灵族。但看看现在的你！如果0号宇宙的人们能看到你造成的灾难就好了。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LANIUS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_LANIUS">
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	<event load="DESTROYED_LANIUS_GENERIC" />
+	
+	<event load="DESTROYED_LANIUS_BOARDER" />
+</eventList>
+<event name="DESTROYED_LANIUS_GENERIC">
+	<text load="TEXT_DESTROYED_LANIUS" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_LANIUS">
+	<text>在报废食铁族飞船时，人们永远不能太过谨慎，因为担心要么有孤独的幸存者在真空中漂流，要么与尖锐的碎片相撞。</text>
+	<text>摧毁食铁族飞船让你感到非常满意，要知道食铁族作为敌人是多么臭名昭著的困难。</text>
+	<text>食铁族可能是优秀的拾荒者，但今天你已经扭转了他们的局面。</text>
+</textList>
+<event name="DESTROYED_LANIUS_BOARDER">
+	<text load="TEXT_DESTROYED_LANIUS" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来食铁族船的毁灭还不足以杀死所有的船员。一个食铁族设法逃出了地狱，现在已经附在了这艘船的身上！</text>
+			<boarders min="1" max="1" class="lanius" />
+		</event>
+	</choice>
+</event>
+
+<event name="DEAD_CREW_LANIUS">
+	<text load="TEXT_DEAD_CREW_LANIUS" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_LANIUS">
+	<text>在食铁族飞船的无氧内部进行搜刮处理很困难，但你可以做到。没有什么能让你远离你宝贵的废料，甚至残酷的星域真空也不能。</text>
+	<text>没有船员在船上打扰你，你可以真正欣赏到食铁族建筑的复杂性。当然，它看起来像一堆用胶带粘在一起的厨房刀具，但只要态度正确，任何东西都可以成为艺术。</text>
+	<text>随着食铁族飞船船员的死亡，没有什么能阻止你撕开他们的船体。</text>
+</textList>
+
+<event name="SURRENDER_LANIUS">
+	<text load="TEXT_SURRENDER_LANIUS" />
+	<choice>
+		<text>接受他们的投降。</text>
+		<event load="SURRENDER_ACCEPT" />
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+<textList name="TEXT_SURRENDER_LANIUS">
+	<text>你的显示器上出现了一个沉默的食铁族舰长的图像。随后是他们装满货物的货舱的图像。你得出的结论是，他们正试图为停火进行讨价还价。</text>
+	<text>食铁族飞船在呼叫你。你的翻译在挣扎，喷出了"防止死亡...仁慈的...忏悔的人..."。你相信他们是在投降。</text>
+	<text>你收到来自船上的呼叫，接着是一个粗糙的翻译装置喷出的声音："停。停下来。停止。"</text>
+	<text>你收到了他们舰长的图像，被他们船上的破坏所掩盖。它向前鞠躬，身上的金属附属物也跟着鞠躬。它似乎在请求怜悯。</text>
+	<text>你的通讯系统收到了敌舰船员挥舞临时小白旗的视频资料。看来他们对你们的文化习俗的研究是非常正确的。</text>
+	<text>你收到来自敌舰的信息，你的翻译艰难地解释道："对金属的忏悔。献祭意图。"</text>
+	<text>你收到了来自敌舰的一个字的信息："投降。"你认为他们是在请求投降，而不是要求你投降。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SIRENS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_SIREN_UNKNOWN">
+    <text>这艘神秘的船被摧毁了。你搜刮了它光滑的白色舰体，而彩虹灯继续明灭不定地闪烁。</text>
+    <autoReward level="MED">standard</autoReward>
+</event>
+
+<event name="DEADCREW_SIREN_UNKNOWN">
+    <text>这艘神秘船只的船员已经死亡。你刮开它光滑的白色舰体，而彩虹灯继续闪烁着生命。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>令你惊讶的是，你发现外星飞船的仓库还塞着另一个人。对方似乎处于某种奇怪的恍惚状态，该症状在慢慢消失。对方安全之后，选择了加入你的队伍。</text>
+            <crewMember amount="1" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AUGMENTED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="DESTROYED_AUGMENTED">
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	<event load="DESTROYED_AUGMENTED_GENERIC" />
+	
+	<event load="DESTROYED_AUGMENTED_BOARDER" />
+</eventList>
+<event name="DESTROYED_AUGMENTED_GENERIC">
+	<text load="TEXT_DESTROYED_AUGMENTED" />
+	<autoReward level="MED">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_AUGMENTED">
+	<text>在报废食铁族飞船时，人们永远不能太过谨慎，因为担心要么有孤独的幸存者在真空中漂流，要么与尖锐的碎片相撞。</text>
+	<text>摧毁食铁族飞船让你感到非常满意，要知道食铁族作为敌人是多么臭名昭著的困难。</text>
+	<text>食铁族可能是优秀的拾荒者，但今天你已经扭转了他们的局面。</text>
+</textList>
+<event name="DESTROYED_AUGMENTED_BOARDER">
+	<text load="TEXT_DESTROYED_AUGMENTED" />
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来食铁族船的毁灭还不足以杀死所有的船员。一个食铁族设法逃出了地狱，现在已经附在了这艘船的身上！</text>
+			<boarders min="1" max="1" class="lanius_augmented" />
+		</event>
+	</choice>
+</event>
+
+<event name="DEAD_CREW_AUGMENTED">
+	<text load="TEXT_DEAD_CREW_AUGMENTED" />
+	<autoReward level="HIGH">item</autoReward> <!--potentially change to standard-->
+</event>
+<textList name="TEXT_DEAD_CREW_AUGMENTED">
+	<text>在食铁族飞船的无氧内部进行搜刮处理很困难，但你可以做到。没有什么能让你远离你宝贵的废料，甚至残酷的星域真空也不能。</text>
+	<text>没有船员在船上打扰你，你可以真正欣赏到食铁族建筑的复杂性。当然，它看起来像一堆用胶带粘在一起的厨房刀具，但只要态度正确，任何东西都可以成为艺术。</text>
+	<text>随着食铁族飞船船员的死亡，没有什么能阻止你撕开他们的船体。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ANCIENT
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROYED_ANCIENT">
+	<text load="TEXT_DESTROYED_ANCIENT" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DESTROYED_ANCIENT">
+	<text>你已经为银河系摆脱了另一艘方碑族飞船。肯定还会有成百上千艘，但这是件好事。</text>
+	<text>方碑族飞船爆炸成许多更小的碎片，它的立方体形状永远粉碎了。这是一种奇怪的满足感，当你搜刮这些残骸时，你对自己的手艺深情地反思。</text>
+	<text>虽然你知道方碑族处于这个星系的对立面，但你不禁要问，是不是每艘你歼灭的飞船都知道他们的宏大计划。</text>
+	<text>你每摧毁一艘方碑族飞船，你就能拖延叛军的追击。你知道这并不多，但它对你来说感觉很重要。</text>
+</textList>
+
+<event name="DEAD_CREW_ANCIENT">
+	<text load="TEXT_DEAD_CREW_ANCIENT" />
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<textList name="TEXT_DEAD_CREW_ANCIENT">
+	<text>当最后一块方碑族倒下时，它发出了最后两个字。"去...你..."</text>
+	<text>你很快就解决了这帮小房间里的外星人。你没有感到通常伴随着这些谋杀的罪恶感。在大多数情况下。</text>
+	<text>方碑族飞船的内部堆满了死去的船员的灰尘。你说这是一个很好的工作，并下达了搜刮该船的命令。</text>
+	<text>方碑族飞船及其船员的死亡对银河系其他地区来说意味着好消息。你只希望他们没有任何家庭来为他们悲伤。</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ELITE DEFEAT EVENTS 
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REBEL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_REBEL_ELITE">
+	<text>你打败了叛军精英，这可不是一件容易的事。虽然不足以影响到舰队，但这仍然是一个伟大的胜利。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来叛军精英飞船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_REBEL" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					WI AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_AUTO_ELITE">
+	<text>你击败了革新社自动舰，这个敌人的威胁不断升级，确实不容忽视；但说到底，它不过是一台该死的机器，被你的武力迅速压制。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来吸虫族星舰上的货物在战斗中幸存了下来。里面有一个还能用的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_ESTATE" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					TECHNICIAN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_ENGINEER_ELITE">
+	<text>你打败了一艘革新社技工船，令人印象深刻。虽然在温特沃斯革新社公司的眼中，他们可能仅仅是卑微的工人，但他们的船装备相当精良，在战斗中成功击败一艘船不是小事。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来革新社技工战舰上的货物在战斗中幸存了下来。里面有一个还能用的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_REBEL" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FEDERATION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_FED_ELITE">
+	<text>消灭联邦的盟友，尤其是精英船员，与你的任务背道而驰，但这并不会阻止你捞回点实惠。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>似乎精英联邦飞船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_FEDERATION" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					STEALTH
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_STEALTH">
+	<text>联邦现有的隐形战舰数量极少，失去一艘就意味着其特种作战行动遭受重大打击。但你的任务更为重要，所以你迅速对残骸进行了清理。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来吸虫族星舰上的货物在战斗中幸存了下来。里面有一个还能用的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_FEDERATION" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ENGI
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_ENGI_ELITE">
+	<text>随着半械族保卫者的死亡，现在保护谐合飞船免受真正威胁的船只越来越少，但你不能在每次战斗中都逃跑。你回收出了这艘船的残骸。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来精英半械族船的货物在战斗中幸存下来了。里面有一架功能性无人机，你把它带回星舰。</text>
+			<drone name="GIFTLIST_ENGI" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ZOLTAN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_ZOLTAN_ELITE">
+	<text>维持和平就这样了。牧师团努力保持其维和特遣部队与多元宇宙的所有混乱状况相适应，而这肯定不会对此有帮助。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来超能族精英飞船上的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_ZOLTAN" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MILITIA
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_MILITIA_ELITE">
+	<text>精英护卫队是少数能够保卫盟卫星区的部队之一，而且它们并不常见。这艘船的损失肯定会对盟卫产生不利影响。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>似乎精英盟卫船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_UNION" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ORCHID
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_ORCHID_ELITE">
+    <text>你成功击落了军政官和他们的飞船，现在残骸正等待着你的搜刮。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>似乎精英兰花族船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_KERNEL_ELITE" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ORCHID
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_VAMPWEED_ELITE">
+    <text>你已经成功地打倒了一名强大的种植者与其飞船，现在残骸可供你搜刮。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>看来叛军精英飞船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_SPORE_ELITE" />
+        </event>
+    </choice>
+</event>
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CRYSTAL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_CRYSTAL_ELITE">
+    <text>戍卫者飞船的鲜红碎晶片飞向深渊，这艘强大的精英战舰停了下来。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>看来精英水晶族船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_CRYSTAL_ELITE" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ROCK
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_ROCK_ELITE">
+    <text>圣判所曾经是整个银河系最令人畏惧的力量之一，但他们已经从荣耀中衰落。这次胜利只是雪上加霜。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>似乎精英岩石族船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_ROCK" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FREE MANTIS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DESTROY_FREEMAN_ELITE">
+	<text>自由螳螂军阀飞船已被摧毁。你搜刮了残骸中剩下的东西。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="DEADCREW_FREEMAN_ELITE">
+	<text>自由螳螂军阀飞船已经被消灭。你把船上剩下的东西搜刮了。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来其中一个军阀设法在冲突中存活下来，虽然受伤了。看起来他们很健康，可以从藏身之处摇摇晃晃地走出来迎接你。"哦，高贵的联邦，你是光荣的战士！给我带来仁慈，让我为你服务！"</text>
+			<crewMember amount="1" class="mantis_warlord" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SUZERAIN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_SUZERAIN_ELITE">
+    <text>你已经成功地打倒了一个强大的精英母巢和他们的飞船，现在残骸是你的了，可以搜刮。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>似乎精英螳螂族号上的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_MANTIS" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DUSKBRINGER
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_DUSK_ELITE">
+	<text>今天你已经向暮临派展示了你不会乱来。没有任何船只，即使是最极端的，也不能打败你。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来暮临派飞船的货物在战斗中幸存下来。里面有一件功能性武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_DUSK" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SLUG
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_SLUG_ELITE">
+	<text>如果几个世纪前的原始通灵者能看到他们的后代现在倒在像你这样的船上，他们会哭泣的。坦率地说，你并不介意这一点。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>似乎精英蛞蝓族船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_SLUG" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SHELL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_SHELL_ELITE">
+	<text>一艘辐射体舰败在了你的星舰下。从长远来看，这可能会使甲壳族星域变得不那么安全，但就目前而言，这意味着你能活到明天。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>似乎精英甲壳族的货物在战斗中幸存下来。里面有一个反舰体武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_SHELL" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AMPERE
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_LEECH_ELITE">
+	<text>电吸虫是由星联自己训练的，他们比普通的吸虫族要致命得多。通过抹杀这艘船，你可能已经削弱了共和国唯一能干的士兵中的很大一部分。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来吸虫族星舰上的货物在战斗中幸存了下来。里面有一个还能用的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_LEECH" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					COALITION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_COALITION_ELITE">
+    <text>这艘星联船解体的时候你无意中瞟到一眼"星团精队"四个字，你觉得这种愚蠢的简称非常契合星联。说真的，这鬼东西到底是谁想出来的？</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>似乎精英星联船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+            <weapon name="GIFTLIST_COALITION" />
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LANIUS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_LANIUS_ELITE">
+	<text>精英食铁族的失败并不值得嘲笑，留下的残骸数量也不值得嘲笑。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来食铁族船的货物在战斗中幸存下来。里面有一门破片炮，你把它带回了船上。</text>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					VAGABOND
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_VAGABOND_ELITE">
+	<text>这些漂流的魂灵族反复无常的战术已经让他们成为可怕的敌人，但如果再加上前精英战舰，情况就会更加不利。幸运的是，你取得了胜利。</text>
+	<autoReward level="MED">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>漂浪群飞船上的货物似乎在战斗中幸存了下来。里面有一件虽然生锈但还能使用的武器，你可以把它带回星舰上。</text>
+			<weapon name="GIFTLIST_RUSTY" />
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DYNASTY
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="DEFEAT_DYNASTY_ELITE">
+	<text>灵割战舰不容小觑，但灵朝应该更清楚地知道不该对你挥拳相向。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>看来灵朝战舰上的货物在战斗中幸存了下来。里面有一个还能用的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_DYNASTY" />
+		</event>
+	</choice>
+</event>
+</FTL>
+

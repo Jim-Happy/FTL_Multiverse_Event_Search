@@ -1,0 +1,364 @@
+=== FTL XML Schema 分析报告 ===
+共扫描 XML 文件数: 89
+解析失败文件数: 0
+----------------------------------------
+
+标签: <FTL>
+  - 包含属性 (Attributes): [无]
+  - 允许的子标签 (Children): event, eventList, imageList, ship, textList
+
+标签: <achievement>
+  - 包含属性 (Attributes): silent
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <activeColor>
+  - 包含属性 (Attributes): b, g, r
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <augment>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <autoReward>
+  - 包含属性 (Attributes): level
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <backgroundObject>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): active, anim, clickAction, hoverAnim, inactiveAnim, layer, req, spawnArea, tooltip
+
+标签: <beaconType>
+  - 包含属性 (Attributes): global, id, req
+  - 允许的子标签 (Children): color, undiscoveredTooltip, unvisitedTooltip, visitedTooltip
+
+标签: <boarders>
+  - 包含属性 (Attributes): amount, breach, class, max, min
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <choice>
+  - 包含属性 (Attributes): blue, hidden, hiiden, lvl, max_group, max_lvl, min_level, req
+  - 允许的子标签 (Children): autoReward, choice, choiceRequiresCrew, event, instantEscape, ship, text
+
+标签: <clearBackgroundObject>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <clearJumpEvent>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <clearSuperDrones>
+  - 包含属性 (Attributes): player
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <clearTriggeredEvent>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <clickAction>
+  - 包含属性 (Attributes): [无]
+  - 允许的子标签 (Children): destroy, event
+
+标签: <color>
+  - 包含属性 (Attributes): a, b, g, r
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <crew>
+  - 包含属性 (Attributes): [无]
+  - 允许的子标签 (Children): crewMember
+
+标签: <crewMember>
+  - 包含属性 (Attributes): all_skills, amount, class, combat, engines, id, pilot, prop, repair, shields, type, weapons
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <customFleet>
+  - 包含属性 (Attributes): autoDarkening, firing, right
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <customLocation>
+  - 包含属性 (Attributes): x, y
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <damage>
+  - 包含属性 (Attributes): amount, damageHull, effect, status, system
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <deadCrew>
+  - 包含属性 (Attributes): load
+  - 允许的子标签 (Children): augment, autoReward, choice, crewMember, customFleet, damage, drone, environment, item_modify, modifyPursuit, noASBPlanet, quest, reveal_map, status, store, text, unlockShip, variable, weapon
+
+标签: <deathEvent>
+  - 包含属性 (Attributes): thisFight
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <destroyed>
+  - 包含属性 (Attributes): load
+  - 允许的子标签 (Children): achievement, augment, autoReward, choice, customFleet, damage, environment, event, item_modify, killEnemyBoarders, modifyPursuit, noASBPlanet, recallBoarders, reveal_map, status, store, text, unlockShip, variable, weapon
+
+标签: <drone>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <enemyCrew>
+  - 包含属性 (Attributes): amount, includeClonebay
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <enemyDamage>
+  - 包含属性 (Attributes): amount, damageHull, effect, system
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <environment>
+  - 包含属性 (Attributes): target, type
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <escape>
+  - 包含属性 (Attributes): chance, load, max, min, timer
+  - 允许的子标签 (Children): choice, ship, text
+
+标签: <event>
+  - 包含属性 (Attributes): hidden, load, lvl, max_lvl, name, req, unique
+  - 允许的子标签 (Children): achievement, aggressive, augment, autoReward, backgroundObject, beaconType, boarders, changeBackground, checkCargo, choice, choiceRequiresCrew, clearBackgroundObject, clearCustomFleet, clearJumpEvent, clearSuperDrones, clearTriggeredEvent, createNebula, crewMember, customFleet, damage, deathEvent, disableScrapAugments, disableScrapScore, distressBeacon, drone, enemyDamage, environment, escape, event, eventAlias, eventButton, fleet, goToFlagship, hiddenAug, hover-text, img, instantEscape, item_modify, jumpEvent, killEnemyBoarders, loadEvent, loadEventList, lose, metaVariable, modifyPursuit, nebulaBeacon, noASBPlanet, noQuestText, playMusic, playSound, preventBossFleet, preventFleet, preventQuest, quest, queueEvent, recallBoarders, remove, removeCrew, removeHazards, removeItem, removeNebula, repair, replaceSector, resetFtl, restartEvent, reveal_map, revisitEvent, runFromFleet, secretSector, secretSectorWarp, ship, status, store, superBarrage, superDrones, superShields, surrender, system, text, transformRace, triggeredEvent, unlockCustomShip, unlockShip, upgrade, variable, weapon, win
+
+标签: <eventAlias>
+  - 包含属性 (Attributes): jumpClear, name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <eventButton>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): activeColor, color, customLocation, event, image, inactiveColor, inactiveTooltip, jumpClear, location, noDanger, req, selectedColor, textColor, tooltip
+
+标签: <eventList>
+  - 包含属性 (Attributes): name, unique
+  - 允许的子标签 (Children): event
+
+标签: <finalBoss>
+  - 包含属性 (Attributes): ach, creditsBackground, creditsText, music, text
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <goToFlagship>
+  - 包含属性 (Attributes): allFleet, atBase
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <gotaway>
+  - 包含属性 (Attributes): load
+  - 允许的子标签 (Children): autoReward, choice, damage, modifyPursuit, quest, text
+
+标签: <image>
+  - 包含属性 (Attributes): border
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <imageList>
+  - 包含属性 (Attributes): name, ui
+  - 允许的子标签 (Children): img
+
+标签: <img>
+  - 包含属性 (Attributes): back, h, planet, w
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <inactiveAnim>
+  - 包含属性 (Attributes): hide
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <inactiveColor>
+  - 包含属性 (Attributes): b, g, r
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <item>
+  - 包含属性 (Attributes): max, min, type
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <item_modify>
+  - 包含属性 (Attributes): steal
+  - 允许的子标签 (Children): item
+
+标签: <jumpEvent>
+  - 包含属性 (Attributes): loop, name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <jumps>
+  - 包含属性 (Attributes): amount, type
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <layer>
+  - 包含属性 (Attributes): z
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <loadEvent>
+  - 包含属性 (Attributes): generate, ignoreUnique, seeded
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <loadEventList>
+  - 包含属性 (Attributes): default, first, generate, ignoreUnique, seeded
+  - 允许的子标签 (Children): event
+
+标签: <lose>
+  - 包含属性 (Attributes): sound, text
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <metaVariable>
+  - 包含属性 (Attributes): name, op, val
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <miniBoss>
+  - 包含属性 (Attributes): musicDelay, sound
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <modifyPursuit>
+  - 包含属性 (Attributes): amount
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <playerDamage>
+  - 包含属性 (Attributes): amount
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <preventBossFleet>
+  - 包含属性 (Attributes): forever
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <quest>
+  - 包含属性 (Attributes): event
+  - 允许的子标签 (Children): aggressive, createNebula, currentSector, lastStand, nebulaBeacon, nebulaEvent, nextSector, nonNebulaBeacon, removeNebula, sectorEight
+
+标签: <queueEvent>
+  - 包含属性 (Attributes): seeded
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <recallBoarders>
+  - 包含属性 (Attributes): force, ship
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <remove>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <removeCrew>
+  - 包含属性 (Attributes): class
+  - 允许的子标签 (Children): clone, text
+
+标签: <replaceSector>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <req>
+  - 包含属性 (Attributes): lvl, max_lvl
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <revisitEvent>
+  - 包含属性 (Attributes): seeded
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <runFromFleet>
+  - 包含属性 (Attributes): closest
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <selectedColor>
+  - 包含属性 (Attributes): b, g, r
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <ship>
+  - 包含属性 (Attributes): auto_blueprint, blueprint, hostile, load, name
+  - 允许的子标签 (Children): crew, deadCrew, deadCrewAuto, destroyed, escape, finalBoss, gotaway, miniBoss, surrender, triggeredEvent, weaponOverride
+
+标签: <spawnArea>
+  - 包含属性 (Attributes): center, h, w, x, y
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <status>
+  - 包含属性 (Attributes): amount, system, target, type
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <superBarrage>
+  - 包含属性 (Attributes): name, player
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <superDrones>
+  - 包含属性 (Attributes): name, player
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <superShields>
+  - 包含属性 (Attributes): amount, player
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <surrender>
+  - 包含属性 (Attributes): chance, load, max, min
+  - 允许的子标签 (Children): autoReward, choice, crewMember, damage, environment, noASBPlanet, ship, status, text, upgrade, weapon
+
+标签: <system>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <text>
+  - 包含属性 (Attributes): back, id, load, planet
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <textColor>
+  - 包含属性 (Attributes): b, g, r
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <textList>
+  - 包含属性 (Attributes): name, unique
+  - 允许的子标签 (Children): text
+
+标签: <time>
+  - 包含属性 (Attributes): amount
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <timerSounds>
+  - 包含属性 (Attributes): load
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <transformRace>
+  - 包含属性 (Attributes): class
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <triggeredEvent>
+  - 包含属性 (Attributes): clearOnJump, enemyCrew, enemyDamage, enemyDeaths, enemyHull, event, jumps, loops, maxTime, minTime, name, playerCrew, playerDamage, playerDeaths, playerHull, seeded, system, thisFight, time
+  - 允许的子标签 (Children): enemyCrew, jumps, playerDamage, time, timerSounds, triggeredEventBox, warningMessage
+
+标签: <triggeredEventBox>
+  - 包含属性 (Attributes): load, pos
+  - 允许的子标签 (Children): tooltip, warning
+
+标签: <unlockCustomShip>
+  - 包含属性 (Attributes): shipReq, silent
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <unlockShip>
+  - 包含属性 (Attributes): id
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <unvisitedTooltip>
+  - 包含属性 (Attributes): id
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <upgrade>
+  - 包含属性 (Attributes): amount, system
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <variable>
+  - 包含属性 (Attributes): max, min, name, op, val, var
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <visitedTooltip>
+  - 包含属性 (Attributes): id
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <warning>
+  - 包含属性 (Attributes): flash, time
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <warningMessage>
+  - 包含属性 (Attributes): b, centerText, flash, g, id, r, sound, time, useWarningLine, x, y
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <weapon>
+  - 包含属性 (Attributes): name
+  - 允许的子标签 (Children): [无子节点]
+
+标签: <weaponOverride>
+  - 包含属性 (Attributes): count
+  - 允许的子标签 (Children): name
+
+标签: <win>
+  - 包含属性 (Attributes): ach, creditsBackground, creditsText, music, text
+  - 允许的子标签 (Children): [无子节点]

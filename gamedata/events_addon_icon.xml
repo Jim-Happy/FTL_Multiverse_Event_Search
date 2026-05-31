@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+
+<!--Addon Icon picture path is the following img/addons/[lowercase event name without the ADDON_ prefix] with either the _on.png or _select2.png suffix.
+example: 
+img/addons/trc_disabled_on.png
+img/addons/trc_disabled_select2.png
+-->
+<event name="ADDON_TRC_DISABLED"> <!--Put the _DISABLED suffix to ensure that the icon gets clobbered by the non disabled version if it exist-->
+	<!--Text shown when hovering the icon-->
+	<hover-text>开发中子Mod：变元者合集
+当前被禁用。
+点击查看更多信息。</hover-text>
+	
+	<!--Event text shown when selecting the icon-->
+	<text>变元者合集
+	创作者：Kix
+	当前被禁用。
+
+一款与多元宇宙一同使用的扩展包。其中包含了众多不同的武器与无人机的设计概念，但出于某种原因，这些设计在某种程度上并不适合包含在多元宇宙基础内容中。
+
+	要启用变元者合集，请前往多元宇宙论坛，然后访问官方下载分类！</text>
+</event>
+
+<!--Addon Icon picture path is the following img/addons/[lowercase event name without the ADDON_ prefix] with either the _on.png or _select2.png suffix.
+example: 
+img/addons/trc_on.png
+img/addons/trc_select2.png
+<event name="ADDON_TRC">
+	<hover-text>THE RENEGADE COLLECTION
+	Click to see more info.</hover-text>
+
+	<text>THE RENEGADE COLLECTION 
+	Developed by: Kix
+	Currently Enabled.
+	
+	An equipment expansion pack meant to be used alongside Multiverse. Includes many various weapon and drone concepts considered, for one reason or another, unfitting for the base mod. While attempting to be balanced, due to the nature of the equipment in this pack as well as the fact it is not part of base Multiverse means there may be a higher variation of balance than usual. The new weapons include those that are niche, too conceptually similar to existing weapons, involve "hard-to-balance" gimmicks, or are just conceptually bizarre.</text>	
+</event>
+-->
+
+</FTL>
+

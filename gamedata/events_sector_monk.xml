@@ -1,0 +1,2357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MONK SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_MONK">
+	<event load="NEBULA_LIGHT_MONK_GRAVE" />
+	<event load="NEBULA_MONK_FREE_CREW" />
+	<event load="NEBULA_MONK_CONVERT" />
+	<event load="NEBULA_MONK_BEGGAR" />
+	<event load="NEBULA_MONK_STRANDED_FED" />
+	<event load="NEBULA_MONK_GHOST" />
+</eventList>
+
+<event name="NEBULA_LIGHT_MONK_GRAVE" unique="true">
+	<text>虽然这个信标处仍有一个星云，但你还是注意到了来自附近卫星的奇怪图像。通过它你推断有一艘飞船在那里降落过，但你无法判断是哪种飞船。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>降落。</text>
+		<event>
+			<text>当你接近卫星时，你能够看到表面上有一艘暮临派的船只。尽管你觉得不降落更为明智，你还是决定降落，并不断靠近那艘船。当你到达时，你发现了一排小石头和一个穿着铠甲的超能族跪在上面哭泣。</text>
+			<ship load="SHIP_DUSK_GENERIC" hostile="false" />
+			<choice hidden="true">
+				<text>问出什么问题了。</text>
+				<event>
+					<text>超能族转向你，他的心情从心烦意乱变成凌乱和愤怒。"变元狗？离开这里，这里是圣地！"你把武器装进口袋，举起双臂，以示你是和平而来。超能族叹了口气，继续盯着那些无名的坟墓。
+						
+"联邦历史书上没有讲述很多关于超能族参与联邦战争的故事。我想大多数人都会选择相信我们基本没有参与过。但是几十亿，甚至更多，荣耀的超能族在螳螂入侵战争、反抗岩石圣战和联邦内战中为联邦和银河系献出了生命。而他们得到了什么感谢？一个个无名的坟墓，在一个除了信道者之外没有人去的随便一个卫星上。而牧师团对此却无动于衷。他们希望人们忘记我们参与的那些战争，作为他们整个...'非暴力'宣传的一部分。"他在远离坟墓的地面上吐了口水。"这极为可耻，真的。"</text>
+					<choice hidden="true">
+						<text>为联邦的错误道歉。</text>
+						<event>
+							<text>超能族擦去了一滴眼泪。"谢谢你。我不知道你有多大的诚意，但我很感激。很少遇到有人愿意听我说话，而不大喊大叫说我是个激进分子。我不能提供很多，但也许我有一些东西可以弥补我的错误。"</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>提到牧师团在"最终一战"期间或之后从未出现过。</text>
+						<event>
+							<text>"这表明你真的对历史丝毫不知。在联邦内战期间，牧师团派部队援助联邦，我们被派往偏远的前线作战，在茫茫星域中处理海盗而不是叛军。但内部事务开始变糟，而叛军总是处于高度威胁，牧师团无法继续派兵，所以暂缓了增援。于是自然，战争结束后，超能族被描绘成不愿意为亲身参与建立的组织效忠的懦夫和叛徒。"他转过身去，继续盯着那些坟墓。由于没有什么好说的，你认为最好还是离开。</text>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>那节点17的纪念碑呢？</text>
+						<event>
+							<text>"没对超能族有任何提及，一个也没有。那里记有数百亿计的人类姓名，却没有一个超能族或半械族的。你认为这是为什么呢？因为为纪念碑出资的人，是那些战前悠闲地与温特沃斯打高尔夫的黑心同盟铜臭卑鄙小人。他们不想在上面提到超能族，所以没有这样做。这就是为什么像'不灭者'德沃拉克这样的人要反对联邦。"</text>
+							<choice hidden="true">
+								<text>这极为可耻，他们怎能如此埋葬你族的历史。</text>
+								<event>
+									<text>超能族擦去了一滴眼泪。"谢谢你。我不知道你有多大的诚意，但我很感激。很少遇到有人愿意听我说话，而不大喊大叫说我是个激进分子。我不能提供很多，但也许我有一些东西可以弥补我的错误。"</text>
+									<autoReward level="MED">standard</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>你们本该做得更多。</text>
+								<event>
+									<text>"一次又一次，银河系似乎只是显得自己像一个循环。我不知道如果人们与我针锋相对，无视我说的每一句话，我费力去弥补过去的错误还有什么意义呢？好吧，如果你喜欢用这种方式解决问题...那就用这种方式！"</text>
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="unique_devorak">
+								<text>(德沃拉克)"在我们愤怒的时候，我们都会犯错误。"</text>
+								<event>
+									<text>当暮临派意识到德沃拉克也在你的团队中时，他双眼放光。他们向彼此鞠躬。"哦，我的——德沃拉克！我没有意识到—"德沃拉克打断了他的话。"没关系的。在我的人生中，我也犯了许多，不，太多的错误。我们都对联邦感到愤怒，而且有充分的理由，但我们决不能让我们的愤怒变成暴力。我们必须抗议，但必须和平地抗议。除了不导致流血事件，没有其他能取得实质性进展的办法。这些是我们必须自己领悟的教训。"年轻的超能族陷入了极大的震撼，他自我介绍说叫多凡，并请求加入你的团队。</text>
+									<crewMember amount="1" class="zoltan_devotee">多凡</crewMember>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>在其中一个坟墓上留下一些废料作为祭奠物。</text>
+						<event>
+							<text>这肯定是个显得十分奇怪的情感释放，但这是你在有限的资源下能做的最好的事。不管怎么说，暮临派似乎很感激它。他一边擦着眼泪，一边说："谢谢。我还不知道变元者也有你这种敏感的类型。敏感是指，明事理。也许预设人设十分无礼。"他重新站起来，伸出手来。"我的名字叫多凡。我在生命中黑暗时刻加入了暮临派，当时牧师团和同盟之间的关系最为紧张，对联邦的一切我都感觉...很暗淡。但现在我意识到这是一个错误。联邦，尽管它有缺陷，是唯一能够团结银河系的东西。暮临派，叛军，像这样的组织...他们只会把整个多元宇宙撕裂。你介意我和你一起走吗？我的船员们最好永远也不知道此事..."</text>
+							<crewMember amount="1" class="zoltan_devotee">多凡</crewMember>
+							<item_modify>
+								<item type="scrap" min="-15" max="-15" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true" req="ORCHID_KIDS">
+						<text>(幼体兰花)在坟墓上留下其中一些幼花。</text>
+						<event>
+							<text>熟知在此情形下如何应对，你跑回你的星舰，取来幼体兰花的尸体，然后把它们撒在坟墓上。起初，暮临派以为你在表现一个好的姿态，直到他意识到它们到底是什么。"真是日了先知圣眼，你在搞他妈的什么？你有什么B毛病！？"暮临派跑回他的战舰，命令他所有的船员立即向你开火。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>趁机偷一把他的战舰。</text>
+				<event load="MONK_GRAVE_ROB" />
+			</choice>
+			<choice hidden="true">
+				<text>不心存侥幸：杀死暮临派。</text>
+				<event>
+					<text>你拔出你的武器，从远处向超能族射击。他几乎立刻就死了，消散得只剩那副盔甲。你不禁觉得这有点不必要，但现在要挽回已经太晚了。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视卫星。</text>
+		<event>
+			<text>就你所知，这可能是一个陷阱。最好不要接近。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_GRAVE_ROB">
+	<event>
+		<text>不幸的是，当你正在偷飞船上的东西时暮临派回来发现了你，并拉响了警报！准备战斗！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>你的船员们潜入暮临派飞船进行盗窃。除了一件备用武器外，你们并没有发现什么。</text>
+		<weapon name="GIFTLIST_ENERGY" />
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_FREE_CREW" unique="true">
+	<text>附近的修道院呼叫你，一名瘦小的信道者出现在视屏上。"你好。我最近加入了这个修道院，但我很快发现在这些星云中与世隔绝的生活不适合我。你能把我带走吗？我致力于我的和平主义信仰，但我可以在其他方面发挥作用！"</text>
+	<ship load="SHIP_MONK_STATION" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>接受他加入星舰。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_monk" />
+		</event>
+	</choice>
+	<choice>
+		<text>不，谢谢，我们不需要更多的船员了。</text>
+		<event>
+			<text>"哦...好的。"你结束通话，继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVERT" unique="true">
+	<text>这座信标处建有一座超能族修道院。他们欢迎你，邀请你对院内进行参观。</text>
+	<environment type="nebula" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>同意参观。</text>
+		<event>
+			<text>所谓的"参观"变成了一场漫长的布道讲义。你觉得这很无聊，但你的一个船员被说服了。令你惊讶的是，他想留下来，加入信道者的行列！</text>
+			<choice hidden="true">
+				<text>同意，让他去吧。</text>
+				<event>
+					<text>你的船员挥手告别。信道者们同情你，理解这一定是个艰难的决定。作为安慰，他们免费为你维修舰体并升级你的反应堆。</text>
+					<upgrade amount="2" system="reactor" />
+					<damage amount="-5" />
+					<removeCrew>
+						<clone>false</clone>
+						<text>你不能克隆你的船员，因为其并没有死。</text>
+					</removeCrew>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拒绝。</text>
+				<event>
+					<text>你安慰你的船员，解释说任务更重要，等你拯救完这个宇宙，他可以回到信道者这里。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>你有更重要的事情要做。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event>
+			<text>你决定不参观修道院。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_BEGGAR" unique="true">
+	<text>一个驼背的年老信道者传送到你的船上，双手呈杯状伸出。"你好，旅行者们，我只是一个卑微的超能族，想找些零花的废料来度过我的一天。这里的生活很艰难，我相信你能理解。"</text>
+	<environment type="nebula" />
+	<choice>
+		<text>把钱给他。</text>
+		<event>
+			<text>你把钱交给了信道者。</text>
+			<item_modify>
+				<item type="scrap" min="-10" max="-10" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MONK_BEGGAR_PAY" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event load="MONK_BEGGAR_REFUSE" />
+	</choice>
+</event>
+<eventList name="MONK_BEGGAR_PAY">
+	<event>
+		<text>"哦，谢谢你，你太客气了。"他没有再说话，传送走了。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>"哦，谢谢你，你太客气了。也许我应该和你们呆在一起...你们看起来是这么好的人。"</text>
+		<crewMember amount="1" class="zoltan_monk" />
+	</event>
+	<event>
+		<text>"哦，谢谢你，你太客气了。我没有什么，但在我的时代，关于反应堆我曾经知晓一二。也许我可以为你做一些工作。"</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+</eventList>
+<eventList name="MONK_BEGGAR_REFUSE">
+	<event>
+		<text>"没关系的...我理解。"信道者一言不发地传送走了。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+			</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>这位信道者立即站起，看起来年轻了几岁。他扔掉了他的长袍，露出了一把爆裂手枪！"哼，舰长，你应该给点好处的！"又有几个超能族出现，一艘海盗舰向你靠近。</text>
+		<boarders min="2" max="3" class="zoltan" />
+		<ship load="SHIP_PIRATE_ZOLTAN_CREW" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_STRANDED_FED" unique="true">
+	<text>你很震惊地看到一艘联邦飞船困在这个信标处，他们的引擎已经失修了。"哦，遇见你真不走运。或者说，对你来说遇见我们真走运。我们需要废料来修理我们的引擎，而这里的信道者们一分钱都没有，对我们毫无帮助。我们愿意把物资卖给你换取废料。"</text>
+	<ship load="SHIP_FED_GENERIC" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>同意交易。</text>
+		<event>
+			<store>STORE_STANDARD</store>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>给他们维修所需的废料。[-25~]</text>
+		<event>
+			<text>"哦，哇！太感谢你了。不过，我们不能让此事毫无偿还。接收到了没，我们在这个星区航行时，收集了附近的详细星图，它应该对你有帮助。还有一些燃料，我们有足够多，我们只需要修理引擎而已。"</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<autoReward level="HIGH">fuel_only</autoReward>
+			<reveal_map />
+		</event>
+	</choice>
+	<choice>
+		<text>我们并不想买任何东西。</text>
+		<event>
+			<text>你向联邦飞船道歉，然后继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_GHOST" unique="true">
+	<text>附近的信道者飞船似乎在奇怪地移动，几乎就像他们不会驾驶一样。一个生锈的导弹发射器也被安装在上面，对于和平的信道者来说不太寻常。</text>
+	<ship load="SHIP_MONK_GHOST" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>信道者们没对你的呼叫口头回应，而是发出信息。"你好。这艘船不再属于超能信道者了。我们是魂灵族。这艘船的武装水平过低，弹药还不足，你能给我们一些吗？"</text>
+			<choice hidden="true">
+				<text>给他们5发弹药。</text>
+				<event>
+					<text>"你的礼物令人感激，请接受这份感谢的象征。"你以为会是废料，或是一些燃料，但实际上一名魂灵族船员在你的星舰上出现了！</text>
+					<item_modify>
+						<item type="missiles" min="-5" max="-5" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith">卡斯颇尔</crewMember> <!--does anyone even get these references?-->
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>给他们10发弹药。</text>
+				<event>
+					<text>"意料之外的大量弹药。请接受这份谢意。"你以为会是废料，或是一些燃料，但实际上一名魂灵族船员在你的星舰上出现了！</text>
+					<item_modify>
+						<item type="missiles" min="-10" max="-10" />
+					</item_modify>
+					<crewMember amount="1" class="phantom_wraith_alpha" all_skills="2">卡斯颇尔</crewMember>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>他们的弹药数量低，肯定很容易被拿下！</text>
+				<event>
+					<text>你拒绝帮助魂灵族，而是攻击他们。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>我们无能为力。</text>
+				<event>
+					<text>你向魂灵族道歉并继续执行你的任务。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视信道者们。</text>
+		<event>
+			<text>你无视这些奇怪的信道者，选择离开。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_MONK">
+	<event load="NEBULA_LIGHT_MONK_ANNOYED" />
+	<event load="NEBULA_MONK_CHASE" />
+	<event load="NEBULA_MONK_DUSKBRINGERS" />
+	<event load="NEBULA_MONK_HOSTAGES" />
+	<event load="NEBULA_MONK_PROVERB" />
+</eventList>
+
+<event name="NEBULA_LIGHT_MONK_ANNOYED" unique="true">
+	<text>附近的一个星球上建有一座小型超能族寺庙，没有它的话会是一片荒芜。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice>
+		<text>呼叫他们。</text>
+		<event>
+			<text>"朋友们好。我已经收到了你们的呼叫，但恐怕我正忙于冥想。一路平安。"他们结束了通话。</text>
+			<choice>
+				<text>再次呼叫他们。</text>
+				<event>
+					<text>"我很抱歉，但我没有什么可提供的。祝你有个愉快的一天。"他们再次结束了通话。</text>
+					<choice>
+						<text>再次呼叫他们。</text>
+						<event>
+							<text>"也许你没有听到我的话。我说我没有什么可提供的。祝你有个愉快的一天。"他们再次结束了通话。</text>
+							<choice>
+								<text>再次呼叫他们。</text>
+								<event>
+									<text>"请停止呼叫。我已经告诉你了，我没有什么可提供的。"他们再次结束了通话。</text>
+									<choice>
+										<text>再次呼叫他们。</text>
+										<event>
+											<text>"你还要这样做多少次？我不打算给你任何东西。不要再呼叫我。"他们再次结束了通话。</text>
+											<choice>
+												<text>再一次呼叫他们。</text>
+												<event>
+													<text>"好吧！如果你真的这么想要什么东西，那就拿好这个！"你在期待中等待着，但不是奖励，而是一艘敌对的自动舰向你急袭，与你的舰体相撞并立即进入战斗状态。</text>
+													<ship load="SHIP_ZOLTAN_AUTO" hostile="true" />
+													<damage amount="7" />
+													<choice hidden="true">
+														<text>继续。</text>
+														<event load="COMBAT_CHECK" />
+													</choice>
+												</event>
+											</choice>
+											<choice>	
+												<text>继续前进。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+									<choice>	
+										<text>继续前进。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>	
+								<text>继续前进。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice>	
+						<text>继续前进。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice req="LIST_CREW_MONK" hidden="true">
+				<text>(信道者船员)让你的信道者呼叫他们。</text>
+				<event>
+					<text>"啊，我的同伴。我将派一艘自动舰上去维修你的舰体。祝你有个愉快的一天。"</text>
+					<ship load="SHIP_ZOLTAN_AUTO" hostile="false" />
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice>
+				<text>继续前进。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视寺庙。</text>
+		<event>
+			<text>你决定不打扰寺庙和里面的信道者。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CHASE" unique="true">
+	<text>你注意到，在它消失之前，似乎有一艘船的轮廓穿过星云。</text>
+	<environment type="nebula" />
+	<choice>
+		<text>跟随飞船。</text>
+		<event load="NEBULA_MONK_CHASE_FOLLOW" />
+	</choice>
+	<choice>	
+		<text>不理会它。</text>
+		<event>
+			<text>无论它是什么，你都没有兴趣去关注。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="NEBULA_MONK_CHASE_FOLLOW">
+	<event>
+		<text>这艘船似乎是海盗！他们看到你并不高兴，并武装了他们的枪。</text>
+		<ship load="SHIP_PIRATE_ALL" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>看来这艘船属于暮临派！他们看到你并不高兴，并把他们的武器武装起来。</text>
+		<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>看来这艘船只不过是信道者们。他们在再次离开你的视线前打了个招呼。</text>
+		<ship load="SHIP_MONK" hostile="false" />
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_DUSKBRINGERS" unique="true">
+	<text>你发现了一个奇怪的景象，一艘暮临派的飞船正在与超能信道者对话！你只能想象他们在要求信道者们交出物资以苟活...</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>从暮临派手中救出信道者们。</text>
+		<event>
+			<text>你打断双方的交流去攻击暮临派。</text>
+			<ship load="SHIP_DUSKBRINGER_MONK_CONVERSATION" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>等到暮临派离开后，与信道者们联系。</text>
+		<event>
+			<text>暮临派跃迁离开后，你接近信道者们，向他们了解这次遭遇。信道者们笑着说。"不不，他们不会伤害我们。他们是我们的朋友。虽然我们不赞成他们的激进信仰，但我们仍然尽可能地支持他们。"你点点头，结束了通话。</text>
+		</event>
+	</choice>
+	<choice>	
+		<text>不管这些船。</text>
+		<event>
+			<text>你不能做无端的假设。实际上那边发生了什么你完全不清楚，没有十分的理由去打断，以防万一。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_HOSTAGES" unique="true">
+	<text>看来附近的修道院有麻烦了！一个蛞蝓族黑客挟持了他们，并向附近的所有船只广播消息，要求替信道者们支付荒谬的赎金。</text>
+	<ship load="SHIP_HACKER_MONSATERY_HOSTAGE" hostile="false" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击黑客。</text>
+		<event>
+			<text>"哦，你想～打架吗？那就准备去死～～～～～～吧！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>付钱以释放信道者们。</text>
+		<event>
+			<text>"啊—，终于有人为我们的合理的价格买单了！"黑客们放弃了对修道院的控制，跃迁离开。</text>
+			<item_modify>
+				<item type="scrap" min="-125" max="-110" />
+			</item_modify>
+			<choice hidden="true">
+				<text>联系信道者们。</text>
+				<event>
+					<text>"谢谢你，朋友。我还以为今天就是我们的死期。黑客们已经挟持了我们几个星期，许多人已经饿死了。我们最后几个幸存者可以和你一起走吗？"</text>
+					<crewMember amount="3" class="zoltan_monk">信道者</crewMember>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>(心灵控制)尝试心灵控制黑客让他们离开。</text>
+		<event>
+			<text>心灵控制完全无效，因为黑客们是蛞蝓族。更糟糕的是，你已经暴露了你的位置，那艘船向你发起攻击。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_MIND_AFFECT">
+		<text>(心灵干涉武器)尝试对黑客使用心灵控制。</text>
+		<event>
+			<text>心灵控制完全无效，因为黑客们是蛞蝓族。更糟糕的是，你已经暴露了你的位置，那艘船向你发起攻击。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>无视对方。</text>
+		<event>
+			<text>你不能在这里浪费你的钱。当黑客们意识到没有人会付钱后，他们就会释放信道者们...也许会...</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_PROVERB" unique="true">
+	<text>你收到了一个奇怪的呼叫。"正如睿智的索雷·沃尔塔先生所述，与贪婪的蝙蝠狗共事的人，会被戛莫斯六的太空跳蚤蛰醒。"</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>蛤？</text>
+		<event>
+			<text>信道者叹息道。"这是一句谚语。它的意思是一个人如果与毫无道德的人交往，就会发现自己处于类似的困境。一个警告，可能我该这么称呼它，针对某些属于联邦的人。"</text>
+			<choice hidden="true" req="LIST_CREW_MONK">
+				<text>(信道者船员)"一个出发点正确的警告，但并非不带风险。"</text>
+				<event>
+					<text>对方点点头，两人就道德原则展开了漫长的哲学讨论。你完全听不懂他们在说什么，但似乎你的信道者已经说服了对方加入你的星舰。</text>
+					<crewMember amount="1" repair="1" class="zoltan_monk" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>你竟敢侮辱联邦！攻击！</text>
+				<event>
+					<text>信道们拒绝战斗，放任你向他们的船开火。</text>
+					<status type="limit" target="enemy" system="weapons" amount="0" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>无视他，继续前进。</text>
+				<event>
+					<text>你把信道者的话抛在脑后。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_QUESTS_MONK">
+	<event load="NEBULA_MONK_LOST_MAN" />
+	<event load="NEBULA_MONK_CONVOY" />
+</eventList>
+
+<event name="NEBULA_MONK_LOST_MAN" unique="true">
+	<text>一个超能族的救生舱正漂浮在太空中，带有轻微的损坏，附近还漂着一艘维和战舰的残骸。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>将救生舱拖回星舰。</text>
+		<event>
+			<text>一名喘着粗气的超能族被带上了船，仍然身着维和兵盔甲。"谢谢你们救了我！我们的任务是运送一艘信道者飞船，船上有一名重要的超能族卧底特工。一切都很顺利，直到暮临派雇佣的雇佣兵出现，并击毁了我们的船。信道者们逃走了，但佣兵们很快就会追上来。我会把他们的坐标上传到电脑上，我希望你能帮助我。"</text>
+			<quest event="MONK_LOST_MAN_QUEST" />
+			<crewMember amount="1" class="zoltan_peacekeeper" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视救生舱，直接搜刮这艘船。</text>
+		<event>
+			<text>你飞过救生舱，向残骸移动，那里有一些废料和补给。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_peacekeeper" global="true">
+		<color r="217" g="255" b="236" a="1.0" />
+        <unvisitedTooltip>此处是自由和平守护者事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="MONK_LOST_MAN_QUEST" unique="true">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一名获救的维和兵提供了处于危险中的卧底特工的位置。</unvisitedTooltip>
+	</beaconType>
+	<text>看来你来得正是时候。之前提到的雇佣兵船正在袭击信道者飞船。他们坚持不了多久了，所以你打断他们的攻击，并准备消灭雇佣兵。</text>
+	<ship load="SHIP_MONK_LOST_MAN_MERCENARY" hostile="true" />
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_CONVOY" unique="true">
+	<text>一艘信道者船向你呼叫。"你可能知道，我们的信仰禁止我们参与暴力活动。然而，我们在本星区避免与海盗打交道的运气很差。你能帮助把我们送到目的地吗？"</text>
+	<ship load="SHIP_MONK" hostile="false" />
+	<environment type="nebula" />
+	<choice>
+		<text>同意协助他们。</text>
+		<event>
+			<text>信道者们将他们的目的地坐标传送过来。</text>
+			<quest event="MONK_CONVOY_DESTINATION" />
+		</event>
+	</choice>
+	<choice>	
+		<text>我们无能为力。</text>
+		<event>
+			<text>你道歉并解释说你不是护卫。信道者们表示理解并继续前进。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="MONK_CONVOY_DESTINATION">
+	<event>
+		<beaconType id="map_icon_quest" global="true">
+			<color r="69" g="168" b="235" a="1" />
+			<unvisitedTooltip>护送信道者飞船到这里。</unvisitedTooltip>
+		</beaconType>
+		<text>你已经到达了目的地，但一艘海盗舰挡住了你的去路！你呼叫信道者并警告他们，然后准备战斗。</text>
+		<ship load="SHIP_PIRATE_MONK_DESTINATION" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<beaconType id="map_icon_quest" global="true">
+			<color r="69" g="168" b="235" a="1" />
+			<unvisitedTooltip>护送信道者飞船到这里。</unvisitedTooltip>
+		</beaconType>
+		<text>信道者们很快就跃迁了过来。"你做得很好。真是悲哀我们必须依靠像你这样的暴力野蛮人。但我们毕竟生活在一个残酷无情的银河系。请接受这笔金钱捐赠作为感谢。"</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_MONK">
+	<event load="NEBULA_ENCOUNTER_ZOLTAN_MONK" />
+	<event load="NEBULA_ENCOUNTER_ZOLTAN_AUTO_MONK" />
+	
+	<event load="NEBULA_ENCOUNTER_PIRATE_MONK" />
+	<event load="NEBULA_ENCOUNTER_MANTIS_MONK" />
+	<event load="NEBULA_ENCOUNTER_SLUG_MONK" />
+	
+	<event load="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" />
+
+	<event load="NEBULA_MONK_RIFT_FIGHT" />
+</eventList>
+
+<event name="NEBULA_ENCOUNTER_ZOLTAN_MONK">
+	<text load="TEXT_ENCOUNTER_MONK_ZOLTAN" />
+	<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_ZOLTAN">
+    <text>信道者并不是唯一能在这被遇见的超能族船只。一艘正在欣赏风景的超能族船发现了你，并不知为何对你的存在感到威胁，从而进行了激烈的反击！</text>
+    <text>"你们是谁？海盗？雇佣兵？你们是来伤害信道者们的，对吗？准备好迎接末日吧！"一艘困惑的超能族战舰进场攻击。</text>
+    <text>一艘超能族飞船从星云中滑出，武器显露中。它肯定处于战斗之中，现在它偶然发现了你，误把你当成了之前的攻击者，并将你锁定进行攻击。</text>
+    <text>一艘超能族飞船跌跌撞撞地从星云中飞来。它剐蹭到了你的星舰，虽然只造成了较轻的伤害。然而，迷糊的对方反而怪起你来，并启动了他们的武器！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_ZOLTAN_AUTO_MONK">
+	<text load="TEXT_ENCOUNTER_ZOLTAN_AUTO_MONK" />
+	<ship load="SHIP_ZOLTAN_AUTO" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ZOLTAN_AUTO_MONK">
+    <text>"这是圣地。你显然不受欢迎。"神秘话音之后是炮火声，一艘自动舰正接近！</text>
+    <text>"检测到潜在威胁。风险评估建议立即清除。"你的雷达显示一艘敌对飞船正在快速接近！</text>
+	<text>超能族高度重视该星区的安全，所以他们的自动舰处于高度警戒状态，会攻击任何他们不认识的飞船，这并不奇怪！</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_PIRATE_MONK">
+	<text load="TEXT_ENCOUNTER_MONK_PIRATE" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MONK_PIRATE">
+	<text>一艘海盗舰在这个信标处徘徊，见到你后就发起攻击。这并不奇怪，这个星区十分吸引海盗，因为信道者们从来都不作战。</text>
+	<text>似乎有一艘海盗舰在星云中等着你！</text>
+	<text>"你是什么人，是信道者的保护者还是什么？哈！"一艘傲慢的海盗舰从星云中滑出，攻击你。</text>
+	<text>尽管信道者们对此抗议，但海盗们仍在访问并困扰着这个星区。看来你在这里遇到了一艘相当讨厌的船，正在寻求战斗。</text>
+</textList>
+
+<event name="NEBULA_ENCOUNTER_MANTIS_MONK" unique="true">
+	<text>你捕捉到附近的螳螂族飞船上的闲话。"看那艘，他不信道者。船上一定有好东西，我们会拿走。"由于周围没有其他船只，可以认为他们指的是你！</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_SLUG_MONK" unique="true">
+	<text>看来信道者在这个星云中的存在已经扰乱了它的原始居民——蛞蝓族！一艘恼怒的蛞蝓族飞船想要夺回自己的星域，它发现了你并向你靠近。</text>
+	<ship load="SHIP_SLUG_FIGHT" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_INTERCEPT" unique="true">
+	<text>一艘走私船正试图偷偷摸摸地通过这个星区。然而，当他们发现你时，他们不想冒被告发的风险，而是发动攻击！</text>
+	<ship load="SHIP_SMUGGLER_MONK" hostile="true" /> 
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_ENCOUNTER_MONK_SMUGGLER_QUEST" unique="true">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>你从一艘被击沉的走私船上获取了通往这里的坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了走私船客户的坐标，但他们似乎并非信道者！非常不寻常...</text>
+	<ship load="SHIP_MONK_SMUGGLER_QUEST" hostile="false" /> 
+	<environment type="nebula" />
+	<choice>
+		<text>审问这些信道者。</text>
+		<event>
+			<text>你呼叫信道者，但却是一个看起来很粗鲁的海盗回应。"啊，该死的，是联邦佬！准备好枪，伙计们！"</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>不管了，走吧。</text>
+		<event>
+			<text>你无视那些信道者，离开了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_MONK_RIFT_FIGHT" unique="true">
+	<text>你来到超能族星域的一个安静的地方，遇到了一个古老的超能族智者，他声称自己掌控了空间裂隙的力量，但貌似已经被这种力量逼疯了。他显然是在撒谎，但他是个疯子确是真的，裂隙的存在也一样。"选择你的厄运，我给你几个选项。"他要求道。</text>
+	<img back="BACK_EVENT_RIFT" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true" req="COMBAT_HAZARD">
+		<text>(现实操纵器)控制住裂隙。</text>
+		<event>
+			<text>"你，你做了什么？不！不！不！"超能族跪倒在地，万念俱灰，因为远处的裂隙慢慢闭合，周围环境恢复了正常。由于恐惧你更为真实的操控力量，超能族屈服于你，选择加入。</text>
+			<environment type="nebula" />
+			<crewMember amount="1" class="zoltan_monk" all_skills="2" /> 
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>螳螂族。</text>
+		<event>
+			<text>"你喜欢挑战，那就来吧！"一个虫洞形成了，一艘困惑的、愤怒的螳螂族飞船向你飞奔而来！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_MANTIS" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>蛞蝓族。</text>
+		<event>
+			<text>"不要被这些软肚皮愚弄，联邦。"你探测到一个虫洞打开了，几秒钟后，一艘蛞蝓族飞船从另一个方向发动了攻击！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_SLUG" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>岩石族。</text>
+		<event>
+			<text>"坚韧的对手，坚韧的你。"你探测到一个虫洞打开了，一艘岩石族飞船出现，炮声隆隆。看来他们穿越时空之前，已经在进行战斗。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ROCK" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>食铁族。</text>
+		<event>
+			<text>"满足你这次奇怪的受虐请求。"你探测到一个虫洞打开了，一艘食铁族飞船出现了。渴望得到废料的这艘船开始攻击。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_LANIUS" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>兰花族。</text>
+		<event>
+			<text>"不要以貌取人，有些敌人比他们看起来更强大。"你探测到一个虫洞打开了，一艘兰花族飞船出现。他们感到困惑，误以为你是敌人并发动了攻击！</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ORCHID" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT">
+		<text>方碑族。</text>
+		<event>
+			<text>超能族沉默了一会儿，然后低声说："你确定吗？好吧，那就方碑族。"一个巨大的虫洞打开了，从里面隐约可见一艘准备开战的方碑族飞船。</text>
+			<ship load="SHIP_ZOLTAN_RIFT_ANCIENT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ZOLTAN_RIFT_SUCCESS">
+	<text>当你得胜而归时，智者勃然大怒。裂隙看起来以一种要撕裂整个宇宙的速度扩张，直到智者自爆，将一大波遥远世界的废料与残骸引到你面前。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="CLEARING_MONK">
+	<event load="MONK_WEAPON" />
+	<event load="MONK_ORCHID" />
+	<event load="MONK_SUN" />
+	<event load="MONK_ATONEMENT" />
+</eventList>
+
+<event name="MONK_WEAPON" unique="true">
+    <text>一艘信道者的飞船停驻在此。"我们正在清理这片区域，碰巧发现了一个藏有暴力武器的糟糕贮藏！我们不需要这种东西，但如果你愿意为我们的理想捐赠，我们很乐意让你把它拿走。"</text>
+    <ship load="SHIP_MONK_WEAPON" hostile="false" />
+    <choice>
+		<text>提供一些废料换取武器。</text>
+		<event>
+			<text>"太好了！我们会善用这些废料。愿您平安前行。"</text>
+			<item_modify>
+				<item type="scrap" min="-50" max="-30" />
+			</item_modify>
+			<choice>
+				<text>拿着武器。</text>
+				<event>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_MONK">
+		<text>（信道者船员）承诺负责任地使用该武器以换取折扣。</text>
+		<event>
+			<text>"既然你也是信道者，我们相信你的话。愿您平安前行。"</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-10" />
+			</item_modify>
+			<choice>
+				<text>拿着武器。</text>
+				<event>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击他们，也许你能免费拿到。</text>
+		<event>
+			<text>信道者们回应道，声音中带着遗憾。"那么，这是真的了……那些使用暴力手段的人是无法说理的……"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>告诉他们你也不想要。</text>
+		<event>
+			<text>"我们理解你的感受。也许我们会把它扔进恒星，或者献给先知圣眼。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="MONK_ORCHID" unique="true">
+    <text>一艘兰花族飞船停在这个信标，几名信道者也在此处。它向你呼叫。"你好！我们一直在寻找辉光信仰的超能族。我们希望能有一些人陪同我们前往我们的星域，但他们似乎犹豫不决。你认为你能说服他们吗？"</text>
+    <ship load="SHIP_ORCHID_GENERIC" hostile="false" />
+	<choice req="orchid_caretaker" hidden="true">
+		<text>（看护者船员）与信道者交谈。</text>
+		<event>
+			<text>你的悦心兰花看护者开始温和地与信道者们谈论兰花族的生活、他们的职责和信仰。信道者们似乎对你这位看护者的理想印象深刻，并同意前往。"哇，这招真管用！谢谢你的帮助。"兰花族为你提供的协助给了你一份适中的报酬。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_FLORAL" hidden="true">
+		<text>（悦心兰花船员）说服兰花族去别处寻找。</text>
+		<event>
+			<text>你的船员与其他的兰花族交谈，说服他们这种旅行对这些人来说很有挑战性，如果他们继续寻找，肯定会找到更热心的信道者。兰花族道了歉。信道者们感谢你的调解，并给了你一份小小的贡物作为帮助的回报。</text>
+			<autoReward level="LOW">stuff</autoReward>
+		</event>
+    </choice>
+    <choice req="unique_mayeb" hidden="true">
+		<text>（麻椰）与信道者交谈。</text>
+		<event>
+			<text>麻椰去和信道者们交谈。"你们好，我的名字是麻椰。这是我的妹妹，珀帕。"她示意了一下她的另一个头，那个头微微动了动。"珀帕说'祝你们有美好的一天——' 呃，这该怎么说…… '——闪亮的信道者们。'"
+
+信道者们很感兴趣，开始询问麻椰关于她妹妹的事情。在他们交谈时，麻椰温和地鼓励他们更多了解她的族人。"……而且也许，只是也许……他们也有一些东西要向你们学习，如果你们在意这个的话。"
+
+信道者们被说服了。
+
+"你……真是个奇怪的家伙，麻椰。但是，你帮了我们。谢谢你。"兰花族为你提供的协助给了你一份小小的报酬。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+    </choice>
+    <choice req="LIST_CREW_MONK" hidden="true">
+		<text>（信道者船员）说服信道者们同意。</text>
+		<event>
+			<text>你的信道者谈论了传播理想的重要性，以及这是先知圣眼在告诉他们，是时候产生更广泛的影响了。听到这里，信道者们改变了主意，同意陪同兰花族前往。"哇，这招真管用！谢谢你的帮助。"兰花族为你提供的协助给了你一份小小的报酬。</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+    </choice>
+	<choice hidden="true">
+		<text>尝试调解。</text>
+		<event load="MONK_ORCHID_MEDIATE" />
+	</choice>	
+    <choice>
+		<text>攻击兰花族飞船。</text>
+		<event>
+			<text>当你启动武器时，兰花族迅速终止了呼叫并开始启动他们自己的武器。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>道歉并断开连接。</text>
+		<event>
+			<text>你决定不与兰花族互动。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="MONK_ORCHID_MEDIATE">
+	<event>
+		<text>你尽力帮助他们达成妥协。最终，你成功说服了一名信道者加入兰花族，哪怕只是为了结束这场循环往复的对话。"嗯，真不敢相信这招管用了。谢谢你的帮助。"兰花族为你提供的协助给了你一份小小的报酬。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>你尽力帮助他们达成妥协。即便如此，由于你无法与任何一方产生共鸣，你最终没能带来任何进展。最后，他们为浪费你的时间而道歉。看来这里无事可做了。</text>
+	</event>
+</eventList>
+
+
+<event name="MONK_SUN" unique="true">
+    <text>"欢迎接受你的烈火试炼。先知圣眼要求我们测试你的勇气。你必须经历苦难，至少暂时如此。你将在痛苦的熔炉中经受锻造，以获得真正的启迪。"看来他们打算把你留在这里一小段时间！</text>
+    <ship load="SHIP_MONK_TRIAL" hostile="true" />
+	<environment type="sun" />
+    <choice>
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+    </choice>
+</event>
+<event name="MONK_SUN_TRIAL_WIN">
+    <text>"你的试炼结束了，你通过了！这是给你的奖励。但请注意，宇宙无疑还有更多的艰难险阻要面对。要时刻留心宇宙的教诲。"</text>
+    <ship hostile="false" />
+    <autoReward level="HIGH">scrap_only</autoReward> <!--less generic reward?-->
+</event>
+
+<event name="MONK_ATONEMENT" unique="true">
+    <text>在星云之外很少见到超能族修道院。这座修道院坐落在一颗潮汐锁定行星的灰色地带，使得在那个位置，天空永远像是黎明时分。</text>
+    <choice>
+		<text>拜访修道院。</text>
+		<event>
+			<text>"欢迎，旅者，来到光明之中。辉光照耀会洞察一切。然而，尽管我们审视你的灵魂，但我们不评判你。唯有通过照耀，一个人才能为其过错赎罪。"首席信道者用一种异常强烈的穿透性目光凝视着你的眼睛。</text>
+			<choice req="rep_comb_all" lvl="7" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"哦，天哪。你的灵魂相当污浊。即使匆匆一瞥，我也能看出你给许多人带来了痛苦。也许有一些微小的善行被我忽略了……但是，我能看出你被许多人所憎恨。你正走在一条黑暗的道路上。"</text>
+					<choice>
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="5" max_lvl="6" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"你被许多人不喜。我能看到你在星际旅程中树敌众多。我并不知道具体情形，但如果你希望在你那小小的战争结束后能平静生活，你将必须做出补偿。"</text>
+					<choice>
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="3" max_lvl="4" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"你是个充满争议的人物。你的行为一贯将你描绘成不具外交手腕甚至野蛮的形象。我确信有许多地方你已无法再受到欢迎，除非你做出真诚的努力去改变。"</text>
+					<choice>
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="1" max_lvl="2" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"总体而言，你似乎给这个银河系留下了糟糕的印象。也许存在情有可原的情况，但你似乎正滑向错误的方向。不过，看来你至少表现出了一些克制。"</text>
+					<choice>
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="0" max_lvl="0" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"当我注视你的双眼，我能看到你处于平衡状态。如果你有任何伤害他人的行为，它都已被善行或英勇事迹所抵消。……或者也许你两者都未曾做过？"</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"啊，确实如此。进一步观察后，你事实上是完全平衡的。你既非声名显赫，也非臭名昭著。我的直觉告诉我你不会兴风作浪。但这本身也是一种智慧。我们赠你一份礼物。愿您平安前行，永远行走在光明中。"</text>
+							<autoReward level="HIGH">fuel</autoReward>
+						</event>
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="-4" max_lvl="-1" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"你的业力总体是好的。对于非战斗人员，你更可能带给他们和平与安全，而非剥削或伤害。光明才是你的归属。"</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>继续。</text>
+						<event load="MONK_CLEAN_SOUL" />
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER_GOOD_KARMA" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="rep_comb_all" lvl="-999" max_lvl="-5" blue="false">
+				<text>体验照耀。</text>
+				<event>
+					<text>"我感到敬畏，你似乎是星海中一股相当积极的力量。对于从事通常如此暴力职业的人来说，你为他人带来善业的能力令我汗颜。也许我们能从你身上学到一两样东西。"</text>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="1" hidden="true">
+						<text>继续。</text>
+						<event load="MONK_CLEAN_SOUL" />
+					</choice>
+					<choice req="REPUTATION_IS_TOTALLY_FINE" blue="false" lvl="0" max_lvl="0" hidden="true">
+						<text>继续。</text>
+						<event load="MONK_ATONEMENT_OFFER_GOOD_KARMA" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>忽略修道院。</text>
+		<event>
+			<text>你让信道者们独处，专注于飞船操作。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+<beaconType id="map_icon_hbm_p_notorietycheck" global="true">
+		<color r="255" g="255" b="255" a="1" />
+        <unvisitedTooltip>此处是恶名检查事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="MONK_ATONEMENT_OFFER">
+    <text>"外面有些人认为你严重地伤害了他们。我不知道你是否对自己所做过的任何行为，或陷入的任何处境感到羞愧或懊悔。然而，如果你希望为你的行为赎罪，那么请允许我给你这个机会。告诉我一个你伤害过的群体并进行捐赠。一旦完成，请冥想你对那个群体所犯下的过错。"</text>
+    <choice blue="false" req="rep_general" lvl="1">
+		<text>为那些与任何特定群体无关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_general" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_union" lvl="1">
+		<text>为那些与同盟有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_union" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_zoltan" lvl="1">
+		<text>为那些与超能族牧师团有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_zoltan" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_orchid" lvl="1">
+		<text>为那些与悦心兰花集议会有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_orchid" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_engi" lvl="1">
+		<text>为那些与半械族谐合派有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_engi" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_crystal" lvl="1">
+		<text>为那些与水晶帝国有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_crystal" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_outcast" lvl="1">
+		<text>为那些与岩石族流放者有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_outcast" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_vampweed" lvl="1">
+		<text>为那些与血草兰花血兰邦有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_vampweed" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_freemantis" lvl="1">
+		<text>为那些与自由螳螂有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_freemantis" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_shell" lvl="1">
+		<text>为那些与甲壳族怪才体有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_shell" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_slug" lvl="1">
+		<text>为那些与蛞蝓族星盗会有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate_cost" />
+			<item_modify>
+				<item type="scrap" min="-35" max="-35" />
+			</item_modify>
+			<variable name="rep_slug" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>拒绝赎罪。</text>
+		<event>
+			<text>"我明白了……听到这我深感悲伤。然而，要知道现在还不算太晚。如果你 ever 希望弥补，请回来，我们将尽我们所能拯救你的灵魂。"</text>
+		</event>
+    </choice>
+</event>
+<event name="MONK_ATONEMENT_OFFER_GOOD_KARMA">
+    <text>"尽管你被大多数人看好，但仍有一些人本可以对你…… 我不知道你是否对自己所做过的任何行为，或陷入的任何处境感到羞愧或懊悔。然而，如果你希望为你的行为赎罪，那么请允许我给你这个机会。告诉我一个你伤害过的群体。一旦完成，请冥想你对那个群体所犯下的过错。"</text>
+    <choice blue="false" req="rep_general" lvl="1">
+		<text>为那些与任何特定群体无关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_general" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_union" lvl="1">
+		<text>为那些与同盟有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_union" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_zoltan" lvl="1">
+		<text>为那些与超能族牧师团有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_zoltan" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_orchid" lvl="1">
+		<text>为那些与悦心兰花集议会有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_orchid" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_engi" lvl="1">
+		<text>为那些与半械族谐合派有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_engi" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_crystal" lvl="1">
+		<text>为那些与水晶帝国有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_crystal" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_outcast" lvl="1">
+		<text>为那些与岩石族流放者有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_outcast" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_vampweed" lvl="1">
+		<text>为那些与血草兰花血兰邦有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_vampweed" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_freemantis" lvl="1">
+		<text>为那些与自由螳螂有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_freemantis" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_shell" lvl="1">
+		<text>为那些与甲壳族怪才体有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_shell" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice blue="false" req="rep_slug" lvl="1">
+		<text>为那些与蛞蝓族星盗会有关的过错赎罪。</text>
+		<event>
+			<text id="monk_meditate" />
+			<variable name="rep_slug" op="set" val="0" />
+			<choice>
+				<text>闭上眼睛，放松……</text>
+				<event load="ATONEMENT_NIGHTMARE" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>拒绝赎罪。</text>
+		<event>
+			<text>"我明白了……虽然我感到失望，但我仍相信你能通过自己的行为来弥补。愿您平安前行。"</text>
+		</event>
+    </choice>
+</event>
+<event name="ATONEMENT_NIGHTMARE">
+    <text>一切皆暗，一切皆静……然而，你感觉仿佛有一道光笼罩了你。当你反思那些让你声名狼藉的行为时，一种蔓延的恐惧笼罩了你。你的每一个过错，都在心中引起一阵刺痛。这些过错很快具象化，凝聚成巨大的符文立方体。这些立方体蜂拥围绕着你，带来巨大的毁灭，光芒被缓慢而坚定地遮蔽。但很快，方块消退了，开始下雨了。不……不是雨，那是一群……蝗虫。当它们降落在你身上时，它们开始啃食。它们吞噬你的手指、你的手臂、你的腿……它们不停地吞噬你的身体。但是，在它们完全吞没你之前，它们散开了。
+
+……你听到一扇门打开的声音。</text>
+    <choice>
+		<text>醒来。</text>
+		<event>
+			<text>你在冷汗中惊醒。信道者们帮你重新站起。你感觉自从闭上眼睛后似乎过去了很长时间。你注意到你的船员关切地看着你，但他们看到你醒来似乎松了一口气。
+
+			信道者再次对你说话。"你的赎罪已经完成。天平再次平衡。请务必谨记拥抱你的道德责任。愿您平安前行。"</text>
+			<modifyPursuit amount="1" />
+		</event>
+    </choice>
+</event>
+<event name="MONK_CLEAN_SOUL">
+    <text>"真是令人印象深刻，似乎所有族群——嗯，除了那些无论你做什么都会恨你的人之外——对你都只有好评。你如此不辞辛劳地对每个人都心怀善意，这让我感到欣慰。先知圣眼赐予我们一件伟大的器物，我们希望它能对你有用。"</text>
+    <weapon name="ANCIENT_STUN" />
+    <autoReward level="HIGH">fuel</autoReward>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="MONK_TEMPLE" unique="true">
+	<text>这个信标似乎是被设置在一个茂盛的、杂草丛生的丛林星球的轨道上。在一个充满植物群的巨大溶洞的中心，有一座超能族寺庙。它看起来不太现代化，只有一艘休眠的自动舰在保护它。</text>
+	<img back="BACK_EVENT_ZOLTAN_TEMPLE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>联系内部的信道者们。</text>
+		<event>
+			<text>你试图进行沟通，但似乎该寺庙甚至没有接收呼叫的系统。你靠近并降落，附近有一名信道者欢迎你。"欢迎你朋友们。我们在此圣地欢迎所有人，免费进入。"</text>
+			<choice hidden="true">
+				<text>看一看里面的情况。</text>
+				<event>
+					<text>寺庙的大部分已经破败不堪，缺乏人员维护，到处都摆放着一些廉价的雕像。位于中央的一间房间内容纳了许多冥想的信道者们，他们围成一圈。为首的信道者睁开眼睛向你打招呼。"你是联邦来的客人？来吧，加入我们的启迪之路，接纳和平之神的祝福。"</text>
+					<choice hidden="true">
+						<text>加入他们的冥想。</text>
+						<event load="MONK_TEMPLE_REWARD" />
+					</choice>
+					<!--<choice hidden="true" blue="false"> NOT WORKING
+						<text>Give up some equipment.</text>
+						<event>
+							<text>"You have made a wise choice. I know it is hard, but it will all pay off in the end." As you head back to the ship you feel very strange... almost blessed in a way.</text>
+							<remove name="RANDOM"/>
+							<hiddenAug>ZOLTAN_BLESSING</hiddenAug>
+							<damage amount="-5"/>
+							<modifyPursuit amount="-3"/>
+						</event>
+					</choice>-->
+					<choice>
+						<text>恐怕我们必须离开。</text>
+						<event>
+							<text>"那好吧，朋友。一路平安。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>算了。</text>
+				<event>
+					<text>你很好奇成为超能信道者会是什么体验，但这不如你的任务重要。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们可以干掉自动舰，抢劫这座寺庙！</text>
+		<event>
+			<text>干掉自动舰之后，你就可以肆无忌惮地进入无防备的寺庙。</text>
+			<ship load="SHIP_ZOLTAN_AUTO_TEMPLE" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视寺庙。</text>
+		<event>
+			<text>你对超能族寺庙没有兴趣。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_monktemple" global="true">
+		<color r="148" g="148" b="104" a="1.0" />
+        <unvisitedTooltip>此处是僧侣神殿事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="MONK_TEMPLE_REWARD">
+	<text>你和其他超能族一起坐在地上，加入他们低沉的哼唱。差不多半天过去了，你突然从睡梦中惊醒，意识到时间已经过去了很久...</text>
+	<modifyPursuit amount="2" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>信道者们仓促地感谢你的来访，当你离开时，你感到一种奇怪的感觉袭来...好似你被祝福了一样。</text>
+			<hiddenAug>ZOLTAN_BLESSING</hiddenAug>
+			<damage amount="-30" />
+		</event>
+	</choice>
+</event>
+<eventList name="ZOLTAN_AUTO_TEMPLE_WIN">
+	<event>
+		<text>如你所料，寺庙完全没有任何防御能力。誓不使用暴力的信道者们被迫投降，交出他们所拥有的一切，实际上也没多少。</text>
+		<autoReward level="LOW">fuel</autoReward>
+	</event>
+	<event>
+		<text>信道者们拒绝放弃他们的物资。"我们不会行使暴力，但也不会屈服于你们的强求。我们是和平主义者，你应该十分清楚这点。"</text>
+		<choice>
+			<text>放过对方。</text>
+			<event>
+				<text>你没有什么进一步的手段了，因为你还没有真的准备好杀死一群毫无防备的信道者们。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>杀死所有的信道者。</text>
+			<event>
+				<text>你残忍地杀害了一群无辜的超能族。一场无谓的屠杀，却只不过是你搜刮废料过程的一部分。这场毫无意义的屠杀为你带来了什么？几枚燃料电池和一个实际价值不超过3废料的冥想超能族金像赝品。</text>
+				<item_modify>
+					<item type="fuel" min="2" max="2" />
+				</item_modify>
+				<augment name="ZOLTAN_STATUE" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<event name="NEBULA_MONK_EYE">
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<loadEventList seeded="false" first="true" generate="true">
+		<event name="NEBULA_MONK_EYE_OFFERING" req="prof_eye_offering" lvl="1" />
+		<event name="NEBULA_MONK_EYE_NORMAL" req="prof_eye_offering" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+<event name="NEBULA_MONK_EYE_OFFERING">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>此处为先知圣眼的位置，一座被超能族崇拜的巨型构造物。</unvisitedTooltip>
+		<visitedTooltip>此处为先知圣眼的位置，一座被超能族崇拜的巨型构造物。</visitedTooltip>
+	</beaconType>
+	<text>当你接近先知圣眼的时候，突然一个时空裂隙打开，一大块废料向你飞来。幸运的是，它只在你的舰体上轻轻地弹了一下，你就把它抓住。你不知道它是从哪里来的，但你欣然接受这块废料。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<metaVariable name="prof_eye_offering" op="set" val="0" />
+	<item_modify>
+		<item type="scrap" min="15" max="15" />
+	</item_modify>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="NEBULA_MONK_EYE_NORMAL">
+	<preventQuest />
+	<beaconType id="map_icon_eye" global="true">
+		<color r="223" g="200" b="200" a="1.0" />
+		<unvisitedTooltip>此处为先知圣眼的位置，一座被超能族崇拜的巨型构造物。</unvisitedTooltip>
+		<visitedTooltip>此处为先知圣眼的位置，一座被超能族崇拜的巨型构造物。</visitedTooltip>
+	</beaconType>
+	<text>你已经发现了先知圣眼！虽然此处是以远处的巨大眼睛形状的星云命名的，但真正吸引人的是一个巨型立方体构造物，它静静地伫立在附近的行星上，散发出绿色光芒。这是一处游客与超能族都经常光顾的地方，他们每年都会到此处朝圣。</text>
+	<img back="BACK_EVENT_EYE" planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MONK_EYE_OPTIONS" />
+	</choice>
+</event>
+<event name="MONK_EYE_OPTIONS">
+	<text>据说这座构造物有奇怪的、不可预知的力量。有许多奇妙或恐怖的事在等待着被那些能与它交流的人发现。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">	
+		<text>与构造物交流，等待命运的安排。</text>
+		<event load="GREAT_EYE_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">	
+		<text>你听说过那些在与构造物说话时消失得无影无踪的人的故事...你不希望遭遇同样的命运。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice req="prof_eye_offering" lvl="0" max_lvl="0" blue="false">	
+		<text>向先知圣眼献上祭品。</text>
+		<event>
+			<text>你把一些废料扔向先知圣眼，期盼着会发生什么。不幸的是，似乎什么都没发生。也许那些古老的超能族神话是假的？也许这值得再试一次？</text>
+			<metaVariable name="prof_eye_offering" op="set" val="1" />
+			<item_modify>
+				<item type="scrap" min="-15" max="-15" />
+			</item_modify>
+			<choice hidden="true">	
+				<text>继续。</text>
+				<event>
+					<loadEvent>MONK_EYE_OPTIONS</loadEvent>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_MONK">	
+		<text>(信道者船员)向先知圣眼祈祷获得更好奖励的机会。</text>
+		<event load="GREAT_EYE_LIST_GOOD" />
+	</choice>
+	<choice req="LIST_CREW_ANCIENT" hidden="true">	
+		<text>(方碑族船员)你的方碑族船员认识这个构造物。</text>
+		<event>
+			<text>"这座构造物是方碑族现实操纵器的早期设计。从名字上看，你大概就能猜到它是干什么的。很奇怪，它最终居然出现在这里，但我想这解释了为什么它可以导致各种奇怪的现象。我们可以把它带回星舰，我可以对它做一些维修，但超能族们肯定不会容忍我们这么做。"</text>
+			<choice>	
+				<text>带走现实操纵器。</text>
+				<event>
+					<text>当你带着现实操纵器返回星舰时，一艘超能维和战舰阻止了你。"你胆敢打扰先知圣眼？这是在侮辱我们整个物种，更不用说创造神了！你将受到圣戒！"</text>
+					<achievement silent="false">ACH_OBEL_STEALGREATEYE</achievement>
+					<augment name="COMBAT_HAZARD" />
+					<ship load="SHIP_ZOLTAN_ELITE_FIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ZOLTAN_FIGHT" />
+					</choice>
+				</event>
+			</choice>
+			<choice>	
+				<text>这不值得冒险。</text>
+				<event>
+					<text>这很诱人，但不值得冒险去搞一个被超能族如此崇拜和重视的圣物。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>	
+		<text>无视该构造物。</text>
+		<event>
+			<text>你的任务是拯救联邦，而不是在银河系周围发现新的奇观。你准备跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="GREAT_EYE_LIST">
+	<!--
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	                    GOOD
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	-->
+	<event>
+		<text>当你接近时，一个古老的外星声音对你说话。"你的任务给你们带来了巨大的战斗，也带来了巨大的损失。这个将有助于减轻痛苦。"几分钟后，有人报告说星舰内出现了医疗设备！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>你小心翼翼地接近这个星球，全力防止你的星舰在轨道上解体。那座巨型构造物，不管它是什么，一定也察觉到了你的存在，因为接下来你突然发现你不仅有足够的废料来修补星舰的损坏，还有更多的物资！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<!--new ones below-->
+	<event>
+		<text>当你接近构造物时，你可以听到星舰外部的叮当声和摩擦声。困惑且略为恐惧，你拉高轨道并检查了星舰，但没有看到任何人。可是舰体已经得到了相当大的修补！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>一个低沉的声音回荡在星舰的主舱内。"你的任务将是漫长而艰巨的。希望这能帮助你，使你不必担心无端的干扰。"</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然，太空中打开了一个虫洞，一艘商船被吸入这一边。对方很困惑，但在注意到你之后，提出进行交易，毕竟之前的客户已经在那边了。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>你着迷地看着一件武器在你面前慢慢被一件件零件组装制造出来。沉静一段时间后，你认为这就是构造物所能提供的一切，然后飞离。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>你听见从另一个舱室发出的可怕尖叫声。你进入后发现一个恶心的、小的、裸体的、被粘液覆盖的生物在地上蠕动着。它迅速开始生长，直到发育成一个成年的蛞蝓族！他不知道自己是如何来到这里的，但构造物似乎只是为了你而创造了他！</text>
+		<crewMember amount="1" class="slug">仆从</crewMember>
+	</event>
+	<event>
+		<text>一团纳米机器人在你周围形成，一个声音对你说话。"你需要什么服务？"</text>
+		<choice hidden="true">
+			<text>驾驶。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名精通驾驶的半械分离者。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防御。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名精通操控护盾的半械分离者。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>战斗。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名擅长战斗的半械分离者。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	<!--
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	                    NEUTRAL
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	-->
+	<event>
+		<text>你走近并等待，但什么也没有发生。一艘超能族飞船在呼叫你。"我们曾被教导，若圣眼不与某人交流，那他就没有未来，欲望也不会被满足。"</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<!--new ones below-->
+	<event>
+		<text>一道时空裂隙在你面前打开，巨大到一整颗星球被吸了过来，紧随其后的是一艘不高兴的迷失烈阳飞船！在这个星球的表面有一个巨大的反舰炮台，他们正在向你和敌人双方开火！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="all" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你接近构造物，一个外星声音充满了整个星舰。"每一份礼物，都标好了价码。"你注意到你的燃料储蓄量迅速减少，但每份燃料都变成了一些废料！</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>一股浓厚的气体开始在星舰周围形成，一片星云覆盖了信标！一艘路过的超能族飞船告诉你不要担心，这是经常发生的事情。星云通常在一段时间后就会消失。幸运的是，叛军可能更难追踪到你。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>窃窃私语萦绕着你，讲述着神秘财富的甜言蜜语。你只需做出选择...牺牲一名船员来获得你的奖赏，或者保持清醒，抵制这股冲动。</text>
+		<choice hidden="true">
+			<text>做出牺牲。</text>
+			<event>
+				<text>当你作出抉择后，顿时一把匕首出现在你的手中。你拖着最近的船员，在疯狂的嗜血中刺向他。然后你就晕倒了，醒来后发现星舰内堆满了废料和物资。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>看来，尽管他的死亡只是一个刺伤，但你的船员的死亡是不可逆转的。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>抵制这股冲动。</text>
+			<event>
+				<text>过了一会儿，窃窃私语声停止了，你尽可能快地拉开了与这个星球的距离。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你注意到，当你接近这个星球的表面时，星舰的舰体开始慢慢地自我修复。然而，飞船的四周都出现了破洞！看来每朵玫瑰都带着刺...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>当你接近表面时，你注意到有一簇导弹风暴正向你袭来！它们与星舰相撞，造成了相当大的损害，但却在撞击后变成了废料。事实上，这些废料完全够修补所有的损伤，还余下了很多...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>一阵笑声在星舰上回荡，一个失魂落魄的声音随之而来。"一个朋友，和一个敌人。一物换一物。"</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>你转身看到你的一个船员在咳嗽，抓着喉咙，然后倒在地上，变成紫色。慢慢地，他们的皮肤开始剥落，身体开始融化，变成了一个完全不同的形式。</text>
+		<transformRace>random</transformRace>
+	</event>
+	<!--
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	                    BAD
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	-->
+	<event>
+		<text>当你接近时，视屏突然姹紫嫣红、万色缤纷，你的一名船员开始迅速地返老还童，最终消失至虚无。希望他是意识超越了物理存在，而不是被迫意识消亡。</text>
+		<removeCrew>
+			<clone>false</clone>
+			<text>你检查了你的克隆舱，但它处于休眠状态。无论你的船员刚刚发生了什么，一定是不可逆转的。</text>
+		</removeCrew>
+	</event>
+	<!--new ones below-->
+	<event>
+		<text>当你接近构造物时，你注意到你周围的时间开始变慢。你感到头重脚轻，昏昏沉沉。当你醒来时，似乎已经过了相当长的时间。我们必须在叛军舰队追上来之前赶紧离开这里。</text>
+		<modifyPursuit amount="2" />
+	</event>
+	<event>
+		<text>一道时空裂隙在你面前打开，一支叛军舰队从另一端倾泻而出！一艘叛军战舰进场攻击，显然没有被时空旅行吓到。</text>
+		<customFleet right="true" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+		<modifyPursuit amount="1" />
+		<ship load="SHIP_REBEL_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你注意到，当你接近时，星舰的护盾开始失灵！当你试图离开时，一个小行星带慢慢靠近。一个巧合？不太可能...</text>
+		<status type="divide" target="player" system="shields" amount="3" />
+		<environment type="asteroid" />
+	</event>
+	<event>
+		<text>一个小光球在你的星舰前面形成，并慢慢开始变大。构造物突然从你身边消失，不，准确来说好像是你被瞬移了好几光年，而那个光球则蜕变成了一颗恒星！你受到了首个耀斑的影响，希望能在下个形成之前逃离。</text>
+		<environment type="sun" />
+		<damage amount="3" system="random" effect="fire" />
+	</event>
+	<event>
+		<text>一个通向黑暗深渊的入口在你面前打开，4个外星人从里面跌跌撞撞地走出来！他们看起来并不友好，所以你准备战斗。</text>
+		<boarders min="4" max="4" class="LIST_CREW_MILITIA_RANDOM" />
+	</event>
+	<event>
+		<text>当你接近表面时，船上的所有灯光突然闪烁起来。一阵明显的咔嚓声表明，你已经被一群螳螂族入侵，大概率是构造物所创造的！</text>
+		<status type="limit" target="player" system="sensors" amount="0" />
+		<boarders min="2" max="2" class="mantis" />
+	</event>
+</eventList>
+<eventList name="GREAT_EYE_LIST_GOOD">
+	<!--
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	                    GOOD
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	-->
+	<event>
+		<text>当你接近时，一个古老的外星声音对你说话。"你的任务给你们带来了巨大的战斗，也带来了巨大的损失。这个将有助于减轻痛苦。"几分钟后，有人报告说星舰内出现了医疗设备！</text>
+		<weapon name="BOMB_HEAL" />
+	</event>
+	<event>
+		<text>你小心翼翼地接近这个星球，全力防止你的星舰在轨道上解体。那座巨型构造物，不管它是什么，一定也察觉到了你的存在，因为接下来你突然发现你不仅有足够的废料来修补星舰的损坏，还有更多的物资！</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<!--new ones below-->
+	<event>
+		<text>当你接近构造物时，你可以听到星舰外部的叮当声和摩擦声。困惑且略为恐惧，你拉高轨道并检查了星舰，但没有看到任何人。可是舰体已经得到了相当大的修补！</text>
+		<damage amount="-12" />
+	</event>
+	<event>
+		<text>一个低沉的声音回荡在星舰的主舱内。"你的任务将是漫长而艰巨的。希望这能帮助你，使你不必担心无端的干扰。"</text>
+		<autoReward level="HIGH">fuel_only</autoReward>
+	</event>
+	<event>
+		<text>突然，太空中打开了一个虫洞，一艘商船被吸入这一边。对方很困惑，但在注意到你之后，提出进行交易，毕竟之前的客户已经在那边了。</text>
+		<store>STORE_STANDARD</store>
+	</event>
+	<event>
+		<text>你着迷地看着一件武器在你面前慢慢被一件件零件组装制造出来。沉静一段时间后，你认为这就是构造物所能提供的一切，然后飞离。</text>
+		<weapon name="RANDOM" />
+	</event>
+	<event>
+		<text>你听见从另一个舱室发出的可怕尖叫声。你进入后发现一个恶心的、小的、裸体的、被粘液覆盖的生物在地上蠕动着。它迅速开始生长，直到发育成一个成年的蛞蝓族！他不知道自己是如何来到这里的，但构造物似乎只是为了你而创造了他！</text>
+		<crewMember amount="1" class="slug">仆从</crewMember>
+	</event>
+	<event>
+		<text>一团纳米机器人在你周围形成，一个声音对你说话。"你需要什么服务？"</text>
+		<choice hidden="true">
+			<text>驾驶。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名精通驾驶的半械分离者。</text>
+				<crewMember amount="1" pilot="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>防御。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名精通操控护盾的半械分离者。</text>
+				<crewMember amount="1" shields="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>战斗。</text>
+			<event>
+				<text>这些纳米机器人聚成了一名擅长战斗的半械分离者。</text>
+				<crewMember amount="1" combat="1" class="engi_separatist">L-6644</crewMember>
+			</event>
+		</choice>
+	</event>
+	<!--
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	                    NEUTRAL
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	-->
+	<event>
+		<text>你走近并等待，但什么也没有发生。一艘超能族飞船在呼叫你。"我们曾被教导，若圣眼不与某人交流，那他就没有未来，欲望也不会被满足。"</text>
+		<ship load="SHIP_ZOLTAN_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<!--new ones below-->
+	<event>
+		<text>一道时空裂隙在你面前打开，巨大到一整颗星球被吸了过来，紧随其后的是一艘不高兴的迷失烈阳飞船！在这个星球的表面有一个巨大的反舰炮台，他们正在向你和敌人双方开火！</text>
+		<ship load="SHIP_LOSTSUN_ALL" hostile="true" />
+		<environment type="PDS" target="all" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你接近构造物，一个外星声音充满了整个星舰。"每一份礼物，都标好了价码。"你注意到你的燃料储蓄量迅速减少，但每份燃料都变成了一些废料！</text>
+		<item_modify steal="true">
+			<item type="fuel" min="-5" max="-5" />
+			<item type="scrap" min="25" max="25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>一股浓厚的气体开始在星舰周围形成，一片星云覆盖了信标！一艘路过的超能族飞船告诉你不要担心，这是经常发生的事情。星云通常在一段时间后就会消失。幸运的是，叛军可能更难追踪到你。</text>
+		<environment type="storm" />
+		<modifyPursuit amount="-1" />
+	</event>
+	<event>
+		<text>窃窃私语萦绕着你，讲述着神秘财富的甜言蜜语。你只需做出选择...牺牲一名船员来获得你的奖赏，或者保持清醒，抵制这股冲动。</text>
+		<choice hidden="true">
+			<text>做出牺牲。</text>
+			<event>
+				<text>当你作出抉择后，顿时一把匕首出现在你的手中。你拖着最近的船员，在疯狂的嗜血中刺向他。然后你就晕倒了，醒来后发现星舰内堆满了废料和物资。</text>
+				<autoReward level="HIGH">item</autoReward>
+				<removeCrew>
+					<clone>false</clone>
+					<text>看来，尽管他的死亡只是一个刺伤，但你的船员的死亡是不可逆转的。</text>
+				</removeCrew>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>抵制这股冲动。</text>
+			<event>
+				<text>过了一会儿，窃窃私语声停止了，你尽可能快地拉开了与这个星球的距离。</text>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你注意到，当你接近这个星球的表面时，星舰的舰体开始慢慢地自我修复。然而，飞船的四周都出现了破洞！看来每朵玫瑰都带着刺...</text>
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+		<damage amount="-2" system="random" effect="breach" />
+	</event>
+	<event>
+		<text>当你接近表面时，你注意到有一簇导弹风暴正向你袭来！它们与星舰相撞，造成了相当大的损害，但却在撞击后变成了废料。事实上，这些废料完全够修补所有的损伤，还余下了很多...</text>
+		<damage amount="7" />
+		<item_modify>
+			<item type="scrap" min="35" max="35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>一阵笑声在星舰上回荡，一个失魂落魄的声音随之而来。"一个朋友，和一个敌人。一物换一物。"</text>
+		<boarders min="1" max="1" class="random" />
+		<crewMember amount="1" />
+	</event>
+	<event>
+		<text>你转身看到你的一个船员在咳嗽，抓着喉咙，然后倒在地上，变成紫色。慢慢地，他们的皮肤开始剥落，身体开始融化，变成了一个完全不同的形式。</text>
+		<transformRace>random</transformRace>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_MONK_PEACE_QUEST" unique="true">
+	<preventQuest />
+	<text>一艘没有武器的超能族船正缓慢地飞向这个信标。他们说道："我没有携带武器或护盾，只能依靠别人的怜悯来传播我们的教义。"</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>攻击他。</text>
+		<event load="MONK_PEACE_QUEST_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>听他们说。</text>
+		<event>
+			<text>他继续说。"请见谅，如果我错把你的沉默当作感兴趣的沉思的话。"这位信道者长篇大论地谈论和平与和谐，可要么它超出了你简单心智的理解范围，要么就是一派胡言。</text>
+			<ship load="SHIP_MONK" hostile="false" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>他最后说："请把启迪之语传播给那些暂未耳染之人。完成后，请联系我们的同胞。"他传输了所谓"同胞"的坐标给你。</text>
+					<quest event="MONK_PEACE_QUEST2" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>银河系正处于战争之中，没有时间谈论什么和平。你没有回应对方的呼叫，而是给跃迁推进器充能。</text>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_zoltanpeacestart" global="true">
+		<color r="0" g="255" b="126" a="1.0" />
+        <unvisitedTooltip>此处是和平使者的所在。听听他们要说什么。</unvisitedTooltip>
+<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<eventList name="MONK_PEACE_QUEST_ATTACK">
+	<event>
+		<text>你给你的武器充能，这丝毫不费劲。</text>
+		<ship load="SHIP_PEACE_QUEST_MONK" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>就在你准备进攻的时候，你探测到附近有一个跃迁信号。一艘超能族防卫舰来帮助他们了！</text>
+		<ship load="SHIP_PEACE_QUEST_ELITE" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="MONK_PEACE_QUEST2">
+	<preventQuest />
+	<preventFleet />
+	<beaconType id="map_icon_peace" global="true">
+		<color r="84" g="201" b="30" a="1.0" />
+		<unvisitedTooltip>此处为信道者"同胞"的位置。</unvisitedTooltip>
+		<visitedTooltip>已访问的信道者"同胞"的位置。</visitedTooltip>
+	</beaconType>
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+	</quest>
+	<text>你到达了那位好爱和平的信道者所发来的地点，但附近只有一艘叛军精英战舰，正在快速逼近！"我们找到你了！这次你逃不掉了！"</text>
+	<ship load="SHIP_PEACE_QUEST_REBEL" hostile="false" />
+	<choice hidden="true">
+		<text>尝试给他们发消息。</text>
+		<event>
+			<text>他们打开了通信。"我无法想象你能说出什么能挽救你的话。神军必须消灭那些仍然忠于腐朽联邦的人。"</text>
+			<choice hidden="true">
+				<text>"也许可以通过和平手段下找到我们信念的妥协之策？"</text>
+				<event>
+					<text>"我们的信念毫无交集，无法调和。你认为除了战争，这事还能以任何方式其他结束？"</text>
+					<choice hidden="true">
+						<text>银河系足够巨大，足够容纳你我的理想，你们可以找到一个其他地方建立秩序，而不是造成这种破坏。</text>
+						<event>
+							<text>"不！我们不打算仅因为不契合你们的'联邦理想'就跋山涉水跑到宇宙边境去！"他们反驳道。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>真正的进步只有通过不流血的手段才能实现。</text>
+						<event>
+							<text>"胡说八道，我们不会听你的。"他们把武器武装起来，进行攻击，但也许你并不需要杀死他们。也许你可以让他们投降，这样你们都可以活着离开此地？</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>"投降吧。你们的最终毁灭无法避免。在我们的启迪之路上，已经倒下了太多的叛军朋友。"</text>
+				<event>
+					<text>他们关闭了通信并立即进行交战。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>"你们的叛乱造成了数百亿人的死亡。你们的信仰正在分裂银河系。团结是唯一的选择！"</text>
+				<event>
+					<text>"在弱小联邦的统治下，人类被视为与外星人'平等'？不，只有我们成功发挥出所有的潜力，那些已经牺牲的几千亿外星人或人类的生命才不是无谓的！"他们反驳道。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击。</text>
+		<event>
+			<text>你给你的武器充能准备战斗。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="MONK_PEACE_QUEST_REWARD">
+	<text>"虽然你的方法很粗糙，也很低效，但显然你把我们之前的会面放在心上了。如果你的飞船能代表联邦的和平意愿，那我们将尽之所能帮助联邦战斗。你想看看我们的技术品吗？或者我可以派一个训练有素的维和兵来协助你？"</text>
+	<variable name="loc_peacequest" op="set" val="1" />
+	<unlockCustomShip silent="false">PLAYER_SHIP_MONK</unlockCustomShip>
+	<autoReward level="LOW">scrap_only</autoReward>
+	<choice>
+		<text>请求技术品。</text>
+		<event>
+			<augment name="ENERGY_SHIELD" />
+		</event>
+	</choice>
+	<choice>
+		<text>请求船员。</text>
+		<event>
+			<crewMember amount="1" class="zoltan_peacekeeper" all_skills="2">特使</crewMember>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

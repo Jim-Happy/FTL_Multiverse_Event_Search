@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AUGMENTED SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="AUGMENTED_ANOINTED">
+	<preventQuest />
+	<beaconType id="map_icon_anointed" global="true">
+		<color r="255" g="0" b="230" a="1.0" />
+		<unvisitedTooltip>此处为强铁族领袖，强选者的位置。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标。</visitedTooltip>
+	</beaconType>
+	<variable name="loc_anointed" op="set" val="1" />
+	<text>你到达了星区出口...</text>
+	<choice req="loc_anointed" lvl="0" max_group="0" hidden="true" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>你一到达，一个带有紫色枝节的白色食铁族就从她的大宝座上站了起来。</text>
+			<ship load="SHIP_AUGMENTED_ANOINTED" hostile="false" />
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>"你是我听说的联邦飞船。我知道你带来了一只远古生物。我会从你那里买下它，合适的价格。"</text>
+					<choice>
+						<text>卖掉它。</text>
+						<event>
+							<text>你看着这名食铁族登舰并从你手中拿走这名远古物种。这可能会是你最后一次接触这个巨大的谜团，虽然你已经从中获得了丰厚的利润。</text>
+							<item_modify>
+								<item type="fuel" min="3" max="3" />
+								<item type="scrap" min="35" max="35" />
+								<item type="missiles" min="3" max="3" />
+								<item type="drones" min="2" max="2" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>先问她打算用它做什么。</text>
+						<event>
+							<text>"食物，自然而然。我的饮食，很复杂。很难弄到这些，尤其活的。他会构成美味的小吃，虽然我更喜皇家的而不是平民的..."</text>
+							<choice hidden="true">
+								<text>拒绝，我们不会让这个生物吃掉另一个活物！</text>
+								<event>
+									<text>"所以你拒绝报价？很令人失望。也许价格对你太低了？我提高它，公平的。"</text>
+									<choice hidden="true">
+										<text>坚持你的决定。</text>
+										<event>
+											<text>"你真的很固执。好吧，没有最后的提议。你不给我生物，那我自己拿！"</text>
+											<ship hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="COMBAT_CHECK" />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>同意新价格。</text>
+										<event>
+											<text>你看着这名食铁族登舰并从你手中拿走这名远古物种。这可能会是你最后一次接触这个巨大的谜团，虽然你已经从中获得了丰厚的利润。</text>
+											<item_modify>
+												<item type="fuel" min="5" max="5" />
+												<item type="scrap" min="50" max="50" />
+												<item type="missiles" min="5" max="5" />
+												<item type="drones" min="3" max="3" />
+											</item_modify>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>卖掉它。</text>
+								<event>
+									<text>你看着这名食铁族登舰并从你手中拿走这名远古物种。这可能会是你最后一次接触这个巨大的谜团，虽然你已经从中获得了丰厚的利润。</text>
+									<item_modify>
+										<item type="fuel" min="3" max="3" />
+										<item type="scrap" min="35" max="35" />
+										<item type="missiles" min="3" max="3" />
+										<item type="drones" min="2" max="2" />
+									</item_modify>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_anointed" lvl="1" max_group="0" hidden="true" blue="false"> <!--theoretically you can never get this except in the fleet so Im just going to make it that for simplisities sake-->
+		<text>继续。</text>
+		<event>
+			<text>看起来强选者的船现在已经不见了，而是叛军舰队控制了信标！你将不得不为你的出路战斗！</text>
+			<customFleet right="false" firing="true" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+			<ship load="SHIP_REBEL_FLEET_S" hostile="true" />
+			<environment type="PDS" target="player" />
+			<noASBPlanet />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="engines" lvl="6">
+				<text>(先进引擎)尝试逃离精英舰。</text>
+				<event load="FLEET_ESCAPE" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>(杰瑞)"你好！"</text>
+				<event>
+					<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+					<ship hostile="false" /> 
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ANOINTED_SURRENDER">
+	<text>"好吧，你赢。你可以留下生物，不值得死。拿着这个，把我们留在这里。为攻击道歉。"</text>
+	<choice>
+		<text>接受她的投降。</text>
+		<event load="ANOINTED_SURRENDER_ACCEPT" />
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ANOINTED_SURRENDER_ACCEPT">
+	<text>你接受强选者的投降，她转移了大量的废料。当你准备离开时，她要求和你再谈一件事。</text>
+	<variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+	<ship hostile="false" />
+	<recallBoarders force="true" ship="both" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>她送给你一个奇怪的类似钥匙的设备。"这个远古物种，像其他许多，休眠中。这个装置似乎能够唤醒他们。这里有谜团，不是吗？我希望我能解决它，但条件你现在更有。你会需要这个和燃料作催化剂。好运。"</text>
+			<hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
+			<choice hidden="true">
+				<text>接受她的礼物并离开。</text>
+				<event />
+			</choice>
+			<choice hidden="true">
+				<text>提议带她一起走。</text>
+				<event>
+					<text>"哦，不行。抱歉，这里很忙。我的生活，很艰难。身体的材料很不稳定，总是需要吃更多的东西。没有进食，我会衰败，死去。很痛苦，你懂的。"</text>
+					<checkCargo />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event />
+					</choice>
+					<choice hidden="true" req="ANCIENT_LASER">
+						<text>给她一件远古激光来食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_LASER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_BEAM">
+						<text>给她一件远古光束供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_BEAM" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_FOCUS">
+						<text>给她一件远古光点供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_FOCUS" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_MISSILES">
+						<text>给她一件远古导弹发射器供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_MISSILES" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_BOMB">
+						<text>给她一件远古炸弹发射器供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_BOMB" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_STUN">
+						<text>给她提供一件远古镇定者作为食物。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_STUN" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_LASER">
+						<text>给她一架远古激光无人机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_LASER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_ION">
+						<text>给她一架远古离子无人机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_ION" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_COMBAT_MISSILE">
+						<text>给她一架远古导弹无人机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_COMBAT_MISSILE" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ANCIENT_DEFENSE_1">
+						<text>给她一架远古守望者无人机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ANCIENT_DEFENSE_1" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="MENDER">
+						<text>给她一架远古修复机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="MENDER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="DIRECTOR">
+						<text>给她一架远古导引机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="DIRECTOR" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ATOM_DEFEND">
+						<text>给她一架远古解离机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ATOM_DEFEND" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true" req="ATOM_BOARDER">
+						<text>给她一架远古解离机供她食用。</text>
+						<event>
+							<text id="anointed_dinner" />
+							<remove name="ATOM_BOARDER" />
+							<crewMember amount="1" combat="2" class="unique_anointed">强选者</crewMember>
+							<variable name="ach_crew_anointed" op="set" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ANOINTED_DESTROYED">
+    <text>强选者的星舰爆炸。残骸中还有很多可以搜刮的东西，但随着她的死，你再也没法获悉如何处理这名外星人了。</text>
+    <variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+</event>
+
+<event name="ANOINTED_DEADCREW">
+    <text>星舰内的船员已被消灭，你去检查飞船并收集遗物。</text>
+   <variable name="ach_boss_augcruiser" op="set" val="1" />
+	<autoReward level="HIGH">weapon</autoReward>
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>当你检查这艘船时，你发现强选者躺在地上正衰败。她示意你靠近一点，然后把一个看起来很奇怪的装置拍在你手里。她设法说出了几个字"这是激活器钥匙。与燃料催化剂一起，将唤醒远古...从休眠状态。这里有很大的谜团...打扰是我的错误。你会解决的，我相信..."说完，她倒在地上，死了。</text>
+            <hiddenAug>ANCIENT_ACTIVATOR</hiddenAug>
+        </event>
+    </choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_AUGMENTED">
+	<event load="AUGMENTED_FREESCRAP" />
+	<event load="AUGMENTED_ARTIST" />
+	<event load="AUGMENTED_HUNGRY" />
+	<event load="AUGMENTED_WAYSTONE" />
+	<event load="AUGMENTED_FEEDING" />
+</eventList>
+
+<event name="AUGMENTED_FREESCRAP" unique="true">
+	<text>这座信标似乎曾经是一艘远古舰船的所在地，但已被搜刮了个遍，只剩核心。然而，剩下的仍然足够你获取一些额外的废料。</text>
+	<autoReward level="LOW">scrap_only</autoReward>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="AUGMENTED_ARTIST" unique="true">
+    <text>这片星域与它的环境截然不同。有人费尽心思把遗迹的外表部分变成了一个宽广的隧道，足够你的飞船通过，而不是让那些破碎的船只散乱无章地分布在星系各处。</text>
+    <choice>
+		<text>进入隧道。</text>
+		<event>
+			<text>当你驾驶星舰进入隧道时，你突然发现到有人在墙壁上用一种奇怪的粘性颗粒物质画了画。这些画描绘了一些食铁族舰船、奇怪的立方体，以及钻石，而且随着你在隧道中深入，画的质量似乎在提高。最后，一批稚嫩的恒星系图画进入你的视线——尽管你能辨认出的一些细节似乎与亿万年前就不存在的星系有关。在隧道尽头，你看到一幅画，一个黑金身影正在驱赶一小群强铁族，一群食铁族在一旁观看。一个较大的紫白身影被壁画边缘切断，它在引导着这群不合群的人去其他地方。</text>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>你在隧道最深处发现了一副最新绘制的画作，在那里一个强铁族正在完成一幅之前你见过的白紫色人物肖像。这幅画看起来似乎带有印象派风格，墙上散发出一种光辉。最后，这个食铁族注意到你的星舰，并离开墙壁降落在你的舰体上。</text>
+					<choice>
+						<text>尝试沟通。</text>
+						<event>
+							<text>"外来者。做出看到的东西。其他食铁族不能理解。你没见过。不被知晓。可以制造图像？"</text>
+							<choice req="LIST_CREW_HUMAN">
+								<text>(人类船员)让食铁族给你的人类船员画个素描。</text>
+								<event>
+									<text>你让人类船员站到窗户前给强铁族看到。"新生物！没见过！肉肉的...头上带丝...有灵感了！"食铁族跳到墙上开始画画。尽管食铁族已经掌握了一些技巧，但画面看起来非常...奇怪。你的人类船员觉得这幅画看起来就像几根培根加上一根画笔头部。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ENGI">
+								<text>(半械族船员)让食铁族给你的半械族船员画个素描。</text>
+								<event>
+									<text>你让半械族船员站到窗户前给强铁族看到。"新生物！没见过！金属……弯曲……专注……有灵感了！" 食铁族跳到墙上开始画画。尽管食铁族已经掌握了一些技巧，但画面看起来非常……奇怪。尽管如此，你的半械族船员似乎对描绘感到满意，指出它看到了相似之处。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ZOLTAN">
+								<text>(超能族船员)让食铁族给你的超能族船员画个素描。</text>
+								<event>
+									<text>你让超能族船员站到窗户前给强铁族看到。“新生物！没见过！发光的小透明……有灵感了！”食铁族跳到墙上开始画画。尽管食铁族已经掌握了一些技巧，但画面看起来非常……奇怪。你的超能族船员感觉这幅画看起来就像一个烧坏的LED。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ORCHID">
+								<text>(兰花族船员)让食铁族给你的兰花族船员画个素描。</text>
+								<event>
+									<text>你让兰花族船员站在窗户前给强铁族看到。"新生物！没见过！脆弱……五彩斑斓……有灵感了！" 食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但是画面看起来非常……奇怪。兰花族船员觉得它看起来像一张折纸贴在花园水管上。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SHELL">
+								<text>(甲壳族船员)让食铁族给你的甲壳族船员画个素描。</text>
+								<event>
+									<text>你让甲壳族船员站到窗户前让强铁族看到。"新生物！没见过！圆……滑……有灵感了！" 食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但画面看起来非常……奇怪。你的甲壳族船员感觉它看起来像一个泥泞的老轮胎。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_MANTIS">
+								<text>(螳螂族船员)让食铁族给你的螳螂族船员画个素描。</text>
+								<event>
+									<text>你让螳螂族船员站在窗户前让强铁族看到。"新生物！没见过！尖锐……悚然……有灵感了！" 食铁族跳到墙上开始绘画。尽管食铁族已经掌握了一些技巧，但画面看起来非常……奇怪。你的螳螂族船员感觉它看起来像一把剑制成的跑步机，这意味着对方喜欢它。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ROCK">
+								<text>(岩石族船员)让食铁族给你的岩石族船员画个素描。</text>
+								<event>
+									<text>你让岩石族船员站到窗户前给强铁族看到。"新生物！没看过！大…粗糙…有灵感了！" 食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但画面看起来非常…奇怪。你的岩石族船员觉得它看起来像一个形状怪异的土豆。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SLUG">
+								<text>(蛞蝓族船员)让食铁族给你的蛞蝓族船员画个素描。</text>
+								<event>
+									<text>你让蛞蝓族船员站到窗户前给强铁族看到。"新生物！没见过！胖…滑…有灵感了！" 食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但画面看起来非常…奇怪。你的蛞蝓族船员觉得它看起来像一个带螺旋帽的香肠。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_LEECH">
+								<text>(吸虫族船员)让食铁族给你的吸虫族船员画个素描。</text>
+								<event>
+									<text>你让吸虫族船员站在窗户前给强铁族看到。"新生物！没见过！长…细…有灵感了！"食铁族跳到墙上开始画。虽然食铁族已经掌握了一些技巧，但画面看起来非常…奇怪。你的吸虫族船员觉得它看起来像一个破损的弹簧。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SPIDER">
+								<text>(蜘蛛族船员)让食铁族给你的蜘蛛族船员画个素描。</text>
+								<event>
+									<text>你让蜘蛛族船员站在窗户前给强铁族看到。"新生物！没见过！很多腿…很多眼睛…有灵感了！" 食铁族跳到墙上开始画画。尽管食铁族已经掌握了一些技巧，但是画面看起来非常…奇怪。你的蜘蛛族船员似乎甚至不知道发生了什么。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_PONY">
+								<text>(六脚马族船员)让食铁族给你的六脚马族船员画个素描。</text>
+								<event>
+									<text>你让六脚马族船员站在窗户前给强铁族看到。"新生物！没见过！很多腿…五彩斑斓…有灵感了！" 食铁族跳到墙上开始画画。尽管食铁族已经掌握了一些技巧，但描绘看起来非常…奇怪。你的六脚马族似乎甚至不知道发生了什么。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="unique_tyrdeo_bird">
+								<text>(威尔西)让食铁族给威尔西画个素描。</text>
+								<event>
+									<text>你把威尔西放在窗户前让强铁族看到。"新生物！没见过！小…轻…威严…有灵感了！"食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但画面看起来非常熟悉。事实上，它看起来出奇地像叛军MFK标志。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_LIZARD">
+								<text>(蜥蜴族船员)让食铁族给你的蜥蜴族船员画个素描。</text>
+								<event>
+									<text>你让蜥蜴族船员站在窗户前给强铁族看到。食铁族似乎无话可说，但点点头。它跳到墙上开始画画。食铁族以几乎完美的准确性画出了蜥蜴族船员。蜥蜴族船员满意地点点头。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_MORPH">
+								<text>(模物族船员)让食铁族给你的模物族船员画个素描。</text>
+								<event>
+									<text>你让模物族船员站到窗户前给强铁族看到。"新生物！没见过！粘稠…暗淡的颜色…有灵感了！" 食铁族跳到墙上开始画画。虽然食铁族已经掌握了一些技巧，但画面看起来非常…奇怪。你的模物族船员暂时调整了自己的形状来匹配画。艺术家很满意。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_SIREN">
+								<text>(异鸣族船员)让食铁族给你的异鸣族船员画个素描。</text>
+								<event>
+									<text>你让异鸣族船员站到窗户前给强铁族看到。"新生物！没见过！不能……想像……！"食铁族抱紧它的头，好像很痛苦的样子，然后开始画画。但它并没有画异鸣族，而是画了一个看起来像蛞蝓族和一些破碎圆圈的照片。艺术家看起来很迷糊然后晕倒了。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>随着食铁族失去意识，你唯一能做的就是尽可能拿走你发现散落在周围的废料。</text>
+											<autoReward level="LOW">scrap_only</autoReward>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ELDRITCH">
+								<text>（怪异造物）让食铁族给你的怪异造物画一副。</text>
+								<event>
+									<text>你让食铁族看到了你的怪异船员。看到他们后，食铁族鼓起掌来。"灵感来了！灵感源源不断！"这位艺术家跳到墙上开始作画。不知为何，食铁族在墙上画了一副看起来像是儿童图画书的东西，里面充满了简单的韵律和滑稽的动物角色。这幅画非常有品位。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="AUGMENTED_ARTIST_REWARD" />
+									</choice>
+								</event>
+							</choice>
+							<choice req="LIST_CREW_ANCIENT_ALL">
+								<text>（方碑族船员）让食铁族给你的方碑族船员画一幅素描。</text>
+								<event>
+									<text>你！！强选者要动手了！"食铁族看起来就要发起攻击了……但随后又停了下来。"不是战士。对付不了。那就画下来吧。"食铁族画出了那位远古船员的画像。结果画得还挺不错的。</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>"强选者警告我们说，你先走。"食铁族盯着你的飞船，然后匆匆走进一间屋子，回来时手里拿着一份礼物。"那就拿走吧。但你要离开。"</text>
+											<autoReward level="HIGH">scrap_only</autoReward>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="LIST_CREW_CRYSTAL">
+								<text>(水晶船员) "知道帝国，转让。"</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice hidden="true" req="LIST_CREW_GHOST">
+								<text>(魂灵船员) "知道灵朝，转让。"</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice hidden="true" req="LIST_CREW_LANIUS">
+								<text>(食铁族船员) "我是食铁族，不需要"</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+							<choice>
+								<text>我们没有志愿者。</text>
+								<event>
+									<text>"太令人伤心了。需要一些鼓舞人心的想法。"食铁族从你的飞船上跳下来，继续作画。接下来要做的就是离开这个隧道。</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>这很可疑。离开。</text>
+		<event>
+			<text>你自行决定，让那条隧道保持原样。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="AUGMENTED_ARTIST_REWARD">
+    <text>"友好的生物！我会继续画的！这是给你的礼物。有了艺术才能，就不需要武器了。"</text>
+    <autoReward level="HIGH">weapon</autoReward>
+</event>
+
+<event name="AUGMENTED_HUNGRY" unique="true">
+	<text>一架小型穿梭机飞过，载着一名强铁族。他向你呼叫，恳求你帮个忙。"我的身体，快速衰坏，要吃船体才能活，这穿梭机小，求你让吃点你的，不会影响船。"</text>
+	<choice hidden="true">
+		<text>让他吃船体。</text>
+		<event>
+			<text>食铁族将穿梭机靠近并从底部出来，滑向星舰。他着舰并开始液化船体的一小部分。这根本算不上什么，比你预期的要少得多，但食铁族很感激，甚至提议加入你的船员。</text>
+			<crewMember amount="1" class="lanius_augmented" />
+			<damage amount="2" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你拒绝了。食铁族看起来很恐惧，没过多久，他的手臂就掉了下来，化成一滩金属。看来当他说快速的时候，是真的非常快...</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_WAYSTONE" unique="true">
+    <text>这个星区是各种奇怪景象的家园，现在你可以将水晶族精英添加到你认为你不会在该星区看到的意外访客列表中。</text>
+    <ship load="SHIP_CRYSTAL_ELITE_GENERIC" hostile="false" />
+    <choice hidden="true">
+        <text>联系他们。</text>
+        <event>
+            <text>水晶戍卫者在这里看到一艘联邦飞船同样感到惊讶，但他们至少以一种相当平和的方式对待你。"我们来这是为了从这些结构中寻找几个部块。我们相信他们的技术与我们祖先的技术相结合，创造了封印我们家园的次元石。然而，在这个星区导航很困难。如果你碰巧有任何星图数据，我们很乐意接受。"</text>
+            <choice>
+                <text>向他们出售你已经收集的本星区所有数据。</text>
+                <event>
+                    <autoReward level="LOW">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="FTL_JUMPER">
+                <text>(超光速导航)将你的导航器获取的数据卖给他们。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="ADV_SCANNERS">
+                <text>(长距扫描仪) 把扫描仪所收集的数据卖给他们。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+            <choice req="sensors" lvl="3">
+                <text>(先进传感器)把你的传感器收集到的数据卖给他们。</text>
+                <event>
+                    <autoReward level="HIGH">scrap_only</autoReward>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>攻击！</text>
+        <event>
+            <text>用完全野蛮的方式，你成功展示了自己只喜欢这种先攻击，再提问的做法。你准备毫不留情地攻击这艘水晶族战舰。</text>
+            <ship hostile="true" /> 
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="MORALITY_UPDATE_CRYSTAL_FIGHT" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>无视水晶族。</text>
+        <event>
+            <text>水晶族花了一些时间探索附近的两个残骸，然后跃迁。你想如果他们没有找到任何东西，你也不会找到。</text>
+            <choice hidden="true">
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="AUGMENTED_FEEDING" unique="true">
+	<text>附近是一个小型远古废墟，上面有一些强铁族。当你靠近时，他们向你呼叫。"你访客？如果有食铁族伙伴，随意加入。这里足以改变构型！"</text>
+	<choice req="lanius">
+		<text>(食铁族船员) 让你的食铁族以废墟为食。</text>
+		<event>
+			<text>你的食铁族滑出星舰，飞向废墟，并与其他人一起附着在废墟上...</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>你着迷地看着你的食铁族的金属身体慢慢变成深黑色。很快他就回来了，看起来和你见过的所有其他强铁族一样，并且具有相同的能力。</text>
+					<transformRace class="lanius">lanius_augmented</transformRace>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="lanius_augmented">
+		<text>你的强铁族船员无法从这些遗迹中获得任何益处，因为它们已经通过吞噬类似的残骸而经历了显著的变化。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>攻击他们，然后探索那片遗迹！</text>
+		<event>
+			<text>你靠近向食铁族开火。他们被迫从废墟上分离出来，让你得以靠近并进行回收。然而对方并没有被阻挡多久，很快他们又重新附着在你的舰体上，并强行闯入了舰内！</text>
+			<boarders min="2" max="3" class="lanius_augmented" />
+			<autoReward level="HIGH">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>食铁族不再尝试与你联系。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_AUGMENTED">
+	<event load="AUGMENTED_CHOICE" />
+	
+	<event load="AUGMENTED_LANIUS" />
+	<event load="AUGMENTED_GHOST" />
+	<event load="AUGMENTED_SEPARATISTS" />
+	<event load="AUGMENTED_INQUISITION" />
+</eventList>
+
+<event name="AUGMENTED_CHOICE">
+	<text load="TEXT_AUGMENTED_CHOICE" />
+	<ship load="SHIP_AUGMENTED" hostile="false" /> 
+	<choice hidden="true">
+		<text>与强铁族战斗。</text>
+		<event>
+			<text>你充能你的武器并与强铁族船作战。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开他们。</text>
+		<event>
+			<text>你决定不与强铁族战斗，然后飞走。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_AUGMENTED_CHOICE">
+	<text>强铁族虽然并不总是最友好的，但这里的船不打算与你作战。你打算吗？</text>
+	<text>"我警告你避开。我的船很危险，你不会想惹。"另一艘船上的食铁族骄傲地挺起胸膛，吹嘘地挥舞着身体的利刃。</text>
+	<text>试图避免与军舰发生冲突的食铁族并不少见，但你已经看到了一些特别野蛮的强铁族舰船。尽管如此，这里的船只并没有采取激进的行动。</text>
+	<text>起初，你不确定面前的食铁族飞船是否仍处于活动状态，但扫描结果显示微弱的生命迹象。对方没有受伤，只是睡着了。你想利用这个场景吗？</text>
+</textList>
+
+<event name="AUGMENTED_LANIUS" unique="true">
+	<text>附近的强铁族和精英食铁族似乎因为一些远古残骸的归属而变得紧张起来。你想参与吗？</text>
+	<choice hidden="true">
+		<text>帮助强铁族。</text>
+		<event>
+			<text>你充能你的武器并与精英船作战。</text>
+			<ship load="SHIP_AUGMENTED_LANIUS_ELITE" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>帮助食铁族精英。</text>
+		<event>
+			<text>你充能你的武器并与强铁族船作战。</text>
+			<ship load="SHIP_AUGMENTED_LANIUS_AUG" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开他们。</text>
+		<event>
+			<text>你决定不与食铁族们互动，然后飞走。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_GHOST" unique="true">
+    <text>附近的远古船只状况比一般的好得多，但这并不是唯一的异常...扫描显示漂浪群已经控制了这艘船！</text>
+    <ship load="SHIP_GHOST_ANCIENT" hostile="false" />
+    <choice hidden="true">
+        <text>攻击他们，说不定这艘船有什么有价值的东西！</text>
+        <event>
+            <text>漂浪群决心不放弃他们的船，准备从你的攻击下保护自己。</text>
+            <ship hostile="true" /> 
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>向漂浪群呼叫并提出交易。</text>
+        <event>
+            <text>你发送消息并等待回复，因为你知道你的翻译器需要一些时间来正确破译魂灵族的静电噪音。"你好，谢谢你。我们已经翻修了这艘新船，但我们缺乏维护它所需的资源。如果你有足够的燃料，我们将接受货物交换。"</text>
+            <choice>
+                <text>给他们少量的燃料。</text>
+                <event>
+                    <text>"这是一些可观的燃料量，但只是勉强。我希望你没有期望得到比这更高的报酬。"</text>
+                    <item_modify>
+                        <item type="fuel" min="-2" max="-2" />
+                        <item type="scrap" min="5" max="5" />
+                    </item_modify>
+                </event>
+            </choice>
+            <choice>
+                <text>给他们中量的燃料。</text>
+                <event>
+                    <text>"这会发挥很大用处的，谢谢。"</text>
+                    <item_modify>
+                        <item type="fuel" min="-7" max="-7" />
+                        <item type="scrap" min="20" max="20" />
+                    </item_modify>
+                </event>
+            </choice>
+            <choice>
+                <text>给他们大量的燃料。</text>
+                <event>
+                    <text>"这是非常多的燃料。我们非常感谢你。请收下这件武器，它属于这艘船的前居民，无论他们是谁。"</text>
+                    <item_modify>
+                        <item type="fuel" min="-15" max="-15" />
+                        <item type="scrap" min="40" max="40" />
+                    </item_modify>
+                    <weapon name="ANCIENT_HAVOC" />
+                </event>
+            </choice>
+            <choice>
+                <text>我们没有任何燃料多余。</text>
+                <event>
+                    <text>你等待漂浪群的任何进一步回应，但没有得到任何回应。你离开远古船，把魂灵族抛在后面。</text>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>无视漂浪群。</text>
+        <event>
+            <text>既然漂浪群已经获得一艘远古船，那就不关你什么事了。他们不是你想要对付的一群气体生物。</text>
+            <choice hidden="true">
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice hidden="true">
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="AUGMENTED_SEPARATISTS" unique="true">
+	<text>一个孤独的半械分离者正在扫描一艘废弃已久的远古船只。当你跃迁到达时，他刻意与你的星舰之间保持了一些距离，但没有离开。</text>
+	<ship load="SHIP_SEPARATIST_RUINS" hostile="false" />
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"本地联邦船只，我们向你[确保]你已被发现。请不要干涉，我们正在寻找[无效化]谐合的方法。"</text>
+			<choice hidden="true">
+				<text>进一步询问。</text>
+				<event>
+					<text>分离者发出一声叹息。"居住在这个星区的[立方]容器属于远古种族。据信，尽管只有60%的把握，这些生物先开发出的谐合。你想听的[故事]，现在请离开。"</text>
+					<choice hidden="true">
+						<text>攻击对方，也许对方有一些有价值的东西！</text>
+						<event>
+							<text>你决定攻击分离者飞船。准备战斗。</text>
+							<ship hostile="true" /> 
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>照他说的做，不管他。</text>
+						<event>
+							<text>这艘飞船不会打扰到你，所以你也不会去打扰他们。</text>
+							<choice hidden="true">
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice hidden="true">
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
+				<text>(分离者船员)"你们的任务重要等级[高]。但是，我们的任务亦如此。请求：补给。"</text>
+				<event>
+					<text>你的分离者向那个半械族解释了你的使命。"这个请求可以接受。现在转移物资。"</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_HARMONY">
+				<text>(半械族船员)"这是不可接受的。防止分离者的成功是最高优先事项。"</text>
+				<event>
+					<text>你的半械族要求你在分离者们完成任务之前摆平他们。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>照他说的做，不管他。</text>
+				<event>
+					<text>这艘船不会打扰你，所以你也不会打扰他们。</text>
+					<choice hidden="true">
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice hidden="true">
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击分离者们。</text>
+		<event>
+			<text>要是让一些半械族从你身边跑掉，那就太秀逗了。你会用你知道的唯一方法来解决这个问题——非必要的谋杀。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视半械族。</text>
+		<event>
+			<text>这艘船不会打扰你，所以你也不会打扰他们。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="AUGMENTED_INQUISITION" unique="true">
+	<text>你发现了可能你最不想看到的东西，一艘废弃的圣判所飞船。长老们一定是派出了这个侦察舰来进一步扩大他们的影响力，或者说他们比你考虑得还多...</text>
+	<ship load="SHIP_ROCK_ELITE_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>回收残骸。</text>
+		<event load="AUGMENTED_INQUISITION_SALVAGE" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>(高级传感器)先扫描残骸。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="LIFE_SCANNER">
+		<text>(生命扫描仪)先扫描残骸。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>(蛞蝓族船员)首先侦测生命体。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(心灵感应甲壳族)首先侦测生命体。</text>
+		<event load="AUGMENTED_INQUISITION_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>当你飞走时，岩石族船仍保持不动。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="AUGMENTED_INQUISITION_SALVAGE">
+	<event>
+		<text>当你搜刮这艘船时，没有什么打扰你。看来食铁族一定对他们的生命支持系统造成了严重破坏，即使是坚韧的圣战者也无法自救。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>在回收船的时候，突然有几名岩石圣战者从舱门里冲了出来。"圣战无往不在！"无论是伏击还是他们真的不喜欢你，都不再重要了。准备战斗！</text>
+		<boarders min="2" max="2" class="rock_crusader" /> <!--the meme has 3 but oh well-->
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="AUGMENTED_INQUISITION_SCAN">
+	<event>
+		<text>扫描显示船是空的。看来食铁族一定对他们的生命支持系统造成了严重破坏，即使是坚韧的圣战者也无法自救。你确定回收是安全的。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>扫描显示船上的生命维持系统受到了一些损坏，但圣战者船员仍在船上。</text>
+		<choice hidden="true">
+			<text>趁他们虚弱的时候攻击他们！</text>
+			<event>
+				<text>你启动武器并在他们缺氧的情况下攻击圣战者战舰！</text>
+				<status type="limit" target="enemy" system="oxygen" amount="0" />
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>询问他们。</text>
+			<event>
+				<text>圣战者出奇地接受了你的提问。"听说这片星区有远古神族的一些遗物，和一些远古水晶神话相吻合。长老们不想任何冒失者打扰水晶神们，所以派我们出来抓一个带回去...可我们找到一群想吃我们的食铁族。请见谅，在我们窒息死亡之前，我们得回去修理这艘船了。"</text>
+				<choice hidden="true">
+					<text>趁他们虚弱的时候攻击他们！</text>
+					<event>
+						<text>你启动武器并在他们缺氧的情况下攻击圣战者战舰！</text>
+						<status type="limit" target="enemy" system="oxygen" amount="0" />
+						<ship hostile="true" />
+						<choice hidden="true">
+							<text>继续。</text>
+							<event load="COMBAT_CHECK" />
+						</choice>
+					</event>
+				</choice>
+				<choice hidden="true" req="oxygen" lvl="2">
+					<text>(高级氧气)对接，帮对方补充氧气。</text>
+					<event>
+						<text>圣战者同意，你迅速与他们的船对接并用氧气充满它。他们非常高兴，虽然他们中的大多数人觉得有必要继续他们的使命，但有人希望留在你身边，其他人没有对此表示抗议。</text>
+						<crewMember amount="1" class="rock_crusader">派森</crewMember>
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>不管他们。</text>
+					<event />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>无视对方。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_AUGMENTED">
+	<event load="DISTRESS_AUGMENTED_EXPLOSIVE" />
+	<event load="DISTRESS_AUGMENTED_WENTWORTH" />
+	<event load="DISTRESS_AUGMENTED_NEAR_DEATH" />
+</eventList>
+
+<event name="DISTRESS_AUGMENTED_EXPLOSIVE" unique="true">
+	<distressBeacon />
+    <text>一艘强铁族飞船疯狂地联系你。"快点！遗迹爆炸！需要快速行动来生存！"附近有一项古老的技术正在闪烁并升温。</text>
+    <ship load="SHIP_AUGMENTED" hostile="false" />
+    <choice req="hacking">
+		<text>(黑客系统)黑入技术，阻止爆炸。</text>
+		<event>
+			<text>幸运的是，你能够诊断并解决这个问题——一个自毁装置被触发了，可能是由这艘强铁族飞船引起的。在自毁装置被禁用后，你的飞船和食铁族能够在遗迹上会合。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="DISTRESS_AUGMENTED_EXPLOSIVE_HACK" />
+			</choice>
+		</event>
+    </choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_HACK">
+		<text>(黑客武器) 试图阻止爆炸的发生。</text>
+		<event load="DISTRESS_AUGMENTED_EXPLOSIVE_GUN_HACK" />
+	</choice>
+    <choice>
+		<text>这不值得冒险！</text>
+		<event load="DISTRESS_AUGMENTED_EXPLOSIVE_FAIL" />
+    </choice>
+</event>
+<eventList name="DISTRESS_AUGMENTED_EXPLOSIVE_GUN_HACK">
+	<event>
+		<text>你发射你的武器，片刻之后，那装置开始冷却下来。看来是某种自毁装置被触发了，很可能是由强铁族飞船所触发的。由于自毁装置已被关闭，你的飞船和食铁族以在遗迹上会合。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="DISTRESS_AUGMENTED_EXPLOSIVE_HACK" />
+		</choice>
+	</event>
+	<event>
+		<text>你发射了你的武器，但什么也没发生。你匆忙撤退，而那台设备的温度仍在持续攀升至危险的水平。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="DISTRESS_AUGMENTED_EXPLOSIVE_FAIL" />
+		</choice>
+	</event>
+</eventList>
+<event name="DISTRESS_AUGMENTED_EXPLOSIVE_HACK">
+	<text>强铁族飞船飞过来进行检查。"干得好。分享遗迹。一半一半。"即使只有一半的收获也是很高的收益—你可以从中得到不少的废料。</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="DISTRESS_AUGMENTED_EXPLOSIVE_FAIL">
+	<text>强铁族飞船在爆炸时迅速飞离残骸。然后它转向你–"我们的食物，消失了。我们要吃你的飞船！"</text>
+	<ship hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="DISTRESS_AUGMENTED_WENTWORTH" unique="true">
+	<distressBeacon />
+    <text>求救信号来自一艘受损的温特沃斯社自动侦察舰。在你进一步调查之前，你收到了附近一艘强铁族舰船发出的呼叫："发现飞船。要求飞船。不给。但是，有奇怪的东西，摸起来很痛。不能吃。不想吃。承诺不再打扰，你带走？"</text>
+    <choice hidden="true">
+   		<text>接受提议。</text>
+     	<event>
+     		<text>食铁族从飞船上拆下一项技术：一个哨卫武器。不管是什么让温特沃斯社的侦察舰进入了这个星区，都不是什么好事，但至少它正在被摧毁。</text>
+     		<weapon name="GIFTLIST_ESTATE" />
+     	</event>
+    </choice>
+    <choice hidden="true">
+   		<text>我们会拿走整个残骸。充能武器。</text>
+		<event load="DISTRESS_AUGMENTED_WENTWORTH_FIGHT" />
+    </choice>
+</event>
+<eventList name="DISTRESS_AUGMENTED_WENTWORTH_FIGHT">
+	<event>
+		<text>当你启动武器时，立刻被一支突袭队登舰。然而，这艘船是不设防的，这意味着登船者被解决后，你就可以自由拿取武器。</text>
+		<boarders min="4" max="4" class="lanius_augmented" />
+		<autoReward level="HIGH">standard_no_item</autoReward>
+		<weapon name="GIFTLIST_ESTATE" />  			 
+	</event>
+	<event>
+		<text>当你启动武器时，强铁族飞船也同时启动。他们打算保卫自己的收获！</text>
+		<ship load="SHIP_AUGMENTED_WW" hostile="true" />
+		<boarders min="3" max="3" class="lanius_augmented" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>当你启动武器时，立刻被一支突袭队登舰。更糟糕的是，自动舰再次启动。"重新初始化：完成。检测到变元者。检测到敌对食铁族。新的任务参数：消灭所有目标。"看来食铁族还没有完成对它的禁用！</text>
+	 	<ship load="SHIP_AUTO_WW_AUG" hostile="true" />
+	 	<!--<enemyDamage amount="1" system="random" effect="eff"/>
+	 	<enemyDamage amount="1" system="random" effect="eff"/>-->
+		<boarders min="4" max="4" class="lanius_augmented" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="AUGMENTED_WENTWORTH_SCRAP">
+    <text>这艘船停止工作了，可以安全搜刮了。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+</event>
+
+<event name="DISTRESS_AUGMENTED_NEAR_DEATH" unique="true">
+	<distressBeacon />
+    <text>"救命。救命。生命正在流失！船体严重受损！毁灭在即！"强铁族正疯狂地以最快速度翻译他们的求救信号。</text>
+    <ship load="SHIP_AUGMENTED_SELF_DESTRUCT" hostile="false" />
+	<enemyDamage amount="999" />
+	<enemyDamage amount="-1" />
+    <status type="limit" target="enemy" system="medbay" amount="0" />
+    <choice req="BOMB_HEAL" hidden="true">
+		<text>(医疗炸弹)治疗受伤的强铁族。[-1}]</text>
+		<event>
+			<text>医疗炸弹让强铁族瞬间恢复全盛状态，他们迅速冷静下来。"在战斗。险胜。给，我们找到了这个。"</text>
+			<item_modify>
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="BLUELIST_BOMB_REPAIR">
+		<text>(维修炸弹)使用维修炸弹来维修他们的飞船。[-1}]</text>
+		<event>
+			<text>修复炸弹修复了食铁族的飞船，在他们利用飞船舰体自行修复以后，才恢复平静。"在战斗。险胜。给，我们找到了这个。"</text>
+			<item_modify>
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+	<choice hidden="true" req="DRONE_CONTROL_SHIPREPAIR">
+		<text>（舰体维修无人机）派出无人机修复他们的飞船。[-1|]</text>
+		<event>
+			<text>无人机修复了食铁族飞船，让他们可以吞噬船体金属进行自我修复。待到恢复后，他们逐渐平静下来。"经历战斗。惨胜。给——我们找到了这个。"</text>
+			<item_modify>
+				<item type="drone" min="-1" max="-1" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_MEDICAL">
+		<text>(医疗船员)派遣你的医疗船员协助他们。</text>
+		<event>
+			<text>协助过程略显尴尬——毕竟你的医疗人员需要呼吸的氧气，正是食铁族会吞噬的资源。但医疗小组仍在穿梭机安全舱内竭尽所能。最终，救援小队带着获救飞船赠送的礼物平安归来。</text>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="REPAIR_ARM">
+		<text>（自动维修臂）启动你的自动维修臂为他们紧急修补船体。[-25~]</text>
+		<event>
+			<text>你的自动维修臂修好了食铁族的船，让他们可以吞噬船体金属进行自我修复。待到恢复后，他们逐渐平静下来。"经历战斗。惨胜。给——我们找到了这个。"</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<weapon name="GIFTLIST_LANIUS" />
+		</event>
+    </choice>
+    <choice hidden="true" req="BEAM_REPAIR">
+		<text>(援舰光束)维修他们的飞船。</text>
+		<event load="DISTRESS_AUGMENTED_NEAR_DEATH_BEAM" />
+    </choice>
+	<choice hidden="true">
+		<text>等待他们的毁灭降临。</text>
+		<event load="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH" />
+    </choice>
+</event>
+<eventList name="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH">
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event load="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION" />
+   	 <event>
+		<text>飞船的信号消失了。令人意外的是，他们宁愿全员选择在饥饿中消亡，也不愿自毁舰船。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="DEAD_CREW_AUGMENTED" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="DISTRESS_AUGMENTED_NEAR_DEATH_BEAM">
+	<event>
+		<text>你迅速接通食铁族通讯，成功说服他们解除护盾防御。随着光束精准修复船体结构，这些金属生命体逐渐恢复稳定。"经历战斗。惨胜。给——我们找到了这个。"</text>
+		<weapon name="GIFTLIST_LANIUS" />
+		<status type="loss" target="enemy" system="shields" amount="8" />
+		<enemyDamage amount="-8" />
+	</event>
+	<event>
+		<text>你迅速联络食铁族，要求其解除护盾以便用光束修复船体。然而你的请求石沉大海——不知是因不信任还是沟通障碍，他们的恐慌更使局势雪上加霜。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="DISTRESS_AUGMENTED_NEAR_DEATH_DEATH" />
+		</choice>
+	</event>
+</eventList>
+<event name="DISTRESS_AUGMENTED_NEAR_DEATH_EXPLOSION">
+    <ship hostile="true" />
+    <enemyDamage amount="1" />
+    <text>你冷眼旁观强铁族们不得不在饥饿与毁灭间作出抉择。不出所料，其中一名成员最终崩溃，开始啃噬船体——这彻底破坏了飞船的结构完整性。</text>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_AUGMENTED">
+	<event load="QUEST_AUGMENTED_AUTOMATED_SIGNAL" />
+</eventList>
+
+<event name="QUEST_AUGMENTED_AUTOMATED_SIGNAL" unique="true">
+	<text>此处存在一台古老的通讯接收装置，正持续接收来自另一星系的加密信号。遗憾的是，这段信号完全使用其创造者种族的语言编码，无法直接破译。</text>
+	<choice hidden="true" req="UPG_AETHER_TRANSLATOR">
+		<text>（符文翻译器）翻译这则消息。</text>
+		<event>
+			<text>这段通讯源自邻近星系——一艘自动战舰正在广播关于遗迹坠入脉冲星的消息。尽管该处可能藏有珍贵残骸，但任何试图接近遗迹的物体都会遭到自动战舰的攻击。</text>
+			<quest event="AUGMENTED_AUTOMATED_SIGNAL_QUEST" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT_ALL">
+		<text>（远古船员）翻译这则消息。</text>
+		<event>
+			<text>这段通讯源自邻近星系——一艘自动战舰正在广播关于遗迹坠入脉冲星的消息。尽管该处可能藏有珍贵残骸，但任何试图接近遗迹的物体都会遭到自动战舰的攻击。</text>
+			<quest event="AUGMENTED_AUTOMATED_SIGNAL_QUEST" />
+		</event>
+	</choice>
+	<choice>
+		<text>无视信号。</text>
+		<event>
+			<text>你选择搁置这段信号，转而处理其他事务。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>    
+	</choice>
+</event>
+<event name="AUGMENTED_AUTOMATED_SIGNAL_QUEST">
+	<beaconType id="map_icon_quest" global="true">
+  	  <color r="69" g="168" b="235" a="1" />
+  	  <unvisitedTooltip>这个信标点处，一艘远古自动战舰正守护着一处遗迹。</unvisitedTooltip>
+	</beaconType>
+	<text>自动战舰正环绕脉冲星运行，你跃迁抵达的瞬间便将其激活！唯有击败这个机械守卫，才能获得遗迹的准入权限！</text>
+	<ship load="SHIP_ANCIENT_AUTO_PULSAR" hostile="true" />
+	<environment type="pulsar" />
+	<choice hidden="true">
+  	  <text>继续。</text>
+  	  <event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_AUGMENTED">
+	<event load="ENCOUNTER_AUGMENTED" />
+	<event load="ENCOUNTER_AUGMENTED" />
+	<event load="ENCOUNTER_AUGMENTED_LANIUS" />
+
+	<!--<event load="ENCOUNTER_AUGMENTED_AUTOANCIENT"/>-->
+	<event load="ENCOUNTER_AUGMENTED_PIRATE" />
+</eventList>
+
+<event name="ENCOUNTER_AUGMENTED">
+	<text load="TEXT_ENCOUNTER_AUGMENTED" />
+	<ship load="SHIP_AUGMENTED" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUGMENTED">
+	<text>强铁族是可怕的战士和拾荒者，虽然你遇到过一些友好的。但你现在遇到了一艘不太友好的，他们看起来要攻击你！</text>
+	<text>似乎对维持生命的废料的驱动已使附近的强铁族陷入疯狂，他们迫切地想要攻击像你这样的军舰！</text>
+	<text>你认为食铁族不会比族群域中的那些更渴望废料，但强铁族已经证明并非如此。准备战斗！</text>
+	<text>"需要废料。你的船是用废料做的。我吃你的船。别担心，我很公平。会给你穿梭机的。"你，作为星舰的舰长，自然不会允许此事发生！</text>
+	<text>你知道强铁族会来这里以远古残骸为食，但你不知道他们竟然会攻击像你这样的船！</text>
+</textList>
+
+<event name="ENCOUNTER_AUGMENTED_LANIUS">
+	<text load="TEXT_ENCOUNTER_AUGMENTED_LANIUS" />
+	<ship load="SHIP_LANIUS_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUGMENTED_LANIUS">
+    <text>这个星区虽然主要由强铁族负责，但这并不意味着不可能遇到普通的食铁族待捕过往的船只，比如这里向你方向开火的那艘。</text>
+    <text>在这里看到一艘敌对的食铁战舰，你可能会感到惊讶，但它肯定来自某个地点。</text>
+    <text>这里的这艘船虽然不是强铁族船，是一艘普通的食铁族，但他们和其他任何地方一样渴望你的船！</text>
+    <text>你短暂地希望你能与接近的食铁族船讲道理，但可惜现在说出来已经太晚了，只有用暴力。</text>
+</textList>
+
+<event name="ENCOUNTER_AUGMENTED_AUTOANCIENT" unique="true"> <!-- tweak it, ancient tier enemy at this stage is scary-->
+	<text>另一艘与你看到的类似的自动舰成功地在该星区的食铁族群中幸存下来。你一靠近，它似乎就将你识别为威胁并攻击！</text>
+	<ship load="SHIP_ANCIENT_AUTO" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ENCOUNTER_AUGMENTED_PIRATE" unique="true">
+	<text>你收到了一艘海盗舰的呼叫，但从另一端，你只能听到大声的尖叫，因为一个强铁族切开海盗舰长并吞噬了他。"为目击道歉。需要食物。你下一个。"</text>
+	<ship load="SHIP_PIRATE_AUGMENTED" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="AUGMENTED_DISCOVERY">
+	<preventQuest />
+	<preventBossFleet />
+	<beaconType id="map_icon_quest" global="true">
+		<color r="66" g="255" b="0" a="1.0" />
+		<unvisitedTooltip>此处为之前谐合链所记录的位置。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+	</beaconType>
+	<text>你已到达星图上标记的坐标。你注意到一些小得多但与以前相似的立方体船的残骸。然而，与上次的主要区别在于，除了位置之外，还有三艘巨大的食铁族船只，是你从未见过的颜色。</text>
+	<ship load="SHIP_AUGMENTED_INTRO" hostile="false" />
+	<choice>
+		<text>联系食铁族。</text>
+		<event>
+			<text>你向船只呼叫，但没有收到任何口头回应。取而代之的是，一只颜色奇特的食铁族从他们的船体中弹出，滑向你。它附着在你的船体上，然后钻进来，但损坏应该不太难修补。</text>
+			<choice>
+				<text>继续。</text>
+				<event>
+					<text>食铁族展开身体，吐出一些金属。它用一种单调但翻译得很好的声音说话。"抱歉损失。不想采取气闸，我的错。你呼叫我，假设问题有？"</text>
+					<choice>
+						<text>向他展示机器人。</text>
+						<event>
+							<text>奇怪的食铁族在说话之前检查了机器人。"不，不是机器人。生命体，像你。金属，像我。把这个给领导看，最好的选择。她想看到这个，难得找到一个活着的！让我协助超光速驾驶？"</text>
+							<choice hidden="true">
+								<text>同意让他"协助超光速驾驶"。</text>
+								<event>
+									<text>食铁族摇摇晃晃地靠近引擎，摆弄着你的推进器。"我们现在出发。抓住东西螺栓固定，颠簸！"突然，引擎启动，你可以感觉到星舰进入光速！</text>
+									<crewMember amount="1" class="lanius_augmented">克朗克迈斯特</crewMember>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<secretSectorWarp>SECRET_AUGMENTED</secretSectorWarp>
+											<secretSector />
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>拒绝。</text>
+								<event>
+									<text>"太无聊了！那就服用外星人吧，需要食物。"他按下手中设备上的某个按钮，远处的飞船就开着武器向你驶来！</text>
+									<boarders min="1" max="1" class="lanius_augmented" />
+									<ship hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视食铁族。</text>
+		<event>
+			<text>尽管一路走来，还伴随着某个巨大的谜团，但你还是决定当一个退缩鬼，现在就退出。真憋屈。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+</FTL>

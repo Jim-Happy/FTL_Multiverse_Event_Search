@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_GENERAL"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_GENERAL">
+	<text>[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_GENERAL_DOUBLE">
+	<text>[恶名增加2次 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。
+	由于行径极其恶劣，本次恶名值增加2次。</text>
+	<variable name="rep_general" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_GENERAL_FIGHT">
+	<text>[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_GENERAL_DOUBLE_FIGHT">
+	<text>[恶名增加2次 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。
+	由于行径极其恶劣，本次恶名值增加2次。</text>
+	<variable name="rep_general" op="add" val="2" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_GENERAL">
+	<text>[恶名减少 - 整体]
+	你为整个银河系做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_general" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_REMOVE_GENERAL_FIGHT">
+	<text>[恶名减少 - 整体]
+	你为整个银河系做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_general" op="add" val="-1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_UNION"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_UNION">
+	<text>[恶名增加 - 同盟]
+	本次行为，无论是否合理，在同盟及其公民眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自同盟及其盟友的应激行为。</text>
+	<variable name="rep_union" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_UNION_DOUBLE">
+	<text>[恶名增加2次 - 同盟]
+	本次行为，无论是否合理，在同盟及其公民眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自同盟及其盟友的应激行为。
+	由于行径极其恶劣，本次恶名值增加2次。</text>
+	<variable name="rep_union" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_UNION_FIGHT">
+	<text>[恶名增加 - 同盟]
+	本次行为，无论是否合理，在同盟及其公民眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自同盟及其盟友的应激行为。</text>
+	<variable name="rep_union" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_UNION">
+	<text>[恶名减少 - 同盟]
+	你为同盟做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_union" op="add" val="-1" />
+</event>
+<event name="MORALITY_REMOVE_UNION_FIGHT">
+	<text>[恶名减少 - 同盟]
+	你为同盟做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_union" op="add" val="-1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_ENGI"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_ENGI">
+	<text>[恶名增加 - 谐合]
+	本次行为，无论是否合理，在谐合眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自谐合及其盟友的应激行为。</text>
+	<variable name="rep_engi" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ENGI_FIGHT">
+	<text>[恶名增加 - 谐合]
+	本次行为，无论是否合理，在谐合眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自谐合及其盟友的应激行为。</text>
+	<variable name="rep_engi" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_ENGI">
+	<text>[恶名减少 - 谐合]
+	你为谐合做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_engi" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_ZOLTAN"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_ZOLTAN">
+	<text>[恶名增加 - 牧师团]
+	本次行为，无论是否合理，在牧师团或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自牧师团及其盟友的应激行为。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ZOLTAN_FIGHT">
+	<text>[恶名增加 - 牧师团]
+	本次行为，无论是否合理，在牧师团或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自牧师团及其盟友的应激行为。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN">
+	<text>[恶名减少 - 牧师团]
+	你为牧师团做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_ORCHID"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_ORCHID">
+	<text>[恶名增加 - 集议会]
+	本次行为，无论是否合理，在集议会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自集议会及其盟友的应激行为。</text>
+	<variable name="rep_orchid" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_ORCHID_DOUBLE">
+	<text>[恶名增加 - 集议会]
+	本次行为，无论是否合理，在集议会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自集议会及其盟友的应激行为。
+	由于行径极其恶劣，本次恶名值增加2次。</text>
+	<variable name="rep_orchid" op="add" val="2" />
+</event>
+<event name="MORALITY_UPDATE_ORCHID_FIGHT">
+	<text>[恶名增加 - 集议会]
+	本次行为，无论是否合理，在集议会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自集议会及其盟友的应激行为。</text>
+	<variable name="rep_orchid" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_ORCHID_FIGHT_DOUBLE">
+	<text>[恶名增加 - 集议会]
+	本次行为，无论是否合理，在集议会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自集议会及其盟友的应激行为。
+	由于行径极其恶劣，本次恶名值增加2次。</text>
+	<variable name="rep_orchid" op="add" val="2" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_UPDATE_ORCHID_TRIPLE">
+	<text>[恶名增加 - 集议会]
+	本次行为，无论是否合理，在集议会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自集议会及其盟友的应激行为。
+	由于行径罪大恶极人神共愤，本次恶名值增加3次。</text>
+	<variable name="rep_orchid" op="add" val="3" />
+</event>
+
+<event name="MORALITY_REMOVE_ORCHID">
+	<text>[恶名减少 - 集议会]
+	你为集议会做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_orchid" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_VAMPWEED"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_VAMPWEED">
+	<text>[恶名增加 - 血兰邦]
+	本次行为，无论是否合理，在血兰邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_vampweed" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_VAMPWEED_FIGHT">
+	<text>[恶名增加 - 血兰邦]
+	本次行为，无论是否合理，在血兰邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_vampweed" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_VAMPWEED">
+	<text>[恶名减少 - 血兰邦]
+	你为血兰邦做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_vampweed" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_FREEMANTIS"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_FREEMANTIS">
+	<text>[恶名增加 - 自由螳螂]
+	本次行为，无论是否合理，在自由螳螂的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到自由螳螂及其盟友的应激行为。</text>
+	<variable name="rep_freemantis" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_FREEMANTIS_FIGHT">
+	<text>[恶名增加 - 自由螳螂]
+	本次行为，无论是否合理，在自由螳螂的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到自由螳螂及其盟友的应激行为。</text>
+	<variable name="rep_freemantis" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_FREEMANTIS">
+	<text>[恶名减少 - 自由螳螂]
+	你为自由螳螂做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_freemantis" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_CRYSTAL"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_CRYSTAL">
+	<text>[恶名增加 - 水晶帝国]
+	本次行为，无论是否合理，在水晶帝国或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自水晶帝国及其盟友的应激行为。</text>
+	<variable name="rep_crystal" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_CRYSTAL_FIGHT">
+	<text>[恶名增加 - 水晶帝国]
+	本次行为，无论是否合理，在水晶帝国或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自水晶帝国及其盟友的应激行为。</text>
+	<variable name="rep_crystal" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_CRYSTAL">
+	<text>[恶名减少 - 水晶帝国]
+	你为水晶帝国做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_crystal" op="add" val="-1" />
+</event>
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_SHELL"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_SHELL">
+	<text>[恶名增加 - 怪才体]
+	本次行为，无论是否合理，在怪才体或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自怪才体及其盟友的应激行为。</text>
+	<variable name="rep_shell" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_SHELL_FIGHT">
+	<text>[恶名增加 - 怪才体]
+	本次行为，无论是否合理，在怪才体或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自怪才体及其盟友的应激行为。</text>
+	<variable name="rep_shell" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_SHELL">
+	<text>[恶名减少 - 怪才体]
+	你为怪才体做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_shell" op="add" val="-1" />
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_SLUG"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_SLUG">
+	<text>[恶名增加 - 星盗会]
+	本次行为，无论是否合理，在星盗会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自星盗会及其盟友的应激行为。</text>
+	<variable name="rep_slug" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_SLUG_FIGHT">
+	<text>[恶名增加 - 星盗会]
+	本次行为，无论是否合理，在星盗会或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自星盗会及其盟友的应激行为。</text>
+	<variable name="rep_slug" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_OUTCAST_ARMS"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_OUTCAST">
+	<text>[恶名增加 - 流放者]
+	本次行为，无论是否合理，在流放者的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到流放者及其盟友的应激行为。</text>
+	<variable name="rep_outcast" op="add" val="1" />
+</event>
+
+<event name="MORALITY_UPDATE_OUTCAST_FIGHT">
+	<text>[恶名增加 - 流放者]
+	本次行为，无论是否合理，在流放者的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到流放者及其盟友的应激行为。</text>
+	<variable name="rep_outcast" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_REMOVE_OUTCAST">
+	<text>[恶名减少 - 流放者]
+	你为流放者们做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_outcast" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_OUTCAST_ARMS">
+	<text>[流放者已武装]
+	你已经说服了流放者们圣判所的人正在逼近。若遭受圣判所袭击，流放者会有更充足的准备。</text>
+	<variable name="loc_badlandallies" op="set" val="1" />
+</event>
+<event name="MORALITY_OUTCAST_FIRESUPPORT"> <!--UNUSED-->
+	<text>被抛弃的部队已经回应了你的请求，战斗期间将提供额外的火力支援！</text>
+	<environment type="PDS" target="enemy" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_GENERAL"/>
+</choice>
+-->
+<event name="REPUTATION_UPDATE_PIRATES">
+	<text>[声望提升 - 海盗]
+	你的行为提高了你在海盗中的声望。某些海盗群体可能更愿意为你提供更好或更特殊的交易，与你交互时也会更友好。
+
+[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_pirate" op="add" val="1" />
+</event>
+
+<event name="REPUTATION_UPDATE_SLAVER">
+	<text>[声望增加 - 奴贩主]
+	通过接受或购买奴隶，或保护奴贩，你已提高了自己在奴贩圈内的声望。某些奴贩主可能更愿意为你提供更好的或特殊的交易，对你的态度也会更随和。
+
+[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_slaver" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_SLAVER">
+	<text>[声望下降 - 奴贩主]
+	本次行为将对那些可能为你提供服务的奴贩主产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_slaver" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_SLAVER_COMBAT">
+	<text>[声望下降 - 奴贩主]
+	本次行为将对那些可能为你提供服务的奴贩主产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_slaver" op="add" val="-1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="REPUTATION_UPDATE_MERCENARY">
+	<text>[声望提升 - 雇佣兵]
+	通过购买雇佣兵服务，或保护雇佣兵，你已提高了自己在佣兵团内的声望。某些雇佣兵可能更愿意为你提供更好的或特殊的交易，对你的态度也会更随和。
+
+[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_mercenary" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_MERCENARY">
+	<text>[声望下降 - 雇佣兵]
+	本次行为将对那些可能为你提供服务的雇佣兵产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_mercenary" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_MERCENARY_COMBAT">
+	<text>[声望下降 - 雇佣兵]
+	本次行为将对那些可能为你提供服务的雇佣兵产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_mercenary" op="add" val="-1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="REPUTATION_UPDATE_SMUGGLING">
+	<text>[声望增加 - 走私者]
+	通过购买违禁品，或保护走私者，你已提高了自己在暗域黑市内的声望。某些走私者可能更愿意为你提供更好的或特殊的交易，对你的态度也会更随和。
+
+[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_general" op="add" val="1" />
+	<variable name="rep_smuggler" op="add" val="1" />
+</event>
+<event name="REPUTATION_UPDATE_SMUGGLING_FREE">
+	<text>[声望增加 - 走私者]
+	通过购买违禁品，或保护走私者，你已提高了自己在暗域黑市内的声望。某些走私者可能更愿意为你提供更好的或特殊的交易，对你的态度也会更随和。</text>
+	<variable name="rep_smuggler" op="add" val="1" />
+</event>
+<event name="REPUTATION_DECREASE_SMUGGLING">
+	<text>[声望下降 - 走私者]
+	本次行为将对那些可能为你提供服务的走私者产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_smuggler" op="add" val="-1" />
+</event>
+<event name="REPUTATION_DECREASE_SMUGGLING_COMBAT">
+	<text>[声望下降 - 走私者]
+	本次行为将对那些可能为你提供服务的走私者产生影响。若你以前获得过声望，他们可能不再为你提供更好的交易。</text>
+	<variable name="rep_smuggler" op="add" val="-1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+<choice hidden="true">
+	<text>Continue...</text>
+	<event load="MORALITY_UPDATE_JERRY"/>
+</choice>
+-->
+<event name="MORALITY_UPDATE_JERRY">
+	<text>[恶名增加 - 受保护地]
+	本次行为不会不被叛军注意到的。考虑到你与杰瑞和赛拉的遭遇迫在眉睫，你最好不要太过激怒他们。</text>
+	<variable name="rep_jerry" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_JERRY_FIGHT">
+	<text>[恶名增加 - 受保护地]
+	本次行为不会不被叛军注意到的。考虑到你与杰瑞和赛拉的遭遇迫在眉睫，你最好不要太过激怒他们。</text>
+	<variable name="rep_jerry" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="MORALITY_UPDATE_NEXUS">
+	<text>[恶名增加 - 联结点]
+	本次行为不会不被联结点的住民注意到，也不会得到他们的赞赏。像这样的行动可能会影响你与领主的会晤的进程。</text>
+	<variable name="rep_nexus" op="add" val="1" />
+</event>
+<event name="MORALITY_UPDATE_NEXUS_FIGHT">
+	<text>[恶名增加 - 联结点]
+	本次行为不会不被联结点的住民注意到，也不会得到他们的赞赏。像这样的行动可能会影响你与领主的会晤的进程。</text>
+	<ship hostile="true" />
+	<variable name="rep_nexus" op="add" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="MORALITY_REMOVE_NEXUS">
+	<text>[恶名减少 - 联结点]
+	你为联结点住民们做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_nexus" op="add" val="-1" />
+</event>
+
+<!--combos-->
+<event name="MORALITY_UPDATE_ZOLTAN_VAMPWEED_GENERAL">
+	<text>[恶名增加 - 牧师团]
+	本次行为，无论是否合理，在牧师团或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自牧师团及其盟友的应激行为。
+
+[恶名增加 - 血兰邦]
+	本次行为，无论是否合理，在血兰邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自血兰邦及其盟友的应激行为。
+
+[恶名增加 - 整体]
+	本次行为，无论是否合理，在联邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自联邦及其盟友的应激行为。</text>
+	<variable name="rep_zoltan" op="add" val="1" />
+	<variable name="rep_vampweed" op="add" val="1" />
+	<variable name="rep_general" op="add" val="1" />
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN_UPDATE_VAMPWEED">
+	<text>[恶名减少 - 牧师团]
+	你为牧师团做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。
+
+[恶名增加 - 血兰邦]
+	本次行为，无论是否合理，在血兰邦或其公民的眼中都不会被视为友好行为。若继续这样行动，你可能会开始看到来自血兰邦及其盟友的应激行为。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+	<variable name="rep_vampweed" op="add" val="1" />
+</event>
+
+<event name="MORALITY_REMOVE_ZOLTAN_FREEMANTIS">
+	<text>[恶名减少 - 牧师团]
+	你为牧师团做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。
+
+[恶名减少 - 自由螳螂]
+	你为自由螳螂做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。</text>
+	<variable name="rep_zoltan" op="add" val="-1" />
+	<variable name="rep_freemantis" op="add" val="-1" />
+</event>
+
+<event name="MORALITY_REMOVE_UNION_UPDATE_SMUGGLING">
+	<text>[恶名减少 - 同盟]
+	你为同盟做了一件好事。若你在过去的其他行为中获得了恶名，那么更有可能因现在的行为而被原谅。
+
+[声望增加 - 走私者]
+	通过购买违禁品，或保护走私者，你已提高了自己在暗域黑市内的声望。某些走私者可能更愿意为你提供更好的或特殊的交易，对你的态度也会更随和。</text>
+	<variable name="rep_union" op="add" val="-1" />
+	<variable name="rep_smuggler" op="add" val="1" />
+</event>
+</FTL>
+

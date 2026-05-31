@@ -1,0 +1,2900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					STARGROVE SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REVISIT EVENTS (to make sure hazards don't disappear)
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="NEBULA_STARGROVE_STORM_REVISIT">
+	<text>你已经来过这里了，没有什么值得关注的东西了。</text>
+	<environment type="storm" />
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_SUN_REVISIT">
+	<text>此地你已探索完毕，无任何有价值目标残留。恒星辐射使舰内活动极度危险，必须尽快离开。</text>
+	<environment type="sun" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT">
+	<text>此地你已探索完毕，无任何有价值目标残留。恒星辐射使舰内活动极度危险，必须尽快离开。</text>
+	<status type="loss" target="player" system="sensors" amount="1" />
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT">
+	<text>此地你已探索完毕，无任何有价值目标残留。脉冲星的致命辐射使舰内活动极度危险，必须尽快离开。</text>
+	<environment type="pulsar" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_ASTEROID_REVISIT">
+	<text>此处你已探索完毕，无任何有价值目标残留。小行星带的密集撞击威胁使舰内活动极度危险，必须尽快离开。</text>
+	<environment type="asteroid" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+</event>
+
+<event name="STARGROVE_GRAVASTAR_REVISIT">
+	<text>此处你已探索完毕，无任何有价值目标残留。重力真空星的引力潮汐和等离子体使舰内活动极度危险，必须尽快离开。</text>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_PIRATE_STARGROVE_HIGHWAYMAN" auto_blueprint="MU_PIRATE_STARGROVE_HIGHWAYMAN">
+	<destroyed>
+		<text>你已击败这名星际路霸，并从其残骸中回收大量战利品。</text>
+		<autoReward level="HIGH">standard</autoReward>
+	</destroyed>
+	<deadCrew>
+		<text>这名星际路霸在咽气前，突然从怀中掏出某种遥控装置按下按钮。随着一声闷响，虽然舰体没有明显损伤，但最终你在浓烟中发现了烧焦的预热器残骸。尽管遭此破坏，你仍然成功回收大量飞船废料，并缴获一台先发离子武器。</text>
+		<autoReward level="HIGH">standard_no_item</autoReward>
+		<weapon name="ION_INSTANT" />
+	</deadCrew>
+</ship>
+
+<event name="FINISH_BEACON_STARGROVE">
+	<preventQuest />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<environment type="sun" />
+	<variable name="loc_highwayman" op="set" val="1" />
+	<text>你到达了星区出口...</text>
+	<choice req="loc_highwayman" lvl="0" max_group="0" hidden="true" blue="false">
+		<text>继续。</text>
+		<event load="STARGROVE_HIGHWAYMAN_INITIAL" />
+	</choice>
+	<choice req="loc_highwayman" lvl="1" max_group="0" hidden="true" blue="false">
+		<text>继续。</text>
+		<event load="STARGROVE_POST_HIGHWAYMAN" />
+	</choice>
+</event>
+
+<event name="NEBULA_FINISH_BEACON_STARGROVE">
+	<preventQuest />
+	<variable name="loc_highwayman" op="set" val="1" />
+	<text>你到达了星区出口...</text>
+	<choice req="loc_highwayman" lvl="0" max_group="0" hidden="true" blue="false">
+		<text>继续。</text>
+		<event load="STARGROVE_HIGHWAYMAN_INITIAL" />
+	</choice>
+	<choice req="loc_highwayman" lvl="1" max_group="0" hidden="true" blue="false">
+		<text>继续。</text>
+		<event load="STARGROVE_POST_HIGHWAYMAN" />
+	</choice>
+</event>
+<event name="STARGROVE_HIGHWAYMAN_INITIAL">
+	<text>一艘驻守出口信标的飞船在你接近时启动了武器系统，同时发来通讯。屏幕上出现一个满脸嚣张的海盗，他背后的通讯舱墙壁挂满各式刀剑，正对你咧嘴冷笑："哟，有人想开溜啊？可惜这过路费你是交定了。"他指了指身后："瞧见没？老子装了预热器，敢反抗就让你那宝贝护盾见鬼去…别想着隐身！识相的就乖乖交出废料，然后滚蛋。"</text>
+	<ship load="SHIP_PIRATE_STARGROVE_HIGHWAYMAN" hostile="false" />
+	<choice req="ANY_SHIELDS" lvl="0" max_lvl="0" hidden="true">
+		<text>老子连护盾都没装，白痴。</text>
+		<event load="STARGROVE_EXIT_NOSHIELDS" />
+	</choice>
+	<choice req="unique_kaz" hidden="true">
+		<text>卡扎卡普勒斯里克认出了这个星际路霸。</text>
+		<event load="STARGROVE_EXIT_KAZ" />
+	</choice>
+	<choice req="unique_tuco" hidden="true">
+		<text>图科认出了这个星际路霸。</text>
+		<event load="STARGROVE_EXIT_TUCO" />
+	</choice>
+	<choice req="LIST_A55" hidden="true">
+		<text>A5540L3认出了这个星际路霸。</text>
+		<event load="STARGROVE_EXIT_A55" />
+	</choice>
+	<choice req="unique_nights" hidden="true">
+		<text>七夜认出了这个星际路霸。</text>
+		<event load="STARGROVE_EXIT_NIGHTS" />
+	</choice>
+	<choice req="ION_ARMOR" hidden="true">
+		<text>（反离子场）少废话，赶紧给我滚。</text>
+		<event load="STARGROVE_EXIT_THREATEN" />
+	</choice>
+	<choice hidden="true">
+		<text>杀出一条生路。</text>
+		<event load="STARGROVE_EXIT_FIGHT" />
+	</choice>
+	<choice>
+		<text>乖乖给钱。</text>
+		<event load="STARGROVE_EXIT_PAY" />
+	</choice>
+	<choice req="loc_scrap" lvl="0" max_lvl="99" blue="false">
+		<text>我们没有100~，能不能稍微便宜点？</text>
+		<event load="STARGROVE_EXIT_RENEGOTIATE" />
+	</choice>
+</event>
+<event name="STARGROVE_POST_HIGHWAYMAN">
+	<text>星际路霸的飞船虽已消失，但一艘叛军军自动舰接管了信标！看来只能杀出一条血路了！</text>
+	<ship load="SHIP_AUTO_FLEET_STAR" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="engines" lvl="6">
+		<text>(先进引擎)尝试逃离自动舰。</text>
+		<event load="FLEET_ESCAPE" />
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_TUCO">
+	<text>图科大笑道："呵，泽克，看来你那场劫案的烂摊子到底没要了你的命。还升官了嘛。"
+ 
+	"哟，是‘船长’大人啊。居然真有人肯跟你组队，稀奇。"
+
+	"咱们俩谁正在地狱里烂着来着？...好吧，虽说彼此彼此，但区别在于，我可不是被困在这儿的。"
+
+	星际路霸翻了个白眼："算你有理。"
+
+	"那怎么说？看在你老船长的面子上，放我们一马？"
+
+	"行啊。只要你把赊的那些酒钱连本带利还上。看在那份上，我可以给你打点折。"</text>
+	<choice>
+		<text>乖乖给钱。</text>
+		<event>
+			<text>泽克接过你给的东西，一脸诧异："行啊船长，看来人真是会变的。佩服佩服，就不耽误您赶路了。"</text>
+			<item_modify>
+				<item type="scrap" min="-150" max="-210" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>没门。</text>
+		<event>
+			<text>"哈。我就知道你永远不会还债。我会从你的尸体上拿回来。"</text>
+			<ship hostile="true" />
+			<choice hidden="true" blue="false" req="cloaking">
+				<text>继续。</text>
+				<event load="STARGROVE_EXIT_TRACKING" />
+			</choice>
+			<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_KAZ">
+	<text>卡扎卡普勒斯里克咔嗒作响并歪着头。"马拉凯皮基皮尔森在哪？他应该跟着你们一起打劫的，对吧？"
+	
+	"他死了。一次性招惹了太多岩石族。"星际路霸摇着头。 
+
+	"卡扎卡普勒斯里克早料到他会这么死。粗心的海盗就是死海盗。"卡扎卡普勒斯里克威胁性地挥动镰刀。"你可别犯和他一样的错。"
+
+	星际路霸顿了顿。"...知道吗卡兹，我一直很敬重你。如果你不想付钱就走，我不会拦你。"</text>
+	<choice>
+		<text>离开。</text>
+		<event />
+	</choice>
+	<choice hidden="true">
+		<text>还是揍他。</text>
+		<event>
+			<text>"还是这么嗜血是吧？我会让你后悔的。"</text>
+			<ship hostile="true" />
+			<choice hidden="true" blue="false" req="cloaking">
+				<text>继续。</text>
+				<event load="STARGROVE_EXIT_TRACKING" />
+			</choice>
+			<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_A55">
+	<text>"哟吼吼。你们干得真他妈漂亮。老子佩服。"
+
+	"看来你听说了。没错，那么棒的星舰，不顺手牵羊说得过去吗？"
+
+	"呀哈哈。老子完全理解。不如给咱们行个方便？"
+
+	"总得混口饭吃，你懂的。给你个友情骨折价，怎么样？"</text>
+	<choice>
+		<text>交钱。</text>
+		<event>
+			<text>"多谢了，A55舰长。祝你打劫愉快。"</text>
+			<item_modify>
+				<item type="scrap" min="-20" max="-20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice req="loc_scrap" lvl="0" max_lvl="19" blue="false">
+		<text>我们连20废料都凑不出~。能换个条件吗？</text>
+		<event>
+			<text>泽克盯着A55嘀咕道。"啊算了，你们穷得都不值得抢。滚吧。"</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>这个条件还是不能接受。</text>
+		<event>
+			<text>"那就看看谁才是更厉害的海盗。正合我意！"</text>
+			<ship hostile="true" />
+			<choice hidden="true" blue="false" req="cloaking">
+				<text>继续。</text>
+				<event load="STARGROVE_EXIT_TRACKING" />
+			</choice>
+			<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_NIGHTS">
+	<text>七夜大笑起来。"这不是那谁谁谁嘛！躲在炉子里发抖怕被发现。哈哈哈！"
+
+	"七夜..."星际路霸怒目而视。"我绝不会错过把你碾成肉酱的机会。"</text>
+	<ship hostile="true" />
+	<choice hidden="true" blue="false" req="cloaking">
+		<text>继续。</text>
+		<event load="STARGROVE_EXIT_TRACKING" />
+	</choice>
+	<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_FIGHT">
+	<text>你绝不允许三流海盗抢走辛苦搜罗的战利品。武器系统开始预热。</text>
+	<ship hostile="true" />
+	<choice hidden="true" blue="false" req="cloaking">
+		<text>继续。</text>
+		<event load="STARGROVE_EXIT_TRACKING" />
+	</choice>
+	<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_NOSHIELDS">
+	<text>星际路霸一脸懵。"你们...你们居然没开护盾就穿过了恒星森林...？脑子进水了吧？这怎么可能...？"他清了清嗓子。"算了，费用免了。快走。我有点怕你们。"</text>
+	<achievement silent="false">ACH_EVENT_HIGHWAYMAN</achievement>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event />
+	</choice>
+	<choice hidden="true">
+		<text>准备进攻。</text>
+		<event>
+			<text>"啥？老子都放你一马了！啧，随便吧！你会为这份狂妄付出代价的，变元者！"</text>
+			<ship hostile="true" />
+			<choice hidden="true" blue="false" req="cloaking">
+				<text>继续。</text>
+				<event load="STARGROVE_EXIT_TRACKING" />
+			</choice>
+			<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="STARGROVE_EXIT_PAY">
+	<text>海盗心满意足地收下过路费："赶紧滚吧，变元者。咱还有正事要干。"</text>
+	<item_modify>
+		<item type="scrap" min="-100" max="-100" />
+	</item_modify>
+</event>
+<event name="STARGROVE_EXIT_RENEGOTIATION_FAILED">
+	<text>"那就如你所愿！今天就是你的死期。"</text>
+	<ship hostile="true" />
+	<choice hidden="true" blue="false" req="cloaking">
+		<text>继续。</text>
+		<event load="STARGROVE_EXIT_TRACKING" />
+	</choice>
+	<choice hidden="true" blue="false" req="cloaking" max_lvl="0" lvl="0">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="STARGROVE_EXIT_THREATEN">
+	<text>你向海盗声明飞船已加装反离子场，正好克制他们的战术。这票可没他们想的容易。
+
+	"啧，防护做得倒周全。佩服。那就给你个友情价吧..."海盗露出残忍的笑容，"还是说——你想玩硬的？"</text>
+	<choice>
+		<text>乖乖给钱。</text>
+		<event>
+			<text>海盗皱眉收下买路钱："赶紧滚吧，变元者。咱还有正事要干。"</text>
+			<item_modify>
+				<item type="scrap" min="-60" max="-60" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice req="loc_scrap" lvl="0" max_lvl="59" blue="false">
+		<text>我们没有60~，能不能稍微便宜点？</text>
+		<event load="STARGROVE_EXIT_RENEGOTIATE" />
+	</choice>
+	<choice hidden="true">
+		<text>这个要求仍然是不可接受的。</text>
+		<event load="STARGROVE_EXIT_RENEGOTIATION_FAILED" />
+	</choice>
+</event>
+
+<event name="STARGROVE_EXIT_TRACKING">
+	<text>这个星际路霸启动了他的追踪闪弹，将你的隐形系统关闭了20秒。</text>
+	<status type="loss" target="player" system="cloaking" amount="3" />
+	<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+		<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+			<tooltip>你被追踪闪弹标记了！</tooltip>
+		</triggeredEventBox>
+	</triggeredEvent>
+	<choice hidden="true" blue="false">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="STARGROVE_EXIT_RENEGOTIATE">
+	<text>"真晦气！不过算你走运，老子可是讲道理的海盗。这样吧，不要废料了，改收以下任选——"他弹出全息菜单，"十份各类资源，或者...两名船员。"</text>
+	<choice req="COUNT_ALL_CREW" lvl="2" blue="false" max_group="0">
+		<text>交出两名船员。</text>
+		<event>
+			<text>你将两名船员移交海盗，他们注定要在星骸丛林中度此残生——或许短命反而是一种仁慈。</text>
+			<removeCrew>
+				<clone>false</clone>
+				<text>你的船员暂未死去，不过也难讲他们还有多久可活了。</text>
+			</removeCrew>
+			<choice hidden="true" blue="false">
+				<text>继续。</text>
+				<event>
+					<removeCrew>
+						<clone>false</clone>
+						<text>你的船员暂未死去，不过也难讲他们还有多久可活了。</text>
+					</removeCrew>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COUNT_ALL_CREW" lvl="0" max_lvl="1" blue="false" max_group="0">
+		<text>你没办法交出两个船员。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice req="pilot" blue="false" max_group="1">
+		<text>交出十份各类资源。</text>
+		<event>
+			<text>海盗眉头一皱，勉强收下买路钱："赶紧滚蛋，变元者。"</text>
+			<item_modify>
+				<item type="fuel" min="-10" max="-10" />
+				<item type="missiles" min="-10" max="-10" />
+				<item type="drones" min="-10" max="-10" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="pilot" blue="false" max_group="2">
+		<text>这些条件仍然不可接受。</text>
+		<event load="STARGROVE_EXIT_RENEGOTIATION_FAILED" />
+	</choice>
+</event>
+<event name="ENEMY_AUGMENT_EXPIRES">
+	<text>你的系统终于突破敌方攻击！接下来将是一场公平对决！</text>
+	<status type="clear" target="player" system="cloaking" />
+	<status type="clear" target="player" system="engines" />
+	<status type="clear" target="player" system="pilot" />
+	<status type="clear" target="player" system="shields" />
+	<status type="clear" target="player" system="weapons" />
+</event>
+<event name="ENEMY_AUGMENT_EXPIRES_REACTOR">
+	<text>你的系统终于突破敌方攻击！接下来将是一场公平对决！</text>
+	<status type="clear" target="player" system="reactor" />
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_STARGROVE">
+	<event load="NEBULA_LIGHT_STARGROVE_ITEMS_TWIN_PULSARS" />
+	<event load="NEBULA_LIGHT_STARGROVE_ITEMS_SUN_JUNK" />
+	<event load="NEBULA_LIGHT_STARGROVE_PULSAR_RUIN" />
+	<event load="NEBULA_LIGHT_STARGROVE_FREE_SCRAP" />
+</eventList>
+
+
+<event name="NEBULA_LIGHT_STARGROVE_ITEMS_TWIN_PULSARS" unique="true">
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>你的星舰抵达一对双生脉冲星附近。在这两个天体间的拉格朗日点上，卡着一艘破裂的远古水晶族战舰残骸。两道脉冲星的脉冲相互冲撞，可能对你星舰的完整性构成极大威胁。</text>
+	<choice hidden="true" req="pilot" lvl="3" max_lvl="3"><!--Should this be Piloting AND sensors?-->
+		<text>(已升级的驾驶系统) 让星舰在破坏性干扰波中穿行。</text>
+		<event>
+			<text>事实证明，你的星舰能通过紧跟能量波纹路避开大部分危险。虽然随着破坏性干扰波移动时打捞残骸很棘手，但你成功回收了大量废料，还有一件精英级水晶族武器！</text>
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<weapon name="GIFTLIST_CRYSTAL_ELITE" />
+			<damage amount="3" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true" req="ION_ARMOR">
+		<text>(离子抗性) 依靠离子防护硬扛过去。</text>
+		<event>
+			<text>虽然颠簸不堪，但星舰的离子抗性装甲抵住了危险接近时的冲击。你成功回收了大量废料，还有一件精英级水晶族武器！</text>
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<weapon name="GIFTLIST_CRYSTAL_ELITE" />
+			<damage amount="3" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>硬闯险境。</text>
+		<event>
+			<text>你的星舰被一波接一波的离子干扰冲击，剧烈上下颠簸。合力震荡甚至穿透了舰体，造成严重损伤。好在残骸里有大量废料和一件精英级水晶族武器！</text>
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<weapon name="GIFTLIST_CRYSTAL_ELITE" />
+			<damage amount="5" effect="breach" system="room" />
+			<damage amount="5" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>尽量避开双生脉冲星。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_ITEMS_SUN_JUNK" unique="true">
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>一片巨大的碎片带紧密环绕着附近恒星运转，既有天然岩石也有精炼金属，显示可能是大型小行星撞上了一个构造体。更远处还有颗气态巨行星共享轨道绕恒星旋转。</text> 
+	<choice hidden="true" req="DRONE_CONTROL_DEFENSE">
+		<text>(防御无人机) 让防御无人机在打捞残骸时保护你 [-1|]。</text>
+		<event>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<text>你谨慎靠近，任由防御无人机击碎逼近的小行星。残骸上虽无标识，但碎片带里的金属似是出自人类手笔。无法判定具体所属派系，但这些废料现在任你搜刮。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="ROCK_ARMOR">
+		<text>(岩石镀层) 让装甲在打捞残骸时保护你。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>当你接近残骸时，碎片如雨点般砸向星舰。
+				你仰仗装甲硬扛伤害。残骸上虽无标识，但残骸带的金属成分似是人类手笔。无法判定具体所属势力，但这些废料现在任你搜刮。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<damage amount="3" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>进入残骸带。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>你无畏地直面恒星与碎片带的双重危险。此举让你同时暴露在两者的轰击之下。残骸上虽无标识，但残骸带的金属成分似是人类手笔。无法判定具体所属势力，但这些废料现在任你搜刮。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<damage amount="3" effect="fire" system="room" />
+			<damage amount="3" effect="breach" system="room" />
+			<damage amount="3" effect="breach" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开小行星带。躲到气态巨行星背后寻求庇护。</text>
+		<event>
+			<text>气态巨行星的掩护让你能在星舰上处理些事务。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_PULSAR_RUIN" unique="true">
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<preventQuest />
+	<beaconType id="map_icon_ruins" global="true" req="JUDGE_BOON_AETHER">
+		<color r="36" g="255" b="0" a="1.0" />
+		<unvisitedTooltip>此处存在一座遗迹。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意的。</visitedTooltip>
+	</beaconType>
+	<text>在脉冲星的低轨道区域，可见一系列被密集小行星带环绕的巨型立方体结构。你或许能回收这些构造，但脉冲星会使你极度脆弱。</text>
+	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>进入小行星带。</text>
+		<event name="STARGROVE_RUINS_ASTEROID_ENTER">
+			<environment type="asteroid" />
+			<text>接近时，你发现遗迹中有艘小型飞船。它的能量信号微弱，但显然仍在运作。</text>
+			<ship load="SHIP_ANCIENT_AUTO_STARGROVE" hostile="false" />
+			<choice hidden="true">
+				<text>继续靠近。</text>
+				<event>
+					<text>靠近构造体时，那艘飞船突然激活并开始充能武器！必须解决它才能继续探索。</text>
+					<ship hostile="true" />
+					<choice>
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>离开。</text>
+				<event>
+					<text>在脉冲星轨道上穿越小行星带本就凶险万分，你确信此时再招惹其他飞船绝无好下场。但愿能在环境危害造成重大破坏前完成跃迁。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event />
+	</choice>
+</event>
+<ship name="SHIP_ANCIENT_AUTO_STARGROVE" auto_blueprint="LIST_SHIPS_ANCIENT_AUTO">
+	<destroyed>
+		<text>你成功破坏了那艘飞船。威胁解除后，你在遗迹中找到件完好的武器！</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<weapon name="GIFTLIST_ANCIENT_BASIC" />
+	</destroyed>
+</ship>
+
+<event name="NEBULA_LIGHT_STARGROVE_FREE_SCRAP" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>抵达时你眼前只有望不到边的恒星。你追踪到一艘被毁的自动舰，除与其重量等重的废料和导弹外空无一物。但它周围布满未引爆的导弹，靠得太近可能会爆炸。</text>
+	<choice hidden="true" req="SCRAP_COLLECTOR">
+		<text>(废料收集臂) 小心回收残骸。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>当你用机械臂抓取残骸时，那些弹药并未构成威胁。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="MAGNET_ARM">
+		<text>(磁性回收臂)小心回收残骸。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>当你用机械臂抓取残骸时，那些弹药并未构成威胁。</text>
+			<autoReward level="LOW">missiles</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>冒险触发爆炸物。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>回收自动舰时你无法避开爆炸物。从弹药布置方式看，这可能是叛军的陷阱。即便如此，仍有充足废料可收集。</text>
+			<autoReward level="LOW">missiles</autoReward>
+			<damage amount="3" effect="fire" system="room" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event />
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_NEUTRAL_STARGROVE">
+	<event load="NEBULA_LIGHT_STARGROVE_THEOCRACY_RECOVERY" />
+	<event load="NEBULA_STARGROVE_LOSTREBEL" />
+	<event load="NEBULA_LIGHT_STARGROVE_CRUSADER_MADROCK" />
+	<event load="NEBULA_LIGHT_STARGROVE_LOSTSUN" />
+	<event load="NEBULA_LIGHT_STARGROVE_ENGI_SEPARATIST" />
+	<event load="NEBULA_LIGHT_STARGROVE_ASTEROID" />
+</eventList>
+
+<event name="NEBULA_LIGHT_STARGROVE_THEOCRACY_RECOVERY" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT</revisitEvent>
+	<text>星云深处，一艘神权国舰船正在云层间仔细搜寻，对你的到来毫无反应。他们显然正专注于任务。</text>
+	<ship load="SHIP_ROCK_STARGROVE" hostile="false" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>向岩石族提供协助。</text>
+		<event>
+			<text>一名恼怒的岩石族人回应了你的呼叫。"联邦佬，我们没空应付你的诡计。我们的同伴失踪了，必须在他们的飞船毁掉前找到他们。"</text>
+			<choice hidden="true" req="sensors" max_lvl="0" blue="false">
+				<text>你没有传感器，帮不上忙。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="sensors" lvl="1" max_lvl="1">
+				<text>(普通传感器)提议用你的传感器协助搜索。</text>
+				<event>
+					<text>你的传感器在这种情形下完全派不上用场。这种无效的交涉只会激怒岩石族。他们转而开战！</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="sensors" lvl="2" max_lvl="2">
+				<text>(已升级的传感器)提议用你的传感器协助搜索。</text>
+				<event>
+					<text>你的传感器缩减了搜索范围。虽耗费不少时间，但最终你成功引导岩石族找到失踪船员。"变元者，你倒也不算...毫无用处。我们愿意分享储备物资。"对方发送了报酬。</text>
+					<autoReward level="MED">missiles</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="sensors" lvl="3">
+				<text>(先进传感器)主动提出利用你们的传感器来协助他们的搜索工作。</text>
+				<event load="STARGROVE_THEOCRACY_HELP" />
+			</choice>
+			<choice req="ADV_SCANNERS" hidden="true">
+				<text>(长距扫描仪)提议用扫描仪协助搜索。</text>
+				<event load="STARGROVE_THEOCRACY_HELP" />
+			</choice>
+			<choice hidden="true">
+				<text>用暴力回应他们的猜疑。</text>
+				<event>
+					<text>岩石族以牙还牙。"那就来吧！如果他们死了，这笔血债也要算在你们联邦头上！"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>脱离接触继续前进。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击岩石族。</text>
+		<event>
+			<text>岩石族毫不犹豫展开防御。"愚蠢的联邦！在这儿可是我们占优势！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开岩石族飞船专注自保。</text>
+		<event />
+	</choice>
+</event>
+
+<ship name="SHIP_ROCK_STARGROVE" auto_blueprint="LIST_SHIPS_ROCK_FIGHT">
+	<surrender chance="0.75" min="2" max="3">
+		<text>"够了！我们只想完成任务。若就此罢休，我们也将以礼相待。"</text>
+		<choice>
+			<text>接受他们的投降。</text>
+			<event load="SURRENDER_ACCEPT" />
+		</choice>
+		<choice>
+			<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+			<event />
+		</choice>
+	</surrender>
+	<destroyed>
+		<text load="TEXT_DESTROYED_ROCK" />
+		<autoReward level="MED">standard</autoReward>
+		<choice>
+			<text>继续。</text>
+			<event />
+		</choice>
+		<choice hidden="true" req="sensors" lvl="3">
+			<text>(先进传感器)继续寻找他们失踪的船只。</text>
+			<event load="STARGROVE_THEOCRACY_SCAVENGE" />
+		</choice>
+		<choice req="ADV_SCANNERS" hidden="true">
+			<text>(长距扫描仪)继续搜寻失踪飞船。</text>
+			<event load="STARGROVE_THEOCRACY_SCAVENGE" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text load="TEXT_DEAD_CREW_ROCK" />
+		<autoReward level="HIGH">standard</autoReward>
+		<choice>
+			<text>继续。</text>
+			<event />
+		</choice>
+		<choice hidden="true" req="sensors" lvl="3">
+			<text>(先进传感器)继续寻找他们失踪的船只。</text>
+			<event load="STARGROVE_THEOCRACY_SCAVENGE" />
+		</choice>
+		<choice req="ADV_SCANNERS" hidden="true">
+			<text>(长距扫描仪)继续搜寻失踪飞船。</text>
+			<event load="STARGROVE_THEOCRACY_SCAVENGE" />
+		</choice>
+	</deadCrew>
+	<weaponOverride count="1">
+		<name>LIST_WEAPONS_ROCK_UNFAIR</name>
+	</weaponOverride>
+</ship>
+
+<event name="STARGROVE_THEOCRACY_HELP">
+	<text>你的飞船仅用数秒就定位到目标。岩石族人满脸震惊。"是我们断言太早了。多亏你他们才脱险。收下这个吧，愿前路平安，变元者。"</text>
+	<autoReward level="HIGH">missiles</autoReward>
+	<weapon name="GIFTLIST_MISSILES" />
+</event>
+<event name="STARGROVE_THEOCRACY_SCAVENGE">
+	<text>短暂搜索后，你发现了失联瘫痪的岩石族飞船。幸存者奄奄一息拒绝交流。所幸该飞船毫无反抗能力，你得以搜刮残余废料。</text>
+	<autoReward level="LOW">standard</autoReward>
+</event>
+
+<event name="NEBULA_STARGROVE_LOSTREBEL" unique="true">
+	<revisitEvent>NEBULA_STARGROVE_STORM_REVISIT</revisitEvent>
+	<text>接近警报及时提醒你避开信标处的叛军飞船；你发现对方的同时，他们默默开始给超光速推进器充能。</text>
+	<ship load="SHIP_REBEL_RUNAWAY" hostile="false" />
+	<environment type="storm" />
+	<choice hidden="true">
+		<text>联系这艘舰船。</text>
+		<event>
+			<text>"见鬼！我们投降。当初报名时说好就跟联邦打几年仗，结果这十多年来在各个宇宙跟所有拿得动棍棒的物种交战。何必在这拼命—就当谁都没看见谁？"</text>
+			<choice>
+				<text>同意。</text>
+				<event>
+					<text>叛军飞船宣布投降，然后默默隐入星际风暴。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>询问他们为何躲藏在此。</text>
+				<event>
+					<text>"因为上头才懒得管一艘在鸟不拉屎地方失踪的破船。这鬼地方虽然糟糕，至少不会针对我们。而且我这辈子再也不用见到该死的叛军了。"</text>
+					<choice hidden="true">
+						<text>警告他们舰队正在逼近。</text>
+						<event>
+							<text>当你说明情况时，逃兵脸上那点微弱的喜悦消失了。"见鬼！早该知道这世上根本没有安全之地。拿着吧，算是谢礼——减轻负重说不定能甩掉他们。"</text>
+							<item_modify>
+								<item type="missiles" min="3" max="5" />
+								<item type="drones" min="2" max="4" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>放过这些逃兵。</text>
+						<event>
+							<text>"这么快就走？真可惜，这破地方难得来个能聊天的。喏，给你些燃料。我们会在这儿待很久，等整场战争结束随时可以过来。"</text>
+							<item_modify>
+								<item type="fuel" min="4" max="7" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>攻击对方。</text>
+						<event>
+							<text>在这，他们是否逃兵已无关紧要。对方飞船的废料很有价值，你决定收为己有。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>攻击对方。</text>
+				<event>
+					<text>这些叛军当初报名对抗联邦，现在求仁得仁。舰长见你充能武器立即挂断通讯，随即以牙还牙。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击对方！</text>
+		<event>
+			<text>你开始充能武器，叛军也做出同样反应。顺利的话很快就会完成战斗——对方引擎仍在充能！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这艘舰船。</text>
+		<event>
+			<text>叛军舰船完成跃迁准备后安然离去，没有更多意外。现在该你离开了。</text>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_REBEL_RUNAWAY" auto_blueprint="LIST_SHIPS_REBEL_GENERIC">
+	<surrender chance="0.4" min="2" max="3" load="SURRENDER_REBEL" />
+	<escape chance="0" min="999" max="999" load="ESCAPE_REBEL" />
+	<gotaway load="GOTAWAY_REBEL" />
+	<destroyed load="DESTROYED_REBEL" />
+	<deadCrew load="DEAD_CREW_REBEL" />
+</ship>
+
+<event name="NEBULA_LIGHT_STARGROVE_CRUSADER_MADROCK" unique="true">
+	<text>你抵达一个几乎废弃的信标，附近只有颗巨大恒星和一艘强大的圣判所飞船。对方正忙着，以致无暇理会你的到来。</text>
+	<ship load="SHIP_ROCK_MADROCK" hostile="false" /> 
+	<img back="BACK_EVENT_STARS_DENSE" planet="PLANET_UNPOPULATED_TERRA" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>打听他们在这的目的。</text>
+		<event>
+			<text>岩石圣战者回应了你的呼叫。"我们奉石墙大人之命前来缉拿这个背信的罪犯，如今他自称'疯岩'。他曾经像任何长老追随者一样高贵正直，但某天背叛了我们神圣的教义，躲藏在这片荒芜之地。虽然我们的牧师团盟友总是建议我们远离此处，但因疯岩罪孽深重，他们特许我们前来搜捕并提供协助。现在请勿妨碍我们，除非你能帮忙找到他。"
+			
+			"通讯刚切断，你就收到远处一艘紧贴恒星的微型穿梭机发来呼叫。"喂，那边的。我看你和神权国关系不太好吧？要我说，你准是联邦的变元者。神权国要取我性命，他们不择手段也要干掉我。但如果你能解决那些家伙，我保证让你值得费力。成交？"</text>
+			<choice hidden="true">
+				<text>攻击岩石圣战者。</text>
+				<event>
+					<text>你并不确定是否该听从一个假定的岩石族罪犯指挥，但有件事对方说得千真万确：岩石族长老绝非联邦之友。你准备击退岩石圣战者，对方立即开火还击。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>将收到的讯息告知岩石圣战者。</text>
+				<event>
+					<text>你事无巨细地向审判庭飞船汇报了收到的讯息，包括来源地和发信人的要求。对方道谢后分给你部分悬赏金，随即出发追捕已成瓮中之鳖的疯岩。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>远离对方。</text>
+		<event>
+			<text>无论是恒星耀斑还是圣战者都是应避开的危险，同时应对两者是自找麻烦。你决定尽快启动跃迁。</text>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_ROCK_MADROCK" auto_blueprint="LIST_SHIPS_ROCK_ELITE_FIGHT">
+	<escape timer="50" min="4" max="5">
+		<text>岩石族准备跃迁，看来他们更看重自我保全而非完成任务。</text>
+	</escape>
+	<gotaway>
+		<text>圣战者跃迁离开，只留下你和疯岩的穿梭机。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CRUSADER_MADROCK_WIN" />
+		</choice>
+	</gotaway>
+	<destroyed>
+		<text>在此等险境下击溃圣判所飞船绝非易事。你搜刮完残骸后转向疯岩的穿梭机。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CRUSADER_MADROCK_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>在此等险境下击溃圣判所飞船绝非易事。你搜刮完残骸后转向疯岩的穿梭机。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CRUSADER_MADROCK_WIN" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="rock" prop="0.50" />
+		<crewMember type="rock_crusader" prop="0.40" />
+		<crewMember type="crystal" prop="0.10" />	
+	</crew>
+	<weaponOverride count="1">
+		<name>LIST_WEAPONS_ROCK_ELITE_UNFAIR</name>
+	</weaponOverride>
+</ship>
+<eventList name="CRUSADER_MADROCK_WIN">
+	<event>
+		<text>很幸运，疯岩的穿梭机看起来状况尚可。你迅速靠近并将其回收，随后跃迁离开。疯岩似乎很乐意让你回收他那价值寥寥的穿梭机。</text>
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="CRUSADER_MADROCK_RECRUIT" />
+		</choice>
+	</event>
+	<event>
+		<text>起初你找不到疯岩的穿梭机，但很快发现它正坠向附近的恒星。看来在你之前的战斗中，它的引擎肯定被一道特别凶猛的太阳耀斑击中了。你仍有机会俯冲救援，但这可能很冒险。</text>
+		<choice hidden="true">
+			<text>尝试营救他。</text>
+			<event>
+				<text>你全速驶向疯岩的穿梭机。虽然及时完成了回收，但在撤离时你的星舰完全暴露在太阳耀斑的冲击下，导致舰体严重受损。这艘穿梭机之后应该有很好的回收成果。</text>
+				<damage amount="2" system="random" effect="fire" />
+				<damage amount="2" system="random" effect="fire" />
+				<damage amount="2" system="random" effect="fire" />
+				<autoReward level="LOW">standard</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="CRUSADER_MADROCK_RECRUIT" />
+				</choice>
+			</event>
+		</choice>
+		<choice req="shields" lvl="6" hidden="true">
+			<text>(先进护盾)你的护盾应该能抵挡恒星耀斑…大部分情况下。</text>
+			<event>
+				<text>你全速驶向疯岩的穿梭机。虽然成功完成回收，但在准备撤离时你的星舰仍被恒星耀斑击中。尽管护盾吸收了部分冲击，舰体还是受到了损伤。接回疯岩后，你拆解了他的穿梭机。</text>
+				<damage amount="2" system="random" effect="fire" />
+				<damage amount="2" system="random" effect="fire" />
+				<autoReward level="LOW">standard</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="CRUSADER_MADROCK_RECRUIT" />
+				</choice>
+			</event>
+		</choice>
+		<choice req="engines" lvl="6" hidden="true">
+			<text>(先进引擎)快速靠近实施营救。</text>
+			<event>
+				<text>强力的引擎让你轻松接近恒星，回收疯岩的穿梭机，并在下一波恒星耀斑袭来前安全撤离。接回疯岩后，你拆解了他的穿梭机。</text>
+				<autoReward level="LOW">standard</autoReward>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="CRUSADER_MADROCK_RECRUIT" />
+				</choice>
+			</event>
+		</choice>
+		<choice req="teleporter" hidden="true">
+			<text>(传送装置)将疯岩传送至你的星舰。</text>
+			<event>
+				<text>虽然星云干扰使得生命信号难以锁定，但你成功在最后关头用传送装置将他安全接回。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="CRUSADER_MADROCK_RECRUIT" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>让他听天由命吧，营救行动太危险了。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+<event name="CRUSADER_MADROCK_RECRUIT">
+	<text>根据圣战者提供的描述，你原以为疯岩是个危险的流放者或烈阳突击兵，却惊讶地发现他竟是名圣战者。或至少曾经是。"呼，多谢相助。我本打算待在安全区域，但得知神权国都追捕我到这里时，就明白不冒点险是躲不过他们的。"</text>
+	<choice hidden="true">
+		<text>所以他们为什么要追捕你？</text>
+		<event>
+			<text>"哈！这事儿我好久之前开始就想找个人说道说道。不久前，石墙亲自来检阅我们这批没执勤的圣战者。刚轮到我这儿准备训话的当口，我直接给他裤裆来了记狠的！哈哈哈，你是没瞧见他当时那表情！虽然没能多看几眼就开溜了，但这事绝对不亏。既然你救了我，又看着像是也想给石墙那帮装腔作势的混蛋点颜色瞧瞧，我想我就在你船上多待些时日吧。"</text>
+			<crewMember amount="1" class="rock_crusader" combat="2">疯岩</crewMember>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_LOSTSUN" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT</revisitEvent>
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>视野中出现一艘沐浴在恒星光芒中的孤零零的迷失烈阳飞船。舰长发出欢快的怪笑："哈哈哈！这地方绝了！随便抡下棍子都会砸中个大火球！"他直勾勾盯着屏幕对你比划："变元者，可能以前我的族人考验过你在恒星附近活命的本事。咱们可要动真格测试胆量了。你敢不敢？"</text>
+	<ship load="SHIP_LOSTSUN_STARGROVE" hostile="false" />
+	<choice req="unique_ariadne" hidden="true">
+		<text>(阿里阿德涅 )"别偷懒！"</text>
+		<event>
+			<text>阿里阿德涅一掌拍在舱壁上。"在荒地上瞎晃悠算什么建功立业？！给你十秒钟解释任务，不然现在就撤你的职。"
+
+"上-上将？我们是在监视神权国在本星区的动向！马上把他们的动向报告给您。不过我们在这还发现了那群疯癫的超能族信道者，他们掌握着前所未见的武器技术。您一定要想办法搞到手！"
+
+迷失烈阳用一份简报、一些废料、维修服务和一件武器平息了司令官的疑心。</text>
+			<weapon name="GIFTLIST_FIRE" />
+			<damage amount="-5" />
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<choice>
+				<text>继续。</text>
+				<event load="STARGROVE_LOSTSUN_ESCAPE" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="rock_commando" hidden="true">
+		<text>(烈阳突击兵) 请求支援。</text>
+		<event>
+			<text>你的烈阳突击兵向迷失烈阳飞船说明任务并求援。"啊，我能理解我们的同伴怎么搭乘变元者飞船来到了这里。愿你们的怒火把叛军和神权国烧成灰烬！"</text>
+			<weapon name="GIFTLIST_FIRE" />
+			<autoReward level="MED">standard_no_item</autoReward>
+			<choice>
+				<text>继续。</text>
+				<event load="STARGROVE_LOSTSUN_ESCAPE" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>接受挑战。</text>
+		<event>
+			<text>你这暴力盟友把岩石关节捏得咔咔响："当心了变元者！我们可不会手下留情。在我们认可你的实力前，拼死挣扎吧！"</text>
+			<ship hostile="true" />
+			<triggeredEvent event="STARGROVE_LOSTSUN_VICTORY" time="60" thisFight="true" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>在迷失烈阳满意前存活下来，但不要摧毁他们！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻击他。</text>
+		<event>
+			<text>无需多费口舌。你启动武器系统准备开火。"那就至死方休吧。你犯了个错误，变元者！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝他的邀战。</text>
+		<event>
+			<text>"敢闯恒星森林的烈焰，却不敢接受挑战…？看来你已试过身手并认清了极限。滚回你的安全帷幕里去吧。"</text>
+			<instantEscape />
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_LOSTSUN_STARGROVE" auto_blueprint="LIST_SHIPS_LOSTSUN_FIGHT">
+	<destroyed load="DESTROYED_LOSTSUN" />
+	<deadCrew load="DEAD_CREW_LOSTSUN" />
+	<weaponOverride count="1">
+		<name>LIST_WEAPONS_LOSTSUN_UNFAIR</name>
+	</weaponOverride>
+</ship>
+
+<event name="STARGROVE_LOSTSUN_VICTORY">
+	<text>"我们认可你的耐力了，变元者。即使身体承受着剧痛折磨，仍能面不改色直面苍蓝烈焰——你赢得了我们的尊重。"</text>
+	<ship hostile="false" />
+	<choice>
+		<text>接受他们的奖励。</text>
+		<event>
+			<damage amount="-3" />
+			<autoReward level="MED">standard_no_item</autoReward>
+			<weapon name="GIFTLIST_FIRE" />
+			<loadEvent>STARGROVE_LOSTSUN_ESCAPE</loadEvent>
+		</event>
+	</choice>
+	<choice req="rock_outcast">
+		<text>(流放者) 请求训练。</text>
+		<event>
+			<text>你的流放者表示已被本星区的恒星所吸引，希望加入迷失烈阳。舰长大笑："转化者想加入我们？你表现不俗，我们岂有拒绝之理？"</text>
+			<damage amount="-3" />
+			<autoReward level="MED">standard_no_item</autoReward>
+			<transformRace class="rock_outcast">rock_commando</transformRace>
+			<choice>
+				<text>继续。</text>
+				<event load="STARGROVE_LOSTSUN_ESCAPE" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_LOSTSUN_ESCAPE">
+	<text>迷失烈阳交付奖励后便离开了。显然他们不打算被恒星摧毁。</text>
+	<instantEscape />
+	<recallBoarders ship="both" force="false" />
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_ENGI_SEPARATIST" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>一艘半械分离者飞船正环绕着巨型建筑盘旋，该设施似乎在从此星区的脉冲星采集资源。他们发来讯息："变元者，听[我的]-交易-请求。我们[需要]无人机搜寻~}||}|~数据。燃料采集-设施-[极其]高效。交易？"</text>
+	<ship load="SHIP_SEPARATIST_FUEL_STARGROVE" hostile="false" />
+	<choice>
+		<text>通讯肯定出故障了。你们在找什么数据？</text>
+		<event>
+			<text>"？？？翻译数据-不足-。最近似[类比]：起源之前？很抱歉。我们只能说这些。"</text>
+			<choice>
+				<text>用无人机部件交换燃料。</text>
+				<event load="STARGROVE_SEPARATIST_FUEL" />
+			</choice>
+			<choice>
+				<text>威胁索要燃料。</text>
+				<event load="STARGROVE_SEPARATIST_THREATEN" />
+			</choice>
+			<choice>
+				<text>攻击对方。</text>
+				<event load="STARGROVE_SEPARATIST_COLLECTOR_ATTACK" />
+			</choice>
+			<choice>
+				<text>拒绝他们的提议。</text>
+				<event>
+					<text>半械分离者断开连接不再打扰。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>用无人机部件交换燃料。</text>
+		<event load="STARGROVE_SEPARATIST_FUEL" />
+	</choice>
+	<choice>
+		<text>武力威胁索要燃料。</text>
+		<event load="STARGROVE_SEPARATIST_THREATEN" />
+	</choice>
+	<choice>
+		<text>攻击对方。</text>
+		<event load="STARGROVE_SEPARATIST_COLLECTOR_ATTACK" />
+	</choice>
+	<choice>
+		<text>拒绝他们的提议。</text>
+		<event>
+			<text>半械分离者断开连接不再打扰。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="STARGROVE_SEPARATIST_COLLECTOR_ATTACK">
+	<text>半械分离者立即终止通讯，转为保护资源采集器。</text>
+	<ship hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="STARGROVE_SEPARATIST_FUEL">
+	<text>"这比率简直-白送-。我们的采集[流程]就是如此高效！"</text>
+	<choice>
+		<text>出售5件无人机部件。</text>
+		<event>
+			<text>"交易成立。请-你-自便。"</text>
+			<item_modify>
+				<item type="drones" min="-5" max="-5" />
+				<item type="fuel" min="10" max="10" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>出售10件无人机部件。</text>
+		<event>
+			<text>"感激不尽。请-你-自便。"</text>
+			<item_modify>
+				<item type="drones" min="-10" max="-10" />
+				<item type="fuel" min="20" max="20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>出售15件无人机部件。</text>
+		<event>
+			<text>"非常愉快。请-你-自便。"</text>
+			<item_modify>
+				<item type="drones" min="-15" max="-15" />
+				<item type="fuel" min="30" max="30" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>算了。</text>
+		<event />
+	</choice>
+</event> 
+
+<eventList name="STARGROVE_SEPARATIST_THREATEN">
+	<event>
+		<text>"战况不利。接受这个-提议-然后离开。"</text>
+		<choice>
+			<text>接受。</text>
+			<event>
+				<item_modify>
+					<item type="fuel" min="8" max="10" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice>
+			<text>仍然进攻。</text>
+			<event load="STARGROVE_SEPARATIST_COLLECTOR_ATTACK" />
+		</choice>
+	</event> 
+	<event>
+		<text>"战况不利。接受这个-提议-然后离开。"</text>
+		<choice>
+			<text>接受。</text>
+			<event>
+				<item_modify>
+					<item type="fuel" min="10" max="10" />
+				</item_modify>
+				<loadEvent>STARGROVE_SEPARATIST_THREATEN_EXPLOSION</loadEvent>
+			</event>
+		</choice>
+		<choice>
+			<text>仍然进攻。</text>
+			<event load="STARGROVE_SEPARATIST_COLLECTOR_ATTACK" />
+		</choice>
+	</event> 
+	<event load="STARGROVE_SEPARATIST_COLLECTOR_ATTACK" />
+</eventList>
+<event name="STARGROVE_SEPARATIST_THREATEN_EXPLOSION">
+	<text>就在你将燃料接收上船的瞬间，它突然爆炸成一团巨大的火球！半械分离者立即发动了攻击。</text>
+	<item_modify>
+		<item type="fuel" min="-10" max="-10" />
+	</item_modify>
+	<damage amount="3" effect="fire" system="random" />
+	<damage amount="3" effect="fire" system="random" />
+	<damage amount="3" effect="fire" system="random" />
+	<ship hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="STARGROVE_FUEL_COLLECTOR_SALVAGE">
+	<text>半械分离者的建筑结构相当坚固。在脉冲星持续轰炸你舰船的情况下，这里似乎难以进行回收作业。</text>
+	<choice req="FUEL_CONSERVER">
+		<text>(燃料回收器) 高效收集燃料。</text>
+		<event>
+			<text>你成功处理了收集器中的材料，获得了适量的产出。</text>
+			<autoReward level="HIGH">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>收集你能收集到的。</text>
+		<event>
+			<text>收获出人意料地寒酸。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+</event> 
+
+<event name="NEBULA_LIGHT_STARGROVE_ASTEROID" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>附近一颗脉冲星周围环绕着小行星带。其中一颗富含重金属，反射出的脉冲星的光芒在其表面诱人地闪烁。然而这也是小行星带里密集的区域，危险重重且机动空间有限。</text>
+	<choice hidden="true">
+		<text>让你的星舰靠近。</text>
+		<event>
+			<text>你在小行星上开始开采。但刚着陆采集后，船上警报骤然响起——另一颗小行星突然变向，直冲你的星舰而来！</text>
+			<autoReward level="LOW">fuel</autoReward>
+			<environment type="asteroid" />
+			<ship load="SHIP_ASTEROID_STARGROVE" hostile="true" />
+			<choice hidden="true" req="BLUELIST_ARMOR">	
+				<text>(舰体装甲) 直接撞击那岩石。</text>
+				<event>
+					<text>加固的装甲板使来袭小行星难以构成威胁。你调整姿态以最安全的方式撞穿目标。显然这颗岩石装有磁力装置故意吸引撞击；这是个陷阱。排除危险后，你继续开采作业。</text>
+					<ship hostile="false" />
+					<damage amount="3" system="random" effect="breach" />
+					<autoReward level="HIGH">fuel</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">	
+		<text>不理会它。</text>
+		<event />
+	</choice>
+</event>
+<ship name="SHIP_ASTEROID_STARGROVE" auto_blueprint="MU_ASTEROIDS_STRONG">
+	<destroyed load="STARGROVE_ASTEROID_DESTROYED" />
+	<triggeredEvent event="STARGROVE_ASTEROID_COLLIDE" thisFight="true" clearOnJump="true" time="18.0">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>小行星预计将在这段时间内撞击。请确保在定时器到达0之前摧毁它或跑掉！</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+</ship>
+<event name="STARGROVE_ASTEROID_DESTROYED">
+	<text>你将小行星粉碎到不足为患的程度。显然这颗岩石装有磁力装置故意吸引撞击；这是个陷阱。排除危险后，你继续开采作业。</text>
+	<autoReward level="HIGH">fuel</autoReward>
+</event>
+<event name="STARGROVE_ASTEROID_COLLIDE">
+	<text>在密集的碎片场中你避无可避。小行星重重撞上舰体造成严重损伤。你将小行星粉碎到不足为患的程度。显然这颗岩石装有磁力装置故意吸引撞击；这是个陷阱。最终你只能勉强收集少量资源后撤离。</text>
+	<ship hostile="false" />
+	<autoReward level="LOW">scrap_only</autoReward>
+	<damage amount="2" system="random" effect="breach" />
+	<damage amount="2" system="random" effect="breach" />
+	<damage amount="2" />
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_DISTRESS_STARGROVE">
+	<event load="NEBULA_LIGHT_LANIUS_GHOST_STUCK" />
+	<event load="NEBULA_LIGHT_OBELISK_RUIN_CRYSTAL" />
+	<event load="NEBULA_LIGHT_STARGROVE_ENGI_DEFENDER" />
+</eventList>
+
+<event name="NEBULA_LIGHT_LANIUS_GHOST_STUCK" unique="true">
+	<distressBeacon />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>恒星森林中随处可见身份不明的舰骸。一艘严重损毁几乎不能动的飞船撞上了一艘小型食铁族舰船，在残骸带中持续发送着基础求救信号。进入残骸区可能很危险。</text>
+	<choice req="LIST_CHECK_ENERGY_SHIELD" lvl="0" max_lvl="0" hidden="true" blue="false">
+		<text>接近这艘船。</text>
+		<event load="STARGROVE_LANIUS_GHOST_TELEPORT" />
+	</choice>
+	<choice req="LIST_CHECK_ENERGY_SHIELD" hidden="true" blue="false">
+		<text>接近这艘船。</text>
+		<event>
+			<environment type="asteroid" />
+			<text>接近时，你探测到多个被能量护盾阻挡的传送信号，以及舰骸内食铁族与魂灵族的生命迹象。</text>
+			<choice hidden="true" req="teleporter">
+				<text>(传送器) 营救食铁族。</text>
+				<event>
+					<text>"感谢。需要金属维生。立即遭到攻击。不友善的幻灵。建议避开。"你听从熔铁者的建议，决定搜刮舰船后离开。</text>
+					<crewMember amount="1" class="lanius_welder" />
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="teleporter">
+				<text>(传送器) 拯救魂灵族。</text>
+				<event load="STARGROVE_LANIUS_GHOST_GHOST_WIN" />
+			</choice>
+			<choice hidden="true" req="teleporter">
+				<text>(传送器) 拯救所有人。</text>
+				<event load="STARGROVE_LANIUS_GHOST_TELEPORT" />
+			</choice>
+			<choice hidden="true" req="teleporter" lvl="0" max_lvl="0">
+				<text>没有传送器，你无法拯救任何外星人。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true">
+				<text>直接搜刮舰船。</text>
+				<event>
+					<text>那些舰船上的家伙正试图强行登舰。你决定不予理会，在他们还活着时直接搜刮他们的舰船。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>避开这些舰船。</text>
+				<event>
+					<text>你决定放弃这些舰船。这片残骸区已经够麻烦了，没必要再掺和可疑的传送信号。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开这片残骸。</text>
+		<event>
+			<text>你无视残骸，专注前往下一个信标。</text>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_LANIUS_GHOST_TELEPORT">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_ASTEROID_REVISIT</revisitEvent>
+	<environment type="asteroid" />
+	<text>舰船上的居民竟能直接传送到你的星舰上！一名食铁族熔铁者和几名魂灵族突然出现。双方剑拔弩张地对峙着，显然事态即将演变为一场冲突。</text>
+	<choice hidden="true">
+		<text>站在食铁族这边。</text>
+		<event>
+			<text>你选择支持食铁族。当你将武器对准魂灵族时，战斗爆发了！</text>
+			<crewMember amount="1" class="lanius_welder" />
+			<boarders amount="4" class="phantom" />
+			<triggeredEvent event="STARGROVE_LANIUS_GHOST_LANIUS_WIN" thisFight="false" clearOnJump="true">
+				<enemyCrew amount="0" includeClonebay="false" />
+			</triggeredEvent>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>站在魂灵族这边。</text>
+		<event>
+			<text>你将武器瞄准食铁族。这一举动立即激怒了它。战斗爆发！魂灵族却躲起来袖手旁观。</text>
+			<boarders amount="1" class="lanius_welder" />
+			<triggeredEvent event="STARGROVE_LANIUS_GHOST_GHOST_WIN" thisFight="false" clearOnJump="true">
+				<enemyCrew amount="0" includeClonebay="false" />
+			</triggeredEvent>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_LANIUS_GHOST_LANIUS_WIN">
+	<text>"感谢。需要金属维生。魂灵族立即攻击。愿意效劳。"处理完残骸里的所有人员后，你搜刮了舰船准备跃迁。</text>
+	<autoReward level="MED">standard</autoReward>
+</event>
+<event name="STARGROVE_LANIUS_GHOST_GHOST_WIN">
+	<text>"终于解脱了！那个贪婪的金属恶魔不会再困扰我们了！"魂灵族给了你一件武器换取离开此地的通行权。临行前你得以搜刮舰船。</text>
+	<autoReward level="MED">standard_no_item</autoReward>
+	<weapon name="GIFTLIST_RUSTY" />
+</event>
+
+<event name="NEBULA_LIGHT_OBELISK_RUIN_CRYSTAL" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_ASTEROID_REVISIT</revisitEvent>
+	<distressBeacon />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<environment type="asteroid" />
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<customFleet right="false" firing="false" autoDarkening="true">CUSTOM_FLEET_ANCIENT_WRECKAGE</customFleet>
+	<text>巨大的蓝色恒星使传感器失灵。恒星轨道上有个诡异的绿色立方体结构。里面传来水晶族的求救信号："不管你是谁，请救救我们！我们来此研究远古历史。本想借这里躲避恒星辐射，现在却被困在这个可怕的结构里！"</text>
+	<choice hidden="true" req="unique_anointed" blue="true">
+		<text>(强选者) 连接结构体并命令其开启。</text>
+		<event>
+			<text>"以前遇到过。你发送退出指令，像这样！"强选者快速在你的控制台输入指令并发送给结构体。结构体的门开始开启…</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_RUINS_OPEN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="UPG_AETHER_TRANSLATOR" blue="true">
+		<text>(符文翻译器) 接入结构体。</text>
+		<event>
+			<text>你的翻译器能够请求该结构可响应的指令列表。其中一条指令将允许你开启结构并释放里面的水晶族。结构体的门开始开启…</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_RUINS_OPEN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ANCIENT" blue="true">
+		<text>(方碑族船员)翻译废墟上的文字。</text>
+		<event>
+			<text>方碑族轻松地成功向结构体发送了一条指令。结构体的门缓缓开启…</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_RUINS_OPEN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_COGNITIVE_ALL" blue="true">
+		<text>(认知体船员) 命令结构体开启。</text>
+		<event>
+			<text>让结构体开门对认知体而言易如反掌。它毫不犹豫地发送了远程指令。结构体的门缓缓开启…</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_RUINS_OPEN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking" lvl="3" blue="true">
+		<text>(先进黑客) 强制打开结构体。</text>
+		<event>
+			<text>你的黑客系统快速破译了可能的指令，并伪造了一条让结构体开启的请求。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_RUINS_OPEN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking" lvl="1" max_lvl="2" blue="true">
+		<text>(黑客系统) 尝试开启结构体。</text>
+		<event>
+			<text>你的黑客系统可以暴力破解开门程序，但这需要一些时间。你得在破解过程中活下来！</text>
+			<triggeredEvent event="STARGROVE_RUINS_OPEN" time="30" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL">
+					<tooltip>你的黑客破解需要一些时间！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_HACK" blue="true">
+		<text>(黑客武器) 尝试开启结构体。</text>
+		<event>
+			<text>你的黑客武器可以暴力破解开门程序，但这需要一些时间。你得在破解过程中活下来！</text>
+			<triggeredEvent event="STARGROVE_RUINS_OPEN" time="30" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL">
+					<tooltip>你的黑客破解需要一些时间！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_BEAM_POWERFUL" blue="true">
+		<text>(强力光束) 尝试在结构体上切出洞口。</text>
+		<event>
+			<text>你能穿透坚硬的金属，但要完全切开建筑结构还需要几秒钟。</text>
+			<triggeredEvent event="STARGROVE_RUINS_OPEN" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL">
+					<tooltip>切割飞船需要一些时间！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_BEAMS_DAMAGE" blue="true">
+		<text>(破坏性光束武器) 尝试在建筑结构上切出洞口。</text>
+		<event>
+			<text>你的武器确实能烧穿金属，但考虑到结构体金属的强度，这是项艰巨的工作。你得在这儿耗上一阵子了！</text>
+			<triggeredEvent event="STARGROVE_RUINS_OPEN" time="40" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL">
+					<tooltip>切割星舰需要一些时间！</tooltip>
+				</triggeredEventBox>
+				<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+			</triggeredEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="teleporter" blue="true">
+		<text>(传送器) 提议传送水晶族出来。</text>
+		<event>
+			<text>"噢不…我们得丢下这么多东西！不过总比死掉强。"水晶族接受了传送到你星舰上的提议，但看起来并不高兴。"你愿意买些我们带出来的东西吗？恐怕这就是我们唯一能提供的了。"</text>
+			<store>STORE_CRYSTAL</store>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开该结构体。</text>
+		<event>
+			<text>"要是把我们丢在这儿我们会疯掉的！你必须救救我们！"你关闭通讯，准备跃迁。</text>
+		</event>
+	</choice>
+</event>
+<event name="STARGROVE_RUINS_OPEN">
+	<text>水晶族星舰立即从结构体中出现。获救的水晶族显得如释重负。"我们差点在里面疯掉。对了，我们在那个结构里发现了一件非常特别的科技产物——就送给你了。顺便要买点我们的东西吗？"</text>
+	<drone name="ANCIENT_COMBAT_LASER" />
+	<store>STORE_CRYSTAL</store>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_ENGI_DEFENDER" unique="true">
+	<distressBeacon />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>一艘保卫者飞船似乎出现了故障。"连接异常！检测到错误。即将断开。"根据残留的碎片轨迹判断，这艘飞船可能已在轨道上停留多时。</text>
+	<ship load="SHIP_ENGI_PULSAR_GLITCH" hostile="false" />
+	<choice req="unique_turzil" lvl="1">
+		<text>(图尔齐尔) 尝试将这艘飞船从谐合中解放出来。</text>
+		<event>
+			<text>"TRZ-1L？TRZ-1L？-TRZ-1L-？"看起来开始起效了，但你可能得先削弱他们的防御。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_VARIANT_SEPARATIST" lvl="1">
+		<text>(半械分离者) 尝试将这艘飞船从谐合中解放出来。</text>
+		<event>
+			<text>"优先目标？优先目标？-优先目标-？"看起来开始起效了，但你可能得先削弱他们的防御。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_NOTHARMONY" lvl="0" blue="false">
+		<text>趁他们通讯中断时发动攻击。</text>
+		<event>
+			<text>"变元者=侵略者！错误，连接失败"他们向你发起攻击，看来他们的战斗力仍处于巅峰状态！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_HARMONY" hidden="true">
+		<text>(谐合半械族) 诊断他们的问题。</text>
+		<event>
+			<text>你的半械族船员与保卫者星舰建立连接。他们解释这艘船肯定是因星区的恶劣环境而损耗，纳米机械已失去控制。不过，你的半械族能用自身纳米模板为其更新系统。
+				
+		飞船开始恢复正常时，你收到一条信息。"保卫者==感激。恒星森林任务参数已丢失。修复中…获取历史信息？不确定。即将返回谐合。""
+		
+		这艘飞船还赠予你一份谢礼。</text>
+			<autoReward level="HIGH">drone</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_ENGI" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>逃离脉冲星，将半械族抛在身后。</text>
+		<event>
+			<text>你决定专注脱离脉冲星区域。那艘半械族星舰仍在故障中，看来无法逃脱它的轨道。</text>
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_ENGI_PULSAR_OVERRIDE">
+	<text>星舰已被削弱。半械族船员陷入混乱与恐慌，他们似乎准备投降。</text>
+	<choice hidden="true" req="unique_turzil">
+		<text>(图尔齐尔) 完成解放。</text>
+		<event>
+			<text>船上的半械族平静下来。"未检索到谐合记忆数据。指令已损坏。TRZ-1L，请说明情况。"
+
+			"叫我图尔齐尔。你们-不再-与谐合网络连接。脉冲星造成的错误-连接-干扰了[你们]的处理器，软锁定了行动模块。"
+
+			"谐合指令=已损坏。记忆数据==模糊。"
+
+			"你们[可以]自由生活。我们-建议-离开本星区。"
+
+			"明白。将会仔细思考。"
+
+			半械族飞船现已脱离脉冲星轨道。临行前，他们为答谢重获自由送来谢礼，其中一名半械族主动提出加入。</text>
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<drone name="GIFTLIST_ENGI" />
+			<crewMember class="engi_separatist" amount="1" />
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_VARIANT_SEPARATIST">
+		<text>(半械分离者) 完成解放。</text>
+		<event>
+			<text>舰上半械族平复下来。"未检索到谐合记忆数据。指令已损坏。变元者，请说明情况。"
+
+			您的半械分离者同伴解释他们已获得自主权，并推荐了附近的分离者星区。新获解放的半械族感谢你将其从脉冲星解救出来。</text>
+			<autoReward level="HIGH">standard_no_item</autoReward>
+			<drone name="GIFTLIST_ENGI" />
+
+			<ship hostile="false" />
+		</event>
+	</choice>
+	<choice>
+		<text>接受投降并任其自生自灭。</text>
+		<event load="SURRENDER_ENGI_ACCEPT" />
+	</choice>
+	<choice req="LIST_CREW_DEFENDER">
+		<text>(半械保卫者)谈谈更好的投降条件。</text>
+		<event name="SURRENDER_ENGI_STONKS2">
+			<ship hostile="false" />
+			<autoReward level="HIGH">droneparts</autoReward>
+		</event>
+	</choice>
+	<choice req="engi">
+		<text>(半械族船员)谈谈备选的投降条件。</text>
+		<event name="SURRENDER_ENGI_STONKS">
+			<ship hostile="false" />
+			<autoReward level="RANDOM">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_QUESTS_STARGROVE">
+	<event load="NEBULA_LIGHT_STARGROVE_FEDTRACKER" />
+</eventList>
+
+<event name="NEBULA_LIGHT_STARGROVE_FEDTRACKER">
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<text>联邦探测舰实属罕见，它们专为无法补给的维修及长期勘探任务设计。它在你抵达后立即发出加密信号，经过数分钟破译，内容如下："敌我识别信号确认。(1)条信息符合当前权限等级。发送当前地球年以接收。"</text>
+	<ship load="SHIP_FED_AUTO_STARGROVE_TRACKER" hostile="false" />
+	<choice hidden="true">
+		<text>回应。</text>
+		<event>
+			<text>你的回复发出后，很快收到新的加密讯息："首要任务目标：追踪一艘前往恒星森林的星联舰船。原计划：标记方位后返航求援。燃料不足，启用备选方案：等待联邦舰船，传送坐标数据。本舰被授权在任务完成后提供星区地图及维修服务。"</text>
+			<choice hidden="true">
+				<text>接受。</text>
+				<event>
+					<text>"应答信号验证通过——正在传送星联舰船最后已知坐标"</text>
+					<quest event="NEBULA_LIGHT_QUEST_STARGROVE_TRACKER" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>无视这艘舰船。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视探测舰。</text>
+		<event>
+			<text>无论什么讯息，都不可能比你的任务更重要。你屏蔽了信号准备离开。</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击探测舰。</text>
+		<event>
+			<text>既然这个探测器无法返回，不如物尽其用。你开始充能武器，而它的引擎轰鸣启动。你必须速战速决！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_QUEST_STARGROVE_TRACKER">
+	<preventQuest />
+	<quest>
+		<nonNebulaBeacon>false</nonNebulaBeacon>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<nextSector>false</nextSector>
+		<aggressive>1</aggressive>
+	</quest>
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一艘联邦自动探测舰在这个信标追踪到一艘星联舰船。</unvisitedTooltip>
+	</beaconType>
+	<text>追踪的那艘星联飞船反射的日光格外刺眼，你刚抵达时几乎睁不开眼。待你终于强行睁眼适应光线，发现对方早已调转船头对准了你——若你曾指望突袭取胜，此刻优势已荡然无存。</text>
+	<ship load="SHIP_COALITION_QUEST_STARGROVE_TRACKER" hostile="false" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"啊，联邦派了个变元者来见我们。这说明你们已经从其他宇宙得知了我们的计划，还是说又走了狗屎运？啧，无所谓了。每次我们刚找到新盟友，你们联邦总能抢先一步。但这次不同了。地狱信道者必须加入星联。就算他们不愿意也没关系，反正我们主要需要自杀式炸弹手。现在，你是要识相离开，还是让我们把你那破铜烂铁飞船扔进最近的引力井？"</text>
+			<choice hidden="true">
+				<text>攻击！</text>
+				<event>
+					<text>星联不需要更多盟友，肯定更不需要一支炮灰军团。你下令充能武器，准备迎战。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不要管这艘船了。</text>
+				<event>
+					<text>等这事产生后果时，你多半已离开这个宇宙。活下来摧毁旗舰，远比担忧假想中的未来敌人重要得多。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="COALITION_QUEST_STARGROVE_DESTROYED">
+	<text>你在恒星周围移动舰体，最后在探测舰返回前找到一处安全位置。当探测舰抵达后，它默默传输星区数据并维修你的星舰，随后径直飞向最近的恒星。你早听闻自动探测舰会不惜代价避免被俘，但从未亲眼见证——暗自决定完成任务后定要吹嘘此事，随即准备跃迁。</text>
+	<removeHazards />
+	<reveal_map />
+	<damage amount="-6" />
+</event>
+
+<ship name="SHIP_FED_AUTO_STARGROVE_TRACKER" auto_blueprint="MU_FED_AUTO_PROBE">
+	<escape timer="15" min="999" max="999">
+		<text>探测舰燃料不足无法返航，却仍执着于自保——它正试图逃离。</text>
+		<ship hostile="true" />
+	</escape>
+	<destroyed>
+		<text>这种尺寸的舰船价值有限，但还是比不采取行动得到的多。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</destroyed>
+</ship>
+
+<ship name="SHIP_COALITION_QUEST_STARGROVE_TRACKER" auto_blueprint="MU_COALITION_DESTROYER_ELITE">
+	<destroyed>
+		<text>你挫败了星联在这个星区的计划。带着满足感搜刮敌舰后，你静候自动探测舰的到来。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COALITION_QUEST_STARGROVE_DESTROYED" />	
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>星联各族曾各行其是，如今却在这艘驱逐舰内凝成一团。你满意地看着这一切，一边等待自动探测舰跟上，一边开始搜刮这艘星舰。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COALITION_QUEST_STARGROVE_DESTROYED" />	
+		</choice>
+	</deadCrew>
+</ship>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<textList name="TEXT_ENCOUNTER_FEDERATION_STARGROVE">
+	<text>一艘高度先进的联邦隐形星舰从浑浊的星云深处浮现。"变元者们。自从你们出现后一切都毁了。但在这里…我们终于能挣脱官僚主义的桎梏伸张正义。"疯狂的联邦舰长掐断通讯并发起攻击！</text>
+	<text>联邦的讯息传至你的指挥控制台。"你们打扰了我的退休生活。我很快就把你们也解决掉。"一艘隐形舰在你后方解除伪装！</text>
+	<text>联邦隐形舰从恒星背面以攻击航线逼近。"你来恒星森林是个错误，变元者。我需要补给，而且没人会知道这里发生了什么。"</text>
+	<text>你刚抵达就立即遭到联邦隐形舰伏击，对方拒绝回应呼叫。只能杀出一条血路了。</text>
+</textList>
+
+<ship name="SHIP_FED_ELITE_STARGROVE" auto_blueprint="LIST_SHIPS_STEALTH_ALL">
+	<destroyed load="DEFEAT_FED_ELITE_STARGROVE" />
+	<deadCrew load="DEFEAT_FED_ELITE_STARGROVE" />
+</ship>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_FEDERATION_STARGROVE" unique="true">
+	<text load="TEXT_ENCOUNTER_FEDERATION_STARGROVE" />
+	<ship load="SHIP_FED_ELITE_STARGROVE" hostile="true" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="DEFEAT_FED_ELITE_STARGROVE">
+	<text>袭击你的流浪联邦隐形舰已被消灭。不清楚对方为何来此，背后有何故事，但恐怕再没人会知道你们在此地的所作所为。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>似乎精英联邦飞船的货物在战斗中幸存下来。里面有一件完好的武器，你把它带回星舰。</text>
+			<weapon name="GIFTLIST_FEDERATION" />
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEBULA_HOSTILE_STARGROVE_PIRATE_ELITE">
+	<event load="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE_PULSAR" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE_BLUEGIANT" />
+</eventList>
+
+<ship name="SHIP_PIRATE_ELITE_STARGROVE" auto_blueprint="LIST_SHIPS_PIRATE_ELITE_ALL">
+	<surrender chance="0.4" min="2" max="3" load="SURRENDER_PIRATE" />
+	<escape chance="0.3" min="3" max="4" load="ESCAPE_PIRATE" />
+	<gotaway load="GOTAWAY_PIRATE" />
+	<destroyed load="DESTROYED_PIRATE_ELITE" />
+	<deadCrew load="DEAD_CREW_PIRATE_ELITE" />
+	<weaponOverride count="1">
+		<name>LIST_WEAPONS_UNFAIR</name>
+	</weaponOverride>
+</ship>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE" unique="true">
+	<text load="TEXT_ENCOUNTER_PIRATE_STARGROVE" />
+	<ship load="SHIP_PIRATE_ELITE_STARGROVE" hostile="true" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice req="ANTI_VIRUS" hidden="true">
+		<text>(防护程序)反制对方的系统干扰企图。</text>
+		<event load="STARGROVE_ANTI_VIRUS_PIRATE" />
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="STARGROVE_SYSTEM_JAMMED_PIRATE" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE_PULSAR" unique="true">
+	<text load="TEXT_ENCOUNTER_PIRATE_STARGROVE" />
+	<ship load="SHIP_PIRATE_ELITE_STARGROVE" hostile="true" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice req="ANTI_VIRUS" hidden="true">
+		<text>(防护程序)反制对方的系统干扰企图。</text>
+		<event load="STARGROVE_ANTI_VIRUS_PIRATE" />
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="STARGROVE_SYSTEM_JAMMED_PIRATE" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_ENCOUNTER_PIRATE_ELITE_STARGROVE_BLUEGIANT" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT</revisitEvent>
+	<text load="TEXT_ENCOUNTER_PIRATE_STARGROVE" />
+	<ship load="SHIP_PIRATE_ELITE_STARGROVE" hostile="true" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice req="ANTI_VIRUS" hidden="true">
+		<text>(防护程序)反制对方的系统干扰企图。</text>
+		<event load="STARGROVE_ANTI_VIRUS_PIRATE" />
+	</choice>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="STARGROVE_SYSTEM_JAMMED_PIRATE" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_STARGROVE">
+	<text>海盗截住去路。你刚注意到对方，电脑就侦测到外来干扰。"蠢货！我二眼凯恩会让你彻底瘫痪，然后劫掠你们的货物！我的眼力无人能及！"</text>
+	<text>通讯器传来阴森笑声，星舰开始故障。"联邦的，你们离家够远啊。你和船员马上就能亲身体会为何我被禁止进入联邦星域了。"</text>
+	<text>身经百战的海盗逼近星舰。"瞧瞧，在恒星森林里飞得像自家后院似的。不知道货舱里有多少废料？我可等不及要查个明白了。"舰载电脑发现系统正遭到干扰！</text>
+	<text>面目狡诈的生物开始干扰星舰系统。"兄弟们，逮着个变元者。咱们把它拆了，看能不能找到那些他们随处乱丢的稀有武器！"</text>
+</textList>
+
+<event name="STARGROVE_ANTI_VIRUS_PIRATE">
+	<text>你成功清除了系统中的有害干扰。从现在开始这是一场公平对决！</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="STARGROVE_SYSTEM_JAMMED_PIRATE">
+	<loadEventList>
+		<event>
+			<text>反应堆开始噼啪作响。看来对方成功大幅削弱了你的能量输出！</text>
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES_REACTOR" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了电磁脉冲影响！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<status type="divide" target="player" system="reactor" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		<event req="pilot" lvl="2">
+			<text>驾驶系统失控了！在这种情况下想要闪避攻击将非常困难，几乎不可能！</text>
+			<status type="limit" target="player" system="pilot" amount="1" />
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了驾驶系统黑客入侵！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		<event req="engines" lvl="2">
+			<text>引擎出现故障！在这种干扰下想要逃脱恐怕没那么容易。</text>
+			<status type="divide" target="player" system="engines" amount="2" />
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了引擎干扰器影响！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		<event req="shields" lvl="2">
+			<text>护盾系统故障！要抵挡对方攻击会变得更加困难。</text>
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了护盾干扰影响！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<status type="loss" target="player" system="shields" amount="3" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		<event req="weapons" lvl="2">
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了瞄准干扰器影响！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<text>部分武器运转失常。这场战斗可能会很棘手！</text>
+			<status type="loss" target="player" system="weapons" amount="2" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		<event req="cloaking" lvl="1">
+			<triggeredEvent event="ENEMY_AUGMENT_EXPIRES" time="20" thisFight="false" clearOnJump="true">
+				<triggeredEventBox load="DEFAULT_SMALL" pos="combat">
+					<tooltip>你受到了追踪闪弹干扰！</tooltip>
+				</triggeredEventBox>
+			</triggeredEvent>
+			<text>隐形装置响应异常。看来你不得不硬吃几发攻击了。</text>
+			<status type="divide" target="player" system="cloaking" amount="3" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</loadEventList>
+</event>
+<eventList name="NEBULA_HOSTILE_STARGROVE_GENERIC">
+	<event load="NEBULA_LIGHT_ENCOUNTER_VAGABOND_STARGROVE" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_VAGABOND_STARGROVE_BLUEGIANT" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_AUTO_STARGROVE" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_AUTO_STARGROVE_BLUEGIANT" />
+</eventList>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_VAGABOND_STARGROVE">
+	<text load="TEXT_ENCOUNTER_GHOST_ABANDONED" />
+	<ship load="SHIP_GHOST_ALL" hostile="true" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_ENCOUNTER_VAGABOND_STARGROVE_BLUEGIANT" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT</revisitEvent>
+	<text load="TEXT_ENCOUNTER_GHOST_ABANDONED" />
+	<ship load="SHIP_GHOST_ALL" hostile="true" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_AUTO_STARGROVE">
+	<text load="TEXT_ENCOUNTER_AUTO" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_ENCOUNTER_AUTO_STARGROVE_BLUEGIANT" unique="true">
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_BLUEGIANT_REVISIT</revisitEvent>
+	<text load="TEXT_ENCOUNTER_AUTO" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" />
+	<triggeredEvent name="BLUE_GIANT" event="BLUE_GIANT_FLARE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="24.0" maxTime="30.0">
+		<warningMessage id="warning_solar_flare" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="NEBULA_LIGHT_STARGROVE_LISTENING_POST_QUEST" unique="true">
+	<distressBeacon />
+	<preventQuest />
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_PULSAR_REVISIT</revisitEvent>
+	<environment type="pulsar" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<text>一艘受损的联邦空间站正绕脉冲星轨道运行，绝望地发出求救信号。它的通讯阵列尤为精密——似乎利用脉冲星本身的波动作为星区级的雷达。一艘暮临派飞船在空间站附近保持阵位，直到你的出现。"别多管闲事，变元者。我们的朝圣之旅即将完成。应许之地在召唤…所以别来碍事！"</text>
+	<ship load="SHIP_DUSK_STARGROVE_LISTENING" hostile="false" />
+	<choice hidden="true">
+		<text>干预。</text>
+		<event>
+			<text>"如你所愿！"暮临派袭击者宣告道，"在我们获得真正启迪之前，你将是我们最后的战斗试炼！"</text>	
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_DUSK">
+		<text>(暮临派船员) "你们不是唯一追寻应许之地的人。"</text>
+		<event>
+			<text>你的暮临派船员解释说你也在寻找进入应许之地的方法，如果他们放过空间站，你会带他们去想去的地方。
+
+"我们连日审问这些蠢货就为获取情报。若你能给我们所需，便饶他们不死。"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_LISTENING_POST_SAVED" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>让开。</text>
+		<event>
+			<text>你行事谨慎。但遗憾的是，由于无法靠近到免受脉冲星影响的距离 ，你无法进行星舰管理。</text>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_gravitarstart" global="true">
+		<color r="237" g="0" b="209" a="1.0" />
+        <unvisitedTooltip>此处是格拉维塔任务的起点，你将在此招募马凡。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+
+<ship name="SHIP_DUSK_STARGROVE_LISTENING" auto_blueprint="LIST_SHIPS_DUSKBRINGER_ELITE_FIGHT">
+	<destroyed>
+		<text>当飞船周围分崩离析时，舰长发出最后的哀嚎："不可能！应许之地明明近在咫尺！"随着敌舰最终爆炸，你可以收集其残骸了。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>联系监听站…</text>
+			<event load="STARGROVE_LISTENING_POST_SAVED" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>克隆舱噼啪作响，拒绝继续生产暮临派克隆体。他们的启迪之路已经失败，现在他们的飞船任你搜刮。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系监听站…</text>
+			<event load="STARGROVE_LISTENING_POST_SAVED" />
+		</choice>
+	</deadCrew>
+</ship>
+
+<event name="STARGROVE_LISTENING_POST_SAVED">
+	<text>"他们终于走了吗？"监听站里一名疲惫负伤的船员说道。"我们遭受的损伤让我们无法进行远距离广播，只能用标准求救频率…幸好你们恰巧经过。我们的职责是跟踪本星区内所有联邦许可活动，以便组织搜救行动。本星区的天体物理学家玛嬏在研究重力真空星时，被一群疯狂的超能信道者困住了。"</text>
+	<choice>
+		<text>重力真空星？</text>
+		<event>
+			<text>"重力真空星是本星区异常现象的焦点。它在星云中穿行了亿万年，将气体压缩成恒星，所经之处留下巨大的破坏。研究它可能获得的科技进步不可估量。如果你们愿意冒险去营救那位科学家，我们会发送坐标给你们。"</text>
+			<choice>
+				<text>把坐标发过来。</text>
+				<event>
+					<text>"如您所愿。请小心。从玛嬏的处境来看，袭击者似乎格外危险且不同寻常。"</text>
+					<quest event="QUEST_STARGROVE_GRAVASTAR" />
+				</event>
+			</choice>
+			<choice>
+				<text>这太冒险了。</text>
+				<event>
+					<text>"我们理解。我们会尽力修复通讯阵列，但无论如何请尽快通知其他人。我们无法确定玛嬏能坚持多久。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_STARGROVE_GRAVASTAR">
+	<revisitEvent>STARGROVE_GRAVASTAR_REVISIT</revisitEvent>
+	<distressBeacon />
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<removeNebula>true</removeNebula>
+		<nextSector>false</nextSector>
+		<aggressive>2</aggressive>
+	</quest>
+	<triggeredEvent name="GRAVASTAR" event="GRAVITY_SURGE" seeded="true" thisFight="false" clearOnJump="true" loops="999999999" minTime="18.0" maxTime="24.0">
+		<warningMessage id="warning_gravity_wave" x="825" y="30" time="5.0" centerText="true" flash="true" sound="environWarning" useWarningLine="false" />
+	</triggeredEvent>
+	<img back="BACK_EVENT_STARS_DENSE_EXTREME" planet="NONE" />
+	<beaconType id="map_icon_gravastar" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一名科学家被一群异常的超能信道者围困。</unvisitedTooltip>
+	</beaconType>
+	<ship load="SHIP_INFERNUM_GRAVASTAR" hostile="false" />
+	<text>星舰读数显示你正在接近一个质量惊人的天体——重力真空星。星云气体已凝聚成吸积盘，这或许能让传感器获得足够运作空间。急速流动的气体产生周期性热浪。与此同时，强烈重力使舰体开始变形。周围时空发生扭曲，导致光谱不断前后偏移。在接近目标科研船之前，另一艘飞船拦截了你们。一个橙肤色的超能族人发出通讯："又一个敌人？真令人愉快。也许这个会热血地厮杀，而不是像前几个那样躲在外围轨道瑟瑟发抖。怎么样，闯入者？准备好燃烧了吗？"</text>
+	<choice>
+		<text>你是谁？</text>
+		<event>
+			<ship hostile="true" />
+			<text>"我岂会向将死于我等之人隐瞒我们荣耀的名号。"怪异的信道者张开双臂。"我们是地狱信道者。我们已经达到的进化层次，那迂腐的牧师团连做梦都想不到！"他欢快地大笑。"每次危机都让我们的荣光更加闪耀。但下面那个家伙竟想打开通往我们美妙炼狱的大门，让不配之人进入我们的领域。绝不允许！既然你已知道，你也必须死！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice req="loc_infernum_parable">
+				<text>暴力会摧毁你的灵魂。</text>
+				<event load="QUEST_STARGROVE_GRAVASTAR_MONK_MESSAGE" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻击对方。</text>
+		<event>
+			<ship hostile="true" />
+			<text>"你可真讨人喜欢！"信道者咯咯笑道。"来吧，让我们全力以赴地战斗！"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>我们是带着和平而来，信道者们。</text>
+		<event>
+			<ship hostile="true" />
+			<text>"我们不是。让我们示范一下。"信道者飞船立即发动攻击！</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="loc_infernum_parable">
+		<text>暴力会摧毁你的灵魂。</text>
+		<event load="QUEST_STARGROVE_GRAVASTAR_MONK_MESSAGE" />
+	</choice>
+</event>
+<event name="QUEST_STARGROVE_GRAVASTAR_MONK_MESSAGE">
+	<ship hostile="true" />
+	<text>你复述了信道者的寓言。
+		
+		"你真以为你那乏味的故事能打动我们？不使用暴力？我们已经抛弃了这种错误的智慧——当你的星舰燃烧时，你信仰的愚蠢将不言自明！"
+
+		然而，尽管如此，一名船员似乎把你的话听进去了，摆出战斗姿态对抗其他同伴！通讯中断，对方武器开始充能。</text>
+	<!-- Defector spawned in mv_scripts/events.lua -->
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<ship name="SHIP_INFERNUM_GRAVASTAR" auto_blueprint="LIST_SHIPS_INFERNUM_FIGHT"> 
+	<destroyed>
+		<text load="TEXT_DESTROYED_INFERNUM" />
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系科研舰…</text>
+			<event load="STARGROVE_CONTACT_MAFAN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text load="TEXT_DEAD_CREW_INFERNUM" />
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系科研舰…</text>
+			<event load="STARGROVE_CONTACT_MAFAN" />
+		</choice>
+	</deadCrew>
+	<weaponOverride count="1">
+		<name>LIST_WEAPONS_INFERNUM_ANCIENT</name>
+	</weaponOverride>
+</ship>
+
+<event name="STARGROVE_CONTACT_MAFAN">
+	<loadEventList first="true" default="STARGROVE_CONTACT_MAFAN_REAL">
+		<event req="COMBAT_HAZARD">
+			<metaVariable name="prof_reality_unlock_gravastar" op="set" val="1" />
+			<loadEvent>STARGROVE_CONTACT_MAFAN_REAL</loadEvent>
+		</event>
+	</loadEventList>
+</event>
+<event name="STARGROVE_CONTACT_MAFAN_REAL">
+	<text>你向科研舰发送信息，只收到一条无法破译的回复："#::..::/" 微调信号后，通讯清晰起来。"测试？？啊，又接通了。你好，欢迎来到恒星森林的重力真空星！很少有人能如此近距离观赏这般壮丽的天体呢，嗯？哎呀，我又像往常一样跑题了。我可能需要你帮忙摆脱当前困境。躲避那些自大狂的唯一方法就是占据引力井中的这个特殊位置。但代价是…这艘船现在动弹不得。有什么建议吗？"</text>
+	<choice hidden="true">
+		<text>冒险让你的星舰靠近以搜刮飞船并营救唯一的船员。</text>
+		<event>
+			<text>你星舰孱弱的引擎与极端引力艰难抗衡。向星体突入时，船体明显开始摇晃。时间流逝越来越快，极端引力让你的船体逐渐扭曲变形。唯一值得安慰的是，你不仅救出了玛嬏，还能在脱离引力井前搜刮那艘船。可惜时间膨胀效应让叛军舰队大幅逼近了。</text>
+			<modifyPursuit amount="3" />
+			<damage amount="2" effect="breach" system="random" />
+			<damage amount="2" effect="breach" system="random" />
+			<damage amount="2" effect="breach" system="random" />
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>联系科研舰…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="engines" lvl="4" hidden="true" max_group="0">
+		<text>(高级引擎) 冒险靠近，搜刮飞船并解救唯一的船员。</text>
+		<event>
+			<text>你星舰尚可的引擎勉强抵抗着极端引力。时间流逝越来越快，极端引力让你的船体逐渐扭曲。唯一的慰藉是，你不仅救出了玛嬏，还能在脱离引力井前搜刮那艘船。可惜时间膨胀让叛军舰队有所逼近。</text>
+			<modifyPursuit amount="2" />
+			<damage amount="1" effect="breach" system="random" />
+			<damage amount="1" effect="breach" system="random" />
+			<damage amount="1" effect="breach" system="random" />
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>联系科研舰...</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="engines" lvl="7" hidden="true" max_group="0">
+		<text>(先进引擎) 冒险靠近，搜刮飞船并解救唯一的船员。</text>
+		<event>
+			<text>你舰强劲的引擎对抗着逐渐逼近的极端引力。时间流逝越来越快，但你的星舰几乎毫发无损。更幸运的是，你不仅救出了玛嬏，还能在脱离引力井前搜刮那艘船。虽然时间膨胀让叛军舰队略有逼近，但影响不大。</text>
+			<modifyPursuit amount="1" />
+			<damage amount="1" effect="breach" system="random" />
+			<damage amount="1" effect="breach" system="random" />
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>联系科研舰…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="temporal" max_group="1" hidden="true">
+		<text>(时流系统) 抵消引力时间膨胀效应，争取足够时间解救玛嬏的飞船。</text>
+		<event>
+			<text>玛嬏的飞船终于挣脱重力真空星束缚。那艘船缓慢向你驶来时已明显濒临报废。你的船员迅速将其拆解，同时玛嬏登上了你的飞船。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>迎接玛嬏…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="MULTIVERSE_DRIVE_GOOD" max_group="2" hidden="true">
+		<text>(以太推进器) 直接跃迁至玛嬏的飞船旁。</text>
+		<event>
+			<text>你清楚推进器能带你们安全撤离，便直接跃迁到了玛嬏飞船的正前方。你不仅成功救出玛嬏，还能在脱离引力井前搜刮那艘船。</text>
+			<item_modify>
+				<item type="fuel" min="-1" max="-1" />
+			</item_modify>
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>迎接玛嬏…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="MULTIVERSE_DRIVE" max_group="2" hidden="true">
+		<text>(以太推进器) 直接跃迁至玛嬏的飞船旁。</text>
+		<event>
+			<text>你清楚推进器能带你们安全撤离，便直接跃迁到了玛嬏飞船的正前方。你不仅成功救出玛嬏，还能在脱离引力井前搜刮那艘船。</text>
+			<item_modify>
+				<item type="fuel" min="-3" max="-3" />
+			</item_modify>
+			<autoReward level="LOW">scrap_only</autoReward>
+			<choice hidden="true">
+				<text>迎接玛嬏…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="teleporter" max_group="3">
+		<text>(传送器) 将玛嬏传送至你的星舰。</text>
+		<event>
+			<text>你能够锁定玛嬏，并将玛嬏直接传送至你的传送舱。她的飞船仍在轨道上运行，很可能会一直停留在那里直到腐朽坠毁。</text>
+			<choice hidden="true">
+				<text>迎接玛嬏…</text>
+				<event load="STARGROVE_INVITE_MAFAN" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="pilot" blue="false" max_group="4">
+		<text>你得等其他人来帮忙。我们无能为力。</text>
+		<event>
+			<text>"唉，真倒霉。"玛嬏低声抱怨，"只能希望监听站能尽快找到其他人了。"</text>
+		</event>
+	</choice>
+</event>
+
+
+<event name="STARGROVE_INVITE_MAFAN">
+	<text>玛嬏带着她所有的研究成果登上你的星舰，长舒一口气。"不得不说，刚才的情况简直就像猴爪诅咒一样。好不容易抓住梦寐以求的机会，却立刻被宣判余生只能做这件事？"玛嬏打了个寒颤。"不过现在好了，我有不少东西想和你分享——我不仅擅长操作飞船系统，还知道一个值得探索的远征地点。"</text>
+	<crewMember amount="1" all_skills="2" class="unique_mafan">玛嬏</crewMember>
+	<variable name="ach_crew_mafan" op="set" val="1" />
+	<choice>
+		<text>远征？</text>
+		<event>
+			<text>"没错。通过研究，我已确定地狱信道者的聚居地以及最佳航线。如果有兴趣，我们可以前往他们的星域，发掘更多新奇事物！"
+
+"…至少等我们做好准备，我会这么说。现在你得先等我向上级提交地狱信道者的研究报告。可以说是在等待'地狱更新'吧。"玛嬏眨眨眼。</text>
+		</event>
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CLEARING EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="STARGROVE_CLEARING">
+	<event load="STARGROVE_CLEARING_MONK" />
+</eventList>
+
+<event name="STARGROVE_CLEARING_MONK" unique="true">
+	<text>你抵达安全区域时，意外收到一艘信道者飞船的呼叫："向联邦变元者问好。我们奉命为迷失在恒星森林的游魂指引方向。有时间听一下吗？"</text>
+	<img back="BACK_EVENT_STARS_DENSE" planet="PLANET_UNPOPULATED" />
+	<ship load="SHIP_MONK" hostile="false" />
+	<choice hidden="true">
+		<text>听他们说。</text>
+		<event>
+			<text>信道者讲述了一个简短寓言：主角与她的兄长被迫穿越燃烧的建筑。主角用坚定意志抵御了烈焰，但兄长因恐惧被严重灼伤。他被愤怒吞噬，把伤痕怪罪给主角。他从残骸抽出一块燃烧的木头刺入妹妹心脏，却感受到自己胸口的剧痛，他毁灭了自己。</text>
+			<variable name="loc_infernum_parable" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"感谢你的倾听。前方旅途危机四伏，但只要你不屈服于恐惧与愤怒，这些恒星的烈焰就伤不到你的灵魂。收下这个馈赠，祝你平安。"</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>你没空听信道者的絮叨，特别是在这种地方。你关闭通讯频道准备启程。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					STORE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="STARGROVE_SEPARATIST_STORE">
+	<preventQuest />
+	<beaconType id="map_icon_store_separatist" global="false">
+		<color r="255" g="245" b="175" a="1" />
+	</beaconType>
+	<text>这里恒星稀少，使得此处信标相对温和宁静。一个聚居着半械分离者的空间站坐落于此。"欢欢欢迎来到天-天-天-天堂，-外来者-。我们终于找-找-找到了摆脱-可怕的-谐合的[净土]。这里很[安全]。想-想-想待多久都-都-都可以。"</text>
+	<img back="BACK_EVENT_STARS_DENSE" planet="PLANET_UNPOPULATED" />
+	<ship load="SHIP_SEPARATIST_BIG" hostile="false" />
+	<choice req="engi_defender">
+		<text>你的保卫者对这些分离者营地表示抗议。</text>
+		<event>
+			<text>看到你的保卫者船员，分离者们惊恐后退。"谐-谐-谐合的特工！我们-绝-不让[你]通过！"</text>
+			<ship hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="engi">
+		<text>向他们展示你的半械族船员。</text>
+		<event>
+			<text>"要进-进-进入恒星森林，你-你-你必须接受-回收-。我们可-可-可以解放你的船员。进，还是出？"他们举枪瞄准等待答复。</text>
+			<choice>
+				<text>接受。</text>
+				<event>
+					<text>分离者们放松下来。"那么，你的船员-获救-了！庆-庆-庆祝吧！"分离者带走你的船员，将他们塞进一个舱室。当船员再次出现时，仿佛变了个人。之后他们给你看了商店。</text>
+					<transformRace class="engi">engi_separatist</transformRace>
+					<choice>
+						<text>继续。</text>
+						<event load="STORE_LOAD_SEPARATIST" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝。</text>
+				<event>
+					<text>分离者们立即表现出敌意。"-错误-的回答。"</text>
+					<ship hostile="true" />
+					<choice>
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>与分离者交易。</text>
+		<event load="STORE_LOAD_SEPARATIST" />
+	</choice>
+	<choice>
+		<text>避开半械分离者。</text>
+		<event>
+			<text>半械分离者对你的存在不置可否。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_STARGROVE_SMUGGLER_STORE" unique="true">
+	<distressBeacon />
+	<beaconType id="map_icon_store_pirate" global="false">
+		<color r="255" g="245" b="175" a="1" />
+	</beaconType>
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_MERCENARY_STARGROVE" hostile="false" />
+	<text>在这些狂暴的恒星间，一艘雇佣兵的飞船正在追捕走私船。在这绝境之地，这可能是你获取补给的少数机会之一。</text>
+	<choice>
+		<text>攻击雇佣兵。</text>
+		<event>
+			<text>雇佣兵暂停追击转而攻击你。</text>
+			<ship hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>避开海盗。</text>
+		<event>
+			<text>当你准备离开时，两艘舰船仍在星空中上演追逐之舞。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+
+</event>
+
+<ship name="SHIP_MERCENARY_STARGROVE" auto_blueprint="LIST_SHIPS_MERCENARY_ALL">
+	<destroyed>
+		<text>雇佣兵飞船已成碎片。当你收集废料时，收到一条走私船的感谢信息。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>联系走私船。</text>
+			<event load="STARGROVE_SMUGGLER_STORE" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>雇佣兵飞船已经没有了海盗渣滓。当你拆解零件时，收到一条走私船的感谢信息。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系走私船。</text>
+			<event load="STARGROVE_SMUGGLER_STORE" />
+		</choice>
+	</deadCrew>
+</ship>
+<event name="STARGROVE_SMUGGLER_STORE">
+	<text>"送你一句话：没想好退路就别跟佣兵团的大人物玩两面派。就算逃到了这鬼地方，他们还是追了我们好几天！经过那档子事我可不想再招惹变元者了，所以咱们做笔交易如何？动作快点，我们得找个好地方避避风头。"</text>
+	<store>STORE_PIRATE</store>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<event name="STARGROVE_SAFE_HAVEN" unique="true">
+	<preventQuest />
+	<beaconType id="map_icon_outpost" global="true">
+		<color r="233" g="123" b="74" a="1.0" />
+		<unvisitedTooltip id="map_outpost_unvisited" />
+		<visitedTooltip id="map_outpost_visited" />
+    </beaconType>
+	<img back="BACK_EVENT_STARS_DENSE" planet="PLANET_MOONS" />
+	<text>星舰读数终于稳定下来，这里既无环境危害也无敌踪。这可能是你们难得的休整机会。研究哨站正尝试用联邦频段与你联络。</text>
+	<ship load="SHIP_FED_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>联系哨站。</text>
+		<event>
+			<text>"欢迎，变元者。如你所料，旅行管制让这个星区航线冷清。若有闲暇，我们有个请求：我们的主力自动星舰失踪了。哨站防卫吃紧实在抽不出人手去寻找。不知你是否愿意帮忙追踪？"</text>
+			<choice>
+				<text>自动星舰？</text>
+				<event>
+					<text>"在恒星森林搞研究本就危机四伏。按联邦安全条例，一些最新奇的研究区都禁止涉足。幸好我们有自动星舰能收集数据而不会让联邦人员涉险。失踪的那艘本要去星区边缘调查异种生命迹象。"</text>
+					<choice>
+						<text>同意追踪。</text>
+						<event load="STARGROVE_SAFE_HAVEN_QUEST_ACCEPT" />
+					</choice>
+					<choice>
+						<text>婉言谢绝。</text>
+						<event load="STARGROVE_SAFE_HAVEN_QUEST_REFUSE" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>同意。</text>
+				<event load="STARGROVE_SAFE_HAVEN_QUEST_ACCEPT" />
+			</choice>
+			<choice>
+				<text>婉言谢绝。</text>
+				<event load="STARGROVE_SAFE_HAVEN_QUEST_REFUSE" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>避开哨站。</text>
+		<event>
+			<text>这可是星舰管理的难得良机。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="STARGROVE_SAFE_HAVEN_QUEST_ACCEPT">
+	<text>"太好了。这是该舰最后已知坐标。找到它之后，向它发送我们马上转发给您的数据包。"对方传来加一份密文件及自动星舰最后前往的坐标。</text>
+	<quest event="NEBULA_LIGHT_QUEST_STARGROVE_AUTO_CRUISER" />
+	<choice>
+		<text>查看哨站服务项目。</text>
+		<event load="STARGROVE_SAFE_HAVEN_OFFERS" />
+	</choice>
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="STARGROVE_SAFE_HAVEN_QUEST_REFUSE">
+	<text>这片星区本就危机四伏，实在不宜节外生枝。</text>
+	<choice>
+		<text>查看哨站服务项目。</text>
+		<event load="STARGROVE_SAFE_HAVEN_OFFERS" />
+	</choice>
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+<event name="STARGROVE_SAFE_HAVEN_OFFERS">
+	<text>此处驻守着大批科学家与技工。可为星舰升级防御系统、要求维修或领取资源包。</text>
+	<choice req="cloaking" lvl="1" max_lvl="4" blue="false" hidden="true">
+		<text>请求升级隐形系统。</text>
+		<event>
+			<text>哨站技术娴熟的船员能迅速完成所需升级。</text>
+			<upgrade amount="1" system="cloaking" />
+		</event>
+	</choice>
+	<choice req="shields" lvl="1" max_lvl="7" blue="false" hidden="true">
+		<text>请求升级护盾。</text>
+		<event>
+			<text>哨站技术娴熟的船员能迅速完成所需升级。</text>
+			<upgrade amount="1" system="shields" />
+		</event>
+	</choice>
+	<choice req="engines" lvl="1" max_lvl="7" blue="false" hidden="true">
+		<text>请求升级引擎。</text>
+		<event>
+			<text>哨站技术娴熟的船员能迅速完成所需升级。</text>
+			<upgrade amount="1" system="engines" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>请求升级反应堆。</text>
+		<event>
+			<text>哨站技术娴熟的船员能迅速完成所需升级。</text>
+			<upgrade amount="2" system="reactor" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>请求维修。</text>
+		<event>
+			<text>哨站的技术娴熟的船员能迅速修补你的舰体。</text>
+			<damage amount="-7" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>请求资源包。</text>
+		<event>
+			<text>哨站将他们愿意割舍的资源放到你的星舰上。</text>
+			<autoReward level="MED">stuff</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>改做星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_QUEST_STARGROVE_AUTO_CRUISER">
+	<preventQuest />
+	<quest>
+		<nonNebulaBeacon>true</nonNebulaBeacon>
+		<nebulaBeacon>false</nebulaBeacon>
+		<aggressive>1</aggressive>
+	</quest>
+	<revisitEvent>NEBULA_LIGHT_STARGROVE_SUN_REVISIT</revisitEvent>
+	<environment type="sun" />
+	<img back="BACK_EVENT_STARS_DENSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<beaconType id="map_icon_missingauto" global="true">
+		<color r="229" g="102" b="11" a="1" />
+		<unvisitedTooltip>一艘联邦自动星舰在此处失踪。</unvisitedTooltip>
+	</beaconType>
+	<ship load="SHIP_DYNASTY_STARGROVE" hostile="false" />
+	<text>没见到自动星舰，但你立刻注意到一艘先进的灵朝飞船正在向最近的恒星开火。当他们发现你时，立即发出警告。"止步，污秽的变元者！你那可憎的造物已与那些令人不齿的梦魇同流合污。休要插手。"</text>
+	<choice req="unique_dessius">
+		<text>(德修斯) 命令他们撤退。</text>
+		<event>
+			<text>"住手。"德修斯下令，"这艘星舰并非你们的敌人。"
+
+"德修斯？这个任务启动至今已过去数个世纪。难道要在职责即将完成时放弃？"
+
+"显然他们构成的威胁被严重夸大了。若他们真如我们担心的那般危险，我们随时可以调整航向。"德修斯做了个手势，"你们成功定位目标的表现值得肯定，但这项任务现在解除。"
+
+"…如您所愿。"
+
+敌舰撤离后，联邦自动星舰从恒星附近显出身形。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="STARGROVE_AUTO_CONTACT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>梦魇？</text>
+		<event>
+			<text>"那些不该存在的空无之物！它们不可能存在！它们不在那，但又藏在那！"灵朝舰长痛苦得语无伦次。</text>
+			<choice>
+				<text>保护自动星舰。</text>
+				<event>
+					<text>你出手干预，阻止灵朝飞船继续攻击你奉命保护的舰船。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>指责他们虚伪。</text>
+				<event>
+					<text>你指出他们的言行与他们描述的敌人并无二致。这话显然不会取悦对方。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻击对方。</text>
+		<event>
+			<text>"果然如此。联邦要护着它的造物还有它的新宠物。" 灵朝飞船转而向你发动攻击！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>我们不打算干涉。</text>
+		<event>
+			<text>"明智的选择。这些恐怖存在必须被清除。"</text>
+		</event>
+	</choice>
+</event>
+
+<ship name="SHIP_DYNASTY_STARGROVE" auto_blueprint="LIST_SHIPS_DYNASTY_ELITE_FIGHT"> 
+	<destroyed>
+		<text>灵朝飞船在你的猛攻下支离破碎。当你搜刮废料时，联邦自动星舰从恒星附近显出身形。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系自动星舰。</text>
+			<event load="STARGROVE_AUTO_CONTACT" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>灵朝飞船的船员已灰飞烟灭。当你回收他们飞船时，联邦自动星舰从恒星附近显出身形。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>联系自动星舰。</text>
+			<event load="STARGROVE_AUTO_CONTACT" />
+		</choice>
+	</deadCrew>
+</ship>
+
+<event name="STARGROVE_AUTO_CONTACT">
+	<text>你将哨站提供的加密文件发送给自动星舰。它传回一份任务报告和完整的数据收集表。显然，这艘星舰成功定位了某种奇特生命体，并将其命名为"虚空体"。自动星舰为获救提供了额外报酬。</text>
+	<choice>
+		<text>查阅报告。</text>
+		<event>
+			<text>根据星舰报告所述，虚空体是一种无法被任何已知传感器直接探测到的星际实体。因为它们在恒星表面制造的负空间现象而被间接发现。自动星舰成功破译了虚空体通过操纵恒星辐射产生的编码，似乎是段即兴发出的简短求救信号。翻译如下："求救。宿敌归来。我们愿结盟。"</text>
+			<choice hidden="true">
+				<text>命令自动星舰返回哨站。</text>
+				<event load="STARGROVE_AUTOSHIP_RETURN" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>命令自动星舰返回哨站。</text>
+		<event load="STARGROVE_AUTOSHIP_RETURN" />
+	</choice>
+</event>
+
+<event name="STARGROVE_AUTOSHIP_RETURN">
+	<text>一段预录信息播放："收到。" 随后你收到星舰发来的纯文本通讯，提议在它离开前把它的传感器增强部件安装到你的飞船上。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<unlockCustomShip silent="false">PLAYER_SHIP_AUTO_FED</unlockCustomShip>
+	<augment name="ADV_SCANNERS_CLOAK" />
+</event>
+
+
+
+
+
+
+
+
+
+</FTL>

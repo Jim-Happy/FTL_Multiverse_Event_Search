@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<event name="TUTORIAL_UI_TOGGLE_BUTTON">
+    <eventButton name="UI_TOGGLE_BUTTON">
+        <event load="COMBAT_CHECK_TOGGLE_BUTTON" />
+        <image border="12">statusUI/top_toggle</image>
+        <customLocation x="105" y="110" />
+        <tooltip>切换设备的模式。</tooltip>
+        <inactiveTooltip>无可切换设备！</inactiveTooltip>
+        <jumpClear>false</jumpClear>
+        <noDanger>false</noDanger>
+    </eventButton>
+</event>
+
+<event name="TUTORIAL_UI_STORAGE_CHECK_BUTTON">
+    <eventButton name="UI_STORAGE_CHECK_BUTTON">
+        <event load="STORAGE_CHECK_BUTTON" />
+        <image>statusUI/top_storage</image>
+        <location>2</location>
+        <tooltip>打开星舰管理菜单。</tooltip>
+        <inactiveTooltip>无法进行星舰管理：你正处于危险中！</inactiveTooltip>
+        <jumpClear>false</jumpClear>
+        <noDanger>false</noDanger>
+    </eventButton>
+</event>
+
+<event name="TUTORIAL_QUEST_LOAD">
+	<quest event="TUTORIAL_QUEST" />
+	<loadEvent>TUTORIAL_EMPTY_EVENT</loadEvent>
+</event>
+<event name="TUTORIAL_EMPTY_EVENT" />
+
+
+<ship name="TUTORIAL_SHIP_FIGHT" auto_blueprint="MU_PIRATE_UNION_TUTORIAL">
+	<destroyed load="STORAGE_CHECK" />
+    <deadCrew load="STORAGE_CHECK" />
+</ship>
+
+<event name="TUTORIAL_QUEST" unique="true">
+	<beaconType id="map_icon_merchantquest_major" global="true">
+		<color r="255" g="0" b="0" a="1" />
+		<unvisitedTooltip>舰队抵抗任务地点。这个信标处没有任何有价值的信息。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+	</beaconType>
+    <quest>
+		<nebulaBeacon>false</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<preventQuest />
+	<preventFleet />
+	<text>如果你看到这条提示，那就意味着你偏离了教程的指导。不，你可别为自己感到骄傲，你这样做太调皮了。</text>
+	<choice hidden="true">
+		<text>哦，好的。</text>
+		<event load="TUTORIAL_ENEMY" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_ENEMY" unique="false"> <!-- Clobber the regular tutorial fight -->
+    <text>哦，不，一个看起来极其虚弱的海盗！谁能想到会是这样呢？</text>
+    <ship load="TUTORIAL_SHIP_FIGHT" hostile="true" />
+    <choice hidden="true">
+        <text>继续。</text>
+        <event load="COMBAT_CHECK" />
+    </choice>
+</event>
+
+<!-- Fake Atlas -->
+
+<event name="CLOBBER_ATLAS_MENU">
+	<eventAlias name="ATLAS_MENU" jumpClear="false">TUTORIAL_ATLAS_MENU</eventAlias>
+</event>
+
+<event name="TUTORIAL_ATLAS_MENU">
+	<text>处于超光速航行时，有一些可选选项。你可以立即进入下一星区，或先进行一些操作。</text>
+	<variable name="loc_has_salvaged" op="set" val="0" />
+	<choice hidden="true">
+		<text>使用一件部件。</text>
+		<event load="TUTORIAL_ATLAS_EQUIPMENT" />
+	</choice>
+    <choice hidden="true">
+		<text>前往下一个星区。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_ATLAS_EQUIPMENT">
+	<text>如果你想趁机做点什么的话，现在是个不错的时机。</text>
+	<choice hidden="true">
+		<text>(诱导航标)部署航标。</text>
+		<event>
+			<text>部署几枚？</text>
+			<choice hidden="true">
+				<text>1枚 [无消耗，拖延1次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<modifyPursuit amount="-1" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="TUTORIAL_ATLAS_MENU_NOEQUIPMENT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>2枚 [消耗 4|，拖延2次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<modifyPursuit amount="-2" />
+					<item_modify>
+						<item type="drones" min="-4" max="-4" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="TUTORIAL_ATLAS_MENU_NOEQUIPMENT" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>3枚 [消耗 8|，拖延3次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<modifyPursuit amount="-3" />
+					<item_modify>
+						<item type="drones" min="-8" max="-8" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="TUTORIAL_ATLAS_MENU_NOEQUIPMENT" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="TUTORIAL_ATLAS_MENU_NOEQUIPMENT">
+	<text>你即将进入下一星区。</text>
+	<choice hidden="true">
+		<text>前往下一个星区。</text>
+		<event load="TUTORIAL_WARP" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_WARP">
+	<text>名称：一个星区
+类型：友好/中立/敌对
+星区独特性：否
+主导派系：一些派系
+叛军威胁度：遭遇叛军舰队的威胁度
+
+这里简要介绍了相关背景知识。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>调整航径。</text>
+		<event load="TUTORIAL_REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_REROUTE_MENU">
+	<text>调整至哪个星区？
+[警告：选择此项会覆盖下一个星区的已有任务]</text>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true">
+		<text>调整至联邦星区。</text>
+		<event load="TUTORIAL_LIGHTSPEED_SECTOR_WARP" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_LIGHTSPEED_SECTOR_WARP">
+	<text id="atlas_fed" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="TUTORIAL_START_FED" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<event name="TUTORIAL_START_FED">
+	<preventQuest />
+	<beaconType id="map_icon_start" global="false">
+		<color r="46" g="252" b="51" a="1" />
+	</beaconType>
+	<text load="TEXT_START_FED" />
+	<ship load="SHIP_GUARD_FED" hostile="false" />
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_FED</customFleet>
+	<changeBackground>BACK_SECTOR_FEDERATION</changeBackground>
+	<playSound>lightspeed</playSound>
+	<choice hidden="true" req="rep_comb_federation" lvl="-999" max_lvl="2" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="GUARD_FEDERATION" />
+	</choice>
+	<choice hidden="true" req="rep_comb_federation" lvl="3" max_lvl="999" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="GUARD_FEDERATION_CRIMINAL" />
+	</choice>
+</event>
+
+</FTL>
+

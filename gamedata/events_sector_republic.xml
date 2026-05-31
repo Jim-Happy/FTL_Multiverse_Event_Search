@@ -1,0 +1,2376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REPUBLICAN SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_LEECH">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEBULA_ITEMS_LEECH">
+	<event load="NEBULA_LIGHT_LEECH_PSA" />
+	<event load="NEBULA_LIGHT_LEECH_CREW" />
+	<event load="NEBULA_LEECH_AMPERE_CONVERSION" />
+</eventList>
+
+<event name="NEBULA_LIGHT_LEECH_PSA" unique="true">
+	<text>附近的吸虫族医疗前哨站在呼叫你。看起来他们有一些重要的信息要传达。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_POPULATED" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>听听。</text>
+		<event>
+			<text>"心理健康不是一件可笑的事情。抑郁症可能很难受，但只要记住你并不孤单。无论你在生活中处于什么位置，你都不能放弃。你的家人和朋友都在这里支持你。如果你或你所爱的人正在与抑郁症或自杀的想法作斗争，请寻求帮助，不要让它得不到治疗。"</text>
+			<choice hidden="true" blue="false" req="clonebay" max_group="0">
+				<text>继续。</text>
+				<event>
+					<text>传讯那头陷入了长时间的沉默。“呃…你知道克隆舱本质上就是台杀人机器，对吧？你到底牺牲了多少船员？你应该让我们把它换成医疗舱。”</text>
+					<choice>
+						<text>接受。</text>
+						<event>
+							<system name="medbay" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event>
+							<text>“知道吗？我受够你们这些人了。就是因为有你这样的怪物，多元宇宙才让人感觉如此绝望！”一艘小型吸虫族战舰从哨站脱离，将武器对准了你。</text>
+							<ship load="SHIP_LEECH_SMALL" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" blue="false" req="pilot" max_group="0">
+				<text>继续。</text>
+				<event>
+					<text>你期盼着某种戏剧性的转折或冲突，但什么都没有发生。事实证明，心理健康确实十分重要。吸虫族为你提供了一些废料，以感谢你的聆听，并希望你能把这些建议记在心里。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视对方。</text>
+		<event>
+			<text>它可能没有那么重要，不足以让你关心。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_LEECH_CREW" unique="true">
+	<text>一艘大型的吸虫族空天母舰在远处隐约可见，无疑是那些传说中的"光辉岁月"的遗留物。当你接近时，一艘穿梭舱从船上分离出来，小心翼翼地穿过小行星向你滑行。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_MOONS" />
+	<ship load="SHIP_LEECH_SMALL" hostile="false" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"请帮助我！我已被征召入伍，但我知道这无异于一个死刑判决。我的人生还在等着我！请带我走吧！"</text>
+			<choice>
+				<text>接受他。</text>
+				<event>
+					<crewMember amount="1" class="leech" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不，你闻起来很臭。</text>
+				<event>
+					<text>这名吸虫族显然无法接受你的回应。经过你的几次拒绝和侮辱之后，他最终显露出敌意并发动了攻击！</text>
+					<boarders min="1" max="1" class="leech" />
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LEECH_AMPERE_CONVERSION" unique="true">
+	<text>本信标附近有一台终端正在宣传附近星球的一处设施。该设施由星联管辖，叫做电吸虫转换中心，能够付款使普通吸虫族转化为电吸虫。</text>
+	<environment type="nebula" />
+	<choice req="leech">
+		<text>(吸虫族船员)派你的吸虫族进去。</text>
+		<event>
+			<text>空间站上的那位吸虫族秘书显得十分怠惰。“费用是30废料。我们这不提供止痛药，对长期副作用也概不负责。”</text>
+			<choice>
+				<text>支付费用。</text>
+				<event>
+					<text>你的的吸虫族船员浑身贴满电极，接上了静脉注射管。它犹豫地走进转化舱。在持续数分钟的惨叫、电击的噼啪声和淡淡的吸虫族焦糊味之后，您新生的电流吸虫船员踉跄着走出舱室。除了疼痛难忍之外，它看起来并无大碍。</text>
+					<transformRace class="leech">leech_ampere</transformRace>
+					<item_modify>
+						<item type="scrap" min="-30" max="-30" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>放弃转化。</text>
+				<event>
+					<text>你的船员回到了船上，没有任何变化。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="unique_tyrdeo">
+		<text>（泰迪奥）招募一名电流吸虫。</text>
+		<event>
+			<text>泰迪奥向中心站发出呼叫。“你好，我是你们的总统。我将离开本星区去遨游银河，需要一些后备力量。你们有人愿意随行吗？”中心站立即向你派来一名电流吸虫，对方对有机会离开吸虫族星域显得十分热切。</text>
+			<crewMember amount="1" weapons="1" class="leech_ampere" />
+		</event>
+	</choice>
+	<choice>
+		<text>无视转换中心。</text>
+		<event>
+			<text>至少你也得有一名吸虫族再来冒联系他们的风险。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="ITEMS_LEECH">
+	<event load="LEECH_SPACE_TRASH" />
+	<event load="LEECH_MISSION" />
+	<event load="LEECH_MINERS" />
+</eventList>
+
+<textList name="TEXT_LEECH_SPACE_TRASH">
+	<text>只有在吸虫族星域，你才能发现宇宙中散落着大量垃圾。这个信标被废弃了，除了剩余的垃圾，所以也许你可以利用它？</text>
+	<text>几大块碎片几乎与你的星舰相撞，所幸你及时转向避开了。吸虫族残存下来的太空垃圾散落在附近各处。</text>
+	<text>一个装满化妆品和用过的食物包装纸的黑色袋子溅到挡风玻璃上。令人恶心，但看起来整个星系周围的垃圾环里可能有一些隐藏的宝藏。</text>
+</textList>
+<event name="LEECH_SPACE_TRASH" unique="true">
+	<text load="TEXT_LEECH_SPACE_TRASH" />
+	<img planet="NONE" />
+	<choice hidden="true">
+		<text>打捞一些垃圾。</text>
+		<event load="LEECH_SPACE_TRASH_SEARCH" />
+	</choice>
+	<choice>
+		<text>星舰管理。</text>
+		<event>
+			<text>你决定利用这个信标进行短暂休整。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LEECH_SPACE_TRASH_SEARCH">
+	<event>
+		<text>看起来大部分的垃圾都是废料，除了几个燃料电池，肯定是被意外丢弃的。</text>
+		<autoReward level="MED">fuel</autoReward>
+	</event>
+	<event>
+		<text>大部分的东西都不值钱，只有一个看起来是武器的东西！它又旧又生锈，但依然是一件武器！你不会抱怨的!</text>
+		<weapon name="GIFTLIST_RUSTY" />
+	</event>
+	<event>
+		<text>看起来，垃圾场所能提供的只是一点点的废料。尽管如此，它仍然有分量。</text>
+		<autoReward level="LOW">scrap_only</autoReward>
+	</event>
+</eventList>
+
+<event name="LEECH_MISSION" unique="true">
+	<text>看来神权国已经在附近建立了一个水晶信仰传教团。建造这些前哨站的许可是他们协助吸虫族总统镇压革命的交易的一部分。看来即使是圣判所也无法阻止吸虫族内乱，尽管如此，这些传教团还是遍布在吸虫族星域里。</text>
+	<ship load="SHIP_ROCK_STATION" hostile="false" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>访问传教团。</text>
+		<event>
+			<text>当你进入哨站内的那一刻，迎接你的是未沐浴过的岩石族教士身上难闻的麝香与吸虫族的胆汁味。你设法压制住喉咙里的呕吐物，但从居民那里捕捉到一些奇怪的眼神。</text>
+			<choice>
+				<text>从他们的神龛购买一件水晶武器。</text>
+				<event>
+					<text>说实话，你没有想到岩石族会如此轻易地放弃他们珍贵的水晶技术物，但显然，金钱胜过一切。</text>
+					<weapon name="GIFTLIST_CRYSTAL" />
+					<item_modify>
+						<item type="scrap" min="-60" max="-40" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice>
+				<text>招募一名神职人员到你的星舰上工作。</text>
+				<event>
+					<text>大多数岩石族对你的提议嗤之以鼻，但其中一名年轻的牧师似乎十分渴望与你一起前行。登上星舰后，他将自己变心的原因归结为那股气味。</text>
+					<crewMember amount="1" class="rock" />
+					<item_modify>
+						<item type="scrap" min="-50" max="-35" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK_FAITHFUL">
+				<text>(神权国船员)请求修理与资源供应。</text>
+				<event>
+					<text>这些虔信之人似乎总是能为其同类提供帮助，但你相信若你的岩石族透露他不再为神权国效忠，对方不会如此慷慨。</text>
+					<autoReward level="MED">standard</autoReward>
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>在恶臭杀死你之前离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>攻击！</text>
+		<event>
+			<text>你架起武器，准备面对哨站。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视传教团。</text>
+		<event>
+			<text>神权国与联邦并非朋友，而且你永远不知道他们的神职人员会对你的存在做出怎样的反应。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_MINERS" unique="true">
+	<text>这里密集的小行星区似乎还有一个秘密--一个大型的吸虫族定居点嵌在其中一个较大的小行星中。它伪装得很好，这表明他们不希望被发现。</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>攻击定居点。</text>
+		<event load="LEECH_MINERS_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>呼叫定居点。</text>
+		<event load="LEECH_MINERS_HAIL" />
+	</choice>
+	<choice>
+		<text>无视对方。</text>
+		<event>
+			<text>不管这个定居点能提供什么，都不值得忍受已经存在的小行星危险。你准备下一次跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="LEECH_MINERS_ATTACK">
+	<event>
+		<text>结果发现，该定居点的防御比你预想的要薄弱得多。他们几乎没怎么抵抗——而是直接交出了一些补给品。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>结果发现，该定居点的防御比你预想的要薄弱得多。他们几乎没怎么抵抗——而是直接交出了一些补给品。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+	<event>
+		<text>作为对你的攻击方式的回应，定居点已经派出了一艘船来进行报复！</text>
+		<ship load="SHIP_LEECH_SETTLEMENT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="LEECH_MINERS_HAIL">
+	<event>
+		<text>该定居点对你的反复呼唤置之不理。你想这是一个信号，让你不要再逗留了。</text>
+	</event>
+	<event>
+		<text>这个定居点因出色的伪装而被遗忘，处于资源匮乏的境地。他们主动提出要进行交易。</text>
+		<store>STORE_LEECH</store>
+	</event>
+	<event>
+		<text>这个定居点比你想象的要友好。他们承诺，一旦叛军舰队通过这段星区，他们会帮助你。</text>
+		<modifyPursuit amount="-2" />
+	</event>
+</eventList>
+
+<eventList name="NEBULA_ITEMS_LEECH_UNIQUE">
+	<event load="NEBULA_LIGHT_LEECH_PSA" />
+	<event load="NEBULA_LIGHT_LEECH_CREW" />
+	<event load="NEBULA_LEECH_AMPERE_CONVERSION" />
+</eventList>
+<eventList name="ITEMS_LEECH_UNIQUE">
+	<event load="LEECH_SPACE_TRASH" />
+	<event load="LEECH_MINERS" />
+	<event load="LEECH_MISSION" />
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_LEECH">
+	<event load="LEECH_COALITION_FEDUP" />
+	<event load="LEECH_TAVERN" />
+</eventList>
+
+<eventList name="NEBULA_NEUTRAL_LEECH">
+	<event load="NEBULA_LIGHT_LEECH_GARDEN" />
+	<event load="NEBULA_LIGHT_LEECH_LITTERING" />
+	<event load="NEBULA_LIGHT_LEECH_DARWIN_FTL" />
+</eventList>
+
+<event name="LEECH_COALITION_FEDUP" unique="true">
+	<text>一艘星联飞船在附近呼唤你。起初你对他们的伎俩感到犹豫，但他们似乎真的想谈谈。"我受不了了，我受不了了，我实在是受不了了！这些人要把我逼疯了！我本可以从事炸毁孤儿院的舒适工作，但显然，这里甚至没有孤儿院！他们已经把孤儿院炸毁了。他们已经把它们都炸掉了！当我不能轻松地谋杀儿童时，还有什么好处呢？！"</text>
+	<choice hidden="true">
+		<text>哇，冷静点。</text>
+		<event>
+			<text>"是啊是啊，随便。重点是，我需要发泄一些压力。但我不能自己去杀，有一个虫子在我的飞船上工作，在我告诉你这一切的时候给我奇怪的眼神。所以，去炸掉一些吧。我不关心是谁。更好的是，如果你找到一个没有被炸毁的孤儿院，就去炸掉它！"</text>
+			<choice hidden="true">
+				<text>追踪一艘共和国战舰。</text>
+				<event>
+					<text>这将是一个很好的目标。希望星联会对这次杀戮感到满意。</text>
+					<ship load="SHIP_LEECH_FEDUP_NORMAL" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>追踪一艘革命者战舰。</text>
+				<event>
+					<text>这将是一个很好的目标。希望星联会对这次杀戮感到满意。</text>
+					<ship load="SHIP_LEECH_FEDUP_REVOLUTIONARY" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>追踪一艘电吸虫战舰。</text>
+				<event>
+					<text>这将是一个很好的目标。希望星联会对这次杀戮感到满意。</text>
+					<ship load="SHIP_LEECH_FEDUP_AMPERE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LEECH">
+				<text>(吸虫族船员)你的吸虫族船员知道最近的常设孤儿院的位置。</text>
+				<event>
+					<text>你的吸虫族船员把你带到了最后几家孤儿院之一的位置。他们似乎对摧毁它的想法没有任何意见，所以你不再犹豫，把它烧成灰烬。星联的舰长发起了一阵无法控制的笑声。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>"你真的做到了？哦，老兄，看了感觉真好。我想我撒了点尿...或者至少我希望那是撒尿。无所谓了。你是一个精英的吸虫族杀手！我想我会和你一起去，希望我们能经常这样做..."</text>
+							<crewMember amount="1" class="slug_saboteur" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不，谢谢。</text>
+				<event>
+					<text>"废物。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>等等，你说你在杀害儿童吗？</text>
+		<event>
+			<text>"哦，糟糕，忘了你是联邦的人。哦，好吧，我想我可以用炸毁你来安慰自己。就当你是个孤儿，好吗？"</text>
+			<ship load="SHIP_COALITION_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>将飞船静音，然后飞走。</text>
+		<event>
+			<text>显然，蛞蝓族沉浸在他的咆哮中，甚至没有注意到你飞走了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_TAVERN" unique="true">
+	<text>虽然这个区域的星云分布得很稀疏，但能看到一片完整而空旷的区域还是很不错的。看起来很多旅行者在此休息，因为附近已经建立了一个繁忙的酒馆。</text>
+	<choice hidden="true">
+		<text>前往酒馆。</text>
+		<event>
+			<text>天花板上挂着几个空气清新剂，深红色的墙壁上装饰着淡淡的外星人血迹。你发现了几张熟悉的其他变元者的面孔，但你的注意力被两个醉醺醺的吸虫族抢走了，他们在为共和国的状况争论不休。从他们的俚语来看，其中一个似乎是忠诚者，另一个是革命者。</text>
+			<choice hidden="true">
+				<text>介入—支持忠诚于共和国的人。</text>
+				<event>
+					<text>革命者们都很愤怒。"你没有资格这样做，联邦舰长！这些白痴支持一个无能的领导人，他把死去的孩子的尸体交给一个最强大的军事强国的船长，作为'和平'表演的一部分。"出于愤怒，一帮吸虫族革命者们聚集在一起，攻击你的船！</text>
+					<ship load="SHIP_LEECH_TAVERN_REVOLUTIONARY" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>介入—支持革命者。</text>
+				<event>
+					<text>效忠者们感到很愤怒。"所以联邦决定支持这些蠢货？难道你们没有意识到这场革命只会让我们几个世纪以来所陷入的悲惨循环永久化吗？"出于愤怒，一帮忠诚的吸虫族聚集在一起，攻击你的星舰！</text>
+					<ship load="SHIP_LEECH_TAVERN" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>不要参与进来，而是留下来聊天。</text>
+				<event>
+					<text>这些蠢货想怎么吵就怎么吵。你让他们自生自灭，去和先前的那些友好的面孔坐下来，很快谈话就变成了谈论交易。</text>
+					<store>STORE_LEECH</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>避开酒馆。</text>
+		<event>
+			<text>没有必要去参观随机的酒馆。如果那里全是吸虫族，里面闻起来可能像地狱。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_LEECH_GARDEN" unique="true">
+	<text>尽管周围都是星云，但附近有一个小型的血草兰花哨所。这也不是什么军事基地--该站巨大的生物圆顶似乎包含了各种植物群。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>与哨站对接。</text>
+		<event>
+			<text>你一接近哨站，就有一艘血兰飞船驶出并发动攻击！你知道他们可能有领地意识，但这是相当极端的反应！你或许可以在粗暴地对待他们之后，再与他们讲理。</text>
+			<ship load="SHIP_VAMPWEED_LEECH_GARDEN" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_VAMPWEED">
+		<text>(血草兰花船员)请求进入哨站。</text>
+		<event load="LEECH_GARDEN_VISIT" />
+	</choice>
+	<choice>
+		<text>无视哨站。</text>
+		<event>
+			<text>这可能是一个令人惊叹的花园，但不要搞错了，血草兰花并不是你的盟友。如果它们有任何理由攻击你，它们很可能会这样做。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_GARDEN_VISIT">
+	<text>血草兰花欢迎你进入哨站。他们为你提供一些燃料电池，因为你对他们的花园表现出如此大的兴趣。</text>
+	<autoReward level="HIGH">fuel_only</autoReward>
+	<choice>
+		<text>买一件他们的孢子武器。</text>
+		<event>
+			<weapon name="GIFTLIST_SPORE" />
+			<item_modify>
+				<item type="scrap" min="-60" max="-55" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>雇佣一位园艺者。</text>
+		<event>
+			<crewMember amount="1" class="orchid_vampweed" />
+			<item_modify>
+				<item type="scrap" min="-55" max="-40" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>离开。</text>
+		<event />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_LEECH_DARWIN_FTL" unique="true">
+	<text>当你抵达时，一座古老的吸虫族建筑将整个信标笼罩在阴影之中。这类遗迹在此地并不罕见——但成群穿梭其间的舰船却非同寻常。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="PLANET_MOONS" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>靠近调查。</text>
+		<event>
+			<text>你还没来得及找到入口，建筑内就有人向你呼叫。“注意，联邦舰船。该考古遗址禁止未授权人员进入。擅自闯入将自食其果。”</text>
+			<choice hidden="true">
+				<text>这是什么地方？</text>
+				<event>
+					<text>“这个遗址是一个超光速中继站，可以追溯到我们共和国的辉煌年代。据我们所知，它本质上是一个轨道炮，能将舰船加速到接近光速，以减轻其超光速引擎的负担——但在历经亿万年漂流后，它现在正对着几光年外一颗卫星的表面。”</text>
+					<choice hidden="true">
+						<text>请求进入内部。</text>
+						<event>
+							<text>“我……不太明白你为什么还想进来。这里能做的只有挖掘中继站的旧区段，或者毁掉你自己的船。无论如何，这片区域是受限制的，所以我必须请你离开。”</text>
+							<choice hidden="true">
+								<text>不再打扰他们。</text>
+								<event>
+									<text>这类考古遗址对某些人来说肯定很有价值，但这里没有任何东西能助你旅程。是时候继续前进了。</text>
+								</event>
+							</choice>
+							<choice>
+								<text>提出帮忙挖掘。</text>
+								<event>
+									<text>“哎呀，一个没有自毁倾向的变元者？今天真是我的幸运日。主发射舱已经清理出来了，但我们还在努力挖掘所有的动力系统。里面简直是个该死的迷宫——我们清理出来的区域连通行都勉强，更别说挖掘更多了。”</text>
+									<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+										<text>派出一队船员协助。</text>
+										<event load="DARWIN_FTL_CREW" />	
+									</choice>
+									<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+										<text>本舰未配备用于精细太空考古工作的设备。</text>
+										<event load="OPTION_INVALID" />	
+									</choice>
+									<choice hidden="true" req="LIST_CREW_ELITE">
+										<text>（精英船员）派遣你的船员进入。</text>
+										<event>
+											<text>你派船员进入工作现场，他们立刻开始拆除任何看起来非结构性的残骸。几分钟后，空间站的管理员跑出来付给你报酬，条件是你别再试图帮忙了。</text>
+											<autoReward level="MED">standard</autoReward>
+										</event>
+									</choice>
+									<choice hidden="true" req="LIST_CREW_ENGINEER">
+										<text>（工程师船员）派遣你的工程师进入。</text>
+										<event>
+											<text>你的工程师立刻投入工作，一边指挥工人处理可清理的碎石区，一边为未来的挖掘制定计划。空间站管理员对此印象深刻，并给了你一份不错的报酬。</text>
+											<autoReward level="MED">standard</autoReward>
+										</event>
+									</choice>
+									<choice hidden="true" req="unique_tyrdeo_bird">
+										<text>(维尔西) 把鸟放进去。</text>
+										<event>
+											<text>你命令泰迪奥的宠物鸟去清理碎石，它立刻飞进了一个通风口，让你不禁怀疑自己为什么会觉得这是个好主意。</text>
+											<choice hidden="true" req="unique_tyrdeo" lvl="1" blue="false">
+												<text>(泰迪奥) 让泰迪奥把维尔西叫回来。</text>
+												<event>
+													<text>"维尔西！零食时间到了！我知道你喜欢探险，但我们还有地方要去！"你正准备把哭哭啼啼的泰迪奥拉回船上，但很快维尔西就回来了，脚上还拖着一团乱糟糟的电线，回到了它出来的那个通风口。</text>
+													<choice hidden="true">
+														<text>拉电线。</text>
+														<event>
+															<text>你胡乱一拉，弄松了通风口另一边的某个东西，一声震耳欲聋的碎裂声在建筑内回荡。所有工人都愤怒地转向你，但还没等你溜走，古老的照明设施开始在空间站各处闪烁起来。管理员觉得你修好的可能比弄坏的多，感到满意，于是给了你报酬，条件是你别再试图帮忙了。</text>
+															<autoReward level="MED">standard</autoReward>
+														</event>
+													</choice>
+												</event>	
+											</choice>
+											<choice hidden="true" req="unique_tyrdeo" lvl="0" max_lvl="0" blue="false">
+												<text>尝试把维尔西叫回来。</text>
+												<event>
+													<text>你朝工作现场的深处呼喊，却没有得到任何回应。如果泰迪奥还活着，他一定会对此非常难过。</text>
+													<removeCrew class="unique_tyrdeo_bird">
+														<clone>false</clone>
+														<text>不幸的是，虽然维尔西很可能死在工作现场的深处，但你无法知道它何时死去。克隆舱和维尔西的鸟笼都寂静无声。</text>
+													</removeCrew>
+												</event>   
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>改变主意并离开。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>贿赂他们让你进去。</text>
+								<event>
+									<text>你将付款转给了管理遗迹的吸虫族，很快中继站侧面的一个小孔开始透出光亮。你将舰船驶入开口，很快找到了发射舱；数英里长的金属和电路在你两侧干净利落地延伸成两条线——都指向它们之间的一片狭窄空间。</text>
+									<item_modify>
+										<item type="scrap" min="-50" max="-50" />
+									</item_modify>
+									<choice hidden="true">
+										<text>发射！</text>
+										<event>
+											<text>你面前的两条轨道开始发出如同双日般的光芒，然后突然似乎从视野中消失，取而代之的是你周围数千条更细的线——那是被你的感知拉伸到无法辨认的星星。然而，你几乎没有时间去看它们—— 仅仅一秒内，你曾经遥远的目的地就充满了屏幕，然后是舰船的其余部分，你和你的舰船溶解成了一滩刚被加热过的月球土壤。</text>
+											<achievement silent="false">ACH_EVENT_DARWIN</achievement>
+											<unlockCustomShip silent="false">PLAYER_SHIP_GOLD</unlockCustomShip>
+											<damage amount="999" />
+											<lose text="你的舰船将成为这颗卫星表面的一部分，直到另一个同样愚蠢的旅行者取代它的位置。" />
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>这是个糟糕的主意——离开。</text>
+										<event>
+											<text>在最后一刻，某种东西阻止了你——无论是常识还是单纯的恐惧，你并不确定，但无论如何，把自己发射到卫星侧面开始听起来像个坏主意了。</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>不再打扰他们。</text>
+						<event>
+							<text>这类考古遗址对某些人来说肯定很有价值，但这里没有任何东西能助你旅程。是时候继续前进了。</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>按要求离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视该建筑。</text>
+		<event>
+			<text>无论那些遗迹是什么，都不值得你花费时间或精力。是时候继续前进了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="DARWIN_FTL_CREW">
+	<event>
+		<text>你派船员进去，但工作了几分钟后，就已经清楚为什么吸虫族对此如此头疼了。无法移动任何碎石，你沮丧地离开了。</text>
+	</event>
+	<event>
+		<text>你派船员进去，有一阵子，似乎你做什么都无法移动碎石。然而，就在你准备离开之前，你的一名船员设法疏通了一条走廊，险些被随之而来的碎石崩塌压扁。感到满意，并且不想再碰运气，你从空间站管理层那里收取了报酬，然后出发了。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="NEBULA_LIGHT_LEECH_LITTERING" unique="true">
+	<text>附近的吸虫族飞船看起来正在从他们的气闸中倾倒出几个块状的黑色袋子，看起来是一些垃圾。一定是一个懒得什么都不愿意做的人懒得去回收这些垃圾。</text>
+	<ship load="SHIP_LEECH_LITTERING" hostile="false" />
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<environment type="asteroid" />
+	<img planet="NONE" />
+	<choice hidden="true">
+		<text>嘿，停下！乱丢垃圾是不好的！</text>
+		<event>
+			<text>吸虫族舰长看着你，疑惑不解。"哈？呃，是的，乱扔垃圾。我确实很抱歉。呃...是的..."</text>
+			<choice hidden="true">
+				<text>主动提出帮他们捡起来。</text>
+				<event>
+					<text>"哦，那就没必要了...呃，实际上。你知道吗，去吧。"吸虫族飞船迅速跃迁走了。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="LEECH_LITTERING_WIN" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>要求他们自己捡起来。</text>
+				<event>
+					<text>吸虫族惊慌失措，被现在放在他们身上的责任吓坏了。他们启动了他们的武器！</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ORCHID">
+				<text>(兰花族船员)为吸虫族开办一场公益讲座。</text>
+				<event>
+					<text>"好吧，好吧。你知道吗，我们很抱歉，我们很抱歉。请不要再和我们说话了。你们是警察还是什么？你知道我们必须以某种方式处理这些尸体！哦，我说得太多了..."吸虫族向你提供贿赂，以求你不告诉别人他们要做什么。你的兰花族船员不同意，但他又能做什么呢？</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>无视这艘舰船。</text>
+		<event>
+			<text>乱丢垃圾是可耻的，但你却不愿意对它说什么。这助长了这样的行为...</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_LITTERING_WIN">
+	<text>你漂浮在靠近黑色袋子的地方，把它们捞到船上。然而，它们很奇怪...软绵绵的。拉开袋子，发现了一个令人作呕的景象：最近才被切开的吸虫族残肢。看来这些人是想隐藏证据！</text>
+	<choice hidden="true">
+		<text>用它们做生物燃料。</text>
+		<event>
+			<text>想一想就觉得恶心，而且可能在道德上也不那么干净，但你不是一个会放弃这种机会的人。</text>
+			<autoReward level="LOW">fuel_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>把这些身体部件扔回虚空。</text>
+		<event />
+	</choice>
+	<choice hidden="true" req="clonebay">
+		<text>(克隆舱)收集一些DNA拭子并克隆它们。</text>
+		<event>
+			<text>从你的克隆舱中出来的吸虫族惊慌失措，并要求知道你是谁。你解释了情况后，他便平静下来并同意工作。可能是因为害怕你也会杀了他。</text>
+			<crewMember amount="1" class="leech" />
+		</event>
+	</choice>
+</event>
+<event name="NEBULA_LIGHT_LEECH_FAKE_STORE" unique="true">
+    <text>你见过的最开朗的吸虫族——一个戴着科尔多瓦帽的吸虫族——向你打招呼。“哎呀，你好！欢迎光临我的精品店。我要告诉你，这可是本星团装备最精良的武器店！我卖的都是超棒的武器！尽管问，想要什么都有！我大概都有货！”</text>
+    <ship load="SHIP_LEECH_FAKE_STORE" hostile="false" />
+    <variable name="loc_sekmet_attempted" op="set" val="0" />
+    <variable name="loc_nyx_attempted" op="set" val="0" />
+    <variable name="loc_asclepius_attempted" op="set" val="0" />
+    <variable name="loc_momus_attempted" op="set" val="0" />
+    <variable name="loc_pre_ion_attempted" op="set" val="0" />
+    <variable name="loc_stunbomb_attempted" op="set" val="0" />
+    <variable name="loc_cons_bomb_attempted" op="set" val="0" />
+    <variable name="loc_bl2_attempted" op="set" val="0" />
+    <variable name="loc_halb_attempted" op="set" val="0" />
+    <variable name="loc_cinq_attempted" op="set" val="0" />
+    <variable name="loc_energy_attempted" op="set" val="0" />
+    <choice>
+        <text>买一些东西。</text>
+        <event name="FAKE_STORE_BROWSE_1" />
+    </choice>
+    <choice>
+        <text>攻击商店。</text>
+        <event>
+            <text>“住手，你在犯一个天大的错误！这可是千载难逢的交易！”</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>让这个机会从你身边溜走。</text>
+        <event>
+            <text>吸虫族挡住你的去路。“你确定吗？这里有很多好东西在打折。你就不想快速逛一逛吗？”</text>
+            <choice>
+                <text>让步并买点东西。</text>
+                <event load="FAKE_STORE_BROWSE_1" />
+            </choice>
+            <choice>
+                <text>无视这个吸虫族。</text>
+                <event>
+                    <text>你没有让推销员动摇你的决心。</text>
+                    <choice>
+                        <text>星舰管理。</text>
+                        <event load="STORAGE_CHECK" />
+                    </choice>
+                    <choice>
+                        <text>跳过。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+       
+    </choice>
+</event>
+
+
+<event name="FAKE_STORE_BROWSE_1">
+    <text>“我等不及要用我令人印象深刻的商品让你惊叹了。想要点什么？”</text>
+    <choice req="loc_sekmet_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有斗神空雷发射器。</text>
+        <event>
+            <variable name="loc_sekmet_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_nyx_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有夜神导弹。</text>
+        <event>
+            <variable name="loc_nyx_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_asclepius_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有医神导弹。</text>
+        <event>
+            <variable name="loc_asclepius_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_momus_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有讽神导弹。</text>
+        <event>
+            <variable name="loc_momus_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_pre_ion_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有先发离子。</text>
+        <event>
+            <variable name="loc_pre_ion_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_stunbomb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有眩晕炸弹。</text>
+        <event>
+            <variable name="loc_stunbomb_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_cons_bomb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有集能炸弹。</text>
+        <event>
+            <variable name="loc_cons_bomb_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_bl2_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有爆裂激光2。</text>
+        <event>
+            <variable name="loc_bl2_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_halb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有战戟光束。</text>
+        <event>
+            <variable name="loc_halb_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_cinq_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有五指剑光点。</text>
+        <event>
+            <variable name="loc_cinq_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_energy_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有眩晕能量。</text>
+        <event>
+            <variable name="loc_energy_attempted" op="set" val="2" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="LOAD_FAKE_STORE_AGAIN">
+    <loadEvent ignoreUnique="true">FAKE_STORE_BROWSE_2</loadEvent>
+</event>
+<event name="FAKE_STORE_BROWSE_2">
+    <text>店主等着听你说想要什么。</text>
+    <choice req="loc_sekmet_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有斗神空雷发射器。</text>
+        <event>
+            <variable name="loc_sekmet_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_nyx_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有夜神导弹。</text>
+        <event>
+            <variable name="loc_nyx_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_asclepius_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有医神导弹。</text>
+        <event>
+            <variable name="loc_asclepius_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_momus_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有讽神导弹。</text>
+        <event>
+            <variable name="loc_momus_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_pre_ion_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有先发离子。</text>
+        <event>
+            <variable name="loc_pre_ion_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_stunbomb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有眩晕炸弹。</text>
+        <event>
+            <variable name="loc_stunbomb_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_cons_bomb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有集能炸弹。</text>
+        <event>
+            <variable name="loc_cons_bomb_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_bl2_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有爆裂激光2。</text>
+        <event>
+            <variable name="loc_bl2_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_halb_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有战戟光束。</text>
+        <event>
+            <variable name="loc_halb_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_cinq_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有五指剑光点。</text>
+        <event>
+            <variable name="loc_cinq_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="loc_energy_attempted" lvl="0" max_lvl="0" blue="false">
+        <text>问对方是否有眩晕能量。</text>
+        <event>
+            <variable name="loc_energy_attempted" op="set" val="1" />
+            <text load="TEXT_FAKE_SOLD_OUT" />
+            <choice>
+                <text>询问别的武器。</text>
+                <event load="LOAD_FAKE_STORE_AGAIN" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="FAKE_SHOP_TRIED_ALL" blue="false">
+        <text>问他们到底有没有任何东西。</text>
+        <event>
+            <text>“哎呀，当然有！我们当然有！这毕竟是个商店嘛。尽管问，我来看看我们有没有！”</text>
+			<choice req="stability" lvl="0" max_lvl="25" blue="false">
+                <text>请他们给你一些库存商品的例子。</text>
+                <event>
+                    <text>“呃，嗯……这有点尴尬，但我现在只有一箱饥饿疯狂的巨型异形蜘蛛。但是！现在有特价优惠，所以你可以免费拿走！”</text>
+					<choice hidden="true">
+						<text>……什么？不行。</text>
+						<event>
+							<text>“哦，好吧，那是你的损失！”</text>
+							<choice>
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+            		</choice>
+					<choice hidden="true" req="unique_queen" lvl="0" max_lvl="0" blue="false">
+						<text>我们要了。</text>
+						<event>
+							<text>“东西拿好，请慢用！”
+							
+货箱被运上飞船时，你能听到里面传来疯狂的抓挠声。箱子刚打开，两只蜘蛛就猛地跳出，开始在飞船里横冲直撞。你真不明白自己刚才怎么会觉得这是个好主意。</text>
+							<boarders min="2" max="2" class="spider" />
+						</event>
+            		</choice>
+					<choice hidden="true" req="unique_queen">
+						<text>(蜘蛛女王) 我们要了。</text>
+						<event>
+							<text>“给您送来了，请享用！”
+							
+货箱搬进船舱时，里面传出急促的抓挠声。箱门打开的瞬间，两只蜘蛛猛然跃出，眼看就要发狂——这时蜘蛛女王发出一声震耳欲聋的嘶吼。它们顿时瑟缩着收敛了气焰。确认它们不再具有攻击性后，船员们投喂了食物，它们终于温顺地安静下来。</text>
+                            <crewMember amount="2" class="spider" />
+						</event>
+            		</choice>
+                </event>
+            </choice>
+            <choice req="stability" lvl="26" max_lvl="800" blue="false">
+                <text>请他们给你一些库存商品的例子。</text>
+                <event>
+                    <text>“哦，呃……”吸虫族茫然地凝视着。“是啊，承认这点很尴尬，但是……我实际上只是在无缘无故地浪费你的时间。不过假装我们是店主和顾客挺好玩的，不是吗？”</text>
+                    <modifyPursuit amount="1" />
+                    <choice>
+                        <text>你受够了。出于纯粹、不受约束的挫败感攻击他。</text>
+                        <event>
+                            <text>“所以那就是'不'了？……是啊，这很公平。”</text>
+                            <ship hostile="true" />
+                            <choice hidden="true">
+                                <text>继续。</text>
+                                <event load="COMBAT_CHECK" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice hidden="true">
+                        <text>一笑置之。</text>
+                        <event>
+                            <text>“你知道吗，你真是个好人。其实你第一次问的那个东西我确实有。如果我把它给你，你介意我加入你们吗？”</text>
+                            <crewMember amount="1" class="leech" />
+                            <choice>
+                                <text>继续。</text>
+                                <event>
+                                    <loadEvent>FAKE_STORE_WEAPON_FOUND</loadEvent>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+
+
+<textList name="TEXT_FAKE_SOLD_OUT">
+    <text>“哦，运气真差，太差了！就在你到这儿之前，有人刚把最后一个抢走了。真的，他们刚跃迁走你就出现了。”</text>
+    <text>“抱歉，那些我们不久前就卖光了。它们真的非常畅销！”</text>
+    <text>“啊，你看，我们以前进过那些货，但这个星区从来没人买。最后我就把它们都扔了。看来我至少该留一个的，嗯？”</text>
+    <text>“是的！我们应该有一个那种……让我看看……”他在后屋翻找了一会儿才回来。“你知道吗？它是橙色的。抱歉。你想要点别的吗？”你试图告诉推销员，即使是橙色的你也要买。“不不，听我说。它对您的口味来说有点太橙了。您最好买点更好的。”你告诉他没关系，你还是想买。“恐怕您不明白。它对您这样的人来说实在太橙了。”你坚持说你不在乎它有多橙。“嗯……您必须明白。它是……令人震惊的橙色。就像，比您能想象的还要橙。如果我把这个卖给您，您会把我揍扁的。”你坚持说颜色不重要，你只是想买它。“嗯，如果您坚持的话……哦，糟了。我刚检查了一下，它坏了。抱歉。您得买点别的了。”</text>
+    <text>“那是什么？抱歉，我想我对那个不熟悉。”你试图描述那件武器，但只得到茫然的目光作为回应。</text>
+    <text>“你知道吗？我们其实确实有一个那种，但它已经被我们另一位忠实顾客预定了。您理解的，对吧？”</text>
+    <text>“啊，运气不好！缺货了。下一批大概要四个小时后才到。抱歉。”</text>
+    <text>“哦，哎呀。我们有一整批货，但我把它们忘在家里的车库了。我真笨！”</text>
+    <text>“我不再订购那些了。你知道，他们用不安全的劳工做法制造那些……至少，我的顾客是这么告诉我的。顾客永远是对的！”</text>
+    <text>“哦，你知道吗？我过去有个制造商生产那些，但他们倒闭了。我一直没找到别的供应商。也许您会买点别的？”</text>
+    <text>“是的，我们有那个。我去找找。”吸虫族离开去了储藏室。几分钟后他空着手回来了。“看来我可能放错地方了。我的错！”</text>
+</textList>
+
+
+<event name="FAKE_STORE_WEAPON_FOUND">
+    <loadEventList>
+        <event req="loc_sekmet_attempted" lvl="2">
+            <weapon name="MINELAUNCHER_FIRE" />
+        </event>
+        <event req="loc_nyx_attempted" lvl="2">
+            <weapon name="MISSILES_CLOAK" />
+        </event>
+        <event req="loc_asclepius_attempted" lvl="2">
+            <weapon name="MISSILES_BIO" />
+        </event>
+        <event req="loc_momus_attempted" lvl="2">
+            <weapon name="MISSILES_FREE" />
+        </event>
+        <event req="loc_pre_ion_attempted" lvl="2">
+            <weapon name="ION_INSTANT" />
+        </event>
+        <event req="loc_stunbomb_attempted" lvl="2">
+            <weapon name="BOMB_STUN" />
+        </event>
+        <event req="loc_cons_bomb_attempted" lvl="2">
+            <weapon name="BOMB_CONSERVATIVE" />
+        </event>
+        <event req="loc_bl2_attempted" lvl="2">
+            <weapon name="LASER_BURST_2" />
+        </event>
+        <event req="loc_halb_attempted" lvl="2">
+            <weapon name="BEAM_2" />
+        </event>
+        <event req="loc_cinq_attempted" lvl="2">
+            <weapon name="FOCUS_CHAIN" />
+        </event>
+        <event req="loc_energy_attempted" lvl="2">
+            <weapon name="ENERGY_STUN" />
+        </event>
+    </loadEventList>
+</event>
+<ship name="SHIP_LEECH_FAKE_STORE" auto_blueprint="LIST_SHIPS_LEECH_ALL">
+    <surrender chance="0.10" min="2" max="3" load="SURRENDER_LEECH" />
+    <escape chance="0.5" min="3" max="4" load="ESCAPE_LEECH" />
+    <gotaway load="GOTAWAY_LEECH" />
+    <destroyed>
+        <text load="TEXT_DESTROYED_LEECH" />
+        <autoReward level="MED">standard_no_item</autoReward>
+        <choice req="FAKE_SHOP_TRIED_ALL" blue="false" hidden="true">
+            <text>继续。</text>
+            <event>
+                <text>漂浮在舰船残骸中的，恰好是你第一次浏览商店时询问的武器。他为什么就不能直接把它给你呢？</text>
+                <choice>
+                    <text>继续。</text>
+                    <event>
+                        <loadEvent>FAKE_STORE_WEAPON_FOUND</loadEvent>
+                    </event>
+                </choice>
+            </event>
+        </choice>
+    </destroyed>
+    <deadCrew>
+        <text load="TEXT_DEAD_CREW_LEECH" />
+        <autoReward level="HIGH">standard_no_item</autoReward>
+        <choice req="FAKE_SHOP_TRIED_ALL" blue="false" hidden="true">
+            <text>继续。</text>
+            <event>
+                <text>当你调查假店主的舰船货舱时，发现他碰巧就有你第一次询问的武器。他为什么就不能直接把它给你呢？</text>
+                <choice>
+                    <text>继续。</text>
+                    <event>
+                        <loadEvent>FAKE_STORE_WEAPON_FOUND</loadEvent>
+                    </event>
+                </choice>
+            </event>
+        </choice>
+    </deadCrew>
+    <crew>
+        <crewMember type="leech" prop="0.7" />
+        <crewMember type="rock" prop="0.3" />
+    </crew>
+</ship>
+
+<eventList name="NEUTRAL_LEECH_UNIQUE">
+	<event load="LEECH_COALITION_FEDUP" />
+	<event load="LEECH_TAVERN" />
+</eventList>
+<eventList name="NEBULA_NEUTRAL_LEECH_UNIQUE">
+	<event load="NEBULA_LIGHT_LEECH_GARDEN" />
+	<event load="NEBULA_LIGHT_LEECH_LITTERING" />
+	<event load="NEBULA_LIGHT_LEECH_DARWIN_FTL" />
+	<event load="NEBULA_LIGHT_LEECH_FAKE_STORE" />
+	
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_LEECH">
+	<event load="DISTRESS_LEECH_CARGO_LOST" />
+	<event load="DISTRESS_LEECH_ETERNAL_COMATOSE" />
+	<event load="DISTRESS_LEECH_GRAPHITI" />
+</eventList>
+
+<event name="DISTRESS_LEECH_CARGO_LOST" unique="true">
+	<distressBeacon />
+	<text>这个小行星带里一片混乱，许多箱子在太空中漂浮。一艘可能与此有关的吸虫族舰船发来呼叫。“我们这下麻烦大了。我的货舱没锁好，在最糟糕的时候打开了。你得帮帮我们！”</text>
+	<ship load="SHIP_LEECH_ALL" hostile="false" />
+	<environment type="asteroid" />
+	<choice hidden="true" req="MAGNET_ARM">
+		<text>(磁性回收臂) 帮助吸虫族收集他们散落的货物。</text>
+		<event>
+			<text>你的磁性回收臂轻松地收集了货物并将其引导回他们的货舱。吸虫族们大大松了一口气。"哦，快乐的日子！我们的东西！为了感谢你的帮助，我们会给你一点报酬。在这个银河系的所有种族中，我们族人是与小行星带打交道最多的，所以我们对自动驾驶仪略知一二。我们可以升级你的系统！"</text>
+			<autoReward level="MED">standard</autoReward>
+			<upgrade amount="1" system="pilot" />  
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>花些时间帮助吸虫族收集他们散落的货物。</text>
+		<event>
+			<text>收集丢失的货物花了相当长的时间。不幸的是，这太耗时了，叛军舰隊得以逼近你的位置。吸虫族们也显得有些不耐烦。“这只能这样了……不过如果没有你的帮助，会花更长的时间。为了感谢你的帮助，请收下这份报酬。在这个银河系的所有种族中，我们族人是与小行星带打交道最多的，所以我们对自动驾驶仪略知一二。我们可以升级你的系统！”</text>
+			<autoReward level="MED">standard</autoReward>
+			<upgrade amount="1" system="pilot" />  
+			<modifyPursuit amount="1" />
+		</event>
+	</choice>
+	<choice>
+		<text>攻击这艘货船。</text>
+		<event>
+			<text>你没兴趣帮他们解决问题。事实上，你可能会给他们制造更多问题。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>专注于逃离小行星带。</text>
+		<event>
+			<text>你全力驾驶以远离小行星。</text>
+		</event>
+	</choice>
+</event>
+
+<event name="DISTRESS_LEECH_ETERNAL_COMATOSE" unique="true">
+	<distressBeacon />
+	<text>一个小型共和国殖民地正在发出求救信号：“发生了可怕的事情……人们睡着后就……再也没醒来。连克隆舱都解决不了这个问题。如果您有医疗专业知识，请救救我们。”</text>
+	<choice req="unique_anurak">
+		<text>（阿努拉克）调配特殊药剂。</text>
+		<event>
+			<text>与殖民地对接后，阿努拉克立即开始工作。"啊，没错！你们的精神之旅走上了一条黑暗无光的道路。难怪各位会不断陷入昏睡！"阿努拉克开始调配药剂，撒入几把草药后将其研磨成细腻膏体，逐一涂抹在患者面部。病人逐渐开始肢体抽动。"你们都需要找到值得期盼的事物！"阿努拉克在纸片上草草写下几行字，一把塞进联系你的那名吸虫族手中。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_COMATOSE_COLONY_GRATEFUL" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="unique_alkali">
+		<text>（阿尔科莱）让阿尔科莱弄清楚发生了什么。</text>
+		<event>
+			<text>在你与殖民地对接后，阿尔科莱开始调查病患。“我的第一个猜想是缺乏足够的养分，可能还伴随着一点小疾病和低沉的精神。”阿尔科莱开始准备给一些病患注射维他命。“你们的食物有些问题。如果你们能妥善处理，应该能终结这个疾病。”</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_COMATOSE_COLONY_GRATEFUL" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_MEDIC">
+		<text>（医疗员）治疗疾病。</text>
+		<event>
+			<text>你的医疗员前往殖民地开始检查病患。经过几项检测后，医疗员判定他们的食物来源受到污染。但雪上加霜的是，他们随后又感染了吸虫族特有的疾病，导致陷入昏迷且无法自行苏醒。医疗员开始给患者喂食维生素，这让他们逐渐恢复意识，不过完全清醒可能还需要些时间。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_COMATOSE_COLONY_GRATEFUL" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="shell_scientist">
+		<text>（甲壳科学家）治疗疾病。</text>
+		<event>
+			<text>你的甲壳族成员前往殖民地。经过检测后，他们判定吸虫族感染了一种导致昏迷的疾病，而营养不良使得他们无法苏醒。鉴于吸虫族仍在进食，你的科学家得出结论：他们的食物来源已受污染。随后为所有患者分发了维生素片剂，而后返回舰船。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_COMATOSE_COLONY_GRATEFUL" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="medbay" lvl="3">
+		<text>（高级医疗舱）在你升级后的医疗舱中对患者进行检查。</text>
+		<event>
+			<text>你接收部分患者进入医疗舱。先进的医疗系统向他们的体内注入营养液，所有患者都开始恢复意识。医疗系统报告显示他们感染了吸虫族常见疾病，且伴有严重营养不良症状。你建议他们最好检查下日常食用的食物来源。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_COMATOSE_COLONY_GRATEFUL" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="QUARP_JUICE">
+		<text>（夸普汁）给他们来点能提振精神的东西。</text>
+		<event>
+			<text>你给病患服用了些夸普汁。片刻之后他们猛然惊醒，简直像要从墙上弹射起来。虽然气色依旧不佳，但他们开始以种族特有的狂乱方式向你道谢，这般狂热举止完全不符合该族群的常态。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>负责发出求救信号的吸虫族面露忧色。"你确定那玩意儿对身体没害处吗……？罢了，至少他们总算能走动了。"吸虫族为表感谢送上了一份谢礼。</text>
+					<weapon name="GIFTLIST_LEECH" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不接近殖民地。</text>
+		<event>
+			<text>你有些空闲时间可以处理其他事务。</text>
+			<choice hidden="true">
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice hidden="true">
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_COMATOSE_COLONY_GRATEFUL">
+	<text>吸虫族们连声道谢："实在太感谢了……我们之前还不明白为什么普通的疾病会让我们昏迷不醒。我们的食物到底出了什么问题？我们必须彻查此事。请先收下这份谢礼。"</text>
+	<weapon name="GIFTLIST_LEECH" />
+</event>
+
+<event name="DISTRESS_LEECH_GRAPHITI" unique="true">
+	<distressBeacon />
+	<text>穿过这里的小行星带时，你惊讶地发现一艘联邦的船只，上面布满了重重的涂鸦！他们呼叫了你。"一帮讨厌的十几岁的吸虫族少年来过，在我们的船上画了各种讨厌的东西，偷了我们的货，还羞辱了我一番。听他们好像说了什么'轰炸者'，不知道啥意思。你能不能当一回好人，去把我们的货物拿回来？"</text>
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>同意。</text>
+		<event>
+			<text>你按照联邦飞船的指示，直到找到一个小型吸虫族穿梭机，里面有3名左右的吸虫族。你一走近，他们就开始嘲笑你，并喊出各种老掉牙的侮辱性言语。</text>
+			<choice hidden="true">
+				<text>发出一个小小的警告来吓唬他们。</text>
+				<event>
+					<text>你把武器锁定在穿梭机附近的一个经过的小行星上。爆炸似乎并没有吓到那些青少年，反而似乎让他们更加兴奋。"嘿，老家伙！再这样下去，我就叫我爸爸来教训你！"</text>
+					<choice hidden="true">
+						<text>再开一枪警告。</text>
+						<event>
+							<text>"嘿！我说过不要这样做！好吧，现在你有麻烦了！"你探测到从穿梭机上发出的求救信号，片刻之后，一艘电吸虫飞船跃迁了进来。"你碰过我儿子？我要把你的头盖骨当碗使，用它来喝我反刍的胆汁！"</text>
+							<ship load="SHIP_LEECH_GRAPHITI_DAD" hostile="true" /> 
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>要求他们交出货物。</text>
+						<event>
+							<text>"哈！不！你要做什么，告诉我爸爸还是什么？"</text>
+							<choice hidden="true">
+								<text>是。</text>
+								<event>
+									<text>"卧槽，等等，求你不要！他一定会超级生气的！我要杀了你！"吸虫族飞船进攻了！</text>
+									<ship load="SHIP_LEECH_GRAPHITI" hostile="true" /> 
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>(心灵控制)给我们货物。</text>
+						<event>
+							<text>吸虫族挣扎了片刻，青少年在极度愤怒的情况下所产生的无法抑制的力量可以与银河系中最复杂的操纵技术之一相媲美。但不可避免地，他屈服了。"我想我会把货物交给你。而且，我将学会尊重我的长辈。"</text>
+							<choice hidden="true">
+								<text>将货物带回联邦飞船。</text>
+								<event load="LEECH_GRAPHITI_RETURN" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+						<text>（心灵控制武器）把货物交出来。</text>
+						<event>
+							<text>吸虫族挣扎了片刻，青少年在极度愤怒的情况下所产生的无法抑制的力量可以与银河系中最复杂的操纵技术之一相媲美。但不可避免地，他屈服了。"我想我会把货物交给你。而且，我将学会尊重我的长辈。"</text>
+							<choice hidden="true">
+								<text>将货物带回联邦飞船。</text>
+								<event load="LEECH_GRAPHITI_RETURN" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="weapons" lvl="6">
+						<text>(高级武器)使一个诡计，开始炸毁所有小行星。</text>
+						<event>
+							<text>失去了所有的自制力，拥抱你内心的狂野，你把飞船转了一圈，炸掉了无数的小行星。吸虫族们不再那么无动于衷了。"伙计，我认为这家伙是个神经病。这到底是什么鬼东西？"吸虫族们交出了货物，害怕你随时会崩溃，把他们也杀了。</text>
+							<choice hidden="true">
+								<text>将货物带回联邦飞船。</text>
+								<event load="LEECH_GRAPHITI_RETURN" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝。</text>
+		<event>
+			<text>你不是给人跑腿的。他们可能失去了自己的货物，但用这艘船对付一些青少年实在是大材小用。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_GRAPHITI_RETURN">
+	<text>"哦，谢谢牛顿。这将告诉那些小鬼不要玷污政府财产。"</text>
+	<autoReward level="MED">item</autoReward>
+</event>
+
+<eventList name="DISTRESS_LEECH_UNIQUE">
+	<event load="DISTRESS_LEECH_CARGO_LOST" />
+	<event load="DISTRESS_LEECH_ETERNAL_COMATOSE" />
+	<event load="DISTRESS_LEECH_GRAPHITI" />
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_QUEST_LEECH">
+	<event load="NEBULA_LEECH_DELEGATE" />
+</eventList>
+
+<event name="NEBULA_LEECH_DELEGATE" unique="true">
+	<text>你似乎收到了一个超能族编码的长距离传输，被标记为紧急。对超能族来说，所有的事情都是"紧急"的，但它仍然可能需要你的关注。</text>
+	<environment type="nebula" />
+	<choice hidden="true">
+		<text>听听看。</text>
+		<event>
+			<text>"在现任总统泰迪奥的时代之前，共和国总统厄尔蒂斯领导了一次对超能族星域失败的入侵。他的领导权被剥夺，因为即将成为他继任者的爱尔凯带领人围攻了厄尔蒂斯的宫殿，并把他砍成了小块，这些小块被防腐处理后作为了战利品保存。"</text>
+			<choice hidden="true">
+				<text>很有意思的历史课，但你为什么要告诉我们这些？</text>
+				<event>
+					<text>"请耐心听。牧师团对爱尔凯的任命感到满意，但为了防止未来的攻击，双方同意在吸虫族星域内最多设置三个大使馆，这也将有助于确保进一步的...事件不会发生。直到该任之前，所有吸虫族总统都坚持了这一点。但泰迪奥目前似乎已经被当前的革命压得喘不过气来，对圣判所的影响一无所知，甚至还允许星联进入他的星域。"</text>
+					<choice hidden="true">
+						<text>求你了，直接说重点吧。</text>
+						<event>
+							<text>"快了快了。由于牧师团支持联邦，因此，防止联邦和牧师团干涉他们的冲突符合星联的最大利益。然而，星联似乎害怕直接采取行动，因此雇佣了提卡卡贩奴组织来奴役我们的代表，并将他们运送到银河系的其他地方。作为一艘联邦飞船，我们要求你前往这些坐标处，并将事情解决。"超能族挂断了通信，连一句请或谢谢都没有。</text>
+							<quest event="LEECH_DELEGATE_CAMP" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视呼叫。</text>
+		<event>
+			<text>超能族可以处理他们自己的问题。在吸虫族星域内航行已经够危险了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_DELEGATE_CAMP">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>此处一座超能族大使馆正在被提卡卡劫匪围攻。</unvisitedTooltip>
+	</beaconType>
+	<text>正如所警告的那样，一伙提卡卡海盗已经控制了给定坐标的大使馆，并正在围捕和盘查超能族官员。</text>
+	<ship load="SHIP_SLAVER_DELEGATE" hostile="false" />
+	<choice hidden="true">
+		<text>干预。</text>
+		<event>
+			<text>你已经看够了--是时候制止这一切了！</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="6">
+		<text>(高级武器)威胁奴隶主。</text>
+		<event>
+			<text>显然，奴隶主们没有准备好在这里看到一艘全副武装的联邦飞船。他们迅速赶回自己的飞船，然后起飞。</text> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LEECH_DELEGATE_CAMP_WIN" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>购买一个超能族奴隶。</text>
+		<event>
+			<text>奴隶们被你的突然出现吓了一跳，但他们意识到你的提议是真诚的，他们很快就会接受。</text>
+			<crewMember amount="1" class="zoltan" />
+			<item_modify>
+				<item type="scrap" min="-55" max="-40" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开大使馆。</text>
+		<event>
+			<text>与奴隶主打交道是有风险的。提卡卡并不以仁慈著称，你也不想面对他们不好的那一面。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_DELEGATE_CAMP_WIN">
+	<text>超能族们被吓坏了，但没有受伤。没过多久，一艘武装到牙齿的超能族战舰跃迁了进来，你认出了这个声音就是之前的那个。超能族简短地介绍了自己，说"我们会接手的"，然后开始重新整顿大使馆。同样，你没有得到任何感谢，但你至少说服了他们给你一份奖励。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice>
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_ZOLTAN" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="NEBULA_HOSTILE_LEECH">
+	<event load="NEBULA_LIGHT_ENCOUNTER_LEECH" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_REVOLUTIONARY" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_LEECH_COALITION" />
+</eventList>
+<eventList name="HOSTILE_LEECH">
+	<event load="ENCOUNTER_LEECH_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_PULSAR" />
+	<event load="ENCOUNTER_REVOLUTIONARY_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_ROCK_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_COALITION_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_VAMPWEED" />
+	<event load="ENCOUNTER_VAMPWEED" />
+</eventList>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_LEECH">
+	<text load="TEXT_ENCOUNTER_LEECH" />
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LEECH_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH" />
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH">
+	<text>吸虫族可能是抑郁症患者，不思进取，但即使这样也不能妨碍他们的傲慢。某个高高在上的吸虫族士兵显然认为他可以搞定你，并进行攻击！</text>
+	<text>无能的、通常只有一半斗志的现代共和国军队所采用的不可预测的策略可以使吸虫族船成为可怕的对手。让我们希望你能在没有太多划痕的情况下完成这个任务！</text>
+	<text>附近船只的一名吸虫族舰长向你呼叫并清了清嗓子。"啊，糟糕，我有话想说。尴尬的是...呃，我只是要杀了你。但如果我记得我原来要说的话，听起来会更酷。"</text>
+	<text>仅从附近的吸虫族船飞船的酒驾机动来看，你怀疑他们的舰长此刻头脑并不清醒。恍惚中，他把你误认为是敌人，并发动了攻击。看来你无法和这个人讲道理。</text>
+	<text>很难说为什么附近的吸虫族飞船会选择攻击你。也许是求死心切？你不会感到惊讶，但你更希望他们只是问一下，而不是强加给你！</text>
+	<text>一艘吸虫族飞船看着你经过，并命令你停下来。显然，他是仅存的几个有动力真正坚守岗位的士兵之一。他的努力在你身上浪费了，真是太可惜了！</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_PULSAR" unique="true">
+	<text>虽然这个被遗弃的星区可能主要由小行星和星云组成，但显然一颗脉冲星已经找到了它可爱的方式在这里干扰你，同时一艘吸虫族飞船锁定并攻击了你！</text>
+	<ship load="SHIP_LEECH_FIGHT" hostile="true" /> 
+	<environment type="pulsar" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_REVOLUTIONARY">
+	<text load="TEXT_ENCOUNTER_REVOLUTIONARY" />
+	<ship load="SHIP_ALKRAM_FIGHT" hostile="true" /> 
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_REVOLUTIONARY_ASTEROID">
+	<text load="TEXT_ENCOUNTER_REVOLUTIONARY" />
+	<ship load="SHIP_ALKRAM_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REVOLUTIONARY">
+	<text>现在似乎几乎所有的政府都深陷叛乱的泥潭之中，包括吸虫族集团。一艘吸虫革命者的船只，在燃料告急的情况下，决定攻击你，以获取你所拥有的一切！</text>
+	<text>附近的一艘吸虫革命者船指责你支持泰迪奥总统，并在你为自己辩护之前发动了攻击！</text>
+	<text>与许多叛乱一样，看来吸虫族革命者是暴力和侵略性的民族主义者，他们会攻击任何人，甚至是像你们这样路过的联邦船只，你说什么也不管用！</text>
+	<text>如果不是因为血草兰花的协助，吸虫族革命者可能不会如此反感联邦。从理论上讲，血草兰花并不是你的敌人--但他们的国家十分倾向于军事化，而且他们在联邦-螳螂战争中站在母巢一边作战，这意味着他们在攻击自己星域里的联邦船只之前不会犹豫太久！</text>
+	<text>"未来就是现在！首先是共和国，然后是银河系，然后是多元宇宙！吸虫族们将再次尝到荣耀的滋味！"这些革命者似乎把他们的目标定得有点太高了，但你不会把时间浪费在谈论它上。</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_ROCK_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH_ROCK" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH_ROCK">
+	<text>圣判所与泰迪奥达成协议，保护共和国星域不受革命者的影响，但到目前为止，他们大多只是在这里部署了大量的军队，这些军队几乎没有真正帮助政府，而更多的只是打扰像你这样的旅行者。呜呼哀哉！</text>
+	<text>一位岩石族舰长盯着你的船。"我已经厌倦了和这样的虫豸一起工作。我将利用你的船逃走。"</text>
+	<text>岩石族通常都很拘谨，使得他们奇迹般地容忍与吸虫族为伍，但这显然让他们十分压抑，以至于没有什么理由，这里的岩石族飞船就开始攻击了！</text>
+	<text>"这些吸虫族对圣言一无所知！我很累，也很沮丧。在战争结束之前，神权国不会让我们离开。我现在要假装你们是我的同事，我要把你们打成碎片。"</text>
+</textList>
+
+<event name="NEBULA_LIGHT_ENCOUNTER_LEECH_COALITION">
+	<text load="TEXT_ENCOUNTER_LEECH_COALITION" />
+	<img back="BACK_EVENT_STARS_SPARSE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_LEECH_COALITION_ASTEROID">
+	<text load="TEXT_ENCOUNTER_LEECH_COALITION" />
+	<ship load="SHIP_COALITION_FIGHT" hostile="true" /> 
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_LEECH_COALITION">
+	<text>将吸虫族引入星联似乎只是双方各怀鬼胎的结果。共和国似乎并不热衷于为星联的利益行事，而星联极有可能只是因为吸虫族能提供一定数量的士兵而帮助打击革命者。现在，政治聊的够多了。一个威胁正在逼近！</text>
+	<text>从星联建立直至它变成银河系的一个重大威胁，他们似乎真的没有做什么，除了入侵水生族。当然，你必须处理像现在这样向你驶来的飞船，这是个麻烦，但至少他们不再直接攻击联邦了。</text>
+	<text>"哼，你知道什么比一个愚蠢的臭吸虫族更糟糕吗？一个更愚蠢、更臭的联邦舰长！"星联舰长接受了他的船员的几次鼓掌，然后发动了攻击！</text>
+	<text>一艘星联战舰若隐若现，不确定是否会攻击你。这当然是个笑话--在你还没来得及读第一句话的时候，他们就已经打定主意要进攻了。</text>
+</textList>
+
+<event name="ENCOUNTER_LEECH_VAMPWEED" unique="true">
+	<text>根据一些故事，泰迪奥在一次外交会议上将一束精心挑选的鲜花递给了血草兰花上将，这让他非常生气，于是他直接向他们整个物种宣战。故事很有趣，但不幸的是，血草兰花与他们的花卉兄弟完全相反，会毫不犹豫地攻击像你这样的路人！</text>
+	<ship load="SHIP_VAMPWEED_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<eventList name="NEBULA_HOSTILE_LEECH_UNIQUE">
+	<event load="NEBULA_LIGHT_ENCOUNTER_LEECH" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_REVOLUTIONARY" />
+	<event load="NEBULA_LIGHT_ENCOUNTER_LEECH_COALITION" />
+</eventList>
+<eventList name="HOSTILE_LEECH_UNIQUE">
+	<event load="ENCOUNTER_LEECH_ASTEROID" />
+	<event load="ENCOUNTER_REVOLUTIONARY_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_ROCK_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_COALITION_ASTEROID" />
+	<event load="ENCOUNTER_LEECH_VAMPWEED" />
+	<!--<event load="ENCOUNTER_VAMPWEED"/>-->
+	
+	<event load="ENCOUNTER_LEECH_PULSAR" />
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="NEBULA_LIGHT_ENCOUNTER_LEECH_ELITE" unique="true">
+	<text>虽然大部分共和国的军队已经不复存在，但由于星联的支持，电吸虫仍然是一个不容忽视的威胁。虽然大部分电吸虫的部队都致力于帮助星联，但仍有许多人留在吸虫族星域以抵御威胁。或者说，像你这样的威胁。</text>
+	<img back="BACK_EVENT_STARS_SPARSE" planet="NONE" />
+	<status type="loss" target="player" system="sensors" amount="1" />
+	<ship load="SHIP_LEECH_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_AMPERE_ALKRAM" auto_blueprint="LIST_SHIPS_LEECH_ELITE_FIGHT">
+	<destroyed>
+		<text>电吸虫飞船已被击败。</text>
+		<autoReward level="MED">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="ALKRAM_MEET_WIN" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>电吸虫飞船已被击败。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="ALKRAM_MEET_WIN" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="leech_ampere" prop="0.7" />
+		<crewMember type="rock_crusader" prop="0.3" />
+	</crew>
+</ship>
+<event name="ALKRAM_MEET">
+	<text>奇怪的是，一支共和国船队聚集在这里，因为他们受到了吸虫革命者飞船的射击。这是一场不幸的小规模冲突，直到你发现一艘装饰异常的飞船在船群中飞行。</text>
+	<preventQuest />
+	<customFleet right="false" firing="true" autoDarkening="true">CUSTOM_FLEET_LEECH</customFleet>
+	<customFleet right="true" firing="true" autoDarkening="true">CUSTOM_FLEET_ALKRAM</customFleet>
+	<choice hidden="true">
+		<text>跟随飞船。</text>
+		<event>
+			<text>这艘奇怪的船似乎是某种战舰，上面有吸虫族将军的画像。然而，你不能看太久，因为一艘电吸虫舰发现了你，并认为你是有敌意的！</text>
+			<ship load="SHIP_AMPERE_ALKRAM" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>接近发生冲突太冒险了。你尽可能地与其他舰队保持距离。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_leechcapitalstart" global="true">
+		<color r="119" g="96" b="56" a="1.0" />
+        <unvisitedTooltip>此处是吸虫舰队任务的起点。跟踪那艘船。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="ALKRAM_MEET_WIN">
+	<text>随着这艘船不再碍事，你把注意力转回到那艘奇怪的吸虫族飞船上，但看到它已经从战斗中溜走了。它被严重损坏，内部视图显示了受伤的士兵和一个全副武装的吸虫族正在用他的尾巴擦拭牙齿上的血。</text>
+	<choice hidden="true">
+		<text>呼叫。</text>
+		<event>
+			<text>"那么，你是来杀我们的？又是泰迪奥的一个棋子。随你怎么做，但你要知道，共和国政府即将垮台。我已经启动了一些你无法通过简单地杀了我来解决的事情。砍掉吸虫族的头，他只会重生并变得更强！"</text>
+			<choice hidden="true">
+				<text>我们根本不知道你是谁。</text>
+				<event>
+					<text>吸虫族停顿了一下，他的两个眼缝比正常情况下眯得更紧。"你看起来地位太高，不可能是那个紫色寄生虫的特工。我的介绍无关紧要，所以我不会告诉你细节。我是阿尔克拉姆，在联邦-螳螂战争期间，在厄尔蒂斯总统领导下的共和国的前将军。现在，在我年迈的时候，我已经开始着手确保王室的稳定，摆脱其目前的无能。"</text>
+					<choice hidden="true">
+						<text>王室？我以为泰迪奥是一位总统。</text>
+						<event>
+							<text>"正是我想说的。那个兴高采烈、愚蠢的白痴带着一顶闪亮的金冠，自以为是地认为自己是国王，但他除了把我们的同类带入更大的动荡之外，什么也没做。如果你不为泰迪奥而战，而且肯定也不是叛军，那么我想你一定是联邦的人。这场小规模的冲突只是一个小问题--很快，我们将在泰迪奥藏身的豪宅再次相聚，并夺取共和国。如果你们主张与联邦一样的自由，那么我希望你们能加入我们。"阿尔克拉姆传送过来一些坐标，并立即回去关注他的船员。</text>
+							<quest event="TYRDEO_PALACE" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>呃，直接杀了他吧。</text>
+				<event>
+					<text>你不知道这个吸虫族是谁，也不知道为什么泰迪奥要他死，但如果你不享受一些无意义的谋杀，那就见鬼了。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视那艘船，继续前进。</text>
+		<event />
+	</choice>
+</event>
+<ship name="SHIP_LEECH_DREADNAUGHT" auto_blueprint="MU_LEECH_DREAD">
+	<destroyed>
+		<text>强大的船只已经被打败了--即使是共和国军队中最强大的船只也无法抵御你的力量。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="TYRDEO_PALACE_ENTER" />
+		</choice>
+	</destroyed>
+	<deadCrew>
+		<text>强大的船只已经被打败了--即使是共和国军队中最强大的船只也无法抵御你的力量。</text>
+		<autoReward level="HIGH">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="TYRDEO_PALACE_ENTER" />
+		</choice>
+	</deadCrew>
+	<crew>
+		<crewMember type="leech_ampere" prop="0.7" />
+		<crewMember type="rock_crusader" prop="0.3" />
+	</crew>
+</ship>
+<event name="TYRDEO_PALACE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_tyrdeo" global="true">
+		<color r="230" g="85" b="255" a="1" />
+		<unvisitedTooltip>泰迪奥总统的豪宅位置。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+	</beaconType>
+	<img back="BACK_EVENT_LEECHCAP" planet="NONE" />
+	<text>这就是阿尔克拉姆所描述的确切地点--不可能认错这座巨大的宫殿和它那耀眼的信标。由于吸虫族星域的其他地方都很破旧，似乎不可能有这么好的建筑出现在这里，但话说回来，如果不是这座皇宫，也许其他的地方就不会是现在这个样子了。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>一支由吸虫革命者组成的舰队聚集在宫殿周围，负责应战的是少数剩余的共和国忠臣，以及圣判所和星联的船只。没有人能够攻破这座豪宅，你可以看到原因：一艘巨大的电吸虫无畏舰保护着建筑周围的屏障，它的威胁可不小。当你听到那些古代大型吸虫族的故事时，这就是他们在谈论的东西。</text>
+			<ship load="SHIP_LEECH_DREADNAUGHT" hostile="false" /> 
+			<choice hidden="true">
+				<text>我们可以干掉他！</text>
+				<event>
+					<text>当你接近时，这艘巨大的战舰向你冲来。是时候考验一下这些神话了。</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>该死的，我们走吧。</text>
+				<event>
+					<text>自由和所有这些爵士乐都很酷，但你宁愿活到明天，也不愿死于介入一场无关你个人利益的冲突。</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="TYRDEO_PALACE_ENTER">
+	<text>随着无畏舰被击落，屏障在几分钟内倒塌，革命者们蜂拥而至。在激烈的冲突中，你设法溜过其余的防御设施，进入大宅。</text>
+	<variable name="ach_boss_leechdread" op="set" val="1" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>里面守卫很少，他们都在处理外面的入侵者。你设法闯入泰迪奥的寝室，在那里你看到一只病态的紫色蠕虫紧张地从他的窗口观察冲突。这就是泰迪奥。</text>
+			<choice hidden="true">
+				<text>你的时间到了，泰迪奥！</text>
+				<event>
+					<text>吸虫族转过身来，吓了一跳。他摇摆不定的声音出奇地柔和，像一个孩子而不是一个独裁者。"哦，天哪！求你了，大发慈悲吧。哦，上帝啊上帝啊，我做了什么？真的到了这个地步吗？一个外国杀手闯进我的门，在我自己的床上把我的头砍下来？求你了，快点动手吧，但不要伤害我的威尔西。"泰迪奥用他的一条舌头指着房间角落里的一个笼子，里面有一只大的、明亮的黄色鸟类，尽管房间里的气氛很糟糕，但它还是欢快地鸣叫着。</text>
+					<choice hidden="true">
+						<text>我们不是杀手--你要在你的人民面前为你的罪行负责。</text>
+						<event>
+							<text>"不-不，求你了！我不在乎你是否会杀了我，但如果你把我交给他们，你不知道他们会对我做什么！他们会像厄尔蒂斯一样把我砍成碎片，或者像阿尔克拉姆一样把我的舌头割下来，用它来勒死我！请开枪杀了我吧！"泰迪奥扑倒在地，不由自主地抽泣起来。你把他吊在肩上，把他拖到阿尔克拉姆面前，他也已经到了宫殿，向你表示感谢。"我们在一个舰库里发现了一艘巡洋舰，似乎是泰迪奥的私人巡洋舰和他的逃跑计划。他用不上这些了，所以我们会把它作为礼物送给联邦。"</text>
+							<unlockCustomShip silent="false">PLAYER_SHIP_LEECH</unlockCustomShip>
+							<autoReward level="HIGH">stuff</autoReward>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>泰迪奥被拖到院子里，你看到大部分的战斗已经停止。看到总统被俘，最后一批效忠者投降了。泰迪奥在一群嘲笑他的吸虫族面前被吊了起来，他继续啜泣着。甚至一些星联和圣判所的官员也加入其中。泰迪奥恳求道："天啊，真的有必要这样吗？是你们把我推到这个位子上的，我只是想帮忙！"泰迪奥发出了巨大的啜泣声。"我知道给血草兰花的花很愚蠢，但我只是想交朋友！加入星联似乎是稳定国家的最好办法！我该怎么办？我该怎么做呢？在这之前我是个园艺师！而且水平也不高！你们为什么要让我掌权呢？！"</text>
+									<choice hidden="true">
+										<text>继续。</text>
+										<event>
+											<text>阿尔克拉姆打断了泰迪奥的话，站在人群面前。"像个男子汉一样，别再哭了！在那场战争中，在我面对半械族的战争机器和超能维和兵时，你却忙着修剪树篱！你曾有过机会，但现在是时候让共和国有一个称职的领导人了！"群众也加入进来，高呼着，几乎是在为杀死前总统的前景流口水。在垂死挣扎时，泰迪奥转向你，恳求道。"求你了，我知道我犯了错，我知道星联是你的敌人，但你不能让他们这样做！我不想当总统。我不想再当总统了，我从来没有想过！我只想活着！"</text>
+											<choice hidden="true">
+												<text>你本来有机会做出改变的，现在还是乖乖认命吧。</text>
+												<event>
+													<text>泰迪奥在恐惧中尖叫，因为他的命运已经注定。他被放下来，扔到人群中，在那里被他以前的臣民撕成碎片。毫无疑问，这是一个可怕的结局。阿尔克拉姆在一旁观看，你觉得他感到厌恶。考虑到他扮演者着命运之手一般的角色，这很讽刺。但也许他在设想如果他自己搞砸了，他也会处于这种境地。</text>
+													<choice hidden="true">
+														<text>继续。</text>
+														<event>
+															<text>随着泰迪奥的死亡，剩余的星联和圣判所的部队逃离了，只剩下你和吸虫族。阿尔克拉姆开始发表演讲："长久以来，共和国一直被无能的人把持着。现在是时候让真正的领袖夺取王位了，我想没有人比我更合适了--"阿尔克拉姆被人群打断了，他们又开始发出嘘声。似乎吸虫们终于发现了他们的处境。同样的事情周而复始，他们已经受够了。阿尔克拉姆退缩了，他害怕自己也会遇到同样的命运。</text>
+															<choice hidden="true">
+																<text>继续。</text>
+																<event>
+																	<text>"呃，我说我自己吗？对不起，我不是这个意思。我想说的是，我认为现在是共和国建国以来第一次选举总统的时候了！但恐怕我不能参加了。我已经老了。现在是我退休的时候了。再见。"阿尔克拉姆从舞台上滑下来，走到你身边。"这真是一场灾难。但我已经尽了我的职责。至少共和国可能最终看到更好的日子。你需要一个战士吗？我已经变老了，但我依然能够胜任。"</text>
+																	<variable name="ach_crew_alkram" op="set" val="1" />
+																	<crewMember amount="1" all_skills="1" class="unique_alkram">阿尔克拉姆</crewMember>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+											<choice hidden="true">
+												<text>这似乎有点过分，也许他罪不至此？</text>
+												<event>
+													<text>泰迪奥发出一阵欢呼，而观众则对你的意见表示不满。阿尔克拉姆严肃地说："像这样的人不配有第二次机会。罪行不如他深重的人我都杀过。为了继承王位，我必须杀死这个可悲的笨蛋。所有伟大的革命都以一个国王的死亡而告终。"</text>
+													<choice hidden="true">
+														<text>王位？所以你将在他之后成为国王？</text>
+														<event>
+															<text>阿尔克拉姆眨了眨眼，意识到自己说错了话，但为时已晚。众人注意到了，很快他们的敌意就转向了他。"你并不比泰迪奥好！你只是另一个腐败的、想通过武力夺取权力的人！"一个愤怒的旁观者喊道，其他的人也同意。很快，暴徒们蜂拥而至，事情变得血腥。在混乱中，泰迪奥挣脱出来，冲向你。"我可能会晕倒。我这辈子都没有这么害怕过。我都已经弄脏了自己！哦，等等，对不起，你不需要知道这些。不管怎么说--请带我一起走吧！我可以做的事比修剪树篱更多，我保证！"你同意了，但在你能回到船上之前，泰迪奥躲回了他的宫殿，带着他的鸟回来了，他把鸟装进了货舱。真是个无比奇怪的人。</text>
+															<variable name="ach_crew_tyrdeo" op="set" val="1" />
+															<crewMember amount="1" repair="1" class="unique_tyrdeo">泰迪奥</crewMember>
+															<choice hidden="true">
+																<text>继续。</text>
+																<event>
+																	<crewMember amount="1" class="unique_tyrdeo_bird">威尔西</crewMember>
+																</event>
+															</choice>
+														</event>
+													</choice>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>杀了他。</text>
+						<event>
+							<text>你向泰迪奥的头部开了一枪，瞬间将他杀死。几分钟后，阿尔克拉姆和他的手下冲进房间，但看到总统已经死了，感到很震惊。"什--什么？你杀了他？这么快？这到底是怎么回事？你对这件事的热情只是让这件事更加复杂。"阿尔克拉姆咆哮着，显然很恼火。"现在解决这个问题的任务落在我身上了。很好。我会让我的人给你一份奖励，但从此我们井水不犯河水。"</text>
+							<autoReward level="MED">item</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="LEECH_INQUISITIONER">
+	<text>一艘不常见的舰体鲜红色的岩石船正在靠近。这不是普通的圣判所船只，而是一艘圣骑战舰。圣骑士在他们的家园——努马五星系之外很少出现，所以这不可能是好事。</text>
+	<preventQuest />
+	<ship load="SHIP_ROCK_SELITE_BATTLESHIP" hostile="false" /> 
+	<choice hidden="true">
+		<text>看看它打算干什么。</text>
+		<event>
+			<text>令你惊讶的是，这艘船只是想呼叫你而不是开火。"我...是审判官戈拉。不要告诉我你的名字...我并不关心。我有一个建议给你。我知道我们不是朋友，幸好...但我相信我们可以达成一个互利的安排..."</text>
+			<choice hidden="true">
+				<text>说来听听。</text>
+				<event>
+					<text>"我被神权国派到这里来...处理阿尔克拉姆将军革命后的情况。我个人并不关心吸虫族们，但我知道最好不要质疑我的...领导人。我的人发现了一个秘密储藏处，那里有一艘原型飞船。摧毁它...这样革命者们就难以与我的军队抗衡。作为回报，你可以带走秘密储藏处的任何武器，包括星舰的蓝图。这...听起来如何？"</text>
+					<choice hidden="true">
+						<text>接受。</text>
+						<event>
+							<text>"好...好...我将立即发送...坐标。"就这样，这艘船跃迁走了。</text>
+							<quest event="LEECH_INQUISITIONER_CACHE" />
+							<instantEscape />
+							<choice blue="false" req="unique_alkram" max_group="0">
+								<text>阿尔克拉姆将你拉到一旁。</text>
+								<event>
+									<text>"你该不会真打算这么做吧？"阿尔克拉姆审视着你。"……我有个更好的提议，如果你愿意听的话。"</text>
+									<choice>
+										<text>听他说。</text>
+										<event>
+											<text>"如果我们前往那里，可以实施佯动。我的盟友会假装被摧毁。待圣骑士接近时，我们便发动伏击，侧翼包抄，让他们构成的威胁彻底消失。届时会有大量战利品，我们还会额外酬谢你。不妨考虑一下。"</text>
+											<choice blue="false" req="unique_ariadne">
+												<text>阿里阿德涅点了点头。</text>
+												<event>
+													<text>"阿尔克拉姆说得对。我们拥有歼灭敌人并缔结盟约的绝佳机会。我全力支持这项计划。"</text>
+												</event>
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice blue="false" req="unique_ariadne" max_group="0">
+								<text>阿里阿德涅说出了她的想法。</text>
+								<event>
+									<text>"这位圣骑士愚蠢地给了我们歼灭他们的绝佳机会。当我们进入其辖区时，我可以联络革命军，届时我们便能设下埋伏。这比正面进攻要稳妥得多。他们必将为试图控制我们而后悔。"</text>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>拒绝。</text>
+						<event>
+							<text>"那么你就是在浪费我的时间...我看没有理由再让你活着了。"</text>
+							<ship hostile="true" /> 
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>算了吧伙计。</text>
+				<event>
+					<text>"那么你就是在浪费我的时间...我看没有理由再让你活着了。"</text>
+					<ship hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>先下手为强！</text>
+		<event>
+			<text>等到不可避免的时候就迟了，你最好率先进攻，而且动作要快！</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>迅速飞走。</text>
+		<event>
+			<text>这艘船似乎太慢了，即使它注意到了你也无法跟上，所以你迅速溜走。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_revolutionarystart" global="true">
+        <color r="72" g="36" b="0" a="1.0" />
+        <unvisitedTooltip>此处是岩石族圣骑士的所在。不要攻击他们。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<ship name="SHIP_REVOLUTIONARY_CRUISER" auto_blueprint="MU_ALKRAM_CRUISER">
+	<destroyed load="LEECH_INQUISITIONER_CACHE_WIN" />
+	<deadCrew load="LEECH_INQUISITIONER_CACHE_WIN" />
+	<crew>
+		<crewMember type="leech" prop="0.66" />
+		<crewMember type="orchid_vampweed" prop="0.33" />
+	</crew>
+</ship>
+<event name="LEECH_INQUISITIONER_CACHE">
+	<preventQuest />
+	<preventFleet />
+	<quest>
+		<nebulaBeacon>true</nebulaBeacon>
+		<createNebula>false</createNebula>
+		<aggressive>2</aggressive>
+	</quest>
+	<beaconType id="map_icon_cache" global="true">
+		<color r="135" g="50" b="55" a="1" />
+		<unvisitedTooltip>此处为革命者的秘密储藏处。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+	</beaconType>
+	<img planet="NONE" />
+	<text>到达该信标后，储藏处的位置还不是那么明显，但坐标位置也离这不远。</text>
+	<choice req="unique_alkram">
+		<text>(阿尔克拉姆)让革命者们准备一次突袭。</text>
+		<event>
+			<text>"同志们！神权国以为我们同舰的变元者兄弟会先把他们的铁拳砸过来，可他们落入了我们的手掌心！我们会假装击败了你们，来勾引他们的舰队上钩。"吸虫族们在这见到阿尔克拉姆很意外，但他们都很熟悉这样的游击战术。</text>
+			<choice>
+				<text>联系圣骑士们。</text>
+				<event load="REVOLUTIONARY_PALADIN_TRAP" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="unique_ariadne">
+		<text>(阿里阿德涅)让革命者们准备一次突袭。</text>
+		<event>
+			<text>"我是迷失烈阳的上将阿里阿德涅，我有一个提议。神权国已经知晓了此储藏处，派我们过来摧毁你们。不过，我们可不是他们的傀儡。我们愿意协助你们，只要你们也愿意协助我们将神权国覆灭。"吸虫族们认识阿里阿德涅，讨论了一会之后决定同意进行协助。</text>
+			<choice>
+				<text>联系圣骑士们。</text>
+				<event load="REVOLUTIONARY_PALADIN_TRAP" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>往坐标处前进。</text>
+		<event load="APPROACH_REVOLUTIONARY_BASE" />
+	</choice>
+</event>
+<event name="APPROACH_REVOLUTIONARY_BASE">
+	<text>眼前的景色迫使你反复检查坐标，但这绝对是正确的地方。这里可不仅仅是一个简单的储藏处 - 这是一个完整的行动基地。由革命者们用曾经的废弃矿区改建而成，并在下面设立了几个大型仓库。</text>
+	<changeBackground>BACK_EVENT_REVCACHE</changeBackground>
+	<ship load="SHIP_REVOLUTIONARY_CRUISER" hostile="false" />
+	<choice hidden="true" req="unique_alkram" max_lvl="0" lvl="0" blue="false">
+		<text>攻击星舰！</text>
+		<event>
+			<text>准备好迎接一场激烈的战斗吧 - 如果圣判所需要你来解决，那么它一定不是普通的威胁。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_alkram" lvl="1" blue="false">
+		<text>攻击星舰！</text>
+		<event>
+			<text>当你准备好攻击储藏处时，阿尔克拉姆向你走来。"你个混蛋！你要把你的意识强加在我的之上？你还是人吗？"他对你怒目而视一会之后，摇了摇头。"我不会忘记今天的。"他小声说道。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice blue="false" req="pilot" lvl="1">
+		<text>离开。</text>
+		<event>
+			<text>圣判所不过是一帮牛马，没有理由为了一些可能会在背后捅你一刀的岩石族去玩命。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="LEECH_INQUISITIONER_CACHE_WIN">
+	<text>原型飞船已经被打败了。这可能会让革命者的实力倒退不少，无论这是好是坏。</text>
+	<variable name="ach_boss_revcruiser" op="set" val="1" />
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>呼叫戈拉。</text>
+		<event>
+			<text>你开始呼叫戈拉，但他在飞船被击溃后不久就已经到达。"干得真不错...舰长。正如承诺的那样，蓝图是你的。在我们摧毁这个地方之前，你有3分钟的时间去拿你...想要的东西。"</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_ALKRAM</unlockCustomShip>
+			<choice hidden="true">
+				<text>尽可能多地拿取物资！</text>
+				<event>
+					<text>你匆匆忙忙赶到开采殖民地，拿起你能携带的尽可能多的资源，在起飞前把它们塞进你的货舱。在你的下方，你可以看到一场剧烈的爆炸吞噬了殖民地，除了瓦砾之外几乎什么都没有留下。</text>
+					<autoReward level="HIGH">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>拿上其中一件武器！</text>
+				<event>
+					<text>你匆匆赶到开采殖民地，拿起其中一件武器，在起飞前把它塞进你的货舱。在你的下方，你可以看到一场剧烈的爆炸吞噬了殖民地，除了瓦砾之外几乎什么都没有留下。</text>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>带上其中的一个幸存者！</text>
+				<event>
+					<text>你匆忙赶到采矿殖民地，说服了一名被革命军扣押的电流吸虫加入你们，随即迅速起飞。在你下方，剧烈的爆炸吞噬了整个殖民地，只留下一片断壁残垣。</text>
+					<crewMember amount="1" class="leech_ampere" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="REVOLUTIONARY_PALADIN_TRAP">
+	<text>在你发出信号后仅片刻，圣骑士舰船便跃迁而至。然而你的骗局很快就被揭穿。"你……我早该料到变元者渣滓会背叛！你会后悔的！"圣骑士们似乎将注意力从原定目标转移到了你身上！</text>
+	<changeBackground>BACK_EVENT_REVCACHE</changeBackground>
+	<ship load="SHIP_ROCK_SELITE_AMBUSH" hostile="true" />
+	<choice>
+		<text>就在你备战之际，革命军向你发来了通讯。</text>
+		<event>
+			<text>"若能等解决他们后仔细检查那艘船，将对我们的事业极有价值。我们提供两种支援方案：集中吸取他们的反应堆能量，或者提供炮火支援。您倾向哪种？"</text>
+			<choice>
+				<text>火力支援。</text>
+				<event>
+					<text>星舰撤回并与基地对接。虽然基地本身没有武器系统，但星舰的武器系统经过改造后，可充当临时反舰炮台使用。</text>
+					<environment type="PDS" target="enemy" />
+					<noASBPlanet />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>锁定反应堆。</text>
+				<event>
+					<text>革命军的星舰收回了武器。如同寄生虫般，它紧贴在圣骑士星舰的后方，持续吸取其反应堆能量。</text>
+					<status type="divide" target="enemy" system="reactor" amount="2" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="COMBAT_REACTOR_JAMMER">
+				<text>[注意：在战斗准备菜单中选择使用EMP战斗增强部件，将在战斗结束时清除吸虫族的反应堆能量吸取效果。]</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="REVOLUTIONARY_PALADIN_VICTORY">
+	<text>在你和革命军的联手攻击下，圣骑士舰船终于停止运转。这艘船蕴含着丰厚的战利品，你毫不客气地收入囊中。</text>
+	<autoReward level="HIGH">standard_no_item</autoReward>
+	<choice hidden="true">
+		<text>联系吸虫族。</text>
+		<event>
+			<text>"既然连神权国都派出他们最精锐的战士来对付我们，那说明我们确实构成了威胁。他们暴露底牌实属严重失策。我们会提供标准补给包、巡洋舰设计图，您还可以任选一件武器或一名囚犯。"</text>
+			<unlockCustomShip silent="false">PLAYER_SHIP_ALKRAM</unlockCustomShip>
+			<autoReward level="HIGH">stuff</autoReward>
+			<choice>
+				<text>选择一个武器。</text>
+				<event>
+					<weapon name="GIFTLIST_LEECH" />
+				</event>
+			</choice>
+			<choice>
+				<text>接受一名囚犯。</text>
+				<event>
+					<text>革命者从牢房中释放出一名电流吸虫。这名电流吸虫似乎有些不满，但还是接受了安排。"我不知道你们是谁，也不知道发生了什么……不过在船上服役总比在牢房里腐烂强。"</text>
+					<crewMember amount="1" class="leech_ampere" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+</FTL>

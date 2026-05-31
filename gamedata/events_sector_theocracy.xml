@@ -1,0 +1,3371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					THEOCRACY SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_ROCK">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_ROCK_MV">
+	<event load="ROCK_NEEDSMISSILES" />
+	<event load="ROCK_APOLOGY" />
+	<event load="ROCK_PUNS" />
+	<event load="ROCK_CRYOBSESSION" />
+</eventList>
+
+<event name="ROCK_NEEDSMISSILES" unique="true">
+	<text>一艘岩石族飞船呼叫你，说他们的弹药不够用，提出要向你购买一些。</text>
+	<choice>
+		<text>出售5发弹药。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-5" max="-5" />
+				<item type="scrap" min="20" max="20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>出售10发弹药。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-10" max="-10" />
+				<item type="scrap" min="40" max="40" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>出售15发弹药。</text>
+		<event>
+			<disableScrapAugments />
+			<item_modify>
+				<item type="missiles" min="-15" max="-15" />
+				<item type="scrap" min="60" max="60" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们没有兴趣出售任何东西。</text>
+		<event>
+			<text>你道歉并继续上路。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_APOLOGY" unique="true">
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<text>进入该星系不久后，你收到一条来自附近舰船的消息："我们是罪人！哦，我们真倒霉！击倒我们！惩罚我们！我们不配拥有生命的权利！"</text>
+	<choice hidden="true">
+		<text>询问对方为什么沮丧。</text>
+		<event load="ROCK_APOLOGY_INTERROGATE" />
+	</choice>
+	<choice hidden="true">
+		<text>干掉他们。</text>
+		<event load="ROCK_APOLOGY_ATTACK" />
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>岩石族继续央求了一会儿，但你只是将他们拒之门外然后飞走了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_APOLOGY_INTERROGATE">
+    <event>
+        <text>"我犯了戒！我...去上了厕所...然后手纸用完了...然后我随身带有一本圣书...噢，神呐！我是个怪物！你怎么能让我想起我犯的罪行？你太残忍了！残忍至这个世界不该有你的容纳之所！我要先杀了你，然后自尽！"</text>
+        <ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+    <event>
+        <text>"我犯了戒！我...去上了厕所...然后手纸用完了...然后我随身带有一本圣书...噢，神呐！我是个怪物！哦，请允许我为自己赎罪！也许我能在再次通往天堂的路途中，再为世界做一点小贡献！"</text>
+		<crewMember amount="1" class="rock" />
+	</event>
+</eventList>
+<eventList name="ROCK_APOLOGY_ATTACK">
+    <event>
+        <text>"我改变主意了！不想死了！作为替代，我要杀了你来救赎自己！"</text>
+        <ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+    </event>
+    <event>
+        <text>"噢，感谢你，舰长！只有在死亡中我才能找到救赎！"</text>
+		<autoReward level="MED">standard</autoReward>
+		<enemyDamage amount="30" />
+	</event>
+</eventList>
+
+<event name="ROCK_PUNS" unique="true">
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<text>一个坚毅的岩石族舰长呼叫你。"联邦。我有一个重要的问题要问你。为什么你不能期望地质学家做到完美？"</text>
+	<choice hidden="true">
+		<text>呃...我们不知道。</text>
+		<event>
+			<text>"因为他们都是低智学家！"他爆发出强烈的笑声。</text>
+			<choice hidden="true">
+				<text>一起笑。</text>
+				<event>
+					<text>你的笑声和岩石族混在一起。过了一会儿，你们俩都冷静下来。岩石族非常感谢你在他的双关语中找到了幽默感，他觉得有必要送给你一些弹药！</text>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>终结对方可怜的存在。</text>
+				<event>
+					<text>"等等...等等，不，这只是一个玩笑！"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ZOLTAN">
+				<text>(超能族船员)"令人震精！"</text>
+				<event>
+					<text>岩石族对你的双关语答复印象深刻，他甘拜下风，并承诺将他的余生供你驱驰。只要他能在路上一直说双关语。</text>
+					<crewMember amount="1" class="rock">滑稽演员</crewMember>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_CRYSTAL">
+				<text>(水晶族船员)"啊，人生无常，大肠包小肠！"</text>
+				<event>
+					<text>岩石族对你的双关语答复印象深刻，他甘拜下风，并承诺将他的余生供你驱驰。只要他能在路上一直说双关语。</text>
+					<crewMember amount="1" class="rock">滑稽演员</crewMember>
+					<autoReward level="MED">missiles_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_LEECH">
+				<text>(吸虫族船员)"那个笑话吸烂。"</text>
+				<event>
+					<text>"这是一个双关语吗？我分不清你是在侮辱我还是在可怜巴巴地试图加入我。我讨厌吸虫。滚出我的视线！"</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_SLUG" hidden="true">
+		<text>(蛞蝓族船员)让你的蛞蝓族船员预测答案。</text>
+		<event>
+			<text>你的蛞蝓族船员咕哝道。"这只是～～一个愚蠢的双～～～关语。"你的蛞蝓族复述了岩石族准备说的话。"因为他们都是～低智学家..."岩石族皱着眉头说你答对了，并关闭了通讯。</text>
+		</event>
+	</choice>
+	<choice req="BLUELIST_CREW_SNAIL" hidden="true">
+		<text>(心灵感应甲壳族)让你的甲壳族预测答案。</text>
+		<event>
+			<text>你的甲壳族船员嘲笑。"这是个令人难以置信的...喜剧的无情尝试。"你的甲壳族船员复述了岩石族准备说的话。"因为他们都是低智学家..."岩石族听到后哈哈大笑，不知道你的甲壳族从他脑海中得到了答案。他觉得有必要送你一些导弹，因为你参与了他的滑稽表演。</text>
+			<autoReward level="MED">missiles_only</autoReward>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_CRYOBSESSION" unique="true">
+	<text planet="PLANET_POPULATED">附近的一个几乎完全是浅蓝色的岩石定居点，向你呼叫。"你是来自外面的人？你不会碰巧有源自水晶族的东西吧？"</text>
+	<choice req="BLUELIST_WEAPONS_CRYSTAL" hidden="true">
+		<text>(水晶系武器)我们有一件水晶武器。</text>
+		<event>
+			<text>"了不起！真是件精心制作的武器。你不会愿意卖给我们一个吧？"</text>
+			<choice req="CRYSTAL_BURST_1" blue="false">
+				<text>卖给他们一件水晶爆裂I。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_1" />
+					<item_modify>
+						<item type="scrap" min="65" max="65" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_1_RED" blue="false">
+				<text>卖给他们一件精英水晶爆裂I。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_1_RED" />
+					<item_modify>
+						<item type="scrap" min="75" max="75" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_2" blue="false">
+				<text>卖给他们一件水晶爆裂II。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_2" />
+					<item_modify>
+						<item type="scrap" min="90" max="90" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_2_RED" blue="false">
+				<text>卖给他们一件精英水晶爆裂II。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_2_RED" />
+					<item_modify>
+						<item type="scrap" min="100" max="100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_1" blue="false">
+				<text>卖给他们一件重型水晶I。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_1" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_1_RED" blue="false">
+				<text>卖给他们一件精英重型水晶I。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_1_RED" />
+					<item_modify>
+						<item type="scrap" min="70" max="70" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_2" blue="false">
+				<text>卖给他们一件重型水晶II。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_2" />
+					<item_modify>
+						<item type="scrap" min="85" max="85" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_HEAVY_2_RED" blue="false">
+				<text>卖给他们一件精英重型水晶II。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_HEAVY_2_RED" />
+					<item_modify>
+						<item type="scrap" min="95" max="95" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_SHOTGUN" blue="false">
+				<text>卖给他们一件水晶破片。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_SHOTGUN" />
+					<item_modify>
+						<item type="scrap" min="90" max="90" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_SHOTGUN_RED" blue="false">
+				<text>卖给他们一件精英水晶破片。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_SHOTGUN_RED" />
+					<item_modify>
+						<item type="scrap" min="100" max="100" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_CHARGEGUN" blue="false">
+				<text>卖给他们一件充能水晶。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_CHARGEGUN" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_CHARGEGUN_RED" blue="false">
+				<text>卖给他们一件精英充能水晶。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_CHARGEGUN_RED" />
+					<item_modify>
+						<item type="scrap" min="70" max="70" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_STUN" blue="false">
+				<text>卖给他们一件神经激光。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_STUN" />
+					<item_modify>
+						<item type="scrap" min="65" max="65" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_STUN_RED" blue="false">
+				<text>卖给他们一件精英神经激光。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_STUN_RED" />
+					<item_modify>
+						<item type="scrap" min="75" max="75" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="BOMB_LOCK" blue="false">
+				<text>卖给他们一件封锁炸弹。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="BOMB_LOCK" />
+					<item_modify>
+						<item type="scrap" min="50" max="50" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="MINELAUNCHER_CRYSTAL" blue="false">
+				<text>卖给他们一件晶片发射器。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="MINELAUNCHER_CRYSTAL" />
+					<item_modify>
+						<item type="scrap" min="60" max="60" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_FIRE" blue="false">
+				<text>卖给他们一件琥珀发射器。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_FIRE" />
+					<item_modify>
+						<item type="scrap" min="120" max="120" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice req="CRYSTAL_BURST_FIRE_CHAOS" blue="false">
+				<text>卖给他们一件混沌琥珀发射器。</text>
+				<event>
+					<text id="rock_crystal_sale" />
+					<remove name="CRYSTAL_BURST_FIRE" />
+					<item_modify>
+						<item type="scrap" min="160" max="160" />
+					</item_modify>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们没有兴趣出售任何东西。</text>
+				<event>
+					<text>"啊...真是太可惜了。哦，好吧，你必须知道，你非常幸运，可以使用这样的异族技术！"</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_CRYSTAL" hidden="true">
+		<text>(水晶族船员)我们的船上有一个水晶族。</text>
+		<event>
+			<text>岩石族沉默了。然后，他用颤抖的语气说："你们...你们一定是神！请拿走我们的一切！"</text>
+			<weapon name="GIFTLIST_CRYSTAL" />
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们不知道，对不起。</text>
+		<event>
+			<text>定居点立即切断了通信。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="ITEMS_ROCK_UNIQUE">
+	<event load="ROCK_PROPHECY" />
+	<event load="ROCK_TEMPLE" />
+	<event load="ROCK_ASTEROID_DERELICT_SHIP" />
+
+	<event load="ROCK_APOLOGY" />
+	<event load="ROCK_PUNS" />
+	<event load="ROCK_CRYOBSESSION" />
+	<event load="ROCK_ITEM_SONG_CONTEST" />
+</eventList>
+
+
+<event name="ROCK_ITEM_SONG_CONTEST" unique="true">
+    <text>这个信标正在播送一档有趣的娱乐节目——一场歌手大赛。“欢迎光临，外来星舰。你们愿意来参加我们的比赛吗？你们只需吟唱一首你们文化中的歌曲即可。”</text>
+    <choice req="unique_turzil">
+        <text>(图尔齐尔)图尔齐尔是一名熟练的爵士乐手。</text>
+        <event>
+            <text>“我以前经常和塔利一起演奏。现在可能有些生疏了。”图尔齐尔拿着话筒走上舞台并吹奏起来。令人惊讶的是，演奏听起来充满激情。听众们深受触动。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_tully">
+        <text>(塔利)塔利对行军乐有所了解。</text>
+        <event>
+            <text>“让我们瞧瞧我能否把这些曲子演奏好。我肯定这些岩石族会喜欢的。”塔利拿出一把小号开始吹奏。他吹得相当不错，事实上他听起来完全没有生疏。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_symbiote">
+        <text>（共生体）自我和声。</text>
+        <event>
+            <text>婷丹和里格开始一起即兴演奏，就像一种双人无伴奏合唱。他们不寻常的生物组合赋予了它一种奇特、独特的声音。你从未听过这样的东西。岩石族很喜欢。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_freddy">
+        <text>（弗雷迪）弗雷迪问他们是否有三角钢琴。</text>
+        <event>
+            <text>岩石族没有弗雷迪要的确切东西，但他们有一架管风琴。弗雷迪展示了他刻苦掌握的技巧——没有手指弹钢琴是很困难的。结果听起来出奇地好，尽管他的生理限制很明显。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_tuco">
+        <text>（图科）图科是位经验丰富的岩石族音乐家。</text>
+        <event>
+            <text>岩石族评委们极不情愿接受这样一位著名的流放者。然而，导演站了出来。"今天我们在此欣赏音乐。只要你不得罪我们，我们会给你展示的机会。"图科拿起他最喜欢的乐器开始演奏。亲耳听到传奇本人演奏是一种难得的体验，虔诚的岩石族似乎不由自主地享受其中。不过，神权国的骄傲很可能不会允许他们给他太多赞誉。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_guntput">
+        <text>（冈特普特）冈特普特唱《开门歌》。</text>
+        <event>
+            <text>"腾特 帕拉 帕拉，凯斯鲁 帕拉 帕拉，斯派基斯 帕拉 帕拉，塔克鲁 帕拉 帕拉！帕拉 马库！"歌声一落，大厅一片寂静。一块岩石独自站起来开始鼓掌，整个人群都开始站起来加入他。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_tyrdeo_bird">
+        <text>（威尔西）把比赛交给威尔西。</text>
+        <event>
+            <text>威尔西似乎训练有素，愉快地为观众鸣唱出一首优美的歌曲。主持人看起来很困惑。"那是……一只动物？嗯，我想没有规则禁止这个。"</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_JERRY">
+        <text>（杰瑞）杰瑞过去常为慈善活动演唱。</text>
+        <event>
+            <text>杰瑞决定唱《为什么我们不能做朋友》。他提前指导观众参与合唱部分。岩石族玩得很开心——最终的表演赢得了起立鼓掌。这很可能正是促成你们两族之间关系转折的关键时刻。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_ELLIE_COSTUME">
+        <text>（埃莉）埃莉喜欢唱她的主题曲！</text>
+        <event>
+            <text>埃莉热情地唱着她的主题曲，一边在舞台上跑来跑去。主持人对歌曲选择感到困惑。"嗯……我不确定我对外星人该有什么期待。"</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_ellie_stephan">
+        <text>（斯蒂芬）斯蒂芬的曲库里有几首歌</text>
+        <event>
+            <text>"别担心，舰长，我以前为岩石族表演过。"斯蒂芬选了一首他过去试镜时唱的表演曲目。这是首老歌，但效果出奇地好。他作为表演者的才华显然无可指摘，观众们要求再来一首。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_dessius">
+        <text>（德修斯）唱那首悲伤之歌！</text>
+        <event>
+            <text>德修斯唱出一首充满巨大悲伤和悔恨的哀歌。人群沉默了——不是因为难听，而是因为每个听到的人都变得极其沮丧。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_ivar">
+        <text>（苡瓦）用提琴炫技。</text>
+        <event>
+            <text>众所周知，苡瓦会在他的聚会上拨弄琴弦。他演奏了一首出奇轻快的曲子，但尽管带来了娱乐，岩石族并不完全欣赏它。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="unique_mafan">
+        <text>（玛嬏）展示长笛技艺。</text>
+        <event>
+            <text>玛嬏用长笛演奏了一段欢快而技术性强的独奏，并配以踢踏舞。岩石族起初觉得这很傻，但你注意到他们在歌曲中途开始投入其中。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_HUMAN">
+        <text>（人类）你的一名人类船员是音乐家。</text>
+        <event load="ROCK_ITEM_SONG_CONTEST_HUMAN_SONGS" />
+    </choice>
+    <choice req="LIST_CREW_LANIUS">
+        <text>（食铁族）表演传统的食铁族和声。</text>
+        <event>
+            <text>你的食铁族登上舞台开始振动。产生的声音是一种金属对金属、回响和铿锵声的诡异和声。有时有点难听，但这仍然是一场非常令人印象深刻的表演。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_VAMPWEED">
+        <text>（血草兰花）演奏一些血草流行金属乐</text>
+        <event>
+            <text>你的血草兰花拿出电吉他，开始演奏最近的热门歌曲之一。这是一首非常响亮、朗朗上口但没什么内涵的歌，但你知道它现在会萦绕在你脑海里。不幸的是，岩石族似乎不喜欢它。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_FLORAL">
+        <text>（悦心兰花）表演一些悦心摇摆乐</text>
+        <event>
+            <text>你的悦心兰花演奏了一首著名岩石族歌曲的跳跃摇摆乐改编版。岩石族观众似乎很享受。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_VARIANT_SEPARATIST">
+        <text>（半械分离者）即兴表演</text>
+        <event load="ROCK_ITEM_SONG_CONTEST_SEPARATIST_SONGS" />
+    </choice>
+    <choice req="zoltan_monk">
+        <text>（超能族信道者）表演传统的超能族吟唱</text>
+        <event>
+            <text>信道者进行了一呼一应的吟唱，让观众参与其中。效果不错，虽然并未引起所有观众的共鸣。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="zoltan_osmian">
+        <text>（原能族）拿出特雷门琴</text>
+        <event>
+            <text>你的原能族拿出他们的特雷门琴，演奏了一段令人毛骨悚然的旋律。当你的原能族熟练地操控他们的乐器时，观众们都屏息凝神。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="lizard">
+        <text>（蜥蜴族）吟唱一首蜥蜴族歌曲</text>
+        <event>
+            <text>蜥蜴族为比赛吟唱了一首蜥蜴族歌曲，并配以诠释性的舞蹈。岩石族都对蜥蜴族的歌曲印象深刻，从未见过类似的东西。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_ROCK_FAITHFUL">
+        <text>（神权国岩石族）唱一首民谣摇滚歌曲</text>
+        <event>
+            <text>你的神权国岩石族唱了一首民谣摇滚歌曲。评委们礼貌地鼓掌，但显然与其他岩石族竞争者相比，这难以产生有意义的影响。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_ROCK_UNFAITHFUL">
+        <text>（背教岩石族）演奏一首抗议歌曲</text>
+        <event>
+            <text>你的岩石族开始即兴演奏，并利用这个机会传播信息。这首歌冲击力极强。然而，你刚唱到一半，他们就切断了信号，并愤怒地将你赶走，因为你反对现行体制。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_KICKED_OUT" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CHECK_ANY_CREW" max_lvl="0" lvl="0">
+        <text>（舰载AI）播放一些芯片音乐</text>
+        <event>
+            <text>你的飞船播放了一些基于岩石族似乎喜欢的歌曲的电子音乐。岩石族都对一艘飞船能自己制造音乐感到惊讶。</text>
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>聆听，但不参与。</text>
+        <event>
+            <text>比赛相当精彩，许多岩石族表演者前来竞争。与此同时，你的船员可以在听歌时在船上做些事情。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+
+<eventList name="ROCK_ITEM_SONG_CONTEST_HUMAN_SONGS">
+    <event>
+        <text>你的人类唱了一首福音歌曲。"当岩石呼喊时，无处可藏！"这绝对引爆了全场，所有在场的岩石族观众都跟着鼓掌。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_WINNER" />
+        </choice>
+    </event>
+    <event>
+        <text>你的人类拿出一把原声吉他，唱了一首乡村歌曲。岩石族似乎对表演很感兴趣，并礼貌地鼓掌。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+        </choice>
+    </event>
+    <event>
+        <text>你的人类唱了一首朋克流派的歌曲。观众似乎完全不感兴趣，许多人看起来巴不得它快点结束。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+        </choice>
+    </event>
+    <event>
+        <text>你的人类受过一点古典音乐训练，并在钢琴上演奏。岩石族似乎很欣赏，但没给他们留下太多印象。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+        </choice>
+    </event>
+</eventList>
+<eventList name="ROCK_ITEM_SONG_CONTEST_SEPARATIST_SONGS">
+    <event>
+        <text>半械分离者借鉴了一些岩石族经典曲目，当场进行混音和糅合。岩石族对这个概念很感兴趣，他们似乎很喜欢。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE" />
+        </choice>
+    </event>
+    <event>
+        <text>你的半械分离者尝试了一些即兴的宅核说唱。观众发出低沉的咕哝声，他们试图消化刚刚发生在眼前的事情，但失败了。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_RUNNER_UP" />
+        </choice>
+    </event>
+    <event>
+        <text>你的半械分离者表演了一首高度抽象的迷幻作品。观众似乎不确定该作何感受。评委们热烈地讨论着，都假装理解了它的含义。</text>
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE" />
+        </choice>
+    </event>
+</eventList>
+
+<event name="ROCK_ITEM_SONG_CONTEST_WINNER">
+    <text>"我们不常听到如此新颖又如此优美的作品。谢谢你向我们介绍这个，变元者。评委们授予你第一名，我很荣幸为你颁发奖品。"观众为你船员的表演鼓掌。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <weapon name="LOOT_ROCK_1" />
+</event>
+<event name="ROCK_ITEM_SONG_CONTEST_SECOND_PLACE">
+    <text>"真正令人印象深刻。谢谢你与我们分享那位艺术家。评委们认为，我们的领先者付出了太多努力，不能不赢，但你的卓越必须得到认可。评委们授予你第二名。这是你的奖品。"</text>
+    <autoReward level="MED">standard</autoReward>
+    <weapon name="GIFTLIST_ROCK" />
+</event>
+<event name="ROCK_ITEM_SONG_CONTEST_THIRD_PLACE">
+    <text>"你很有才华，能与我们有经验的参赛者同台竞技。谢谢你让这场比赛更有趣。评委们授予你第三名。这是你的奖品。"</text>
+    <autoReward level="LOW">standard</autoReward>
+    <weapon name="RANDOM" />
+</event>
+<event name="ROCK_ITEM_SONG_CONTEST_RUNNER_UP">
+    <text>当岩石族主持人宣布获奖者时，很明显你没有登上领奖台。他们为你参与比赛颁发了一份安慰奖。</text>
+    <autoReward level="LOW">standard_no_item</autoReward>
+</event>
+<event name="ROCK_ITEM_SONG_CONTEST_KICKED_OUT">
+    <text>被赶走后，一架穿梭机接近你的飞船。"你的歌打动了我。我考虑脱离神权国有一段时间了。如果你愿意接纳我，我将很荣幸加入你们。"</text>
+    <choice req="LIST_CREW_LOSTSUN">
+        <text>吸纳他们加入迷失烈阳。</text>
+		<event>
+			<crewMember class="rock_commando" amount="1" />
+		</event>
+    </choice>
+    <choice>
+        <text>接受。</text>
+		<event>
+			<crewMember class="rock_outcast" amount="1" />
+		</event>
+    </choice>    
+    <choice>
+        <text>拒绝。</text>
+    	<event />
+    </choice>    
+</event>
+
+<event name="ROCK_PROPHECY" unique="true">
+	<text>一艘载着几个身穿长袍的岩石族的船向你招手。"一个变革的时代即将到来！你听说过这个消息吗？预言，它将被实现！"</text>
+	<choice hidden="true">
+		<text>什么预言？</text>
+		<event>
+			<text>"你没有听说吗？那艘来自比我们更光明的未来的船，它将带来巨大的变革！来自上天的礼物，由仁慈的水晶神族赐予我们这些凡人！"</text>
+			<choice hidden="true">
+				<text>我们会不会是预言中的那艘船？</text>
+				<event>
+					<text>其中一个岩石族拉下他们的斗篷，盯着你的眼睛看了很久。"我不是专家，但你看起来像是被一种你无法控制的力量驱使的生物。你的意志被一个来自深处的存在所左右，被操纵以达到娱乐的目的。哪怕你不是预言中所说的那个人，自然也很重要。也许这些东西会帮助到你。"</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>这些人都是疯子，我们走吧。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你有更好的事情要做，而不是听这些宗教疯子的胡言乱语。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_TEMPLE" unique="true">
+	<text>附近有一座供奉水晶族的岩石族神庙。浓雾笼罩着这个星球，很难看到是否有什么东西在保护这个神殿。</text>
+	<choice hidden="true">
+		<text>突袭神庙。</text>
+		<event load="ROCK_TEMPLE_RAID" />
+	</choice>
+	<choice hidden="true">
+		<text>无视神庙。</text>
+		<event>
+			<text>你是疯了才会在岩石族的星域上突袭岩石族的庙宇。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_TEMPLE_RAID">
+	<event>
+		<text>当你试图抢劫神庙时，你被一个岩石族飞船拦住了，他立即发动了攻击！</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>在神庙里，你找到了一些物资和一件水晶武器。</text>
+		<autoReward level="MED">standard</autoReward>
+		<weapon name="GIFTLIST_CRYSTAL" />
+	</event>
+</eventList>
+
+<event name="ROCK_ASTEROID_DERELICT_SHIP" unique="true">
+	<distressBeacon />
+	<text>在附近密集的小行星带内，一艘没有生命体的飞船发出了求救信号。我们要调查吗？这可能很危险。</text>	
+	<choice hidden="true">
+		<text>寻找这个舰船。</text>
+		<event load="ROCK_ASTEROID_DERELICT_SHIP_SEARCH" />
+	</choice>
+	<choice hidden="true">
+		<text>避开这片区域。</text>
+		<event>
+			<text>谨慎是更优越的勇气，最好不要冒这个险。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ROCK_ARMOR">
+		<text>(岩石镀层)对飞船进行彻底的搜索，无惧飘来的小行星。</text>
+		<event load="ROCK_ASTEROID_DERELICT_SHIP_ROCK" />
+	</choice>
+</event>
+<eventList name="ROCK_ASTEROID_DERELICT_SHIP_SEARCH">
+	<event>
+		<text>你发现似乎是一个废弃的水晶空间站的碎片。在你有机会停靠之前，几颗小行星穿过你的护盾，部分损坏了你的引擎系统。你将不得不撤走！</text>
+		<damage amount="4" />
+		<damage amount="1" system="engines" />  <!--DLC-->
+	</event>
+	<event>
+		<text>你发现一艘海盗船，被损坏并被遗弃。你尽你所能进行回收然后继续前进。</text>
+		<autoReward level="RANDOM">standard</autoReward>
+	</event>
+	<event>
+		<text>你发现了一个古老的废弃水晶空间站遗迹。有一种奇怪的似曾相识的感觉，在角落里有一个休眠舱和一件水晶武器。</text>
+		<ship load="SHIP_CRYSTAL_STATION" hostile="false" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>看起来，一颗巨大的小行星正要与空间站直接相撞！你必须把你的船员撤离，但他们想先抓住能抓住的东西。他们该带走什么？</text>
+				<choice hidden="true">
+					<text>拿走武器和任何多余的资源。</text>
+					<event>
+						<text>你的船员们在小行星撞击之前抓住了他们能抓住的东西并回到了船上。当你离开小行星带后，你查看了所获之物。</text>
+						<enemyDamage amount="999" />
+						<autoReward level="LOW">stuff</autoReward>
+						<weapon name="GIFTLIST_CRYSTAL" />
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>抓住休眠舱。</text>
+					<event>
+						<text>你的船员在小行星砸向空间站之前将休眠舱拖回了你的星舰，粉碎了水晶镀层。</text>
+						<enemyDamage amount="999" />
+						<choice hidden="true">
+							<text>继续。</text>
+							<event>
+								<text>你成功再次开启休眠舱，发现里面的水晶族还活着。他很困惑，想知道现在是什么年头，所以你给了他一个非常简单的解释，说明你目前的情况，然后赶紧离开小行星带。</text>
+								<crewMember amount="1" class="crystal">德嘉</crewMember>
+								<autoReward level="LOW">scrap_only</autoReward>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_ASTEROID_DERELICT_SHIP_ROCK">
+	<event>
+		<text>你发现了一个古老的废弃水晶空间站遗迹。有一种奇怪的似曾相识的感觉，在角落里有一个休眠舱和一件水晶武器。</text>
+		<ship load="SHIP_CRYSTAL_STATION" hostile="false" />
+		<status type="limit" target="enemy" system="teleporter" amount="0" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>看起来，一颗巨大的小行星正要与空间站直接相撞！你必须把你的船员撤离，但他们想先抓住能抓住的东西。他们该带走什么？</text>
+				<choice hidden="true">
+					<text>拿走武器和任何多余的资源。</text>
+					<event>
+						<text>你的船员们在小行星撞击之前抓住了他们能抓住的东西并回到了船上。当你离开小行星带后，你查看了所获之物。</text>
+						<enemyDamage amount="999" />
+						<autoReward level="LOW">stuff</autoReward>
+						<weapon name="GIFTLIST_CRYSTAL" />
+					</event>
+				</choice>
+				<choice hidden="true">
+					<text>抓住休眠舱。</text>
+					<event>
+						<text>你的船员在小行星砸向空间站之前将休眠舱拖回了你的星舰，粉碎了水晶镀层。</text>
+						<enemyDamage amount="999" />
+						<choice hidden="true">
+							<text>继续。</text>
+							<event>
+								<text>你成功再次开启休眠舱，发现里面的水晶族还活着。他很困惑，想知道现在是什么年头，所以你给了他一个非常简单的解释，说明你目前的情况，然后赶紧离开小行星带。</text>
+								<crewMember amount="1" class="crystal">德嘉</crewMember>
+								<autoReward level="LOW">scrap_only</autoReward>
+							</event>
+						</choice>
+					</event>
+				</choice>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_ROCK_MV">
+	<event load="ROCK_WEAPON_MEASURING" />
+	<event load="ROCK_LOOTING_MV" />
+	<event load="ROCK_MANTIS_HUNTER_MV" />
+	<event load="ROCK_MANTIS_FREIGHTER_MV" />
+	<event load="ROCK_ZOLTAN_HELP_MV" />
+	<event load="ROCK_ATHEIST" />
+	<event load="ROCK_LIVE_MINE" />
+</eventList>
+
+<event name="ROCK_WEAPON_MEASURING" unique="true">
+	<text>"哈！看看你的小船！我打赌你的武器很小你一定很惭愧。"</text>
+	<ship load="SHIP_ROCK_BIGGUNS" hostile="false" /> 
+	<choice hidden="true">
+		<text>你他吗说啥？</text>
+		<event>
+			<text>当你准备与他们战斗时，岩石族傲慢地笑了起来。</text>
+			<ship hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="weapons" lvl="2">
+		<text>(2级武器)你会感到惊讶。</text>
+		<event>
+			<text>"哈！你说这是大武器？你的脑子肯定更小！"</text>
+			<choice hidden="true" req="weapons" lvl="4">
+				<text>(4级武器)这个如何？</text>
+				<event>
+					<text>"有点意思了，但与我们的武器相比，这仍然不算什么！"</text>
+					<choice hidden="true" req="weapons" lvl="6">
+						<text>(6级武器)这个怎么样！</text>
+						<event>
+							<text>"嗯，不错。没多少来这儿的船有这等火力。我相信像你这样的船会找到像这样强大武器的用武之地！"</text>
+							<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+							<choice hidden="true" req="weapons" lvl="8">
+								<text>(8级武器)哦？我们当然不止这点水平。</text>
+								<event>
+									<text>"好嘛，你现在就是在炫耀了。我喜欢。我希望体验一下你的武器库。我将加入你们！"</text>
+									<crewMember amount="1" class="rock" weapons="2">麦克巴</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>好吧，你赢了。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>好吧，你赢了。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="artillery">
+		<text>(1级巨炮)你会惊讶的。</text>
+		<event>
+			<text>"哈！你说这是大武器？你的脑子肯定更小！"</text>
+			<choice hidden="true" req="artillery" lvl="2">
+				<text>(2级巨炮)这个如何？</text>
+				<event>
+					<text>"有点意思了，但与我们的武器相比，这仍然不算什么！"</text>
+					<choice hidden="true" req="artillery" lvl="3">
+						<text>(3级巨炮)这个怎么样！</text>
+						<event>
+							<text>"嗯，不错。没多少来这儿的船有这等火力。我相信像你这样的船会找到像这样强大武器的用武之地！"</text>
+							<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+							<choice hidden="true" req="artillery" lvl="4">
+								<text>(4级巨炮)哦？我们当然不止这点水平。</text>
+								<event>
+									<text>"好嘛，你现在就是在炫耀了。我喜欢。我希望体验一下你的武器库。我将加入你们！"</text>
+									<crewMember amount="1" class="rock" weapons="2">麦克巴</crewMember>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>好吧，你赢了。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>好吧，你赢了。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="WEAPON_PREIGNITE">
+		<text>(预热器)这个怎么样！</text>
+		<event>
+			<text>"好嘛，你现在就是在炫耀了。我喜欢。我希望体验一下你的武器库。我将加入你们！"</text>
+			<weapon name="LIST_WEAPONS_ROCK_BIGGUNS" />
+			<crewMember amount="1" class="rock" weapons="2">麦克巴</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>你不理会这些自负的岩石族，继续走你的路。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="SURRENDER_ROCK_BIGGUNS">
+	<text>"哎呀，伙计，我们听说不在于大小，而在于你如何使用它，而你显然知道如何使用你的枪！你已经证明了你的观点，让我们走吧，我们会付给你一些弹药，为你的那些枪提供燃料。"</text>
+	<choice>
+		<text>接受他们的投降。</text>
+		<event>
+			<ship hostile="false" />
+			<autoReward level="HIGH">missiles_only</autoReward>
+		</event>
+	</choice>
+	<choice>
+		<text>去你的！</text>
+		<event />
+	</choice>
+</event>
+
+<event name="ROCK_LOOTING_MV" unique="true">
+	<text>你发现了一个漂浮在信标附近的残疾岩石运输机。你考虑把它的有用部分剥离，但不确定它为什么会在那里。</text>
+	<choice hidden="true">
+		<text>剥掉船的外壳。</text>
+		<event load="ROCK_LOOTING_STRIP_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>不管它。</text>
+		<event load="ROCK_LOOTING_LEAVE_MV" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_SLUG">
+		<text>(蛞蝓族船员)检查生命体，并在掠夺残骸时留意船只的情况。</text>
+		<event load="ROCK_LOOTING_SLUG_MV" />
+	</choice>
+	<choice hidden="true" req="BLUELIST_CREW_SNAIL">
+		<text>(心灵感应甲壳族)检查生命体，并在掠夺残骸时留意船只的情况。</text>
+		<event load="ROCK_LOOTING_SLUG_MV" />
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS">
+		<text>（长距扫描仪）让你的飞船在掠夺残骸时搜索任何接近的船只。</text>
+		<event load="ROCK_LOOTING_SENSORS_MV" />
+	</choice>
+</event>
+<eventList name="ROCK_LOOTING_STRIP_MV">
+	<event>
+		<text>你从船上打捞出你能打捞的东西，行动时未受到打扰。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>在你打捞船只的时候，一艘岩石族巡逻船跃迁了进来。他们告诉你："肮脏的海盗！准备受死吧！"你试图解释你的任务看能否说服他们相信你。</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<autoReward level="LOW">standard</autoReward>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LOOTING_LEAVE_MV">
+	<event>
+		<text>岩石族不以设置陷阱而闻名，但你无论如何都要赶紧离开。</text>
+	</event>
+	<event>
+		<text>岩石族不以设置陷阱而闻名，但你无论如何都要赶紧离开。</text>
+	</event>
+	<event>
+		<text>你还没来得及离开，一艘岩石族巡逻船就来了，你截听了他们的通讯，"...看来我们终于找到他们了。他们的杀戮狂欢现在结束了！"在你辩解之前，他们就已经袭入攻击。</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LOOTING_SLUG_MV">
+	<event>
+		<text>你尽己所能从船上打捞。附近没有发现任何生物或船只。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>你开始打捞行动，但很快船员警告说有飞船接近。你赶紧在他们进入射程前离开。</text>		
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+<eventList name="ROCK_LOOTING_SENSORS_MV">
+	<event>
+		<text>你尽己所能从船上打捞。附近没有发现任何生物或船只。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>你开始打捞行动，但很快船员警告说有飞船接近。你赶紧在他们进入射程前离开。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+</eventList>
+
+<event name="ROCK_MANTIS_HUNTER_MV" unique="true">
+	<text>这里有一艘装饰着岩石族尸块的螳螂飞船！他们如果有内脏的话这会是个血腥场面，但信息够明确了：这是个特别专门化的猎手。</text>
+	<ship load="SHIP_MANTIS_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>攻击！</text>
+		<event>
+			<text>一个螳螂猎手出现在后方，这是哪个种族都不该蒙受的。是时候让银河系安全一点了。接敌！</text>
+			<ship hostile="true" />	
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>这些螳螂族对你的星舰不怎么感兴趣——他们继续埋伏下来，等待下一艘岩石族星舰冒险通过。你可以启动跃迁引擎，并在你愿意的时候离开这里。</text>		
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="ROCK_ARMOR">
+		<text>(舰体装甲)撞死这些混蛋。</text>
+		<event>
+			<text>在他们有机会躲避之前，你的船便已经狠狠撞翻了他们的飞船，对他们的引擎造成了无法弥补的损坏。幸运的是，你的星舰的装甲几乎没有受到任何破坏。螳螂族飞船无法保持姿态，开始倾斜着旋转，而你开始攻击。</text>
+			<ship hostile="true" />
+			<status type="limit" target="enemy" system="engines" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_ROCK">
+		<text>(岩石族船员)让你的岩石族船员去接通讯。</text>
+		<event>
+			<text>两个外星人在视频屏幕上面对面。"穴居卵石人！"愤怒的螳螂舰长喊道。"瞧，我用你的同伴涂满飞船！我用你涂满飞船！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_MANTIS_FREIGHTER_MV" unique="true">
+	<text>在这处信标的位置，一个奇怪的景象正在向你致意：一艘残破的岩石货船正在太空中漂流，而两艘螳螂族飞船则正在一旁打得不可开交——大概是为了争夺战利品。</text>
+	<choice hidden="true">
+		<text>等待，然后攻击活下来的那个螳螂族。</text>
+		<event load="ROCK_MANTIS_FREIGHTER_LIST_MV" />
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>	
+		<event>
+			<text>这里已经足够热闹了——准备超光速引擎。</text>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_REPAIR_CREW">
+		<text>(维修无人机)修理这艘岩石族飞船。[-1|]</text>
+		<event>
+			<text>两艘螳螂船交战时，你接近岩石族飞船，从许多裂口之一送入了一台维修无人机。它把船修到足够一次跃迁的程度。让你惊讶的是，岩石族反而向两支螳螂族发动了自杀式攻击，把三艘船都摧毁了！</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_SHIPREPAIR">
+		<text>(舰体维修无人机)修复他们的船体。 [-1|]</text>
+		<event>
+			<text>两艘螳螂船交战时，你接近岩石族飞船，并用一台无人机把修好了它。裂缝一修好，生命支持系统就瞬间恢复了工作状态。片刻之间他们就追过去攻击其中一艘螳螂船了。同时另外那艘转向你这边。</text>
+			<item_modify>
+				<item type="drones" min="-1" max="-1" />
+			</item_modify>
+			<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_MANTIS_FREIGHTER_LIST_MV">
+	<event>
+		<text>螳螂族飞船忙着互相残杀，没注意到你。最终小的那艘占了上风，但它们肯定是在攻击时烧断了保险丝，让武器哑火了。现在是时候进攻了！</text>
+		<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+		<status type="loss" target="enemy" system="weapons" amount="2" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>螳螂族之间可能有他们自己的分歧，但面对你时，他们态度一致。较小的那艘飞船在接近时似乎发生了动力故障，但较大的那艘进行一连串的开火的同时，向你移动并发起攻击！</text>
+		<ship load="SHIP_ROCK_MANTIS_FREIGHTER" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_ZOLTAN_HELP_MV" unique="true">
+	<text>似乎一艘超能族飞船来到了这里，要将一个岩石族定居点从他们的'压迫性信仰体系'中解放出来，而定居点并不领情——长距扫描仪显示，超能族和他们的追兵随时都会追到这里！</text>
+	<choice hidden="true">
+		<text>留下来保护超能族。</text>
+		<event>
+			<text>岩石族信仰的...极端性是众所周知的，难怪超能族试图增长他们的见识。追击的岩石飞船迅速评估了形势，决定两艘被俘的外星飞船比一艘要好。</text>
+			<ship load="SHIP_ROCK_HELP_ROCK" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>留下来，抓住超能族。</text>
+		<event>
+			<text>这是岩石族的地盘，因此适用岩石族法律——超能族本应知道不该干涉。你必须制服船员以确保安全俘获他们。</text>
+			<ship load="SHIP_ROCK_HELP_ZOLTAN" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>这不是你所关心的——给跃迁推进器充能！</text>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_ATHEIST" unique="true">
+	<text>你遇到了一艘把动力关到最小的小船。船上的岩石族解释说，岩石族母星系是靠谎言和洗脑宣传来控制民众的，他们不想置身其中。</text>
+	<ship load="SHIP_ROCK_GENERIC" hostile="false" />
+	<choice hidden="true">
+		<text>告诉他们，是他们的神送他们来这里加入你的队伍的。</text>
+		<event>
+			<text load="ROCK_ATHEIST_BAD" />
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>答应用他们拒绝承认的真相对其进行开悟。</text>
+		<event load="ROCK_ATHEIST_GOOD" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="2">
+		<text>(高级传感器)向他们展示你的数据库。</text>
+		<event>
+			<text>岩石族舰长被你收集的数据震撼到了，并同意与你同行，直到他们找到自己在银河中的立足之处。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LOSTSUN">
+		<text>(迷失烈阳船员)教导他们迷失烈阳的行事方式。</text>
+		<event>
+			<text>岩石族舰长很惊讶，因为他之前认为迷失烈阳是一伙激进的恐怖分子。确定了你的船不会对他们有所隐瞒后，他加入了你的队伍。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_FLORAL">
+		<text>(悦兰船员)让你的兰花族劝说他们加入你。</text>
+		<event>
+			<text>兰花族不仅是一个受到岩石族信任的种族，而且他们的政府也因其透明度而相当出名。在你的船员的安抚下，兰花族说服他们和你一起走，并承诺这将是一种比沉浸在长老们的谎言中更好的生活。</text>
+			<crewMember amount="1" class="rock_outcast" />
+		</event>
+	</choice>
+</event>
+<textList name="ROCK_ATHEIST_BAD">
+	<text>他们几乎没有听到你的呼吁，就大喊："这就是我试图逃避的谎言！"看起来他们在给武器充能！</text>
+	<text>他们听着你的呼吁，低声说："真理的叛徒。你比他们好不到哪里去！"混乱随之而来。</text>
+</textList>
+<eventList name="ROCK_ATHEIST_GOOD">
+	<event>
+		<text>你的承诺获得了他们的注意，他们同意为你服务一段时间。</text>
+		<crewMember amount="1" class="rock_outcast" />
+	</event>
+	<event>
+		<text>他们似乎被你的提议所诱惑，但决定不能再冒险被骗。他们关闭通信渠道并跃迁离开。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+	<event>
+		<text>他们似乎被你的提议所诱惑，但决定不能再冒险被骗。他们关闭通信渠道并跃迁离开。</text>
+		<choice>
+			<text>星舰管理。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+		<choice>
+			<text>跳过。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_LIVE_MINE" unique="true">
+	<text>一艘被烧毁的岩石族布雷舰漂移而过。残骸后面漂浮着一个激活的空雷：一个自动的无人机，在爆炸前钻进船体。然而，在这个范围内，它无法探测到你，你不知道它是否已经激活。不过，这还是很冒险的...</text>
+	<choice hidden="true">
+		<text>搜刮残骸。</text>
+		<event>
+			<text>你扒开船体，发现了一些废料、弹药和一个空雷发射器！然而，在你离开之前，空雷启动了，并开始寻找你的船！</text>
+			<autoReward level="MED">missiles</autoReward>
+			<weapon name="GIFTLIST_MINELAUNCHERS_TRAPPER" />
+			<choice hidden="true">
+				<text>尝试进行规避机动！</text>
+				<event>
+					<text>事实证明，星舰的转弯半径太大，空雷锁定了舰体，你现在可以听到它咬破装甲的声音。</text>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+						<text>派人去解除它。</text>
+						<event load="ROCK_LIVE_MINE_DEFUSE" />
+					</choice>
+					<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+						<text>由于周围没有人，你唯一的选择就是耐心地等待你的结局。</text>
+						<event>
+							<text>武器被引爆了。一切都变暗了，指挥舱被从舰体上涌出的火焰暗暗照亮。你把火扑灭，准备继续前进。</text>
+							<damage amount="5" />
+							<damage amount="1" system="room" effect="breach" />
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_MISSILES_ALL">
+						<text>(导弹武器)尝试用导弹进行一次受控的引爆。</text>
+						<event>
+							<text>抽完签后，一名船员出去把一个改装过的弹头固定在空雷上。你引爆了弹头，使空雷移位。不久之后，它就爆炸了。船只在爆炸中受到一些伤害，但你仍然在航行。</text>
+							<damage amount="3" />
+							<damage amount="1" system="random" />
+							<item_modify>
+								<item type="missiles" min="-1" max="-1" />
+							</item_modify>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>
+					<choice hidden="true" req="DRONE_CONTROL_BEAM_DRONE">
+						<text>(光束无人机)让无人机用精确的光束切断空雷。[-1|]</text>
+						<event>
+							<text>受到来自指挥舱的精心操控，你的光束无人机卸下空雷的抓臂，让它飘入太空，之后你再向它射击，它在安全距离外引爆了。</text>
+							<item_modify>
+								<item type="drones" min="-1" max="-1" />
+							</item_modify>
+							<autoReward level="LOW">scrap_only</autoReward>
+						</event>
+					</choice>				
+				</event>
+			</choice>
+			<choice hidden="true" req="engines" lvl="5">
+				<text>(高级引擎) 反向推进器！</text>
+				<event>
+					<text>它给惯性减震器带来了压力，但你扭转了航向，跑过了地雷。你准备跃迁离开。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_ARMOR">
+				<text>(舰体装甲)你的装甲会保护你。</text>
+				<event>
+					<text>这枚空雷甚至难以钻进你的星舰。它的钻头最终耗尽了能量，飘走了，现在变得无害。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ENERGY_SHIELD">
+				<text>(能量护盾)你的护盾会保护你。</text>
+				<event>
+					<text>这枚空雷无法穿过你的能量护盾。它甚至没有接触到你的船体就爆炸了。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="DRONE_CONTROL_DEFENSE">
+				<text>(防御无人机)击落空雷。 [-1|]</text>
+				<event>
+					<text>幸运的是，你的防御无人机迅速锁定了它，并在它与飞船连接之前将其击落。</text>
+					<item_modify>
+						<item type="drones" min="-1" max="-1" />
+					</item_modify>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视残骸。</text>
+		<event>
+			<text>这不值得去调查。这个信标很可能在其他地方也有散落的空雷，所以你决定不在这里久留。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_LIVE_MINE_DEFUSE">
+	<event>
+		<text>你的船员穿上了太空服，走出了气闸。他们很快就完成了基本装置的工作，然后回到里面，周围的人都松了一口气。这颗空雷也很适合用来采集废品。</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>你的船员穿上了太空服，走出了气闸。但当他打开空雷外壳时，他陷入了恐慌。红线还是蓝线？！3...2...1...</text>
+		<choice hidden="true">
+			<text>红色！</text>
+			<event load="ROCK_LIVE_MINE_DEFUSE2" />
+		</choice>
+		<choice hidden="true">
+			<text>蓝色！</text>
+			<event load="ROCK_LIVE_MINE_DEFUSE2" />
+		</choice>
+		<choice hidden="true" req="LIST_CREW_ELITE">
+			<text>(精英船员)派你的精英去拆除炸弹。</text>
+			<event>
+				<text>你的精英没有犹豫。他们拉下了后面的第二块面板，并切断了新发现的绿色电线。奇迹般地，炸弹被解除了！</text>
+				<autoReward level="MED">scrap_only</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_LIVE_MINE_DEFUSE2">
+	<event>
+		<text>你睁开眼睛，一切都安好。你成功了！</text>
+		<autoReward level="MED">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>武器被引爆了。一切都变暗了，指挥舱被从舰体上涌出的火焰暗暗照亮。志愿去处理炸弹的船员向附近的恒星旋转而去。你把火扑灭，准备继续前进。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离船足够近，克隆舱可以使他们复活。带着羞愧和歉意，他们重新加入了队伍。</text>
+		</removeCrew>
+		<damage amount="5" />
+		<damage amount="1" system="room" effect="breach" />
+	</event>
+</eventList>
+
+<event name="ROCK_SLUG_ARGUMENT_MV" unique="true">  <!-- in slug and rock neutrals-->
+	<text>你发现一艘蛞蝓族星舰和岩石组舰船正剑拔弩张地对峙着。在事态失控之前你可以出手干预。</text>
+	<choice>
+		<text>呼叫他们，问发生什么事了。</text>
+		<event>
+			<text>蛞蝓族舰长解释道他们升级了岩石舰船的反应堆，但现在这些'大石头脑袋'拒绝支付报酬。岩石族舰长说这些'凝胶老鼠'糟糕的服务质量配不上谈好的价格。</text>
+			<choice>
+				<text>替岩石族付账。</text>
+				<event>
+					<text>你付了账。岩石族舰长对那些蛞蝓族收到'不配获得'的废料仍心有不满，但至少现状平和了下来。</text>
+					<item_modify>
+						<item type="scrap" min="-15" max="-10" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ROCK_SLUG_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>要求岩石舰船支付谈好的报酬。</text>
+				<event load="ROCK_SLUG_COMMAND_MV" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK">
+				<text>(岩石族船员)心平气和地说服岩石族支付全额报酬。</text>
+				<event>
+					<text>岩石族舰长嘟囔着同意了支付报酬。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ROCK_SLUG_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>要求蛞蝓舰船全额退款。</text>
+				<event load="ROCK_SLUG_REFUND_MV" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SLUG">
+				<text>(蛞蝓族船员)心平气和地说服蛞蝓族接受新报酬。</text>
+				<event>
+					<text>蛞蝓族舰长嘟囔着同意了全额退款。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ROCK_SLUG_ROCK_GRATEFUL_MV" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="mind">
+				<text>(心灵控制)心灵控制蛞蝓族全额退款。</text>
+				<event>
+					<text>你校准心灵控制系统锁定了蛞蝓舰船...但是无事发生。这时你才想起来蛞蝓族根本不会被心灵控制。蛞蝓族舰长大声嘲笑你可怜的尝试，你羞愧地离开了。</text>
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_WEAPONS_MIND_AFFECT">
+				<text>(心灵干涉武器)心灵控制蛞蝓族全额退款。</text>
+				<event>
+					<text>你校准心灵控制系统锁定了蛞蝓舰船...但是无事发生。这时你才想起来蛞蝓族根本不会被心灵控制。蛞蝓族舰长大声嘲笑你可怜的尝试，你羞愧地离开了。</text>
+				</event>
+			</choice>
+			<choice>
+				<text>你有更重要的事情做，不要管他们。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>不管他们。</text>
+		<event>
+			<text>你抛下两艘舰船间的争吵离开了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_SLUG_COMMAND_MV">
+	<event>
+		<text>看起来岩石族舰长的比你想的更生气，他切断了所有交流，将炮口对准了你这个袒护'黏球'们的家伙。</text>
+		<ship load="SHIP_ROCK_SLUG_REACTOR" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>岩石族舰长嘟囔着同意了支付报酬。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="ROCK_SLUG_GRATEFUL" />
+		</choice>
+	</event>
+	<event>
+		<text>岩石舰船上发生了大爆炸，炸碎了它的舰体并把碎片抛向无处回避的你的舰船。看起来这反应堆升级做得确实很差。蛞蝓族趁机跃迁了。</text>
+		<damage amount="3" />
+		<damage amount="1" system="random" />
+		<damage amount="1" system="random" />
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_GRATEFUL_MV">
+	<event>
+		<text>蛞蝓族感谢了你的帮助后跃迁了。</text>
+	</event>
+	<event>
+		<text>蛞蝓族舰长为感谢你的帮助提供了一次免费的反应堆升级。多一格能量总归不亏！</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+	<event>
+		<text>蛞蝓族舰长感谢你的帮助，为你的舰船提供了一次反应堆升级...以一个'公平'的价格。</text>
+		<choice>
+			<text>成交。</text>
+			<event>
+				<text>你让他们的队伍登舰，不一会他们就完成了工作。</text>
+				<item_modify>
+					<item type="scrap" min="-15" max="-10" />
+				</item_modify>
+				<upgrade amount="1" system="reactor" />
+			</event>
+		</choice>
+		<choice>
+			<text>拒绝。</text>
+			<event>
+				<text>你切断了交流准备出发。</text>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_REFUND_MV">
+	<event>
+		<text>"哈哈哈！我怎么可能蠢到听一个联邦舰长的提议，尤其是叫我甘心被骗钱的！"蛞蝓舰船立即与你敌对了！</text>
+		<ship load="SHIP_ROCK_SLUG_SLUG_REACTOR" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你很确定你听见蛞蝓族们小声说了些脏话，但他们还是勉强接受了岩石族提出的新价码。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="ROCK_SLUG_ROCK_GRATEFUL_MV" />
+		</choice>
+	</event>
+	<event>
+		<text>岩石舰船上发生了大爆炸，炸碎了它的舰体并把碎片抛向无处回避的你的舰船。看起来这反应堆升级做得确实很差。蛞蝓族趁机跃迁了。</text>
+		<damage amount="3" />
+		<damage amount="1" system="random" />
+		<damage amount="1" system="random" />
+	</event>
+</eventList>
+<eventList name="ROCK_SLUG_ROCK_GRATEFUL_MV">
+	<event>
+		<text>岩石族舰长嘟囔几声后一言不发地跃迁了。你知道岩石族的文化不常感恩，但这单纯是无礼。</text>
+	</event>
+	<event>
+		<text>岩石族舰长对你的帮助并不感激，仍然因对反应堆升级不满而焦躁不安。"然后我得怎么处理这些破烂升级？"</text>
+		<choice hidden="true">
+			<text>替他们修好。[-25~]</text>
+			<event>
+				<text>你用自己的废料捣鼓起岩石族的反应堆，给它来了个升级改造。"手艺还是糙得很，不过总比那些泥浆喷子强点。"这勉强算句夸奖，但你能看出岩石族很受用——他回来时竟捎了份谢礼！</text>
+				<item_modify>
+					<item type="scrap" min="-25" max="-25" />
+				</item_modify>
+				<weapon name="RANDOM" />
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>你能搞定的。</text>
+			<event>
+				<text>你不是很确定这样回答会得到什么反应，但岩石族舰长的突然大笑让你吃了一惊。"我喜欢你这一套。"简洁但毋庸置疑是来自岩石族的赞赏。尤其是伴随着一件代表"谢谢你"的小礼物时。</text>
+				<autoReward level="LOW">standard</autoReward>
+			</event>
+		</choice>
+	</event>
+</eventList>
+
+<eventList name="NEUTRAL_ROCK_UNIQUE">
+	<event load="ROCK_RAVINE" />
+	<event load="ROCK_ASTEROID_COLONY" />
+	<event load="ROCK_CRUSADE" />
+	<event load="ROCK_NURSERY_MV" />
+
+	<event load="ROCK_WEAPON_MEASURING" />
+	<event load="ROCK_LOOTING_MV" />
+	<event load="ROCK_ATHEIST" />
+	<event load="ROCK_LIVE_MINE" />
+</eventList>
+
+<event name="ROCK_RAVINE" unique="true">
+	<text>在附近星球的表面有一个巨大的沟壑。这一切看起来都很正常，直到你发现两个岩石侦察舰飞过，进入峡谷深处。</text>
+	<img back="BACK_EVENT_ROCKRAVINE" planet="NONE" />
+	<choice hidden="true">
+		<text>跟随他们。</text>
+		<event>
+			<text>你从后面远远地跟踪这些船，确保它们看不到你的情况下紧紧追踪。不久之后，你到达了峡谷中的一个岔路口，而它们分头行动。如果你不想让叛军舰队追上来，你只有时间去探索其中一条路。</text>
+			<choice hidden="true">
+				<text>跟随左边的船。</text> <!--FACILITY-->
+				<event>
+					<text>这艘船停在一个看起来像建在峡谷峭壁上的巨大设施上。由于无处可藏，岩石族不可避免地发现了你，并准备保卫这个设施。</text>
+					<ship load="SHIP_ROCK_RAVINE_LEFT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>					
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>跟随右边的船。</text> <!--WAR CAMP-->
+				<event>
+					<text>船只在一个建在峡谷表面上的巨大监狱营地附近降落。它看起来被遗弃了，但在岩石族发现你的船并发动攻击之前，你没有多少时间去调查。</text>
+					<ship load="SHIP_ROCK_RAVINE_RIGHT" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>	
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>算了，这是个坏主意。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这些舰船。</text>
+		<event>
+			<text>那些岩石族可能在下面做任何事情，但这与你无关。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_RAVINE_LEFT">
+	<text>你已经打败了岩石族飞船。在调查这个设施之前，你有一些时间来搜刮这艘船。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>该建筑的入口处将你带到一个废弃的大厅。勉强能用的电梯表明一定有一台备用供能机还在运行，因为这个设施早就被废弃了。有几个不同的楼层可供探索，但你只有时间探索其中一处。</text>
+			<choice hidden="true">
+				<text>探索标记为"控制"的楼层。</text>
+				<event>
+					<text>岩石族设施中的楼层标记控制，肯定是一种有趣的体验。你走向那里，对电梯保持警惕。里面有一个不再起作用的心灵控制系统和一个巨大的屏幕，峡谷另一边看起来是一个巨大的监狱营地一览无遗。你开始认为这个房间里没有什么实际用途，直到你注意到角落里有一件战斗部件，以及一些废弃的燃料电池。</text>
+					<autoReward level="MED">fuel_only</autoReward>
+					<augment name="GIFTLIST_AUGMENT_COMBAT" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>探索标记为"安保"的楼层。</text>
+				<event>
+					<text>安全楼层激起了你的兴趣。你前往那里，对电梯保持警惕。沉重的防爆门保护着入口，但有什么东西设法把它们弄垮了，足以让你挤进去。有几个显示器监视着设施的其他房间，向你证实此处完全不剩任何工作人员。除了一件长距扫描仪以及一些无人机部件外，这里没有什么对军舰有价值的东西。</text>
+					<autoReward level="MED">droneparts_only</autoReward>
+					<augment name="ADV_SCANNERS" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>探索标记为"军械"的楼层。</text>
+				<event>
+					<text>军械库似乎是最好的选择。你前往那里，对电梯保持警惕。在里面，你发现有几架物资和各种武器。由于人手有限，你随意拿了一件武器和几发弹药。</text>
+					<autoReward level="MED">missiles_only</autoReward>
+					<weapon name="RANDOM" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_RAVINE_RIGHT">
+	<text>你已经打败了岩石族飞船。在调查营地之前，你有一些时间来搜刮这艘船。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>岩石族监狱营地似乎已基本废弃，但一堆仍在燃烧的孤零零篝火暗示着或许还有生命存留。进一步的探索证实了你的猜测：一小群不同种族的囚犯现身。他们解释说囚犯们曾发起暴动，成功杀死了大部分岩石族守卫。岩石族撤退后，幸存囚犯却最终陷入饥荒。眼前这群人是仅存的幸存者。你的飞船没有足够空间容纳所有人，但或许可以带走其中一人。</text>
+			<choice hidden="true">
+				<text>带上一名岩石族囚犯。</text>
+				<event>
+					<text>岩石族身上有流放者的标记，很可能是最近被抓住的神权国逃犯。他们不怎么说话，但你可以看出他们很高兴你选择了拯救他们。</text>
+					<crewMember amount="1" class="rock_outcast" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>带上一名人类囚犯。</text>
+				<event>
+					<text>这名人类原来是一名叛军工程师，被岩石族俘虏，目的是作为人质与叛军进行交易。对他们来说，不幸的是，叛军没有兴趣买回这个俘虏。他被关进了这个营地。尽管他是叛军出身，但他却非常乐意跟你走，离开这个地方。</text>
+					<crewMember amount="1" class="human_engineer" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>带上一名蛞蝓族囚犯。</text>
+				<event>
+					<text>这名蛞蝓族是一个被岩石族抓住的游客，基于纯粹的怀疑。他们不想承认自己的错误，只是选择将蛞蝓族关在这个监狱里，直到永远。他对最终获得自由的前景充满了活力。</text>
+					<crewMember amount="1" class="slug" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_ASTEROID_COLONY" unique="true">
+	<text>附近的岩石殖民地似乎发生了严重的骚乱。似乎一颗巨大的小行星与该星球相撞，造成了极大的破坏，现在有数百艘飞船在该星球的表面来回涌动。</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+		<text>逮捕海盗袭击者。</text>
+		<event>
+			<text>你飞向星球的表面，与一艘正在向手无寸铁的岩石族平民开火的海盗战舰交火。</text>
+			<ship load="SHIP_ASTEROID_COLONY_PIRATE" hostile="true" /> 
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>尝试营救平民。</text>
+		<event load="ROCK_ASTEROID_COLONY_RESCUE" />
+	</choice>
+	<choice hidden="true">
+		<text>试图回收残骸。</text>
+		<event load="ROCK_ASTEROID_COLONY_SALVAGE" />
+	</choice>
+	<choice hidden="true" req="cloaking" max_lvl="2">
+		<text>（隐形）在尝试打捞残骸时保持隐形。</text>
+		<event load="ROCK_ASTEROID_COLONY_SALVAGE_CLOAK" />
+	</choice>
+	<choice hidden="true" req="cloaking" lvl="3">
+		<text>（高级隐形）在尝试打捞残骸时保持隐形。</text>
+		<event>
+			<text>在你的隐形系统帮助下，你能够在没有任何岩石族执法者注意到的情况下回收大量残骸。一旦无法收集更多废料，你就迅速逃离。</text>
+			<autoReward level="HIGH">stuff</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>这是一场混乱。我们应该离开。</text>
+		<event>
+			<text>你避开了殖民地和它周围的船只。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_ASTEROID_COLONY_PIRATE" unique="true">
+	<text>海盗战舰坠落到地面上，但幸运的是，平民们没有受到伤害。在你回收海盗飞船的残骸时，没有人提出抗议。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>联系平民。</text>
+		<event>
+			<text>大多数岩石族过于惊慌，在你靠近时逃跑了。有几个比较理智的人停下来听你说。你提出在你能载的范围内运送他们，这个提议被他们中的大多数人拒绝。然而，有一个年轻的岩石族接受了，甚至还加入了你的团队。</text>
+			<crewMember amount="1" class="rock" />
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_ASTEROID_COLONY_RESCUE">
+	<event>
+		<text>大多数岩石族过于惊慌，在你靠近时逃跑了。有几个比较理智的人停下来听你说。你提出在你能载的范围内运送他们，这个提议被他们中的大多数人拒绝。然而，有一个年轻的岩石族接受了，甚至还加入了你的团队。</text>
+		<crewMember amount="1" class="rock" />
+	</event>
+	<event>
+		<text>当你接近时，一艘海盗战舰锁定了你，向你的舰体开了几枪。你被迫拉开距离，但海盗们紧追不舍！</text>
+		<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+		<damage amount="3" />
+	</event>
+	<event>
+		<text>唯一能让你安全降落的地方是靠近空地的地方，那里曾经是一片住宅区。现在已经变成了废墟，你回收了还未被拿走的东西。</text>
+		<autoReward level="LOW">stuff</autoReward>
+	</event>
+</eventList>
+<eventList name="ROCK_ASTEROID_COLONY_SALVAGE">
+	<event>
+		<text>岩石族执法者们忙着对付海盗，没有注意到你。你俯冲进去，尽可能多地收集。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>似乎有一艘试图抵御海盗的精英岩石族飞船注意到了你。你被这艘船追赶了，看来一场战斗无法避免。</text>
+		<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ROCK_ASTEROID_COLONY_SALVAGE_CLOAK">
+	<event>
+		<text>在你的隐形系统帮助下，你能够在没有任何岩石族执法者注意到的情况下回收大量残骸。一旦无法收集更多废料，你就迅速逃离。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>在你的隐形系统帮助下，你能够在没有任何岩石族执法者注意到的情况下回收大量残骸。一旦无法收集更多废料，你就迅速逃离。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>你试图靠近打捞残骸，但你的隐形系统恰在一艘精英岩石族飞船转向你所在位置时失效。此时，战斗已不可避免。</text>
+		<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ROCK_CRUSADE" unique="true">
+	<text>一队圣判所的飞船正在附近休息，进行小规模的维修。他们没有注意到你。</text>
+	<choice hidden="true">
+		<text>联系他们。</text>
+		<event>
+			<text>"联邦飞船，这里不欢迎你们！不要再与我们联系，除非你想找死。"</text>
+			<choice hidden="true">
+				<text>再次联系他们。</text>
+				<event>
+					<text>"嘎！现在你自讨苦吃了。"</text>
+					<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_ROCK_FAITHFUL">
+				<text>(岩石族船员)让你的岩石族与他们联系。</text>
+				<event>
+					<text>"我们中的一员？也许我误解了你们的来历。我们在平时的工作中遇到了一个无法预料的障碍。一艘满是异端和人渣的螳螂族飞船，犯了致命的错误，进入了我们的星区！不幸的是，我们似乎没有为他们的登舰战术做好充分准备。你能完成我们的任务，消灭螳螂族飞船吗？"</text>
+					<choice hidden="true">
+						<text>同意杀死螳螂族。</text>
+						<event>
+							<text>圣判所的飞船给了你螳螂族的坐标。令你惊讶的是，它们并不遥远，事实上，它们是如此靠近，以至于居住在同一个信标附近。另一个出乎意料的转变是，他们不是母巢螳螂飞船，而是自由螳螂！"哦，联邦！你好！我们很高兴见到你。这个星区奇怪，是吗？不久前，我们被愤怒的石头人蓝色大飞船追赶，非常吓人。"</text>
+							<choice hidden="true">
+								<text>履行你的承诺杀死自由螳螂。</text>
+								<event>
+									<text>你有一个任务要完成。你武装你的武器与自由螳螂交战。</text>
+									<ship load="SHIP_CRUSADE_FREEMANTIS" hostile="true" /> 
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_FREEMANTIS_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>我们不能与我们的盟友作战。</text>
+								<event>
+									<text>岩石族对你的背叛感到愤怒。"这是我从未经历过的侮辱！你是弱者，必须受到惩罚。"</text>
+									<ship load="SHIP_CRUSADE_ROCK" hostile="true" /> 
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我们不能。</text>
+						<event>
+							<text>"那么你对我们就没有用处了。马上离开。"</text>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>遵守他们的警告并离开。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>为了安全起见，你在你和岩石族之间拉开一些距离。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_CRUSADE_FREEMANTIS">
+	<text>你已经打败了自由螳螂飞船。你回收了残骸。</text>
+	<autoReward level="MED">standard</autoReward>
+	<choice hidden="true">
+		<text>向圣判所的人宣告你的成功。</text>
+		<event>
+			<text>"你的荣誉和能力的展示是值得的。我为你鼓掌。接受这个作为感谢的象征。"</text>
+			<weapon name="GIFTLIST_MISSILES" />
+		</event>
+	</choice>
+</event>
+<event name="ROCK_CRUSADE_ROCK">
+	<text>你已经打败了岩石族。你回收了残骸。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>与自由螳螂交谈。</text>
+		<event>
+			<text>"可怕的石头人现在死了？哇...这个星区很不友好。我现在和你一起走，并带着孪生兄弟。"</text>
+			<crewMember amount="2" class="mantis_free" />
+		</event>
+	</choice>
+</event>
+
+<event name="ROCK_NURSERY_MV" unique="true">
+	<text>据说在附近的一个朦胧的、有麻点的卫星表面，有波动的生命迹象。这似乎是一个岩石族托儿所，年轻人在这里"适应"他们的宗教——只不过发生了某种反叛，学生们正在肆意妄为！</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>调动一个队伍去调查。</text>
+		<event>
+			<text>你的队员报告了学生和当局之间的战斗，似乎一些学生被认为有异见的个性，要被预先监禁。</text>
+			<choice hidden="true">
+				<text>命令队伍站在学生一边。</text>
+				<event>
+					<text>不久之后，这个星球上的暴力事件变成了一场全面的战斗，你的队伍和他们的军事级武器处于战斗的中心。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ROCK_NURSERY_MV_STUDENTS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">	
+				<text>命令队伍与当局站在一起。</text>
+				<event>
+					<text>不久之后，这个星球上的暴力事件变成了一场全面的战斗，你的队伍和他们的军事级武器处于战斗的中心。</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="ROCK_NURSERY_MV_AUTHORITY" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>你缺乏船员来支持狂热分子或是受压迫学生们。</text>
+		<event load="OPTION_INVALID" />
+	</choice>				
+	<choice hidden="true">
+		<text>离开。</text>
+		<event>
+			<text>只要他们不向星舰射击，最好不管他们。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>		
+	<choice hidden="true" req="weapons" lvl="6">
+		<text>(先进武器)在靠近骚乱的地方开火警告，以宣告你的到来。</text>
+		<event>
+			<text>你发射的一连串炮火精准命中设施附近的废弃采石场。地表交火戛然而止——趁着月球守备部队被引向你的间隙！</text>
+			<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_NURSERY_MV_STUDENTS">
+	<event> 
+		<text>事情，最终并不顺利。敌人成功地从侧面包围了你的队伍，他们被迫撤退到船上。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>你的船员与当局制服了最后一名反叛的学生，监狱运输船已经进入轨道。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>  
+	<event>
+		<text>战斗进行得很糟糕，你的团队最终发现自己在侧翼有一个受伤的岩石族战斗员。他们不顾一切地冲向穿梭机的坐标，但有一个人倒下了。幸存者帮助受伤的岩石族登上了穿梭机。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离你的战舰不算太远，克隆舱复活了他。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>你的船员与当局制服了最后一名反叛的学生，监狱运输船已经进入轨道。</text>
+				<crewMember amount="1" class="rock" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你的团队在主广场上蛰伏，并成功地挡住了敌人的战斗人员，并取得了对该机构的控制权！</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>学生们清理了残守的工作人员，并准备离开该星系。现在只有一条路对他们开放，那就是当亡命之徒。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你们的队伍遭到了猛烈的炮火袭击。一名船员被闪光弹炸瞎了眼睛，踉踉跄跄地走过采石场的边缘，死在下面。另一个人成功地与友军会合，最终取得了对机构的控制权！</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离你的战舰不算太远，克隆舱复活了他。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>学生们清理了残守的工作人员，并准备离开该星系。现在只有一条路对他们开放，那就是当亡命之徒。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>	
+		<text>随着战斗的进行，战斗已经远离了你的团队的位置。在休息期间，他们能够获得一些被遗弃的武器。当他们完成时，战斗已基本结束，他们回到了星舰上。</text>
+		<autoReward level="MED">weapon</autoReward>
+	</event>
+</eventList>
+<eventList name="ROCK_NURSERY_MV_AUTHORITY">
+	<event>
+		<text>事情，最终并不顺利。敌人成功地从侧面包围了你的队伍，他们被迫撤退到船上。</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>学生们清理了残守的工作人员，并准备离开该星系。现在只有一条路对他们开放，那就是当亡命之徒。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>战斗进行得很糟糕，你的团队最终发现自己在侧翼有一个受伤的岩石族战斗员。他们不顾一切地冲向穿梭机的坐标，但有一个人倒下了。幸存者帮助受伤的岩石族登上了穿梭机。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离你的战舰不算太远，克隆舱复活了他。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>学生们清理了残守的工作人员，并准备离开该星系。现在只有一条路对他们开放，那就是当亡命之徒。</text>
+				<crewMember amount="1" class="rock" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_LOSE" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你的团队在主广场上蛰伏，并成功地挡住了敌人的战斗人员，并取得了对该机构的控制权！</text>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>你的船员与当局制服了最后一名反叛的学生，监狱运输船已经进入轨道。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>你们的队伍遭到了猛烈的炮火袭击。一名船员被闪光弹炸瞎了眼睛，踉踉跄跄地走过采石场的边缘，死在下面。另一个人成功地与友军会合，最终取得了对机构的控制权！</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你的船员离你的战舰不算太远，克隆舱复活了他。</text>
+		</removeCrew>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event>
+				<text>你的船员与当局制服了最后一名反叛的学生，监狱运输船已经进入轨道。</text>
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="ROCK_NURSERY_MV_WIN" />
+				</choice>
+			</event>
+		</choice>
+	</event>
+	<event>	
+		<text>随着战斗的进行，战斗已经远离了你的团队的位置。在休息期间，他们能够获得一些被遗弃的武器。当他们完成时，战斗已基本结束，他们回到了星舰上。</text>
+		<autoReward level="MED">weapon</autoReward>
+	</event>
+</eventList>
+<event name="ROCK_NURSERY_MV_WIN">
+	<text>作为对你在战斗中的支持的回报，幸存者将预留给监狱运输的资金奖励给你。你要在别人改变主意之前离开！</text>
+	<autoReward level="HIGH">standard</autoReward>
+</event>
+<event name="ROCK_NURSERY_MV_LOSE">
+	<text>充分意识到他们的胜利因你的到来而受到威胁，幸存者们立即派出一艘船来消灭你！</text>
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_ROCK_MV">
+	<event load="DISTRESS_REFUGEE_ROCK" />
+	<event load="DISTRESS_ROCK_DETAINING_ZOLTAN" />
+	<event load="DISTRESS_ROCK_OUTCAST_PREY" />
+</eventList>
+
+<event name="DISTRESS_REFUGEE_ROCK" unique="true">
+	<distressBeacon />
+	<text>你遇到一艘难民船在太空漂流。看起来它是逃避叛军舰队而来并且用光了燃料。它的求救信标是激活的，但你不确定是否还有人在船上。</text>
+	<choice>
+		<text>联系他们。</text>
+		<event load="REFUGEE_HAIL_LIST_ROCK" />
+	</choice>
+	<choice>
+		<text>无视这艘难民船。</text>
+		<event>
+			<text>你发现难民船没什么需要担心的，可以安心进行星舰管理了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>  
+<eventList name="REFUGEE_HAIL_LIST_ROCK">
+	<event load="REFUGEE_TRADER" />
+	<event>
+		<text>正当你呼叫难民船时，一艘岩石族舰船突然跃入星系……岩石族指控你庇护异端，不等你争辩便已升起武器。</text>
+		<ship load="SHIP_ROCK_REFUGEE" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="DISTRESS_ROCK_DETAINING_ZOLTAN" unique="true">
+    <distressBeacon />
+    <text>你发现一艘超能族商船在发送求救呼叫。它的去路被一艘神权国巡逻舰堵住。现场没有战斗的迹象。</text>
+    <choice>
+        <text>呼叫超能族，询问出了什么问题。</text>
+        <event>
+            <text>"你和联邦是一伙的，不是吗？我们正在被——"他们的传输突然中断。岩石族飞船呼叫了你。</text>
+            <choice>
+                <text>回应岩石族的呼叫。</text>
+                <event>
+                    <text>"立刻离开，变元者。我们完全有权扣留商人，即便是牧师团的人。"</text>
+                    <ship load="SHIP_ROCK_DETAINING_ZOLTAN" hostile="false" />
+                    <choice req="LIST_CREW_CRUSADER" hidden="true">
+                        <text>(精英神权国船员)"牧师团是我们的盟友。立刻释放他们"</text>
+                        <event>
+                            <text>"呃…"神权国船长一时语塞。"那个…我们只是…需要向他们询问几个问题…"对方清了清嗓子。"…既然如此，他们可以走了。希望各位能谅解我们履行职责时的…过度热情。"为表诚意，岩石族给了你一份礼物。</text>
+                            <autoReward level="MED">standard</autoReward>
+                            <choice>
+                                <text>联络超能族飞船。</text>
+                                <event load="ROCK_DETAINING_ZOLTAN_CONVINCE" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice req="rock">
+                        <text>(神权国船员)询问他们以什么罪名扣押了商人。</text>
+                        <event>
+                            <text>"他们涉嫌散布联邦谎言！若想证明对传统的尊重，他们必须为玷污我们文化的行为支付财物赔偿！"</text>
+                            <choice hidden="true">
+                                <text>听起来这分明是敲诈勒索。</text>
+                                <event load="ROCK_DETAINING_ZOLTAN_ROCK" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>要求释放那些超能族。</text>
+                        <event>
+                            <text>岩石族替你省去了开战的麻烦，率先发动了攻击！</text>
+                            <ship hostile="true" />
+                            <choice hidden="true">
+                                <text>继续。</text>
+                                <event load="COMBAT_CHECK" />
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>同意不加干涉。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>不理会那些求救呼叫。</text>
+        <event>
+            <text>神权国和牧师团是盟友—无论他们之间正发生什么。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<eventList name="ROCK_DETAINING_ZOLTAN_ROCK">
+    <event>
+        <text>你的岩石族船员责备巡逻队的贪婪。这番话触动了对面的岩石族，他的语气缓和下来。"啊…这个…"岩石族巡逻兵清了清嗓子。"…那不是真正的我。我不会…绝不会如此。请允许我证明我的慷慨。"岩石族释放了超能族，并给了你一小份礼物。</text>
+        <autoReward level="LOW">standard</autoReward>
+        <choice>
+            <text>联络超能族飞船。</text>
+            <event load="ROCK_DETAINING_ZOLTAN_CONVINCE" />
+        </choice>
+    </event>
+    <event>
+        <text>你的岩石族船员责备巡逻队的贪婪，但这反而激怒了对面舰船上的岩石族。"狂妄的小子！我不会容忍一个效力于敌舰的同族在此放肆！"</text>
+        <ship hostile="true" />
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+</eventList>
+<event name="ROCK_DETAINING_ZOLTAN_CONVINCE">
+    <text>"多谢你说服他们离开。神权国为何要如此滥用职权？”商人叹气道。“你要从我们店里买些什么吗？"</text>
+    <store>STORE_ZOLTAN</store>
+</event>
+<event name="ROCK_DETAINING_ZOLTAN_DEFEAT">
+    <text>"感谢你为我们挺身而出，变元者。我们从未料到巡逻队竟如此滥用职权…你要从我们店里买些什么吗？"</text>
+    <store>STORE_ZOLTAN</store>
+</event>
+
+<event name="DISTRESS_ROCK_OUTCAST_PREY" unique="true">
+	<distressBeacon />
+	<text>这个求救信标把你引到一艘半毁的流放者飞船，似乎是附近的那艘海盗飞船造成的破坏。解决上一个目标后，他们把炮口对准了你！</text>
+	<ship load="SHIP_PIRATE_PREY" hostile="true" />
+	<choice>
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_SAVE">
+	<text>你检查了受害船只，惊讶地发现了一名幸存者！你协助对方登上了你的飞船。</text>
+	<choice>
+		<text>继续。</text>
+		<event>
+			<text>"自由也就这样了…我们刚看到一条出路，能摆脱长老逼我们承受的这个鬼地方，海盗就把我们撕碎了。那些我们认为是领袖的人的严酷掌控，难道真是保护我们所需的必要之恶吗？无论如何，我和兄弟们当初的计划一开始就完全搞砸了。我到底该上哪儿去寻找庇护？"</text>
+			<choice>
+				<text>鼓励对方加入迷失烈阳。</text>
+				<event>
+					<text>"你说得有道理。这本是原定计划，可惜我们在仓促逃亡中始终未能与他们取得联系。尽管途中遭遇了诸多不测，他们能提供的教诲与专业知识必将使我更为强大。"凭借你与联邦的关系，没花太多时间就定位到了一艘附近的迷失烈阳舰船，由它来安排这次转移。</text>
+					<quest event="ROCK_OUTCAST_LOSTSUN" />
+				</event>
+			</choice>
+			<choice>
+				<text>鼓励对方重新加入神权国。</text>
+				<event>
+					<text>"我若直接回头是否还能被重新接纳，这仍有待观察…但从长远看这是最好的选择。"你的新乘客告知了一个位于其母星系的空间站坐标，你随之计划了前往该处的航线。</text>
+					<quest event="ROCK_OUTCAST_ROCK" />
+				</event>
+			</choice>
+			<choice>
+				<text>鼓励对方向姊族解放组织寻求庇护。</text>
+				<event>
+					<text>"我对这项事业有所耳闻。虽不知在水晶族中能否寻得安宁，但他们的意图看起来是真诚的。"你的新乘客告知了一个邻近星系中某座空间站的位置—这是对方在尚未被神权国宣传淹没的时期听说的。</text>
+					<quest event="ROCK_OUTCAST_SSLG" />
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>鼓励对方保持流放者的身份。</text>
+				<event>
+					<text>这很残酷，但你向对方坦言，任何从神权国逃离的人都会经历这场近乎适者生存的考验，这些人中的许多都未必总能幸存。"是的，我想你说得有道理……你说服我了，变元者。但我如今既无舰船也无船员…那我就留在你这里吧。在你的庇护下，我的生存几率将大大增加。"鉴于对方原先的舰船已无法航行，你从中搜集了所有尚可利用的物资。</text>
+					<autoReward level="LOW">standard</autoReward>
+					<crewMember amount="1" class="rock_outcast" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>  
+<event name="ROCK_OUTCAST_LOSTSUN">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>护送一名流放者去迷失烈阳。</unvisitedTooltip>
+	</beaconType>
+	<text>你已抵达该星系，并发现了那艘迷失烈阳飞船。对方保持着警惕，但你让那名流放者接入了通讯。</text>
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>流放者说明旅途经历后，表达了希望加入迷失烈阳的意愿，并为报答你先前相助而主动为你担保。迷失烈阳接纳了他们的新成员，并因你的义举向你提供了军事补给。</text>
+			<autoReward level="MED">missiles</autoReward>
+			<weapon name="GIFTLIST_LOSTSUN" />
+		</event>
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_ROCK">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>护送一名流放者去岩石族空间站。</unvisitedTooltip>
+	</beaconType>
+	<text>你已抵达该星系，并发现了那座岩石族空间站。你对在此逗留感到不安，并开始后悔自己的决定，但那名流放者却主动开启了通讯。</text>
+	<ship load="SHIP_ROCK_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>在讲述了自己的经历后，流放者表达了希望能重新融入神权国的意愿，并为报答你先前相助而主动为你担保。然而，通讯另一头的岩石人似乎并无意接纳这名流放者。"愚蠢，愚蠢…我们为何要庇护背离了荣光的污秽之徒？先祖披荆斩棘，为了我们的—"</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>另一人上前打断了同伴。"住口，兄弟。的确，此人...确实曾经迷失，但能认清过错者已属难得，愿回归我等正道者更是凤毛麟角。让他进来，立刻行动。至于你，外来者...你的善行将得报偿。待此避难者由我们接管后，你可以停靠并使用本港设施。"</text>
+					<autoReward level="MED">standard</autoReward>
+					<store>STORE_ROCK</store>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event> 
+<event name="ROCK_OUTCAST_SSLG">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>护送一名流放者去姊族解放组织空间站。</unvisitedTooltip>
+	</beaconType>
+	<text>你已抵达该星系，你看见视野内看起来属于姊族解放组织的设施。你谨慎靠近，随即被一名水晶族质询来意，你把通讯交给了流放者。</text>
+	<ship load="SHIP_SSLG_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>在讲述了自己的经历后，流放者向水晶族表达了寻求庇护的意愿，并为报答你先前相助而主动为你担保。水晶族热情接纳了这份请求，不仅赠予你一件备用武器，其中一位解放者更因坚信与你同行能救助更多岩石族，自愿加入你的事业。</text>
+			<weapon name="GIFTLIST_CRYSTAL" />
+			<crewMember amount="1" class="crystal_liberator" />
+		</event>
+	</choice>
+</event> 
+
+<eventList name="DISTRESS_ROCK_UNIQUE">
+	<event load="DISTRESS_REFUGEE_ROCK" />
+	<event load="DISTRESS_ROCK_DETAINING_ZOLTAN" />
+	<event load="DISTRESS_ROCK_OUTCAST_PREY" />
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_ROCK_MV">
+	<event load="ROCK_ASTROLOGER" />
+</eventList>
+
+<event name="ROCK_ASTROLOGER">
+    <text>这个信标有一个小型岩石族殖民地：最值得注意的是，轨道上还有一个巨大的望远镜。看来这里有一个天文实验室。</text>
+    <choice>
+        <text>联系实验室。</text>
+        <event>
+            <text>"一艘船！太久没见了。哦，是个外人？嗯，那也行。神权国最近不听我们的了。我代表岩石族占星家协会，恳请你听我说并提供一些帮助。"</text>
+            <choice>
+                <text>听听这位……'占星家'要说的话。</text>
+                <event>
+                    <text>"有一颗水晶彗星正穿过这个星区。彗星在神权国领空很常见，但有一些具有迷人的特性。我相信这颗彗星可能包含许多关于水晶族过去的秘密。"</text>
+                    <choice>
+                        <text>为什么神权国会没兴趣调查呢？</text>
+                        <event>
+                            <text>占星家'重重地叹了口气。"他们过去有兴趣。在水晶族重返银河舞台之前，这些彗星是我们拥有的他们存在的唯一痕迹。我们会追逐一颗又一颗彗星，无论结果多么微不足道，我们仍然有资金去追踪它们。但现在我们能真正地与水晶族交谈了，神权国就不再认为这有价值了。他们认为追逐彗星是琐碎的杂务，拒绝给我们任何资金……但这并不意味着它不值得！"</text>
+                            <choice>
+                                <text>接受坐标。</text>
+                                <event>
+                                    <text>"太好了！你可以保留你找到的东西，但请拿到数据后发给我！"</text>
+                                    <quest event="QUEST_ASTROLOGER_COMET" />
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>拒绝。</text>
+                                <event>
+                                    <text>"哼。如今占星家得不到任何尊重了。"</text>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>接受坐标。</text>
+                        <event>
+                            <text>"太好了！你可以保留你找到的东西，但请拿到数据后发给我！"</text>
+                            <quest event="QUEST_ASTROLOGER_COMET" />
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>拒绝。</text>
+                        <event>
+                            <text>"哼。如今占星家得不到任何尊重了。"</text>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>无视实验室。</text>
+        <event>
+            <text>神权国似乎并不重视这一地区，因此你有充足的时间。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="QUEST_ASTROLOGER_COMET">
+    <beaconType id="map_icon_quest" global="true">
+        <color r="69" g="168" b="235" a="1" />
+        <unvisitedTooltip>一位岩石族占星家请你寻找一颗经过这个信标的彗星。</unvisitedTooltip>
+    </beaconType>
+    <text>你抵达了占星家要你寻找的彗星所在地。</text>
+    <choice hidden="true">
+        <text>检查彗星。</text>
+        <event load="CRYSTAL_COMET_LIST" />
+    </choice>
+</event>
+<eventList name="CRYSTAL_COMET_LIST">
+    <event>
+        <text>当你调查彗星时，令你惊讶的是，它的一小块脱落了……那是一艘水晶族飞船！"你无权干涉我们的任务！"</text>
+        <ship load="SHIP_CRYSTAL_COMET_DWELLERS" hostile="true" />
+        <choice req="unique_ruwen">
+            <text>（茹文）尝试让他们冷静下来。</text>
+            <event>
+                <text>茹文举起双手。"我很抱歉打扰你们的静滞状态。帝国自那时起已改变了其外交政策。事实上，这一切始于多年前的我。我建议你们返回帝国接受新命令。"
+
+"茹文？一定过去很多年了吧。看来你变了。"
+
+"是的，我是对外界的大使。银河系再次需要我们的存在。"
+
+其他水晶族似乎感到困惑，但他们为你提供了一份贡物，为他们的攻击行为道歉。</text>
+				<ship hostile="false" />
+                <choice>
+                    <text>接受贡物并向占星家报告。</text>
+                    <event>
+                        <text>"难以置信……我们当年搜索了那么多彗星，从未听说过里面有水晶族居住……而且这还不是近期才发展的？"</text>
+                        <autoReward level="HIGH">standard_no_item</autoReward>
+                        <weapon name="GIFTLIST_CRYSTAL" />
+                    </event>
+                </choice>
+            </event>
+        </choice>
+        <choice req="unique_dianesh">
+            <text>（黛安娜什）"你们的女皇命令你们停手。"</text>
+            <event>
+                <text>"黛安娜什女皇？您怎么在外来者的船上？"
+
+"帝国正在银河文明中再次扮演积极角色。你们的侦察任务已经没必要进行了。"
+
+"……当然，我的陛下。请接受这份贡物作为道歉。"</text>
+				<ship hostile="false" />
+                <choice>
+                    <text>接受贡物并向占星家报告。</text>
+                    <event>
+                        <text>"难以置信……我们当年搜索了那么多彗星，从未听说过里面有水晶族居住……而且这还不是近期才发展的？"</text>
+                        <autoReward level="HIGH">standard_no_item</autoReward>
+                        <weapon name="GIFTLIST_CRYSTAL" />
+                    </event>
+                </choice>
+            </event>
+        </choice>
+        <choice req="LIST_CREW_CRYSTAL">
+            <text>（水晶族船员）尝试与他们讲道理。</text>
+            <event>
+                <text>"你与外来者为伍是在做什么？你是水晶帝国的耻辱！"看来你没能缓和局势！</text>
+                <choice hidden="true">
+                    <text>继续。</text>
+                    <event load="COMBAT_CHECK" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text>继续。</text>
+            <event load="COMBAT_CHECK" />
+        </choice>
+    </event>
+    <event>
+        <text>彗星乍一看相当普通，但一旦你检查表面之下，就会发现隐藏在内的水晶科技。</text>
+        <autoReward level="MED">standard_no_item</autoReward>
+        <weapon name="GIFTLIST_CRYSTAL" />
+        <choice>
+            <text>将你的发现发送给占星家。</text>
+            <event>
+                <text>"啊哈！终于，我找到了我一直在寻找的东西！哦，我想你可以保留实际的器物，但你获得的数据非常有用。"</text>
+            </event>
+        </choice>
+    </event>
+    <event>
+        <text>这颗彗星，遗憾的是，完全不起眼，至少对你来说是如此。你找到了一些微量金属可以收集，但最终感觉是浪费时间。</text>
+        <autoReward level="MED">scrap_only</autoReward>
+        <choice>
+            <text>将你的发现发送给占星家。</text>
+            <event>
+                <text>"多么迷人！你看，水晶的成分表明它的年龄来自几千年前！真是个发现！……什么，你期望更多？"</text>
+            </event>
+        </choice>
+    </event>
+    <event>
+        <text>起初，这颗水晶基本上看起来很普通。然而，刮掉一些表面后，你在里面发现了一个奇怪的信号。但是，这水晶很坚硬。需要非常精准的打击才能击碎外壳的薄弱点。</text>
+        <choice req="unique_ruwen">
+            <text>（茹文）"这是古物！让我试试看。"</text>
+            <event>
+                <text>茹文前往水晶处。他按压表面，完全融入了进去。片刻之后水晶打开了，茹文返回你的飞船，让你检查里面的货物。</text>
+                <choice hidden="true">
+                    <text>看看里面。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice req="unique_dianesh">
+            <text>（黛安娜什）"这些原本都以为失传了……让我看看。"</text>
+            <event>
+                <text>黛安娜什乘穿梭机飞向彗星。她用穿梭机的侧面非常特定地敲击水晶：它发出嗡嗡声和回响，直到水晶打开。</text>
+                <choice hidden="true">
+                    <text>看看里面。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice req="BLUELIST_WEAPONS_HEAVY">
+            <text>（重型武器）用一连串攻击击碎水晶。</text>
+            <event>
+                <text>你用最重的武器瞄准最脆弱的区域，猛烈攻击。水晶很坚硬，但最终还是碎裂开来，让你可以进入内部。</text>
+                <choice hidden="true">
+                    <text>看看里面。</text>
+                    <event load="COMET_ASTROLOGER_ANCIENT" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text>直接向占星家发送你的发现。</text>
+            <event>
+                <text>"哦，真有趣！……可惜你没能打开水晶，我敢肯定里面的东西无论是什么都价值连城。不过，仍然感谢你的贡献。"</text>
+            </event>
+        </choice>
+    </event>
+</eventList>
+<event name="COMET_DWELLERS_ASTROLOGER">
+    <text>"难以置信……我们当年搜索了那么多彗星，从未听说过里面有水晶族居住……这会不会是近期才发展的？"</text>
+    <choice>
+        <text>拆解你在彗星上能找到的任何其他东西。</text>
+        <event>
+            <autoReward level="MED">standard</autoReward>
+        </event>
+    </choice>
+</event>
+<event name="COMET_ASTROLOGER_ANCIENT">
+    <text>彗星内部，令人惊讶地，是一些奇怪的绿色立方体科技。它们看起来都很古老，状态也不是最好，但即使年代如此久远，工艺质量仍然显而易见。</text>
+    <weapon name="GIFTLIST_ANCIENT_BASIC" />
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice>
+        <text>将你的发现发送给占星家。</text>
+        <event>
+            <text>"太不可思议了！我做梦也想不到能达到这种程度……啊，真可惜这项科技没有落到我们手中，但这是他们从不听我们说话的错！"</text>
+        </event>
+    </choice>
+</event>
+
+<eventList name="QUESTS_ROCK_UNIQUE">
+	<event load="ROCK_SUN_CHALLENGE" />
+</eventList>
+
+<event name="ROCK_SUN_CHALLENGE" unique="true">
+	<text>一艘看起来很威严的岩石族战舰立即向你发出信息："你那艘是去'拯救联邦'的飞船，对吗？你指望带着那块垃圾活下来吗？"</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE" hostile="false" />
+	<choice hidden="true">
+		<text>"我们打算拯救联邦，或者死于任务。"</text>
+		<event>
+			<text>"后者的可能性更大。不过...我们有可能帮助你和你宝贵的舰队，但你需要先证明自己。在这些坐标处与我们会面。"他们跃迁走了。</text>
+			<quest event="ROCK_SUN_CHALLENGE2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>"我们强大到足够摧毁你！"</text>
+		<event>
+			<text>"一艘战舰不等于一个舰队，但至少你有一些火力。如果你想向我们证明联邦值得拯救，就在这些坐标处与我们见面。"他们跃迁走了。</text>
+			<quest event="ROCK_SUN_CHALLENGE2" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视对方。</text>
+		<event>
+			<text>"呵。就像我预期的那样。如果联邦像你一样软弱，它就活该落幕。"他们一言不发地跃迁走了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_SUN_CHALLENGE2">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一个圣判所飞船要求你在这里与他们会面，以便他们评判你的实力。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了所给的坐标，发现自己正危险地接近一颗M级恒星！另一艘飞船给你发来信息："让我们看看你这艘微不足道的飞船能承受多久的高温！准备迎接挑战吧！"</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE2" hostile="true" />
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ROCK_SUN_CHALLENGE3">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>你成功抵挡住的那个圣判所飞船传输了这些坐标。</unvisitedTooltip>
+	</beaconType>
+	<text>你来到一个巨大的岩石族船厂，注意到刚才试图杀死你的那艘船已经停靠在上面，并且正在进行修理。"打得好！我必须说我没有想到你能活下来。"</text>
+	<ship load="SHIP_ROCK_SUN_CHALLENGE" hostile="false" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>"我相信你们的力量，并承诺协助你们的任务。让我们来修补你的舰体，并为你提供一些物资。"</text>
+			<damage amount="-15" />
+			<autoReward level="HIGH">standard</autoReward>
+			<crewMember amount="1" class="rock_crusader" all_skills="1">哈德鲁奇</crewMember>
+		</event>
+	</choice>
+</event>
+
+<event name="QUEST_ROCK_MARRIAGE_START" unique="true">
+	<text>岩石族飞船舰长向你问好："我不该与异界的人联系，但这是一个紧急情况。我们正准备将我们的乘客送到她的新丈夫：努马五星系的导弹大师身旁，但引擎发生了故障。你能不能带她尽快赶到努马5号？"</text>
+	<choice hidden="true">
+		<text>接受乘客。</text>
+		<event>
+			<text>"你让我感到惊讶，异界人。谢谢你。乘客马上就到。"她拒绝进入主舱，宁愿在货舱等待。</text>
+			<quest event="ROCK_QUEST_MARRIAGE" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>包办婚姻并不在你值得关注的名单上。你让岩石族自己完成任务。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_QUEST_MARRIAGE">
+	<text>在努马5号的一颗行星的地表附近有一个巨大的隧道网络，表明有一个先进的岩石族文明。这一定是你被要求运送乘客该到的地方。</text>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>意识到即将到达目的地，这名乘客——目前为止保持沉默——恳求你不要把她交出去。她被导弹大师的首席助手打断了："关押导弹大师妻子的外星船只！把她交给我们。你会得到...丰厚的...回报。"</text>
+			<choice hidden="true">
+				<text>把她交出去。</text>
+				<event>
+					<text>"愿你的孩子被侵蚀成尘埃！"当她被捆绑至等待中的穿梭机上时，她尖叫起来。船上的岩石族守卫匆匆向你抛下一件异族技术品，然后回到导弹大师身旁。</text>
+					<weapon name="CRYSTAL_BURST_2" />
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>					
+			</choice>
+			<choice hidden="true">
+				<text>拒绝服从。</text>
+				<event>
+					<text>"我还以为你们这种人不知道怜悯。我将加入你们。但要快，我们必须跃迁走——他们不会容忍此事..."她被导弹大师的护卫队的武器射击打断了！</text>
+					<crewMember amount="1" class="rock">阿里阿德涅</crewMember>  
+					<ship load="SHIP_ROCK_QUEST_MARRIAGE" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_ROCK_MV">
+	<event load="ENCOUNTER_ROCK" />
+	<event load="ENCOUNTER_OUTCAST" />
+</eventList>
+
+<event name="ENCOUNTER_ROCK">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_ROCK_REGULAR" />
+		<event name="ROCK_FIGHT_ASTEROID" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_ROCK_REGULAR">
+	<text load="TEXT_ENCOUNTER_ROCK" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCK">
+	<text>你遇到了一艘岩石船，并试图打开交易频率，但对方将你的行为视为冒犯，于是开火了。</text>
+	<text>你跃迁进入附近卫星上的一个岩石挖掘项目中。他们对你的闯入很吃惊，开始攻击你！</text>
+	<text>你截获了来自一艘接近的岩石飞船的聊天记录。"正在交战，充能发射管。"没有人可以和这些家伙说话。</text>
+	<text>当你跃迁进去时，一个庞大的身影出现在视屏上。岩石族舰长在摩擦着他的下巴上绿色的、类似苔藓的附属物后，命令他的船员开火。</text>
+	<text>一切看起来很安静，但你意识到你的电脑正在被扫描。一艘隐藏的岩石族飞船向你呼叫。"你为什么用谎言填满你的电脑？这些不是圣言！"你还没来得及插话，他们就开火了。</text>
+	<text>你注意到一艘岩石族战舰正在进行战斗演习。然而，他们迅速改变航线，与你的星舰交战。他们显然把未记录的外星飞船当作方便目标来练习。</text>
+	<text>跃迁完成后，一声巨大的'砰'声响彻飞船--你刚刚撞击了一架岩石族战机，他已经在准备开火了！</text>
+	<text>你被一个岩石族回收作业队拦截了。他们似乎并不介意你还在船上，现在就想把你的船拆了。</text>
+</textList>
+<event name="ROCK_FIGHT_ASTEROID" unique="true">
+	<text load="ROCK_FIGHT_ASTEROID" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="ROCK_FIGHT_ASTEROID">
+	<text>一艘岩石采矿船正在这个地方收获富含矿物质的小行星，而他们的侦察员认为你的存在是一种侵犯。准备作战！</text>
+	<text>一艘岩石族货船对其所受命令的理解过于简单，采取了最直接的路线前往目的地...直接穿过小行星带。他们对你的到来很困惑，在你跃迁后就疯狂地开火。</text>
+	<text>一艘迷失在小行星带的岩石货船舰长向你呼叫。"我们的坐标把我们带到这里，但迎接我们的只有死亡。该来的还是要来的。所有人都得死。"你为战斗系统供能，想知道他们被困在这里多久了。</text>
+</textList>
+
+
+<!--
+		BOARDERS!!!
+	Events with boarder calls
+-->
+<eventList name="BOARDERS_ROCK">
+	<event load="BOARDERS_ROCK_ASTEROID" />
+	<event load="BOARDERS_ROCK_SUN" />
+</eventList>
+
+<event name="BOARDERS_ROCK_ASTEROID" unique="true">
+	<text load="BOARDERS_ROCK_ASTEROID" />	
+	<boarders min="1" max="2" class="rock" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+	<environment type="asteroid" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="BOARDERS_ROCK_ASTEROID">
+	<text>你到达了一个小行星区，并立即开始规避机动，这时一声巨响回荡在飞船上。起初，你认为舰体被击中了，但这声音来自于远程传送到飞船上的一些岩石族入侵者！</text>
+	<text>你的护盾在抵御来自小行星带的碎片时受到了考验。当你在岩石之间穿行时，你碰巧遇到了一个岩石族海盗的据点。你监测到了传送信号，并听到船上的呼喊声。</text>
+</textList>
+
+<event name="BOARDERS_ROCK_SUN" unique="true">
+	<text load="BOARDERS_ROCK_SUN" />	
+	<environment type="sun" />
+	<boarders min="2" max="3" class="rock" />
+</event>
+<textList name="BOARDERS_ROCK_SUN">
+	<text>你一到这里，就听到了传送器的提示声和回荡在飞船上的喊声："准备好燃烧吧，肉包子外星人！"</text>
+	<text>由于其高抗热性，岩石族经常在非常接近恒星的地方定居。这就是为什么当你偶然经过一个隐蔽的定居点时，你的星舰被入侵了。</text>
+</textList>
+
+<eventList name="HOSTILE_ROCK_UNIQUE">
+	<event load="ENCOUNTER_ROCK_HOMEWORLDS" />
+	<event load="ENCOUNTER_OUTCAST" />
+	<event load="ENCOUNTER_LOSTSUN_ROCKHOME" />
+</eventList>
+
+<event name="ENCOUNTER_ROCK_HOMEWORLDS">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_ROCK_HOMEWORLDS_REGULAR" />
+		<event name="ROCK_FIGHT_ASTEROID" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_ROCK_HOMEWORLDS_REGULAR">
+	<text load="TEXT_ENCOUNTER_ROCKHOME" />
+	<ship load="SHIP_ROCK_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCKHOME">
+	<text>你在附近的岩石飞船上听到了谈话声。他们用沉默的语气谈论着你的星舰，以及你肯定已经犯下的卑鄙罪行。他们急于执行长老们的教律，于是充能武器进行攻击！</text>
+	<text>岩石族的公民可能是所有种族中武装得最好的平民。不幸的是，这意味着你在这里遇到的每一艘船都非常愿意与你争斗。</text>
+	<text>你已经踏进了岩石族母星系的星域，这是岩石族高度重视的避难所。难怪该星区愤怒的公民如此急切地寻求对你的毁灭。</text>
+	<text>"这个人，他没有被石头覆盖！我们要把他的头砍下来，挂在我们的墙上作为战利品！"看来这里的岩石族不愿意谈判。</text>
+	<text>在岩石族母星系，平民和军队之间的界限很细。很难说这里的飞船是什么来头，但尽管如此，他们还是有敌意，想找人打一架。</text>
+	<text>你在这个星区的存在是对岩石族的巨大侮辱。附近星系的岩石族对你的存在不满意，决定自己来对付你。</text>
+	<text>岩石族并不特别友好，但当这个信标附近的平民不顾一切地向你发起战斗时，你就知道来到这里真的是个错误。</text>
+</textList>
+
+<event name="ENCOUNTER_LOSTSUN_ROCKHOME" unique="true">
+	<text>一艘迷失烈阳飞船正在寻找岩石族的公民，准备将其作为囚犯带回要塞，它认出了你的船。"叛徒的懦夫！一艘联邦船，在这里给岩石长老的追随者提供帮助？你是人渣！我要用最神圣的火把你们全部活活烤死。"他们并不完全正确，但你不觉得争辩会对情形有帮助。</text>
+	<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<event name="ROCK_CRYSTAL_WAYSTONE">
+	<text>看来你已经发现了水晶次元石，用来进入水晶族家园的装置。明明过量的人流最终逼迫了水晶族重返银河系，该信标处却空旷得令人震惊。</text>
+	<img planet="PLANET_RINGS" />
+	<choice hidden="true">
+		<text>搜刮它。</text>
+		<event load="ROCK_CRYSTAL_WAYSTONE_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>不管它。</text>
+		<event>
+			<text>最好不要冒这个险。岩石族不太可能对破坏行为作出良好反应。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>(水晶族船员)让你的水晶族船员再次开启设备。</text>
+		<event>
+			<text>你确定你要这样做吗？你将立即被带往水晶族家园。</text>
+			<choice>
+				<text>是。</text>
+				<event>
+					<secretSectorWarp>SECRET_ORIGINS</secretSectorWarp>
+					<secretSector />
+				</event>
+			</choice>
+			<choice>
+				<text>算了。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_CRYSTAL_WAYSTONE_LIST">
+	<event>
+		<text>你把它拆开，拿去做废料。没有人会想念它。</text>
+		<autoReward level="HIGH">scrap_only</autoReward>
+	</event>
+	<event>
+		<text>当你开始拆开它时，一艘岩石族军舰跃迁了附近。"你以为你可以进入我们的星域，随便偷东西？准备受死吧，破坏者！"</text>
+		<ship load="SHIP_ROCK_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ENCOUNTER_ROCK_ELITE" unique="true">
+	<text>岩石族圣战者曾被招募来执行圣判所，这是一场对其他被认定充满异教徒的世界的残酷入侵，以确立长老的'智慧'。联邦早已正式终止了圣判所，但圣战者军衔尚未解散。仍然可以看到他们在巡逻，以完成长老的图谋并保护他们的领地不受像你这样的外来者侵犯。</text>
+	<ship load="SHIP_ROCK_ELITE_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ROCK_ZOLTAN_PARASITE" unique="true">
+	<preventQuest />
+	<distressBeacon />
+	<text>附近的一个岩石族空间站正在大量广播医疗援助的请求。"R-0735Q空间站需要医疗援助。需要帮助提取寄生虫。将支付费用。"</text>
+	<choice hidden="true">
+		<text>主动提供帮助。</text>
+		<event>
+			<text>岩石族对一艘联邦飞船将要提供帮助的行为感到轻微的困惑，但没有抱怨。"我们是弯剑工业的代表。昨天，首席营销官里格·布拉姆斯通在附近这些地方安排了一次会议，与一位名叫婷丹的超能族特使讨论在牧师团内的商品配发和营销手段。然而，我们没有预料到，一艘蛞蝓族船在不久之后抵达，并在会议上部署了一个"恶作剧"，心灵控制里格，让他把婷丹整个吞掉。相信你明白，我们现在处于相当的困境，需要立即作出行动化解此事。"</text>
+			<choice hidden="true" req="unique_tonysr">
+				<text>(托尼·西尼尔)"里格，是你吗？"</text>
+				<event>
+					<text>"我的天……托尼？是你吗？你怎么在这儿？" 你完全不明白发生了什么，但托尼解释道："七年前，托尼的店还只是个小连锁店——只在共和国本土经营。我本想通过拓展基因实验来改变局面；什么样的军队会拒绝拥有岩石族耐久力的螳螂族呢？我会见了弯剑的代表，讨论如何确保实验对象，然后一艘蛞蝓族飞船来了……并在他们身上'演示'了我的想法。外科医生们当时完全不知道如何处理这种情况。托尼的小店在我们启动贷款计划后最终走向了银河系，但我从未忘记你，里格。"</text>
+					<choice hidden="true">
+						<text>额...</text>
+						<event>
+							<text>岩石族空间站的工作人员完全不明白发生了什么，但你、托尼、里格与婷丹一起讨论了这个情况。很明显，里格和婷丹不会很快摆脱对方，但在托尼的帮助下，你可能可以追踪到背责的蛞蝓族飞船并进行报复。</text>
+							<variable name="ach_crew_symbiote" op="set" val="1" />
+							<crewMember all_skills="1" amount="1" class="unique_symbiote">婷丹与里格</crewMember>
+							<quest event="BUTT_BUDDIES" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice req="unique_anurak" hidden="true">
+				<text>（阿努拉克）提供汤。</text>
+				<event>
+					<text>阿努拉克递给受折磨的岩石族一碗汤。"这怎么能帮上忙呢？"
+
+"呃？这不是很明显吗？这对你有好处！"
+
+里格喝下汤，看起来若有所思。"真奇怪。感觉情况不像以前那么令人不安了。"
+
+阿努拉克笑了。"我说什么来着？一点汤会对你有好处！而且，当然，它也在帮助在你肚子里休息的小家伙。"
+
+里格看起来犹豫不决。"这能持续多久？"
+
+阿努拉克摇了摇头。"别犯傻！你不能只喝一次汤就指望永远没事。它必须成为你饮食的一部分。"
+
+里格看起来有些恼火。"那我该怎么办？我不会做那种汤。"
+
+阿努拉克用力地招手。"什么？你想让我每天给你做汤？好吧，如果你坚持的话。"
+
+里格和婷丹无奈地叹了口气，决定跟着走。其他岩石族对情况没有得到妥善解决显得有些不满。</text>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">婷丹与里格</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+				</event>
+			</choice>
+			<choice req="unique_alkali" hidden="true">
+				<text>（阿尔科莱）编个借口来研究这个有趣的样本。</text>
+				<event>
+					<text>"哦天哪！这～～可完全不行！我很遗憾地通知你们，这～～个病人不能进行手术。"岩石族们看起来困惑不解。"是的，如果我们切开病～～人，超能族可能会经历相变破裂，摧毁两个病～～人。如果你们让我观察一下这个样本——呃，病人，我无疑能想出更安～～全的方案。"
+
+岩石族们似乎很担忧。"你们不打算离开吗？"
+
+阿尔科莱点了点头。"我们有非常重要的事情。但我们在治～～愈病人后会释放他～～们。"
+
+岩石族们叹了口气。"好吧。不过，只在治愈后付款。"在可预见的未来，看来婷丹和里格将加入你的船员。他们对必须待在一起并不高兴，但至少有了阿尔科莱，他们或许有机会得到适当的治疗。
+
+不过，你几乎可以肯定听到阿尔科莱低声嘟囔了一句听起来像"太容易了"的话。</text>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">婷丹与里格</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+					<!--add a var to unlock extra socialize dialogue mentioning this situation?-->
+				</event>
+			</choice>
+			<choice hidden="true" req="mind">
+				<text>(心灵控制)说服两人在你的星舰上共生。</text>
+				<event>
+					<text>即使在心灵控制的作用下，仍然消耗了大量的说服力才让这两个人同意永远存在于彼此之间。他们的人生永远地改变了，但现在明显好转起来。他们向你致谢，甚至要求加入你的船员。岩石族空间站对所发生的事情感到困惑，但里格在催眠中似乎确信这是正确的选择，岩石族同意让他离开。</text>
+					<autoReward level="MED">standard</autoReward>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">婷丹与里格</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+				</event>
+			</choice>
+			<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+				<text>(心灵控制)说服两人在你的星舰上共生。</text>
+				<event>
+					<text>即使在心灵控制的作用下，仍然消耗了大量的说服力才让这两个人同意永远存在于彼此之间。他们的人生永远地改变了，但现在明显好转起来。他们向你致谢，甚至要求加入你的船员。岩石族空间站对所发生的事情感到困惑，但里格在催眠中似乎确信这是正确的选择，岩石族同意让他离开。</text>
+					<autoReward level="MED">standard</autoReward>
+					<crewMember amount="1" all_skills="1" class="unique_symbiote">婷丹与里格</crewMember>
+					<variable name="ach_crew_symbiote" op="set" val="1" />
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_SURGEON_DRONES">
+				<text>（外科无人机）对岩石族进行手术。</text>
+				<event>
+					<text>外科无人机毫不犹豫地冲进空间站，以最快速度直奔病人，撞倒任何挡路的岩石族。它施加麻醉，然后精准地在里格的腹部切开一个口子。它取出了颤抖的婷丹，并尽快缝合了切口。当它完成对两位病人的治疗后，岩石族们走上前来，印象深刻。"考虑到所实施的护理水平，我们愿意给予丰厚的报酬。你在哪里找到这项技术的？"</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_A55">
+				<text>（A55）尝试手术。</text>
+				<event>
+					<text>"呃啊，咱的系统说不可能，但咱还是要试试看。"A55用他的钩子一挥，划开了里格。岩石族在A55取出超能族时痛苦地咕哝着，同时A55用他有限的医疗无人机能力进行救助。这是个临时凑合的工作，但他设法缝合了伤口并治疗了两位病人。岩石族们关切地看着你，但还是让步了。"你做的看起来风险很大。而且那是个海盗无人机……？不管了。你做到了你承诺的事，所以我们会为此给你报酬。"</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice req="LIST_DOCTOR_DRONES" hidden="true">
+				<text>你的医疗无人机没有能力进行这种级别的手术。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice req="LIST_CREW_MEDIC" hidden="true">
+				<text>你的医疗员告知你，野战医生不具备进行这项工作的资格。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice req="shell_scientist" hidden="true">
+				<text>你的甲壳科学家对岩石族或超能族的生物学没有足够的了解，无法保证两位病人都存活并保持健康。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_MANTIS">
+				<text>(螳螂族船员)对岩石族进行"手术"。</text>
+				<event>
+					<text>你的螳螂族，对自己的能力向有信心，推开岩石族，走进看护"受感染"的岩石族的房间。他一挥手，直接切开了肚子。抽搐的超能族掉了出来，在地上颤抖着。临时组成的"岩石族"医疗队赶来修复受伤的岩石族，并对超能族进行生理评估。他们对你的解决方案并不满意，但他们还是按照承诺给了你钱。</text>
+					<autoReward level="LOW">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>提议干脆让他们摆脱这种集体痛苦吧。</text>
+				<event>
+					<text>"你的提议毫无价值。我们不能既杀一位地位显赫的超能族官员，又杀我们自己的指挥官。请你离开，然后我们将等待一艘更有用的飞船抵达。"</text>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>提出尝试进行手术。</text>
+				<event>
+					<text>"你有对这两个物种中的任何一个有过手术经验吗？或者说任何手术经验？"你摇摇头。"那就滚吧。我们会等着知道自己在做什么的人到来。"</text>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们无能为力。</text>
+		<event>
+			<text>你无视岩石族空间站继续前行。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_symbiotestart" global="true">
+		<color r="44" g="255" b="0" a="1.0" />
+		<unvisitedTooltip>共生体所在之处。你需要三级心灵控制。</unvisitedTooltip>
+		<visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="ROCK_HOMEWORLDS" unique="true">
+	<preventQuest />
+	<text>跃迁至这个信标使你非常接近一个人口稠密的岩石族星球。当星舰的计算机告诉你这不是普通的岩石族星球，而是岩石种族的母星——威拉彻斯四时，你不禁大吃一惊。</text>
+	<img back="BACK_EVENT_ROCKHOME" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>电脑通知了你一些其他的细节。威拉彻斯四在很大程度上被遗弃了，因为这个星球表面的大规模工业开采导致了必要的自然资源的灾难性缺乏。这个城市，岩石族文明的首都，是仅有的几个仍然有人居住的城市之一。它被五位岩石长老之一的"石墙"严格控制着。他令人难以置信的毫无创造力的名字与他惩罚持不同政见者的毫无创造力的方法是一致的，这些方法通常包括酷刑与公开处决。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>下面的城市热闹非凡，远处是石墙的宫殿，挡住了日出的光芒。它不是这里最大的建筑，但它吸引了最多的注意力。</text>
+					<choice hidden="true">
+						<text>攻击宫殿。</text>
+						<event>
+							<text>你来到这个宇宙是为了做出改变，而岩石族政府并不比叛军好到哪去。然而，当你接近宫殿时，一艘巨大的岩石星舰驶出，准备与你作战。</text>
+							<ship load="SHIP_ROCK_CRUISER_BOSS" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我们应该离开。</text>
+						<event>
+							<text>一个巨大的岩石族城市不是联邦飞船该待的地方。你充能推进器，从星球表面离开。</text>
+							<choice>
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_rockhomestart" global="true">
+		<color r="92" g="51" b="0" a="1.0" />
+        <unvisitedTooltip>此处是岩石族家园的所在。入侵皇宫并击杀斯通沃尔。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="ROCK_HOMEWORLDS_VICTORY">
+	<text>没有哪艘船能与你匹敌，即便是强大的精英岩石星舰。被击败的星舰残骸陷入了火海，摧毁了通往宫殿入口的巨大花园。有很多东西可以搜刮，但你没有太多时间，因为岩石族士兵们将要跑出来面对你。</text>
+	<variable name="ach_boss_rockcruiser" op="set" val="1" />
+	<autoReward level="HIGH">item</autoReward>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>与岩石族一起到来的还有石墙本人，他对你造成的破坏极为恼火。"你做了什么！？你已经证明了你的观点，你所到之处只会带来破坏，扰乱我们的生活方式！你想要什么，你为什么要来这里毁掉这一切？几个臭钱能让你离开吗？"</text>
+			<choice>
+				<text>接受他们的贿赂。</text>
+				<event>
+					<text>不情愿地，岩石城的士兵们放下了枪，为你拿出了一大笔废料。除了加强安保之外，这不会对岩石族政府产生什么持久影响，但至少这对你的任务有帮助。</text>
+					<autoReward level="MED">scrap_only</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+				<text>利用石墙作为人质讨价还价以获取更大的利益。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_HOSTAGE" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>舰上的AI建议把石墙作为人质。不幸的是，对于这个方案你缺乏一队船员来执行。</text>
+				<event load="OPTION_INVALID" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+				<text>我们来到这里是为了做出改变，现在就刺杀石墙。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_KILL" />
+			</choice>
+			<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+				<text>你来这里是为了做出改变，向石墙开火。</text>
+				<event load="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ROCK_HOMEWORLDS_VICTORY_HOSTAGE">
+	<event>
+		<text>你比任何一个守卫都快得多，只用了几秒钟，你的爆破手枪就直接顶住了石墙的脑袋。这是一次危险的、令人紧张的人质交换，但一切都按"计划"进行，岩石运输舰运送了大量的货物。</text>
+		<autoReward level="HIGH">weapon</autoReward>
+	</event>
+	<event>
+		<text>这是一个冒险的举动，事情并没有按"计划"进行。岩石族守卫比预期的要快，你的一个船员被击中了胸部。你还是设法抓住了石墙巨大的脖子，用爆破手枪顶住了他布满青苔的脸。当你的船员躺在地上奄奄一息时，一辆岩石族运输车被叫来运送大量的物资。你满意了，赶紧回到星舰，并确保在回去时一直用枪指着石墙。</text>
+		<autoReward level="HIGH">weapon</autoReward>
+		<choice hidden="true" req="medbay" lvl="2">
+			<text>(高级医疗舱)为你的船员提供医疗援助。</text>
+			<event>
+				<text>幸运的是，你的船员能够及时得到治疗。你离开了城市，为任务的成功感到高兴。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="LIST_CREW_MEDICAL">
+			<text>(医疗船员)为你的船员提供医疗援助。</text>
+			<event>
+				<text>幸运的是，你的船员能够及时得到治疗。你离开了城市，为任务的成功感到高兴。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>我们没有办法拯救自己的船员。</text>
+			<event>
+				<text>你的船员在你面前丧生，如果你不做出如此大胆的尝试，这种伤亡本该可以避免。</text>
+				<removeCrew>
+					<clone>true</clone>
+					<text>幸运的是，你的船员被克隆了，消除了你的一些内疚。</text>
+				</removeCrew>
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="ROCK_HOMEWORLDS_VICTORY_KILL">
+	<text>你迅速地抽出你的爆破手枪，直接轰击石墙的胸口。这个强大的泰坦生物砰然倒地，岩石族士兵陷入混乱。你冲回星舰，但被冲破宫殿大门的岩石族公民的浪潮所阻挡。大批围观者目睹了你勇敢地处决他们长期以来残暴的独裁者。拥有了加入造反行列的机会，他们争先恐后地要拿下士兵们。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_ROCKMAN</unlockCustomShip>
+	<choice hidden="true">
+		<text>留下来帮助战斗。</text>
+		<event>
+			<text>这是一场激烈的战斗，双方都有很大的伤亡，但在你的训练有素的船员的帮助下，你帮助平民扭转了局势。战斗确定结束后，平民们感谢你的帮助。大多数人继续前进，控制了石墙的宫殿，但有一名岩石族，一名背叛了他主人的圣战者，留了下来。"你为我们做了相当大的贡献，我不能不感谢你。我们的种族最终终于摆脱了这种压迫，而这很可能只是一个开始。我想留下来继续战斗，但我也猜得到，一艘经过这里的联邦飞船，带着如此强大的装备，肯定有一个非常重要的任务在等着你们，你们会用得到所有可得的人力。"</text>
+			<crewMember amount="1" all_skills="2" class="rock_crusader">伊哈次诺</crewMember> <!--very poorly made easter egg for ih8ih8sn0w-->
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>现在就离开。</text>
+		<event>
+			<text>希望你在岩石族中掀起的这股新的希望之火不会被其他长老一定会派来的援军所扼杀。你不能再为你的任务冒险了，所以你充能引擎飞离了城市。</text>
+		</event>
+	</choice>
+</event>
+<event name="ROCK_HOMEWORLDS_VICTORY_KILL_AUTO">
+	<text>你瞄准整艘船的武器阵列，随意向石墙的位置开火。这是一次相当残暴的攻击表演，但这个强大的泰坦生物在你的武器的轰击下迅速被终结，而岩石族士兵则陷入混乱。一大群围观者看到你勇敢地处决了他们长期以来的残暴的独裁者。拥有了加入造反行列的机会，他们争先恐后地要拿下士兵们。</text>
+	<unlockCustomShip silent="false">PLAYER_SHIP_ROCKMAN</unlockCustomShip>
+	<choice hidden="true">
+		<text>留下来帮助战斗。</text>
+		<event>
+			<text>这是一场激烈的战斗，双方都有很大的伤亡，但由于你极具威胁性的自动星舰在城市上空鼓劲，你帮助扭转了局势，使之对平民有利。战斗确定结束后，平民们感谢你的帮助。大多数人继续前进，控制了石墙的宫殿，但有一名岩石族，一名背叛了他主人的圣战者，留了下来。"你为我们做了相当大的贡献，我不能不感谢你。我们的种族最终终于摆脱了这种压迫，而这很可能只是一个开始。我想留下来继续战斗，但我也猜得到，一艘经过这里的联邦飞船，带着如此强大的装备，肯定有一个非常重要的任务在等着你们，你们会用得到所有可得的人力。"</text>
+			<crewMember amount="1" all_skills="2" class="rock_crusader">伊哈次诺</crewMember>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>现在就离开。</text>
+		<event>
+			<text>希望你在岩石族中掀起的这股新的希望之火不会被其他长老一定会派来的援军所扼杀。你不能再为你的任务冒险了，所以你充能引擎飞离了城市。</text>
+		</event>
+	</choice>
+</event>
+
+
+
+
+
+
+
+
+</FTL>

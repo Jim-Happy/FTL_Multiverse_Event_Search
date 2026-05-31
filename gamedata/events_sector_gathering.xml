@@ -1,0 +1,3234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					GATHERING SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_ORCHID">
+	<text id="finish_beacon" />
+	<choice hidden="true">
+		<text>探索。</text>
+		<event load="EXIT_FILLER_LIST" />
+	</choice>
+	<choice hidden="true">
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice hidden="true">
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_ORCHID">
+	<event load="ORCHID_FREE_ITEMS" />
+	<event load="ORCHID_UNARMED" />
+	<event load="ORCHID_BOTANICAL_GALLERY" />
+	<event load="ORCHID_SEEDS" />
+	<event load="ORCHID_TERRAFORMERS" />
+	<event load="ORCHID_PETITION" />
+</eventList>
+
+<event name="ORCHID_FREE_ITEMS" unique="true">
+	<text load="ORCHID_FREE_ITEMS" />
+	<autoReward level="MED">standard</autoReward>
+	<choice>
+		<text>星舰管理。</text>
+		<event load="STORAGE_CHECK" />
+	</choice>
+	<choice>
+		<text>跳过。</text>
+		<event />
+	</choice>
+</event>
+<textList name="ORCHID_FREE_ITEMS">
+	<text>信标处的一个友好的集议会空间站正在免费提供废料。对方用手语表示："军事舰船？随意拿一些我们富余的废料吧，我们正在进行把舰体更换为坚木的过程。"</text>
+	<text back="BG_DARK" planet="NONE">这个信标是空的，周围既没有舰船也没有恒星。一个孤零零的，彷佛一颗巨型种子的容器悬浮于太空之中，里面有一些有用的废料和资源。</text>
+	<text back="BG_DARK" planet="NONE">这个信标离兰花族居住的星系很远。一些被摧毁舰船的残骸漂浮在周围，似乎是很久以前一场战斗的结果。你采集了所有能采集的东西。</text>
+	<text planet="PLANET_UNPOPULATED_TERRA">一座集议会环境改造站向你呼叫。"我们最近从这颗星球卸下了一些采矿设备，这些废料对我们已经没什么用处了，拿着吧。"</text>
+</textList>
+
+<event name="ORCHID_UNARMED" unique="true">
+	<text>一艘较小的兰花平民飞船停留在信标附近。他们用手语向你交流："变元者？没想到真的遇见你们了！等会等会，我这有一个礼物！十分感谢你们对联邦的贡献，舰长！"</text>
+	<choice>
+		<text>接受礼物。</text>
+		<event>
+			<autoReward level="LOW">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>勒索额外的资源，对方肯定还有更多。</text>
+		<event>
+			<text>"你在干什么？不不不，请你别这样！请别伤害我们！我会给你我所有的东西，求求你放我们走吧！我还有一个家庭！我的孩子们还没我一半高呢！"</text>
+			<choice hidden="true">
+				<text>接受更好的"礼物"。</text>
+				<event>
+					<text>对方一移交完物资，就立即跃迁离开。你收获满满，然而能遇见尊敬变元者的人相当稀罕，现在你让这事变得更稀罕了。</text>
+					<autoReward level="MED">standard</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ORCHID" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>杀了这名兰花族来拿走他所有的东西。</text>
+				<event>
+					<text>你把船员派上对方的飞船，屠杀了包括该名兰花族在内的所有船员。临死之前，对方勉强道出了他遇见你以来的第一句口语——单单一句"为什么？"。令人失望的是，相比他已经要送你的礼物，没有太多其他资源可供搜刮。</text>
+					<autoReward level="MED">standard</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_ORCHID_DOUBLE" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_BOTANICAL_GALLERY" unique="true">
+	<text>一个巨大的兰花空间站坐落于信标处。它在星图上被标记为"强化植物展览馆"。</text>
+	<ship load="SHIP_ORCHID_STATION" hostile="false" />
+	<choice hidden="true">
+		<text>进行参观。</text>
+		<event>
+			<text>宁静的氛围充满了主厅，使你不约地好奇起来。展览馆内有各种奇怪的展品，你在考虑先参观哪个。</text>
+			<choice>
+				<text>交纳'五月繁盛'的入场费。</text>
+				<event>
+					<text>该展厅包含一个巨大的球状树，四周均采用强化金属涂层保护。不就一棵圆树，你有点失望。</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>突然，一连串的爆炸震动了整个站翼。树丛爆裂释放巨型果核。球形金属保护壳勉勉强强防住了这些果核的威力。原来兰花族们开发了一种可无消耗发射果核的武器。</text>
+							<weapon name="KERNEL_1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>交纳'火腿馅饼'的入场费。</text>
+				<event>
+					<text>该展厅包含一片...草地。它看起来很像地球的普通绿草，开着朴素的白花，叶片的形状也很眼熟。这票买得真的值吗？</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>在草地上呆了几分钟后，你顿时感到烦恼消失了，还想要大笑，甚至有一种想要拥抱身旁一位螳螂族的冲动。过了一会儿，你与这名陌生参观客成为了亲密的朋友，他同意入舰。</text>
+							<crewMember amount="1" class="mantis" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>交纳'速效汁液'的入场费。</text>
+				<event>
+					<text>该展厅包含一个完全由植物材料制成的巨型机器。该装置自动收集附近植被的汁液，通过流水线将其快速加工成成品，成品出口旁边写道"优质燃料"。</text>
+					<item_modify>
+						<item max="-9" min="-12" type="scrap" />
+					</item_modify>
+					<choice hidden="true">
+						<text id="continue" />
+						<event>
+							<text>鉴于你交纳了入场费，兰花族们免费赠送你一些成品。</text>
+							<item_modify>
+								<item max="7" min="5" type="fuel" />
+							</item_modify>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>任务要紧，没时间顾这种艺术。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>给超光速推进器充能。</text>
+		<event>
+			<text>你对这个展览不感兴趣。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_SEEDS" unique="true">
+	<text>一间形如豆荚的大穿梭舱从你面前飘过，它部分由有机物构成且显然是集议会式样。这些豆荚舱内通常含有各种珍贵品、补给，或是人道主义物资。不确定是什么原因，你面前的它却稍显不同。</text>
+	<choice hidden="true">
+		<text>冒险打开。</text>
+		<event load="ORCHID_SEEDS_OPEN" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_FLORAL">
+		<text>(悦兰船员)让你的兰花族船员告诉你这间豆荚舱的用途。</text>
+		<event>
+			<text>你的兰花族船员解释说，这是一个幼苗荚，由最坚韧的坚木制成。它们包含许多不同的东西，从兰花族船员到果核武器都有可能！</text>
+			<choice hidden="true">
+				<text>打开它。</text>
+				<event load="ORCHID_SEEDS_OPEN" />
+			</choice>
+			<choice hidden="true">
+				<text>如果我们无法预测里面有什么，就不应该打开它。</text>
+				<event>
+					<text>虽然你现在知道了豆荚舱的用途，但这并不能消除打开它的风险。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视豆荚舱，它可能很危险。</text>
+		<event>
+			<text>你让这个奇怪的豆荚舱继续在太空中漂流。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_SEEDS_OPEN">
+	<event>
+		<text>你失望地发现舱内只有一些弹药，别无他物。看样子这间是个武器舱，但你不确定是为谁准备的，因为内部已经基本被清空。至少这不是什么糖衣陷阱，你赶紧抓紧时间上路，以防浪费过多时间成本在这。</text>
+		<autoReward level="LOW">missiles</autoReward>
+	</event>
+	<event>
+		<text>你撬开舱体，只发现一名饿昏了的海盗船员！看起来这原来是一间武器舱，但对方被同伴背叛并被封在了里面，现在他酝酿了如此之久的嗜血愤怒已经按耐不住了！</text>
+		<boarders min="3" max="4" class="LIST_CREW_PIRATE_RANDOM" />
+	</event>
+	<event>
+		<text>你撬开舱体，发现里面是一些武器与杂用设备。看来它被海盗们改造成了武器舱，甚至未受看护，你决定大捞一把。</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+
+<event name="ORCHID_TERRAFORMERS" unique="true">
+	<text>一艘集议会侦察舰向你呼叫，请求"军备良好舰船的谨慎帮助"。对方解释道他们被分配至附近一颗行星进行环境改造，然而有传言其地表有一项星联间谍行动正在进行。由于对方受到的指令中没有交代该如何处理这种情况，于是请求你代为调查，并承诺你可以任意处置任务中获得的物资。</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice hidden="true">
+		<text>调查行星。</text>
+		<event load="ORCHID_TERRAFORMERS_EXPLORE" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>(先进传感器)扫描行星。</text>
+		<event load="ORCHID_TERRAFORMERS_SCAN" />
+	</choice>
+	<choice hidden="true" req="ADV_SCANNERS">
+		<text>(长距扫描仪)扫描行星。</text>
+		<event load="ORCHID_TERRAFORMERS_SCAN" />
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你没有时间...或者勇气，在星联基地附近游荡。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_TERRAFORMERS_EXPLORE">
+	<event>
+		<text>探索行星时你发现了一艘坠毁的星联飞船，内部没有幸存者。你将情况报告回兰花族们，对方感谢了你的协助。</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+	<event>
+		<text>探索该行星时你发现了一艘坠毁的星联飞船！唯一幸存下来的船员向你打出SOS呼救信号来引起你的注意。对方表示他们之前只是和平地路过该星区，却被集议会的安保设施打了下来，在这颗贫瘠的星球等死。对方急切地想要得到救援，并很乐意为你效劳。</text>
+		<choice>
+			<text>接受对方入舰并绕开先前的兰花族们。</text>
+			<event>
+				<text>再对兰花族们说谎意义也不大，他们迟早会发现这艘飞船。所以现在招揽了这名星联船员后最优解应该是赶紧驶离，希望兰花族们不会太介意。</text>
+				<crewMember amount="1" class="GIFTLIST_CREW_COALITION" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_ORCHID" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>将其位置报告给兰花族们。</text>
+			<event>
+				<text>你无视了对方的求救信号并将发现的情报报告回了兰花侦察舰。"这样啊，那起码情况还好过处理一整个间谍行动。我马上请求支援，让执法人员逮捕那个人。他们会决定所谓'和平路过'这个说法的真伪并采取对应措施的。感谢你的帮助"</text>
+				<autoReward level="MED">standard</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>不出所料，这颗星球的背面隐秘地建有一座星联任务基地。你刚进入对方的扫描范围，他们就派出一艘武装船只准备处理掉你，以防行动暴露。</text>
+		<ship load="SHIP_ORCHID_TERRAFORMERS_COALITION" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ORCHID_TERRAFORMERS_SCAN">
+	<event>
+		<text>对该星球扫描后没有发现星联活动的迹象，除了一艘已经没有幸存者的坠毁飞船。你将情况报告回兰花族们，对方对你的协助表示感谢。</text>
+		<upgrade amount="1" system="reactor" />
+	</event>
+	<event>
+		<text>探索该行星时你发现了一艘坠毁的星联飞船！唯一幸存下来的船员向你打出SOS呼救信号来引起你的注意。对方表示他们之前只是和平地路过该星区，却被集议会的安保设施打了下来，在这颗贫瘠的星球等死。对方急切地想要得到救援，并很乐意为你效劳。</text>
+		<choice>
+			<text>接受对方入舰并绕开先前的兰花族们。</text>
+			<event>
+				<text>再对兰花族们说谎意义也不大，他们迟早会发现这艘飞船。所以现在招揽了这名星联船员后最优解应该是赶紧驶离，希望兰花族们不会太介意。</text>
+				<crewMember amount="1" class="GIFTLIST_CREW_COALITION" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_ORCHID" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>将其位置报告给兰花族们。</text>
+			<event>
+				<text>你无视了对方的求救信号并将发现的情报报告回了兰花侦察舰。"这样啊，那起码情况还好过处理一整个间谍行动。我马上请求支援，让执法人员逮捕那个人。他们会决定所谓'和平路过'这个说法的真伪并采取对应措施的。感谢你的帮助"</text>
+				<autoReward level="MED">standard</autoReward>
+			</event>
+		</choice>
+	</event>
+	<event>
+		<text>如兰花族们所述，你扫描出了一座星联基地。这座基地仅由一艘战斗舰守护，但要拿下它还是要点火力。</text>
+		<ship load="SHIP_ORCHID_TERRAFORMERS_COALITION" hostile="false" />
+		<choice hidden="true">
+			<text>摧毁这艘船！</text>
+			<event>
+				<text>摧毁整个基地可能不现实，但你至少可以削弱对方的武装力量。你瞄准了星联飞船并开始行动！</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="COMBAT_CHECK" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>设置一个爆炸装置来重创基地。[-15}]</text>
+			<event>
+				<text>你设置的装置导致了一场巨型爆炸，将基地的左翼摧毁殆尽！看守舰也受到重创，基地内部人员不得不开始撤离。你将情况报告回兰花族们，他们立即请求支援捉拿这些间谍们。你的本次援助得到了丰厚回报。</text>
+				<autoReward level="HIGH">scrap_only</autoReward>
+				<upgrade amount="1" system="reactor" />
+				<item_modify>
+					<item type="missiles" min="-15" max="-15" />
+				</item_modify>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>将基地位置报告回兰花族们。</text>
+			<event>
+				<text>兰花们十分感谢你的帮助，同时也对基地的存在高度警觉。"是那些杂草，他们想要加入星联！这座基地给了他们监视我们这种赢取那些文明盐碱地混蛋青睐的机会！希望我们把情况报告回指挥部之后，他们会批准联邦的援助。"</text>
+				<upgrade amount="1" system="reactor" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+<event name="ORCHID_TERRAFORMER_COALITION_WIN">
+	<text>兰花们十分感谢你的帮助，同时也对基地的存在高度警觉。"是那些杂草，他们想要加入星联！这座基地给了他们监视我们这种赢取那些文明盐碱地混蛋青睐的机会！希望我们把情况报告回指挥部之后，他们会批准联邦的援助。"</text>
+	<damage amount="-5" />
+	<upgrade amount="1" system="reactor" />
+</event>
+
+<event name="ORCHID_PETITION" unique="true">
+	<text>附近一艘集议会飞船向你呼叫。"舰长，你在联邦身份显赫吗？若如此，我们需要你的影响力！集议会一直以来执拗着的经济运作方式现在已经被证明是灾难性的！那些血兰邦的人效率要优于我们十倍不止！你愿意签署这份请愿书，以便我们能够有朝一日开启更大规模的工业化吗"</text>
+	<ship load="SHIP_ORCHID_FIGHT" hostile="false" />
+	<choice req="unique_mayeb">
+        <text>(麻椰)训斥对方。</text>
+        <event>
+            <text>麻椰严厉地指着对方。"不好意思，可你们组织不是由集议会的繁花设施资助的吗？"
+
+对方把倡议书放下，眯起眼睛。"哦不。"
+
+"那当然是，我知道你们是谁。你们组织总是抱怨着'哎，经济'，因为你们只在乎你们自己！我个人可不在乎什么钱，对于普通公民来说，真正富足的经济首先是以他们自身与其身处环境的安全为前提。"
+
+"我可不想听这些！"那名兰花族开始武装自己，看样子对方被她惹到了。</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+		<text>签署请愿书。</text>
+		<event>
+			<text>你潦草地在纸上签下名，承诺支持对园庭进行工业化。"太感谢你了舰长！有朝一日集议会会感谢你的壮举的！"</text>
+			<damage amount="-7" />
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>签署请愿书并进行捐款。</text>
+		<event>
+			<text>你潦草地在纸上签下名，并派一名船员从货舱分发了一些废料。</text>
+			<item_modify>
+				<item type="scrap" min="-25" max="-25" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>"喔！愿你得到希塔利蒙可萝的蜜礼！没想到外族人居然可以这么慷慨...有朝一日集议会会感谢你的壮举的！"</text>
+					<weapon name="GIFTLIST_KERNEL" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_REMOVE_ORCHID" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝签署。</text>
+		<event>
+			<text>兰花族点了点头。"我很失望，但尊重你的选择。航行平安。"</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>嘲笑对方。</text>
+		<event>
+			<text>你用手指着这些植物，嘲笑着他们改善经济的愚蠢尝试。悦兰舰长低吼，他的藤蔓怒而高举。"你明明只需要说一声'不'就行！没必要讥讽我们对于人民的心愿！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="ITEMS_ORCHID_UNIQUE">
+	<event load="ORCHID_KERNEL_FOREST" />
+	<event load="ORCHID_MEGATREE" />
+	
+	<event load="ORCHID_FREE_ITEMS" />
+	<event load="ORCHID_UNARMED" />
+	<event load="ORCHID_BOTANICAL_GALLERY" />
+	<event load="ORCHID_SEEDS" />
+	<event load="ORCHID_TERRAFORMERS" />
+	<event load="ORCHID_PETITION" />
+</eventList>
+
+<event name="ORCHID_KERNEL_FOREST" unique="true">
+	<text>这个星球有一系列令人惊叹的异世植物群，真是美不胜收。</text>
+	<img back="BACK_EVENT_ORCHID_GARDEN" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>进一步调查。</text>
+		<event>
+			<text>你发现一名兰花族独自在森林里徘徊，手里仅拿着一个水壶。你在附近着陆下船后，他向你招手。"欢迎来到我的花园。希望你喜欢！"</text>
+			<choice hidden="true">
+				<text>这是你的花园？</text>
+				<event>
+					<text>"没错。我是这个星球的看护者。这是我们种植果核武器植物部件的星球之一。你想买一件吗？"</text>
+					<choice>
+						<text>购买一件果核武器。</text>
+						<event load="GARDEN_KERNEL_FOREST_REGULAR" />
+					</choice>
+					<choice>
+						<text>购买一件精英果核武器。</text>
+						<event load="GARDEN_KERNEL_FOREST_ELITE" />
+					</choice>
+					<choice hidden="true" req="LIST_CREW_FLORAL">
+						<text>(悦兰船员)请求这名看护者加入星舰。</text>
+						<event>
+							<text>"哦...我不知道我能否...这是一件非常重要的工作...尽管我不经常外出...相信在我回来之前，花园应该没事。"</text>
+							<crewMember amount="1" class="orchid_caretaker" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>尝试盗取其中一件武器。</text>
+						<event>
+							<text>你举起武器，相信说服兰花族交出武器不会有什么代价。然而，一艘兰花舰船不知从哪里飞来并发动攻击！你被其赶出花园，但不经历一场战斗他们是不会让你走的。</text>
+							<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>我们没兴趣买什么东西。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>时间不早了，继续前行吧。</text>
+		<event>
+			<text>你没有时间欣赏所有这些植物生命，你必须加紧赶至你的任务点。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_kernalforest" global="true">
+		<color r="255" g="215" b="133" a="1.0" />
+        <unvisitedTooltip>此处是核心森林事件的所在（拥有兰花族船员可免费获得酋长，可购买精英果核武器）。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<eventList name="GARDEN_KERNEL_FOREST_REGULAR">
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_1" />
+		<item_modify>
+			<item type="scrap" min="-25" max="-25" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_2" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_HEAVY" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_FIRE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_CHAIN" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_CHARGE" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+</eventList>
+<eventList name="GARDEN_KERNEL_FOREST_ELITE">
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_1_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-35" max="-35" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_2_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_HEAVY_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_FIRE_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_CHAIN_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-55" max="-55" />
+		</item_modify>
+	</event>
+	<event>
+		<text>"选得不错。它没准能在你们的旅途中大有作为！"</text>
+		<weapon name="KERNEL_CHARGE_ELITE" />
+		<item_modify>
+			<item type="scrap" min="-45" max="-45" />
+		</item_modify>
+	</event>
+</eventList>
+
+<event name="ORCHID_MEGATREE" unique="true">
+	<text>远处是一座庞大而发达的兰花族城市。你很少有机会能近距离观摩兰花族社会，这座城市似乎还是一座独一无二的。市中心有一棵所有人都能看见的高耸入云之树，树周围建有一个体育场，像是一个旅游景点。</text>
+	<img back="BACK_EVENT_MEGATREE" planet="PLANET_INVISIBLE" />
+	<choice hidden="true">
+		<text>观察这棵树。</text>
+		<event>
+			<text>你在屏幕上收到一个弹窗，询问你的母语。在从一长串语种列表中设置好之后，一个声音欢迎你来到兰花语中称为蒂蕾塔苛艾萨的地方，尽管在你的语言中人们通常称它为"巨树"。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>只需支付少量费用，虚拟向导便会为你提供关于这棵树及其起源历史的完整指南。</text>
+					<choice>
+						<text>悉心听取。</text>
+						<event>
+							<text>向导随即讲述了一个漫长又味如嚼蜡的故事，讲述了兰花族与岩石族的外交使团、兰花族两个部族之间的一些小内战、兰花族新政府的成立、银河系农药使用量的增加，以及对素食主义未来的担忧。然而，有一个故事确实引起了你的注意，那是一个关于海盗袭击时埋藏在树下的强大果核武器的故事。</text>
+							<item_modify>
+								<item type="scrap" min="-10" max="-10" />
+							</item_modify>
+							<choice hidden="true">
+								<text>尝试挖出那件武器。</text>
+								<event>
+									<text>你试图在树根附近着陆，但一艘兰花族守卫舰阻止了你，因你胆敢伤害巨树而怒火中烧。</text>
+									<ship load="SHIP_ORCHID_MEGATREE" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="orchid">
+								<text>(悦兰船员)说服巨树守卫让你拿到武器。</text>
+								<event load="ORCHID_MEGATREE_TALK" />
+							</choice>
+							<choice hidden="true" req="orchid_caretaker">
+								<text>(悦兰船员)说服巨树守卫让你拿到武器。</text>
+								<event load="ORCHID_MEGATREE_TALK_GOOD" />
+							</choice>
+							<choice hidden="true" req="orchid_praetor">
+								<text>(悦兰船员)说服巨树守卫让你拿到武器。</text>
+								<event load="ORCHID_MEGATREE_TALK_GOOD" />
+							</choice>
+							<choice hidden="true" req="unique_mayeb">
+								<text>(悦兰船员)说服巨树守卫让你拿到武器。</text>
+								<event>
+									<text>麻椰向守卫解释说，凭借她多年的园艺经验，在她的监督下取回果核武器而不伤害树木应该很容易。他们内部短暂讨论后，同意了这个提议。挖掘工作没花多长时间，而且结束时树木看起来确实完全未受损伤。</text>
+									<weapon name="GIFTLIST_KERNEL_ELITE" />
+								</event>
+							</choice>
+							<choice hidden="true" req="unique_tyerel">
+								<text>（笛艾尔）说服巨树守卫让你拿走武器。</text>
+								<event>
+									<text>你让笛艾尔留在通讯器上与守卫就埋藏的武器进行协商。谈判过程惊人地枯燥，充斥着大量你甚至不知道其存在的条约和协议名称。经过几分钟无聊的等待，你的船员被批准取走果核武器。</text>
+									<weapon name="GIFTLIST_KERNEL_ELITE" />
+								</event>
+							</choice>
+							<choice hidden="true" req="FLARE_DISTRACTION">
+								<text>(干扰闪弹)发射干扰闪弹分散守卫的注意力以争取时间。</text>
+								<event>
+									<text>困惑于这一系列全息影像，大部分的巨树守备力量都前去调查。你的船员溜过去，迅速挖出武器和一些备用弹药，然后悄悄溜走。</text>
+									<weapon name="GIFTLIST_KERNEL_ELITE" />
+									<autoReward level="MED">missiles</autoReward>
+								</event>
+							</choice>
+							<choice hidden="true">
+								<text>我们不能冒这个险。走吧。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>算了。</text>
+						<event>
+							<text>这个声音不再对你说话了。过了一会儿，你感到无聊，于是起身离开。</text>
+							<choice>
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视这棵树。</text>
+		<event>
+			<text>你的任务太重要了，没时间浪费在外星旅游景点上。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+<beaconType id="map_icon_hbm_p_tree" global="true">
+		<color r="143" g="96" b="0" a="1.0" />
+        <unvisitedTooltip>此处是巨树事件的所在。</unvisitedTooltip>
+        <visitedTooltip>已探索区域。没有留下任何值得关注的东西。</visitedTooltip>
+    </beaconType></event>
+<event name="ORCHID_MEGATREE_WIN" unique="false">
+	<text>守卫舰一头坠向树基，点燃了巨树，平民和游客都惊恐逃走。你急忙冲出星舰，并在树干上打出一个洞，惊讶地发现它是空心的。你匆匆穿过烟雾，带走果核武器回到舰上。</text>
+	<weapon name="GIFTLIST_KERNEL_ELITE" />
+	<autoReward level="MED">missiles</autoReward>
+</event>
+<eventList name="ORCHID_MEGATREE_TALK">
+	<event name="ORCHID_MEGATREE_TALK_SUCCESS">
+		<text>你的兰花族船员成功说服了守卫，表明你的任务至关重要。他们批准你派船员下去挖掘武器，只要你不损伤巨树。</text>
+		<weapon name="GIFTLIST_KERNEL_ELITE" />
+	</event>
+	<event name="ORCHID_MEGATREE_TALK_FAIL">
+		<text>守卫拒绝让你接近那件武器。</text>
+		<choice hidden="true">
+			<text>无视他们，仍然尝试挖掘。</text>
+			<event>
+				<text>你试图在树根附近着陆，但一艘兰花族守卫舰阻止了你，因你胆敢伤害巨树而怒火中烧。</text>
+				<ship load="SHIP_ORCHID_MEGATREE" hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+				</choice>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text>哦，好吧，我们走。</text>
+			<event />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ORCHID_MEGATREE_TALK_GOOD">
+	<event load="ORCHID_MEGATREE_TALK_SUCCESS" />
+	<event load="ORCHID_MEGATREE_TALK_SUCCESS" />
+	<event load="ORCHID_MEGATREE_TALK_FAIL" />
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_ORCHID">
+	<event load="ORCHID_REFUGEES" />
+	<event load="ORCHID_ESCAPE" />
+	<event load="ORCHID_MERCENARY" />
+	<event load="ORCHID_SLAVES" />
+	<event load="ORCHID_INSULT" />
+	<event load="ORCHID_FIELD" />
+	<event load="ORCHID_THEFT" />
+</eventList>
+
+<event name="ORCHID_REFUGEES" unique="true">
+	<text>当你进一步靠近信标时，你注意到一艘佣兵团飞船正在骚扰一座集议会移民中心。你依稀能接收到双方的一些交流信息。"立即把人质交出来，这样其他人都不会受伤。你们能把他藏到什么时候呢？神权国只会派越来越多的军力过来，直到你们都死光！想象一下一个信教兵敲你家门的滋味？"</text>
+	<ship load="SHIP_ORCHID_REFUGEES_MERCENARY" hostile="false" />
+	<choice hidden="true">
+		<text>保护移民中心。</text>
+		<event>
+			<text>你无法旁观这样的不正之举，又一次将准星对准这些雇佣兵败类。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开与其接触。</text>
+		<event>
+			<text>这里没什么理由亲自参与进去，有可能还很危险。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ORCHID_REFUGEES_WIN">
+	<text>中心内部狼狈不堪，移民与集议会工作人员拥簇在临时搭建的掩体下，周围分散着杂乱无章的警卫人员。你收到呼叫，不是来自工作人员，而是来自一名单独的岩石族。"能有人来真是太好了！那些雇佣兵截断了通信渠道，这里的工作人员连对军政官级的人发求救信号都成了奢望！我叫坷本，相信你是我们的盟友？我以前是个迷失烈阳者，但后来又想过另外一种与斗争无关的生活。敬爱的阿里阿德涅上将成全了我，安排我离开了那里。集议会貌似比同盟更适合开启我的第二人生，但现在看来我们摆脱不了这些雇佣兵了！"</text>
+	<choice>
+		<text>提议带上他。</text>
+		<event>
+			<text>"我...我不太想再重新参与一场军事行动，但可能拯救整个多元宇宙还是更为重要吧？哎，只能希望这一切结束后，神权国最后会放过我。"</text>
+			<crewMember amount="1" combat="1" class="rock_commando">坷本</crewMember>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_ORCHID" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="unique_ariadne" hidden="true">
+		<text>(阿里阿德涅)"打起精神。多元宇宙需要每个人的一份力。"</text>
+		<event>
+			<text>一看见上将的存在，坷本立即敬礼。"上将！好的！我会竭尽全力进行援助。第二人生的事可以之后再说，但是在叛军的统治下我们没有人能安全的！"</text>
+			<crewMember amount="1" combat="1" class="rock_commando">坷本</crewMember>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_ORCHID" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>对不起，我们无能为力。</text>
+		<event>
+			<text>"额...没关系，你们已经帮了我大忙了。我会和工作人员联系，确保你拿到足够的报酬的..."</text>
+			<autoReward level="MED">missiles</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_REMOVE_ORCHID" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_ESCAPE" unique="true">
+	<text>你遇到一艘巨大的集议会运输舰，旁边有一艘军事护卫舰。星舰内某个地方传来呼叫："请帮帮我。我被诬陷入狱，现在正在逃窜中。他们迟早会发现我，如果你愿意帮我我可以付出任何东西。"</text>
+	<ship load="SHIP_ORCHID_FIGHT_NOSURRENDER" hostile="false" />
+	<choice hidden="true">
+		<text>营救这个神秘陌生人。</text>
+		<event load="ORCHID_ESCAPE_RESCUE" />
+	</choice>
+	<choice hidden="true">
+		<text>将其报告给集议会。</text>
+		<event>
+			<text>悦兰舰长对你的帮助很欣慰。"我就知道联邦靠得住。"他向着你刚刚交付的兰花族说道。"我们当场抓获这个人窃取政府机密，大概率是血兰邦的资本主义间谍。他会及时受到审判，而你我的朋友奖励自然也不会缺。"</text>
+			<autoReward level="MED">standard</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="teleporter" lvl="2">
+		<text>(高级传送器)悄咪咪地把这名兰花族传送进星舰。</text>
+		<event>
+			<text>你锁定了这名兰花族的位置，用传送器引至星舰。"谢谢你，舰长。我怕死了...他们以为我是血兰邦的间谍！要是你不帮我，我会被处死的！军政官们已经走火入魔，到了猜忌任何非纯绿血的程度了！真是疯了！"</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你不需要其他人手了，而且这事本身也有点蹊跷。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_ESCAPE_RESCUE">
+	<event>
+		<text>你潜入运输船，护送那名兰花族返回你的飞船。他慷慨地感谢你，但似乎不想谈论他被拘留的原因。幸运的是，没有人发现这次救援行动，你顺利离开。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>你潜入运输船，护送那名兰花族返回你的飞船。然而途中你们被发现，兰花族开火了！你护送的悦心兰花被卷入交火，你的船员勉强及时撤回，与现在被激怒的护卫队交战！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>你潜入运输船，护送那名兰花族返回你的飞船。然而途中你们被发现，兰花族开火了！幸运的是，包括你护送的兰花族在内，所有船员都及时生还，与现在被激怒的护卫队交战！</text>
+		<crewMember amount="1" class="orchid" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+		</choice>
+	</event>
+	<event>
+		<text>当你潜入飞船营救那名罪犯时，你发现你要救的并不是悦心兰花，而是一个血草兰花！"谢谢你，我只是个路过的商人，他们因为我的红色花瓣就逮捕了我！"你点点头，匆忙返回飞船，但不幸被安保发现，不得不杀出一条血路！</text>
+		<crewMember amount="1" class="orchid_vampweed" />
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="ORCHID_MERCENARY" unique="true">
+	<text>一艘无武装的悦心兰花看护者飞船正试图逃离追逐它的佣兵团飞船。你不知道原因何在，但你是否应该做点什么来拯救他们？</text>
+	<choice hidden="true">
+		<text>帮助兰花族飞船。</text>
+		<event>
+			<text>你发射了一发警告射击，海盗船改变方向面对你。"啊该死，变元者渣滓？当然是你来决定干涉佣兵团的合同！好吧，随你便。我们就先干掉你！"</text>
+			<ship load="SHIP_ORCHID_MERCENARY" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>贿赂佣兵团放过他们。</text>
+		<event>
+			<text>"嗯……这废料可真不少。而且如果我们还能拿到赏金，那就更好了！"佣兵转向兰花族警告道："现在你们最好乖乖装死！否则，我们很快就会回来完成工作！"佣兵一跳跃离开，悦心兰花就感谢你，并用手语恳求你带走他。"求你了，自从我卷入那个想抛弃共产主义的激进小组后，无论我到哪儿都有人想杀我！我无法回到过去的生活了，但也许我能和你一起找到新的生活！"</text>
+			<item_modify>
+				<item type="scrap" min="-35" max="-25" />
+			</item_modify>
+			<choice>
+				<text>带他上船。</text>
+				<event>
+					<crewMember amount="1" repair="1" class="orchid_caretaker" />
+				</event>
+			</choice>
+			<choice>
+				<text>拒绝并要求其他形式的报酬。</text>
+				<event>
+					<weapon name="GIFTLIST_KERNEL" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避免冲突。</text>
+		<event>
+			<text>尽管佣兵团和变元者合不来，但没有理由卷入这件事。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_MERCENARY_RESCUE">
+	<event>
+		<text>兰花族飞船在战斗前已严重受损，但船员还活着。通过急促的手语，兰花族感谢你的帮助。"我犯了个可怕的错误，加入了一个试图说服集议会收回其共产主义政策的资本主义小组。现在，我感觉无论走到哪里都被跟踪！请带我走吧。我不能再留在这里了！"</text>
+		<crewMember amount="1" class="orchid_caretaker" />
+	</event>
+	<event>
+		<text>飞船似乎遭受了重创，不幸的是其船员没能在战斗中幸存。虽然你现在永远不会知道佣兵为何追踪他们，但你想他们不再需要他们的废料了。</text>
+		<autoReward level="LOW">standard</autoReward>
+	</event>
+	<event>
+		<text>不幸的是，兰花族似乎在战斗中跳跃离开了。你有点失望也有点生气，但你不能责怪他们抓住了这个机会。</text>
+	</event>
+</eventList>
+
+<event name="ORCHID_SLAVES" unique="true">
+	<text>一艘贩奴船在信标旁驻扎着。"廉价劳动力！可以用作氧气释放器、炮灰、给部落首领的礼品、柴火或健康食品！"对方挠了挠下巴。"别误会，我不支持食人主义，只是表示他们的用途很广泛。"</text>
+	<ship hostile="false" load="SHIP_ORCHID_SLAVES" />
+	<choice hidden="true">
+		<text>海盗行径是可鄙的。攻击奴隶贩子！</text>
+		<event>
+			<text>你对奴隶主展开攻击。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>购买一名奴隶。</text>
+		<event load="ORCHID_SLAVER_SLAVES" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CARETAKER">
+		<text>（看护者船员）向海盗呼吁更有利的选择。</text>
+		<event load="ORCHID_SLAVER_CARETAKER" />
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你不想去雇佣奴隶。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_SLAVER_SLAVES">
+	<event>
+		<text>"感谢您的购买！愿你们的道路受到这些家伙信仰的那个什么愚蠢植物之神的祝福！"</text>
+		<crewMember amount="1" class="orchid" />
+		<item_modify>
+			<item max="-20" min="-30" type="scrap" />
+		</item_modify>
+		<choice>
+			<text>继续。</text>
+			<event load="REPUTATION_UPDATE_SLAVER" />
+		</choice>
+	</event>
+	<event>
+		<text>"感谢您的购买！愿你们的道路受到这些家伙信仰的那个什么愚蠢植物之神的祝福！"</text>
+		<crewMember amount="1" class="orchid_caretaker" />
+		<item_modify>
+			<item max="-25" min="-35" type="scrap" />
+		</item_modify>
+		<choice>
+			<text>继续。</text>
+			<event load="REPUTATION_UPDATE_SLAVER" />
+		</choice>
+	</event>
+</eventList>
+<eventList name="ORCHID_SLAVER_CARETAKER">
+	<event name="ORCHID_SLAVER_CARETAKER_FAIL">
+		<text>奴隶贩子无聊又好笑地看着你的兰花族打手势。"是啊，是啊，真不错，但我没听到我该在乎的部分。如果你没注意到，我干这行可不是因为我在乎道德。如果你不买东西，就滚开。"</text>
+		<choice hidden="true">
+			<text>攻击这些奴贩！</text>
+			<event>
+				<text>如果你不能说服这些奴隶贩子结束他们的贸易，那么你就亲自用武力终结它。</text>
+				<ship hostile="true" />
+				<choice hidden="true">
+					<text>继续。</text>
+					<event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+				</choice>
+			</event>
+		</choice>
+		<choice>
+			<text>改变主意，买个奴隶。</text>
+			<event load="ORCHID_SLAVER_SLAVES" />
+		</choice>
+		<choice hidden="true">
+			<text>离开。</text>
+			<event>
+				<text>你在这里浪费了足够多的时间。</text>
+			</event>
+		</choice>
+	</event>
+	<event load="ORCHID_SLAVER_CARETAKER_FAIL" />
+	<event>
+		<text>令你惊讶的是，你的兰花族的信息似乎触动了海盗。或者也许没有……看起来他们只是烦了。"天哪，好吧！我懂了，你们也是人，吧啦吧啦吧啦。我知道大意了。如果我无礼你们就会杀了我。我见过变元者。把这该死的植物带走，别烦我了。"奴隶贩子给其中一个兰花族解开镣铐，送到你这边。你的看护者负责确保他适应新获得的自由。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>令你惊讶的是，你的兰花族的信息似乎触动了海盗。或者也许没有……看起来他们只是烦了。"天哪，好吧！我懂了，你们也是人，吧啦吧啦吧啦。我知道大意了。如果我无礼你们就会杀了我。我见过变元者。把这该死的植物带走，别烦我了。"奴隶贩子给其中一个兰花族解开镣铐，送到你这边。你的看护者负责确保他适应新获得的自由。</text>
+		<crewMember amount="1" class="orchid_caretaker" />
+	</event>
+</eventList>
+
+<event name="ORCHID_INSULT" unique="true">
+	<text>你惊讶于在这里发现了一艘星盗会舰船，他们向来与集议会联系不多。蛞蝓们要求使用加密频道进行通信。</text>
+	<ship hostile="false" load="SHIP_SLUG_GENERIC" />
+	<choice hidden="true">
+		<text>同意和蛞蝓族谈话。</text>
+		<event>
+			<text>"你～～好，令人作～～呕的正宗大飞猪。要找到你～～这种人真不容易，我们已经找一个世～～纪了。你真是丑～～出银河系，建议～～做好防腐处理扔进博物～～馆进行展出。我真好奇你妈长～～什么样。"</text>
+			<choice hidden="true">
+				<text>我们可忍不了这种侮辱！进攻！</text>
+				<event>
+					<text>被这突如其来的无故辱骂激怒，你开火了。"哈哈！你不仅胖，而且还～～很蠢！"蛞蝓船长向附近的兰花族星球发送求救信号，声称遭到海盗攻击。令你惊讶的是，附近星球上的兰花族激活了他们的安全系统并锁定了你的飞船！该死的蛞蝓。</text>
+					<ship hostile="true" />
+					<environment target="player" type="PDS" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="PDS_DISABLE">
+				<text>(信号稀释器)封锁这名蛞蝓族可能发出的任何求救信号，然后攻击！</text>
+				<event>
+					<text>你向蛞蝓族飞船开火了，他们立即采取规避行动。蛞蝓族舰长向附近的兰花族星球发出求救信号，声称遭遇海盗袭击，但信号未能传出。他们最初的计划泡汤了，这群蛞蝓族别无选择只能孤身与你作战。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice req="unique_nights">
+				<text>（夜爵士）亲自出马。</text>
+				<event>
+					<text>夜爵士把你从控制台推开，抓起了麦克风。"噢～～，真可爱呢。我～～一眼就看穿了这个阴谋——你们是专业受害者！太脆弱太没安全感不敢自己打仗，就躲在一堆花后面。你们是我能想象到的最可悲最可怜的失败者。既然我们都在对彼此的母亲品头论足，我猜就凭你那张丑脸上 miserable 的表情，你从来就没让你妈真正骄傲过吧。"</text>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event>
+							<text>挂断后，夜爵士立即进入一架穿梭机并登上了那艘一直死寂的敌船。当他回来时，穿梭机载着大量废料。他笑着把废料倒进货舱。</text>
+							<autoReward level="HIGH">standard</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_SLUG">
+				<text>(蛞蝓族船员)跟他对线。</text>
+				<event>
+					<text>你的蛞蝓族船员转向他们，戴上一副墨镜，轻描淡写地说："不可能会比我昨晚在床上干死的你老妈更烂了。"蛞蝓族舰长震怒，但无言以对。最终，在极度耻辱中，他妥协投降。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_tonysr">
+				<text>（托尼）托尼要求与他们通话。</text>
+				<event>
+					<text>托尼给领头的蛞蝓拍了张照片，然后开始在镜头前卑躬屈膝地哭泣。你和蛞蝓们目瞪口呆地看着托尼嚎啕大哭，直到他的手机响起，他立刻恢复了平常的样子。"谢谢你们给我的助手时间查你们的底细。我想侮辱你母亲，但知道她在你们母星上的公寓楼有多破旧后，觉得这样太刻薄了。如果有人买下那块地然后把它推平，让她的问题更糟，那就太遗憾了。所以你们为什么不及时止损，并感谢我的警告呢？"蛞蝓们扔给你一些废料然后跳跃离开，留你担心你的船员可能掌握了你的什么把柄。</text>
+					<instantEscape />
+					<autoReward level="MED">item</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>关闭通讯并离开这个星系。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你无视了蛞蝓，知道这很可能是个诡计。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_FIELD" unique="true">
+    <loadEventList first="true" default="ORCHID_FIELD_NORMAL">
+        <event name="ORCHID_FIELD_SECURE" req="prof_flowers_picked" lvl="5" />
+    </loadEventList>
+</event>
+<event name="ORCHID_FIELD_NORMAL">
+    <text>附近的星球上有一大片美丽的鲜花。一幅令人叹为观止的花卉景观绵延不绝。</text>
+    <img planet="PLANET_POPULATED_GRASSY" />
+    <choice hidden="true" req="LIST_CREW_ORCHID_UNIQUE" lvl="0" max_lvl="0" blue="false">
+        <text>摘一些花朵走，也许你可以售卖它们。</text>
+        <event>
+            <text>你与船员正在阳光灿烂的花田里愉快采花时，一艘兰花族飞船从上空降下，船员泪流满面。"你们这些怪物！竟屠杀我们的孩子！"</text>
+            <metaVariable name="prof_flowers_picked" op="add" val="1" />
+            <ship load="SHIP_CARETAKER_FIGHT" hostile="false" />
+            <choice>
+                <text>坚称这是误会。</text>
+                <event>
+                    <text>尽管依然怒不可遏，但兰花族至少还肯放你离开。他们坚决要求你归还所有采摘的花，然后要求你立刻离开。</text>
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="MORALITY_UPDATE_ORCHID" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true">
+                <text>一意孤行，把这些尸体带走。</text>
+                <event>
+                    <text>你拖着那一大堆花返回，哭泣的兰花族转而暴怒。"你们这些混蛋！你们要为此付出代价！"</text>
+                    <augment name="ORCHID_KIDS" />
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="MORALITY_UPDATE_ORCHID_FIGHT_DOUBLE" />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="unique_mayeb" blue="false" max_group="0">
+        <text>摘一些花朵走，也许你可以售卖它们。</text>
+        <event>
+            <text>你正要去采些花，麻椰挡住了你的去路。她看起来火冒三丈，你从没见过她这么生气的样子。</text>
+            <choice>
+                <text>啊哦...</text>
+                <event>
+                    <loadEvent ignoreUnique="true" seeded="false" generate="false">ORCHID_CHILDREN_MAYEB_LOOP</loadEvent>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="unique_ivar" blue="false" max_group="0">
+        <text>摘一些花朵走，也许你可以售卖它们。</text>
+        <event load="IVAR_PROTECTING_THE_KIDS" />
+    </choice>
+    <choice hidden="true" req="unique_tyerel" blue="false" max_group="0">
+        <text>摘一些花朵走，也许你可以售卖它们。</text>
+        <event load="TY_EREL_PROTECTING_THE_KIDS" />
+    </choice>
+    <choice req="LIST_CREW_ORCHID">
+        <text>(兰花族船员)你的兰花族船员疯狂地摇着藤蔓，警告你不要这样做。</text>
+        <event>
+            <text>你的兰花族船员告诉你，这片田野种满了尚未发育出移动能力的兰花族儿童。你意识到你差点犯下种族灭绝罪，并决定反对这件事。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="BOMB_ELITE">
+        <text>(晋升炸弹)轰炸这片田野。[-1}]</text>
+        <event>
+            <text>一个奇怪的、阴险的想法占据了你的头脑，纯粹凭直觉行事，你升起武器，将炸弹射向田野，这令观察你的兰花族感到惊恐。然而，这并没有毁掉整片田地，而是使这些花瞬间变成了成年的兰花族。很快，中年危机的爆发将田野推向了疯狂，他们很快又变成了刚刚发育的哭泣的婴儿花朵，他们的心智因为突然涌来的记忆和成年自我的经历而永久性地变得混乱。由于不确定刚刚发生了什么(而且担心你会对他们做同样的事)，田野的主人只是要求你离开。</text>
+            <item_modify>
+                <item type="missiles" min="-1" max="-1" />
+            </item_modify>
+        </event>
+    </choice>
+	<choice hidden="true" req="BOMB_ELITE_CHAOS">
+        <text>(混沌晋升炸弹)轰炸这片田野。 [-15}]</text>
+        <event>
+            <text>一个奇怪的、阴险的想法占据了你的头脑，纯粹凭直觉行事，你升起武器，将炸弹射向田野，这令观察你的兰花族感到惊恐。然而，这并没有毁掉整片田地，而是使这些花瞬间变成了成年的兰花族。虽然你隐隐期望着这样迅猛的转变只会是临时的，他们却始终维持着成年形态。可惜花田容不下所有新生的兰花族，你被迫让大批兰花族人登舰。</text>
+            <item_modify>
+                <item type="missiles" min="-15" max="-15" />
+            </item_modify>
+			<crewMember amount="16" class="orchid" /> <!--maybe shouldn't give out so many, might have to see what sort of runs get this blue option-->
+        </event>
+    </choice>
+    <choice hidden="true" req="NANO_MEDBAY">
+        <text>(纳米医疗机)给田野施肥。</text>
+        <event>
+            <text>虽然在传统意义上它不是肥料，但纳米机器人可以刺激花朵的生长。这片田野的兰花族管理员似乎注意到了这一点，并感谢你的慷慨，然而他们建议你今后不要向其他人的孩子提供"未经请求的生长刺激"。</text>
+            <autoReward level="MED">augment</autoReward>
+        </event>
+    </choice>
+    <choice hidden="true" req="COMMANDO_FIRE">
+        <text>(迷失烈阳船员)把 这 全 烧 光！</text>
+        <event>
+            <text>放火的船员爆发出一阵癫狂的笑声，这片田野熊熊燃烧。照看着这片田地的兰花看护者们惊恐万分，一艘军政官飞船猛扑下来，以阻止你的种族灭绝行为！</text>
+			<metaVariable name="prof_flowers_picked" op="add" val="2" />
+			<ship load="SHIP_ORCHID_ELITE_FIGHT" hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="MORALITY_UPDATE_ORCHID_FIGHT_DOUBLE" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="LOST_SUN_CONFISCATED">
+        <text>你联系不上你的迷失烈阳船员。</text>
+        <event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true">
+        <text>我们有更重要的事情要做。</text>
+        <event>
+            <text>你无视了这些鲜花，继续你的使命。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_FIELD_SECURE">
+    <text>当你接近那个似乎有大片花田的附近行星时，你被一个武装到牙齿的空间站拦住了。"立刻停下！我不管你是谁，也不管你来这里的理由是什么。这里是军政官保护下的高度安全区域。你必须离开。"</text>
+    <ship load="SHIP_ORCHID_ELITE_STATION_CHILD" hostile="false" />
+    <choice hidden="true">
+        <text>怎么了？</text>
+        <event>
+            <text>悦心兰花叹了口气。"我们从其他宇宙听到消息，有些变态变元者习惯进入我们的花田屠杀我们的孩子。这已经成了流行病，集议会现已授权使用最大武力保护我们的孩子。SPS 已经成立，以确保没有人能再犯下这些滔天罪行。"</text>
+            <choice hidden="true">
+                <text>攻击空间站以进入行星。</text>
+                <event>
+                    <text>"你开什么玩笑？卡德尔，拉响警报！我们手上又来了一个！"</text>
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+                    </choice>
+                </event>
+            </choice>
+            <choice hidden="true">
+                <text>离开。</text>
+                <event>
+                    <text>如果变元者真的在做这种事，你不想和他们有任何相似之处。你决定离开。</text>
+                    <choice>
+                        <text>星舰管理。</text>
+                        <event load="STORAGE_CHECK" />
+                    </choice>
+                    <choice>
+                        <text>跳过。</text>
+                        <event />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>同意离开。</text>
+        <event>
+            <text>你不想掺和这里发生的任何事。你决定尽快离开。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_FIELD_SECURE_WIN">
+    <text>清除了空间站的障碍后，你降落到下方的行星。运营此地的悦心兰花看护者们看到你吓得要命，恳求你放过孩子们。</text>
+   <choice hidden="true" req="LIST_CREW_ORCHID_UNIQUE" lvl="0" max_lvl="0" blue="false" max_group="0">
+        <text>采摘花朵。</text>
+        <event>
+            <text>尽管你的船员有所保留，你还是命令他们去摘花。看护者们试图把你拉开，但徒劳无功，你射杀了任何挡路的人。对你疯狂的成果感到满意后，你带着成堆的尸体返回飞船。"变元者"这个词无疑将成为所有目睹此事之人使用的恶毒侮辱。</text>
+            <metaVariable name="prof_flowers_picked" op="add" val="1" />
+            <augment name="ORCHID_KIDS" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="MORALITY_UPDATE_ORCHID_TRIPLE" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="unique_mayeb" blue="false" max_group="0">
+        <text>采摘花朵。</text>
+        <event>
+            <text>当你动手去摘一些花时，麻椰挡住了你的去路。她看起来比你见过的任何时候都更加愤怒。</text>
+            <choice>
+                <text>啊哦...</text>
+                <event>
+                    <loadEvent ignoreUnique="true" seeded="false" generate="false">ORCHID_CHILDREN_MAYEB_LOOP</loadEvent>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="unique_ivar" blue="false" max_group="0">
+        <text>采摘花朵。</text>
+        <event load="IVAR_PROTECTING_THE_KIDS" />
+    </choice>
+    <choice hidden="true" req="unique_tyerel" blue="false" max_group="0">
+        <text>采摘花朵。</text>
+        <event load="TY_EREL_PROTECTING_THE_KIDS" />
+    </choice>
+    <choice hidden="true">
+        <text>我们已经做得够多了，走吧。</text>
+        <event>
+            <text>虽然至少你没有做绝，但很难假装这不会继续加剧变元者在多元宇宙中的恶劣声誉。</text>
+        </event>
+    </choice>
+</event>
+
+<event name="IVAR_PROTECTING_THE_KIDS">
+    <text>你感觉有个小东西击中了你的后脑勺。你转过身，发现苡瓦正盯着你，一条藤蔓拿着一个酒瓶，另一条藤蔓握着他的长矛准备就绪。他猛灌了一口酒，然后擦了擦嘴。"你知道，我认为自己是个很有幽默感的人。我处事泰然。我开黑色玩笑，让难听的话左耳进右耳出，我让人嘲笑和看不起我，脸皮相当厚。我的意思是，嘿，我是搞政治的，不是吗？"他毫无幽默感地笑了笑。"但这事越界了。我得请你离孩子们远点。如果你敢碰他们，我们就有麻烦了。"苡瓦又喝了一口。当他再次对你说话时，他的牙齿威胁性地紧咬着。"明白了吗？"</text>
+    <choice>
+        <text>退让。</text>
+        <event>
+            <text>苡瓦放松下来。"别再让我严肃起来了，舰长。我讨厌严肃。"</text>
+        </event>
+    </choice>
+    <choice req="COUNT_ALL_CREW" lvl="1" max_lvl="1" blue="false">
+        <text>继续尝试摘花。</text>
+        <event>
+            <text>你感到一阵剧痛，苡瓦的长矛刺中了你。你痛苦地弯下腰倒在地板上，鲜血从制服中渗出。"我试着警告过你了，舰长。别担心，我听说集议会的监狱在治疗伤口方面记录优良。"</text>
+            <choice>
+                <text>……？</text>
+                <event>
+                    <text>你意识到，在恍惚中，你可能想象了刚才发生的事。苡瓦仍然在你面前，等待你对他隐含的最后通牒做出回应。你真的要这么做吗？</text>
+                    <modifyPursuit amount="1" />
+                    <choice>
+                        <text>退让。</text>
+                        <event>
+                            <text>苡瓦放松下来。"别再让我严肃起来了，舰长。我讨厌严肃。"</text>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>真的继续做。</text>
+                        <event>
+                            <text>你感到一阵剧痛，苡瓦的长矛刺中了你。你痛苦地弯下腰倒在地板上，鲜血从制服中渗出。"我试着警告过你了，舰长。别担心，我听说集议会的监狱在治疗伤口方面记录优良。"</text>
+                            <lose text="不小看苡瓦的力量。" />
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice req="COUNT_ALL_CREW" lvl="2" blue="false">
+        <text>继续尝试摘花。</text>
+        <event>
+            <text>"是啊，我看不行。"苡瓦用他的长矛把你钉在墙上，并命令你自己的船员把你关进禁闭室。令你惊讶的是，船员们居然服从了，抓住你把你拖走。当你要求他们解释为何叛变时，苡瓦转过身笑了。"愚蠢的变元者。你忘了我是个政客吗？我和船上的其他船员都很熟。我本来也想和你做朋友的，但恐怕我不和杀害儿童的人交往。"</text>
+            <choice>
+                <text>……？</text>
+                <event>
+                    <text>你意识到，在恍惚中，你可能想象了刚才发生的事。苡瓦仍然在你面前，等待你对他隐含的最后通牒做出回应。你真的要这么做吗？</text>
+                    <modifyPursuit amount="1" />
+                    <choice>
+                        <text>退让。</text>
+                        <event>
+                            <text>苡瓦放松下来。"别再让我严肃起来了，舰长。我讨厌严肃。"</text>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>真的要做。</text>
+                        <event>
+                            <text>"是啊，我看不行。"苡瓦用他的长矛把你钉在墙上，并命令你自己的船员把你关进禁闭室。令你惊讶的是，船员们居然服从了，抓住你把你拖走。当你要求他们解释为何叛变时，苡瓦转过身笑了。"愚蠢的变元者。你忘了我是个政客吗？我和船上的其他船员都很熟。我本来也想和你做朋友的，但恐怕我不和杀害儿童的人交往。"</text>
+                            <lose text="不小看苡瓦的力量。" />
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="TY_EREL_PROTECTING_THE_KIDS">
+    <text>一条强壮的藤蔓缠住了你的手臂。你被笛艾尔抓住了。虽然他的表情一如既往地平静，但他看起来比平时更具威胁性。"舰长，我不会允许你伤害这些孩子。"</text>
+    <choice>
+        <text>道歉。</text>
+        <event>
+            <text>笛艾尔点了点头。当他松开钳制时，你踉跄着从他身边退开。在你命令飞船离开这个星球时，你仍能感觉到他锐利的目光盯着你。</text>
+        </event>
+    </choice>
+    <choice req="COUNT_ALL_CREW" max_lvl="1" blue="false">
+        <text>挣扎开并继续尝试摘花。</text>
+        <event>
+            <text>你感觉到他的藤蔓开始缠绕你的脖颈。无论你如何挣扎都无法挣脱。你的意识逐渐模糊。
+
+仿佛只过了一瞬，你便在头痛中醒来。飞船早已远离那颗星球。你失去了不少时间，此地不宜久留。笛艾尔此刻与你保持着距离，但往后的气氛恐怕再难缓和。</text>
+            <modifyPursuit amount="1" />
+        </event>
+    </choice>
+    <choice req="COUNT_ALL_CREW" lvl="2" blue="false">
+        <text>命令你的船员帮助你。</text>
+        <event>
+            <text>你试图让你的船员为你干预，但他们似乎不愿意。笛艾尔摇了摇头。"我已经和他们谈过了。除非你同意不伤害孩子们，否则其他船员不会再听从你的命令。"最终，你的船员驾驶飞船离开了花田，而笛艾尔一直按着你。一旦你们安全离开，他放开了你，但你能感觉到船员不再像以前（如果他们曾经有过的话）那样尊重你了。</text>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_CHILDREN_MAYEB_LOOP">
+    <text load="MAYEB_CHILDREN_1" />
+    <choice>
+        <text>试图插话。</text>
+        <event>
+            <text load="MAYEB_CHILDREN_2" />
+            <choice>
+                <text>等待她冷静下来。</text>
+                <event>
+                    <text load="MAYEB_CHILDREN_3" />
+                    <modifyPursuit amount="1" />
+                    <choice>
+                        <text>点头试图安抚她。</text>
+                        <event>
+                            <text>"好吧。我的意思已经表达了。现在你还有什么要为自己辩解的？"</text>
+                            <choice>
+                                <text>我听你说完了，但我还是要这么做。</text>
+                                <event>
+                                    <text>麻椰把藤蔓放在臀部。"我看不行！我还有更多话要说，你得听我说，直到你吸取教训为止。"</text>
+                                    <choice>
+                                        <text>继续。</text>
+                                        <event>
+                                            <loadEvent ignoreUnique="true" seeded="false" generate="false">ORCHID_CHILDREN_MAYEB_LOOP</loadEvent>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>对不起。你是对的。</text>
+                                <event>
+                                    <text>麻椰交叉起藤蔓。"说清楚点。你在为什么道歉？"</text>
+                                    <choice>
+                                        <text>我为轻率地危及孩子们的生命而道歉。</text>
+                                        <event>
+                                            <text>"很好。现在我们赶紧离开这鬼地方。"</text>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<textList name="MAYEB_CHILDREN_1">
+    <text>"坐下听我说。你威胁的是我们的孩子。我不会袖手旁观，什么都不做。你肯定不会认为我——一个以保护无助者为天性的花朵——会任由你伤害无助的幼苗吧，即使它们还没有智慧。"</text>
+    <text>"在这里我不会退让，所以你最好听清楚了，舰长。这些孩子应该拥有漫长而健康的生活，就像这个多元宇宙中的任何孩子一样。有智慧的孩子往往有一段漫长的脆弱期，以便正常形成他们的心智能力，兰花族也不例外。你竟然会欺凌如此无助的存在，这说明你对生命冷酷无情。"</text>
+    <text>"你以为你是谁，可以大摇大摆地进来下令处死孩子？他们不仅没有做任何伤害你的事，他们甚至没有能力尝试。看在柇柆柯枙的份上，他们还是孩子啊。他们的死不可能带来任何好处——我们难道没有更重要的事情要做吗？"</text>
+</textList>
+<textList name="MAYEB_CHILDREN_2">
+    <text>"闭嘴。我还没说完。舰长，你难道没有童年吗？你不理解青春的脆弱和易变性吗？你没有目睹人们从童年时期就背负的长期创伤吗？这不仅仅是优先考虑年轻人需求而非年长者需求的问题，那些童年的创伤要强烈得多。这是你希望背负在良心上的东西吗？"</text>
+    <text>"嘘！我还在说。是你不尊重我们，还是你普遍不尊重比你年轻的人？这也许是物种问题，还是你无法对不如你发达的人产生同理心？我真的很想知道——如果这些看起来像人类的小幼苗，那会阻止你无情的取乐吗？"</text>
+    <text>"闭嘴，笨蛋！你自称是联邦的救世主。那么，开始表现得像样点！没有一个命令处死孩子的怪物配拯救任何人。你想犯什么普通的战争暴行随你便，但我坚持要求你把孩子排除在外！"</text>
+</textList>
+<textList name="MAYEB_CHILDREN_3">
+    <text>"你一定是病得很重才会考虑如此邪恶、如此残忍、如此无情的事情。不，我不是说你不可救药，但如果你在多元宇宙的冒险之后打算安定下来，你必须好好审视自己。或者……你已经在职业中抛弃了人性，打算死在星海中，从不在乎任何对你不利的人？"</text>
+    <text>"你仍然有机会在这里做正确的事。这邪恶的行为尚未发生。这些孩子仍然可以过上漫长而硕果累累的生活，免受一个多元宇宙流浪者的残酷阴谋的影响。关掉你的武器，我们都可以继续前进……嗯，我不会忘记这件事，但我会让它过去。"</text>
+    <text>"你也许是一位成功的舰长。你也许有能力对抗所有现实中最危险的威胁。或者你做不到。这对我来说不重要。我会为这些孩子辩护直到最后一息，所以你调转船头，回去做你的本职工作吧。"</text>
+</textList>
+
+<event name="ORCHID_THEFT" unique="true">
+	<text>一群忧伤的兰花族呼叫你。尽管他们大多数过着沉默的生活，但一个兰花族能够用声音交流。"请帮帮我们！一艘自动舰来偷走了我们的孩子！请救救他们！"</text>
+	<choice hidden="true">
+		<text>同意营救孩子们。</text>
+		<event>
+			<text>你追踪到了自动舰，它似乎还没有离开星系。它循环播放着一条信息，"给 我 那 些 植 物"，然后对你展开攻击！</text>
+			<ship load="SHIP_AUTO_ORCHID_THEFT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+			<choice hidden="true" req="ORCHID_KIDS">
+				<text>(幼体兰花)给它一株植物。</text>
+				<event>
+					<text>你把尸体交给自动飞船，它扫描后接受。"植物已被赠予。感谢您对神军氙气识别项目的贡献。请接受对您提供行为的金钱补偿。"</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<ship hostile="false" />
+					<remove name="ORCHID_KIDS" />
+				</event>
+			</choice>
+			<!--<choice hidden="true" req="REBEL_ID">
+				<text>(Forged ID) Trick the Auto into releasing the Orchids.</text>
+				<event>
+					<text>As soon as the ship scans your identification, it powers down its weapons and ejects a small pod containing the seeds of the Orchid children. At your request it also provides some lab equipment for your own ship, which you break down into droneparts and scrap.</text>
+					<autoReward level="MED">droneparts</autoReward>
+					<ship hostile="false"/>
+					<choice hidden="true">
+						<text>Continue...</text>
+						<event>
+							<text>"Thank you kind strangers! Our generation will not be lost to these machine abominations." They transfer over some missiles and scrap as thanks.</text>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>-->
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们没法帮忙。</text>
+		<event>
+			<text>你表达了歉意，兰花族沉默下来。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<eventList name="NEUTRAL_ORCHID_UNIQUE">
+	<event load="ORCHID_SACRIFICE" />
+	<event load="ORCHID_ELITEDUEL" />
+	
+	<event load="ORCHID_REFUGEES" />
+	<event load="ORCHID_ESCAPE" />
+	<event load="ORCHID_MERCENARY" />
+	<event load="ORCHID_SLAVES" />
+	<event load="ORCHID_INSULT" />
+	<event load="ORCHID_FIELD" />
+	<event load="ORCHID_THEFT" />
+</eventList>
+
+<event name="ORCHID_SACRIFICE" unique="true">
+	<text>一小队迷失烈阳飞船围绕在一颗狭小荒凉的星球旁边。你截获了两艘飞船之间的通信，听到他们提到了一些关于处决的事情。</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice>
+		<text>靠近。</text>
+		<event>
+			<text>你驾驶星舰靠近星球表面。在一个大帐篷的中央是一个巨大的篝火，一名兰花军政官被吊在上面！一个粗鲁的岩石族站在那里，挥舞着双手，大声地对一群欢呼着的迷失烈阳成员讲话。"兰花族已经表明了他们的立场，站在自由一边！他们声称自己是联邦的盟友和和平的提供者，但面对自己族内的暴政，他们仍虚情假意地想与神权国长老们建立良好的关系！今天，我们将杀鸡儆猴，让人们看到我们迷失烈阳的怒火！"</text>
+			<choice hidden="true" req="COUNT_ALL_CREW" blue="false">
+				<text>立即营救兰花族！</text>
+				<event>
+					<text>你派了一队船员冲进去，赶在迷失烈阳把兰花族扔进火里之前，斩断了兰花族身上的绳索。你冲回船上，后面跟着一群愤怒的岩石族和一艘紧追不舍的攻击舰。</text>
+					<ship load="SHIP_LOSTSUN_FIGHT" hostile="true" />
+					<boarders min="2" max="2" class="rock_commando" />
+					<crewMember amount="1" class="orchid_praetor" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_FLORAL">
+				<text>(悦兰船员)要求释放俘虏。</text>
+				<event>
+					<text>"哈哈！可怜的植物生物希望为它们的同类而战！你在联邦雇佣兵船上工作，然而你却在袒护那些除了捍卫你们的美德外什么都干过的人的行为！立刻滚出去！"你没有时间释放族长或抗议，因为一艘迷失烈阳的船只被派来赶走你！</text>
+					<ship load="SHIP_LOSTSUN_NOPRAETOR" hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="rock_commando">
+				<text>(迷失烈阳船员)跟他们理论。</text>
+				<event>
+					<text>你的突击兵与其他迷失烈阳者进行了交谈，最终了解到也许屠杀联邦的盟友不是一个好主意。迷失烈阳方面解除了兰花军政官的束缚，兰花族感谢你，并主动提出在你的船上工作。</text>
+					<crewMember amount="1" class="orchid_praetor" />
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_ariadne">
+				<text>(阿里阿德涅)训诫他们。</text>
+				<event>
+					<text>"老大！我-我-非-非常非常非常抱歉。我呃，呃，我只是为了迷失烈阳的荣耀而尽我的职责！拜托了，不要革我的职。我马上就释放兰花族。"</text>
+					<autoReward level="HIGH">item</autoReward>
+					<crewMember amount="1" class="orchid_praetor" />
+				</event>
+			</choice>
+			<choice req="ORCHID_KIDS">
+				<text>(幼体兰花)把尸体给他们。</text>
+				<event>
+					<text>"什么...这些是什么。你给我这些尸体？孩子的尸体？什么...你是有什么毛病。我们在这是为了建立不公正的反面典型，而不是树立屠杀儿童的榜样。快给我滚出去！"</text>
+				</event>
+			</choice>
+			<choice>
+				<text>不管他们。</text>
+				<event>
+					<text>现在不是与迷失烈阳为敌的时候。你离开了这个星球。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>避开这些船。</text>
+		<event>
+			<text>如果迷失烈阳在这里举行某种祭祀，你可不想参与其中。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_ELITEDUEL" unique="true">
+	<text>你惊讶地发现，不止一艘而是两艘精英战舰在这个信标处展开角逐！一个精英食铁族和一个精英兰花族正在决斗，你发现自己陷入其中！</text>
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<choice>
+		<text>保护兰花族！</text>
+		<event>
+			<text>你拦截了食铁族战舰，准备战斗。</text>
+			<ship load="SHIP_ORCHID_DUEL_LANIUS" hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>保护食铁族！</text>
+		<event>
+			<text>你拦截了兰花族战舰，准备战斗。</text>
+			<ship load="SHIP_ORCHID_DUEL_ORCHID" hostile="true" />
+			<choice>
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>快他娘从这飞出去！</text>
+		<event>
+			<text>你充能引擎，飞离这两艘战舰。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_DUEL_LANIUS_DEFEAT">
+	<text>你击败了食铁族精英们，现在他们战舰的赏金归你了。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>联系兰花族。</text>
+		<event>
+			<text>兰花族默默地向你点头表示感谢，并从舰上取了一件果核武器给你作为回报。</text>
+			<weapon name="GIFTLIST_KERNEL_ELITE" />
+		</event>
+	</choice>
+</event>
+<event name="GARDEN_DUEL_ORCHID_DEFEAT">
+	<text>你打败了兰花族精英们，现在他们战舰的赏金归你了。</text>
+	<autoReward level="HIGH">standard</autoReward>
+	<choice hidden="true">
+		<text>联系食铁族。</text>
+		<event>
+			<text>"欠债，还钱。"食铁族随意发送了一些材料。</text>
+			<autoReward level="HIGH">stuff</autoReward>
+		</event>
+	</choice>
+</event>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_ORCHID">
+	<event load="DISTRESS_ORCHID_NOTPIRATES" />
+	<event load="DISTRESS_ORCHID_WEEDS" />
+	<event load="DISTRESS_ORCHID_JUNGLE" />
+	<event load="DISTRESS_ORCHID_ROCK_CRASH" />
+	<event load="DISTRESS_ORCHID_EMPTY_SHIP" />
+	<event load="DISTRESS_ORCHID_COLONY_FIRE" />
+</eventList>
+
+<event name="DISTRESS_ORCHID_NOTPIRATES" unique="true">
+	<distressBeacon />
+	<text>当你跃迁进来时，一艘受损的兰花舰船陷入恐慌。"那么，你们这些海盗回来摧毁我们了？我们不会像上次那样试着与你们和平相处！"</text>
+	<ship load="SHIP_ORCHID_NOTPIRATES" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="DISTRESS_ORCHID_WEEDS" unique="true">
+	<distressBeacon />
+	<text>一艘兰花舰船疯狂地向你呼叫。"联邦，救命！我们的空间站到处都是食人的野草！"</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="1">
+		<text>派一个团队去协助！大量的食人野草可不是闹着玩的事。</text>
+		<event load="DISTRESS_ORCHID_WEEDS_BOARD" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" blue="false" lvl="0" max_lvl="0">
+		<text>看来你缺少能用来喂给这些嗜血植物的肉体。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_GOUL">
+		<text>(燃灵船员)除掉这些杂草。</text>
+		<event>
+			<text>植物和火焰素来不和。兰花族全体撤离，随后你的燃灵船员将空间站点燃。确定杂草被一扫而光后，空间站迅速清空，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_LOSTSUN">
+		<text>（迷失烈阳船员）清除杂草。</text>
+		<event>
+			<text>植物和火焰素来不和。兰花族全体撤离，随后你的燃灵船员将空间站点燃。确定杂草被一扫而光后，空间站迅速清空，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="CREW_FIREARMS">
+		<text>（强化军械）猎杀杂草。</text>
+		<event>
+			<text>你的船员武装到了牙齿后登上了空间站，向这些杂草开火，并迅速将其击倒。确定杂草被一扫而光后，空间站迅速清空，随后兰花族给你一个全新的果核武器，以感谢你以一个无情但高效的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CLAN">
+		<text>（异猎会船员）猎杀杂草。</text>
+		<event>
+			<text>你的船员武装起来并登上了空间站，轻松制定了计划。利用他们的感官和专门的狩猎装备相结合，这些畸形生物被果断消灭，兰花族因你无情但高效的问题解决方式而给了你一把全新的果核武器。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_irwin">
+		<text>（厄文）猎杀杂草。</text>
+		<event>
+			<text>厄文登上了空间站，轻松制定了计划。利用他过去对抗同样扭曲生物的经验，这些畸形生物被迅速处理掉，兰花族因你无情但高效的问题解决方式而给了你一把全新的果核武器。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_WEAPONS_FIRE_NODAMAGE">
+		<text>(火焰武器)除掉这些杂草。</text>
+		<event>
+			<text>植物和火焰素来不和。兰花族全体撤离，随后你将空间站点燃。确定杂草被一扫而光后，空间站迅速清空，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_ANTIBIO_NODAMAGE">
+		<text>(反生物武器)除掉这些杂草。</text>
+		<event>
+			<text>你的武器理所当然对这些致命的杂草也有效。兰花族全体撤离，随后你向空间站开火了。确定杂草被一扫而光后，空间站迅速清空，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="NANOBOT_DEFENSE_SYSTEM">
+		<text>(纳米扰员机)除掉这些杂草。</text>
+		<event>
+			<text>杀手机器人会清除空间站里的任何活物。兰花族全体撤离，随后你用这些致命的纳米机器人淹没了空间站。确定杂草被一扫而光后，纳米机器人被召回，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_GAS">
+		<text>(毒性气体)除掉这些杂草。</text>
+		<event>
+			<text>甲壳族的有毒气体几乎能够迅速杀死任何有机物。兰花族全体撤离，随后你将空间站灌满致命的毒气。确定杂草被一扫而光后，空间站迅速清空，之后兰花给你一个全新的果核武器，以感谢你以创造性的方式解决了这个问题。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="shell_guardian">
+		<text>（甲壳守护者船员）让你的甲壳守护者处理杂草。</text>
+		<event>
+			<text>你的甲壳族船员有着坚硬的外壳，对这些致命的杂草无所畏惧。确定杂草被一扫而光后，兰花族全体人员用一个全新的果核武器回报你，以感谢你如此迅速地控制了情况。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_CONTROL_BOARDING_DAMAGE">
+		<text>(士兵无人机)派出无人机来处理这些杂草。</text>
+		<event>
+			<text>你缓速停靠在空间站旁，并通过气闸释放了无人机。不一会儿就杀死了绝大多数生物，而只造成了一点小小的附带伤害。兰花族全体向你表达了他们最诚挚的谢意，并为你提供了一件果核武器。</text>
+			<weapon name="GIFTLIST_KERNEL" />
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们只是路过。</text>
+		<event>
+			<text>你不能在你发现的每个空间站都冒死与致命的外星人战斗。你准备跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ORCHID_WEEDS_BOARD">
+	<event>
+		<text>你的船员登上空间站，发现一株巨大的食肉植物伸出藤蔓来抓他们。幸运的是，植物(以及大多数其他生物)在镭射枪的火力下表现不佳。杂草刚被驱除，兰花族就对你表示感谢。</text>
+		<autoReward level="HIGH">stuff</autoReward>
+	</event>
+	<event>
+		<text>太空站里异常安静，你的船员在走廊静步向前。突然，巨大的触须和满嘴尖牙的花瓣从一个通风口喷涌而出，转瞬便抓住了你的船员，将他们拖走，只留下一地血迹。你的船员惊恐万分，赶忙撤离。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>你满怀希望地前往克隆舱，令你欣慰的是，死去船员的一个克隆人已经准备就绪。</text>
+		</removeCrew>
+	</event>
+</eventList>
+
+<event name="DISTRESS_ORCHID_JUNGLE" unique="true">
+	<distressBeacon />
+	<!--<img planet="PLANET_POPULATED_GRASSY"/>-->
+	<img back="BACK_EVENT_ORCHIDFOREST" planet="NONE" />
+	<text>求救信号来自一个艳丽动人的森林星球，该星球距离兰花族哨站不远。你并没有看到需要救援的舰船。</text>
+	<choice hidden="true">
+		<text>调查。</text>
+		<event>
+			<text>你仔细搜查了哨所周围的区域。很快就找到了求救信号的真正源头，这是一个受损的求救信标，距离两艘舰船几英里，一艘属于兰花族，另一艘则是叛军。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>叛军似乎已经俘虏了这艘试图返回哨站的兰花族舰船上的船员。兰花族舰船的信号传递系统已损坏，无法修复，叛军让兰花族们按枪毙队形排成一列。"好吧，我们搞定了最后的这些植物玩意儿。我们是现在就开枪，还是把它们带回要塞，邀功请赏？"</text>
+					<choice hidden="true">
+						<text>我们无法容忍这种情况。</text>
+						<event>
+							<text>你升起武器，冲向叛军舰艇。叛军军官们立刻各就各位回船上自卫。</text>
+							<ship load="SHIP_REBEL_ORCHID_JUNGLE" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="weapons" lvl="5">
+						<text>(高级武器)向叛军舰艇开一炮。</text>
+						<event>
+							<text>一发直射正中他们的引擎，足以重创叛军的舰艇。现在，叛军束手无策，被迫投降并在森林里四散而逃，把他们的舰艇留给了你。</text>
+							<autoReward level="MED">standard</autoReward>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="DISTRESS_ORCHID_JUNGLE_GIFT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="mind">
+						<text>(心灵控制)让叛军同室操戈。</text>
+						<event>
+							<text>叛军指挥官猛击四周，并朝另一名士兵的胸部开了一枪。整个叛军群体对此陷入了困惑，然后开始互相交火，直到每个人都死于他人的枪口，没有剩下任何人来继续看守战舰。</text>
+							<autoReward level="HIGH">standard</autoReward>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="DISTRESS_ORCHID_JUNGLE_GIFT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true" req="BLUELIST_WEAPONS_MIND_AFFECT">
+						<text>(心灵干涉武器)让叛军相互对立。</text>
+						<event>
+							<text>混乱爆发了，每个被你的武器击中的叛军都拔出武器，开始了一场暴力的混战。这场屠杀一直持续到他们所有人最终互相残杀殆尽，没有人留下来守卫他们的飞船。</text>
+							<autoReward level="HIGH">standard</autoReward>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="DISTRESS_ORCHID_JUNGLE_GIFT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>我们无能为力。</text>
+						<event>
+							<text>你不能冒着耽误你的首要任务的风险去救一群兰花族。你感到愧疚，但你知道至少你没有参与这起罪行。</text>
+							<choice>
+								<text>星舰管理。</text>
+								<event load="STORAGE_CHECK" />
+							</choice>
+							<choice>
+								<text>跳过。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>哦，好吧，我们走。</text>
+		<event>
+			<text>不管他们是谁，他们可能已经得到了帮助。没必要留下来了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ORCHID_JUNGLE_GIFT">
+	<event>
+		<text>兰花族对你的帮助非常感激。大多数兰花族都希望回到哨站，但有一位留在了你的星舰上，希望你将来能保护它免受叛军的袭击。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>兰花族从他们受损的船上给了你一件果核武器，现在他们可以平安地返回哨站了，不再需要它了。</text>
+		<weapon name="GIFTLIST_KERNEL" />
+	</event>
+</eventList>
+
+<event name="DISTRESS_ORCHID_ROCK_CRASH" unique="true">
+	<distressBeacon />
+	<img planet="PLANET_UNPOPULATED_TERRA" />
+	<text>在附近的星球上是一艘岩石族舰船的坠毁地点，该船受损严重，但其求救信标仍在工作。</text>
+	<choice hidden="true">
+		<text>尝试营救幸存者。</text>
+		<event load="DISTRESS_ORCHID_ROCK_CRASH_SAVE" />
+	</choice>
+	<choice hidden="true">
+		<text>无视残骸。</text>
+		<event>
+			<text>你没有兴趣去帮助岩石族。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ORCHID_ROCK_CRASH_SAVE">
+	<event>
+		<text>令你惊讶的是，这些船员都是岩石族流放者！他们解释说，他们在被放逐后逃离了岩石族母星系，并期待能在兰花族星域得到欢迎...如果没有一群疯狂的、身上满是寄生虫的兰花族攻击他们的舰船，并差点摧毁它的话！</text>
+		<crewMember amount="1" class="rock_outcast" />
+	</event>
+	<event>
+		<text>你撬开岩石族舰船的门，却只发现一具长满苔藓的岩石族尸体和几个愤怒的、满身寄生虫的兰花族！</text>
+		<boarders min="2" max="3" class="orchid" />
+	</event>
+</eventList>
+
+<event name="DISTRESS_ORCHID_EMPTY_SHIP" unique="true">
+	<distressBeacon />
+	<ship load="SHIP_ORCHID_GENERIC" hostile="false" />
+	<text>一艘兰花族飞船发出求救信号，离通常的星际航线很远。你试图沟通，但无人应答。</text>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>登舰调查。</text>
+		<event load="DISTRESS_ORCHID_EMPTY_SHIP_LIST" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>没有登上那艘飞船的人选。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sensors" lvl="3">
+		<text>(先进传感器) 先获取飞船的安全日志。</text>
+		<event load="DISTRESS_ORCHID_EMPTY_SHIP_LIST_ANALYZER" />
+	</choice>
+	<choice hidden="true">
+		<text>不理会它。</text>
+		<event>
+			<text>你没有必要和这艘飞船沟通了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="DISTRESS_ORCHID_EMPTY_SHIP_LIST">
+	<event>
+		<text>你登上飞船却只发现一场爆炸和熊熊烈火留下的痕迹。事故的原因不得而知。大多数设备都烧焦了，无人幸存，但你仍然设法找到一些有用的废料和资源。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>飞船上只有一个脱水的兰花族幸存。船上的水资源耗尽了，生命维持系统也坏了。经过灌溉后，恢复力强悍的兰花族重新充满了活力，并完全清醒过来。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+	<event>
+		<text>登船队进入船上寻找幸存者。没多久，你的船员们陷入了无法控制的愤怒之中。他们当即返回星舰，但其中一名船员受到的影响过于强烈，回到舰上后就疯了。</text>
+		<choice hidden="true" req="LIST_CREW_ORCHID">
+			<text>(兰花族船员)让兰花族船员安抚陷入疯狂的队员。</text>
+			<event>
+				<text>兰花族船员喷出舒缓的花粉，陷入疯狂的队员逐渐恢复了知觉。全队松了一口气。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="BLUELIST_PHEROMONES">
+			<text>(螳螂信息素)用螳螂信息素治愈陷入疯狂的船员。</text>
+			<event>
+				<text>在吸入了一些新鲜的信息素后，船员感觉好多了。</text>
+			</event>
+		</choice>
+		<choice hidden="true" req="medbay" lvl="3">
+			<text>（高级医疗舱）尝试用你的医疗舱合成解药。</text>
+			<event>
+				<text>你拼命尝试用医疗舱扫描受影响的船员。医疗舱努力找出他们状况的成因，但还是生产出了解药。你迅速将其应用于该船员，幸运的是它似乎起作用了。</text>
+			</event>
+		</choice>
+		<choice hidden="true">
+			<text id="continue" />
+			<event>
+				<text>我们别无选择，只能杀了这个可怜的家伙。</text>
+				<crewMember amount="-1" class="traitor" />
+			</event>
+		</choice>
+	</event>
+</eventList>
+<eventList name="DISTRESS_ORCHID_EMPTY_SHIP_LIST_ANALYZER">
+	<event>
+		<text>安全录像显示了一场爆炸和熊熊烈火，以及留下的惨迹。事故的原因不得而知。大多数设备都烧焦了，无人幸存，但你仍然设法找到一些有用的废料和资源。</text>
+		<autoReward level="MED">standard</autoReward>
+	</event>
+	<event>
+		<text>飞船上只有一个脱水的兰花族幸存。船上的水资源耗尽了，生命维持系统也坏了。经过灌溉后，恢复力强悍的兰花族重新充满了活力，并完全清醒过来。</text>
+		<crewMember amount="1" class="orchid" />
+	</event>
+</eventList>
+
+<event name="DISTRESS_ORCHID_COLONY_FIRE" unique="true">
+	<distressBeacon />
+	<text>求救信号来自信标附近的行星表面。一场野火正向一个小兰花族殖民地蔓延，该殖民地缺乏灭火的资源也无法及时疏散。</text>
+	<choice hidden="true">
+		<text>帮忙疏散尽可能多的平民。</text>
+		<event>
+			<text>兰花族星球上的生态系统非常容易受到火灾的影响，即使你全员出动也不足以及时拯救兰花族殖民地。你成功地帮助更多强壮的个体逃脱，但大多数兰花族种子和婴儿都被大火烧毁了。</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>这件事与我们无关。</text>
+		<event>
+			<text>你无能为力。你的船员很沮丧，但你还是准备跃迁。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FIRE_EXTINGUISHERS">
+		<text>(自动灭火器)使用部件来拯救殖民地。</text>
+		<event>
+			<text>星舰上的自动灭火系统被部署到殖民地，在所有还活着的兰花族撤离的同时成功地在几处关键位置遏制住了野火。其中一个兰花族对你的表现印象深刻，对方请求成为你的船员。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BLUELIST_PHEROMONES">
+		<text>(螳螂信息素)用部件加速撤离行动。</text>
+		<event>
+			<text>受螳螂信息素的影响，你的船员和兰花族平民移动得飞快，没有落下任何人。殖民地撤离完成后，其中一个兰花族对你的表现印象深刻，对方请求成为你的船员。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>(水晶族船员)阻止野火蔓延以争取一些时间。</text>
+		<event>
+			<text>你的船员仅需数秒就竖起了道道高大的水晶墙，几分钟内就有了一道限制火势的防御屏障。火焰放慢了速度，所有的殖民者都逃到了安全的地方。其中一个兰花族对你的表现印象深刻，对方请求成为你的船员。</text>
+			<crewMember amount="1" class="orchid" />
+		</event>
+	</choice>
+	<choice hidden="true" req="BOMB_LOCK">
+		<text>(封锁炸弹)阻止野火蔓延以争取一些时间。</text>
+		<event>
+			<text>利用炸弹，几秒钟内便竖起道道巨大的水晶墙。火焰放慢了速度，所有的殖民者都逃到了安全的地方。其中一个兰花族对你的表现印象深刻，对方请求成为你的船员。</text>
+			<crewMember amount="1" class="orchid" />
+			<item_modify>
+				<item max="-2" min="-2" type="missiles" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice hidden="true" req="DRONE_SPEED">
+		<text>(无人机增压器)部署效果强化的无人机来帮忙。[-2|]</text>
+		<event>
+			<text>舰载无人机被重新编程以展开救援。他们带走种子、婴儿和贵重物品，扑灭火灾，最终挽救了这一天。其中一个兰花族对你的表现印象深刻，对方请求成为你的船员。</text>
+			<crewMember amount="1" class="orchid" />
+			<item_modify>
+				<item max="-2" min="-2" type="drones" />
+			</item_modify>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_ORCHID">
+	<event load="ORCHID_ZOLTAN_QUEST_START" />
+</eventList>
+
+<event name="ORCHID_ZOLTAN_QUEST_START" unique="true">
+	<text>一艘没有武装的超能族战舰向你问候。"我们的船正在执行前往兰花族世界的外交使命。我们想请你先走一步，给附近的一个兰花族殖民地送一份小礼物，以预示我们的到来。"</text>
+	<choice hidden="true">
+		<text>同意去送礼物。</text>
+		<event>
+			<text>超能族给兰花族送去了一个装有礼物的盒子。这个包裹里有一个不寻常形状的超能族飞船的复制品，在快速振动并发出光和热。它是由优质金属制成的，非常好看。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>在你收到礼物后，超能族向你传输了目的地的坐标。</text>
+					<quest event="ORCHID_ZOLTAN_QUEST_FINISH" />
+				</event>
+			</choice>
+			<choice hidden="true" req="sensors" lvl="3">
+				<text>(先进传感器)扫描这个装置。</text>
+				<event>
+					<text>你检查了这个装置，很快发现它实际上是一个伪装的暮临派制造的炸弹！这是个陷阱！这枚炸弹似乎被设定会播送一条信息，这条信息表明这是叛军的一个阴谋。这一定是暮临派和叛军之间为了破坏你的使命而进行的复杂联合行动。</text>
+					<choice hidden="true">
+						<text>与超能族对峙。</text>
+						<event>
+							<text>那艘没有武装的飞船刚意识到你没有落入他们的陷阱，一艘暮临派护卫舰就立刻解除伪装并发起了攻击！</text>
+							<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>拆除炸弹后离开。</text>
+						<event>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_DUSK">
+				<text>(暮临派船员)你的暮临派船员意识到这个装置有些奇怪。</text>
+				<event>
+					<text>你的暮临派船员检查了这个装置，很快发现它实际上是一个伪装的暮临派制造的炸弹！这是个陷阱！这枚炸弹似乎被设定会播送一条信息，这条信息表明这是叛军的一个阴谋。这一定是暮临派和叛军之间为了破坏你的使命而进行的复杂联合行动。</text>
+					<choice hidden="true">
+						<text>与超能族对峙。</text>
+						<event>
+							<text>那艘没有武装的飞船刚意识到你没有落入他们的陷阱，一艘暮临派护卫舰就立刻解除伪装并发起了攻击！</text>
+							<ship load="SHIP_DUSK_FIGHT" hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>拆除炸弹后离开。</text>
+						<event>
+							<autoReward level="MED">missiles</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你没有时间执行外交任务。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="ORCHID_ZOLTAN_QUEST_FINISH">
+	<beaconType id="map_icon_quest" global="true">
+		<color r="69" g="168" b="235" a="1" />
+		<unvisitedTooltip>一个超能族请你送一份礼物给一个集议会定居点。</unvisitedTooltip>
+	</beaconType>
+	<text>你到达了坐标，并找到了兰花定居点。对方欢迎你的到来。</text>
+	<choice hidden="true">
+		<text>交付雕塑。</text>
+		<event load="ORCHID_ZOLTAN_QUEST_FINISH_DELIVER" />
+	</choice>
+	<choice hidden="true">
+		<text>把雕塑留给自己。</text>
+		<event>
+			<text>你没有跟兰花族提到雕塑。你和他们握"须"后离开。这个雕塑可能值一点废料。</text>
+			<autoReward level="LOW">scrap_only</autoReward>
+		</event>
+	</choice>
+	<choice hidden="true" req="ORCHID_KIDS">
+		<text>(幼体兰花)把尸体给他们。</text>
+		<event>
+			<text>你颤颤巍巍地把死去的幼体扔在兰花族脚下。他们呆住看你了一会，然后开始尖叫。你赶紧溜回星舰，一艘兰花族们最强的战舰紧跟着你。</text>
+			<remove name="ORCHID_KIDS" />
+			<ship load="SHIP_ORCHID_ELITE_FIGHT" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="ORCHID_ZOLTAN_QUEST_FINISH_DELIVER">
+	<event>
+		<text>你递出了超能族船雕。兰花族被船雕迷住了，随后对你表示感谢。虽然礼物是超能族送的，但兰花族似乎主要归功于你，并提供了一大份废料和弹药。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+	<event>
+		<text>你递出了超能族船雕。兰花族被船雕迷住了，随后对你表示感谢。虽然礼物是超能族送的，但兰花族似乎主要归功于你，并提供了一大份废料和弹药。</text>
+		<autoReward level="HIGH">missiles</autoReward>
+	</event>
+	<event>
+		<text>当你移交雕像时，雕像的振幅开始愈发增大。一条简短的信息播放起来："你会后悔站在联邦一边，肮脏的杂草怪胎！荣耀归于神军！"，雕像随即爆炸！兰花族居住地被摧毁，你的星舰受到了一些损坏，但这并不是最糟糕的。兰花族将这次袭击归咎于你，并派他们剩下的一艘飞船来攻击你！</text>
+		<damage amount="3" />
+		<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>当你移交雕像时，雕像的振幅开始愈发增大。一条简短的信息播放起来："这是个神军的圈套，肮脏的杂草怪胎们！受死吧！"，雕像随即爆炸！兰花族居住地被摧毁，你的星舰受到了一些损坏，但这并不是最糟糕的。兰花族将这次袭击归咎于你，并派他们剩下的一艘飞船来攻击你！</text>
+		<damage amount="3" />
+		<ship load="SHIP_ORCHID_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_ORCHID">
+	<event load="ENCOUNTER_VAMPWEED" />
+	
+	<event load="ENCOUNTER_PIRATE_ORCHID" />
+	<event load="ENCOUNTER_ROCK_ORCHID" />
+	<event load="ENCOUNTER_REBEL_ORCHID" />
+	
+	<event load="ORCHID_PIRATE_FRIENDLY_ASB" />
+	<event load="ORCHID_CAPTURED_REBEL" />
+	<event load="ORCHID_SUZERAIN_VETERAN" />
+</eventList>
+
+<event name="ENCOUNTER_PIRATE_ORCHID" unique="true">
+	<text load="TEXT_ENCOUNTER_PIRATE_ORCHID" />
+	<ship hostile="true" load="SHIP_PIRATE_ALL" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE_ORCHID">
+	<text>集议会在近代大幅加强了内部安全，但海盗总是有办法钻空子。准备战斗！</text>
+	<text>集议会星区是富有的超能族和岩石族贸易商的热点地区。当然，如此丰富的财富吸引了成群结队想要搜刮钱财的海盗。</text>
+	<text>"说实话舰长，我不是海盗。我是自由市场的战士！"一个海盗船长得意地对你笑道。"只是……一个非常、非常自由的市场。而这些花朵公社分子呢？他们对钱怎么运作一窍不通！我把他们清理干净是在帮你们大家的忙。不幸的是，你挡了我的路。得把你除掉。"</text>
+	<text planet="PLANET_POPULATED">当你凝望窗外一颗郁郁葱葱的兰花族行星时，一个海盗不知从哪里跃迁进来。看来冲突在所难免。</text>
+	<text>"我受够这些植物了！它们很无聊！我去酒馆找乐子，结果只找到一群信道者对我打手势！天哪，这快把我逼疯了！疯到想杀人！"海盗注意到你在附近时眨了眨眼。"嘿……说到可以杀的人！"</text>
+</textList>
+
+<event name="ENCOUNTER_ROCK_ORCHID" unique="true">
+	<text load="TEXT_ENCOUNTER_ROCK_ORCHID" />
+	<ship hostile="true" load="SHIP_ROCK_FIGHT" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_ROCK_ORCHID">
+	<text>神权国会与任何愿意在其境内接受水晶信仰的国家结盟。集议会一直非常接受这个信仰，不幸的是，大量对你不太友好的神权国飞船总是能找到这里来！</text>
+	<text>"你对信仰一无所知，变元者！看看周围，见证硅与叶的神圣联盟！当联邦崩溃时，集议会不会为你的死亡哀悼，而是将与我们一起加入神圣的联合！在我的十字军威力面前颤抖吧，我将把你的邪恶从此地驱逐！"</text>
+	<text>悦心兰花与神权国的第一次接触发生在许多世纪以前，但那是集议会星际殖民计划的开始。自那以后，他们与神权国的关系一直非常牢固。也许就像那艘怒气冲冲朝你冲来的岩石族飞船的船体一样牢固。</text>
+	<text>一位喝多了可能还吸嗨了的岩石族舰长，喋喋不休地谩骂着，对方升起了武器并准备攻击你！</text>
+</textList>
+
+<event name="ENCOUNTER_REBEL_ORCHID" unique="true">
+	<text load="TEXT_ENCOUNTER_REBEL_ORCHID" />
+	<ship hostile="true" load="SHIP_REBEL_FIGHT" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_ORCHID">
+	<text>一艘叛军舰船谨慎地逼近，试图探查你的来意。"此星域属于起义军，自古以来！联邦要么尊重我们对所有劣等种族领地的所有权，要么我们就将你们彻底消灭——正如内战时期早该做的那样！"</text>
+	<text>"你知道我喜欢兰花族的地方是什么吗，舰长？"一名叛军舰长吸了一口雪茄，皱眉看着你。"他们被干掉的时候不会大声叫唤。这让我下达的命令执行起来更容易，毕竟我的手下可不是能听着平民一家求饶也能狠下心开枪的人。而你...再怎么哀求，我们也不会放过你。"</text>
+	<text>"义军万岁！你选择护卫这些共产主义花朵，彻底暴露了你们所谓代表繁荣的银河系的谎言！这里根本毫无繁荣可言！"叛军战舰的武器锁定了你的船体，冲突已不可避免。</text>
+	<text>一艘叛军舰船出现，它很可能是来欺凌这些通常非暴力的兰花族，并将你识别为联邦雇佣的变元者并发起攻击！你只能自卫还击。</text>
+</textList>
+
+<event name="ORCHID_PIRATE_FRIENDLY_ASB" unique="true">
+	<img back="BACKGROUND" planet="PLANET_POPULATED" />
+	<text>一艘饱经战火破旧不堪的海盗船从一颗兰花族行星背面朝你驶来。附近行星似乎安装了反舰炮台系统，若你发送求救信号或许能加以利用！</text>
+	<ship hostile="true" load="SHIP_PIRATE_ALL" />
+	<choice hidden="true">
+		<text>独自与海盗交战。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice blue="false" req="rep_comb_orchid" lvl="-999" max_lvl="1">
+		<text>请求援助。</text>
+		<event>
+			<text>你发出求救信号，驻扎在这个星球上的兰花族军队立即响应，用反舰炮台瞄准海盗。</text>
+			<environment target="enemy" type="PDS" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice blue="false" req="rep_comb_orchid" lvl="2">
+		<text>请求援助。</text>
+		<event>
+			<text>你发出求救信号。驻守行星的集议会军事力量稍有延迟后作出回应—用反舰炮台同时瞄准你和海盗。可惜，他们并非不知晓你的罪行。</text>
+			<environment target="both" type="PDS" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ORCHID_CAPTURED_REBEL" unique="true">
+	<text>你惊讶地听到一艘兰花族飞船正在使用人类语言说话："立即投降。附近的所有世界已被叛军控制。你们的抵抗是徒劳的。"从飞船笨拙的机动姿势可以看出叛军刚刚才拿下这艘飞船，还无法熟练地进行驾驶。尽管如此，对方仍然锁定你并发起了攻击！</text>
+	<status type="limit" target="enemy" system="pilot" amount="1" />
+	<status type="limit" target="enemy" system="engines" amount="1" />
+	<ship hostile="true" load="SHIP_ORCHID_CAPTURED_REBEL" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<event name="ORCHID_SUZERAIN_VETERAN" unique="true">
+	<text>一位螳螂领主透过显示器怒视着你，他的甲壳上布满遥远过去的累累战痕。"联邦-螳螂战争从未结束。我拒绝承认那些条约...直至今日，我作为辉煌年代最后的堡垒仍在继续战斗。我要肃清这银河系的每一个渣滓。那些花很弱。而你...无疑更加不堪。"</text>
+	<ship hostile="true" load="SHIP_SUZERAIN_FIGHT" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="CARETAKER_PRAETOR_ARGUMENT" unique="true">
+    <distressBeacon />
+    <text>当你到达信标时，已经有了军政官回应了求救信号。它的来源是一艘棕色小型穿梭机—他们似乎正在讨论什么。</text>
+	<preventQuest />
+    <choice>
+        <text>回应求救信号。</text>
+        <event>
+            <text>"…或许这艘联邦飞船可以帮助我。变元者！你们来得真是时候。 军政官们正在犯下一个严重的错误，现在只有柇柆柯枙的看护者在试图纠正它！"
+
+军政官吞吞吐吐地说："我并不是说我支持正在发生的事情，但是军政官们正忙于应付当前的边境战争。我们负担不起内斗了，更别说没有资源。"</text>
+            <choice>
+                <text>发生了什么事？</text>
+                <event>
+                    <text>看护者靠了过来。"集议会正在强制迁移柇柆柯枙的当地人，这无疑会给他们带来极大的伤害。你需要帮助我们向集议会陈述我们的观点，为那些无法为自己发声的人挺身而出。其他兰花族都不愿意帮忙。"</text>
+                    <choice>
+						<text>为什么军政官帮不上忙？</text>
+						<event load="CARETAKER_CHAT" />
+					</choice>
+					<choice>
+                        <text>柇柆柯枙是什么鬼？</text>
+                        <event>
+                            <text>看护者叹了一口气。"卡达赫利安大分裂是在神权国将我们提升为星际文明后开始的。他们让我们，悦心兰花，得以探索宇宙，直到我们发现了柇柆柯枙——我们最大的花园世界。在已知宇宙中，没有任何其他地方存在如此茂盛而完美的环境适合高级植物生命生存。虽然我们有许多花园世界，但是柇柆柯枙独一无二。我们的族人在那里种植和制造着我们最好的舰船和武器。但是我们的政府为了提升武器生产，作出了将许多无法在较弱条件下生存的物种迁移出去的低劣决定，这导致的长期生态影响可能会对柇柆柯枙非常严重。"</text>
+                            <choice>
+                                <text>为什么这位军政官帮不上忙？</text>
+                                <event name="CARETAKER_CHAT">
+                                    <text>军政官摇了摇头。"暮临派相信他们可以通过烧毁我们的花园世界削弱联邦。总体上他们并没有成功，因为我们把大部分力量转移到了前线。说实话，只要我们的产业园仍然处于威胁之中，集议会就有可能推动更严厉的军事化。不幸的是，还是有一艘舰船进入了我们的星域。我们不能从前线调动太多飞船，所以我们追击对方的能力有限。我们最好的选项还是保卫好我们的园庭，祈祷他们不会造成太大的伤害。"</text>
+                                    <choice>
+                                        <text>那我们能提供什么帮助？</text>
+                                        <event>
+                                            <text>军政官紧握她的叶子。"我们在㮟䈋莱苛设置的一个监听站失联了。我们有一位军政官驻扎在那里，但他一直没有回应。我们现在没有多余资源再派一位过去，暮临者们有能力摧毁我们大部分其他的飞船。如果你能干掉那些暮临者，他们就会失去我们星域内的一个据点，我们相信这足以迫使他们退缩。成功完成后，我可以说服我的政府为你的舰队提供一艘星舰。"
+
+看护者补充道。"如果你愿意帮助我们，现在第一批迁移运输舰正在前往目的地。我可以传输坐标以便拦截他们。要么和他们讲点道理…要么我们可能不得不采取一些强硬措施。"</text>
+                                            <choice hidden="true">
+                                                <text>提议帮助军政官们。</text>
+                                                <event>
+                                                    <text>"感谢帮助我们解脱这个困境。如果你能把入侵者从我们背后赶走，这将缓解前线的紧张局势。而且，我向你们保证我将阻止任何进一步的伤害发生。那我们就等你的好消息了。"</text>
+                                                    <quest event="GARDEN_INVASION_QUEST" />
+                                                </event>
+                                            </choice>
+                                            <choice hidden="true">
+                                                <text>提议帮助看护者们。</text>
+                                                <event>
+                                                    <text>"太好了！我还以为没希望了呢。我会跟在你后面，只要能解决这个问题，我们愿意提供任何帮助。"看护者将相关飞船的方向标记在你的星图上。</text>
+                                                    <quest event="ORCHID_RELOCATION_QUEST" />
+                                                </event>
+                                            </choice>
+                                            <choice hidden="true">
+                                                <text>同时帮助双方。</text>
+                                                <event>
+                                                    <text>"哇，真的吗？真是…出乎意料。"军政官眨了眨眼。 "这是哨站的坐标位置。"</text>
+                                                    <quest event="GARDEN_INVASION_QUEST" />
+                                                    <choice>
+                                                        <text>继续。</text>
+                                                        <event>
+                                                            <text>"我担心你会把自己绷得太紧。"看护者摇摇头。"这是运输舰的位置。非常感谢。"</text>
+                                                            <quest event="ORCHID_RELOCATION_QUEST" />
+                                                        </event>
+                                                    </choice>
+                                                </event>
+                                            </choice>
+                                            <choice hidden="true">
+                                                <text>我们没有时间帮助任何一方。</text>
+                                                <event>
+                                                    <text>两个兰花族都发出恼怒的声音。"如果你不打算帮忙，为什么要参与进来？""真是浪费时间。"</text>
+                                                </event>
+                                            </choice>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>无视这两艘船。</text>
+        <event>
+            <text>兰花族们可以自行解决问题。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+<beaconType id="map_icon_hbm_orchid_praetor_quest" global="true">
+		<color r="215" g="255" b="200" a="1" />
+    </beaconType></event>
+
+<ship name="SHIP_ORCHID_NEW_ORDER" auto_blueprint="MU_DUSK_BATTLESHIP_ELITE">
+    <destroyed load="ORCHID_INVASION_WIN" />
+    <deadCrew load="ORCHID_INVASION_WIN" />
+	<crew>
+		<crewMember type="zoltan_devotee" prop="0.6" />
+		<crewMember type="zoltan_martyr" prop="0.4" />
+	</crew>
+</ship>
+<event name="GARDEN_INVASION_QUEST">
+    <preventQuest />
+    <preventFleet />
+    <quest>
+        <nebulaBeacon>false</nebulaBeacon>
+        <aggressive>2</aggressive>
+    </quest>
+    <beaconType id="map_icon_hbm_orchid_invasion_quest" global="true">
+		<color r="50" g="255" b="50" a="1" />
+    </beaconType>
+    <text>你抵达后发现一个严重损坏的监听站，还有几艘被摧毁的兰花族飞船。暮临派舰长发送了一条信息来嘲讽你。"联邦一定不顾一切地派了你来追捕我们。为了我们正义的事业，燃尽这些可恶的地方！"</text>
+    <ship load="SHIP_ORCHID_NEW_ORDER" hostile="true" />
+    <choice>
+        <text>与暮临派交战。</text>
+        <event load="COMBAT_CHECK" />
+    </choice>
+</event>
+<event name="ORCHID_INVASION_WIN">
+    <text>那艘强大的新秩序飞船坠落了下去，你获得了胜利。暮临派发出最后一声哀鸣，他们的身体在爆炸中化为乌有，而他们的飞船提供了丰富的资源。</text>
+    <autoReward level="HIGH">standard_no_item</autoReward>
+    <choice req="LIFE_SCANNER">
+        <text>(生命扫描仪)扫描幸存者。</text>
+        <event load="ORCHID_INVASION_LIFE_SCAN" />
+    </choice>
+    <choice req="sensors" lvl="2">
+        <text>(高级传感器)扫描幸存者。</text>
+        <event load="ORCHID_INVASION_LIFE_SCAN" />
+    </choice>
+    <choice req="LIST_CREW_SLUG">
+        <text>(蛞蝓族船员)扫描幸存者。</text>
+        <event load="ORCHID_INVASION_LIFE_SCAN" />
+    </choice>
+	<choice req="BLUELIST_CREW_SNAIL">
+        <text>(心灵感应甲壳族)扫描幸存者。</text>
+        <event load="ORCHID_INVASION_LIFE_SCAN" />
+    </choice>
+    <choice hidden="true">
+        <text>寻找幸存者。</text>
+        <event>
+            <text>你迅速查看所有飞船是否有幸存者，但你找到的只有尸体。你从残骸中收集了所有能收集的物品。</text>
+            <autoReward level="MED">standard</autoReward>
+            <choice>
+                <text>联系军政官们。</text>
+                <event load="ORCHID_INVASION_CONTACT_PRAETORS" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_INVASION_LIFE_SCAN">
+    <text>你在废弃飞船中发现了一个幸存的生命—一个伤痕累累垂死的军政官。他活不了太久了。</text>
+    <choice req="medbay" lvl="2">
+        <text>(高级医疗舱)治疗这名军政官。</text>
+        <event>
+            <text>你及时地把军政官送到医疗舱，正好可以及时救治它的伤口。当他恢复了足够的体力来交谈后，从床上坐了起来。</text>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="clonebay" lvl="2">
+        <text>(高级克隆舱)将军政官登记到克隆舱中。</text>
+        <event>
+            <text>你及时把军政官送到克隆舱。军政官在被扫描完生物特征不久后就死了。片刻，"这位"军政官在困惑中走出克隆舱，然后才意识到发生了什么。</text>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="LIST_CREW_MEDICAL">
+        <text>(医疗船员)治疗军政官。</text>
+        <event>
+            <text>你派遣了医疗船员，现场为垂死的军政官进行包扎并成功挽救了他的生命。医疗船员和军政官一起返回了星舰。</text>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="DRONE_CONTROL_MEDICAL">
+        <text>(医疗无人机)治疗军政官。</text>
+        <event>
+            <text>你派出了一架医疗无人机，直接就在现场治好了军政官，成功挽救了他的生命。你把军政官送到一艘穿梭机上让他回星舰。</text>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="BOMB_HEAL">
+        <text>(恢复炸弹)治疗军政官。</text>
+        <event>
+            <text>你的医疗炸弹爆炸，舱室内充满了医疗纳米机器人，这些机器人迅速逆转了爆炸造成的伤害。你把军政官送到一艘穿梭机上让他回星舰。</text>
+            <item_modify>
+                <item type="missiles" min="-1" max="-1" />
+            </item_modify>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice req="RECON_AND_TELEPORT">
+        <text>(传送重构器)营救军政官。</text>
+        <event>
+            <text>军政官出现在你的传送舱中，完好如初。他站起身来，对发生的事情感到困惑，但几秒钟后就转向你。</text>
+            <choice hidden="true">
+                <text>与军政官讨论情况。</text>
+                <event load="ORCHID_INVASION_PRAETOR_SAVED" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true">
+        <text>没有手段可以挽救这名兰花族。</text>
+        <event>
+            <text>不幸的是，你只能无助地看着兰花族死亡。你从残骸中收集了能收集的东西。</text>
+            <autoReward level="MED">standard</autoReward>
+            <choice>
+                <text>使用监听站联系兰花族。</text>
+                <event load="ORCHID_INVASION_CONTACT_PRAETORS" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_INVASION_PRAETOR_SAVED"> <!--if you save the crew-->
+    <text>"我…还活着。谢谢你，善良的变元者。那些混蛋打了我们个措手不及。如果你不介意的话，我有些事情想做。这不会花很长时间。"军政官乘坐一艘穿梭机前往监听站并修复了它。它开始长时间广播新秩序飞船已被摧毁的消息。做完这些后，军政官放松下来。"无论如何，我要感谢你救了我的命。我可以提供隐藏在这里的资源。"</text>
+    <autoReward level="MED">standard_no_item</autoReward>
+    <weapon name="GIFTLIST_KERNEL_ELITE" />
+    <choice>
+        <text>前线的军政官们正在向你呼叫。</text>
+        <event>
+            <text>"做得好，变元者！你甚至还救了我们的一名士兵，为此我们永远感激不尽。看起来暮临派坚持不了多久了。希望这能缓解园庭的紧张局势。祝你好运。"</text>
+            <variable name="loc_praetor_help" op="set" val="1" />
+            <unlockCustomShip silent="false">PLAYER_SHIP_ORCHID</unlockCustomShip>
+            <choice>
+                <text>寻问你救出的军政官，是否与你同行。</text>
+                <event>
+                    <text>军政官回到你的星舰。"我欠你一条命，舰长。"</text>
+                    <crewMember amount="1" all_skills="1" class="orchid_praetor" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_REMOVE_ORCHID" />
+					</choice>
+                </event>
+            </choice>
+            <choice>
+                <text>继续前进。</text>
+                <event load="MORALITY_REMOVE_ORCHID" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_INVASION_CONTACT_PRAETORS"> <!--if you did not-->
+    <text>你使用连接到监听站的远程通信设施来通知军政官你的成功。"太棒了。他们应该迟早会意识到发生了什么。现在他们的立足点已经消失，他们要么退缩，要么犯下更大的错误。按照约定，我们将向你方的舰库派遣一艘星舰。"</text>
+    <variable name="loc_praetor_help" op="set" val="1" />
+    <unlockCustomShip silent="false">PLAYER_SHIP_ORCHID</unlockCustomShip>
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="MORALITY_REMOVE_ORCHID" />
+	</choice>
+</event>
+
+<ship name="SHIP_ORCHID_NONSAPIENT_ESCORT" auto_blueprint="MU_ORCHID_FIGHTER">
+    <surrender chance="0.5" min="2" max="4">
+        <text>"停下！说出你们的来意，看看我们能做什么！"</text>
+        <choice hidden="true">
+            <text>说服他们调转船头，返回柇柆柯枙。</text>
+            <event name="RELOCATION_SURRENDER">
+                <text>"你...你们真的很执着于这件事，不是吗？好吧，我们会按照你们的要求去做。如果你们能够说服统治者改变主意，也许这样最好。"护航员叹了口气。"我很可能因为这件事被降职..."</text>
+                <ship hostile="false" />
+                <autoReward level="RANDOM">stuff</autoReward>
+                <choice hidden="true">
+                    <text>穿梭机向你呼叫…</text>
+                    <event load="ORCHID_RELOCATION_CONTACT_SHUTTLE" />
+                </choice>
+            </event>
+        </choice>
+        <choice>
+            <text load="GENERIC_SURRENDER_CHOICE_NOMERCY" />
+            <event load="MORALITY_UPDATE_ORCHID" />
+        </choice>
+    </surrender>
+    <destroyed load="ORCHID_NONSAPIENT_RESCUE" />
+    <deadCrew load="ORCHID_NONSAPIENT_RESCUE" />
+</ship>
+<event name="ORCHID_RELOCATION_QUEST">
+    <preventQuest />
+    <preventFleet />
+    <quest>
+        <nebulaBeacon>false</nebulaBeacon>
+        <aggressive>2</aggressive>
+    </quest>
+    <beaconType id="map_icon_relocation" global="true">
+        <color r="95" g="103" b="45" a="1.0" />
+        <unvisitedTooltip>看护者希望你帮助正在搬迁至此处的植物们。</unvisitedTooltip>
+    </beaconType>
+    <text>当你抵达时，你立即注意到一艘巨大的兰花族搬运船。仔细观察后，你发现飞船大部分都被一个巨大的温室占据了——这艘船足够运载一整座城市的兰花族！尽管它很大，但只有一艘兰花战斗舰在护航。他们并不认为你是威胁，并继续前进。当你到达后不久，看护者跟着你也跃迁到这里。</text>
+    <ship load="SHIP_ORCHID_NONSAPIENT_ESCORT" hostile="false" />
+    <choice hidden="false">
+        <text>联系这些船。</text>
+        <event>
+            <text>护航员在运输机待命时做出回应："你好，联邦的朋友。有什么事吗？"</text>
+            <choice req="unique_tyerel">
+                <text>(笛艾尔)告诉他们必须调转船头。</text>
+                <event>
+                    <text>"笛艾尔大使？您特意跑来就是为了这个？"
+
+"如果不是因为事情重要的话我不会阻止你们的。可我们必须带着这些生物返回柇柆柯枙。我们到了再详细解释。"
+
+"您确定吗？这艘搬运船的航行与维护极其昂贵...如果有任何的不确定性，我们在这里等着不是更好吗？"
+
+笛艾尔嗤鼻。"你这个问题很蠢。"</text>
+                    <choice hidden="true">
+                        <text>穿梭机向你呼叫…</text>
+                        <event load="ORCHID_RELOCATION_CONTACT_SHUTTLE" />
+                    </choice>
+                </event>
+            </choice>
+            <choice req="unique_ivar">
+                <text>(苡瓦)说服他们调头。</text>
+                <event>
+                    <text>苡瓦猛击控制台。"喂！你们知道你们现在在做什么吗？"
+
+"苡瓦总理？"
+
+"你们在犯一个很严重的错误！我从血兰邦大老远跑来想要使我族的状况变好一点，但是你们这些集议会的人在干什么？你们在犯一个我们双方分裂之时我们就犯过的错误！立即掉头，我会自行决定开掉哪些人的！"
+
+"但是…总理先生，这艘船航行与维护的费用极其昂贵！我们不能就这样—" 
+               
+"我会承担任何额外的费用。照我说的去做！"被吓到的运输舰开始转向。</text>
+                    <choice hidden="true">
+                        <text>穿梭机向你呼叫…</text>
+                        <event load="ORCHID_RELOCATION_CONTACT_SHUTTLE" />
+                    </choice>
+                </event>
+            </choice>
+            <choice req="rep_comb_orchid" lvl="-9999" max_lvl="-1">
+                <text>(良好兰花族声望)说服他们回头。</text>
+                <event>
+                    <text>你代表正在被运输的植物提出了一个有力的观点。"嗯…您确实在这方面很懂... 但是，这艘运输舰移动和维护的成本极高。您确定您能够说服领导们改变主意吗？" 你向他们保证你会尽最大努力，他们接受了这一建议并开始调转他们的飞船。</text>
+                    <choice hidden="true">
+                        <text>穿梭机向你呼叫…</text>
+                        <event load="ORCHID_RELOCATION_CONTACT_SHUTTLE" />
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>坚持要他们掉头。</text>
+                <event>
+                    <text>你代表正在被运输的植物提出了一个有力的观点，但护航员打断了你。"抱歉，但我们有我们的命令。如果你曾经听过那些看护者说的话，特别是麻椰，请就此忘掉。我们知道我们在做什么。"</text>
+                    <choice hidden="true">
+                        <text>告诉对方除非他们改变主意，否则你不会离开他们。</text>
+                        <event>
+                            <text>"打住，变元者。不要把事态升级。请你立刻离开。"</text>
+                            <choice>
+                                <text>拒绝。</text>
+                                <event>
+                                    <text>"我不想这样做，但你让我别无选择！"兰花族飞船加热了它的武器。</text>
+                                    <ship hostile="true" />
+                                    <choice>
+                                        <text>继续。</text>
+                                        <event load="COMBAT_CHECK" />
+                                    </choice>
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>退让。</text>
+                                <event>
+                                    <text>你停了下来。舰船最终跃迁走了，没有再联系你。</text>
+                                    <instantEscape />
+                                    <choice hidden="true">
+                                        <text>穿梭机向你呼叫…</text>
+                                        <event>
+                                            <text>"你的能力真的仅限于此吗…？"看护者叹了一口气。"看来要你展示一点骨气还是太奢侈了。"</text>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>为浪费对方的时间而道歉。</text>
+                <event>
+                    <text>你随即道歉，兰花族热心地回应："没关系。很高兴你能理解并帮忙。"</text>
+                    <choice hidden="true">
+                        <text>穿梭机向你呼叫…</text>
+                        <event>
+                            <text>"你的能力真的仅限于此吗…？"看护者叹了一口气。"看来要你展示一点骨气还是太奢侈了。"</text>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="false">
+        <text>攻击护航舰。</text>
+        <event>
+            <text>护航舰被你的突然攻击打了个措手不及。"你这个疯子！为什么攻击园庭运输舰？"</text>
+            <ship hostile="true" />
+            <choice>
+                <text>继续。</text>
+                <event load="MORALITY_UPDATE_ORCHID_FIGHT" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_RELOCATION_CONTACT_SHUTTLE">
+    <text>"好吧，你履行了自己的职责。…你愿意陪我们去柇柆柯枙吗？我们自己怕是做不到。如果你愿意的话，我会全心全意为你效力。"看护者按照承诺给予了奖励。</text>
+    <autoReward level="MED">standard</autoReward>
+    <choice>
+        <text>接受看护者并同意前往。</text>
+        <event>
+            <text>"你不会后悔的，变元者。我会忠心地跟随你。现在让我们赶紧去柇柆柯枙！"</text>
+            <crewMember amount="1" repair="2" class="orchid_caretaker" />
+            <quest event="GARDEN_WORLD_CRUISER_QUEST" />
+        </event>
+    </choice>
+    <choice>
+        <text>对不起，我们已经做得够多了。</text>
+        <event>
+            <text>"没事，我仍然很感激你为我们所做的一切。祝你好运，变元者。"</text>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_NONSAPIENT_RESCUE">
+    <text>随着护航舰被击败，无助的运输舰立即向你呼叫。当船员们开始回收护航舰时，你收到消息。"我们投降！我们知道回去的路线。让我们活下去吧！"</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice hidden="true">
+        <text>穿梭机向你呼叫…</text>
+        <event load="ORCHID_RELOCATION_CONTACT_SHUTTLE" />
+    </choice>
+</event>
+
+<event name="GARDEN_WORLD_CRUISER_QUEST">
+    <preventQuest />
+    <preventFleet />
+    <quest>
+        <nebulaBeacon>false</nebulaBeacon>
+        <aggressive>2</aggressive>
+    </quest>
+    <beaconType id="map_icon_garden" global="true">
+        <color r="95" g="103" b="45" a="1.0" />
+		<unvisitedTooltip>此处为柇柆柯枙。</unvisitedTooltip>
+    </beaconType>
+    <text>你抵达了柇柆柯枙，兰花族最宏伟的园庭。这颗行星惊异的基础设施展示了银河系中最令人叹为观止、最令人印象深刻的生命科学技术。看护者向你发送了任务点的精确经纬度。当你接近时，发现很明显该地有一场僵持：一小队看护者正与一个巨大的兰花精英战舰对峙。附近还有一座兰花空间站观察着情况。</text>
+    <img back="BACK_EVENT_GARDENS" planet="NONE" />
+	<ship load="SHIP_ORCHID_GARDENWORLD" hostile="false" />
+    <choice>
+        <text>靠近并收听兰花族之间的交流。</text>
+        <event>
+            <text>"我们已经受够了你的危言耸听，麻椰。你那个寄生虫正在侵蚀你的思想。"
+               
+"这不是危言耸听！继续从星球上迁移大批物种的行为不仅不道德，还可能会对生态系统造成更大伤害。你也不应该叫柏杷为‘寄生虫'。她是我的妹妹。"
+       
+"你的妹妹？但是只有你自己能‘听到'她的声音。也许我们应该送你去‘治疗'。"
+       
+"你人身攻击完了吗，可否好好回应我的观点？"</text>
+			<choice>
+				<text>向兰花族们表露自己。</text>
+				<event>
+					<text>一艘军政官飞船联系到你。"这是悦心兰花的内部事务。联邦不得干涉。"
+
+	另一个声音从空间站传来。"请冷静，布拉梅布军政官。我是参赞派尔，正在调解这场争端。虽然集议会已经做出决定，但我们只是想说服麻椰，她需要下台。"</text>
+					<choice>
+						<text>试着说服他们听麻椰的话。</text>
+						<event>
+							<text>你开始阐述自己的立场，但中途被运输舰的归来打断了。
+						   
+	布拉梅布惊讶地说："什么？你们这么快就回来了？这是什么意思？"他静音了，迎接你的是片刻的无线电静默，运输舰正私下向军政官报告情况。
+					   
+	同时，麻椰借此机会与你取得联系。"变元者，我很感谢你在这件事上的帮助，但我恳请你尝试缓和局势。我不知道这是否还有可能，还请尽量帮我一下。"</text>
+							<choice>
+								<text>继续。</text>
+								<event>
+									<text>军政官向你呼叫，样子看起来非常愤怒。"你们这些多管闲事的变元者！你难道觉得可以随意决定并更改遇到的人的指令吗？我不在乎你们自己认为有多强大，也不在乎你们的后台。集议会不会再苟在银河边缘旁观，容忍被指手画脚！"军政官飞船的武器启动。这可能会是一场艰难的战斗。</text>
+									<ship hostile="true" />
+									<choice>
+										<text>继续。</text>
+										<event load="COMBAT_CHECK" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+        </event>
+    </choice>
+    <choice>
+        <text>审时度势并离开。</text>
+        <event>
+            <text>你退到远处，开始欣赏这颗星球。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<ship name="SHIP_ORCHID_GARDENWORLD" auto_blueprint="MU_ORCHID_CRUISER">
+    <surrender min="5" max="6" load="ORCHID_GARDENWORLD_SURRENDER" />
+    <destroyed load="ORCHID_GARDENWORLD_DEFEAT" />
+    <deadCrew load="ORCHID_GARDENWORLD_DEFEAT" />
+	<crew>
+		<crewMember type="orchid" prop="0.6" />
+		<crewMember type="orchid_praetor" prop="0.4" />
+	</crew>
+</ship>
+<event name="ORCHID_GARDENWORLD_SURRENDER">
+    <text>兰花星舰即将败亡。尽管他们的决心并未动摇，但你可以进行最后一次外交尝试。</text>
+    <choice hidden="true">
+        <text>尝试以外交方式结束战斗。</text>
+        <event>
+            <text>你向他们呼叫，星舰暂时停止了作战。军政官布拉梅布看起来很疲惫，但仍然很生气。"你还想说什么？你是要我卑躬屈膝？还是想让我屈服并接受你们的行事方式？"</text>
+            <ship hostile="false" />
+            <choice req="unique_ivar">
+                <text>(苡瓦)告诉对方刚刚正在向谁开火。</text>
+                <event>
+                    <text>"嘿！傻瓜！你刚向血草兰花的总理开了火！你知道这意味着什么吗？"
+
+布拉梅布似乎很不舒服。"呃...我..."
+
+"你很幸运，这些大漂亮肌肉男们和我一样热爱和平！听我说，这不一定发展成一个星际事件。冷静下来，愿赌服输，听一下这个可爱的看护者的话，不要再执着于自己的偏见，好吗？"
+
+布拉梅布仍然生着闷气，但此刻他似乎平静下来了。</text>
+                    <choice hidden="true">
+                        <text>联系麻椰和参赞。</text>
+                        <event load="ORCHID_GARDENWORLD_MAYEB_WIN" />
+                    </choice>
+                </event>
+            </choice>
+            <choice req="unique_tyerel">
+                <text>(笛艾尔)展示大使手段。</text>
+                <event>
+                    <text>笛艾尔摆出一副严肃的架子。"你们无缘无故地对一艘载有血草兰花与悦心兰花之间的主要外交使节的飞船进行了袭击。根据卡达赫利安·克条约，这是一级违规行为，被视为叛国。"
+
+布拉梅布看起来很不舒服。"无缘无故……？你们……"
+
+"我想提醒你一下，‘协议'中是如何定义‘挑衅'的。还是说你没有读过它们？哦，它们是在你发芽之前就确立的，早该调查清楚。不过我可是位列第三的条约缔结者。"
+
+布拉梅布结结巴巴，沉默不语。他解除了武器系统。</text>
+                    <choice hidden="true">
+                        <text>联系麻椰和参赞。</text>
+                        <event load="ORCHID_GARDENWORLD_MAYEB_WIN" />
+                    </choice>
+                </event>
+            </choice>
+            <choice req="unique_tully">
+                <text>(塔利)直指问题的根源。</text>
+                <event>
+                    <text>"我是联邦上将塔利。放下武器，我重复一遍，放下武器。"
+
+布拉梅布立刻回应。"塔利…？你为什么要插手我们的事务？"
+
+"你说过你们正在加强军事生产，因为你们认为没有在银河系舞台上得到适当的对待。你们是否是这么想的？"布拉梅布点头。塔利继续。"你们的族人经常在请求外援时犹豫不决，那为什么却要在自己的星域里采取如此激进的措施呢？"
+               
+"……这不是我们的处事方式。我们不喜欢依赖他人。我们希望自给自足并为他人提供帮助。"
+               
+"联邦旨在开展合作。我们其实鼓励你们要求更多，毕竟你们的族人通常非常慷慨。"
+               
+布拉梅布停了下来，然后一句话也不说就退下了。</text>
+                    <choice hidden="true">
+                        <text>联系麻椰和参赞。</text>
+                        <event load="ORCHID_GARDENWORLD_MAYEB_WIN" />
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>你们在我们还没来得及说话前就进行攻击了，至少让我们说句话吧。</text>
+                <event>
+                    <text>"可以，但这不会改变任何事情。提出你的观点吧。"</text>
+                    <choice>
+                        <text>你们应该听从科学指导。</text>
+                        <event>
+                            <text>"哼！我不是科学家，我是一名军人。如果我们想发挥更大的作用，就必须加强我们的力量。你批评我无知。在我看来，是你无知！"</text>
+                            <choice req="loc_praetor_help" lvl="1" blue="false">
+                                <text>问他是否有任何科学家支持他的做法。</text>
+                                <event>
+                                    <text>布拉梅布咕哝着："如果你不愿意听从我的观点，那么对话就到此结束吧。"布拉梅布盯着你一会儿。"我听说你帮助了我的同事，凭此我个人无需继续这场斗争，但我的族人们不行，我不会让他们失望。"就这样，他再次切断了通讯。</text>
+                                    <event load="ORCHID_GARDENWORLD_UNEASY_RESOLUTION" />
+                                </event>
+                            </choice>
+                            <choice req="loc_praetor_help" lvl="0" max_lvl="0" blue="false">
+                                <text>问他是否有任何科学家支持他的做法。</text>
+                                <event>
+                                    <text>"我受够了！你不会讲道理的！"就这样，他又切断了通讯。看来又要继续战斗了。</text>
+                                    <ship hostile="true" />
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>提醒对方你自己也属于某个军事组织，算是个军人。</text>
+                                <event>
+                                    <text>"那还真是。我问问你，你现在正在逃离叛军舰队的追击，但却要拒绝让联邦变得更加强大，你觉得自己的行为合理吗？"</text>
+                                    <choice req="loc_praetor_help" lvl="1" blue="false">
+                                        <text>我们当下的行为并没有破坏自我归属，不像你。</text>
+                                        <event>
+                                            <text>"哼，我还以为我们会有点进展。"布拉梅尔摇头。"如果你打算质疑我的人格完整，那么谈话就到此为止了。"布拉梅尔盯着你一会儿。"我听说你帮助了我的同事，凭此我个人无需继续这场斗争，但我的族人们不行，我不会让他们失望。"就这样，他再次切断了通讯。</text>
+                                            <event load="ORCHID_GARDENWORLD_UNEASY_RESOLUTION" />
+                                        </event>
+                                    </choice>
+                                    <choice req="loc_praetor_help" lvl="0" max_lvl="0" blue="false">
+                                        <text>我们当下的行为并没有破坏自我归属，不像你。</text>
+                                        <event>
+                                            <text>"哼，我还以为我们会有点进展。你和其他人一样愚蠢。"就这样，他又切断了通讯。看起来又要继续战斗了。</text>
+                                            <ship hostile="true" />
+                                        </event>
+                                    </choice>
+                                    <choice>
+                                        <text>如果你想让联邦变得更加强大，为什么不向其索要新的星系以供使用，或者以其他方式来寻求帮助呢？</text>
+                                        <event>
+                                            <text>"我们的代表不喜欢提出很多要求。这不是我们的方式。对没错，如果我们能从这个联盟获益更多，那当然...更好，但我们的行事风格只能做到这个份上了。"</text>
+                                            <choice>
+                                                <text>那难道你不应该与你的代表们争辩，而不是与看护者们吗？</text>
+                                                <event>
+                                                    <text>布拉梅布陷入了沉默。"…你说的不错。也许我确实在和错误的对象争斗。今天我会退让，但如果我无法与我们的拥护者们取得任何进展，那么请不要怪我再次搅起此事。"</text>
+                                                    <choice hidden="true">
+                                                        <text>联系麻椰。</text>
+                                                        <event load="ORCHID_GARDENWORLD_MAYEB_WIN" />
+                                                    </choice>
+                                                </event>
+                                            </choice>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                    <choice>
+                        <text>告诉对方他太咄咄逼人了，需要在谈话之前先冷静下来。</text>
+                        <event>
+                            <text>"太咄咄逼人？你怎么敢！我不必再听你说了。"就这样，它又切断了通讯。看起来又要继续战斗了。</text>
+                            <ship hostile="true" />
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>继续与军政官战斗。</text>
+        <event />
+    </choice>
+</event>
+
+<event name="ORCHID_GARDENWORLD_MAYEB_WIN">
+    <text>参赞派尔和麻椰斟酌争执了一会儿。麻椰看起来较为满意。派尔清了清喉咙，对你说。"好吧，我们把运输舰上的植物重新安家后，会仔细检查看护者们的数据的。也许我们过于热衷于增强我们的军事实力了。至于您，舰长，如果您的飞船受损，我们真诚地表示歉意。集议会对您造成了不小的麻烦，请接受补偿。"</text>
+    <autoReward level="HIGH">missiles</autoReward>
+    <weapon name="GIFTLIST_KERNEL_ELITE" />
+    <variable name="ach_boss_orchidcruiser" op="set" val="1" />
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>麻椰向你微笑着。"你们为柇柆柯枙的看护者们做了这么多。我们之前成功种植出一艘特殊的看护者星舰来进行长途生态任务……也许对你来说会很有用。而且……你为我个人也贡献突出。……所以……如果你愿意的话，我想加入你们的船员。我是园庭的大园艺家，但是局势已经和平解决，我想我的同伴们可以应付其他事务。你怎么看？"</text>
+            <unlockCustomShip silent="false">PLAYER_SHIP_CARETAKER</unlockCustomShip>
+            <choice>
+                <text>接受麻椰。</text>
+                <event>
+                    <crewMember amount="1" class="unique_mayeb">麻椰</crewMember>
+                    <variable name="ach_crew_mayeb" op="set" val="1" />
+                </event>
+            </choice>
+            <choice>
+                <text>拒绝。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_GARDENWORLD_UNEASY_RESOLUTION">
+    <text>参赞派尔看起来很不安。"无论好坏，看起来我们短期内都得重新安置。我们将在接下来几周内解决这些问题，甚至可能几个月或更长。无论发生什么，我都感谢你今天的克制。希望这些金属废料能在前往节点17的路上助你一臂之力。"</text>
+    <autoReward level="MED">standard_no_item</autoReward>
+    <variable name="ach_boss_orchidcruiser" op="set" val="1" />
+    <choice hidden="true">
+        <text>继续。</text>
+        <event>
+            <text>麻椰笑了一下。"谢谢你站在我们这一边。接下来的几个月将会很忙，但你已经给了我们开了一个好头。我现在能提供的只有一件我们最新培育出的最佳武器。希望它能对你有所帮助。"</text>
+            <weapon name="GIFTLIST_KERNEL_ELITE" />
+        </event>
+    </choice>
+</event>
+<event name="ORCHID_GARDENWORLD_DEFEAT">
+    <text>你已经击败了兰花星舰。然而，这个区域的其他兰花族防御力量可能不太会容忍你搜刮他们的飞船。你别无选择只能先让它漂着。</text>
+    <variable name="ach_boss_orchidcruiser" op="set" val="1" />
+    <choice>
+        <text>恢复与兰花族的通讯。</text>
+        <event>
+            <text>参赞派尔叹了一口气。"你把我们置于一个困难的局面，变元者。这艘运输舰的设计并不适合这么长时间运行，所以我们别无选择只能暂时反悔之前的决定。请离开吧，你已经给我们带来了足够的麻烦。"
+
+麻椰点头。"真遗憾，他们没活下来，舰长。我感谢你的帮助，但以这样的方式解决问题，恐怕我还得继续为我的事业奋斗一段时日。要是我还能提供更多的帮助就好了。"</text>
+        </event>
+    </choice>
+</event>
+
+<!-- Gathering distress version-->
+<event name="GATHERING_LOW_TRAFFIC">
+    <distressBeacon />
+    <text>这个集议会区域通常飞船流量不高。尽管如此，一个兰花族求救信号正在从这个区域发出。</text>
+    <choice req="loc_tyerel_met" max_lvl="0" lvl="0" blue="false">
+        <text>继续。</text>
+        <event load="DISTRESS_ORCHID_AMBASSADOR" />
+    </choice>
+    <choice req="loc_tyerel_met" max_lvl="1" lvl="1" blue="false">
+        <text>继续。</text>
+        <event load="DISTRESS_ORCHID_PIRATE_TRAP" />
+    </choice>
+<beaconType id="map_icon_hbm_orchid_ambassador_quest" global="true">
+		<color r="115" g="255" b="100" a="1" />
+    </beaconType></event>
+
+<event name="DISTRESS_ORCHID_PIRATE_TRAP">
+    <text>信号发射器漂浮在太空中，没有与飞船连接。一个海盗挡住了你的去路。"你不是这些绿叶窝囊的一员，但你懂的！"看来这是一个陷阱！</text>
+    <ship load="SHIP_PIRATE_ALL" hostile="true" />
+    <choice>
+        <text>继续。</text>
+        <event load="COMBAT_CHECK" />
+    </choice>
+</event>
+
+<ship name="SHIP_COALITION_TYEREL_GATHERING" auto_blueprint="MU_COALITION_PREDATOR_AMBASSADOR">
+    <destroyed load="TY_EREL_RESCUE_GATHERING" />
+    <deadCrew load="TY_EREL_RESCUE_GATHERING" />
+</ship>
+
+<event name="DISTRESS_ORCHID_AMBASSADOR">
+    <text>一艘被严重损坏兰花族星舰正在发出求救信号。一艘星联布雷舰紧随其后，对其进行射击。</text>
+    <ship load="SHIP_COALITION_TYEREL_GATHERING" hostile="false" />
+    <variable name="loc_tyerel_met" op="set" val="1" />
+    <choice>
+        <text>向兰花族们提供帮助。</text>
+        <event>
+            <text>迎接你的是一名明显枯萎的兰花族。他来自悦心兰花和血草兰花双方的遗传特征显著，清晰可辨。尽管他的星舰状态不佳，但他依然保持着那副特有的专业素养。"您好。我的名字是笛艾尔。"他指向正在攻击他的飞船。"您能提供的任何帮助我都将不胜感激。"然而，你刚一接触兰花族，就引起了星联布雷舰的注意。</text>
+            <choice>
+                <text>要求星联飞船停止开火。</text>
+                <event load="TY_EREL_COALITION_HAIL" /> <!-- rest in _confederacy -->
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>避开他们。</text>
+        <event>
+            <text>你决定不参与其中–星联的飞船仍然专注于不同寻常的兰花族星舰。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="TY_EREL_RESCUE_GATHERING">
+    <text>星联布雷舰已被击败。当你搜刮布雷舰的残骸时，大使级星舰靠近了你。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <choice>
+        <text>继续。</text>
+        <event>
+            <text>你在屏幕上看到一位老年植物。尽管刚刚有人试图刺杀他，但他看起来非常镇定。"您的到来非常及时。我对您的准时表示赞扬。我的星舰状况不是很好，但我非常乐意让您把它带回联邦。"</text>  
+            <unlockCustomShip silent="false">PLAYER_SHIP_AMBASSADOR</unlockCustomShip>
+            <choice hidden="true">
+                <text>那你的下一步计划呢？</text>
+                <event load="TY_EREL_RECRUITMENT_CHOICE" /> <!-- rest in _confederacy -->
+            </choice>
+        </event>
+    </choice>
+</event>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</FTL>

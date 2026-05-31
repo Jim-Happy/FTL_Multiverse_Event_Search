@@ -1,0 +1,4721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LIGHTSPEED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<textList name="TEXT_LIGHTSPEED">
+	<text>你已进入超光速航行，航径附近发光的星体在你极速驶过时交相辉映成浪漫的景象。</text>
+	<text>你已进入超光速航行。虽然概率接近于0，一头撞上星体的悲惨结局还是略微困扰着你，你只能把自身的安全寄托于开发推进器的科学家身上，希望他们装载了相应的安全预防系统。</text>
+	<text>你已进入超光速航行，想想不久之前数分钟至数小时内完成跨星系航行还是痴人说梦，真是令人惊奇。</text>
+	<text>你已进入超光速航行，希望光并不介意此时你对速度的炫耀。</text>
+	<text>你已进入超光速航行，已逝的地球科学家们要是知道能有今天，一定会对自己的奠基成果十分自豪。</text>
+	<text>你已进入超光速航行，精确服从正态分布的舰体振动本该十分惬意，如果没有那些每隔几秒就以惊人速度朝你星舰方向扑来的太空巨石般的行星的话。</text>
+	<text>你已进入超光速航行，指挥之余你饶有兴致地转到引擎室来聆听超光速推进器运行时发出的美妙嗡嗡声。</text>
+	<text>你已进入超光速航行，进入下星区的航程估计十分短暂。叛军舰队或许也很快，但绝不可能在超光速航行中精确追踪你。</text>
+	<text>你已进入超光速航行，你的视线捕捉到一个异常的几何图形，从经验判断这或许是另一艘超光速航行中的飞船，不过它很快就掠过了。</text>
+	<text>你已进入超光速航行。有时你也会觉得或许作为一名平民，一辈子在一个星球上安居乐业的生活也很不错。这个选择确实很艰难，但至少你坚定地认为目前的星际航行生活是不可错过的。</text>
+	<text>你已进入超光速航行。星舰内的多元推进器还未从上次任务中完全复充，估计至少还得花上几个月。不过你在本号宇宙中的任务急切，反正也等不到充能完成了。</text>
+	<text>你已进入超光速航行。请勿将此误解为多元穿梭，超光速航行仅仅是在同一宇宙中的不同星系或星区间进行。</text>
+	<text>你已进入超光速航行。信标间的航行通常需要花上几分钟，而星区间长达几小时。当然，叛军方面亦是如此，不用担心因此被追上。</text>
+	<text>你已进入超光速航行。到达下个星区的航程估计是一场安逸的旅行，或是一段枯燥的驾驶时间，取决于你感受的角度。因为它是空白星域，一些星区间相对空旷之处，期望在这遇到什么事情还不如去买彩票。</text>
+</textList>
+
+<event name="ATLAS_EQUIPMENT">
+	<text>如果你想趁机做点什么的话，现在是个不错的时机。</text>
+	<choice hidden="true" req="DISTRACTION_BUOY">
+		<text>(诱导航标)部署航标。</text>
+		<event>
+			<text>部署几枚？</text>
+			<choice hidden="true">
+				<text>1枚 [无消耗，拖延1次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-1" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>2枚 [消耗 4|，拖延2次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-2" />
+					<item_modify>
+						<item type="drones" min="-4" max="-4" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>3枚 [消耗 8|，拖延3次叛军追击]</text>
+				<event>
+					<text>部署完成。</text>
+					<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+					<modifyPursuit amount="-3" />
+					<item_modify>
+						<item type="drones" min="-8" max="-8" />
+					</item_modify>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="LOAD_ATLAS" />
+					</choice>
+				</event>
+			</choice>
+			<!--<choice hidden="true">
+				<text>Nevermind.</text>
+				<event load="LOAD_ATLAS"/>
+			</choice>-->
+		</event>
+	</choice>
+	<choice hidden="true" req="PRE_SCANNER">
+		<text>(滑流扫描仪)进行扫描。[消耗3{，获得下星区星图]</text>
+		<event>
+			<text>扫描完成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="-3" max="-3" />
+			</item_modify>
+			<reveal_map />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FUEL_CONSERVER">
+		<text>(燃料回收器)回收燃料。[可获得2到5{]</text>
+		<event>
+			<text>回收完成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="2" max="5" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="KERNEL_REPLICATOR">
+		<text>(果核温室)回收燃料。[可获得1{]</text>
+		<event>
+			<text>回收完成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="1" max="1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LOCKED_KERNEL_REPLICATOR">
+		<text>(果核温室)回收燃料。[可获得1{]</text>
+		<event>
+			<text>回收完成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<item_modify>
+				<item type="fuel" min="1" max="1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="MORPH_DATABASE">
+		<text>(基因样本)合成一个模物族。[生成1名模物族船员]</text>
+		<event>
+			<text>完成合成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<crewMember amount="1" class="blob">模物族</crewMember>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="MORPH_DATABASE_ADV">
+		<text>(基因典籍)合成多个模物族。[生成3名模物族船员]</text>
+		<event>
+			<text>完成合成！</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<crewMember amount="3" class="blob">模物族</crewMember>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="FLEET_SKIP">
+		<text>(引擎超频器)启动过载。[拖延3次叛军追击，但舰体与引擎系统受到6点伤害，并失去该部件]</text>
+		<event>
+			<text>启动之后不久，就连早已习惯超光速的你都暂时无法适应此时的航行速度。你感觉大脑好像可流动一般不受控制，回过神之后才听到引擎舱室正在熊熊燃烧。</text>
+			<eventAlias name="ATLAS_MENU" jumpClear="true">ATLAS_MENU_NOEQUIPMENT</eventAlias>
+			<remove name="FLEET_SKIP" />
+			<damage amount="6" effect="fire" system="engines" />
+			<modifyPursuit amount="-3" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+
+<event name="ATLAS_MENU_LEARN">
+	<text>星区数据集主要用来引导超光速航行，防止星舰误入险要星区。里面记录了大部分星区的入口信标的坐标来确保上述功能得以实现。当前星舰中的星区数据主要来源于联邦数据库，但在航行中可自行更新添加坐标等信息。</text>
+	<!--<choice hidden="true">
+		<text>Learn about sector classifications and subtypes.</text>
+		<event>
+			<text>LIST OF SECTOR CLASSIFICATIONS:
+			Friendly - The faction that controls this sector is allied or on good terms with the Federation
+			Neutral - The faction that controls this sector is neither an ally or an enemy
+			Hostile - The faction that controls this sector is an enemy with the Federation
+			Uncolonized - The sector is not under control by a faction, but has been charted
+			Unmapped - The sector is neither mapped nor under control by a faction
+			
+			LIST OF SECTOR SUBTYPES:
+			Nebula - The sector has a high concentration of nebulae
+			Hazard - The sector has a large number of hazards, such as asteroid fields or stars</text>
+			<choice>
+				<text>Return.</text>
+				<event load="LOAD_ATLAS"/>
+			</choice>
+		</event>
+	</choice>-->
+	<choice hidden="true">
+		<text>标记点是什么？</text>
+		<event>
+			<text>一些特定的星区中存在一些标记点，通常非常值得访问。由于信息差，来源于联邦数据库中的星图中不包含标记点的坐标，你只能自行寻找坐标。
+			同样的原因，一些星区可能只是在星区数据中没有显示标记点，但你仍然有可能在途中发现。
+			一个星区内可能包含多个标记点。</text>
+			<choice>
+				<text>返回。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>[!]表示什么？</text>
+		<event>
+			<text>[!]标志有两种。一种在星区名后，表示这是一个独特星区，一般是某物种的主星区。另一种在信标后，表示这里十分重要或与重要任务有关，而不会被叛军占据。因此哪怕叛军已经完全占据整个星区，你依然可以到访。</text>
+			<choice>
+				<text>返回。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>如何调整航径？</text>
+		<event>
+			<text>在旅途中，你有时会收到指向特殊星区的特别坐标。此类星区只能造访一次，但可以在第8星区之前的任意一次超光速航行中选择调整。需要注意的是选择调整后会覆盖下一星区内刷新的所有任务。</text>
+			<choice>
+				<text>返回。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>叛军威胁度是什么？</text>
+		<event>
+			<text>处于高叛军威胁度的星区时你将有更高几率遭遇叛军战舰，甚至在叛军控制信标中遭遇MFK精英战舰。
+			非常低：不会遭遇MFK精英战舰
+			低：有10%的几率遭遇MFK精英战舰
+			中低：有20%的几率遭遇MFK精英战舰
+			中：有30%的几率遭遇MFK精英战舰
+			高：有50%的几率遭遇MFK精英战舰
+			非常高：有75%的几率遭遇MFK精英战舰
+			!极高!：必定在叛军控制信标遭遇MFK精英战舰
+			高及以上威胁度星区的出口信标处必定有一艘MFK精英战舰。</text>
+			<choice>
+				<text>返回。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>叛军舰队类型有哪些？</text>
+		<event>
+			<text>部分星区会出现特殊叛军舰队，这种情况会在叛军威胁度旁括号内标明。
+			(自动舰)强大的自动舰会替代叛军精英战舰。MFK精英战舰不会在此出现。
+			(中立)额外的联邦增援会提供中立反舰炮台。在叛军威胁度足够高的情况下仍会出现MFK精英战舰。</text>
+			<choice>
+				<text>返回。</text>
+				<event load="LOAD_ATLAS" />
+			</choice>
+		</event>
+	</choice>
+	<choice>
+		<text>返回。</text>
+		<event load="LOAD_ATLAS" />
+	</choice>
+</event>
+
+<event name="LOAD_ATLAS_MARKER">
+	<variable name="loc_sector_count" op="add" val="1" />
+	<variable name="loc_astrometrics_active" op="add" val="1" />
+	<loadEvent>ATLAS_MENU</loadEvent>
+</event>
+<event name="LOAD_ATLAS">
+	<loadEvent>ATLAS_MENU</loadEvent>
+</event>
+<event name="ATLAS_MENU">
+	<text>处于超光速航行时，有一些可选选项。你可以立即进入下一星区，或先进行一些操作。</text>
+	<variable name="loc_has_salvaged" op="set" val="0" />
+	<choice hidden="true" req="CURA_TASK_AND_LIGHTSPEED">
+		<text>查看C.U.R.A.提供的委托并使用一件部件。</text>
+		<event load="CURA_TASK_MENU" />
+	</choice>
+	<choice hidden="true" req="CURA_TASK_CHECK">
+		<text>查看C.U.R.A.提供的委托。</text>
+		<event load="CURA_TASK_MENU" />
+	</choice>
+	<choice hidden="true" req="LIST_JUMPSPACE_EQUIPMENT">
+		<text>使用一件部件。</text>
+		<event load="ATLAS_EQUIPMENT" />
+	</choice>
+	<choice hidden="true" req="FEDERATION_DATABASE">
+		<text>[联邦数据库] 关于星区数据集。</text>
+		<event load="ATLAS_MENU_LEARN" />
+	</choice>
+	
+	<choice hidden="true" req="SEC FINAL" blue="false">
+		<text>进入联邦首府。</text>
+		<event load="LASTSTAND_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ASTEROID_GENERIC" blue="false">
+		<text>进入开采星区。</text>
+		<event load="ASTEROID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNION" blue="false">
+		<text>进入开采星区。</text>
+		<event load="UNION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNION_UNIQUE" blue="false">
+		<text>进入同盟核心区。</text>
+		<event load="UNION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HACKER_UNIQUE" blue="false">
+		<text>进入开采星区。</text>
+		<event load="UNION_HACKED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MILITIA_UNIQUE" blue="false">
+		<text>进入盟卫营区。</text>
+		<event load="MILITIA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HARMONY" blue="false">
+		<text>进入半械星区。</text>
+		<event load="ENGI_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HARMONY_UNIQUE" blue="false">
+		<text>进入半械谐合星区。</text>
+		<event load="ENGI_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MINISTRY" blue="false">
+		<text>进入超能星区。</text>
+		<event load="ZOLTAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MINISTRY_UNIQUE" blue="false">
+		<text>进入超能族首都。</text>
+		<event load="ZOLTAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GATHERING" blue="false">
+		<text>进入兰花星区。</text>
+		<event load="ORCHID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GATHERING_UNIQUE" blue="false">
+		<text>进入兰花族园庭。</text>
+		<event load="ORCHID_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CONFEDERATE" blue="false">
+		<text>进入血兰邦星区。</text>
+		<event load="VAMPWEED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CONFEDERATE_UNIQUE" blue="false">
+		<text>进入血兰邦核心区。</text>
+		<event load="VAMPWEED_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS" blue="false">
+		<text>进入自由螳螂星区。</text>
+		<event load="FREEMANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS_UNIQUE" blue="false">
+		<text>进入自由螳螂狩猎区。</text>
+		<event load="FREEMANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST" blue="false">
+		<text>进入分离者星区。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST_UNIQUE" blue="false">
+		<text>进入分离者星区。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_IMPERIAL" blue="false">
+		<text>进入水晶星区。</text>
+		<event load="CRYSTAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_IMPERIAL_UNIQUE" blue="false">
+		<text>进入水晶新家园。</text>
+		<event load="CRYSTAL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST" blue="false">
+		<text>进入流放者星区。</text>
+		<event load="OUTCAST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST_UNIQUE" blue="false">
+		<text>进入神权国恶土。</text>
+		<event load="OUTCAST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION" blue="false">
+		<text>进入联邦星区。</text>
+		<event load="FEDERATION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION_UNIQUE" blue="false">
+		<text>进入联邦大使馆。</text>
+		<event load="FEDERATION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL" blue="false">
+		<text>进入叛军星区。</text>
+		<event load="REBEL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL_UNIQUE" blue="false">
+		<text>进入叛军要塞。</text>
+		<event load="REBEL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE" blue="false">
+		<text>进入海盗星区。</text>
+		<event load="PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_UNIQUE" blue="false">
+		<text>进入暗域黑市。</text>
+		<event load="PIRATE_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HIVE" blue="false">
+		<text>进入螳螂星区。</text>
+		<event load="MANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HIVE_UNIQUE" blue="false">
+		<text>进入螳螂母巢。</text>
+		<event load="MANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_THEOCRACY" blue="false">
+		<text>进入岩石星区。</text>
+		<event load="ROCK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_THEOCRACY_UNIQUE" blue="false">
+		<text>进入岩石族母星区。</text>
+		<event load="ROCK_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LOSTSUN_UNIQUE" blue="false">
+		<text>进入迷失烈阳要塞。</text>
+		<event load="LOSTSUN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER" blue="false">
+		<text>进入暮临星区。</text>
+		<event load="DUSKBRINGER_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER_UNIQUE" blue="false">
+		<text>进入暮临要塞。</text>
+		<event load="DUSKBRINGER_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION" blue="false">
+		<text>进入星联星区。</text>
+		<event load="COALITION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION_UNIQUE" blue="false">
+		<text>进入星联要塞。</text>
+		<event load="COALITION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO" blue="false">
+		<text>进入自动舰厂。</text>
+		<event load="AUTO_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO_UNIQUE" blue="false">
+		<text>进入中央自动舰厂。</text>
+		<event load="AUTO_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_GENERIC" blue="false">
+		<text>进入废弃星区。</text>
+		<event load="ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LANIUS_UNIQUE" blue="false">
+		<text>进入食铁族群域。</text>
+		<event load="LANIUS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNEXPLORED_GENERIC" blue="false">
+		<text>进入星云星区。</text>
+		<event load="NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_STARGROVE_UNIQUE" blue="false">
+		<text>进入恒星森林。</text>
+		<event load="STARGROVE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY" blue="false">
+		<text>进入蛞蝓星区。</text>
+		<event load="SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY_UNIQUE" blue="false">
+		<text>进入蛞蝓族母星区。</text>
+		<event load="SLUG_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CLAN_UNIQUE" blue="false">
+		<text>进入异猎会星域。</text>
+		<event load="CLAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC" blue="false">
+		<text>进入吸虫星区。</text>
+		<event load="LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC_UNIQUE" blue="false">
+		<text>进入吸虫首府。</text>
+		<event load="LEECH_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GENIOCRACY" blue="false">
+		<text>进入甲壳星区。</text>
+		<event load="SHELL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GENIOCRACY_UNIQUE" blue="false">
+		<text>进入怪才体核心区。</text>
+		<event load="SHELL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MORPH_UNIQUE" blue="false">
+		<text>进入怪才体科学区。</text>
+		<event load="MORPH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_VAGABOND" blue="false">
+		<text>进入漂浪星云。</text>
+		<event load="GHOST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_VAGABOND_UNIQUE" blue="false">
+		<text>进入灵朝荒地。</text>
+		<event load="GHOST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY" blue="false">
+		<text>进入灵朝星云。</text>
+		<event load="DYNASTY_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY_UNIQUE" blue="false">
+		<text>进入灵朝首府。</text>
+		<event load="DYNASTY_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MONK_UNIQUE" blue="false">
+		<text>进入辉光避难所。</text>
+		<event load="MONK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_AUGMENTED" blue="false">
+		<text>进入远古遗迹发掘站。</text>
+		<event load="AUGMENTED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ANCIENT" blue="false">
+		<text>进入方碑星区。</text>
+		<event load="ANCIENT_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ROYAL" blue="false">
+		<text>进入方碑族母星区。</text>
+		<event load="ROYAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ORIGINS" blue="false">
+		<text>进入水晶起源域。</text>
+		<event load="ORIGINS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ORIGINS_RUWEN" blue="false">
+		<text>进入水晶起源域。</text>
+		<event load="ORIGINS_RUWEN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY_HEKTAR" blue="false">
+		<text>进入蛞蝓星区。</text>
+		<event load="SALE_SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_HEKTAR" blue="false">
+		<text>进入海盗星区。</text>
+		<event load="SALE_PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_GENERIC_HEKTAR" blue="false">
+		<text>进入废弃星区。</text>
+		<event load="SALE_ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC_HEKTAR" blue="false">
+		<text>进入吸虫星区。</text>
+		<event load="SALE_LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_SYLVAN" blue="false">
+		<text>进入？？？。</text>
+		<event load="NEXUS_WARP" />
+	</choice>
+</event>
+<event name="ATLAS_MENU_NOEQUIPMENT">
+	<text>你即将进入下一星区。</text>
+	<choice hidden="true" req="SEC FINAL" blue="false">
+		<text>进入联邦首府。</text>
+		<event load="LASTSTAND_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ASTEROID_GENERIC" blue="false">
+		<text>进入开采星区。</text>
+		<event load="ASTEROID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNION" blue="false">
+		<text>进入开采星区。</text>
+		<event load="UNION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNION_UNIQUE" blue="false">
+		<text>进入同盟核心区。</text>
+		<event load="UNION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HACKER_UNIQUE" blue="false">
+		<text>进入开采星区。</text>
+		<event load="UNION_HACKED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MILITIA_UNIQUE" blue="false">
+		<text>进入盟卫营区。</text>
+		<event load="MILITIA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HARMONY" blue="false">
+		<text>进入半械星区。</text>
+		<event load="ENGI_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HARMONY_UNIQUE" blue="false">
+		<text>进入半械谐合星区。</text>
+		<event load="ENGI_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MINISTRY" blue="false">
+		<text>进入超能星区。</text>
+		<event load="ZOLTAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MINISTRY_UNIQUE" blue="false">
+		<text>进入超能族首都。</text>
+		<event load="ZOLTAN_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GATHERING" blue="false">
+		<text>进入兰花星区。</text>
+		<event load="ORCHID_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GATHERING_UNIQUE" blue="false">
+		<text>进入兰花族园庭。</text>
+		<event load="ORCHID_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CONFEDERATE" blue="false">
+		<text>进入血兰邦星区。</text>
+		<event load="VAMPWEED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CONFEDERATE_UNIQUE" blue="false">
+		<text>进入血兰邦核心区。</text>
+		<event load="VAMPWEED_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS" blue="false">
+		<text>进入自由螳螂星区。</text>
+		<event load="FREEMANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FREEMANTIS_UNIQUE" blue="false">
+		<text>进入自由螳螂狩猎区。</text>
+		<event load="FREEMANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST" blue="false">
+		<text>进入分离者星区。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_SEPARATIST_UNIQUE" blue="false">
+		<text>进入分离者星区。</text>
+		<event load="SEPARATIST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_IMPERIAL" blue="false">
+		<text>进入水晶星区。</text>
+		<event load="CRYSTAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_IMPERIAL_UNIQUE" blue="false">
+		<text>进入水晶新家园。</text>
+		<event load="CRYSTAL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST" blue="false">
+		<text>进入流放者星区。</text>
+		<event load="OUTCAST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_OUTCAST_UNIQUE" blue="false">
+		<text>进入神权国恶土。</text>
+		<event load="OUTCAST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION" blue="false">
+		<text>进入联邦星区。</text>
+		<event load="FEDERATION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_FEDERATION_UNIQUE" blue="false">
+		<text>进入联邦大使馆。</text>
+		<event load="FEDERATION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL" blue="false">
+		<text>进入叛军星区。</text>
+		<event load="REBEL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REBEL_UNIQUE" blue="false">
+		<text>进入叛军要塞。</text>
+		<event load="REBEL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE" blue="false">
+		<text>进入海盗星区。</text>
+		<event load="PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_UNIQUE" blue="false">
+		<text>进入暗域黑市。</text>
+		<event load="PIRATE_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HIVE" blue="false">
+		<text>进入螳螂星区。</text>
+		<event load="MANTIS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_HIVE_UNIQUE" blue="false">
+		<text>进入螳螂母巢。</text>
+		<event load="MANTIS_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_THEOCRACY" blue="false">
+		<text>进入岩石星区。</text>
+		<event load="ROCK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_THEOCRACY_UNIQUE" blue="false">
+		<text>进入岩石族母星区。</text>
+		<event load="ROCK_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LOSTSUN_UNIQUE" blue="false">
+		<text>进入迷失烈阳要塞。</text>
+		<event load="LOSTSUN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER" blue="false">
+		<text>进入暮临星区。</text>
+		<event load="DUSKBRINGER_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DUSKBRINGER_UNIQUE" blue="false">
+		<text>进入暮临要塞。</text>
+		<event load="DUSKBRINGER_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION" blue="false">
+		<text>进入星联星区。</text>
+		<event load="COALITION_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_COALITION_UNIQUE" blue="false">
+		<text>进入星联要塞。</text>
+		<event load="COALITION_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO" blue="false">
+		<text>进入自动舰厂。</text>
+		<event load="AUTO_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_AUTO_UNIQUE" blue="false">
+		<text>进入中央自动舰厂。</text>
+		<event load="AUTO_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_GENERIC" blue="false">
+		<text>进入废弃星区。</text>
+		<event load="ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_LANIUS_UNIQUE" blue="false">
+		<text>进入食铁族群域。</text>
+		<event load="LANIUS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_UNEXPLORED_GENERIC" blue="false">
+		<text>进入星云星区。</text>
+		<event load="NEBULA_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_STARGROVE_UNIQUE" blue="false">
+		<text>进入恒星森林。</text>
+		<event load="STARGROVE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY" blue="false">
+		<text>进入蛞蝓星区。</text>
+		<event load="SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY_UNIQUE" blue="false">
+		<text>进入蛞蝓族母星区。</text>
+		<event load="SLUG_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_CLAN_UNIQUE" blue="false">
+		<text>进入异猎会星域。</text>
+		<event load="CLAN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC" blue="false">
+		<text>进入吸虫星区。</text>
+		<event load="LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC_UNIQUE" blue="false">
+		<text>进入吸虫首府。</text>
+		<event load="LEECH_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GENIOCRACY" blue="false">
+		<text>进入甲壳星区。</text>
+		<event load="SHELL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_GENIOCRACY_UNIQUE" blue="false">
+		<text>进入怪才体核心区。</text>
+		<event load="SHELL_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MORPH_UNIQUE" blue="false">
+		<text>进入怪才体科学区。</text>
+		<event load="MORPH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_VAGABOND" blue="false">
+		<text>进入漂浪星云。</text>
+		<event load="GHOST_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_VAGABOND_UNIQUE" blue="false">
+		<text>进入灵朝荒地。</text>
+		<event load="GHOST_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY" blue="false">
+		<text>进入灵朝星云。</text>
+		<event load="DYNASTY_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_DYNASTY_UNIQUE" blue="false">
+		<text>进入灵朝首府。</text>
+		<event load="DYNASTY_UNIQUE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_MONK_UNIQUE" blue="false">
+		<text>进入辉光避难所。</text>
+		<event load="MONK_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_AUGMENTED" blue="false">
+		<text>进入远古遗迹发掘站。</text>
+		<event load="AUGMENTED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ANCIENT" blue="false">
+		<text>进入方碑星区。</text>
+		<event load="ANCIENT_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ROYAL" blue="false">
+		<text>进入方碑族母星区。</text>
+		<event load="ROYAL_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ORIGINS" blue="false">
+		<text>进入水晶起源域。</text>
+		<event load="ORIGINS_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_ORIGINS_RUWEN" blue="false">
+		<text>进入水晶起源域。</text>
+		<event load="ORIGINS_RUWEN_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_KLEPTOCRACY_HEKTAR" blue="false">
+		<text>进入蛞蝓星区。</text>
+		<event load="SALE_SLUG_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_PIRATE_HEKTAR" blue="false">
+		<text>进入海盗星区。</text>
+		<event load="SALE_PIRATE_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_ABANDONED_GENERIC_HEKTAR" blue="false">
+		<text>进入废弃星区。</text>
+		<event load="SALE_ABANDONED_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECTOR_REPUBLIC_HEKTAR" blue="false">
+		<text>进入吸虫星区。</text>
+		<event load="SALE_LEECH_WARP" />
+	</choice>
+	<choice hidden="true" req="SEC SECRET_SYLVAN" blue="false">
+		<text>进入？？？。</text>
+		<event load="NEXUS_WARP" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LAST STAND
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<!--jk its not actually here, has to be in events_boss.xml.append-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					GENERIC
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ASTEROID">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ASTEROID_WARP">
+	<text id="atlas_asteroid_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ASTEROID_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_UNION">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="UNION_WARP">
+	<text id="atlas_union_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_UNION" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_UNION_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="UNION_UNIQUE_WARP">
+	<text id="atlas_union" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_COREWORLDS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_UNION_HACKED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="UNION_HACKED_WARP">
+	<text id="atlas_hacked" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_HACKED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MILITIA
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_MILITIA">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MILITIA_WARP">
+	<text id="atlas_militia" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_MILITIA" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ENGI
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ENGI">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ENGI_WARP">
+	<text id="atlas_engi_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ENGI" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ENGI_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ENGI_UNIQUE_WARP">
+	<text id="atlas_engi" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_HARMONY" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ZOLTAN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ZOLTAN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ZOLTAN_WARP">
+	<text id="atlas_zoltan_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ZOLTAN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ZOLTAN_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ZOLTAN_UNIQUE_WARP">
+	<text id="atlas_zoltan" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_CAPITAL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ORCHID
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ORCHID">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORCHID_WARP">
+	<text id="atlas_orchid_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ORCHID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ORCHID_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORCHID_UNIQUE_WARP">
+	<text id="atlas_orchid" />
+    <choice hidden="true">
+        <text>进入低速航行。</text>
+        <event load="START_GARDEN" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					VAMPWEED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_VAMPWEED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="VAMPWEED_WARP">
+	<text id="atlas_vampweed_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_VAMPWEED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_VAMPWEED_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="VAMPWEED_UNIQUE_WARP">
+	<text id="atlas_vampweed" />
+    <choice hidden="true">
+        <text>进入低速航行。</text>
+        <event load="START_VAMPHOME" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FREE MANTIS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_FREEMANTIS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FREEMANTIS_WARP">
+	<text id="atlas_freemantis_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_FREEMANTIS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_FREEMANTIS_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FREEMANTIS_UNIQUE_WARP">
+	<text id="atlas_freemantis" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_HUNTGROUNDS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SEPARATIST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_SEPARATIST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SEPARATIST_WARP">
+	<text id="atlas_separatist_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SEPERATIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					CRYSTAL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_CRYSTAL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CRYSTAL_WARP">
+	<text id="atlas_crystal_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_CRYSTAL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CRYSTAL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CRYSTAL_UNIQUE_WARP">
+    <text id="atlas_crystal" />
+    <choice hidden="true">
+        <text>进入低速航行。</text>
+        <event load="START_CRYSTALHOME" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					OUTCAST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_OUTCAST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="OUTCAST_WARP">
+	<text id="atlas_outcast_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_OUTCAST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_OUTCAST_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="OUTCAST_UNIQUE_WARP">
+    <text id="atlas_outcast" />
+    <choice hidden="true">
+        <text>进入低速航行。</text>
+        <event load="START_BADLANDS" />
+    </choice>
+    <choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					FEDERATION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_FEDERATION">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FEDERATION_WARP">
+	<text id="atlas_federation_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_FED" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_FEDERATION_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="FEDERATION_UNIQUE_WARP">
+	<text id="atlas_fed" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_FED_UNIQUE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					REBEL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_REBEL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="REBEL_WARP">
+	<text id="atlas_rebel_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_REBEL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_REBEL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="REBEL_UNIQUE_WARP">
+	<text id="atlas_rebel" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_REBELHOLD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					PIRATE
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_PIRATE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="PIRATE_WARP">
+	<text id="atlas_pirate_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_PIRATE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_PIRATE_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="PIRATE_UNIQUE_WARP">
+	<text id="atlas_pirate" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_BLACKMARKET" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MANTIS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_MANTIS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MANTIS_WARP">
+	<text id="atlas_mantis_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_MANTIS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_MANTIS_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MANTIS_UNIQUE_WARP">
+	<text id="atlas_hive" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_HIVE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ROCK
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ROCK">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROCK_WARP">
+	<text id="atlas_rock_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ROCK" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_ROCK_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROCK_UNIQUE_WARP">
+	<text id="atlas_rock" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ROCKHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LOSTSUN
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+
+<event name="ENTER_LOSTSUN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LOSTSUN_WARP">
+	<text id="atlas_lostsun" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_LOSTSUN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DUSKBRINGER
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_DUSKBRINGER">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DUSKBRINGER_WARP">
+	<text id="atlas_duskbringer_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_DUSKBRINGER" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_DUSKBRINGER_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DUSKBRINGER_UNIQUE_WARP">
+	<text id="atlas_dusk" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_DUSKCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					COALITION
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_COALITION">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="COALITION_WARP">
+	<text id="atlas_coalition_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_COALITION" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_COALITION_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="COALITION_UNIQUE_WARP">
+	<text id="atlas_coalition" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_COALITIONHOLD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AUTO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_AUTO">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUTO_WARP">
+	<text id="atlas_auto_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_AUTO" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_AUTO_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUTO_UNIQUE_WARP">
+	<text id="atlas_auto" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SHIPYARD" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ABANDONED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ABANDONED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ABANDONED_WARP">
+	<text id="atlas_abandoned_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ABANDONED_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LANIUS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_LANIUS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LANIUS_WARP">
+	<text id="atlas_lanius" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_LANIUS" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEBULA
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_NEBULA">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="NEBULA_WARP">
+	<text id="atlas_nebula_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_NEBULA" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					STARGROVE
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_STARGROVE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="STARGROVE_WARP">
+	<text id="atlas_stargrove" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_STARGROVE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SLUG
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_SLUG">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SLUG_WARP">
+	<text id="atlas_slug_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SLUG" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SLUG_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SLUG_UNIQUE_WARP">
+	<text id="atlas_slug" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SLUGHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_CLAN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="CLAN_WARP">
+	<text id="atlas_clan" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_CLAN" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SHELL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="ENTER_SHELL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SHELL_WARP">
+	<text id="atlas_shell_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SHELL" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>	
+<!--<event name="ENTER_SHELL">
+	<text load="TEXT_LIGHTSPEED"/>
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE"/>
+	<choice hidden="true">
+		<text>Continue...</text>
+		<event load="LOAD_ATLAS_MARKER"/>
+	</choice>
+</event>
+<event name="SHELL_WARP">
+	<text>Name: Shell Controlled Sector
+	Type: Neutral (Nebula)
+	Unique: False
+	Dominant Faction: Shell Geniocracy
+	Rebel Threat Level: Medium
+
+	The Shells are usually friendly, but their cultural practices often lead to misunderstandings with races when they attempt to run harmless experiments on abducted crew. Try to be tolerant, and the Shells won't be much of an issue to you.</text>
+	<remove name="HIDDEN DEST_SHELL"/>
+	<choice hidden="true">
+		<text>Exit hyperspeed.</text>
+		<event load="START_SHELL"/>
+	</choice>
+	<choice hidden="true" req="COORDS_SPIDER" blue="false">
+		<text>Jump to the Infested Sector.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER"/>
+	</choice>
+	<choice hidden="true" req="COORDS_JERRY" blue="false">
+		<text>Jump to the Jerome Protectorate.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY"/>
+	</choice>
+	<choice hidden="true" req="COORDS_NIGHTS" blue="false">
+		<text>Jump to the Royal Nebula.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS"/>
+	</choice>
+</event>-->
+
+<event name="ENTER_SHELL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SHELL_UNIQUE_WARP">
+	<text id="atlas_shell" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_SHELLHOME" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+<!--<event name="ENTER_SHELL_UNIQUE">
+	<text load="TEXT_LIGHTSPEED"/>
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE"/>
+	<choice hidden="true">
+		<text>Continue...</text>
+		<event load="LOAD_ATLAS_MARKER"/>
+	</choice>
+</event>
+<event name="SHELL_UNIQUE_WARP">
+	<text>Name: Central Shell Space
+	Type: Hostile (Nebula)
+	Unique: True
+	Dominant Faction: Shell Geniocracy
+	Rebel Threat Level: Medium
+	Locations of Interest: Long-range Federation distress call registered
+
+	Though the Shells evolved on the same planet as the Slugs, they were forced out by their much more aggressive cousin species. The Shells have settled here, and have set up heavy defenses to protect their territory. Strangely, the classification of this sector was recently changed from friendly to hostile, and a declaration that Federation ships are not welcome was added. That can't be good...</text>
+	<remove name="HIDDEN DEST_SHELL_UNIQUE"/>
+	<choice hidden="true">
+		<text>Exit hyperspeed.</text>
+		<event load="START_SHELLHOME"/>
+	</choice>
+	<choice hidden="true" req="COORDS_SPIDER" blue="false">
+		<text>Jump to the Infested Sector.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER"/>
+	</choice>
+	<choice hidden="true" req="COORDS_JERRY" blue="false">
+		<text>Jump to the Jerome Protectorate.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY"/>
+	</choice>
+	<choice hidden="true" req="COORDS_NIGHTS" blue="false">
+		<text>Jump to the Royal Nebula.</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS"/>
+	</choice>
+</event>-->
+
+<event name="ENTER_MORPH">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MORPH_WARP">
+	<text id="atlas_morph" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_MORPH" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					LEECH
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_LEECH">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LEECH_WARP">
+	<text id="atlas_leech_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_LEECH_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_LEECH_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="LEECH_UNIQUE_WARP">
+	<text id="atlas_leech" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_LEECHCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					GHOST
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_GHOST">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="GHOST_WARP">
+	<text id="atlas_ghost_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_GHOST_LIST" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+<event name="ENTER_GHOST_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="GHOST_UNIQUE_WARP">
+	<text id="atlas_ghost" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_GHOSTWASTE" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_DYNASTY">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DYNASTY_WARP">
+	<text id="atlas_dynasty_generic" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_DYNASTY" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+<event name="ENTER_DYNASTY_UNIQUE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="DYNASTY_UNIQUE_WARP">
+	<text id="atlas_dynasty" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_DYNCAP" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MONK
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_MONK">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="MONK_WARP">
+	<text id="atlas_monk" />
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_MONK" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+				 HEKTAR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_SALE_SLUG">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_SLUG_WARP">
+	<text id="atlas_slug_hektar" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未进入低速航行时，就收到了一条不寻常的广告："尊敬的赫克塔公司顾客！我是比利·赫克塔，赫克塔公司的CEO。作为我们全新的回头客计划的一部分，我们十分荣幸地向您介绍全新推出的'物值稳赚无悔(U.W.U.)积分'！每当您惠顾一次赫克塔(tm)商店，我们热心友善的客户服务舰将为您入账1点U.W.U.积分！积累足够的积分后您将参与我们的回馈活动！购物愉快！"广告播放完毕，一声铃铛声从你的电脑内传出，后面跟着公司口号"保证满意，因为概不退款！"</text>
+			<variable name="loc_beentomarket" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_SLUG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未完成减速退出超光速巡航时，又收到了一条与之前一样的广告。看起来这又是一个赫克塔公司商场星区。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_SLUG" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" max_group="1" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_PIRATE">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_PIRATE_WARP">
+	<text id="atlas_pirate_hektar" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未进入低速航行时，就收到了一条不寻常的广告："尊敬的赫克塔公司顾客！我是比利·赫克塔，赫克塔公司的CEO。作为我们全新的回头客计划的一部分，我们十分荣幸地向您介绍全新推出的'物值稳赚无悔(U.W.U.)积分'！每当您惠顾一次赫克塔(tm)商店，我们热心友善的客户服务舰将为您入账1点U.W.U.积分！积累足够的积分后您将参与我们的回馈活动！购物愉快！"广告播放完毕，一声铃铛声从你的电脑内传出，后面跟着公司口号"保证满意，因为概不退款！"</text>
+			<variable name="loc_beentomarket" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_PIRATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未完成减速退出超光速巡航时，又收到了一条与之前一样的广告。看起来这又是一个赫克塔公司商场星区。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_PIRATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" max_group="1" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_ABANDONED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_ABANDONED_WARP">
+	<text id="atlas_abandoned_hektar" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未进入低速航行时，就收到了一条不寻常的广告："尊敬的赫克塔公司顾客！我是比利·赫克塔，赫克塔公司的CEO。作为我们全新的回头客计划的一部分，我们十分荣幸地向您介绍全新推出的'物值稳赚无悔(U.W.U.)积分'！每当您惠顾一次赫克塔(tm)商店，我们热心友善的客户服务舰将为您入账1点U.W.U.积分！积累足够的积分后您将参与我们的回馈活动！购物愉快！"广告播放完毕，一声铃铛声从你的电脑内传出，后面跟着公司口号"保证满意，因为概不退款！"</text>
+			<variable name="loc_beentomarket" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_ABANDONED_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未完成减速退出超光速巡航时，又收到了一条与之前一样的广告。看起来这又是一个赫克塔公司商场星区。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_ABANDONED_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" max_group="1" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<event name="ENTER_SALE_LEECH">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="SALE_LEECH_WARP">
+	<text id="atlas_leech_hektar" />
+	<choice hidden="true" req="loc_beentomarket" lvl="0" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未进入低速航行时，就收到了一条不寻常的广告："尊敬的赫克塔公司顾客！我是比利·赫克塔，赫克塔公司的CEO。作为我们全新的回头客计划的一部分，我们十分荣幸地向您介绍全新推出的'物值稳赚无悔(U.W.U.)积分'！每当您惠顾一次赫克塔(tm)商店，我们热心友善的客户服务舰将为您入账1点U.W.U.积分！积累足够的积分后您将参与我们的回馈活动！购物愉快！"广告播放完毕，一声铃铛声从你的电脑内传出，后面跟着公司口号"保证满意，因为概不退款！"</text>
+			<variable name="loc_beentomarket" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_LEECH_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="loc_beentomarket" lvl="1" max_group="0" blue="false">
+		<text>进入低速航行。</text>
+		<event>
+			<text>当你还未完成减速退出超光速巡航时，又收到了一条与之前一样的广告。看起来这又是一个赫克塔公司商场星区。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="START_LEECH_LIST" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="COORDS" max_group="1" blue="false">
+		<text>调整航径。</text>
+		<event load="REROUTE_MENU" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					AUGMENTED
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_AUGMENTED">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="AUGMENTED_WARP">
+	<text>名称：远古遗迹发掘站
+类别：中立
+主导派系：强铁族
+叛军威胁度：低
+
+关于此星系的信息非常稀少。看来有某远古物种的遗迹在这里被发掘出来，并随即有一群称为强铁族的食铁族群蜂拥而至。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_AUGMENTED" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ANCIENT
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ANCIENT">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ANCIENT_WARP">
+	<text>名称：？？？
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+
+星区数据集中暂无对此星区的相关数据。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_BEACON_ANCIENT" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ROYAL
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ROYAL">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ROYAL_WARP">
+	<text>名称：？？？
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+
+星区数据集中暂无对此星区的相关数据。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_BEACON_ROYAL" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ORIGINS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="ENTER_ORIGINS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORIGINS_WARP">
+	<text>名称：水晶起源域
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+
+星区数据集中几乎没有对此星区的相关数据。从残存的一点数据可以推断出这曾是水晶帝国的旧都及母星区，直至他们被贪婪的"先驱者"赶出。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ORIGINS" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<event name="ENTER_ORIGINS_RUWEN">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="ORIGINS_RUWEN_WARP">
+	<text>名称：水晶起源域
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+
+星区数据集中几乎没有对此星区的相关数据。从残存的一点数据可以推断出这曾是水晶帝国的旧都及母星区，直至他们被贪婪的"先驱者"赶出。</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_ORIGINS_RUWEN" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEXUS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+
+<event name="ENTER_NEXUS">
+	<text load="TEXT_LIGHTSPEED" />
+	<img back="BACKGROUND_LIGHTSPEED" planet="NONE" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="LOAD_ATLAS_MARKER" />
+	</choice>
+</event>
+<event name="NEXUS_WARP">
+	<text>名称：？？？
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+
+不管目的地是哪里，肯定不是堪萨斯州咯。你甚至不确定是不是同一个宇宙了。你被带入的目的地离出发点差不多横跨了半个多元宇宙！</text>
+	<choice hidden="true">
+		<text>进入低速航行。</text>
+		<event load="START_NEXUS" />
+	</choice>
+	<choice hidden="true" req="loc_task_accepted" blue="false">
+		<text>你当前与C.U.R.A的通讯连接中断。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="COORDS" blue="false">
+		<text>本次跃迁无法调整航径。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SECRET SECTOR COORD WARPS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="REROUTE_MENU">
+	<text>调整至哪个星区？
+[警告：选择此项会覆盖下一个星区的已有任务]</text>
+	<choice hidden="true" max_group="0">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="magical_hat_active" blue="false">
+		<text>(魔法帽)调整至一个独特星区。</text>
+		<event load="REROUTE_MENU_HAT" />
+	</choice>
+	<choice hidden="true" req="ASTROMETRICS" blue="false">
+		<text>(天体计算仪)前往附近的星区。</text>
+		<event load="REROUTE_MENU_ASTROMETRICS" />
+	</choice>
+	<choice hidden="true" req="coords_spider" blue="false">
+		<text>调整至蜘蛛泛滥星区。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER" />
+	</choice>
+	<choice hidden="true" req="coords_jerry" blue="false">
+		<text>调整至杰罗姆受保护地。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY" />
+	</choice>
+	<choice hidden="true" req="coords_nights" blue="false">
+		<text>调整至王家蛞蝓星云。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS" />
+	</choice>
+	<choice hidden="true" req="coords_hektar" blue="false">
+		<text>调整至赫克塔公司巨型商场。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HEKTAR" />
+	</choice>
+	<choice hidden="true" req="coords_estate" blue="false">
+		<text>调整至温特沃斯革新社总部。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_ESTATE" />
+	</choice>
+	<choice hidden="true" req="coords_hive" blue="false">
+		<text>调整至螳螂母巢。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HIVE" />
+	</choice>
+	<choice hidden="true" req="coords_rhyme" blue="false">
+		<text>调整至？？？。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_RHYME" />
+	</choice>
+</event>
+<event name="REROUTE_MENU_LASTSTAND">
+	<text>[第8星区警告：此时调整航径意味着你将允许叛军对节点17施行围攻。事后你仍能返回，但调整航径多浪费的时间意味着你将被迫进入星区后即刻与旗舰展开决战，与此同时除联邦基地外的所有信标都将被叛军舰队占领。]
+
+你希望调整航径至何处？
+[警告：选择调整意味着你会失去继续下一星区内刷新的所有任务的机会。]</text>
+	<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
+		<text>算了。</text>
+		<event>
+			<loadEvent>LASTSTAND_WARP</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="coords_spider" blue="false" max_group="1">
+		<text>调整至蜘蛛泛滥星区。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_SPIDER_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_jerry" blue="false" max_group="2">
+		<text>调整至杰罗姆受保护地。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_JERRY_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_nights" blue="false" max_group="3">
+		<text>调整至王家蛞蝓星云。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_NIGHTS_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_hektar" blue="false" max_group="4">
+		<text>调整至赫克塔公司巨型商场。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HEKTAR_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_estate" blue="false" max_group="5">
+		<text>调整至温特沃斯革新社总部。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_ESTATE_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_hive" blue="false" max_group="6">
+		<text>调整至螳螂母巢。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_HIVE_BOSS" />
+	</choice>
+	<choice hidden="true" req="coords_rhyme" blue="false" max_group="7">
+		<text>调整至？？？。</text>
+		<event load="LIGHTSPEED_SECTOR_WARP_RHYME" />
+	</choice>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_SPIDER">
+	<text id="atlas_spider" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_spider" op="set" val="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_SPIDER" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_SPIDER_BOSS">
+	<text id="atlas_spider" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_spider" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_SPIDER" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_SPIDER">
+	<secretSector>SECRET_SPIDER</secretSector>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_JERRY">
+	<text id="atlas_jerry" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_jerry" op="set" val="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_JERRY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_JERRY_BOSS">
+	<text id="atlas_jerry" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_jerry" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_JERRY" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_JERRY">
+	<secretSector>SECRET_JERRY</secretSector>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_NIGHTS">
+	<text id="atlas_nights" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_nights" op="set" val="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_NIGHTS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_NIGHTS_BOSS">
+	<text id="atlas_nights" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_nights" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_NIGHTS" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_NIGHTS">
+	<secretSector>SECRET_NIGHTS</secretSector>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_HEKTAR">
+	<text id="atlas_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_hektar" op="set" val="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_HEKTAR" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_HEKTAR_BOSS">
+	<text id="atlas_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_hektar" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_HEKTAR" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_HEKTAR">
+	<secretSector>SECRET_HEKTAR</secretSector>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_ESTATE">
+	<text id="atlas_estate" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_estate" op="set" val="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_ESTATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_ESTATE_BOSS">
+	<text id="atlas_estate" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_estate" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_ESTATE" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_ESTATE">
+	<secretSector>SECRET_ESTATE</secretSector>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_RHYME">
+	<text>名称：？？？
+类别：？？？
+主导派系：？？？
+叛军威胁度：？？？
+标记点：？？？
+
+尽管大多数数据严重损坏，坐标乱七八糟，星区数据集竟然仍能识别出这些坐标数据，让你惊讶不已。你对是否造访此处有些迟疑，但神秘感也非常诱人...</text>
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_rhyme" op="set" val="0" />
+			<variable name="loc_protomv_drive_block" op="set" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="JUMP_TO_RHYME" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="JUMP_TO_RHYME">
+	<secretSector>SECRET_RHYME</secretSector>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ASTROMETRICS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="REROUTE_MENU_ASTROMETRICS">
+	<text>你的天体计算仪显示出附近的四个星区，可供调整航径。</text>
+	<choice hidden="true" max_group="0">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+	<choice req="ASTRO_FEDERATION" max_group="1" blue="false" hidden="true">
+		<text>前往一个联邦控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_FEDERATION" />
+	</choice>
+	<choice req="ASTRO_UNION" max_group="1" blue="false" hidden="true">
+		<text>前往一个同盟控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_UNION" />
+	</choice>
+	<choice req="ASTRO_HARMONY" max_group="1" blue="false" hidden="true">
+		<text>前往一个半械控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_HARMONY" />
+	</choice>
+	<choice req="ASTRO_MINISTRY" max_group="1" blue="false" hidden="true">
+		<text>前往一个超能控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_MINISTRY" />
+	</choice>
+	<choice req="ASTRO_GATHERING" max_group="1" blue="false" hidden="true">
+		<text>前往一个集议会控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_GATHERING" />
+	</choice>
+	<choice req="ASTRO_FREEMANTIS" max_group="1" blue="false" hidden="true">
+		<text>前往一个自由螳螂控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_FREEMANTIS" />
+	</choice>
+	<choice req="ASTRO_OUTCAST" max_group="1" blue="false" hidden="true">
+		<text>前往一个流放岩石控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_OUTCAST" />
+	</choice>
+	<choice req="ASTRO_IMPERIAL" max_group="1" blue="false" hidden="true">
+		<text>前往一个水晶控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_IMPERIAL" />
+	</choice>
+	<choice req="ASTRO_CONFEDERATE" max_group="2" blue="false" hidden="true">
+		<text>前往一个血兰控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_CONFEDERATE" />
+	</choice>
+	<choice req="ASTRO_SEPARATIST" max_group="2" blue="false" hidden="true">
+		<text>前往一个半械分离控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_SEPARATIST" />
+	</choice>
+	<choice req="ASTRO_PIRATE" max_group="2" blue="false" hidden="true">
+		<text>前往一个海盗控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_PIRATE" />
+	</choice>
+	<choice req="ASTRO_PIRATE_HEKTAR" max_group="2" blue="false" hidden="true">
+		<text>前往一个海盗控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_PIRATE_HEKTAR" />
+	</choice>
+	<choice req="ASTRO_ABANDONED_GENERIC" max_group="2" blue="false" hidden="true">
+		<text>前往一个废弃星区。</text> 
+		<event load="ASTROMETRIC_WARP_ABANDONED_GENERIC" />
+	</choice>
+	<choice req="ASTRO_ABANDONED_GENERIC_HEKTAR" max_group="2" blue="false" hidden="true">
+		<text>前往一个废弃星区。</text> 
+		<event load="ASTROMETRIC_WARP_ABANDONED_GENERIC_HEKTAR" />
+	</choice>
+	<choice req="ASTRO_REBEL" max_group="3" blue="false" hidden="true">
+		<text>前往一个叛军控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_REBEL" />
+	</choice>
+	<choice req="ASTRO_HIVE" max_group="3" blue="false" hidden="true">
+		<text>前往一个螳螂控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_HIVE" />
+	</choice>
+	<choice req="ASTRO_THEOCRACY" max_group="3" blue="false" hidden="true">
+		<text>前往一个岩石控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_THEOCRACY" />
+	</choice>
+	<choice req="ASTRO_DUSKBRINGER" max_group="3" blue="false" hidden="true">
+		<text>前往一个暮临控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_DUSKBRINGER" />
+	</choice>
+	<choice req="ASTRO_COALITION" max_group="3" blue="false" hidden="true">
+		<text>前往一个星联控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_COALITION" />
+	</choice>
+	<choice req="ASTRO_AUTO" max_group="3" blue="false" hidden="true">
+		<text>前往自动舰厂。</text> 
+		<event load="ASTROMETRIC_WARP_AUTO" />
+	</choice>
+	<choice req="ASTRO_UNEXPLORED_GENERIC" max_group="4" blue="false" hidden="true">
+		<text>前往一个星云星区。</text> 
+		<event load="ASTROMETRIC_WARP_UNEXPLORED_GENERIC" />
+	</choice>
+	<choice req="ASTRO_KLEPTOCRACY" max_group="4" blue="false" hidden="true">
+		<text>前往一个蛞蝓控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_KLEPTOCRACY" />
+	</choice>
+	<choice req="ASTRO_KLEPTOCRACY_HEKTAR" max_group="4" blue="false" hidden="true">
+		<text>前往一个蛞蝓控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_KLEPTOCRACY_HEKTAR" />
+	</choice>
+	<choice req="ASTRO_GENIOCRACY" max_group="4" blue="false" hidden="true">
+		<text>前往一个甲壳控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_GENIOCRACY" />
+	</choice>
+	<choice req="ASTRO_VAGABOND" max_group="4" blue="false" hidden="true">
+		<text>前往一个漂浪群星云。</text> 
+		<event load="ASTROMETRIC_WARP_VAGABOND" />
+	</choice>
+	<choice req="ASTRO_DYNASTY" max_group="4" blue="false" hidden="true">
+		<text>前往一个灵朝星云。</text> 
+		<event load="ASTROMETRIC_WARP_DYNASTY" />
+	</choice>
+	<choice req="ASTRO_REPUBLIC" max_group="4" blue="false" hidden="true">
+		<text>前往一个吸虫控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_REPUBLIC" />
+	</choice>
+	<choice req="ASTRO_REPUBLIC_HEKTAR" max_group="4" blue="false" hidden="true">
+		<text>前往一个吸虫控制星区。</text> 
+		<event load="ASTROMETRIC_WARP_REPUBLIC_HEKTAR" />
+	</choice>
+	<choice req="ASTRO_ASTEROID_GENERIC" max_group="4" blue="false" hidden="true">
+		<text>前往一个开采星区。</text> 
+		<event load="ASTROMETRIC_WARP_ASTEROID_GENERIC" />
+	</choice>
+</event>
+
+<event name="ASTROMETRIC_WARP_FEDERATION">
+	<text id="atlas_federation_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_FEDERATION</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_UNION">
+	<text id="atlas_union_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_UNION</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_HARMONY">
+	<text id="atlas_engi_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HARMONY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_MINISTRY">
+	<text id="atlas_zoltan_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_MINISTRY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_GATHERING">
+	<text id="atlas_orchid_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_GATHERING</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_FREEMANTIS">
+	<text id="atlas_freemantis_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_FREEMANTIS</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_OUTCAST">
+	<text id="atlas_outcast_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_OUTCAST</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_IMPERIAL">
+	<text id="atlas_crystal_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_IMPERIAL</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_CONFEDERATE">
+	<text id="atlas_vampweed_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_CONFEDERATE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_SEPARATIST">
+	<text id="atlas_separatist_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_SEPARATIST</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_PIRATE">
+	<text id="atlas_pirate_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_PIRATE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_PIRATE_HEKTAR">
+	<text id="atlas_pirate_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_PIRATE_HEKTAR</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_ABANDONED_GENERIC">
+	<text id="atlas_abandoned_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_ABANDONED_GENERIC</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_ABANDONED_GENERIC_HEKTAR">
+	<text id="atlas_abandoned_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_ABANDONED_GENERIC_HEKTAR</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_REBEL">
+	<text id="atlas_rebel_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_REBEL</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_HIVE">
+	<text id="atlas_mantis_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HIVE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_THEOCRACY">
+	<text id="atlas_rock_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_THEOCRACY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_DUSKBRINGER">
+	<text id="atlas_duskbringer_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_DUSKBRINGER</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_COALITION">
+	<text id="atlas_coalition_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_COALITION</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_AUTO">
+	<text id="atlas_auto_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_AUTO</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_UNEXPLORED_GENERIC">
+	<text id="atlas_nebula_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_UNEXPLORED_GENERIC</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_KLEPTOCRACY">
+	<text id="atlas_slug_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_KLEPTOCRACY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_KLEPTOCRACY_HEKTAR">
+	<text id="atlas_slug_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_KLEPTOCRACY_HEKTAR</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_GENIOCRACY">
+	<text id="atlas_shell_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_GENIOCRACY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_VAGABOND">
+	<text id="atlas_ghost_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_VAGABOND</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_DYNASTY">
+	<text id="atlas_dynasty_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_DYNASTY</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_REPUBLIC">
+	<text id="atlas_leech_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_REPUBLIC</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_REPUBLIC_HEKTAR">
+	<text id="atlas_leech_hektar" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_REPUBLIC_HEKTAR</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="ASTROMETRIC_WARP_ASTEROID_GENERIC">
+	<text id="atlas_asteroid_generic" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="loc_astrometrics_active" op="set" val="-1" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_ASTEROID_GENERIC</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MAGIC HAT
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="REROUTE_MENU_HAT">
+	<text>如果你想要的话，这顶魔法帽能使你前往任何你想去的星区。然而，魔法帽的魔力似乎只够带你到一个星区。这是魔法不完美的副作用。</text>
+	<choice hidden="true" max_group="0">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+	<choice hidden="true" req="sec_unique_union" lvl="0" max_lvl="0" blue="false">
+		<text>调整至同盟核心区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_UNION" />
+	</choice>
+	<choice hidden="true" req="sec_unique_union" lvl="1" blue="false">
+		<text>你已经去过同盟核心区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_militia" lvl="0" max_lvl="0" blue="false">
+		<text>调整至盟卫营区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_MILITIA" />
+	</choice>
+	<choice hidden="true" req="sec_unique_militia" lvl="1" blue="false">
+		<text>你已经去过盟卫营区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_federation" lvl="0" max_lvl="0" blue="false">
+		<text>调整至联邦大使馆。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_FED" />
+	</choice>
+	<choice hidden="true" req="sec_unique_federation" lvl="1" blue="false">
+		<text>你已经去过联邦大使馆了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_engi" lvl="0" max_lvl="0" blue="false">
+		<text>调整至谐合主星区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_ENGI" />
+	</choice>
+	<choice hidden="true" req="sec_unique_engi" lvl="1" blue="false">
+		<text>你已经去过谐合核心区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_zoltan" lvl="0" max_lvl="0" blue="false">
+		<text>调整至牧师团首府。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_ZOLTAN" />
+	</choice>
+	<choice hidden="true" req="sec_unique_zoltan" lvl="1" blue="false">
+		<text>你已经去过牧师团首府了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_orchid" lvl="0" max_lvl="0" blue="false">
+		<text>调整至集议会园庭。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_ORCHID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_orchid" lvl="1" blue="false">
+		<text>你已经去过集议会园庭了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_vampweed" lvl="0" max_lvl="0" blue="false">
+		<text>调整至血兰邦核心区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_VAMPWEED" />
+	</choice>
+	<choice hidden="true" req="sec_unique_vampweed" lvl="1" blue="false">
+		<text>你已经去过血兰邦核心区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_freemantis" lvl="0" max_lvl="0" blue="false">
+		<text>调整至自由螳螂狩猎区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_FREEMANTIS" />
+	</choice>
+	<choice hidden="true" req="sec_unique_freemantis" lvl="1" blue="false">
+		<text>你已经去过自由螳螂狩猎区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_crystal" lvl="0" max_lvl="0" blue="false">
+		<text>调整至水晶帝国新家园。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_CRYSTAL" />
+	</choice>
+	<choice hidden="true" req="sec_unique_crystal" lvl="1" blue="false">
+		<text>你已经去过水晶帝国新家园了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_outcast" lvl="0" max_lvl="0" blue="false">
+		<text>调整至神权国恶土。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_OUTCAST" />
+	</choice>
+	<choice hidden="true" req="sec_unique_outcast" lvl="1" blue="false">
+		<text>你已经去过神权国恶土了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_lostsun" lvl="0" max_lvl="0" blue="false">
+		<text>调整至迷失烈阳要塞。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_LOSTSUN" />
+	</choice>
+	<choice hidden="true" req="sec_unique_lostsun" lvl="1" blue="false">
+		<text>你已经去过迷失烈阳要塞了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_lanius" lvl="0" max_lvl="0" blue="false">
+		<text>调整至食铁族群域。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_LANIUS" />
+	</choice>
+	<choice hidden="true" req="sec_unique_lanius" lvl="1" blue="false">
+		<text>你已经去过食铁族群域了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_pirate" lvl="0" max_lvl="0" blue="false">
+		<text>调整至暗域黑市。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_PIRATE" />
+	</choice>
+	<choice hidden="true" req="sec_unique_pirate" lvl="1" blue="false">
+		<text>你已经去过暗域黑市了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_hacked" lvl="0" max_lvl="0" blue="false">
+		<text>调整至被骇同盟区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_HACKED" />
+	</choice>
+	<choice hidden="true" req="sec_unique_hacked" lvl="1" blue="false">
+		<text>你已经去过被骇同盟区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_rebel" lvl="0" max_lvl="0" blue="false">
+		<text>调整至叛军要塞。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_REBEL" />
+	</choice>
+	<choice hidden="true" req="sec_unique_rebel" lvl="1" blue="false">
+		<text>你已经去过叛军要塞了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_auto" lvl="0" max_lvl="0" blue="false">
+		<text>调整至中央自动舰厂。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_AUTO" />
+	</choice>
+	<choice hidden="true" req="sec_unique_auto" lvl="1" blue="false">
+		<text>你已经去过中央自动舰厂了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_mantis" lvl="0" max_lvl="0" blue="false"> <!--can also be rerouted to via Kaz-->
+		<text>调整至母巢世界。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_HIVE" />
+	</choice>
+	<choice hidden="true" req="sec_unique_mantis" lvl="1" blue="false"> <!--can also be rerouted to via Kaz-->
+		<text>你已经去过母巢世界了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_rock" lvl="0" max_lvl="0" blue="false">
+		<text>调整至神权国主星区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_ROCK" />
+	</choice>
+	<choice hidden="true" req="sec_unique_rock" lvl="1" blue="false">
+		<text>你已经去过神权国主星区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_duskbringer" lvl="0" max_lvl="0" blue="false">
+		<text>调整至暮临派要塞。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_DUSK" />
+	</choice>
+	<choice hidden="true" req="sec_unique_duskbringer" lvl="1" blue="false">
+		<text>你已经去过暮临派要塞了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_stargrove" lvl="0" max_lvl="0" blue="false">
+		<text>调整至恒星森林。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_STARGROVE" />
+	</choice>
+	<choice hidden="true" req="sec_unique_stargrove" lvl="1" blue="false">
+		<text>你已经去过恒星森林了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_slug" lvl="0" max_lvl="0" blue="false">
+		<text>调整至星盗会首府。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_SLUG" />
+	</choice>
+	<choice hidden="true" req="sec_unique_slug" lvl="1" blue="false">
+		<text>你已经去过星盗会首府了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_clan" lvl="0" max_lvl="0" blue="false">
+		<text>调整至异猎会星域。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_CLAN" />
+	</choice>
+	<choice hidden="true" req="sec_unique_clan" lvl="1" blue="false">
+		<text>你已经去过异猎会星域了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_shell" lvl="0" max_lvl="0" blue="false">
+		<text>调整至怪才体核心区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_SHELL" />
+	</choice>
+	<choice hidden="true" req="sec_unique_shell" lvl="1" blue="false">
+		<text>你已经去过怪才体核心区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_morph" lvl="0" max_lvl="0" blue="false">
+		<text>调整至怪才体科学区。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_MORPH" />
+	</choice>
+	<choice hidden="true" req="sec_unique_morph" lvl="1" blue="false">
+		<text>你已经去过怪才体科学区了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_leech" lvl="0" max_lvl="0" blue="false">
+		<text>调整至共和国首都。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_LEECH" />
+	</choice>
+	<choice hidden="true" req="sec_unique_leech" lvl="1" blue="false">
+		<text>你已经去过共和国首都了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_monk" lvl="0" max_lvl="0" blue="false">
+		<text>调整至辉光避难所。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_MONK" />
+	</choice>
+	<choice hidden="true" req="sec_unique_monk" lvl="1" blue="false">
+		<text>你已经去过辉光避难所了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_ghost" lvl="0" max_lvl="0" blue="false">
+		<text>调整至灵朝荒地。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_GHOST" />
+	</choice>
+	<choice hidden="true" req="sec_unique_ghost" lvl="1" blue="false">
+		<text>你已经去过灵朝荒地了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_dynasty" lvl="0" max_lvl="0" blue="false">
+		<text>调整至灵朝首府。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_DYNASTY" />
+	</choice>
+	<choice hidden="true" req="sec_unique_dynasty" lvl="1" blue="false">
+		<text>你已经去过灵朝首府了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="sec_unique_coalition" lvl="0" max_lvl="0" blue="false">
+		<text>调整至星联要塞。</text> 
+		<event load="LIGHTSPEED_SECTOR_WARP_COALITION" />
+	</choice>
+	<choice hidden="true" req="sec_unique_coalition" lvl="1" blue="false">
+		<text>你已经去过星联要塞了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+</event>
+
+<event name="LIGHTSPEED_SECTOR_WARP_UNION">
+	<text id="atlas_union" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_UNION_UNIQUE">SECTOR_UNION</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_UNION_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_MILITIA">
+	<text id="atlas_militia" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_MILITIA_UNIQUE">SECTOR_UNION</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_MILITIA_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_FED">
+	<text id="atlas_fed" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_FEDERATION_UNIQUE">SECTOR_UNION</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_FEDERATION_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_ENGI">
+	<text id="atlas_engi" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_HARMONY_UNIQUE">SECTOR_HARMONY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HARMONY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_ZOLTAN">
+	<text id="atlas_zoltan" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_MINISTRY_UNIQUE">SECTOR_MINISTRY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_MINISTRY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_ORCHID">
+	<text id="atlas_orchid" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_GATHERING_UNIQUE">SECTOR_GATHERING</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_GATHERING_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_VAMPWEED">
+	<text id="atlas_vampweed" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_CONFEDERATE_UNIQUE">SECTOR_CONFEDERATE</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_CONFEDERATE_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_FREEMANTIS">
+	<text id="atlas_freemantis" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_FREEMANTIS_UNIQUE">SECTOR_FREEMANTIS</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_FREEMANTIS_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_CRYSTAL">
+	<text id="atlas_crystal" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_IMPERIAL_UNIQUE">SECTOR_IMPERIAL</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_IMPERIAL_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_OUTCAST">
+	<text id="atlas_outcast" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_OUTCAST_UNIQUE">SECTOR_OUTCAST</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_OUTCAST_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_LOSTSUN">
+	<text id="atlas_lostsun" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_LOSTSUN_UNIQUE">SECTOR_OUTCAST</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_LOSTSUN_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_LANIUS">
+	<text id="atlas_lanius" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_LANIUS_UNIQUE">SECTOR_ABANDONED_GENERIC</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_LANIUS_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_PIRATE">
+	<text id="atlas_pirate" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_PIRATE_UNIQUE">SECTOR_PIRATE</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_PIRATE_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_HACKED">
+	<text id="atlas_hacked" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_HACKER_UNIQUE">SECTOR_UNION</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HACKER_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_REBEL">
+	<text id="atlas_rebel" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_REBEL_UNIQUE">SECTOR_REBEL</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_REBEL_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_AUTO">
+	<text id="atlas_auto" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_AUTO_UNIQUE">SECTOR_AUTO</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_AUTO_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_HIVE">
+	<text id="atlas_hive" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<variable name="coords_hive" op="set" val="0" /> <!--in case you have reroute coords instead-->
+			<replaceSector name="SECTOR_HIVE_UNIQUE">SECTOR_HIVE</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HIVE_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_HIVE_BOSS"> <!--cannot use hat in s8 transition-->
+	<text id="atlas_hive" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="coords_hive" op="set" val="0" />
+			<variable name="loc_laststand" op="add" val="1" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_HIVE_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_ROCK">
+	<text id="atlas_rock" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_THEOCRACY_UNIQUE">SECTOR_THEOCRACY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_THEOCRACY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_DUSK">
+	<text id="atlas_dusk" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_DUSKBRINGER_UNIQUE">SECTOR_DUSKBRINGER</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_DUSKBRINGER_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_STARGROVE">
+	<text id="atlas_stargrove" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_STARGROVE_UNIQUE">SECTOR_UNEXPLORED_GENERIC</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_STARGROVE_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_SLUG">
+	<text id="atlas_slug" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_KLEPTOCRACY_UNIQUE">SECTOR_KLEPTOCRACY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_KLEPTOCRACY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_CLAN">
+	<text id="atlas_clan" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_CLAN_UNIQUE">SECTOR_KLEPTOCRACY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_CLAN_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_SHELL">
+	<text id="atlas_shell" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_GENIOCRACY_UNIQUE">SECTOR_GENIOCRACY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_GENIOCRACY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_MORPH">
+	<text id="atlas_morph" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_MORPH_UNIQUE">SECTOR_GENIOCRACY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_MORPH_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_LEECH">
+	<text id="atlas_leech" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_REPUBLIC_UNIQUE">SECTOR_REPUBLIC</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_REPUBLIC_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_MONK">
+	<text id="atlas_monk" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_MONK_UNIQUE">SECTOR_UNEXPLORED_GENERIC</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_MONK_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_GHOST">
+	<text id="atlas_ghost" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_VAGABOND_UNIQUE">SECTOR_VAGABOND</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_VAGABOND_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_DYNASTY">
+	<text id="atlas_dynasty" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_DYNASTY_UNIQUE">SECTOR_DYNASTY</replaceSector>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_DYNASTY_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+<event name="LIGHTSPEED_SECTOR_WARP_COALITION">
+	<text id="atlas_coalition" />
+	<choice hidden="true">
+		<text>确定调整航径。</text>
+		<event>
+			<text>你准备跃迁至新坐标处，并相应地调整航径。</text>
+			<variable name="magical_hat_active" op="set" val="0" />
+			<variable name="loc_sector_count" op="add" val="-1" />
+			<replaceSector name="SECTOR_COALITION_UNIQUE">SECTOR_UNEXPLORED_GENERIC</replaceSector> <!--has to be a nebula sector-->
+			<choice hidden="true">
+				<text>继续。</text>
+				<event><secretSector>SECTOR_COALITION_UNIQUE</secretSector></event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>算了。</text>
+		<event>
+			<loadEvent>ATLAS_MENU_NOEQUIPMENT</loadEvent>
+		</event>
+	</choice>
+</event>
+</FTL>
+

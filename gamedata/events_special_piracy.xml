@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					PIRACY EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+
+<!--THIS IS A WIP MECHANIC-->
+
+
+<!--TO REMOVE FROM GENERIC LISTS:
+FRIENDLY_SLAVER
+MERCENARY_OFFER
+NEBULA_WEAPONS_TRADER
+MV_SLAVER_CHOICE
+SLAVER_CHOICE
+MV_PIRATE_CHOICE
+PIRATE_CHOICE
+MERCENARY_REBEL_OFFER
+BLACKMARKET_BOUNTYHUNTER
+-->
+
+<event name="PIRACY_LIST">
+	<loadEventList seeded="false" first="true" generate="true">
+		<event name="PIRACY_LIST_GENERIC" req="SEC FINAL" lvl="0" max_lvl="0" />
+		<event name="PIRACY_LIST_S8" req="SEC FINAL" lvl="1" />
+	</loadEventList>
+</event>
+
+<event name="PIRACY_LIST_GENERIC">
+	<loadEventList seeded="false" first="false" generate="true">
+		<event name="PIRACY_GENERIC_FRIENDLY" />
+		<event name="PIRACY_GENERIC_CHOICE" />
+		<event name="PIRACY_GENERIC_HOSTILE" />
+	</loadEventList>
+</event>
+<event name="PIRACY_LIST_S8">
+	<loadEventList seeded="false" first="false" generate="true">
+		<event name="PIRACY_GENERIC_FRIENDLY_S8" />
+		<event name="PIRACY_GENERIC_CHOICE" />
+		<event name="PIRACY_GENERIC_HOSTILE" />
+	</loadEventList>
+</event>
+
+<eventList name="PIRACY_GENERIC_FRIENDLY">
+	<event load="SLAVER_FRIENDLY" />
+	<event load="MERCENARY_FRIENDLY" />
+	<event load="SMUGGLER_FRIENDLY" />
+</eventList>
+<eventList name="PIRACY_GENERIC_FRIENDLY_S8">
+	<event load="SLAVER_FRIENDLY" />
+	<!--<event load="MERCENARY_FRIENDLY"/>-->
+	<event load="SMUGGLER_FRIENDLY" />
+</eventList>
+<eventList name="PIRACY_GENERIC_CHOICE">
+	<event load="SLAVER_CHOICE" />
+	<event load="MERCENARY_CHOICE" />
+	<event load="SMUGGLER_CHOICE" />
+</eventList>
+<eventList name="PIRACY_GENERIC_HOSTILE">
+	<event load="ENCOUNTER_PIRATE" />
+	<event load="ENCOUNTER_MERCENARY" />
+	<event load="ENCOUNTER_SMUGGLER" />
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					GENERIC EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="PIRATE_CHOICE_RUN">
+	<event>
+		<text>你迅速给你的引擎充能，并向外突围。但是，这似乎是徒劳的。他们毫不费力地追上了你，并发射了他们的武器。</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你把所有可用的能量转移到你的引擎上，然后逃离。你让他们措手不及，但他们似乎还在追赶你。幸运的是，你能够在范围之外停留足够长的时间来为超光速推进器充能。</text>
+	</event>
+	<event>
+		<text>你给你的引擎充能，试图逃跑。他们的飞船无法跟上你的速度，最终它放弃了，回到了信标处，等待更容易的目标。</text>
+	</event>
+</eventList>
+
+<eventList name="PIRATE_CHOICE_THREATEN">
+	<event>
+		<text>海盗们并没有被你的威胁所吓倒，反而给他们的武器也充能！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"好，好！我们明白了，你不是在胡闹。对不起，打扰你了。"</text>
+	</event>
+</eventList>
+
+<event name="ENCOUNTER_PIRATE">
+	<loadEventList first="false" generate="true">
+		<event name="ENCOUNTER_PIRATE_REGULAR" />
+		<event name="ENCOUNTER_PIRATE_SUN" />
+		<event name="ENCOUNTER_PIRATE_ASTEROID" />
+		<event name="ENCOUNTER_PIRATE_NO_ESCAPE_MV" />
+	</loadEventList>
+</event>
+<event name="ENCOUNTER_PIRATE_REGULAR">
+	<text load="TEXT_ENCOUNTER_PIRATE" />
+	<ship load="SHIP_PIRATE_ALL" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_PIRATE">
+	<text>当你跃迁进来时，一个海盗在你的位置上前进。他们拒绝了所有的呼叫。准备战斗吧。</text>
+	<text>抵达该星系后不久，你就被一艘小型战舰叫住。"真是好运气，我们碰巧遇到了彼此。不针对你个人，但你有一些我们需要的情报！"</text>
+	<text>这个信标处的另一艘船给你发来信息。"等待了几个月的时间，终于有人落入我们的陷阱！"</text>
+	<text>你还没有完成跃迁充能之前便听到你的星舰警告你有一艘带着武器的飞船来袭。</text>
+</textList>
+<event name="ENCOUNTER_PIRATE_SUN" unique="true">
+	<img back="BG_DARK" />
+	<text>这个信标离附近的超巨型M级恒星太近了！你的星舰会逐渐过热，直至离开这里...或者烧毁。一个海盗，显然对附近恒星的危险视而不见，上前交战。</text>
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<environment type="sun" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<event name="ENCOUNTER_PIRATE_ASTEROID" unique="true">
+	<img planet="NONE" back="BG_DARK" />
+	<environment type="asteroid" />
+	<text>一艘海盗舰在这个小行星带内埋伏着。它立刻扑来并进行攻击。</text>
+	<ship load="SHIP_PIRATE_ALL" hostile="true" />
+	<choice>
+		<text>转头应战。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice req="pilot" lvl="2" hidden="true">
+		<text>(高级驾驶)试图从海盗手中逃脱。</text>
+		<event load="ENCOUNTER_PIRATE_ASTEROID_PILOTING" />
+	</choice>
+</event>
+<eventList name="ENCOUNTER_PIRATE_ASTEROID_PILOTING">
+	<event>
+		<text>你的驾驶员成功无伤地摆脱了海盗。</text>
+		<ship hostile="false" />
+	</event>
+	<event>
+		<text>尽管耍了一些花哨的飞行动作，但在你离开小行星带之前，海盗仍然追上了你。你别无选择，只能应战。</text>
+		<environment type="asteroid" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+<event name="ENCOUNTER_PIRATE_NO_ESCAPE_MV" unique="true">
+	<text>刚到达后，屏幕上就亮起警告。附近的海盗舰似乎配备了先进的黑客工具，他们刚刚试图关闭你的引擎。你的船员设法让引擎勉强保持运转，你上前攻击。</text>
+	<ship load="SHIP_PIRATE_NO_ESCAPE" hostile="true" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>你的引擎停止运转，你准备战斗。</text>
+			<status type="limit" target="player" system="engines" amount="1" />	
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>	
+			<choice hidden="true" req="ANTI_VIRUS">
+				<text>(防护程序)恢复引擎系统的运转。</text>
+				<event>
+					<text>引擎系统恢复至全功率。</text>
+					<status type="clear" target="player" system="engines" amount="100" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="hacking">
+		<text>(黑客系统)对抗远程黑客攻击。</text>
+		<event>
+			<text>你的黑客系统自动抵御了电子攻击，而你则准备进场与这艘战舰作战。</text>
+			<status type="limit" target="player" system="hacking" amount="0" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="ENCOUNTER_MERCENARY">
+	<text load="TEXT_ENCOUNTER_MERCENARY" />
+	<ship load="SHIP_MERCENARY_ALL" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MERCENARY">
+	<text>你在这个信标处发现了一个小的黑市，但当你接近它时，一艘雇佣兵的船靠近你。"哈哈！我们真幸运。我们的客户来到这里，雇用我们来侦察这个区域吧！"</text>
+	<text>"我向你保证，这不是针对你。只是，我们已经得到了很多的钱来换取你的命。你是个变元者，所以我相信你能理解。"</text>
+	<text>似乎有人在悬赏你的性命，因为有一个雇佣兵在跟踪你，并且在给武器充能！你必须先解决这个问题。</text>
+	<text>奇怪的是，变元者和雇佣兵很少相处。对雇佣兵来说，变元者缺乏佣兵团带给他们的荣誉和地位。附近的那艘船似乎对这种差异耿耿于怀，向你扑来！</text>
+</textList>
+
+<event name="ENCOUNTER_SMUGGLER">
+	<text load="TEXT_ENCOUNTER_SMUGGLER" />
+	<ship load="SHIP_SMUGGLER_ALL" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_SMUGGLER">
+	<text>"我用我的小眼睛看到了一艘船，上面有一些精美的设备，我相信在市场上会卖个好价钱！投降吧，否则将遭受我的大炮的怒火！"</text>
+	<text>走私者很少表现出攻击性，因为害怕失去他们宝贵的货物。但是，当他们的存货枯竭时，有些舰长会试试他们的运气，抢夺过往船只的货物。挑选像你这样的船似乎有点冒险，但这是他们的选择。</text>
+	<text>"真奇怪。我刚刚卖掉了我所有的存货，在这里我还在想我必须跋山涉水回到阿尔吉恩的时候，你出现了！感谢你的慷慨捐赠，陌生人！"你不确定走私者指的是什么，直到武器从他们的舰体中升起！</text>
+	<text>一个走私者走近，显然是想偷窃而非出售。准备战斗！</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SLAVER EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="SLAVER_DATABASE">
+	<text id="database_tiiikaka" />
+	<choice>
+		<text>继续。</text>
+		<event>
+			<restartEvent />
+		</event>
+	</choice>
+</event>
+
+<event name="SLAVER_OFFERS">
+    <text>奴隶贩子欢迎你上船，向你展示他们的"商品"。</text>
+    <choice>
+        <text>购买一名奴隶。</text>
+		<event>
+			<text>"一次伟大的采购。愿它们为您提供良好的服务，舰长…"</text>
+            <item_modify>
+                <item type="scrap" min="-35" max="-25" />
+            </item_modify>
+            <crewMember amount="1" class="LIST_SLAVES_GENERIC" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SLAVER" />
+            </choice>
+        </event>
+    </choice>
+	<choice req="rep_comb_slaver" lvl="1" blue="false">
+        <text>[声望：1+] 购买"高价值"的奴隶。</text>
+        <event>
+			<text>"一次伟大的采购。愿它们为您提供良好的服务，舰长…"</text>
+            <item_modify>
+                <item type="scrap" min="-50" max="-40" />
+            </item_modify>
+            <crewMember amount="1" class="LIST_SLAVES_GOOD" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SLAVER" />
+            </choice>
+		</event>
+    </choice>
+	<choice req="rep_comb_slaver" lvl="3" blue="false">
+        <text>[声望：3+] 购买一名异域奴隶。</text>
+        <event>
+			<text>"一次伟大的采购。愿它们为您提供良好的服务，舰长…"</text>
+            <item_modify>
+                <item type="scrap" min="-70" max="-60" />
+            </item_modify>
+            <crewMember amount="1" class="LIST_SLAVES_GREAT" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SLAVER" />
+            </choice>
+		</event>
+    </choice>
+	<choice hidden="true">
+        <text>算了。</text>
+        <event>
+            <text>你对他们的交易不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<textList name="TEXT_SLAVER_FRIENDLY">
+	<text>你认出附近的船是著名的提卡卡奴隶贩子。他向你呼叫，并以便宜的价格为你提供'苦力'。</text>
+	<text>一个看起来很狡猾的奴隶贩子靠近，以合理的价格提供有前途的、自愿的工人。</text>
+	<text>"我的朋友，我想你的船上肯定有很大的劳动力短缺问题。毕竟，变元者的寿命并不长。也许我可以提供一个解决方案？"</text>
+	<text>"感觉很兴奋，朋友？我可以给你提供一些东西来帮助你在晚上的被窝是暖和的，嘿嘿...你不喜欢吗？好吧，我肯定我的'商品'在你的船上可能有其他用途。"</text>
+	<text>一个没被打击的奴隶贩子出现在你的屏幕上，宣传他的工人会做任何你命令的事情，保证满意，否则退钱。</text>
+	<text>有时，奴隶贩子在兜售货物时的行动是很危险。尽管这是一个相当冒险的举动，奴隶贩子似乎也已经把你作为一个潜在的客户。</text>
+</textList>
+<event name="SLAVER_FRIENDLY">
+    <text load="TEXT_SLAVER_FRIENDLY" />
+	<ship load="SHIP_SLAVER_ALL" hostile="false" />
+    <choice hidden="true">
+        <text>看看他们提供什么。</text>
+        <event load="SLAVER_OFFERS" />
+    </choice>
+    <choice hidden="true">
+        <text>攻击奴隶贩子。</text>
+        <event>
+            <text>奴隶贩子是银河系的败类。歼灭这个人，这是一件正义的事情。</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+            </choice>
+        </event>
+    </choice>
+	<choice req="teleporter" lvl="2" hidden="true">
+        <text>(高级传送器)使用你的传送器尝试登上飞船并释放一些奴隶。</text>
+        <event load="SLAVER_FRIENDLY_TELEPORTER" />
+    </choice>
+    <choice>
+        <text>不理会这个奴隶贩子，继续执行你的任务。</text>
+        <event>
+            <text>你对奴隶贩子不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+	<choice req="FEDERATION_DATABASE">
+		<text>[联邦数据库]什么是提卡卡？</text>
+		<event load="SLAVER_DATABASE" />
+	</choice>
+</event>
+<eventList name="SLAVER_FRIENDLY_TELEPORTER">
+    <event>
+        <text>你将一小队人马传送到他们的船舱。他们很快就解救了这些奴隶，并传送回了你的星舰。其中一个俘虏似乎适合战斗，你扔给他们一件武器，准备战斗。</text>
+        <crewMember amount="1" />
+        <ship hostile="true" />
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+        </choice>
+    </event>
+    <event>
+        <text>你将一小队人马传送到他们的船舱，试图释放他们的囚犯。船员们被逼到了一个角落，在他们被抓到前。你迅速将这支队伍和囚犯传送回你的星舰。</text>
+        <crewMember amount="1" />
+        <ship hostile="true" />
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+        </choice>
+    </event>
+    <event>
+        <text>你把一个小组传送到他们的船上。然而，你对他们的囚犯位置的判断是错误的。当他们找到自己的位置时，奴隶贩子已经发现了他们。你把他们传送回船上，准备战斗。</text>
+        <ship hostile="true" />
+        <choice hidden="true">
+            <text>继续。</text>
+            <event load="REPUTATION_DECREASE_SLAVER_COMBAT" />
+        </choice>
+    </event>
+</eventList>
+
+<textList name="TEXT_SLAVER_CHOICE">
+	<text>一艘特别有侵略性的奴隶贩子船接近你。"交出你们的一名船员，其余的人可以安然无恙地离开。我们保证不会伤害他们太多。"</text>
+</textList>
+<event name="SLAVER_CHOICE">
+	<text load="TEXT_SLAVER_CHOICE" />
+	<ship load="SHIP_SLAVER_ALL" hostile="false" />
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>抽签决定，送一名船员给奴隶贩子。</text>
+		<event>
+			<text>被选中的船员毫无怨言地离开了，因为他知道你别无选择。</text>
+			<removeCrew>
+				<clone>false</clone>
+				<text>你短暂地考虑克隆一个替代品，但决定尊重联邦关于物种未死亡不得克隆的法律。</text>
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>"逻辑错误：请求无法完成。这是一艘自动舰。要求：被驳回。"</text>
+		<event>
+			<text>这帮人得有多蠢才会找一艘自动星舰索要船员？不过你可以等把这些小丑从宇宙中移除后再考虑这些事情。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>我们绝不会把任何船员交给奴隶贩子！</text>
+		<event>
+			<text>你准备与奴隶贩子战斗。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="LIST_CREW_SPIDER" hidden="true">
+		<text>(蜘蛛族船员)把你的蜘蛛族船员"交给"他们，给他们造成破坏。</text>
+		<event>
+			<text>"等等，这是什么......哦，上帝啊！！！"奴隶贩子倒在地上，因为蜘蛛撕开了他的喉咙，并继续吞噬其他船员。虽然它已经杀死了船上所有的人，包括奴隶贩子，但舰体仍然完好无损，可以供你拆解。</text>
+			<autoReward level="HIGH">standard</autoReward>
+		</event>
+	</choice>
+	<choice req="engines" lvl="5" hidden="true">
+		<text>(高级引擎)试图远离海盗。</text>
+		<event load="PIRATE_CHOICE_RUN" />
+	</choice>
+	<choice req="weapons" lvl="5" hidden="true">
+		<text>(高级武器)威胁海盗。</text>
+		<event load="PIRATE_CHOICE_THREATEN" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					MERCENARY EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="MERCENARY_DATABASE">
+	<text id="database_syndicate" />
+	<choice>
+		<text>继续。</text>
+		<event>
+			<restartEvent />
+		</event>
+	</choice>
+</event>
+
+<event name="MERCENARY_OFFERS">
+    <text>雇佣兵咧嘴一笑，说出了他能提供的各种服务。</text>
+    <choice hidden="true" req="rep_comb_merc" lvl="1" max_lvl="2" blue="false">
+        <text>[声望：1+]"你是个好顾客，所有的服务都便宜了！"</text>
+        <event load="OPTION_INVALID" />
+    </choice>
+	<!--lvl1-->
+	<choice req="rep_comb_merc" lvl="0" max_lvl="0" blue="false">
+        <text>雇佣雇佣兵来拖延叛军。</text>
+		<event>
+			<text>当雇佣兵数完了废料后，他们便点头表示赞同。"你是老板！我这就去办..."</text>
+            <item_modify>
+                <item type="scrap" min="-40" max="-25" />
+            </item_modify>
+            <modifyPursuit amount="-2" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_MERCENARY" />
+            </choice>
+        </event>
+    </choice>
+	<choice req="rep_comb_merc" lvl="0" max_lvl="0" blue="false">
+        <text>雇佣兵侦察整个区域。</text>
+		<event>
+			<text>当雇佣兵数完了废料后，他们便点头表示赞同。"你是老板！我这就去办..."</text>
+            <item_modify>
+                <item type="scrap" min="-30" max="-20" />
+            </item_modify>
+            <reveal_map />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_MERCENARY" />
+            </choice>
+        </event>
+    </choice>
+	<!--lvl2-->
+	<choice req="rep_comb_merc" lvl="1" blue="false">
+        <text>雇佣雇佣兵来拖延叛军。</text>
+		<event>
+			<text>当雇佣兵数完了废料后，他们便点头表示赞同。"你是老板！我这就去办..."</text>
+            <item_modify>
+                <item type="scrap" min="-25" max="-10" />
+            </item_modify>
+            <modifyPursuit amount="-2" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_MERCENARY" />
+            </choice>
+        </event>
+    </choice>
+	<choice req="rep_comb_merc" lvl="1" blue="false">
+        <text>雇佣兵侦察整个区域。</text>
+		<event>
+			<text>当雇佣兵数完了废料后，他们便点头表示赞同。"你是老板！我这就去办..."</text>
+            <item_modify>
+                <item type="scrap" min="-20" max="-10" />
+            </item_modify>
+            <reveal_map />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_MERCENARY" />
+            </choice>
+        </event>
+    </choice>
+	<!--lvl3-->
+	<choice req="rep_comb_merc" lvl="3" blue="false">
+        <text>[声望：3+] 雇佣雇佣兵侦察并拖延叛军追击。</text>
+		<event>
+			<text>当雇佣兵数完了废料后，他们便点头表示赞同。"你是老板！我这就去办..."</text>
+            <item_modify>
+                <item type="scrap" min="-30" max="-20" />
+            </item_modify>
+            <reveal_map />
+			<modifyPursuit amount="-2" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_MERCENARY" />
+            </choice>
+        </event>
+    </choice>
+	<choice hidden="true">
+        <text>算了。</text>
+        <event>
+            <text>你对他们的交易不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<textList name="TEXT_MERCENARY_FRIENDLY">
+	<text>佣兵团不乏有雇佣战斗的人，只要价格合适，他们几乎什么都能做。这里的船只也不例外。</text>
+	<text>一艘船在呼唤你。"你好！看来你在叛乱中遇到了一些困难。我很想帮忙，但我负担不起我所驾驶的这艘破船的维护费用...也许我们可以达成一个交易？"</text>
+	<text>"有废料？需要人做事？我就是你要找的人！"这个信标处的雇佣兵通过通讯露出一个笑容，表示你没听错。</text>
+	<text>由于威尔和佣兵团的存在，雇佣兵们正涌向星系。他们不那么合法的服务需求量很大，有一艘船在附近等着像你这样的飞船，可能会发现他们的服务有些用处。</text>
+	<text>一艘带有佣兵团标志的飞船在附近的一个空间站徘徊。你收到了一条信息。"一切皆有可能，只要价格合适。"</text>
+	<text>"我捕捉到消息...一个变元者？你一定很忙。确实很忙！我知道你的任务很重要。也许，为了一点报酬，我可以让你的生活更轻松一些？"</text>
+</textList>
+<event name="MERCENARY_FRIENDLY">
+	<text load="TEXT_MERCENARY_FRIENDLY" />
+	<ship load="SHIP_MERCENARY_ALL" hostile="false" />
+	<choice hidden="true">
+        <text>看看他们提供什么。</text>
+        <event load="MERCENARY_OFFERS" />
+    </choice>
+    <choice hidden="true">
+        <text>攻击雇佣兵。</text>
+        <event>
+            <text>雇佣兵不比叛军强多少，只是效忠对象日异月殊的捣乱分子罢了。是时候让佣兵团再减少一名成员了。</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_DECREASE_MERCENARY_COMBAT" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>无视雇佣兵，继续你的任务。</text>
+        <event>
+            <text>你对雇佣兵不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+	<choice req="FEDERATION_DATABASE">
+		<text>[联邦数据库]佣兵团是什么？</text>
+		<event load="MERCENARY_DATABASE" />
+	</choice>
+</event>
+
+<textList name="TEXT_MERCENARY_CHOICE">
+	<text>完成跃迁后，你收到了附近雇佣兵的信息。"你好，欢迎来到我们的信标！只要付一点钱，我们就会让你继续航行。"</text>
+	<text>"好啊好啊，这不就是时下流行的船吗？我刚刚有一个客户来了，给了我一笔丰厚的报酬，让我杀了你。但是...我可以给你一个不同的交易。付给我同样的价格，我就放你走。"</text>
+	<text>"啊，你好，我的朋友们！对你来说，最不幸的是，我们以这种方式在这里见面！我的客户刚刚离开，他们给了我不少钱。也许你可以...给出他们的价格？"</text>
+	<text>"今天是个美好的日子，舰长！我得到了一笔丰厚的废料，任务是杀死你！恐怕我得执行这个任务…除非你能…再给我们一些废料？"</text>
+</textList>
+<event name="MERCENARY_CHOICE">
+	<text load="TEXT_MERCENARY_CHOICE" />
+	<ship load="SHIP_MERCENARY_ALL" hostile="false" />
+	<choice>
+		<text>交出过路费。</text>
+		<event>
+			<text>"你做出了正确的决定，朋友。"</text>
+			<item_modify>
+				<item type="scrap" min="-30" max="-20" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝他们的"提议"。</text>
+		<event>
+			<text>"太糟糕了...你会后悔这个决定的！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="engines" lvl="5" hidden="true">
+		<text>(高级引擎)试图远离海盗。</text>
+		<event load="PIRATE_CHOICE_RUN" />
+	</choice>
+	<choice req="weapons" lvl="5" hidden="true">
+		<text>(高级武器)威胁海盗。</text>
+		<event load="PIRATE_CHOICE_THREATEN" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SMUGGLER EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<event name="SMUGGLER_DATABASE">
+	<text id="database_argeonn" />
+	<choice>
+		<text>继续。</text>
+		<event>
+			<restartEvent />
+		</event>
+	</choice>
+</event>
+
+<event name="SMUGGLER_OFFERS">
+    <text>走私者拍拍你的背，欢迎你进入他们的货舱。</text>
+    <choice>
+        <text>购买武器。</text>
+        <event>
+			<text>"非常感谢你从我手中接过这个东西！只有一个建议...尽量不要让联邦看到你带着它跃迁。"</text>
+            <item_modify>
+                <item type="scrap" min="-60" max="-45" />
+            </item_modify>
+            <weapon name="LIST_CONTRABAND_WEP_SMUGGLER" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SMUGGLING" />
+            </choice>
+		</event>
+    </choice>
+	<choice req="rep_comb_smuggler" lvl="1" blue="false">
+        <text>[声望：1+] 查看其他武器的交易信息。</text>
+        <event>
+			<text>"非常感谢你从我手中接过这个东西！只有一个建议...尽量不要让联邦看到你带着它跃迁。"</text>
+            <item_modify>
+                <item type="scrap" min="-60" max="-45" />
+            </item_modify>
+            <weapon name="LIST_CONTRABAND_WEP_SMUGGLER" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SMUGGLING" />
+            </choice>
+		</event>
+    </choice>
+	<choice blue="false">
+        <text>购买一架无人机。</text>
+        <event>
+			<text>"非常感谢你从我手中接过这个东西！只有一个建议...尽量不要让联邦看到你带着它跃迁。"</text>
+            <item_modify>
+                <item type="scrap" min="-55" max="-40" />
+            </item_modify>
+            <drone name="LIST_CONTRABAND_DRONE_SMUGGLER" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SMUGGLING" />
+            </choice>
+		</event>
+    </choice>
+	<choice req="rep_comb_smuggler" lvl="3" blue="false">
+        <text>[声望：3+] 购买部件。</text>
+        <event>
+			<text>"非常感谢你从我手中接过这个东西！只有一个建议...尽量不要让联邦看到你带着它跃迁。"</text>
+            <item_modify>
+                <item type="scrap" min="-65" max="-50" />
+            </item_modify>
+            <augment name="LIST_CONTRABAND_AUGMENT_SMUGGLER" />
+			<choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_UPDATE_SMUGGLING" />
+            </choice>
+		</event>
+    </choice>
+	<choice hidden="true">
+        <text>算了。</text>
+        <event>
+            <text>你对他们的交易不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<textList name="TEXT_SMUGGLER_FRIENDLY">
+	<text>一个阿尔吉恩走私者在向你推销他的货物之前，向你讲述了一个关于开放星系的危险的故事。你怀疑他的任何违禁品是否完全合法，但也许值得一看？</text>
+	<text>你听说过关于阿尔吉恩和他们招揽生意的故事，有好有坏。一个狂妄自大的走私者向你发出邀请，以他声称的低价出售一些"高级设备"。</text>
+	<text>"我们在这个场合遇到对方，这是多么大的幸运啊。你有废料，而我有设备。也许我们可以交易一下？"</text>
+	<text>"我的货物所携带的宝物是没有限制的，舰长。而且它们也都可以是你的！只是，要付出相应代价…"</text>
+	<text>联邦对阿尔吉恩和它的走私者相当宽松，因为他们的维度间服务使运输费用低廉。由于没有什么危险，附近的一个走私者向你兜售一些设备。</text>
+	<text>"我曾经差点加入变元者行业...但它不适合我的生活。我更喜欢阿尔吉恩，这也很刺激，但风险要小得多。你不会碰巧需要任何设备吧？"</text>
+</textList>
+<event name="SMUGGLER_FRIENDLY">
+	<text load="TEXT_SMUGGLER_FRIENDLY" />
+	<ship load="SHIP_SMUGGLER_ALL" hostile="false" />
+	<choice hidden="true">
+        <text>看看他们提供什么。</text>
+        <event load="SMUGGLER_OFFERS" />
+    </choice>
+    <choice hidden="true">
+        <text>攻击走私者。</text>
+        <event>
+            <text>走私者通常可能因其军品销售而闻名，但阿尔吉恩运输的是其他很多东西。谁知道什么样的有害物品通过这艘船的货物进入了各种不良分子的手中。唯一负责任的行动就是把这些人拿下。</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="REPUTATION_DECREASE_SMUGGLING_COMBAT" />
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>无视走私者，继续你的任务。</text>
+        <event>
+            <text>你对走私者不感兴趣。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+	<choice req="FEDERATION_DATABASE">
+		<text>[联邦数据库]阿尔吉恩是什么？</text>
+		<event load="SMUGGLER_DATABASE" />
+	</choice>
+</event>
+
+<textList name="TEXT_SMUGGLER_CHOICE">
+	<text>一个走私者靠近，升起他们的武器，却不是他们的违禁品。"对不起，我们在不利的条件下见面，但我们缺少燃料，恐怕你是我们在巡逻队抓住我们之前离开这里的唯一机会。没有什么难言之隐，这只是生意。"</text>
+</textList>
+<event name="SMUGGLER_CHOICE">
+	<text load="TEXT_SMUGGLER_CHOICE" />
+	<ship load="SHIP_SMUGGLER_ALL" hostile="false" />
+	<choice>
+		<text>给他燃料。</text>
+		<event>
+			<text>"你做出了正确的决定，朋友。"</text>
+			<item_modify>
+				<item type="fuel" min="-6" max="-3" />
+			</item_modify>
+		</event>
+	</choice>
+	<choice>
+		<text>拒绝给予燃料。</text>
+		<event>
+			<text>"太糟糕了...你会后悔这个决定的！"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice req="engines" lvl="5" hidden="true">
+		<text>(高级引擎)试图远离海盗。</text>
+		<event load="PIRATE_CHOICE_RUN" />
+	</choice>
+	<choice req="weapons" lvl="5" hidden="true">
+		<text>(高级武器)威胁海盗。</text>
+		<event load="PIRATE_CHOICE_THREATEN" />
+	</choice>
+</event>
+</FTL>
+

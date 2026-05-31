@@ -1,0 +1,2151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FTL>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					PROTECTORATE SECTOR
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					EXIT BEACON
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<event name="FINISH_BEACON_PROTECTORATE">
+	<revisitEvent seeded="true">FINISH_BEACON_PROTECTORATE</revisitEvent>
+	<loadEventList seeded="false" first="true">
+		<event name="FINISH_BEACON_PROTECTORATE_EMPTY" req="loc_killedcyra" lvl="1" />
+		<event name="FINISH_BEACON_CYRA" req="loc_killedcyra" lvl="0" max_lvl="0" />
+	</loadEventList>
+</event>
+<event name="FINISH_BEACON_PROTECTORATE_EMPTY">
+	<text>已到达本星区出口信标。超光速推进器充能完毕后即可跃迁至下个星区。</text>
+	<choice hidden="true">
+		<text>我们应该尽快离开。</text>
+		<event />
+	</choice>
+</event>
+<event name="FINISH_BEACON_CYRA">
+	<text>已到达本星区出口信标。超光速推进器充能完毕后即可跃迁至下个星区。</text>
+	<choice hidden="true" req="unique_jerry" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="CYRA_JERRY" />
+	</choice>
+	<choice hidden="true" req="loc_jerrysave" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="CYRA_JERRYGONE" />
+	</choice>
+	<choice hidden="true" req="loc_jerrykill" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="CYRA_JERRYDEAD" />
+	</choice>
+	<choice hidden="true" req="loc_jerrymet" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="CYRA_JERRYMET" />
+	</choice>
+	<choice hidden="true" req="loc_jerrymet" lvl="0" max_group="0" blue="false">
+		<text>继续。</text>
+		<event load="CYRA" />
+	</choice>
+</event>
+<event name="CYRA_DEFEAT_JERRY">
+	<text>"该死的...该死的都是地狱。我让你失望了，万斯。而且是在一个来自0号宇宙的变元者手里。我很抱歉，杰瑞。给你叔叔带去我...我最好的祝愿..."就这样，赛拉被征服了。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+	<variable name="loc_killedcyra" op="set" val="1" />
+	<choice hidden="true" req="unique_jerry" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>杰瑞很受打击。"我以为...你不必杀她...我们本可以通过谈判解决的。这是个错误。现在我的朋友的血在我手上，如果我不离开，这一切都可以避免！该死的！去吧，把我留在这里。这都是一个大错误..."</text>
+			<removeCrew class="unique_jerry">
+				<clone>false</clone>
+				<text>看来杰瑞已经永远离开了。你将不得不在没有他的情况下继续执行你的任务。</text>
+			</removeCrew>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry" lvl="0" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>看来杰瑞没能在战斗中幸存下来。这个故事的结局很不幸，也很反常，但你没有什么别的办法来挽回它。</text>
+		</event>
+	</choice>
+</event>
+<event name="CYRA_JERRY_SPARE">
+    <loadEventList seeded="false" first="true">
+        <event name="CYRA_JERRY_SPARE_CREW" req="unique_jerry" />
+        <event name="CYRA_JERRY_SPARE_DEAD" req="unique_jerry" lvl="0" max_lvl="0" />
+    </loadEventList>
+</event>
+<event name="CYRA_JERRY_SPARE_CREW">
+	<text>赛拉的飞船状况不佳，但在你继续战斗之前，杰瑞把你拉到一边。"求你了，不管你做什么，不要杀了赛拉。她不能再这样战斗下去了，只要你不把她干掉，我们就能度过这个难关！求你了，我知道你是个雇佣兵，而且是个联邦雇佣兵，但今天不需要再有流血事件发生了！"</text>
+	<triggeredEvent event="CYRA_JERRY_SUCCESS" thisFight="true" clearOnJump="true">
+		<time amount="18" />
+	</triggeredEvent> 
+</event>
+<event name="CYRA_JERRY_SPARE_DEAD">
+	<event />
+</event>
+<event name="CYRA_JERRY_SUCCESS">
+	<text>你设法坚持了足够长的时间，最终赛拉的船停了下来。赛拉自己也倒下了，无法再战斗，她不情愿地投降了。</text>
+	<ship hostile="false" />
+	<surrender />
+	<autoReward level="HIGH">weapon</autoReward>
+	<variable name="loc_killedcyra" op="set" val="1" />
+	<choice hidden="true" req="unique_jerry" lvl="1" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>随着飞船被无害化处理，你应杰瑞的要求停靠，他急忙上船去见赛拉。受伤的王牌还活着，经过治疗肯定能全身而退，但还有一点不对劲。"我已经失败了。我有一个工作，一个承诺。我毫无用处。杰瑞...替我向万斯问好..."说着，赛拉抽出枪，对准自己，扣动了扳机。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>杰瑞不知道该说些什么。"我...她没有必要...哦不。我造成了这一切。我做了什么？"</text>
+					<choice hidden="true">
+						<text>不要责怪自己，孩子。万斯无论如何都会抓到她的。</text>
+						<event>
+							<text>"什么？不！万斯永远不会伤害她，尤其是以他们的历史而言。我认为我叔叔甚至没有意识到他在做什么。他有一个任务，人们为之狂热。即使他从未要求，他们也会为他而死。我需要见他，我是他唯一会听的人。我可以说服他不要这样做...让他看到他所造成的伤害。我不是一个好的战士，但也许如果你能带我去节点17，我可以永远结束这种战斗。"杰瑞环顾四周。"至于这艘船...嗯，它对我们已经没有什么用了。我想你可以拿走这些蓝图。来吧，我们...我们走吧。我不想再逗留了。"</text>
+							<unlockCustomShip silent="false">PLAYER_SHIP_MFK</unlockCustomShip>
+							<variable name="ach_crew_jerry" op="set" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true" req="unique_jerry" lvl="0" max_group="0" blue="false">
+		<text>继续。</text>
+		<event>
+			<text>"我...我失败了...那孩子甚至没有在战斗中幸存下来。我做了什么...该死的...该死的一切都在地狱。我很抱歉，万斯..."赛拉掏出她的枪，用颤抖的手指对准自己，扣动扳机。</text>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CYRA_JERRY" auto_blueprint="MU_MFK_CRUISER">
+	<triggeredEvent event="CYRA_JERRY_SPARE" enemyHull="10" enemyCrew="3" thisFight="true" clearOnJump="true" />
+	<destroyed load="CYRA_DEFEAT_JERRY" />
+	<deadCrew load="CYRA_DEFEAT_JERRY" />
+</ship>
+<event name="CYRA_JERRY">
+	<text>附近有一艘巨大的星舰，与你见过的都不同。船上有多名MFK精英，以及他们的领袖，一名身材矮小但力量强大，一头黑色长发的女性。她是赛拉·布莱克，首名MFK王牌精英。她把目光移到你身上，但还没有做出攻击动作。"你的船上窝藏有温特沃斯的侄子。尽管你的行为有点蠢，但我知道你并不蠢。你我都知道，如果不先通过我，你是不可能带着这孩子离开这个星区的。把他还给我，否则我们将不得不以不愉快的方式解决这个问题。"</text>
+	<ship load="SHIP_CYRA_JERRY" hostile="false" />
+	<choice hidden="true">
+		<text>拒绝。</text>
+		<event>
+			<text>你拒绝了，在杰瑞自己的要求下，你让他接电话。他试图向赛拉申诉，但她拒绝了。"杰瑞，我向你叔叔承诺过，我不会让你发生任何事情。在我违背对万斯的承诺之前，我会死去。如果这是你想要的变元者，那么这将是一场你会得到的战斗。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>给了她杰瑞。</text>
+		<event>
+			<text>你不愿意为这件事和赛拉对着干。无论如何，杰瑞会得到很好的照顾--他又不是没有在她的保护下生活了大半辈子。杰瑞似乎有点失望，但他没有反击。这个故事的结局相当反常，但比有死亡的结局好。</text>
+			<removeCrew class="unique_jerry">
+				<clone>false</clone>
+				<text>看来杰瑞已经永远离开了。你将不得不在没有他的情况下继续执行你的任务。</text>
+			</removeCrew>
+		</event>
+	</choice>
+</event>
+
+<event name="CYRA_DEFEAT">
+	<text>"该死的...该死的都是地狱。我让你失望了，万斯。而且是在一些来自0号宇宙的变元者手中。唉..."赛拉已经被打败了。</text>
+	<autoReward level="HIGH">weapon</autoReward>
+	<variable name="loc_killedcyra" op="set" val="1" />
+</event>
+<ship name="SHIP_CYRA" auto_blueprint="MU_MFK_CRUISER">
+	<destroyed load="CYRA_DEFEAT" />
+	<deadCrew load="CYRA_DEFEAT" />
+</ship>
+<event name="CYRA">
+	<text>附近有一艘巨大的巡洋舰，与你见过的任何巡洋舰都不同。船上有多个王牌，以及他们的领袖，一个身材矮小但力量强大的女性，一头黑色长发。赛拉-布莱克，第一个MFK王牌。她看着你，但她没有做出攻击的动作。"我听说了你们在这个星区的行动。我知道你是谁，但我并不关心。我早就退休了，但我给你一个警告。如果你敢伤害杰罗姆-温特沃斯的一根头发，我将亲自看到你的喉咙被割开。明白吗？"</text>
+	<ship load="SHIP_CYRA" hostile="false" />
+	<choice hidden="true">
+		<text>确定吗？</text>
+		<event>
+			<text>"好。然后离开我的星区。"</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>趁此机会攻击她！</text>
+		<event>
+			<text>"典型。变元者无论如何都会遵循同样的路线。那你就去坟墓吧。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CYRA_JERRYMET">
+	<text>附近有一艘巨大的巡洋舰，与你见过的任何巡洋舰都不同。船上有多个王牌，以及他们的领袖，一个身材矮小但力量强大的女性，一头黑色长发。赛拉-布莱克，第一个MFK王牌。她看着你，但她没有做出攻击的动作。"我听说了你们在这个星区的行动。我知道你是谁，但我并不关心。我听说了在庄园里发生的事情。你很幸运，杰罗姆活着出来了，否则你就会死在你站的地方。不要考验你的运气。明白吗？"</text>
+	<ship load="SHIP_CYRA" hostile="false" />
+	<choice hidden="true">
+		<text>确定吗？</text>
+		<event>
+			<text>"好。然后离开我的星区。"</text>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>趁此机会攻击她！</text>
+		<event>
+			<text>"典型。变元者无论如何都会遵循同样的路线。那你就去坟墓吧。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<ship name="SHIP_CYRA_JERRYDEAD" auto_blueprint="MU_MFK_CRUISER">
+	<destroyed load="CYRA_DEFEAT" />
+	<deadCrew load="CYRA_DEFEAT" />
+</ship>
+<event name="CYRA_JERRYDEAD">
+	<text>附近有一艘巨大的星舰，与你见过的都不同。船上有多名MFK精英，以及他们的领袖，一名身材矮小但力量强大，一头黑色长发的女性。她是赛拉·布莱克，首名MFK王牌精英。她注视着你，眼中充满了复仇的气焰。"你个狗娘养的，你干了什么？这会是你能犯的最后一次错。谁给你的勇气碰那个孩子的？准备好去死吧。"</text>
+	<ship load="SHIP_CYRA_JERRYDEAD" hostile="true" />
+	<choice hidden="true">
+		<text>呃噢。</text>
+		<event>
+			<text>赛拉抽出她的步枪，把枪管擦干净，然后默默地示意她的手下进攻！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="CYRA_JERRYGONE">
+	<text>附近有一艘巨大的巡洋舰，与你见过的任何巡洋舰都不同。船上有多个王牌，以及他们的领袖，一个身材矮小但力量强大的女性，一头黑色长发。赛拉-布莱克，第一个MFK王牌。她看着你，但她没有做出攻击的动作。"我听说了你们在这个星区的行动。我知道你是谁，但我并不关心。我听说了在庄园发生的事情。然而，杰罗姆没有和你在一起？你对他做了什么？那个白痴，相信变元者的话！你这个败类！我很乐意用我的枪头把你从这个多元宇宙的脸上抹去。"</text>
+	<ship load="SHIP_CYRA_JERRYDEAD" hostile="true" />
+	<choice hidden="true">
+		<text>呃噢。</text>
+		<event>
+			<text>赛拉抽出她的步枪，把枪管擦干净，然后默默地示意她的手下进攻！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					ITEM EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="ITEMS_JERRY">
+	<event load="JERRY_SURRENDER" />
+	<event load="JERRY_COLONISTS" />
+	<event load="JERRY_TAXES" />
+	<event load="JERRY_HANGOUT" />
+</eventList>
+
+<event name="JERRY_SURRENDER" unique="true">
+	<text>在附近的星球上建造了一个庞大的城市，但烟云阻挡了你的大部分视野。当你走近时，很明显这里发生了一些重大冲突。医务人员匆忙地治疗被遗弃在路边的受伤平民，燃烧的残骸被胡乱地扔到摩天大楼的脸上。最令人担忧的是，一些残骸似乎是...联邦？</text>
+	<img planet="PLANET_POPULATED" />
+	<choice hidden="true">
+		<text>继续。</text>
+		<event>
+			<text>最终，平民们注意到你在观察他们。他们没有试图攻击你，而是投降了。"求你了，我们不想要这些！我们不在乎你的愚蠢战争！我们对你们愚蠢的战争不屑一顾！你在这里所做的还不够吗？"</text>
+			<choice>
+				<text>接受他们的投降，以及这里所发生的任何事情的责任。</text>
+				<event>
+					<text>这是为你没有参与的事情提供的大量物资--但这可能不会对联邦在这些人眼中的地位有任何挽回作用。你不知道联邦会批准这样的事情...</text>
+					<autoReward level="HIGH">standard</autoReward>
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="MORALITY_UPDATE_JERRY" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>我们与此事无关。</text>
+				<event>
+					<text>"胡说八道。即使你没有参与这场屠杀，你仍然促成了它！你认为当联邦确保其对这个宇宙的控制时，会发生什么？他们会回来的，他们会把这个地方从银河系的脸上抹去。滚出我们的城市。"</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_tully">
+				<text>（塔利）让塔利给他们一个解释。</text>
+				<event>
+					<text>塔利叹了口气。"这次行动并未得到海军部的批准……但是，当联邦被逼入绝境时，发生这种未经批准的大屠杀是众所周知的。在联邦-螳螂战争中就发生过一模一样的事情。"塔利苦笑着。"顺带一提，当我们起诉负责的战犯时……叛军需要对联邦怀有怨恨、训练有素的人类军事指挥官。猜猜他们是从哪儿找到的。"
+				
+"我们不应对军方的行为负责。我们是平民！我们只想和平地生活。"平民抱着手臂说。"如果你的联邦卷土重来，你真的认为我们能幸免吗？"
+
+"我的职责就是确保这一点。我不能说联邦飞船总会守规矩，但我保证我们非常严肃地对待战犯。只要我还能做到，我就会确保正义得到伸张。"
+
+行星上的人类对塔利充满激情的承诺感到惊讶。他们似乎持怀疑态度，但对此举表示感激。</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="unique_jerry">
+				<text>（杰瑞）承诺情况会好转。</text>
+				<event>
+					<text>杰瑞双手合十恳求道。"现在情况真的很糟。我理解。而这正是我想帮忙的原因。我知道我们都清楚联邦犯下的错误，但我认为我能让他们听我的。让我们来纠正这一切。"
+
+一名平民惊慌起来。"杰瑞，不要！你改变不了他们的！这不安全！"
+
+"我知道这很难，但如果我没有充分的理由相信这会成功，我就不会这么做了。如果和平是可能的……你不认为我应该尝试吗？"
+
+一名平民捂住了脸，显然在强忍泪水。"杰瑞，你对我们太好了……"平民们坚持将他们最初的投降提议交给你。</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_MEDICAL">
+				<text>(医疗船员)派人下去治疗市民。</text>
+				<event>
+					<text>平民们非常不愿意接受你们的帮助，但他们对任何形式的援助都是绝望的。"我们不能不以某种方式来回报这种姿态...但我希望你明白你在为什么而战。你认为当联邦完全控制了这个宇宙的时候会发生什么？他们会回来并摧毁我们所有人。你真的确定你在这里为正确的一方而战吗？"</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="DRONE_CONTROL_MEDICAL">
+				<text>(医疗无人机)派出一架无人机下去为市民治疗。</text>
+				<event>
+					<text>平民们非常不愿意接受你们的帮助，但他们对任何形式的援助都是绝望的。"我们不能不以某种方式来回报这种姿态...但我希望你明白你在为什么而战。你认为当联邦完全控制了这个宇宙的时候会发生什么？他们会回来并摧毁我们所有人。你真的确定你在这里为正确的一方而战吗？"</text>
+					<autoReward level="MED">stuff</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="JERRY_HANGOUT" unique="true">
+	<text>有几艘船停靠在一个小旅馆里。你以为你不会受到欢迎，但奇怪的是里面的人似乎并不关心你是谁。坐在其中一张桌子旁的几个叛军军官甚至向你招手。"嘿，变元者！来加入我们！来加入我们吧！"</text>
+	<choice hidden="true">
+		<text>加入他们。</text>
+		<event>
+			<text>你在桌边坐下，其中一个叛军欢迎你，显然已经喝了几瓶。"我知道这...呃...不符合常规，但地狱！大人物的生日是在明天，是时候庆祝一下了！你并不是...真正的联邦，我想。呵，不能说我同意整个变元者业务，但我。我也不喜欢他们一直派来的那些1号宇宙的人..."</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event>
+					<text>你温和地听着叛军的谈话，但旅馆老板走了过来，告诉你，如果你打算留在这个地方并保持这个座位，你必须买一杯饮料。</text>
+					<choice>
+						<text>买一杯酒以便继续听。</text>
+						<event>
+							<text>听到你决定留下来，叛军们欢呼起来，你们各自把杯子碰在一起，又喝了一口。士兵们从左到右介绍自己是斯派克、塔菲和布奇。</text>
+							<item_modify>
+								<item type="scrap" min="-1" max="-1" />
+							</item_modify>
+							<choice>
+								<text>再来一杯。</text>
+								<event>
+									<text>只喝了两杯，你已经可以感觉到你的头越来越轻了。不过，你还是坐在桌前，听着大家欢快的谈话。大多数谈话似乎都是主题性的--看来他们说不喜欢"1号宇宙"并没有说谎。三个人都有很多关于有资格的王牌特工的故事，由于令人不舒服的侵扰性驻扎法，他们的逗留时间过长。</text>
+									<item_modify>
+										<item type="scrap" min="-1" max="-1" />
+									</item_modify>
+									<choice>
+										<text>再来一杯。</text>
+										<event>
+											<text>最终，谈话开始转向万斯的明星侄子杰罗姆。这场谈话甚至引起了其他几张邻桌的注意，他们也发表了自己的看法。似乎酒馆里所有愿意发表意见的人都一致同意杰罗姆是个了不起的家伙。你自己还不是很确定，但这不是那种可以提出抗议的地方。</text>
+											<item_modify>
+												<item type="scrap" min="-1" max="-1" />
+											</item_modify>
+											<choice>
+												<text>再来一杯。</text>
+												<event>
+													<text>布奇的话语已经开始含糊不清，但你不确定是他还是你。当你在椅子上摇摇晃晃时，歇斯底里的笑声也传到了你身上。你觉得你看到旅店老板在摇头，并朝你的方向咕哝，但你太远了，无法真正确定。</text>
+													<item_modify>
+														<item type="scrap" min="-1" max="-1" />
+													</item_modify>
+													<choice>
+														<text>再来一杯。</text>
+														<event>
+															<text>笑声终于平息了，而他们的杰瑞的故事继续无限制地流淌。你对这个人的了解比你想象的要多，但在整个谈话过程中，你没有抓住所说的任何一点信息。你觉得你听到了一些关于杰瑞是塔菲婚礼上的伴郎的消息，但这并没有什么意义。你想。</text>
+															<item_modify>
+																<item type="scrap" min="-1" max="-1" />
+															</item_modify>
+															<choice>
+																<text>再来一杯。</text>
+																<event>
+																	<text>谈～～话～～开～～始～～变～～慢～～现～～实～～变～～得～～模～～糊～～你～～所～～有～～的～～理～～解～～力～～都～～消～～失～～了～～你～～感～～觉～～不～～太～～好～～但～～那～～场～～你～～无～～法～～理～～解～～的～～谈～～话～～让～～你～～着～～迷～～了…</text>
+																	<item_modify>
+																		<item type="scrap" min="-1" max="-1" />
+																	</item_modify>
+																	<choice>
+																		<text>洅來ー鈈。</text>
+																		<event>
+																			<text>轺燻鲺颚箎锭锨煅湡荮筽興掾瘘龘穸醴廆圎珇鴤垽歐秠菂颹媭蘧酇噀𪚥甽娉悐朙瘺橲昃婞畇鱻觙闓黐歑啑隖郮躸箠憽鏨锃摮醙噗韡夨嵵翀綤鋸佌暜撐圫訿脙蠮奊鎐蚶秗襨搇縩。</text>
+																			<item_modify>
+																				<item type="scrap" min="-1" max="-1" />
+																			</item_modify>
+																			<choice>
+																				<text>暯尀橆烱饚營毜侼隚卌。</text>
+																				<event>
+																					<text>你昏了过去，最终在你的船上醒来，墙壁被漆成了新的暗紫色，舱室中央有一个被拆毁的迪斯科球。角落里还躺着之前的另外三个人。他们起床后没多久，就发现布奇的飞船处于燃烧的残骸中。"嗯，该死。该死的，我不能用宿醉来解决这个问题。唉...说，考虑到你是个变元者，我想...也许如果我们一起工作，我们可以一劳永逸地摆脱这些1号宇宙飞船。至少，在我鼓起勇气向司令部要求一艘新船之前。"</text>
+																					<modifyPursuit amount="1" />
+																					<crewMember amount="1" class="human_soldier">布奇</crewMember>
+																				</event>
+																			</choice>
+																		</event>
+																	</choice>
+																	<choice>
+																		<text>够了够了，该走了。</text>
+																		<event />
+																	</choice>
+																</event>
+															</choice>
+															<choice>
+																<text>够了够了，该走了。</text>
+																<event />
+															</choice>
+														</event>
+													</choice>
+													<choice>
+														<text>够了够了，该走了。</text>
+														<event />
+													</choice>
+												</event>
+											</choice>
+											<choice>
+												<text>够了够了，该走了。</text>
+												<event />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>够了够了，该走了。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>够了够了，该走了。</text>
+								<event />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>不管了，走吧。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>我们没有时间。</text>
+		<event>
+			<text>你可以看出叛军对你拒绝他们不以为然。他们显然已经喝醉了，所以你很快就离开了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="JERRY_TAXES" unique="true">
+	<text>你注意到一个小型的叛军殖民地已经在附近建成。在加密的频道中，他们向你广播了一个简单的提议："我们知道你是谁，但时间很艰难。这里的王牌军不再遵循赛拉的规则，他们接受1号宇宙的命令。税收很重，我们会接受任何我们可以接受的业务。"</text>
+	<choice hidden="true">
+		<text>停靠。</text>
+		<event load="JERRY_TAXES_DOCK" />
+	</choice>
+	<choice hidden="true">
+		<text>攻击对方。</text>
+		<event>
+			<text>"当然，有一次我们张开双臂，这就是我们的待遇！去他妈的联邦，我宁愿被征税，直到我破产，也不愿意屈服于你们这些暴君！"</text>
+			<ship load="SHIP_REBEL_STATION" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>不，谢谢。</text>
+		<event>
+			<text>叛军显然感到失望，但他们没有再说什么。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<eventList name="JERRY_TAXES_DOCK">
+	<event>
+		<text>幸运的是，叛军并没有说谎，他们欢迎你上船交易。然而，当一艘精英船(仅相当于这里的军官)经过并发现你时，叛军并没有试图站在你身边，因为精英们正在进行逮捕！他们的目的是要让你知道，你是谁！</text>
+		<store>STORE_REBEL</store>
+		<ship load="SHIP_REBEL_ELITE_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>幸运的是，叛军并没有说谎，他们欢迎你上船交易。"在联邦所做的一切之后，我们只是不能再站在他们一边，但显然你们并不全是坏人。我希望你在离开时能对我们有同样的想法。"</text>
+		<store>STORE_REBEL</store>
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="STORAGE_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>你登上了空间站，但叛军却突然出来，拔出了枪！"联邦垃圾，我们知道你会上当的！你闯入我们的区域，我们就打你的脸！你闯入我们的星区，我们就闯入你的脸！哈哈...呃...这句话在我脑子里听起来更顺耳。不管怎么样，你被逮捕了。"</text>
+		<ship load="SHIP_REBEL_ELITE_FIGHT" hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="JERRY_COLONISTS" unique="true">
+	<text>信标附近有一个大型殖民地星域，其居民正在忙碌地走动。</text>
+	<choice hidden="true">
+		<text>向他们呼叫问他们是否可以协助。</text>
+		<event>
+			<text>"啊？别再打扰我们了，变元者。我们集议会正忙着我们对杰罗姆的年度贡品。我们得快点，我们不能迟到！"</text>
+			<choice hidden="true">
+				<text>答应我，你会把他们从杰罗姆的暴政中解放出来。</text>
+				<event>
+					<text>"你会...什么？该死的，我说过让我们单独呆着！我们没有时间听这些废话！"殖民地派遣了一艘自动船来追赶你们！</text>
+					<ship hostile="true" load="SHIP_AUTO_FIGHT" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>窃取贡品。</text>
+				<event load="JERRY_COLONISTS_STEAL" />
+			</choice>
+			<choice hidden="true" req="LIST_CREW_HUMAN">
+				<text>(人类船员)让你的人假装是叛军人员并要求提供物资。</text>
+				<event>
+					<text>殖民者们叹息。"当然，为了叛乱我想。我们很快就会为你们准备好一批弹药和废料。"</text>
+					<autoReward level="MED">missiles</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（杰瑞）我们这里有杰瑞。</text>
+				<event>
+					<text>殖民者们倒吸一口气。"什么，不，你现在不能让他看！我们还需要完成它！要是他现在不喜欢怎么办？要是就差那么一点点呢？我无法忍受看到他那么失——"
+					
+					杰瑞插话道："不，如果你们尽了最大努力，我永远不会对你们失望。你们应该很清楚这一点。所以，请别再担心你们的工作是否足够好了。你们目前所做的已经绰绰有余了。"
+					
+					随后杰瑞亲自问候了殖民者们，你看到了他们付出的努力。他们向他展示了一个看起来豪华的生日蛋糕、一张手写的卡片，甚至还有一个签了名的'小马埃莉'毛绒玩具。这确实令人印象深刻，不过杰瑞要求他们妥善保存，等他执行任务回来后再用。殖民者们同意了，并交出一些资源作为帮助。</text>
+					<autoReward level="HIGH">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视殖民地。</text>
+		<event>
+			<text>你和这些人没有交集。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="JERRY_COLONISTS_STEAL">
+	<text>殖民者们很无奈，不情愿地交出了一些箱子。当你准备离开时，你听到他们喊道："该死的，无知的联邦猪！你是这个星系的一切问题！杰瑞会告诉你的！"</text>
+	<choice hidden="true">
+		<text>打开贡品。</text>
+		<event>
+			<text>你撬开箱子，只发现一个巧克力蛋糕，周围有23根未点燃的蜡烛，还有一张手工制作的生日卡。这里面没有任何对军舰实用的东西。</text>
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_JERRY" />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					NEUTRAL EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->	
+<eventList name="NEUTRAL_JERRY">
+	<event load="JERRY_META_REBELLION" />
+	<event load="JERRY_COALITION_SPIES" />
+	<event load="JERRY_DEPOT" />
+	<event load="JERRY_MOCKBATTLE" />
+	<event load="JERRY_AUTO_REPLICA" />
+	<event load="JERRY_REBEL_DEPRESSED" />
+</eventList>
+
+<event name="JERRY_META_REBELLION" unique="true">
+    <text>这个信标周边异常安静。你接收到一段遥远的信号，一经过降噪处理你听到一首可爱的小调："买犁头剖你，买犁头剖你，啊—啊—啊—啊！埃——莉———小——马——！"似乎是档名叫《小马埃莉》的电视节目？</text>
+    <choice>
+        <text>追踪信号源。</text>
+        <event>
+            <text>没费多少功夫，你就将信号源三角定位到一颗气态巨行星的一颗卫星上。那里巧妙地隐藏着一个小型居住穹顶，停泊着一艘叛军工程舰。随着距离拉近，广播戛然而止，但为时已晚——你已锁定对方的坐标。他们主动发来了他们的通讯频段。</text>
+            <ship load="SHIP_ENGINEER_META" hostile="false" />
+            <choice>
+                <text>接通秘密基地的通讯频道。</text>
+                <event>
+                    <text>西装革履的皱眉男人十指交叉端坐着。身后肃立着更多男女，都同样用锐利的目光盯着你。"干得漂亮，变元者。你找到我们了。确实值得庆贺。"他缓缓鼓掌，嘲讽之意溢于言表。</text>
+                    <choice>
+                        <text>你们到底是什么人？</text>
+                        <event>
+                            <text>"看来你比我想象的 还要 孤陋寡闻 。"男人傲慢地大笑。"我们是元叛军。我们…以最纯粹的形式完成了这个观念。当其余的乌合之众还在为疆土资源争执不休，踩着尸骨争权夺势时，唯有 我们 真正懂得反抗体制的真谛。"</text>
+                            <choice>
+                                <text>这跟你之前广播的电视节目有什么关系？</text>
+                                <event>
+                                    <text>男人收起了傲慢的神情，显得有些不耐烦。"嗯，是这样，我们传播的都是 当权者 不想让你们知道的内容。我们清楚巡逻路线，也知道什么时候相对安全。"</text>
+                                    <choice req="LIST_CREW_ELLIE_COSTUME" hidden="true">
+                                        <text>(埃莉) "别担心，埃莉在这儿！"</text>
+                                        <event>
+                                            <text>"哇！埃莉的专属粉丝团！而且他们还在对抗那些欺负埃莉的人！"埃莉欢快地笑着。"埃莉的运气总是这么好！"
+
+"不会吧？是埃莉？"叛军们全都挤到屏幕前。后排有人喊道"我是你的头号粉丝，埃莉！"
+
+哈哈哈！好吧，乖孩子们！快来加入埃莉的正义圣战！咿—嘿！为了所有孩子的幸福，我们要杀光所有审查埃莉的人！"叛军们几乎要跪下了。好吧，至少埃莉找到了一群和她一样疯的粉丝。几个志愿者抢着要入舰，其他人则尽其所能地搜刮物资。</text>
+                                            <crewMember amount="1" all_skills="2" class="human_engineer">埃莉粉丝</crewMember>
+                                            <autoReward level="HIGH">scrap_only</autoReward>
+                                        </event>
+                                    </choice>
+                                    <choice req="unique_ellie_stephan" hidden="true">
+                                        <text>(斯蒂芬) 让斯蒂芬和他们谈谈。</text>
+                                        <event>
+                                            <text>"斯蒂芬稍作准备，随即切换成社交模式。"哎呀，你们好呀！不知道各位还认不认得我，我可是参与过你们刚才放的那档节目呢。"
+
+叛军们认出斯蒂芬后露出错愕的神情。"斯蒂芬？来看我们了？要知道…我做梦都想见您一面。您完全可以为我们的事业出一份力，帮我们扩大影响——"
+
+"打住——恕我打断一下。眼下我得先偿还这艘星舰上同伴们的恩情。你们践行理想固然可贵，但…单靠我的节目恐怕收效甚微。在叛军星域里，明明有更多关键改革可以做——那些真正能带来积极转变的事。""
+
+叛军群众呆立当场陷入沉默，随后纷纷点头称是。"您、您说得对。或许我们确实太轻浮了。我其实…呃…正考虑要推行些激烈的改革。"
+
+"听得出你在害怕。我理解。但这就是挺身而出必须付出的代价。"
+
+斯蒂芬继续向这些元叛军灌输清醒的认知。当他结束演说时，你发现其中一名成员已决定加入你的任务。</text>
+                                            <crewMember amount="1" all_skills="2" class="human_engineer" />
+                                            <autoReward level="HIGH">scrap_only</autoReward>
+                                        </event>
+                                    </choice>
+                                    <choice hidden="true">
+                                        <text>反抗你们的人不就是最彻底的叛军吗？</text>
+                                        <event name="META_REBELLION_TRICK">
+                                            <text>你解释道：如果元叛军因反抗叛军而更符合叛军本质，那么背叛他们的人(比如加入变元者)会是 最 反叛的叛军。为首的男人起初嗤笑 "哈，少在这——"，然后突然打断——身后的工程师们纷纷将武器对准彼此。"…你们疯了？你们不能——" 混战随即爆发。胜者驾驶穿梭机来到你的星舰，表示愿意效劳。但他们的飞船显然识破了你的把戏，立即攻击你！</text>
+                                            <crewMember amount="1" combat="2" class="human_engineer" />
+                                            <ship hostile="true" />
+                                            <choice hidden="true">
+                                                <text>继续。</text>
+                                                <event load="COMBAT_CHECK" />
+                                            </choice>
+                                        </event>
+                                    </choice>
+                                    <choice>
+                                        <text>纯属浪费时间。我走了。</text>
+                                        <event>
+                                            <text>"想得美！你知道得太多了。只能请你永远闭嘴了。Au revoir (永别了)！" 通讯中断，工程师的飞船启动！</text>
+                                            <ship hostile="true" />
+                                            <choice hidden="true">
+                                                <text>继续。</text>
+                                                <event load="COMBAT_CHECK" />
+                                            </choice>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                            <choice>
+                                <text>这么说…你们算是联邦的潜在盟友？</text>
+                                <event>
+                                    <text>"哈！别逗我发笑了。联邦比叛军还要腐朽。你们对我们来说微不足道，连被考虑的价值都没有。"</text>
+                                    <choice hidden="true">
+                                        <text>反抗你们的人不就是最彻底的叛军吗？</text>
+                                        <event load="META_REBELLION_TRICK" />
+                                    </choice>
+                                    <choice>
+                                        <text>纯属浪费时间。我走了。</text>
+                                        <event>
+                                            <text>"想得美！你知道得太多了。只能请你永远闭嘴了。Au revoir (永别了)！" 通讯中断，工程师的飞船启动！</text>
+                                            <ship hostile="true" />
+                                            <choice hidden="true">
+                                                <text>继续。</text>
+                                                <event load="COMBAT_CHECK" />
+                                            </choice>
+                                        </event>
+                                    </choice>
+                                </event>
+                            </choice>
+                            <choice hidden="true">
+								<text>反抗你们的人不就是最彻底的叛军吗？</text>
+								<event load="META_REBELLION_TRICK" />
+							</choice>
+                            <choice>
+                                <text>纯属浪费时间。我走了。</text>
+                                <event>
+                                    <text>"想得美！你知道得太多了。只能请你永远闭嘴了。Au revoir (永别了)！" 通讯中断，工程师的飞船启动！</text>
+                                    <ship hostile="true" />
+                                    <choice hidden="true">
+                                        <text>继续。</text>
+                                        <event load="COMBAT_CHECK" />
+                                    </choice>
+                                </event>
+                            </choice>
+                        </event>
+                    </choice>
+                </event>
+            </choice>
+            <choice>
+                <text>攻击居住站。</text>
+                <event>
+                    <text>工程舰立即对你的挑衅作出反应。看来这仗非打不可了！</text>
+                    <ship hostile="true" />
+                    <choice hidden="true">
+                        <text>继续。</text>
+                        <event load="COMBAT_CHECK" />
+                    </choice>
+                </event>
+            </choice>
+        </event>
+    </choice>
+    <choice>
+        <text>避开信号。</text>
+        <event>
+            <text>你没时间去追儿童电视节目的信号。</text>
+            <choice>
+                <text>星舰管理。</text>
+                <event load="STORAGE_CHECK" />
+            </choice>
+            <choice>
+                <text>跳过。</text>
+                <event />
+            </choice>
+        </event>
+    </choice>
+</event>
+
+<event name="JERRY_COALITION_SPIES" unique="true">
+    <text>这里有一艘叛军飞船停在信标。它与你的飞船保持着距离。</text>
+    <ship load="SHIP_REBEL_FAKE_COALITION" hostile="false" />
+    <choice>
+		<text>呼叫他们，询问他们为何行为可疑。</text>
+		<event>
+			<text>回复的声音听起来有点不对劲，像是经过数字处理。"我们会放你一条生路，变元者。现在走吧。"</text>
+			<choice>
+				<text>威胁说如果他们不回应就报告他们。</text>
+				<event>
+					<text>停顿了一下，然后传来了回应，这次 unmistakably 听起来像是蛞蝓。"星联不是为你而来的，变元者。我们是来监视和破坏叛军的。这是我们深入叛军领土最深的一次。如果我们互相无视，给我们的共同敌人制造麻烦，对我们双方都是最有利的。"</text>
+					<choice req="LIST_CREW_MANTIS" hidden="true">
+						<text>（螳螂族船员）用更好的战斗机会引诱他们的螳螂族。</text>
+						<event>
+							<text>那个螳螂族立刻抓住了机会。"再见，混蛋们！现在有更好的战斗了！间谍活动是浪费时间。"
+
+							"你胆子不小啊……哎，去他的。尽管把这个白痴带走吧。"</text>
+							<crewMember amount="1" class="mantis_suzerain" />
+						</event>
+					</choice>
+					<choice>
+						<text>贿赂他们，让他们延迟舰队行动，以协助你干扰叛军活动。</text>
+						<event>
+							<text>"当然，可以安排。尽你所能杀～～掉尽可能多的叛军。"</text>
+							<modifyPursuit amount="-2" />
+							<item_modify>
+								<item type="scrap" min="-30" max="-10" />
+							</item_modify>
+						</event>
+					</choice>
+					<choice>
+						<text>星联和叛军一样坏！攻击！</text>
+						<event>
+							<text>"这是场毫无意义的战斗，变元者！叛军会从我们的冲突中得益！"那艘船毫不犹豫地进行自卫。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>不管他们。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>按他们说的做。</text>
+				<event>
+					<text>那艘船信守承诺，不干涉你的活动。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>攻击这艘船。</text>
+		<event>
+			<text>令人惊讶的是，这艘船上有星联的船员！他们毫不犹豫地进行自卫。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+		</choice>
+    <choice>
+		<text>不管他们。</text>
+		<event>
+			<text>那艘船继续停留在这个信标，不回应你飞船的任何行动。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+
+<event name="JERRY_DEPOT" unique="true">
+	<text>看来你已经找到了某种叛军的仓库。几十艘运输船排着队向中央仓库行驶，地面上有几个工人来回搬运着成箱的物资。从防御角度看，它并不是不可攻破的，但有一艘看起来很讨厌的守卫舰在站岗。</text>
+	<ship load="SHIP_JERRY_DEPOT" hostile="false" />
+	<choice hidden="true">
+		<text>攻击仓库。</text>
+		<event>
+			<text>你给武器充能与王牌飞船交战进入仓库。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>忽略仓库。</text>
+		<event>
+			<text>你没有理由在这里去造成额外的问题。你手头有更紧迫的事情。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="JERRY_DEPOT_RAID">
+	<text>随着这艘船的离开，就会明白为什么防御如此乏力--储存在这里的物资只不过是人道主义的，而叛军的公民很可能急需。</text>
+	<choice hidden="false">
+		<text>偷走补给。</text>
+		<event load="JERRY_DEPOT_STEAL" />
+	</choice>
+	<choice hidden="true">
+		<text>留下补给。</text>
+		<event>
+			<text>你来这里是为了寻找军事物资，但这里的公民需要这些货物。最好离开它。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="JERRY_DEPOT_STEAL">
+	<event>
+		<text>你抓住这些补给，清楚地知道这个星区的人可能比你更需要它们。</text>
+		<weapon name="BOMB_HEAL" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_JERRY" />
+		</choice>
+	</event>
+	<event>
+		<text>你抓住这些补给，清楚地知道这个星区的人可能比你更需要它们。</text>
+		<weapon name="BOMB_BUFF" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_JERRY" />
+		</choice>
+	</event>
+	<event>
+		<text>你抓住这些补给，清楚地知道这个星区的人可能比你更需要它们。</text>
+		<drone name="DOCTOR_DEFENSE" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="MORALITY_UPDATE_JERRY" />
+		</choice>
+	</event>
+</eventList>
+
+<event name="JERRY_AUTO_REPLICA" unique="true">
+	<text>一艘工程师飞船似乎正在对一艘亮蓝色的自动舰进行作业。自动舰侧面喷有一行字："给杰瑞的礼物 史密斯及其团队"。</text>
+	<ship load="SHIP_ENGINEER_REPLICA" hostile="false" />
+	<choice hidden="true">
+		<text>问他们自动舰是为了什么。</text>
+		<event>
+			<text>工程师们似乎没有认识到你是一艘联邦飞船，或者只是不在乎。"这，这是我的大作！一艘用杰瑞的个性编程的自动飞船！它只需要一些修饰...它只需要一些最后的润色...告诉我，你最喜欢老板的哪一点？"</text>
+			<choice req="LIST_CREW_JERRY">
+				<text>（杰瑞）杰瑞在船上，你想给他看看这个礼物吗？</text>
+				<event>
+					<text>工程师吃了一惊。"什么，他在？嗯……"工程师紧张地挠了挠肩膀。"还没完全做好，但是……让我给你看看。"
+					
+					工程师笨拙地摆弄着控制器，自动舰活了过来。"早上好，史密斯。需要我再给你的孩子们读睡前故事吗？"
+					
+					"不，不，不，我……"他转向杰瑞。"我可能，呃，在我家人身上实地测试过他的性格。"他清了清嗓子。"看，是人类杰瑞！"
+					
+					杰瑞向蓝色的自动舰挥了挥手。"你好。"
+					
+					"哦，你就是我模仿的那个人。你好。"</text>
+					<choice>
+						<text>继续。</text>
+						<event>
+							<text>"嗯，这确实很酷，但我只是在想……为什么要送一个人他本人性格的复制品呢？"
+								
+								史密斯摸了摸下巴。"嗯，我是这么看的：你已经拥有了一切，还有什么是你有而其他人都有的呢？"杰瑞茫然地凝视着。"你自己！保护国内的每个人在你的陪伴下都更快乐。最大的悲剧在于，唯一一个没有杰瑞陪伴的人，就是杰瑞自己！"</text>
+							<choice hidden="true">
+								<text>继续。</text>
+								<event>
+									<text>杰瑞看了你一会儿，然后叹了口气。"嗯，这是个好礼物，也是很好的心意。我正在经历一段旅程，所以……你何不用它来在我离开期间提振大家的士气呢？我想，如果我真的能让你们大家开心，那么你们能给我的最好礼物，就是我能同时在两个地方让人们开心。"
+										
+										所有的工程师都开始流泪。"哦，杰瑞……你是有史以来最棒的人！"工程师们坚持要把他们手头所有的东西都给你，因为杰瑞把他的礼物留在了那里。</text>
+									<autoReward level="HIGH">drone</autoReward>	
+								</event>
+							</choice>
+						</event>
+					</choice> 
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>说谎：他的冷酷无情天性是他作为一名优秀士兵的最大优点。</text>
+				<event>
+					<text>"哈...什么？这听起来一点都不像他。"工程师把你赶走，回去继续在船上工作。</text>
+					<choice hidden="true">
+						<text>攻击对方！</text>
+						<event>
+							<text>你与工程师飞船交战。他们试图向你求情，但你把通讯器调成静音并进行攻击。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>离开。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>说谎：他以独裁的方式来统治人民。他是这个星系需要的那种强有力的领导人。</text>
+				<event>
+					<text>"哈...什么？这听起来一点都不像他。"工程师把你赶走，回去继续在船上工作。</text>
+					<choice hidden="true">
+						<text>攻击对方！</text>
+						<event>
+							<text>你与工程师飞船交战。他们试图向你求情，但你把通讯器调成静音并进行攻击。</text>
+							<ship hostile="true" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>离开。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>说谎：他很酷，我猜。</text>
+				<event>
+					<text>"他确实是！没有人比他更酷了。也许我还没有把这个人工智能的个性塑造成与杰瑞的个性足够匹配的模型...我必须回去工作了！在你走之前拿着这个。为叛军干杯！"你半信半疑地回了一句，并领取了免费的补给。</text>
+					<autoReward level="LOW">droneparts</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>攻击叛军！</text>
+		<event>
+			<text>你与工程师飞船交战。他们试图向你求情，但你把通讯器调成静音并进行攻击。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>无视叛军。</text>
+		<event>
+			<text>你不要担心工程师的问题。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="JERRY_MOCKBATTLE" unique="true">
+	<text>似乎这个信标就在一些行动的中间--两支中等规模的舰队，一支是叛军，另一支...仍然是叛军，但粗略地涂上了联邦的颜色，正处于停滞状态。每支舰队的指挥官面对面，背诵着内战中著名战役中不正确的背诵台词。</text>
+	<customFleet right="false" firing="false" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<customFleet right="true" firing="false" autoDarkening="false">CUSTOM_FLEET_REBEL</customFleet>
+	<choice hidden="true">
+		<text>介入并尝试调解。</text>
+		<event>
+			<text>你置身于两支舰队之间，勇敢地冒着风险来缓和冲突。但两位指挥官似乎都不领情，你遇到的是一连串的脏话和侮辱。现在，是你说你想说的话的时候了。</text>
+			<choice hidden="true">
+				<text>叛军在这里的时间是有限的。退下服从联邦！</text>
+				<event>
+					<text>你的动人演讲只换来了更多的侮辱。"笨蛋，别挡路！你必须要登记才能参加这些活动。你要参加这些活动，必须要有申请书！"你突然意识到这是什么了--这是一场模拟战斗，由叛军上演。你看起来像个白痴，而且你刚刚对叛军发出了威胁，这一点也没有帮助。裁判员带着真正的武器，把你赶走了！</text>
+					<ship hostile="true" load="SHIP_REBEL_FIGHT" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>这里是平民星域！联邦有比攻击这个地方更好的事情要做！</text>
+				<event>
+					<text>"什么？你到底在说什么？伙计，这是一场模拟的战斗。我们在这里都是'叛军'。我们感谢你的...呃...关心，但这里没有人有任何实际危险。你今天早上吃药了吗？"你向叛军保证你的精神状态稳定，但他们似乎不愿意相信你。他们给了你一些补给，虽然他们说这是给你的善意的礼物，但你怀疑他们只是想让你快点离开。</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>向联邦指挥官呼叫并提供支持。</text>
+		<event>
+			<text>你试图与联邦军官沟通，但由于某些原因，他们似乎没有收到任何联邦信号。对指挥官的无能感到沮丧，你必须决定现在该怎么做。</text>
+			<choice hidden="true">
+				<text>介入并尝试调解。</text>
+				<event>
+					<text>你置身于两支舰队之间，勇敢地冒着风险来缓和冲突。但两位指挥官似乎都不领情，你遇到的是一连串的脏话和侮辱。现在，是你说你想说的话的时候了。</text>
+					<choice hidden="true">
+						<text>叛军在这里的时间是有限的。退下服从联邦！</text>
+						<event>
+							<text>你的动人演讲只得到了更多的侮辱。"笨蛋，别挡路！你必须要登记才能参加这些活动。你要参加这些活动，必须要有申请书！"你突然意识到这是什么了--这是一场模拟战斗，由叛军上演。你看起来像个白痴，而且你刚刚对叛军发出了威胁，这一点也没有帮助。裁判员拿着真正的武器，把你赶走了！</text>
+							<ship hostile="true" load="SHIP_REBEL_FIGHT" />
+							<choice hidden="true">
+								<text>继续。</text>
+								<event load="COMBAT_CHECK" />
+							</choice>
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>这里是平民星域！联邦有比攻击这个地方更好的事情要做！</text>
+						<event>
+							<text>"什么？你到底在说什么？伙计，这是一场模拟的战斗。我们在这里都是'叛军'。我们感谢你的...呃...关心，但这里没有人有任何实际危险。你今天早上吃药了吗？"你向叛军保证你的精神状态稳定，但他们似乎不愿意相信你。他们给了你一些补给，虽然他们说这是给你的善意的礼物，但你怀疑他们只是想让你快点离开。</text>
+							<autoReward level="MED">standard</autoReward>
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>放弃。</text>
+				<event>
+					<text>你有比现在处理这个更重要的事情要做。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>立即离开。</text>
+		<event>
+			<text>这不是一场你想卷入的战斗。是时候离开了。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+
+<event name="JERRY_REBEL_DEPRESSED" unique="true">
+    <text>"那是变元者？哦，有什么用……我们永远不会成功的。"那个叛军没有采取攻击行动。</text>
+    <ship load="SHIP_REBEL_FIGHT" hostile="false" />
+    <choice>
+		<text>让我们证明他们是对的。攻击！</text>
+		<event>
+			<text>如果他们都要抱怨自己即将失败，那你又何必拒绝他们呢？</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+    <choice>
+		<text>问他们是否出了什么问题。</text>
+		<event>
+			<text>"只是……"叛军叹了口气。"这艘飞船是所有在役叛军战舰中服役记录最差劲的一艘。我们执行的每一项任务都以彻底失败而告终。我们甚至连为这个事业尽忠的荣誉都没有。我们成为了叛军舰队中的笑柄。我们根本不可能战胜一个变元者。这就是叛军让我们留在这里的原因，在那里我们不太可能把事情搞砸。"</text>
+			<choice hidden="true" req="unique_jerry">
+				<text>（杰瑞）"我为你感到骄傲。"</text>
+				<event>
+					<text>杰瑞对着通讯器说："嘿，我知道事情一直很艰难，但我只想让你们知道，我为你们感到骄傲。你们自己说的，你们还活着，不是吗？在像这样危险的银河系里，这可不是小事。"
+					
+"杰瑞？你真的这么想吗？"另一头的声音听起来哽咽了。"你不知道我们有多需要听到这句话。你真是银河系里最酷的人。"</text>
+					<autoReward level="MED">standard</autoReward>
+				</event>
+			</choice>
+			<choice hidden="true">
+				<text>安慰他们。</text>
+				<event load="JERRY_REBEL_DEPRESSED_CONSOLE" />
+			</choice>
+			<choice>
+				<text>让他们解脱。</text>
+				<event>
+					<text>他们低落的情绪希望能给你带来战术优势。</text>
+					<ship hostile="true" />
+					<choice hidden="true">
+						<text>继续。</text>
+						<event load="COMBAT_CHECK" />
+					</choice>
+				</event>
+			</choice>
+			<choice>
+				<text>放过那个沮丧的叛军。</text>
+				<event>
+					<text>你一言不发地平静离开了。</text>
+					<choice>
+						<text>星舰管理。</text>
+						<event load="STORAGE_CHECK" />
+					</choice>
+					<choice>
+						<text>跳过。</text>
+						<event />
+					</choice>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>饶过那个绝望的叛军。</text>
+		<event>
+			<text>无论他们有什么问题，你都会抓住这个机会避免战斗。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="JERRY_REBEL_DEPRESSED_CONSOLE">
+	<event>
+		<text>"你知道什么？你甚至出现在这里就告诉我，你永远无法理解我们的痛苦！"叛军队长的情绪已经转变。你将不得不与他们战斗！</text>
+		<ship hostile="true" />
+		<choice hidden="true">
+			<text>继续。</text>
+			<event load="COMBAT_CHECK" />
+		</choice>
+	</event>
+	<event>
+		<text>"一个变元者试图给我们打气？我从没想过会看到这一天。"叛军们丢下一些补给让你拾取。</text>
+		<autoReward level="MED">stuff</autoReward>					 
+	</event>
+	<event>
+		<text>"你在这里想干什么？别在我们身上浪费时间了。"</text>					 
+	</event>
+</eventList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					DISTRESS EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="DISTRESS_JERRY">
+	<event load="DISTRESS_JERRY_SHOOTING_STAR" />
+	<event load="DISTRESS_JERRY_ZOO" />
+</eventList>
+
+<event name="DISTRESS_JERRY_SHOOTING_STAR" unique="true">
+	<distressBeacon />
+    <text>当你靠近时，一艘小型无武装飞船坚持呼叫你。"我们代表'梦想缔造者'，一个旨在为人们生活带来欢乐和奇迹的组织，尤其是小孩子和杰瑞。我们通过将小行星送入轨道，让它们看起来像流星，从而给人们带来微笑……但是发生了一个意外事故，我们扔下的小行星实际上可能藏有一个装满导弹的秘密贮藏，现在正朝一个有人居住的城市坠落。"短暂停顿了一下。"请救救他们！"</text>
+    <choice req="MAGNET_ARM" hidden="true">
+		<text>（磁性回收臂）俯冲过去用你的磁性臂抓住导弹贮藏。</text>
+		<event>
+			<text>你在千钧一发之际抓住了它。贮藏里装满了导弹，甚至还有一件隐藏的导弹武器。</text>
+			<autoReward level="HIGH">missiles_only</autoReward>
+			<weapon name="GIFTLIST_MISSILES" />
+			<choice hidden="true">
+				<text>返回梦想缔造者那里。</text>
+				<event>
+					<text>"哇，你做到了！但是……我没能制造出更壮观的场面，感觉有点遗憾……哦，我在说什么，至少没人受伤。"他们给了你一小笔报酬。</text>
+					<autoReward level="LOW">scrap_only</autoReward>
+				</event>
+			</choice>
+		</event>
+    </choice>
+    <choice req="BLUELIST_FOCUS_DAMAGE" hidden="true">
+		<text>（精准伤害光点）使用你的精准光束精确摧毁贮藏。</text>
+		<event>
+			<text>你的精准光束击中了贮藏的正确位置，引爆了有效载荷。它在到达城市前在大气层中无害地爆炸了。产生的碎料在大气中燃烧殆尽，对下方的城市来说，最终的景象看起来像一场流星雨。</text>
+			<choice hidden="true">
+				<text>返回梦想缔造者那里。</text>
+				<event load="JERRY_DREAM_CONJURER_REWARD" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="BLUELIST_ACCURATE_BALLISTIC" hidden="true">
+		<text>（精准导弹武器）使用导弹精确摧毁贮藏。</text>
+		<event>
+			<text>你的射击击中了贮藏的正确位置，引爆了有效载荷。它在到达城市前在大气层中无害地爆炸了。产生的碎料在大气中燃烧殆尽，对下方的城市来说，最终的景象看起来像一场流星雨。</text>
+			<item_modify>
+				<item type="missiles" min="-1" max="-1" />
+			</item_modify>
+			<choice hidden="true">
+				<text>返回梦想缔造者那里。</text>
+				<event load="JERRY_DREAM_CONJURER_REWARD" />
+			</choice>
+		</event>
+    </choice>
+    <choice req="SNIPER" hidden="true">
+		<text>（永不落空）精确摧毁贮藏。</text>
+		<event>
+			<text>你的射击击中了贮藏的正确位置，引爆了有效载荷。它在到达城市前在大气层中无害地爆炸了。产生的碎料在大气中燃烧殆尽，对下方的城市来说，最终的景象看起来像一场流星雨。</text>
+			<choice hidden="true">
+				<text>返回梦想缔造者那里</text>
+				<event load="JERRY_DREAM_CONJURER_REWARD" />
+			</choice>
+		</event>
+    </choice>
+    <choice hidden="true">
+		<text>贮藏已经进入大气层，正在坠向城市。除非你的瞄准极其精确，否则你更可能击中城市而非贮藏。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice hidden="true">
+		<text>摧毁梦想缔造者。</text>
+		<event>
+			<text>你没有去救援城市，而是向梦想缔造者直接开了几炮，短时间内摧毁了他们的飞船。在下方的行星上，贮藏撞击了城市，引发了巨大的爆炸。</text>
+			<autoReward level="LOW">standard</autoReward>
+			<choice>
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_JERRY" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>无视对方。</text>
+		<event>
+			<text>行星表面发生了一次大爆炸。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="JERRY_DREAM_CONJURER_REWARD">
+    <text>"轰隆！你做到了！太神奇了！我相信对城市里的人来说，它看起来很美丽。看来今天真正的梦想缔造者是你。这是给你的报酬！"</text>
+    <autoReward level="HIGH">standard</autoReward>
+</event>
+
+<event name="DISTRESS_JERRY_ZOO" unique="true">
+	<distressBeacon />
+    <text>这个信标的一个大型动物园广告帮助你定位了求救信号的位置。"救命，动物失控了！我们没法把它们赶回栖息地！"</text>
+    <choice req="mind" lvl="1" hidden="true">
+		<text>（心灵控制）安抚动物。</text>
+		<event>
+			<text>动物们很容易被你的心灵控制系统影响。动物园的管理者对你千恩万谢。"你在不伤害这些动物的情况下帮助了它们。谢谢你。"</text>
+			<autoReward level="MED">standard</autoReward>
+			<event />
+		</event>
+		</choice>
+		<choice req="BLUELIST_WEAPONS_MIND_CONTROL" hidden="true">
+			<text>（心灵控制武器）安抚动物。</text>
+			<event>
+				<text>你用你的心灵控制武器锁定了动物，使它们变得温顺。动物园的管理者对你千恩万谢。"你在不伤害这些动物的情况下帮助了它们。谢谢你。"</text>
+				<autoReward level="MED">standard</autoReward>
+				<event />
+			</event>
+			</choice>
+	<choice hidden="true" req="unique_irwin">
+		<text>（厄文）给他们示范怎么做。</text>
+		<event>
+			<text>厄文毫不费力地将每一只动物都赶回了它们各自的栖息地。自始至终，他都在教育动物园管理者如何控制和照料动物。他们对他的专业知识佩服得五体投地。</text>
+			<autoReward level="HIGH">standard</autoReward>
+			<event />
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_CRYSTAL">
+		<text>（水晶族船员）建立屏障引导动物回到栖息地。</text>
+		<event>
+			<text>水晶族船员巧妙地利用他们的封锁能力，将所有动物引导回它们的栖息地。"你在不伤害这些动物的情况下帮助了它们。谢谢你。"</text>
+			<autoReward level="MED">standard</autoReward>
+			<event />
+		</event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_ROCK">
+		<text>（岩石族船员）让你的岩石族使用武力。</text>
+		<event load="JERRY_ZOO_ROCK" />
+    </choice>
+    <choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>派遣你的船员进去帮助安抚动物。</text>
+		<event load="JERRY_ZOO_CREW" />
+    </choice>
+    <choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>船上没有船员可派遣。</text>
+		<event load="OPTION_INVALID" />
+    </choice>
+    <choice>
+		<text>无视卫星。</text>
+		<event>
+			<text>你会让叛军来处理这个情况。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<eventList name="JERRY_ZOO_ROCK">
+	<event>
+		<text>你的岩石族试图利用其优越的块头和体重强行将动物推回笼子。幸运的是，没有动物受伤。管理者们似乎很感激，尽管有点紧张。</text>
+		<autoReward level="MED">standard</autoReward>
+		<event />
+	</event>
+	<event>
+		<text>你的岩石族试图利用其优越的块头和体重强行将动物推回笼子。不幸的是，动物们受到了惊吓。在挣扎中，一只动物死了。这场风波之后，管理者们把你赶走了。</text>
+		<event />
+	</event>
+</eventList>
+<eventList name="JERRY_ZOO_CREW">
+	<event>
+		<text>在你船员的帮助下，动物园管理者得以将每只动物引导回它们的栖息地。幸运的是，没有动物受伤。管理者们似乎很感激。</text>
+		<autoReward level="MED">standard</autoReward>
+		<event />
+	</event>
+	<event>
+		<text>无论他们怎么尝试，你的船员都不够熟练，无法在这种情况下提供帮助。这里无事可做了。</text>
+		<event />
+	</event>
+	<event>
+		<text>你的一名船员有点力不从心。在混战中，发生了一场事故，他们不幸身亡。动物园表示道歉，但看来你只能空手而归了。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>你的船员从克隆舱出来，毫发无伤。</text>
+		</removeCrew>
+		<event />
+	</event>
+</eventList>
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					QUEST EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="QUESTS_JERRY">
+	<event load="QUEST_JERRY_ASSASSINATION" />
+</eventList>
+
+<event name="QUEST_JERRY_ASSASSINATION" unique="true">
+    <text>你脱离超光速时，一艘叛军飞船跳跃到你身后。"自从你来到这里，我就一直在跟踪你，外来者。如果你有兴趣，我有个活儿给你。有个特定的军官……我们姑且称她为'麻烦人物'。你反正也是来杀叛军的，对吧？嗯，我们会给你一个肥目标的坐标，我们双方都能受益。如果你完成了，甚至还有报酬。成交？"</text>
+    <ship load="SHIP_REBEL_HITJOB_GIVER" hostile="false" />
+    <choice>
+		<text>接受这个委托。</text>
+		<event>
+			<text>"完美。你不会后悔的，变元者。我们会把坐标发给你，还有我们的汇合坐标。"</text>
+			<quest event="QUEST_JERRY_ASSASSINATION_SPOT" />
+		</event>
+    </choice>
+    <choice>
+		<text>攻击他们，我们不和叛军做交易！</text>
+		<event>
+			<text>"我早该料到会这样！"你的飞船一武装，叛军飞船也立刻武装起来！</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>拒绝长袍。</text>
+		<event>
+			<text>"真可惜……但就凭你这种态度，你休想再前进一步！"叛军在遭到拒绝后立即发动攻击。</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="QUEST_JERRY_ASSASSINATION_SPOT">
+	<beaconType id="map_icon_quest" global="true">
+  	  <color r="69" g="168" b="235" a="1" />
+  	  <unvisitedTooltip>这里有一个你奉命刺杀的叛军。</unvisitedTooltip>
+	</beaconType>
+    <text>到达信标后，你发现你的目标正在一个空间站补充燃料。他们没有回应你的接近。</text>
+    <choice>
+		<text>攻击对方。</text>
+		<event>
+			<text>他们迅速与空间站断开连接以应对你的袭击！</text>
+			<ship load="SHIP_REBEL_ASSASSINATION_TARGET" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>先呼叫他们。</text>
+		<event>
+			<text>"你为什么在这里，变元者？我与你无冤无仇。如果你不攻击平民，那么我们就没有义务战斗。"</text>
+			<choice hidden="true" req="LIST_CREW_JERRY">
+				<text>（杰瑞）杰瑞想谈谈。</text>
+				<event>
+					<text>"嘿，艾琳。"
+					
+"哦，杰瑞？我没想到你在船上。你需要什么？"
+					
+"我不知道该怎么告诉你，但是有人想杀你。一个叛军问了这艘船的舰长是否愿意杀你！"
+					
+艾琳摇了摇头。"我想我不该感到惊讶。很多高级叛军不喜欢我的提议。我只是没想到他们中会有人派一艘船进入受保护地，就为了杀我。"
+					
+杰瑞叹了口气。"我不知道我们在这里该怎么办……有没有办法能查出是谁派他们来的？"
+					
+"交给我吧。俘获他们的船后呼叫我们，我们会查个水落石出。我们允许你使用这个空间站。"</text>
+					<quest event="QUEST_JERRY_ASSASSINATION_REVERSE" />
+					<autoReward level="HIGH">fuel</autoReward>
+				</event>
+   		 	</choice>
+			<choice>
+				<text>询问他们的职责。</text>
+				<event>
+					<text>"如果你必须知道，我们一直在努力推动改变战争方式，以减轻对平民人口的影响。我们终于取得了一些进展，但这是项缓慢的工作。显然我们不能向你的联邦示弱，但平民的生命太重要了，不容忽视。"</text>
+					<choice>
+						<text>道德不是弱点。</text>
+						<event>
+							<text>"你们联邦佬就是这么自命不凡。如果我们像你们那样行事，我们就不会有今天的成就。现在别打扰我了，我有重要的工作要做。"她挂断了电话。</text>
+							<choice>
+								<text>攻击对方。</text>
+								<event>
+									<text>他们迅速脱离空间站以应对你的袭击！</text>
+									<ship load="SHIP_REBEL_ASSASSINATION_TARGET" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>不管他们。</text>
+								<event />
+							</choice>
+						</event>
+   					</choice>
+					<choice>
+						<text>叛军为什么要听你的？和平是联邦想要的。胜利才是叛军想要的。</text>
+						<event>
+							<text>"早在叛乱开始时，很遗憾，但不可避免的是，我们必须通过危及平民来让人们听到我们的声音。但现在我们可以体面地战斗了，因此我们负有责任。"</text>
+							<choice>
+								<text>所以只有在你快赢的时候你才有良心？如果叛乱再次落后了呢？</text>
+								<event>
+									<text>"我不是说我同意叛乱早期的行为，但如果我们要改变这个银河系，那么我们需要在获胜之前就成为一个值得这样做的组织。我不明白，你真的是来这里审讯我的意图的吗？你关心什么？"</text>
+									<choice hidden="true">
+										<text>一个叛军叫我们来杀你。我们想知道为什么。</text>
+										<event>
+											<text>"你很有原则，不是吗？希望你不介意我这么说，我们在这方面很相似。如果你的目标和我一致，那么请你帮我个忙。有些叛军非常反对我提出的改革。如果你俘获了他们的船，我或许能查出是谁。抓到他们后通知我。路上请自取一些燃料和废料。"</text>
+											<autoReward level="HIGH">fuel</autoReward>
+											<quest event="QUEST_JERRY_ASSASSINATION_REVERSE" />
+										</event>
+									</choice>
+									<choice>
+										<text>只是需要知道我们杀的是谁。</text>
+										<event>
+											<text>当你进入攻击阵型时，她发出了困惑的声音。"我还是……不明白。"</text>
+											<ship load="SHIP_REBEL_ASSASSINATION_TARGET" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>没什么。别担心。</text>
+										<event>
+											<text>"好吧……？"她不再打扰你。</text>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice>
+								<text>叛军运动从来不是建立在和平基础上的。你无法改变叛军是谁。</text>
+								<event>
+									<text>"如此狭隘的思想。如果我们不能改变叛军，那么你们也不能改变你们的联邦，事情就永远不会好转。"她挂断了电话。</text>
+									<choice>
+										<text>攻击对方。</text>
+										<event>
+											<text>他们迅速脱离空间站以应对你的袭击！</text>
+											<ship load="SHIP_REBEL_ASSASSINATION_TARGET" hostile="true" />
+											<choice hidden="true">
+												<text>继续。</text>
+												<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+											</choice>
+										</event>
+									</choice>
+									<choice>
+										<text>不管他们。</text>
+										<event />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+					<choice>
+						<text>一个崇高的目标。</text>
+						<event>
+							<text>"很高兴你同意。那么你为什么来这里？你的出现只会让事情变得更糟。"</text>
+							<choice>
+								<text>一个叛军叫我们来杀你。我们想知道为什么。</text>
+								<event>
+									<text>"这就是你需要的全部，哈？嗯，我尊重你愿意听我们解释。有些叛军非常反对我提出的改革。如果你俘获了他们的船，我或许能查出是谁。"</text>
+									<quest event="QUEST_JERRY_ASSASSINATION_REVERSE" />
+								</event>
+							</choice>
+							<choice>
+								<text>只是需要知道我们杀的是谁。</text>
+								<event>
+									<text>当你进入攻击阵型时，她发出了困惑的声音。"我还是……不明白。"</text>
+									<ship load="SHIP_REBEL_ASSASSINATION_TARGET" hostile="true" />
+									<choice hidden="true">
+										<text>继续。</text>
+										<event load="MORALITY_UPDATE_JERRY_FIGHT" />
+									</choice>
+								</event>
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="QUEST_JERRY_ASSASSINATION_COMPLETED">
+    <text>你的目标已被清除。为了获得报酬，你必须前往汇合点。</text>
+    <autoReward level="HIGH">standard</autoReward>
+    <quest event="QUEST_JERRY_ASSASSINATION_REWARD" />
+</event>
+<event name="QUEST_JERRY_ASSASSINATION_REWARD">
+	<beaconType id="map_icon_quest" global="true">
+  	  <color r="69" g="168" b="235" a="1" />
+  	  <unvisitedTooltip>你已完成刺杀。来这里领取你的报酬。</unvisitedTooltip>
+	</beaconType>
+    <text>"干得漂亮。你让我们的工作轻松多了。这是你的报酬。"</text>
+    <autoReward level="HIGH">augment</autoReward>
+    <ship load="SHIP_REBEL_HITJOB_GIVER" hostile="false" />
+    <choice>
+		<text>等他们给了报酬后向他们开火。</text>
+		<event>
+			<text>他们对你的攻击并不感到意外。"哈！我反正也想杀了你。"</text>
+			<ship hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+    </choice>
+    <choice>
+		<text>离开。</text>
+		<event>
+			<text>你的雇主溜走了，给你留下一些时间在船上做点事情。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+    </choice>
+</event>
+<event name="QUEST_JERRY_ASSASSINATION_REVERSE">
+	<beaconType id="map_icon_quest" global="true">
+  	  <color r="69" g="168" b="235" a="1" />
+  	  <unvisitedTooltip>你被要求俘获那个给你任务的人的飞船。</unvisitedTooltip>
+	</beaconType>
+    <text>"哼，哼，哼。你疏忽职守了，而且看来你还和她谈过话。我想我们都清楚我们不能放你走了。"看来一场战斗不可避免。</text>
+    <ship load="SHIP_REBEL_HITJOB_REVERSAL" hostile="true" />
+    <choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					HOSTILE EVENTS ()
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<eventList name="HOSTILE_JERRY">
+	<event load="ENCOUNTER_TOM" />
+	
+	<event load="ENCOUNTER_REBEL_JERRY" />
+	<event load="ENCOUNTER_MV_JERRY" />
+	<event load="ENCOUNTER_AUTO_JERRY" />
+</eventList>
+
+<event name="ENCOUNTER_TOM" unique="true">
+    <text>一架颜色怪异的叛军战舰停在附近，它的舰长在抱怨一些难以理解的事情。当他发现你时，他喊道。"联邦飞船！你知道我是谁吗？"</text>
+    <ship load="SHIP_REBEL_TOM" hostile="false" /> 
+    <choice hidden="true">
+        <text>不太清楚。</text>
+        <event>
+            <text>"我是汤姆，这个星区的真正保护者！那个天真的白痴根本不知道叛军是怎么运作的，他之所以能当家作主，只是因为他那个支持裙带关系的叔叔非常喜欢他！好吧，我会让那个混蛋知道什么是...在我杀死你之后！"</text>
+            <ship hostile="true" />
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+    <choice hidden="true" req="LIST_CREW_JERRY">
+        <text>(杰瑞)"嘿，汤姆！"</text>
+        <event>
+            <text>"啊哈哈！我找到你了！你这个傻瓜。等到万斯听说你在联邦飞船上工作的时候！最后，你的叔叔就会不再关心你，并重新开始工作，管理这个叛乱！"</text>
+            <ship hostile="true" /> 
+            <choice hidden="true">
+                <text>继续。</text>
+                <event load="COMBAT_CHECK" />
+            </choice>
+        </event>
+    </choice>
+</event>
+<event name="DESTROYED_TOM">
+	<text>就在你击败叛军飞船的时候，一个逃生舱从里面弹了出来。不幸的是，它没走多远就被你捡到并带上了船。你打开它，拖出里面的叛军军官。他们恳求你放他们一条生路。</text>
+	<autoReward level="LOW">standard</autoReward>
+	<choice hidden="true" req="LIST_CREW_JERRY" lvl="1">
+        <text>(杰瑞)"汤姆……冷静点。"</text>
+        <event load="DESTROYED_TOM_POD_ACCEPT_JERRY" />
+    </choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="1" blue="false">
+		<text>接受他上你的船。</text>
+		<event load="DESTROYED_TOM_POD_ACCEPT" />
+	</choice>
+	<choice hidden="true" req="LIST_CHECK_ANY_CREW" lvl="0" max_lvl="0" blue="false">
+		<text>在没有进一步确保其忠诚度的情况下接受叛军入伍，风险太大了。</text>
+		<event load="OPTION_INVALID" />
+	</choice>
+	<choice hidden="true" req="mind">
+		<text>(心灵控制)保持心灵控制在线以防他做任何坏事。</text>
+		<event load="DESTROYED_TOM_POD_MIND" />
+	</choice>
+	<!--<choice hidden="true" req="BLUELIST_WEAPONS_MIND_CONTROL">
+		<text>(Mind Control Weapon) Keep the mind control weapon locked on in-case he does anything bad.</text>
+		<event load="DESTROYED_TOM_POD_MIND"/>
+	</choice>-->
+		<choice hidden="true">
+		<text>释放叛军，让他们离开。</text>
+		<event load="DESTROYED_REBEL_POD_SAVE" />
+	</choice>
+	<choice hidden="true">
+		<text>把他丢到星舰外面。</text>
+		<event>
+			<text>当你抓住叛军的胳膊，把他拖进气闸时，他没有提出什么抗议。当他站直身体，接受自己的命运时，一滴眼泪从他的脸颊上滚落下来。当他的尸体离船有一段安全距离时，你再一次关闭气闸。</text>
+		</event>
+	</choice>
+</event>
+<eventList name="DESTROYED_TOM_POD_ACCEPT">
+	<event>
+		<text>叛军很感激你放过了他，尽管这意味着他必须背叛他原来的事业。</text>
+		<crewMember amount="1" class="human_soldier">汤姆</crewMember>
+	</event>
+	<event>
+		<text>叛军装出一副感激涕零的样子，但当他掏出激光枪射杀你的一名船员时，这一幕很快就被打破了！他喊道："神军永存不灭！"在他被射杀之前。你把他毫无生气的尸体拖到气闸，把他送入无尽的深空。</text>
+		<removeCrew>
+			<clone>true</clone>
+			<text>幸运的是，你被杀的船员已经在进行克隆过程了。</text>
+		</removeCrew>
+	</event>
+</eventList>
+<eventList name="DESTROYED_TOM_POD_MIND">
+	<event>
+		<text>叛军很感激你放过了他，尽管这意味着他必须背叛他原来的事业。看来我们不需要心灵控制了。</text>
+		<crewMember amount="1" class="human_soldier">汤姆</crewMember>
+	</event>
+	<event>
+		<text>叛军装出一副感激涕零的样子，但当他掏出激光枪，试图射杀你的一名船员时，这一幕很快就被打破了！幸运的是，心灵控制阻止了他，他倒在了地上。你赶紧把他拖出气闸。</text>
+	</event>
+</eventList>
+<eventList name="DESTROYED_TOM_POD_ACCEPT_JERRY">
+    <event>
+        <text>"汤姆，拜托。我不是你的敌人。"
+
+"你以为你比我好很多吗？"
+
+"我从来没说过那样的话。"
+
+"你知道吗？我会证明我更好。我会贡献出比你想象中可能还要多的力量！"
+
+汤姆加入了……不管你喜不喜欢。</text>
+        <crewMember amount="1" class="human_soldier">汤姆</crewMember>
+    </event>
+    <event>
+        <text>"汤姆，拜托。我不是你的敌人。"
+
+"这不公平。就是不公平。"
+
+"我们就不能好好相处吗？"
+
+"随便。你开心就好。我会照看这里。到时候他们就会明白谁才是真正的酷哥。"
+
+汤姆离开你的飞船时，杰瑞叹了口气。</text>
+    </event>
+</eventList>
+
+<event name="ENCOUNTER_MV_JERRY">
+	<text load="TEXT_ENCOUNTER_MV_JERRY" />
+	<ship load="SHIP_REBEL_MV_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_MV_JERRY">
+	<text>"呸，我们来这个宇宙世界不是为了看望杰瑞，而是为了在这里找到联邦的污秽物！别挡着我们的路！"</text>
+	<text>在这个信标处的叛军飞船不是普通的飞船--它是一个像你一样的跨元航行者，而且似乎他们渴望得到一些联邦的血液！</text>
+	<text>在这个星区有大量叛军的影响是有道理的，但你没想到会找到一艘多元宇宙的船只！</text>
+	<text>"终于找到你了！...等等，这是杰瑞的星区吗？该死的，现在你已经做到了！如果你对杰瑞做了什么，我向上帝发誓，这将是你的终结者！好吧，无论如何我都会杀了你，但你明白我的意思。"</text>
+</textList>
+
+<event name="ENCOUNTER_REBEL_JERRY">
+	<text load="TEXT_ENCOUNTER_REBEL_JERRY" />
+	<ship load="SHIP_REBEL_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+	<choice hidden="true" req="LIST_CREW_JERRY">
+		<text>(杰瑞)"你好！"</text>
+		<event>
+			<text load="TEXT_ENCOUNTER_REBEL_JERRY_HELLO" />
+			<ship hostile="false" /> 
+		</event>
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_REBEL_JERRY">
+	<text>你正在一个安全措施近乎于要塞的叛军星区航行，所以遇到一艘真想让你死的船应该并不奇怪！</text>
+	<text>一艘叛军的战舰正在靠近：你已经知道该如何应对这种遭遇了。准备战斗吧！</text>
+	<text>看来这个星区毕竟不是没有威胁的--一艘叛军的飞船正在靠近！</text>
+	<text>"嘿，你不是杰瑞的朋友！谁让你进来的？"一艘叛军的飞船突然袭击。</text>
+	<text>看来你在这个难以捉摸的星区的旅行要暂停一下了--一艘叛军的船正向你驶来！</text>
+</textList>
+<textList name="TEXT_ENCOUNTER_REBEL_JERRY_HELLO">
+	<text>"杰瑞？嘿，伙计，怎么挂了！"叛军不再努力战斗了。</text>
+	<text>叛军看到他们的朋友很高兴，并关闭了他们的武器。</text>
+	<text>只要他们看到杰瑞在你的船上，叛军似乎就不再想战斗了。</text>
+</textList>
+
+<event name="ENCOUNTER_AUTO_JERRY">
+	<text load="TEXT_ENCOUNTER_AUTO_JERRY" />
+	<ship load="SHIP_AUTO_FIGHT" hostile="true" /> 
+	<choice hidden="true">
+		<text>继续。</text>
+		<event load="COMBAT_CHECK" />
+	</choice>
+</event>
+<textList name="TEXT_ENCOUNTER_AUTO_JERRY">
+	<text>"主要指令：保护杰罗姆不受入侵的联邦船只的影响。不要抵制破坏。"</text>
+	<text>在叛军的星域里发现一艘自动飞船并不奇怪，但由于某些原因，你没有想到这里会有。准备战斗吧！</text>
+	<text>"警告。不受欢迎的联邦飞船已进入杰罗姆受保护地。请疏散该星系。"附近的自动飞船扫描了你的星舰。"哦。 警告：发现不受欢迎的联邦飞船。进入战斗模式。"</text>
+	<text>"关键问题，联邦飞船被发现，对杰罗姆的威胁至少为2%。这一风险被认为是不令人满意的高。准备进行灭亡。"</text>
+</textList>
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					UNIQUE EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+
+<!--
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+					SPECIAL EVENTS
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+-->
+<ship name="SHIP_JERRY_HOME" auto_blueprint="MU_ESTATE_CONCIERGE">
+	<destroyed load="JERRY_HOME_WIN" />
+	<triggeredEvent event="JERRY_HOME_FAIL" time="90" thisFight="true">
+		<triggeredEventBox load="DEFAULT_TIMER" pos="combat">
+			<warning time="10.0" flash="true" />
+			<tooltip>在大楼被疏散之前，你有这么多时间来打败自动飞船！</tooltip>
+		</triggeredEventBox>
+		<timerSounds load="DEFAULT_TIMER_SOUNDS" />
+	</triggeredEvent>
+</ship>
+<event name="JERRY_HOME" unique="true">
+	<beaconType id="map_icon_estate" global="true">
+		<color r="248" g="196" b="55" a="1.0" />
+		<unvisitedTooltip>温特沃斯庄园和杰罗姆家的位置。</unvisitedTooltip>
+		<visitedTooltip>已探索的信标，没什么值得注意。</visitedTooltip>
+	</beaconType>
+	<preventQuest />
+	<preventFleet />
+	<text>在下面的宇宙星球上建造了一个巨大的叛军城市。旁边有一栋巨大的别墅，灯光明亮得让人看了心疼。你的电脑告诉你这是温特沃斯庄园。当然，这个现实中的万斯实际上并不住在这里，但如果你要猜的话，这很可能是他侄子居住的地方。</text>
+	<img back="BACK_EVENT_JERRYHOME" planet="NONE" />
+	<choice hidden="true">
+		<text>进入。</text>
+		<event>
+			<text>当你接近这座巨大的建筑时，地面上的通讯器确认你已经被发现了。"该死的，那个变元者已经到了庄园。疏散所有人，并派遣安全人员！"随即，一艘全副武装的自动船被派来处理你。看来你得尽快解决这个问题了！</text>
+			<ship load="SHIP_JERRY_HOME" hostile="true" />
+			<choice hidden="true">
+				<text>继续。</text>
+				<event load="COMBAT_CHECK" />
+			</choice>
+		</event>
+	</choice>
+	<choice hidden="true">
+		<text>仔细想想，也许这并不是一个好主意。</text>
+		<event>
+			<text>你重新考虑攻打这个地方的想法。</text>
+			<choice>
+				<text>星舰管理。</text>
+				<event load="STORAGE_CHECK" />
+			</choice>
+			<choice>
+				<text>跳过。</text>
+				<event />
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="JERRY_HOME_FAIL">
+	<text>看来你已经失败了--扫描显示最后的生命迹象已经从庄园中消失，这意味着杰罗姆已经逃走了。自动飞船升空，向你发送最后一条信息。"目标完成。启动'吸吮'程序，"然后自毁。说到侮辱性的伤害。</text>
+	<damage amount="3" />
+	<instantEscape />
+</event>
+<event name="JERRY_HOME_WIN">
+	<text>自动飞船已经被打败了，你没有浪费时间打捞，然后飞到降落台，在那里你看到一队疏散人员--带着高度的安全细节，冲向现有的最大巡洋舰。其中有几名武装的王牌飞行员，一名高大威猛的指挥官，身穿带有黄色条纹的黑色服装，还有一名看起来很邋遢的平民。那个黑衣人无疑就是你要找的人。当你接近这群人时，他们拔出了他们的武器，你也拔出了你的武器。</text>
+	<variable name="loc_jerrymet" op="set" val="1" />
+	<choice req="LIST_CREW_JERRY">
+		<text>(杰瑞)要求见杰瑞。</text>
+		<event>
+			<text>"塞巴斯蒂安，没事的。是我。我想和另一个我谈谈。"
+			
+			塞巴斯蒂安看起来很惊讶。"杰瑞？你在变元者的船上做什么？"
+			
+			"我以前来过这里，在非常类似的情况下。我推开了你，然后我和那些来找我谈话的变元者谈了。他们对我很好。即使我没什么能提供的，他们还是倾听了我。所以我想和自己谈谈。"
+			
+			"我……明白了。好吧，别耍花样。"塞巴斯蒂安让到一边，让另一个杰瑞再次走上前来。
+			
+			"另一个我……？你真的是吗？"另一个杰瑞问道。
+			
+			"是的。通过游历银河，我学到了比坐在我们豪宅里时多得多的东西。我还有很多要学……"
+			
+			"你游历过银河？"
+			
+			"我去过那么多不同的地方，感觉仅仅只是触及表面。我见过外星世界，联邦世界。"
+			
+			"怎么做到的？为什么？"
+			
+			"机会就这么落到了我手里，我猜。我们的事不总是这样吗？"
+			
+			"呵。感觉是。"
+			
+			"我决定不再被动。我想从一个新的视角体验这个世界。"
+			
+			"但你想做什么呢？"</text>
+			<choice req="unique_jerry" max_group="0" blue="false"> <!--non-grief-->
+				<text>告诉杰瑞关于叛军旗舰的事。</text>
+				<event>
+					<text>你告诉杰瑞关于变元者奉命面对旗舰的事。
+					
+					"杰瑞，你面对过叛军旗舰？你的叔叔？"
+					
+					你的杰瑞澄清道："嗯，我没有。多元宇宙包含了无数条我们可以走的路。并非所有道路都导向叔叔和变元者之间的战斗。"
+					
+					"我希望你不需要面对。我仍然希望有机会和他谈谈。"</text>
+					<choice hidden="true">
+						<text>你为什么不跟我们一起来呢？</text>
+						<event>
+							<text>"你想让我也来？"
+							
+							"是啊，为什么不呢？这对我有好处。对你也一样有好处。"
+							
+							另一个杰瑞笑了。"我怎么能和自己争论呢？"
+							
+							"我还可以说得更好。你怎么能拒绝你自己，你最好的自己呢？"
+							
+							另一个杰瑞想了一会儿。"你是怎么通过赛拉那关的？"
+							
+							你的杰瑞脸色沉了下来。"啊。嗯……在我那个时间点，事情进行得不太顺利。她很……固执。但是变元者给了她一个机会。我们可以再来一次。"
+							
+							另一个杰瑞点了点头。"我想值得一试。"
+							
+							你的杰瑞伸出手。"我们来做这件事吧。"
+							
+							两个杰瑞双手紧握达成协议，互相微笑着。所有其他的叛军人员似乎都对眼前看到的景象惊叹不已，在远处观望着。</text>
+							<crewMember amount="1" class="unique_jerry">杰瑞</crewMember>
+							<variable name="loc_jerrysave" op="set" val="1" />
+						</event>
+					</choice>
+					<choice hidden="true">
+						<text>别担心，我们的杰瑞能处理。</text>
+						<event>
+							<text>"我想你确实能，不是吗？你比我酷多了，也更有经验。"
+							
+							"我做的事没什么特别的。任何人都能做到，尤其是你。杰瑞，即使你留在这里，你还能做更多的事。请别忘了这一点。"
+							
+							"我不会的。你也别忘了我们是谁。我们是杰罗姆·温特沃斯。你要确保变元者在我们的叔叔听到你说话之前不战斗，好吗？"
+							
+							"我保证。"
+							
+							两个杰瑞双手紧握达成协议，互相微笑着。所有其他的叛军人员似乎都对眼前看到的景象惊叹不已，在远处观望着。</text>
+							<autoReward level="HIGH">weapon</autoReward>
+							<damage amount="-7" />
+						</event>
+					</choice>
+				</event>
+   		 </choice>
+   		 <choice req="LIST_CREW_JERRY" max_group="0" blue="false"> <!--grief mode-->
+   			 <text>告诉杰瑞关于叛军旗舰的事。</text>
+   			 <event>
+   				 <text>你告诉杰瑞关于变元者奉命面对旗舰的事。
+					
+					"杰瑞，你面对过叛军旗舰？你的叔叔？"
+					
+					"是的，我面对过。"杰瑞调整了一下他的枪。"它……它没有按我想要的方式发展。他不听我的。他……他侮辱了我。最后演变成了一场战斗。"
+					
+					另一个杰瑞捂住心口，看起来快要崩溃了。"所以如果我跟你走……"
+					
+					杰瑞叹了口气。"也许吧。我当时不够好，没能改变他的想法。我不知道我是否能在良心上告诉你说你能改变你叔叔的想法。这是个痛苦的前景。"
+					
+					另一个杰瑞低下了头。"我不知道该怎么想……"</text>
+   				 <choice hidden="true">
+   					 <text>你为什么不跟我们一起来呢？</text>
+   					 <event>
+   						 <text>"你想让我也来？"
+							
+							"是啊，为什么不呢？这对我有好处。对你也一样有好处。"
+							
+							"但我不是得和我叔叔战斗吗？我不知道我能不能做到。他内心仍然有善良的一面。我知道他有。"
+							
+							"我不会剥夺你的旅程。当时机到来时，你可以和他谈谈。我保证。"
+							
+							另一个杰瑞想了一会儿。"你是怎么通过赛拉那关的？"
+							
+							你的杰瑞脸色沉了下来。"啊。嗯……在我那个时间点，事情进行得不太顺利。她很……固执。但是变元者给了她一个机会。我们可以再来一次。"
+							
+							另一个杰瑞点了点头。"我想值得一试。"
+							
+							你的杰瑞伸出手。"我们来做这件事吧。"
+							
+							两个杰瑞双手紧握达成协议，互相微笑着。所有其他的叛军人员似乎都对眼前看到的景象惊叹不已，在远处观望着。</text>
+   						 <crewMember amount="1" class="unique_jerry">杰瑞</crewMember>
+   						 <variable name="loc_jerrysave" op="set" val="1" />
+   					 </event>
+   				 </choice>
+   				 <choice hidden="true">
+   					 <text>别担心，我们的杰瑞能处理。</text>
+   					 <event>
+   						 <text>"也许那样最好。如果我无能为力，那么我宁愿在他必须倒下的时候不在场。"
+						
+						"但你不是无能为力。我们能做这么多事。而且我打算再次证明这一点。永远别忘了你的能力。"
+						
+						"你确定我能做到那么多吗？"
+						
+						"那么多，甚至更多。给自己一个机会。你可能会对自己能做到的事感到惊讶。"
+						
+						杰瑞伸出手。另一个杰瑞紧握住他的手达成协议，两人相视而笑。所有其他的叛军人员似乎都对眼前看到的景象惊叹不已，在远处观望着。</text>
+   						 <autoReward level="HIGH">weapon</autoReward>
+   						 <damage amount="-7" />
+   					 </event>
+   				 </choice>
+   			 </event>
+   		 </choice>
+   	 </event>
+    </choice>
+	<choice hidden="true">
+		<text>你的时间到了，杰罗姆！联邦来找你了！</text>
+		<event>
+			<text>那人嘲笑道，用他那完美的手指向后推了推他那富有光泽的头发。"所以0号宇宙派来的未开化的联邦野蛮人已经变得如此粗鲁和愚蠢，他们把自己投入到万斯的事务中，认为亲自打伤叛军首领会阻止他的精神或我们征服的荣耀？当我听说联邦正用正规的海军来代替那些松散到连佣兵团都不愿意接受的流氓时，我笑了，现在我笑了两次！你在开玩笑吗？你是个笑话！哈！"</text>
+			<choice hidden="true">
+				<text>如果我们是一个笑话，那么杀了你就是一个笑话。</text>
+				<event>
+					<text>"哈哈！所以现在我们很聪明，我为什么要--"这个人被人群后面的平民打断了，他的绿色眼睛从一撮头发和歪斜的眼镜下面探出来。"塞巴斯蒂安，拜托。让我和他们谈谈。"看来你的假设是错误的，因为'塞巴斯蒂安'立即走下来，向那个不超过二十岁的年轻人道歉，称呼他为'杰罗姆'。</text>
+					<choice hidden="true">
+						<text>所以，你是杰罗姆。</text>
+						<event>
+							<text>他点点头。"对-对。虽然大多数人叫我杰瑞。我们终于见面了，变元者...如果你是这么称呼自己的话。现在你见到我了，杰瑞·温特沃斯，肉身本人。跟你预想的不太一样？应该是这样。不断有人们从各处过来，他们对我的期望值都有点高。所以...你来这里是因为你有事要做，对吗？那就去干吧。"杰瑞伸出双臂，好像要给你一个拥抱。他在颤抖，汗流浃背，但他的眼睛发出激烈的坚定光芒，仿佛受审的是你而不是他。</text>
+							<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
+								<text>射杀他。</text>
+								<event>
+									<text>你不会放弃这般机会。你迅速抽出激光，将杰瑞射倒。他的膝盖弯曲，身体倒下了，但他眼中的神情却未逊色过。他的小队惊慌失措，叫来了医疗队，而你则离开。在你走的时候，还不忘把之前的无人机回收。你的任务成功了，但一种犯了大错的感觉久久不去...</text>
+									<autoReward level="HIGH">weapon</autoReward>
+									<variable name="loc_jerrykill" op="set" val="1" />
+								</event>
+							</choice>
+							<choice hidden="true" req="rep_jerry" lvl="0" max_lvl="3" max_group="1" blue="false">
+								<text>饶了他。</text>
+								<event>
+									<text>你的手一直放在身边，但从未伸手去拿你的爆裂手枪。你看着杰瑞的眼睛，足足有一分钟，他才放下了手臂。"哼，这不是你来这里要做的事吗？我在给你机会。你不打算抓住它吗？"</text>
+									<choice hidden="true">
+										<text>你活着比死了对我们更有用。</text>
+										<event>
+											<text>"那你还真是...挺功利的。虽然恐怕我对你没有什么用处。我手下的人们称我为英雄，但我根本不知道为什么。我从来没有做过什么大英雄该干的事。当个变元者一定很不错...在多元宇宙中穿行，在旅程结束时受到欢呼，并感到实至名归。"</text>
+											<choice hidden="true">
+												<text>你不认为自己是个英雄吗？</text>
+												<event load="JERRY_HOME_RECRUIT" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>你与我们的预期形象有所出入，杀死你貌似不是正确的选择。</text>
+										<event>
+											<text>"好吧，我不太懂你的底线是什么，但子非鱼。作为一个人民英雄是什么感觉？我是说，实至名归的人民英雄？我手下的人们称我为英雄，但我还没有搞清楚为什么..."</text>
+											<choice hidden="true">
+												<text>你不认为自己是个英雄吗？</text>
+												<event load="JERRY_HOME_RECRUIT" />
+											</choice>
+										</event>
+									</choice>
+									<choice hidden="true">
+										<text>我改变了主意。这次我想当一回那些和平主义的信道者什么的。</text>
+										<event>
+											<text>"现在当这个会不会有点晚了，舰长？也许...还不晚。我也不确定这是否是件好事。你是人民英雄，对吗？而我是我自己的英雄...我也不知道我有什么英雄的，至少你有任务。我呢...？我不知道我有什么。"</text>
+											<choice hidden="true">
+												<text>你不认为自己是个英雄吗？</text>
+												<event load="JERRY_HOME_RECRUIT" />
+											</choice>
+										</event>
+									</choice>
+								</event>
+							</choice>
+							<choice hidden="true" req="rep_jerry" lvl="4" max_group="1" blue="false">
+								<text>我们闯了够多的祸，现在放过他太晚了。</text>
+								<event load="OPTION_INVALID" />
+							</choice>
+						</event>
+					</choice>
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+<event name="JERRY_HOME_RECRUIT">
+	<text>杰瑞笑了，但羞愧地垂下了头。"不...听着，你现在可能很清楚，我没有追随我叔叔的脚步。"杰瑞回头看了看塞巴斯蒂安和其他保安，他们一直尴尬地站在那里。"但人们希望我这样做。只要带着这个名字，温特沃斯的名字，就足以让人们认为我很特别。我的母亲在我很小的时候就去世了，我从来没有认识过我的父亲，但如果我没有遇到我的叔叔，我可能会成为像，一个园丁，一个厨师，或者一个图书管理员。我不是一个士兵，也不是一个政治家。我是...我是杰瑞。完全没有什么。我的名字是我的名字本身，我没有做任何事情来赢得这个名字。"</text>
+	<choice hidden="true">
+		<text>听起来你需要把你的生活掌握在你自己手中。</text>
+		<event>
+			<text>"我不知道你是什么意思。从我进入受保护地的那天起，我就没有离开过受保护地。我在这个地方没有任何权力，都是赛拉的。万斯知道我很无能，虽然他不想让银河系的其他人知道这一点，但他对我的信任不足以让这个地方维持下去。反正我也不可能。"</text>
+			<choice hidden="true" req="pilot" lvl="1" max_group="0" blue="false">
+				<text>我们帮不上忙，也不能多呆，但你会想出办法的。</text>
+				<event>
+					<text>"也许是这样。我觉得我以后会因此受到训斥，但在我还有余力的时候，让我尝试帮助你。如果你看到我的叔叔--永远不要忘记他也是一个人。他做了很多事情，但我看到了他的另一面，大多数人从未见过。不要忘记它的存在。"</text>
+					<autoReward level="HIGH">weapon</autoReward>
+					<damage amount="-7" />
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_killedcyra" lvl="0" max_group="1" blue="false">
+				<text>你可以和我们一起去。看看这个多元宇宙。也许还能帮助改善它。</text>
+				<event>
+					<text>"你是认真的吗？我一直想......等等。这不是什么引诱我离开这里并杀死我的诡计，对吗？"</text>
+					<choice hidden="true">
+						<text>当然不是，我是说可能。</text>
+						<event>
+							<text>"哼，很让人放心。好吧，这里的情况不像是要改善。虽然...一个警告。赛拉不会让你轻易带我走的。尽量不要伤害她，好吗？她只是在做她的工作，她不会伤害你，除非她认为你会伤害我。我肯定有办法在不流血的情况下度过难关。"</text>
+							<crewMember amount="1" class="unique_jerry">杰瑞</crewMember>
+							<variable name="loc_jerrysave" op="set" val="1" />
+						</event>
+					</choice>
+				</event>
+			</choice>
+			<choice hidden="true" req="loc_killedcyra" lvl="1" max_group="1" blue="false">
+				<text>你可以和我们一起去。看看这个多元宇宙。也许还能帮助改善它。</text>
+				<event>
+					<text>"不。我不能。你杀了赛拉。她可能对你来说很冷漠，但她就像我的母亲。或者说是我的姨妈，我猜。我知道你只是在做你的工作，但这感觉不对。我觉得我以后会因此受到训斥，但在我还有余力的时候，让我尝试帮助你。如果你看到我的叔叔--永远不要忘记他也是一个人。他做了很多事情，但我看到了他的另一面，大多数人从未见过。不要忘记它的存在。"</text>
+					<autoReward level="HIGH">weapon</autoReward>
+					<damage amount="-7" />
+				</event>
+			</choice>
+		</event>
+	</choice>
+</event>
+</FTL>
+
